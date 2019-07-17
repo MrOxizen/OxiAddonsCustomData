@@ -133,7 +133,6 @@ trait Public_Helper {
         if (!$this->has_cache_files()) {
             $this->generate_scripts($this->Get_Active_Elements());
         }
-
         // enqueue scripts
         if ($this->has_cache_files()) {
             $css_file = SA_ELEMENTOR_ADDONS_ASSETS . '/' . SA_ELEMENTOR_TEXTDOMAIN . '.min.css';
@@ -142,13 +141,12 @@ trait Public_Helper {
             $css_file = SA_ELEMENTOR_ADDONS_URL . '/assets/css/style.css';
             $js_file = SA_ELEMENTOR_ADDONS_URL . '/assets/js/jquery.js';
         }
-
         wp_enqueue_style(
-                SA_ELEMENTOR_TEXTDOMAIN . '-css', $this->safe_protocol($css_file), false, $this->VERSION
+                SA_ELEMENTOR_TEXTDOMAIN . '-css', $this->safe_protocol($css_file), false, self::VERSION
         );
 
         wp_enqueue_script(
-                SA_ELEMENTOR_TEXTDOMAIN . '-js', $this->safe_protocol($js_file), ['jquery'], $this->VERSION, true
+                SA_ELEMENTOR_TEXTDOMAIN . '-js', $this->safe_protocol($js_file), ['jquery'], self::VERSION, true
         );
 
         // hook extended assets
