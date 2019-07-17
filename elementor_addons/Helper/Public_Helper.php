@@ -52,30 +52,7 @@ trait Public_Helper {
                     ],
                 ],
             ],
-//            'testimonial' => [
-//                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Testimonial',
-//                'dependency' => [
-//                    'css' => [
-////                        SA_ELEMENTOR_ADDONS_URL . DIRECTORY_SEPARATOR . 'assets/front-end/css/fancy-text/index.min.css',
-//                    ],
-//                    'js' => [
-////                        SA_ELEMENTOR_ADDONS_URL . DIRECTORY_SEPARATOR . 'assets/front-end/js/vendor/fancy-text/fancy-text.min.js',
-////                        SA_ELEMENTOR_ADDONS_URL . DIRECTORY_SEPARATOR . 'assets/front-end/js/fancy-text/index.min.js',
-//                    ],
-//                ],
-//            ],
-            'tooltip' => [
-                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Tooltip',
-                'dependency' => [
-                    'css' => [
-//                        SA_ELEMENTOR_ADDONS_URL . DIRECTORY_SEPARATOR . 'assets/front-end/css/fancy-text/index.min.css',
-                    ],
-                    'js' => [
-//                        SA_ELEMENTOR_ADDONS_URL . DIRECTORY_SEPARATOR . 'assets/front-end/js/vendor/fancy-text/fancy-text.min.js',
-//                        SA_ELEMENTOR_ADDONS_URL . DIRECTORY_SEPARATOR . 'assets/front-end/js/fancy-text/index.min.js',
-                    ],
-                ],
-            ],
+
         ];
         return $response;
     }
