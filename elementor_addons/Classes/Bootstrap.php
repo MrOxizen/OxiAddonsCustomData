@@ -19,14 +19,6 @@ class Bootstrap {
     use \SA_ELEMENTOR_ADDONS\Helper\Public_Helper;
     use \SA_ELEMENTOR_ADDONS\Classes\Sa_Elementor_Admin;
 
-    /**
-     * Plugin Version
-     *
-     * @since 1.6.0
-     * @var string The plugin version.
-     */
-    const VERSION = '1.6.0';
-
     // instance container
     private static $instance = null;
     // registered elements container

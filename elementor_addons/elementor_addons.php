@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
  * @author biplob
  */
 define('SA_ELEMENTOR_ADDONS_URL', OxiAddonsCustomData . 'elementor_addons/');
-define('SA_ELEMENTOR_ADDONS_ASSETS', OxiAddonsCustomData . 'elementor_addons/cache');
+define('SA_ELEMENTOR_ADDONS_ASSETS', OxiAddonsCustomData . 'elementor_addons/cache/');
 define('SA_ELEMENTOR_TEXTDOMAIN', 'sa-el-addons');
 
 require_once SA_ELEMENTOR_ADDONS_URL . 'autoloader.php';

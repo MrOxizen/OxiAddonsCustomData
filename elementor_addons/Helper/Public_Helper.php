@@ -114,13 +114,9 @@ trait Public_Helper {
         }
     }
 
-    public function safe_protocol($url) {
-        return preg_replace(['/^http:/', '/^https:/', '/(?!^)\/\//'], ['', '', '/'], $url);
-    }
-
     public function has_cache_files($post_type = null, $post_id = null) {
-        $css_path = SA_ELEMENTOR_ADDONS_ASSETS . ($post_type ? 'sa-el-addons' . $post_type : 'sa-el-addons') . ($post_id ? '-' . $post_id : '') . '.min.css';
-        $js_path = SA_ELEMENTOR_ADDONS_ASSETS . ($post_type ? 'sa-el-addons' . $post_type : 'sa-el-addons') . ($post_id ? '-' . $post_id : '') . '.min.js';
+        $css_path = SA_ELEMENTOR_ADDONS_ASSETS . ($post_type ? SA_ELEMENTOR_TEXTDOMAIN . $post_type : SA_ELEMENTOR_TEXTDOMAIN) . ($post_id ? '-' . $post_id : '') . '.min.css';
+        $js_path = SA_ELEMENTOR_ADDONS_ASSETS . ($post_type ? SA_ELEMENTOR_TEXTDOMAIN . $post_type : SA_ELEMENTOR_TEXTDOMAIN) . ($post_id ? '-' . $post_id : '') . '.min.js';
 
         if (is_readable($this->safe_path($css_path)) && is_readable($this->safe_path($js_path))) {
             return true;
@@ -131,24 +127,19 @@ trait Public_Helper {
 
     public function enqueue_scripts() {
         if (!$this->has_cache_files()) {
+
             $this->generate_scripts($this->Get_Active_Elements());
         }
         // enqueue scripts
         if ($this->has_cache_files()) {
-            $css_file = SA_ELEMENTOR_ADDONS_ASSETS . '/' . SA_ELEMENTOR_TEXTDOMAIN . '.min.css';
-            $js_file = SA_ELEMENTOR_ADDONS_ASSETS . '/' . SA_ELEMENTOR_TEXTDOMAIN . '.min.js';
+            $css_file = 'cache/' . SA_ELEMENTOR_TEXTDOMAIN . '.min.css';
+            $js_file = 'cache/' . SA_ELEMENTOR_TEXTDOMAIN . '.min.js';
         } else {
-            $css_file = SA_ELEMENTOR_ADDONS_URL . '/assets/css/style.css';
-            $js_file = SA_ELEMENTOR_ADDONS_URL . '/assets/js/jquery.js';
+            $css_file = '/assets/css/style.css';
+            $js_file = '/assets/js/jquery.js';
         }
-        wp_enqueue_style(
-                SA_ELEMENTOR_TEXTDOMAIN . '-css', $this->safe_protocol($css_file), false, self::VERSION
-        );
-
-        wp_enqueue_script(
-                SA_ELEMENTOR_TEXTDOMAIN . '-js', $this->safe_protocol($js_file), ['jquery'], self::VERSION, true
-        );
-
+        wp_enqueue_style(SA_ELEMENTOR_TEXTDOMAIN, content_url('uploads/OxiAddonsCustomData/elementor_addons/' . $css_file));
+        wp_enqueue_script(SA_ELEMENTOR_TEXTDOMAIN . '-js', content_url('uploads/OxiAddonsCustomData/elementor_addons/' . $js_file), ['jquery']);
         // hook extended assets
         do_action(SA_ELEMENTOR_TEXTDOMAIN . '/after_enqueue_scripts', $this->has_cache_files());
     }
