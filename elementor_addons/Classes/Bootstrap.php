@@ -53,7 +53,7 @@ class Bootstrap {
     public function register_hooks() {
         // Enqueue
         add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
-        echo apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', 'ahsgdhads');
+       // echo apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', 'ahsgdhads');
 
         add_action('elementor/elements/categories_registered', array($this, 'register_widget_categories'));
         add_action('elementor/controls/controls_registered', array($this, 'register_controls_group'));
