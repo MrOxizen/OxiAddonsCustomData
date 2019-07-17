@@ -22,6 +22,7 @@ trait Include_Admin_Template {
 
         $elementor = array(
             'Content Elements' => array(
+                'accordion',
                 'example',
                 'testimonial',
                 'flip_box',

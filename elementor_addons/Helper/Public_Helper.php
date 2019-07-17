@@ -30,6 +30,17 @@ trait Public_Helper {
 
     function Get_Registered_elements() {
         $response = [
+            'accordion' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Accordion\Accordion',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Accordion/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Accordion/assets/index.min.js',
+                    ],
+                ],
+            ],
             'example' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Example\Example',
                 'dependency' => [
