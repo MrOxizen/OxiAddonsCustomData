@@ -71,17 +71,17 @@ if (!class_exists('SA_FLBUILDER_ADDONS')) {
                 }
                 $activation_url = wp_nonce_url('plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin);
 
-                $message = '<p><strong>' . __('Shortcode Addons Elementor Templates & Blocks', SA_FLBUILDER_TEXTDOMAIN) . '</strong>' . __(' widgets not working because you need to activate the Elementor plugin.', SA_FLBUILDER_TEXTDOMAIN) . '</p>';
-                $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $activation_url, __('Activate Elementor Now', SA_FLBUILDER_TEXTDOMAIN)) . '</p>';
+                $message = '<p><strong>' . __('Shortcode Addons Beaver Builder Extention', SA_FLBUILDER_TEXTDOMAIN) . '</strong>' . __(' widgets not working because you need to activate the Beaver Builder plugin.', SA_FLBUILDER_TEXTDOMAIN) . '</p>';
+                $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $activation_url, __('Activate Beaver Builder Now', SA_FLBUILDER_TEXTDOMAIN)) . '</p>';
             } else {
                 if (!current_user_can('install_plugins')) {
                     return;
                 }
 
-                $install_url = wp_nonce_url(self_admin_url('update.php?action=install-plugin&plugin=beaver-builder-lite-version'), 'install_beaver_builder_lite_version');
+                $install_url = wp_nonce_url(self_admin_url('update.php?action=install-plugin&plugin=beaver-builder-lite-version'), 'install_beaver-builder-lite-version');
 
-                $message = '<p><strong>' . __('Shortcode Addons Elementor Templates & Blocks', SA_FLBUILDER_TEXTDOMAIN) . '</strong>' . __(' widgets not working because you need to install the Elemenor plugin', SA_FLBUILDER_TEXTDOMAIN) . '</p>';
-                $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $install_url, __('Install Elementor Now', SA_FLBUILDER_TEXTDOMAIN)) . '</p>';
+                $message = '<p><strong>' . __('Shortcode Addons Beaver Builder Extention', SA_FLBUILDER_TEXTDOMAIN) . '</strong>' . __(' widgets not working because you need to install the Beaver Builder plugin', SA_FLBUILDER_TEXTDOMAIN) . '</p>';
+                $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $install_url, __('Install Beaver Builder Now', SA_FLBUILDER_TEXTDOMAIN)) . '</p>';
             }
 
             echo '<div class="error"><p>' . $message . '</p></div>';
