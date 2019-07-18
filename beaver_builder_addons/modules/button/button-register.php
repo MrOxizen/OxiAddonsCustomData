@@ -244,6 +244,22 @@ FLBuilder::register_module('Button_module', array(
                     ),
                 ),
             ),
+            'text-align' => array(
+                'title' => __('Text Color', SA_FLBUILDER_TEXTDOMAIN),
+                'fields' => array(
+                    'text-align' => array(
+                        'type'    => 'align',
+                        'label'   => 'Text Align',
+                        'default' => 'center',
+                        'responsive' => 'true',
+                        'preview' => array(
+                            'type'       => 'css',
+                            'selector'   => '.my-selector',
+                            'property'   => 'text-align',
+                        ),
+                    ),
+                ),
+            ),
             'button_typography' => array(
                 'title' => __('Front Title', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
@@ -259,7 +275,6 @@ FLBuilder::register_module('Button_module', array(
                     ),
                 ),
             ),
-
         ),
     ),
 ));

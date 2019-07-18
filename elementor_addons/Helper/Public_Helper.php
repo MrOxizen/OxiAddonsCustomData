@@ -102,7 +102,7 @@ trait Public_Helper {
         return false;
     }
 
-    public function enqueue_scripts() {
+    public function sl_enqueue_scripts() {
         if (!$this->has_cache_files()) {
 
             $this->generate_scripts($this->Get_Active_Elements());
