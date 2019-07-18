@@ -9,7 +9,6 @@ jQuery(document).ready(function ($) {
         }
         var elements = $("form#sa-flbuilder-settings").serialize();
         if ($(this).is('[flbuilder]')) {
-            alert('ache');
             jQuery.post({
                 url: saflbuilder.ajaxurl,
                 data: {
