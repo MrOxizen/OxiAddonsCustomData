@@ -181,7 +181,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .sa_el_accordion' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -192,7 +192,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .sa_el_accordion' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -201,7 +201,7 @@ class Accordion extends Widget_Base {
             [
                 'name' => 'sa_accordion_border',
                 'label' => esc_html__('Border',SA_ELEMENTOR_TEXTDOMAIN),
-                'selector' => '{{WRAPPER}} .eael-adv-accordion',
+                'selector' => '{{WRAPPER}} .sa_el_accordion',
             ]
         );
         $this->add_responsive_control(
@@ -211,7 +211,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .sa_el_accordion' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -219,14 +219,14 @@ class Accordion extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'sa_accordion_box_shadow',
-                'selector' => '{{WRAPPER}} .eael-adv-accordion',
+                'selector' => '{{WRAPPER}} .sa_el_accordion',
             ]
         );
         $this->end_controls_section();
          $this->start_controls_section(
             'sa_accordion_tab_style_settings',
             [
-                'label' => esc_html__('Tab Style', 'essential-addons-elementor'),
+                'label' => esc_html__('Tab Style', SA_ELEMENTOR_TEXTDOMAIN),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -234,13 +234,13 @@ class Accordion extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'sa_accordion_tab_title_typography',
-                'selector' => '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header',
+                'selector' => '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header',
             ]
         );
         $this->add_responsive_control(
             'sa_accordion_tab_icon_size',
             [
-                'label' => __('Icon Size', 'essential-addons-elementor'),
+                'label' => __('Icon Size', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 16,
@@ -255,14 +255,14 @@ class Accordion extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header .fa' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header .fa' => 'font-size: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
         $this->add_responsive_control(
             'sa_accordion_tab_icon_gap',
             [
-                'label' => __('Icon Gap', 'essential-addons-elementor'),
+                'label' => __('Icon Gap', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 10,
@@ -277,66 +277,66 @@ class Accordion extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header .fa' => 'margin-right: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header .fa' => 'margin-right: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
         $this->add_responsive_control(
             'sa_accordion_tab_padding',
             [
-                'label' => esc_html__('Padding', 'essential-addons-elementor'),
+                'label' => esc_html__('Padding', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
         $this->add_responsive_control(
             'sa_accordion_tab_margin',
             [
-                'label' => esc_html__('Margin', 'essential-addons-elementor'),
+                'label' => esc_html__('Margin', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
 
         $this->start_controls_tabs('sa_accordion_header_tabs');
         # Normal State Tab
-        $this->start_controls_tab('sa_accordion_header_normal', ['label' => esc_html__('Normal', 'essential-addons-elementor')]);
+        $this->start_controls_tab('sa_accordion_header_normal', ['label' => esc_html__('Normal', SA_ELEMENTOR_TEXTDOMAIN)]);
         $this->add_control(
             'sa_accordion_tab_color',
             [
-                'label' => esc_html__('Tab Background Color', 'essential-addons-elementor'),
+                'label' => esc_html__('Tab Background Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#f1f1f1',
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
         $this->add_control(
             'sa_accordion_tab_text_color',
             [
-                'label' => esc_html__('Text Color', 'essential-addons-elementor'),
+                'label' => esc_html__('Text Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#333',
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header' => 'color: {{VALUE}};',
                 ],
             ]
         );
         $this->add_control(
             'sa_accordion_tab_icon_color',
             [
-                'label' => esc_html__('Icon Color', 'essential-addons-elementor'),
+                'label' => esc_html__('Icon Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#333',
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header .fa' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header .fa' => 'color: {{VALUE}};',
                 ],
                 'condition' => [
                     'eael_adv_tabs_icon_show' => 'yes',
@@ -347,18 +347,18 @@ class Accordion extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'sa_accordion_tab_border',
-                'label' => esc_html__('Border', 'essential-addons-elementor'),
-                'selector' => '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header',
+                'label' => esc_html__('Border', SA_ELEMENTOR_TEXTDOMAIN),
+                'selector' => '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header',
             ]
         );
         $this->add_responsive_control(
             'sa_accordion_tab_border_radius',
             [
-                'label' => esc_html__('Border Radius', 'essential-addons-elementor'),
+                'label' => esc_html__('Border Radius', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -368,40 +368,40 @@ class Accordion extends Widget_Base {
         $this->start_controls_tab(
             'sa_accordion_header_hover',
             [
-                'label' => esc_html__('Hover', 'essential-addons-elementor'),
+                'label' => esc_html__('Hover', SA_ELEMENTOR_TEXTDOMAIN),
             ]
         );
 
         $this->add_control(
             'sa_accordion_tab_color_hover',
             [
-                'label' => esc_html__('Tab Background Color', 'essential-addons-elementor'),
+                'label' => esc_html__('Tab Background Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#414141',
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header:hover' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header:hover' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
         $this->add_control(
             'sa_accordion_tab_text_color_hover',
             [
-                'label' => esc_html__('Text Color', 'essential-addons-elementor'),
+                'label' => esc_html__('Text Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#fff',
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header:hover' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header:hover' => 'color: {{VALUE}};',
                 ],
             ]
         );
         $this->add_control(
             'sa_accordion_tab_icon_color_hover',
             [
-                'label' => esc_html__('Icon Color', 'essential-addons-elementor'),
+                'label' => esc_html__('Icon Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#fff',
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header:hover .fa' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header:hover .fa' => 'color: {{VALUE}};',
                 ],
                 'condition' => [
                     'sa_accordion_toggle_icon_show' => 'yes',
@@ -412,18 +412,18 @@ class Accordion extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'sa_accordion_tab_border_hover',
-                'label' => esc_html__('Border', 'essential-addons-elementor'),
-                'selector' => '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header:hover',
+                'label' => esc_html__('Border', SA_ELEMENTOR_TEXTDOMAIN),
+                'selector' => '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header:hover',
             ]
         );
         $this->add_responsive_control(
             'sa_accordion_tab_border_radius_hover',
             [
-                'label' => esc_html__('Border Radius', 'essential-addons-elementor'),
+                'label' => esc_html__('Border Radius', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -433,40 +433,40 @@ class Accordion extends Widget_Base {
         $this->start_controls_tab(
             'sa_accordion_header_active',
             [
-                'label' => esc_html__('Active', 'essential-addons-elementor'),
+                'label' => esc_html__('Active', SA_ELEMENTOR_TEXTDOMAIN),
             ]
         );
 
         $this->add_control(
             'sa_accordion_tab_color_active',
             [
-                'label' => esc_html__('Tab Background Color', 'essential-addons-elementor'),
+                'label' => esc_html__('Tab Background Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#444',
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header.active' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header.active' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
         $this->add_control(
             'sa_accordion_tab_text_color_active',
             [
-                'label' => esc_html__('Text Color', 'essential-addons-elementor'),
+                'label' => esc_html__('Text Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#fff',
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header.active' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header.active' => 'color: {{VALUE}};',
                 ],
             ]
         );
         $this->add_control(
             'sa_accordion_tab_icon_color_active',
             [
-                'label' => esc_html__('Icon Color', 'essential-addons-elementor'),
+                'label' => esc_html__('Icon Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#fff',
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header.active .fa' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header.active .fa' => 'color: {{VALUE}};',
                 ],
                 'condition' => [
                     'sa_accordion_toggle_icon_show' => 'yes',
@@ -477,18 +477,18 @@ class Accordion extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'sa_accordion_tab_border_active',
-                'label' => esc_html__('Border', 'essential-addons-elementor'),
-                'selector' => '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header.active',
+                'label' => esc_html__('Border', SA_ELEMENTOR_TEXTDOMAIN),
+                'selector' => '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header.active',
             ]
         );
         $this->add_responsive_control(
             'sa_accordion_tab_border_radius_active',
             [
-                'label' => esc_html__('Border Radius', 'essential-addons-elementor'),
+                'label' => esc_html__('Border Radius', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header.active' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header.active' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -504,7 +504,7 @@ class Accordion extends Widget_Base {
         $this->start_controls_section(
             'sa_accordion_tab_content_style_settings',
             [
-                'label' => esc_html__('Content Style', 'essential-addons-elementor'),
+                'label' => esc_html__('Content Style', SA_ELEMENTOR_TEXTDOMAIN),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -512,11 +512,11 @@ class Accordion extends Widget_Base {
         $this->add_control(
             'sa_accordion_content_bg_color',
             [
-                'label' => esc_html__('Background Color', 'essential-addons-elementor'),
+                'label' => esc_html__('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-content' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_content' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
@@ -524,11 +524,11 @@ class Accordion extends Widget_Base {
         $this->add_control(
             'sa_accordion_content_text_color',
             [
-                'label' => esc_html__('Text Color', 'essential-addons-elementor'),
+                'label' => esc_html__('Text Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#333',
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-content' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_content' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -536,28 +536,28 @@ class Accordion extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'sa_accordion_content_typography',
-                'selector' => '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-content',
+                'selector' => '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_content',
             ]
         );
         $this->add_responsive_control(
             'sa_accordion_content_padding',
             [
-                'label' => esc_html__('Padding', 'essential-addons-elementor'),
+                'label' => esc_html__('Padding', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
         $this->add_responsive_control(
             'sa_accordion_content_margin',
             [
-                'label' => esc_html__('Margin', 'essential-addons-elementor'),
+                'label' => esc_html__('Margin', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -565,15 +565,15 @@ class Accordion extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'sa_accordion_content_border',
-                'label' => esc_html__('Border', 'essential-addons-elementor'),
-                'selector' => '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-content',
+                'label' => esc_html__('Border', SA_ELEMENTOR_TEXTDOMAIN),
+                'selector' => '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_content',
             ]
         );
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'sa_accordion_content_shadow',
-                'selector' => '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-content',
+                'selector' => '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_content',
                 'separator' => 'before',
             ]
         );
@@ -583,9 +583,9 @@ class Accordion extends Widget_Base {
          * Advance Accordion Caret Settings
          */
         $this->start_controls_section(
-            'eael_section_sa_accordion_caret_settings',
+            'sa_accordion_caret_settings',
             [
-                'label' => esc_html__('Toggle Caret Style', 'essential-addons-elementor'),
+                'label' => esc_html__('Toggle Caret Style', SA_ELEMENTOR_TEXTDOMAIN),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -593,7 +593,7 @@ class Accordion extends Widget_Base {
         $this->add_responsive_control(
             'sa_accordion_tab_toggle_icon_size',
             [
-                'label' => __('Icon Size', 'essential-addons-elementor'),
+                'label' => __('Icon Size', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 16,
@@ -608,7 +608,7 @@ class Accordion extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header .fa-toggle' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header .fa-toggle' => 'font-size: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'sa_accordion_icon_show' => 'yes',
@@ -618,11 +618,11 @@ class Accordion extends Widget_Base {
         $this->add_control(
             'sa_accordion_tabs_tab_toggle_color',
             [
-                'label' => esc_html__('Caret Color', 'essential-addons-elementor'),
+                'label' => esc_html__('Caret Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#444',
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header .fa-toggle' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header .fa-toggle' => 'color: {{VALUE}};',
                 ],
                 'condition' => [
                     'sa_accordion_icon_show' => 'yes',
@@ -632,12 +632,12 @@ class Accordion extends Widget_Base {
         $this->add_control(
             'sa_accordion_toggle_active_color',
             [
-                'label' => esc_html__('Caret Color (Active)', 'essential-addons-elementor'),
+                'label' => esc_html__('Caret Color (Active)', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#fff',
                 'selectors' => [
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list .eael-accordion-header.active .fa-toggle' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .eael-adv-accordion .eael-accordion-list:hover .eael-accordion-header .fa-toggle' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header.active .fa-toggle' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .sa_el_accordion .sa_el_accordion_list:hover .sa_el_accordion_header .fa-toggle' => 'color: {{VALUE}};',
                 ],
                 'condition' => [
                     'sa_accordion_icon_show' => 'yes',
