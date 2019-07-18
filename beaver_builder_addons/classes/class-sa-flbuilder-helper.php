@@ -24,37 +24,37 @@ if (!class_exists('SA_flbuilder_helper')) {
         /**
          * for render padding, margin and border-raidus at once function call;
          */
-        public static function sa_fl_custom_padding_margin(string $type, $settings, string $media = ' ')
+        public static function sa_fl_custom_padding_margin(string $type, $settings, string $media = '')
         {
             $padding = [];
             $border_radius = [];
             $margin = [];
             foreach ($settings as $key => $data) {
-                if ($type != ' ') {
-                    if (preg_match(' / (padding) / ', $key)) {
-                        if ($media != ' ') {
+                if ($type != '') {
+                    if (preg_match('/(padding)/', $key)) {
+                        if ($media != '') {
                             if (mb_strpos($key, $media) !== false) {
-                                if ($type != ' top ' && $type != ' right ' && $type != ' bottom ' && $type != ' left ') {
+                                if ($type != 'top' && $type != 'right' && $type != 'bottom' && $type != 'left') {
                                     if (mb_strpos($key, $type) !== false) {
                                         $padding[$key] = $data;
                                     }
                                 }
                             }
                         } else {
-                            if ($type != ' top ' && $type != ' right ' && $type != ' bottom ' && $type != ' left ') {
-                                if (!preg_match(' / (responsive) / ', $key) && !preg_match(' / (medium) / ', $key)) {
+                            if ($type != 'top' && $type != 'right' && $type != 'bottom' && $type != 'left') {
+                                if (!preg_match('/(responsive)/', $key) && !preg_match('/(medium)/', $key)) {
                                     $padding[$key] = $data;
                                 }
                             }
                         }
                     }
-                    if (preg_match(' / (radius) / ', $key)) {
-                        if ($media != ' ') {
-                            if ($key == ' radius ') {
+                    if (preg_match('/(radius)/', $key)) {
+                        if ($media != '') {
+                            if ($key == 'radius') {
                                 $border_radius[$key] = $data;
                             } else {
                                 if (mb_strpos($key, $media) !== false) {
-                                    if ($type != ' top ' && $type != ' right ' && $type != ' bottom ' && $type != ' left ') {
+                                    if ($type != 'top' && $type != 'right' && $type != 'bottom' && $type != 'left') {
                                         if (mb_strpos($key, $type) !== false) {
                                             $border_radius[$key] = $data;
                                         }
@@ -62,25 +62,25 @@ if (!class_exists('SA_flbuilder_helper')) {
                                 }
                             }
                         } else {
-                            if ($type != ' top ' && $type != ' right ' && $type != ' bottom ' && $type != ' left ') {
-                                if (!preg_match(' / (responsive) / ', $key) && !preg_match(' / (medium) / ', $key)) {
+                            if ($type != 'top' && $type != 'right' && $type != 'bottom' && $type != 'left') {
+                                if (!preg_match('/(responsive)/', $key) && !preg_match('/(medium)/', $key)) {
                                     $border_radius[$key] = $data;
                                 }
                             }
                         }
                     }
-                    if (preg_match(' / (margin) / ', $key)) {
-                        if ($media != ' ') {
+                    if (preg_match('/(margin)/', $key)) {
+                        if ($media != '') {
                             if (mb_strpos($key, $media) !== false) {
-                                if ($type != ' top ' && $type != ' right ' && $type != ' bottom ' && $type != ' left ') {
+                                if ($type != 'top' && $type != 'right' && $type != 'bottom' && $type != 'left') {
                                     if (mb_strpos($key, $type) !== false) {
                                         $margin[$key] = $data;
                                     }
                                 }
                             }
                         } else {
-                            if ($type != ' top ' && $type != ' right ' && $type != ' bottom ' && $type != ' left ') {
-                                if (!preg_match(' / (responsive) / ', $key) && !preg_match(' / (medium) / ', $key)) {
+                            if ($type != 'top' && $type != 'right' && $type != 'bottom' && $type != 'left') {
+                                if (!preg_match('/(responsive)/', $key) && !preg_match('/(medium)/', $key)) {
                                     if (mb_strpos($key, $type) !== false) {
                                         $margin[$key] = $data;
                                     }
@@ -106,8 +106,8 @@ if (!class_exists('SA_flbuilder_helper')) {
         {
             $keys = array_keys($padding);
             $string_array = json_encode($keys);
-            $explode = explode(' _ ', $string_array)[0];
-            $key_type  = explode(' "', $explode)[1];
+            $explode = explode('_', $string_array)[0];
+            $key_type  = explode('"', $explode)[1];
             if ($key_type === $type) {
                 if ($media == '') {
                     if (is_array($padding) && !empty($padding)) {
@@ -132,42 +132,30 @@ if (!class_exists('SA_flbuilder_helper')) {
                 $keys = array_keys($border_radius);
                 $string_array = json_encode($keys);
                 $explode = explode('_', $string_array)[0];
-                $key_type  = explode('" ', $explode)[1];
+                $key_type  = explode('"', $explode)[1];
                 if ($key_type === $type) {
-                    if ($media == ' ') {
+                    if ($media == '') {
                         if (is_array($border_radius) && !empty($border_radius)) {
-                            echo (' ' != $border_radius[' ' . $type . ' _border_radius_top ']) ? ' border - top - left - radius: ' . $border_radius[' ' . $type . ' _border_radius_top '] . ' px;
-            ' : ' ';
-                            echo (' ' != $border_radius[' ' . $type . ' _border_radius_right ']) ? ' border - top - right - radius: ' . $border_radius[' ' . $type . ' _border_radius_right '] . ' px;
-            ' : ' ';
-                            echo (' ' != $border_radius[' ' . $type . ' _border_radius_bottom ']) ? ' border - bottom - right - radius: ' . $border_radius[' ' . $type . ' _border_radius_bottom '] . ' px;
-            ' : ' ';
-                            echo (' ' != $border_radius[' ' . $type . ' _border_radius_left ']) ? ' border - bottom - left - radius: ' . $border_radius[' ' . $type . ' _border_radius_left '] . ' px;
-            ' : ' ';
+                            echo ('' != $border_radius['' . $type . '_border_radius_top']) ? ' border-top-left-radius:' . $border_radius['' . $type . '_border_radius_top'] . 'px;' : '';
+                            echo ('' != $border_radius['' . $type . '_border_radius_right']) ? ' border-top-right-radius:' . $border_radius['' . $type . '_border_radius_right'] . 'px;' : '';
+                            echo ('' != $border_radius['' . $type . '_border_radius_bottom']) ? ' border-bottom-right-radius:' . $border_radius['' . $type . '_border_radius_bottom'] . 'px;' : '';
+                            echo ('' != $border_radius['' . $type . '_border_radius_left']) ? ' border-bottom-left-radius:' . $border_radius['' . $type . '_border_radius_left'] . 'px;' : '';
                         }
                     } else {
                         if (is_array($border_radius) && !empty($border_radius)) {
-                            echo (' ' != $border_radius[' ' . $type . ' _border_radius_top_ ' . $media . ' ']) ? ' border - top - left - radius: ' . $border_radius[' ' . $type . ' _border_radius_top_ ' . $media . ' '] . ' px;
-            ' : ' ';
-                            echo (' ' != $border_radius[' ' . $type . ' _border_radius_right_ ' . $media . ' ']) ? ' border - top - right - radius: ' . $border_radius[' ' . $type . ' _border_radius_right_ ' . $media . ' '] . ' px;
-            ' : ' ';
-                            echo (' ' != $border_radius[' ' . $type . ' _border_radius_bottom_ ' . $media . ' ']) ? ' border - bottom - right - radius: ' . $border_radius[' ' . $type . ' _border_radius_bottom_ ' . $media . ' '] . ' px;
-            ' : ' ';
-                            echo (' ' != $border_radius[' ' . $type . ' _border_radius_left_ ' . $media . ' ']) ? ' border - bottom - left - radius: ' . $border_radius[' ' . $type . ' _border_radius_left_ ' . $media . ' '] . ' px;
-            ' : ' ';
+                            echo ('' != $border_radius['' . $type . '_border_radius_top_' . $media . ' ']) ? 'border-top-left-radius:' . $border_radius['' . $type . ' _border_radius_top_' . $media . ''] . ' px;' : '';
+                            echo ('' != $border_radius['' . $type . '_border_radius_right_' . $media . ' ']) ? 'border-top-right-radius: ' . $border_radius['' . $type . '_border_radius_right_ ' . $media . ''] . ' px;' : '';
+                            echo ('' != $border_radius['' . $type . '_border_radius_bottom_' . $media . ' ']) ? 'border-bottom-right-radius: ' . $border_radius['' . $type . '_border_radius_bottom_' . $media . ''] . ' px;' : '';
+                            echo ('' != $border_radius['' . $type . '_border_radius_left_' . $media . ' ']) ? 'border-bottom-left-radius: ' . $border_radius['' . $type . '_border_radius_left_' . $media . ''] . ' px; ' : '';
                         }
                     }
                 }
             } else {
                 if (is_array($border_radius) && !empty($border_radius)) {
-                    echo (' ' != $border_radius[' radius '][' top_left ']) ? ' border - top - left - radius: ' . $border_radius[' radius '][' top_left '] . ' px;
-            ' : ' ';
-                    echo (' ' != $border_radius[' radius '][' top_right ']) ? ' border - top - right - radius: ' . $border_radius[' radius '][' top_right '] . ' px;
-            ' : ' ';
-                    echo (' ' != $border_radius[' radius '][' bottom_left ']) ? ' border - bottom - right - radius: ' . $border_radius[' radius '][' bottom_left '] . ' px;
-            ' : ' ';
-                    echo (' ' != $border_radius[' radius '][' bottom_right ']) ? ' border - bottom - left - radius: ' . $border_radius[' radius '][' bottom_right '] . ' px;
-            ' : ' ';
+                    echo ('' != $border_radius['radius']['top_left']) ? 'border-top-left-radius:' . $border_radius['radius']['top_left'] . 'px;' : ' ';
+                    echo ('' != $border_radius['radius']['top_right']) ? 'border-top-right-radius:' . $border_radius['radius']['top_right'] . 'px;' : ' ';
+                    echo ('' != $border_radius['radius']['bottom_left']) ? 'border-bottom-right-radius:' . $border_radius['radius']['bottom_left'] . 'px;' : ' ';
+                    echo ('' != $border_radius['radius']['bottom_right']) ? 'border-bottom-left-radius:' . $border_radius['radius']['bottom_right'] . 'px;' : ' ';
                 }
             }
         }
@@ -176,8 +164,8 @@ if (!class_exists('SA_flbuilder_helper')) {
         {
             $keys = array_keys($margin);
             $string_array = json_encode($keys);
-            $explode = explode(' _ ', $string_array)[0];
-            $key_type  = explode(' "', $explode)[1];
+            $explode = explode('_', $string_array)[0];
+            $key_type  = explode('"', $explode)[1];
             if ($key_type === $type) {
                 if ($media == '') {
                     if (is_array($margin) && !empty($margin)) {
