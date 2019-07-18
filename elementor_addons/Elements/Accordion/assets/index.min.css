@@ -61,7 +61,7 @@
     margin-right: 10px;
 }
 
-.sa_el_accordion .sa_el_accordion_list .sa_el_content {
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_content {
     display: none;
     border: 1px solid #eee;
     padding: 15px;
@@ -71,11 +71,11 @@
     line-height: 1.7;
 }
 
-.sa_el_accordion .sa_el_accordion_list .sa_el_content p {
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_content .sa_el_accordion_text_content {
     margin: 0;
 }
 
-.sa_el_accordion .sa_el_accordion_list .sa_el_content.active {
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_content.active {
     display: block;
 }
 

@@ -632,7 +632,6 @@ class Accordion extends Widget_Base {
 
         $this->add_render_attribute('sa_el_accordion', 'class', 'sa_el_accordion');
         $this->add_render_attribute('sa_el_accordion', 'id', 'sa_el_accordion-' . esc_attr($this->get_id()));
-        print_r($id_int);
         ?>
         <div
         <?php echo $this->get_render_attribute_string('sa_el_accordion'); ?>
@@ -647,8 +646,8 @@ class Accordion extends Widget_Base {
                     $tab_title_setting_key = $this->get_repeater_setting_key('sa_accordion_tab_title', 'sa_accordion_tab', $index);
                     $tab_content_setting_key = $this->get_repeater_setting_key('sa_accordion_tab_content', 'sa_accordion_tab', $index);
 
-                    $tab_title_class = ['sa_el_tab_title', 'sa_el_header'];
-                    $tab_content_class = ['sa_el_content', 'clearfix'];
+                    $tab_title_class = ['sa_el_tab_title', 'sa_el_accordion_header'];
+                    $tab_content_class = ['sa_el_accordion_content', 'clearfix'];
 
                     if ($tab['sa_accordion_tab_default_active'] == 'yes') {
                         $tab_title_class[] = 'active-default';
@@ -682,7 +681,7 @@ class Accordion extends Widget_Base {
 
                     <div <?php echo $this->get_render_attribute_string($tab_content_setting_key); ?>>
                         <?php if ('content' == $tab['sa_accordion_text_type']): ?>
-                            <p><?php echo do_shortcode($tab['sa_accordion_tab_content']); ?></p>
+                            <p class="sa_el_accordion_text_content"><?php echo do_shortcode($tab['sa_accordion_tab_content']); ?></p>
                             <?php
                         elseif ('template' == $tab['sa_accordion_text_type']):
                             if (!empty($tab['sa_accordion_tab_template'])) {
