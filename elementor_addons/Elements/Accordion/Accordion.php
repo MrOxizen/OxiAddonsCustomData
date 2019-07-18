@@ -30,7 +30,7 @@ class Accordion extends Widget_Base {
     }
 
     public function get_title() {
-        return esc_html__('SA Accordion', SA_ELEMENTOR_TEXTDOMAIN);
+        return esc_html__('Accordion', SA_ELEMENTOR_TEXTDOMAIN);
     }
 
     public function get_icon() {
