@@ -120,5 +120,38 @@ trait Public_Helper {
         // hook extended assets
         do_action(SA_ELEMENTOR_TEXTDOMAIN . '/after_enqueue_scripts', $this->has_cache_files());
     }
+    
+    /**
+     * Get all elementor page templates
+     *
+     * @return array
+     */
+    public function get_elementor_page_templates($type = null)
+    {
+        $args = [
+            'post_type' => 'elementor_library',
+            'posts_per_page' => -1,
+        ];
+
+        if ($type) {
+            $args['tax_query'] = [
+                [
+                    'taxonomy' => 'elementor_library_type',
+                    'field' => 'slug',
+                    'terms' => $type,
+                ],
+            ];
+        }
+
+        $page_templates = get_posts($args);
+        $options = array();
+
+        if (!empty($page_templates) && !is_wp_error($page_templates)) {
+            foreach ($page_templates as $post) {
+                $options[$post->ID] = $post->post_title;
+            }
+        }
+        return $options;
+    }
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 /**
  * Text Domain: SA_FLBuilder
  *
@@ -14,49 +14,94 @@ if (!defined('ABSPATH')) {
 
 
 define('FL_MODULE_SA_FLBUILDER_URL', OxiAddonsCustomData . 'beaver_builder_addons/');
-define('SA_FLBUILDER_TEXTDOMAIN', 'SA_FLBuilder');
-
+define('SA_FLBUILDER_TEXTDOMAIN', 'sa-flbuilder');
+require_once FL_MODULE_SA_FLBUILDER_URL . 'autoloader.php';
 if (!class_exists('SA_FLBUILDER_ADDONS')) {
-    class SA_FLBUILDER_ADDONS
-    {
+
+    class SA_FLBUILDER_ADDONS {
+
         /**
-         * SAETemplates_BLocks constructor.
+         * Minimum Beaver Builder Version
          *
-         * The main plugin actions registered for WordPress
+         * @since 1.0.0
+         * @var string Minimum Beaver Builder version required to run the plugin.
          */
-        public function __construct()
-        {
-            add_action('init', array($this, 'check_dependencies'));
-            require_once FL_MODULE_SA_FLBUILDER_URL . 'classes/class-sa-flbuilder-init.php';
-            new SA_fl_builder_init();
+        const MINIMUM_FLBUILDER_VERSION = '2.2.0';
+
+        /**
+         * Minimum PHP Version
+         *
+         * @since 1.0.0
+         * @var string Minimum PHP version required to run the plugin.
+         */
+        const MINIMUM_PHP_VERSION = '5.6';
+
+        /**
+         * Constructor
+         *
+         * @since 1.0.0
+         * @access public
+         */
+        public function __construct() {
+            // before init hook
+            do_action('sa-fl-builder/before_init');
+            // Load translation
+            add_action('init', array($this, 'i18n'));
+            add_filter(SA_FLBUILDER_TEXTDOMAIN . '/pro-enable', array($this, 'Pro_Enable'));
+            // Init Plugin
+            add_action('plugins_loaded', array($this, 'init'));
         }
 
         /**
-         * Check plugin dependencies
-         * Check if Elementor plugin is installed
+         * Load Textdomain
+         *
+         * Load plugin localization files.
+         * Fired by `init` action hook.
+         *
+         * @since 1.0.0
+         * @access public
          */
-        public function check_dependencies()
-        {
+        public function i18n() {
+            load_plugin_textdomain('sa-flbuilder');
+        }
+
+        /**
+         * Initialize the plugin
+         *
+         * Validates that Beaver Builder is already loaded.
+         * Checks for basic plugin requirements, if one check fail don't continue,
+         * if all check have passed include the plugin class.
+         *
+         * Fired by `plugins_loaded` action hook.
+         *
+         * @since 1.0.0
+         * @access public
+         */
+        public function init() {
+
+
+            // Check if Beaver Builder installed and activated
             if (!class_exists('FLBuilder')) {
-                add_action('admin_notices', array($this, 'widget_fail_load'));
-                return;
-            } else {
-                $admin = new SA_fl_builder_admin();
-                add_action('admin_menu', array(&$admin, 'Flbuilder_Menu'));
-            }
-            $version_required = '2.2';
-            if (!version_compare(FL_BUILDER_VERSION, $version_required, '>=')) {
-                add_action('admin_notices', array($this, 'update_notice'));
+                add_action('admin_notices', array($this, 'admin_notice_missing_main_plugin'));
                 return;
             }
+
+            // Check for required Beaver Builder version
+            if (!version_compare(FL_BUILDER_VERSION, self::MINIMUM_FLBUILDER_VERSION, '>=')) {
+                add_action('admin_notices', array($this, 'admin_notice_minimum_version'));
+                return;
+            }
+
+            // Check for required PHP version
+            if (version_compare(PHP_VERSION, self::MINIMUM_PHP_VERSION, '<')) {
+                add_action('admin_notices', array($this, 'admin_notice_minimum_php_version'));
+                return;
+            }
+            \SA_FLBUILDER_ADDONS\Classes\Bootstrap::instance();
+            // Once we get here, We have passed all validation checks so we can safely include our plugin
         }
 
-        /**
-         * This notice will appear if Elementor is not installed or activated or both
-         */
-        public function widget_fail_load()
-        {
-
+        public function admin_notice_missing_main_plugin() {
             $screen = get_current_screen();
             if (isset($screen->parent_file) && 'plugins.php' === $screen->parent_file && 'update' === $screen->id) {
                 return;
@@ -81,17 +126,21 @@ if (!class_exists('SA_FLBUILDER_ADDONS')) {
                 $install_url = wp_nonce_url(self_admin_url('update.php?action=install-plugin&plugin=beaver-builder-lite-version'), 'install_beaver-builder-lite-version');
 
                 $message = '<p><strong>' . __('Shortcode Addons Beaver Builder Extention', SA_FLBUILDER_TEXTDOMAIN) . '</strong>' . __(' widgets not working because you need to install the Beaver Builder plugin', SA_FLBUILDER_TEXTDOMAIN) . '</p>';
-                $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $install_url, __('Install Beaver Builder Now', SA_FLBUILDER_TEXTDOMAIN)) . '</p>';
+                $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $install_url, __('Install  Beaver Builder Now', SA_FLBUILDER_TEXTDOMAIN)) . '</p>';
             }
 
             echo '<div class="error"><p>' . $message . '</p></div>';
         }
 
         /**
-         * Display admin notice for Elementor update if Elementor version is old
+         * Admin notice
+         *
+         * Warning when the site doesn't have a minimum required Beaver Builder version.
+         *
+         * @since 1.0.0
+         * @access public
          */
-        public function update_notice()
-        {
+        public function admin_notice_minimum_version() {
             if (!current_user_can('update_plugins')) {
                 return;
             }
@@ -99,11 +148,43 @@ if (!class_exists('SA_FLBUILDER_ADDONS')) {
             $file_path = 'beaver-builder-lite-version/fl-builder.php';
 
             $upgrade_link = wp_nonce_url(self_admin_url('update.php?action=upgrade-plugin&plugin=') . $file_path, 'upgrade-plugin_' . $file_path);
-            $message = '<p><strong>' . __('Shortcode Addons Elementor Templates & Blocks', SA_FLBUILDER_TEXTDOMAIN) . '</strong>' . __(' widgets not working because you are using an old version of Elementor.', SA_FLBUILDER_TEXTDOMAIN) . '</p>';
-            $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $upgrade_link, __('Update Elementor Now', SA_FLBUILDER_TEXTDOMAIN)) . '</p>';
+            $message = '<p><strong>' . __('Shortcode Addons  Beaver Builder Extention', SA_FLBUILDER_TEXTDOMAIN) . '</strong>' . __(' widgets not working because you are using an old version of  Beaver Builder .', SA_FLBUILDER_TEXTDOMAIN) . '</p>';
+            $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $upgrade_link, __('Update Beaver Builder Now', SA_FLBUILDER_TEXTDOMAIN)) . '</p>';
             echo '<div class="error">' . $message . '</div>';
         }
+
+        /**
+         * Admin notice
+         *
+         * Warning when the site doesn't have a minimum required PHP version.
+         *
+         * @since 1.0.0
+         * @access public
+         */
+        public function admin_notice_minimum_php_version() {
+            if (isset($_GET['activate'])) {
+                unset($_GET['activate']);
+            }
+
+            $message = sprintf(
+                    /* translators: 1: Plugin name 2: PHP 3: Required PHP version */
+                    esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', SA_FLBUILDER_TEXTDOMAIN), '<strong>' . esc_html__('Shortcode Addons  Beaver Builder Extention', SA_FLBUILDER_TEXTDOMAIN) . '</strong>', '<strong>' . esc_html__('PHP', SA_FLBUILDER_TEXTDOMAIN) . '</strong>', self::MINIMUM_PHP_VERSION
+            );
+
+            printf('<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message);
+        }
+
+        function Pro_Enable($value) {
+            $valids = get_option('oxi_addons_license_status');
+            if ($valids == 'valid') {
+                return '';
+            } else {
+                return $value;
+            }
+        }
+
     }
+
 }
 
 /*
