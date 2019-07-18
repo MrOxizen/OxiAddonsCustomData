@@ -12,8 +12,8 @@ class OxiFlipBoxModule extends FLBuilderModule {
                 array(
                     'name' => __('Flip Box', SA_FLBUILDER_TEXTDOMAIN),
                     'description' => __('Flip Box', SA_FLBUILDER_TEXTDOMAIN),
-                    'category' => 'flipbox',
-                    'group' => 'Shortcode Elements',
+                    'group' => 'Shortcode Addons',
+                    'category' => 'Content Elements',
                     'editor_export' => true, // Defaults to true and can be omitted.
                     'enabled' => true, // Defaults to true and can be omitted.
                     'icon' => '',
@@ -23,4 +23,5 @@ class OxiFlipBoxModule extends FLBuilderModule {
     }
 
 }
+
 require_once FL_MODULE_SA_FLBUILDER_URL . 'modules/flipbox/flipbox-register.php';
