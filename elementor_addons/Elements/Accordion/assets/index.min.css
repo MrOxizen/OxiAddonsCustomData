@@ -12,7 +12,12 @@
     transition: all 0.3s ease-in-out;
 }
 
-.sa_el_accordion .sa_el_accordion_list .sa_el_header {
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header:focus {
+   box-shadow: none;
+   outline: none;
+   border: none;
+}
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header {
     padding: 15px;
     border: 1px solid rgba(0, 0, 0, 0.02);
     font-size: 1rem;
@@ -35,21 +40,28 @@
     align-items: center;
     cursor: pointer;
 }
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header.active .sa_el_accordion_icon_off{
+    display: none;
+}
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header .sa_el_accordion_icon_off{
+    display: block;
+}
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header .sa_el_accordion_icon_opened{
+    display: none;
+}
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header.active .sa_el_accordion_icon_opened{
+    display: block;
+}
 
-.sa_el_accordion .sa_el_accordion_list .sa_el_header .fa-toggle {
-    -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-    z-index: 10;
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header .fa-toggle {
+      z-index: 10;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
 
-.sa_el_accordion .sa_el_accordion_list .sa_el_header.active .fa-toggle {
-    -webkit-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header.active .fa-toggle {
+    
     z-index: 10;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
@@ -79,27 +91,6 @@
     display: block;
 }
 
-@-webkit-keyframes rotate-90 {
-    0% {
-        -webkit-transform: rotateY(0deg);
-        transform: rotateY(0deg);
-    }
-    100% {
-        -webkit-transform: rotateY(-180deg);
-        transform: rotateY(-180deg);
-    }
-}
-
-@keyframes rotate-90 {
-    0% {
-        -webkit-transform: rotateY(0deg);
-        transform: rotateY(0deg);
-    }
-    100% {
-        -webkit-transform: rotateY(-180deg);
-        transform: rotateY(-180deg);
-    }
-}
 
 @-webkit-keyframes fadeIn {
     0% {
