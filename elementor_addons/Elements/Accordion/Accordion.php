@@ -18,9 +18,11 @@ use \Elementor\Group_Control_Box_Shadow as Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography as Group_Control_Typography;
 use \Elementor\Scheme_Typography as Scheme_Typography;
 use \Elementor\Widget_Base as Widget_Base;
-use \SA_ELEMENTOR_ADDONS\Classes\Bootstrap as SA_ELBootstrap;
+use \SA_ELEMENTOR_ADDONS\Classes\Bootstrap;
 
 class Accordion extends Widget_Base {
+
+    use \SA_ELEMENTOR_ADDONS\Helper\Public_Helper;
 
     public function get_name() {
         return 'sa_el_accordion';
@@ -95,13 +97,12 @@ class Accordion extends Widget_Base {
                 ]
         );
         $this->add_control(
-            'sa_accordion_toggle_speed',
-            [
-                'label' => esc_html__('Toggle Speed (ms)', SA_ELEMENTOR_TEXTDOMAIN),
-                'type' => Controls_Manager::NUMBER,
-                'label_block' => false,
-                'default' => 300,
-            ]
+                'sa_accordion_toggle_speed', [
+            'label' => esc_html__('Toggle Speed (ms)', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::NUMBER,
+            'label_block' => false,
+            'default' => 300,
+                ]
         );
         $this->end_controls_section();
         /**
@@ -172,11 +173,11 @@ class Accordion extends Widget_Base {
                         'sa_accordion_text_type' => 'content',
                     ],
                 ],
-                 [
+                [
                     'name' => 'sa_accordion_tab_template',
                     'label' => __('Content Type', SA_ELEMENTOR_TEXTDOMAIN),
                     'type' => Controls_Manager::SELECT,
-                    'options' => SA_ELBootstrap::get_elementor_page_templates(),
+                    'options' => $this->get_elementor_page_templates(),
                     'condition' => [
                         'sa_accordion_text_type' => 'template',
                     ],
@@ -628,10 +629,10 @@ class Accordion extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         $id_int = substr($this->get_id_int(), 0, 3);
-    
+
         $this->add_render_attribute('sa_el_accordion', 'class', 'sa_el_accordion');
         $this->add_render_attribute('sa_el_accordion', 'id', 'sa_el_accordion-' . esc_attr($this->get_id()));
-          print_r($id_int);
+        print_r($id_int);
         ?>
         <div
         <?php echo $this->get_render_attribute_string('sa_el_accordion'); ?>
@@ -682,20 +683,20 @@ class Accordion extends Widget_Base {
                     <div <?php echo $this->get_render_attribute_string($tab_content_setting_key); ?>>
                         <?php if ('content' == $tab['sa_accordion_text_type']): ?>
                             <p><?php echo do_shortcode($tab['sa_accordion_tab_content']); ?></p>
-                        <?php
+                            <?php
                         elseif ('template' == $tab['sa_accordion_text_type']):
                             if (!empty($tab['sa_accordion_tab_template'])) {
                                 $sa_template_id = $tab['sa_accordion_tab_template'];
                                 $sa_frontend = new Frontend;
                                 echo $sa_frontend->get_builder_content($sa_template_id, true);
                             }
-                       
+
                         endif;
                         ?>
                     </div>
 
                 </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
         </div>
         <?php
     }
