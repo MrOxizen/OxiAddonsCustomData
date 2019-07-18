@@ -1,6 +1,10 @@
 <?php
 
+use SA_FLBUILDER_ADDONS\Classes\Bootstrap;
+
 class Button_module extends FLBuilderModule {
+
+    use \SA_FLBUILDER_ADDONS\Helper\Public_Helper;
 
     public function __construct() {
         parent::__construct(array(
@@ -15,7 +19,7 @@ class Button_module extends FLBuilderModule {
             'enabled' => true, // Defaults to true and can be omitted.
             'partial_refresh' => false, // Defaults to false and can be omitted.
         ));
-        
+
 //        /* Use these methods to enqueue css and js already
 //         * registered or to register and enqueue your own.
 //         */

@@ -6,11 +6,13 @@ namespace SA_FLBUILDER_ADDONS\Helper;
  * Description of Admin_helper
  * @author biplob
  */
-trait Admin_helper {
+trait Admin_helper
+{
 
     use \SA_FLBUILDER_ADDONS\Classes\Template;
 
-    private function admin_scripts() {
+    public function admin_scripts()
+    {
         wp_enqueue_style('sa_flbuilder-admin-stylesheets', content_url('uploads/OxiAddonsCustomData/beaver_builder_addons/assets/css/admin.css', __FILE__));
         wp_enqueue_script('sa-flbuilder-admin-script', content_url('uploads/OxiAddonsCustomData/beaver_builder_addons/assets/js/admin.js', __FILE__));
         wp_localize_script('sa-flbuilder-admin-script', 'saflbuilder', array(
@@ -23,7 +25,8 @@ trait Admin_helper {
      *
      * add menu at admin panel
      */
-    public function Menu() {
+    public function Menu()
+    {
         $user_role = get_option('oxi_addons_user_permission');
         $role_object = get_role($user_role);
         $first_key = '';
@@ -36,16 +39,17 @@ trait Admin_helper {
         add_submenu_page('oxi-addons', 'Beaver Builder Addons', 'Beaver Builder Addons', $first_key, 'oxi-addons-fl-builder', [$this, 'oxi_addons_flbuilder']);
     }
 
-    public static function oxi_addons_flbuilder() {
+    public function oxi_addons_flbuilder()
+    {
         echo oxi_addons_import_css_js();
         echo $this->admin_scripts();
         echo OxiAddonsAdmAdminMenu('');
         echo $this->HTML();
     }
- /**
+    /**
      * update ajax data to the database
      */
-     final function saflbuilder_save_settings()
+    final function saflbuilder_save_settings()
     {
         check_ajax_referer('sa-flbuilder', 'security');
         $elements = sanitize_text_field($_POST['elements']);
@@ -54,5 +58,4 @@ trait Admin_helper {
         echo  $element;
         die();
     }
-
 }

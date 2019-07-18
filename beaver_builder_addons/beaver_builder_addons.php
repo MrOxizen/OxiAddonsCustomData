@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 /**
  * Text Domain: SA_FLBuilder
  *
@@ -18,7 +18,8 @@ define('SA_FLBUILDER_TEXTDOMAIN', 'sa-flbuilder');
 require_once FL_MODULE_SA_FLBUILDER_URL . 'autoloader.php';
 if (!class_exists('SA_FLBUILDER_ADDONS')) {
 
-    class SA_FLBUILDER_ADDONS {
+    class SA_FLBUILDER_ADDONS
+    {
 
         /**
          * Minimum Beaver Builder Version
@@ -42,7 +43,8 @@ if (!class_exists('SA_FLBUILDER_ADDONS')) {
          * @since 1.0.0
          * @access public
          */
-        public function __construct() {
+        public function __construct()
+        {
             // before init hook
             do_action('sa-fl-builder/before_init');
             // Load translation
@@ -61,7 +63,8 @@ if (!class_exists('SA_FLBUILDER_ADDONS')) {
          * @since 1.0.0
          * @access public
          */
-        public function i18n() {
+        public function i18n()
+        {
             load_plugin_textdomain('sa-flbuilder');
         }
 
@@ -77,7 +80,8 @@ if (!class_exists('SA_FLBUILDER_ADDONS')) {
          * @since 1.0.0
          * @access public
          */
-        public function init() {
+        public function init()
+        {
 
 
             // Check if Beaver Builder installed and activated
@@ -101,7 +105,8 @@ if (!class_exists('SA_FLBUILDER_ADDONS')) {
             // Once we get here, We have passed all validation checks so we can safely include our plugin
         }
 
-        public function admin_notice_missing_main_plugin() {
+        public function admin_notice_missing_main_plugin()
+        {
             $screen = get_current_screen();
             if (isset($screen->parent_file) && 'plugins.php' === $screen->parent_file && 'update' === $screen->id) {
                 return;
@@ -140,7 +145,8 @@ if (!class_exists('SA_FLBUILDER_ADDONS')) {
          * @since 1.0.0
          * @access public
          */
-        public function admin_notice_minimum_version() {
+        public function admin_notice_minimum_version()
+        {
             if (!current_user_can('update_plugins')) {
                 return;
             }
@@ -161,20 +167,25 @@ if (!class_exists('SA_FLBUILDER_ADDONS')) {
          * @since 1.0.0
          * @access public
          */
-        public function admin_notice_minimum_php_version() {
+        public function admin_notice_minimum_php_version()
+        {
             if (isset($_GET['activate'])) {
                 unset($_GET['activate']);
             }
 
             $message = sprintf(
-                    /* translators: 1: Plugin name 2: PHP 3: Required PHP version */
-                    esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', SA_FLBUILDER_TEXTDOMAIN), '<strong>' . esc_html__('Shortcode Addons  Beaver Builder Extention', SA_FLBUILDER_TEXTDOMAIN) . '</strong>', '<strong>' . esc_html__('PHP', SA_FLBUILDER_TEXTDOMAIN) . '</strong>', self::MINIMUM_PHP_VERSION
+                /* translators: 1: Plugin name 2: PHP 3: Required PHP version */
+                esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', SA_FLBUILDER_TEXTDOMAIN),
+                '<strong>' . esc_html__('Shortcode Addons  Beaver Builder Extention', SA_FLBUILDER_TEXTDOMAIN) . '</strong>',
+                '<strong>' . esc_html__('PHP', SA_FLBUILDER_TEXTDOMAIN) . '</strong>',
+                self::MINIMUM_PHP_VERSION
             );
 
             printf('<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message);
         }
 
-        function Pro_Enable($value) {
+        function Pro_Enable($value)
+        {
             $valids = get_option('oxi_addons_license_status');
             if ($valids == 'valid') {
                 return '';
@@ -182,9 +193,7 @@ if (!class_exists('SA_FLBUILDER_ADDONS')) {
                 return $value;
             }
         }
-
     }
-
 }
 
 /*
