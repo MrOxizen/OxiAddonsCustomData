@@ -241,5 +241,16 @@ final class SA_FLBUILDER_HELPER
             'prop'        => $element,
         ));
     }
+    /**
+     *   sa fl builder All element responsive  Settings
+     */
+    public static function sa_fl_general_style($array = array(), $selector, $media = '')
+    {
+        FLBuilderCSS::rule(array(
+            'selector' => $selector,
+            'media' => $media, // optional
+            'props' => $array
+        ));
+    }
 }
 new SA_FLBUILDER_HELPER();

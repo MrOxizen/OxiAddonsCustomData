@@ -6,7 +6,7 @@ echo '</pre>';
 
 // SA_FLBootstrap::sa_fl_custom_padding_margin('button', $settings, '');
 
-print_r(SA_FLBUILDER_HELPER::get_active_elements());
+// print_r(SA_FLBUILDER_HELPER::get_active_elements());
 /**
  * for Button and icon 
  */

@@ -5,7 +5,7 @@
  */
 FLBuilder::register_module('Button_module', array(
     'General' => array(
-        'title' => __('General', SA_FLBUILDER_TEXTDOMAIN),
+        'title' => __('Content', SA_FLBUILDER_TEXTDOMAIN),
         'sections' => array(
             'general' => array(
                 'title' => '',
@@ -22,7 +22,7 @@ FLBuilder::register_module('Button_module', array(
                     ),
                     'icon' => array(
                         'type' => 'icon',
-                        'label' => __('FontAwesome Icon', SA_FLBUILDER_TEXTDOMAIN),
+                        'label' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
                         'default' => __('', SA_FLBUILDER_TEXTDOMAIN),
                         'placeholder' => 'fa fa-twitter',
                         'help' => __('Insert Font Awesome Icon Class Name', SA_FLBUILDER_TEXTDOMAIN),
@@ -61,8 +61,60 @@ FLBuilder::register_module('Button_module', array(
                     )
                 )
             ),
+            'formatting' => array(
+                'title'  => __('Structure', SA_FLBUILDER_TEXTDOMAIN),
+                'fields' => array(
+                    'width' => array(
+                        'type'    => 'select',
+                        'label'   => __('Width', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'auto',
+                        'options' => array(
+                            'auto'   => _x('Auto', 'Width.', SA_FLBUILDER_TEXTDOMAIN),
+                            'full'   => __('Full Width', SA_FLBUILDER_TEXTDOMAIN),
+                            'custom' => __('Custom', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                        'toggle'  => array(
+                            'auto'   => array(
+                                'fields' => array('align', 'mob_align'),
+                            ),
+                            'full'   => array(
+                                'fields' => array(),
+                            ),
+                            'custom' => array(
+                                'fields' => array('align', 'mob_align', 'custom_width', 'custom_height', 'padding_top_bottom', 'padding_left_right'),
+                            ),
+                        ),
+                    ),
+                    'custom_width'       => array(
+                        'type'        => 'text',
+                        'label'       => __('Custom Width', SA_FLBUILDER_TEXTDOMAIN),
+                        'default'     => '200',
+                        'maxlength'   => '3',
+                        'size'        => '4',
+                        'description' => 'px',
+                    ),
+                    'custom_height'      => array(
+                        'type'        => 'text',
+                        'label'       => __('Custom Height', SA_FLBUILDER_TEXTDOMAIN),
+                        'default'     => '45',
+                        'maxlength'   => '3',
+                        'size'        => '4',
+                        'description' => 'px',
+                    ),
+                    'alignment' => array(
+                        'type'    => 'align',
+                        'label'   => 'Alignment',
+                        'default' => 'center',
+                        'responsive' => true,
+                        'preview' => array(
+                            'type'       => 'css',
+                            'property'   => 'text-align',
+                        ),
+                    ),
+                ),
+            ),
             'padding' => array(
-                'title' => __('Button Padding', SA_FLBUILDER_TEXTDOMAIN),
+                'title' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
                     'button_padding' => array(
                         'type' => 'dimension',
@@ -83,11 +135,32 @@ FLBuilder::register_module('Button_module', array(
         )
     ),
     'style' => array( //tab
-        'title' => __('Button Setting', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
+        'title' => __('Styles', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
         'sections' => array(
-            'Background' => array(
-                'title' => __('Background ', SA_FLBUILDER_TEXTDOMAIN),
+            'styling' => array(
+                'title'  => __('Button Style', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
+                    'width' => array(
+                        'type'    => 'select',
+                        'label'   => __('Style', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'default',
+                        'options' => array(
+                            'default' => __('Default', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                    ),
+                ),
+            ),
+            'Color' => array(
+                'title' => __('Color', SA_FLBUILDER_TEXTDOMAIN),
+                'fields' => array(
+                    'text_color' => array(
+                        'type' => 'color',
+                        'label' => __('Text Color', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '',
+                        'show_reset' => true,
+                        'connections' => array('color'),
+                        'show_alpha' => true,
+                    ),
                     'button_background_type' => array(
                         'type' => 'select',
                         'label' => __('Background Type', SA_FLBUILDER_TEXTDOMAIN),
@@ -108,7 +181,7 @@ FLBuilder::register_module('Button_module', array(
                     ),
                     'button_background_color' => array(
                         'type' => 'color',
-                        'label' => __('Background Color', 'uabb'),
+                        'label' => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
                         'default' => '',
                         'show_reset' => true,
                         'connections' => array('color'),
@@ -150,14 +223,44 @@ FLBuilder::register_module('Button_module', array(
                     ),
                 ),
             ),
-        ),
-    ),
-    'hover_setting' => array( // Tab.
-        'title' => __('Hover', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
-        'sections' => array( // Tab Sections.
             'button_hover_setting' => array(
                 'title' => __('Hover Setting', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
+                    'button_hover_background_type' => array(
+                        'type' => 'select',
+                        'label' => __('Background Type', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'color',
+                        'help' => __('Button Hover Background Color and Gradient', SA_FLBUILDER_TEXTDOMAIN),
+                        'options' => array(
+                            'color' => __('Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'gradient' => __('Gradient', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                        'toggle' => array(
+                            'color' => array(
+                                'fields' => array('button_hover_background_color', 'button_background_color_opc'),
+                            ),
+                            'gradient' => array(
+                                'fields' => array('button_hover_gradient'),
+                            ),
+                        ),
+                    ),
+                    'button_hover_background_color' => array(
+                        'type' => 'color',
+                        'label' => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '',
+                        'show_reset' => true,
+                        'connections' => array('color'),
+                        'show_alpha' => true,
+                    ),
+                    'button_hover_gradient' => array(
+                        'type'    => 'gradient',
+                        'label'   => 'Gradient',
+                        'connections' => array('gradient'),
+                        'preview' => array(
+                            'type'     => 'css',
+                            'property' => 'background-image',
+                        ),
+                    ),
                     'hover_text_color' => array(
                         'type' => 'color',
                         'label' => __('Hover Text Color', SA_FLBUILDER_TEXTDOMAIN),
@@ -186,80 +289,11 @@ FLBuilder::register_module('Button_module', array(
                     ),
                 ),
             ),
-            'background_hover_setting' => array(
-                'title' => __('Background Hover Setting', SA_FLBUILDER_TEXTDOMAIN),
-                'fields' => array(
-                    'button_hover_background_type' => array(
-                        'type' => 'select',
-                        'label' => __('Background Type', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'color',
-                        'help' => __('Button Hover Background Color and Gradient', SA_FLBUILDER_TEXTDOMAIN),
-                        'options' => array(
-                            'color' => __('Color', SA_FLBUILDER_TEXTDOMAIN),
-                            'gradient' => __('Gradient', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                        'toggle' => array(
-                            'color' => array(
-                                'fields' => array('button_hover_background_color', 'button_background_color_opc'),
-                            ),
-                            'gradient' => array(
-                                'fields' => array('button_hover_gradient'),
-                            ),
-                        ),
-                    ),
-                    'button_hover_background_color' => array(
-                        'type' => 'color',
-                        'label' => __('Background Color', 'uabb'),
-                        'default' => '',
-                        'show_reset' => true,
-                        'connections' => array('color'),
-                        'show_alpha' => true,
-                    ),
-                    'button_hover_gradient' => array(
-                        'type'    => 'gradient',
-                        'label'   => 'Gradient',
-                        'connections' => array('gradient'),
-                        'preview' => array(
-                            'type'     => 'css',
-                            'property' => 'background-image',
-                        ),
-                    ),
-                ),
-            ),
         ),
     ),
     'typography' => array( // Tab.
         'title' => __('Typography', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
-        'sections' => array( // Tab Sections.
-            'colors' => array(
-                'title' => __('Text Color', SA_FLBUILDER_TEXTDOMAIN),
-                'fields' => array(
-                    'text_color' => array(
-                        'type' => 'color',
-                        'label' => __('Text Color', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '',
-                        'show_reset' => true,
-                        'connections' => array('color'),
-                        'show_alpha' => true,
-                    ),
-                ),
-            ),
-            'text-align' => array(
-                'title' => __('Text Color', SA_FLBUILDER_TEXTDOMAIN),
-                'fields' => array(
-                    'text-align' => array(
-                        'type'    => 'align',
-                        'label'   => 'Text Align',
-                        'default' => 'center',
-                        'responsive' => 'true',
-                        'preview' => array(
-                            'type'       => 'css',
-                            'selector'   => '.my-selector',
-                            'property'   => 'text-align',
-                        ),
-                    ),
-                ),
-            ),
+        'sections' => array( // Tab Sections. 
             'button_typography' => array(
                 'title' => __('Front Title', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
