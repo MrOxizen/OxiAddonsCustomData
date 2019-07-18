@@ -348,12 +348,12 @@ FLBuilder::register_settings_form(
         )
 );
 FLBuilder::register_module(
-        'OxiFlipBoxModule', array(
+    'OxiFlipBoxModule', array(
     'flip_front' => array(// Tab.
-        'title' => __('Flip Font Settings', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
+        'title' => __('Genarel Settings', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
         'sections' => array(// Tab Sections.
             'title' => array(// Section.
-                'title' => __('Font Settings', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
+                'title' => __('Front Settings', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
                 'fields' => array(// Section Fields.
                     'oxi_flip_icons' => array(
                         'type' => 'form',
@@ -464,12 +464,7 @@ FLBuilder::register_module(
                     ),
                 ),
             ),
-        ),
-    ),
-    'flip_back' => array(// Tab.
-        'title' => __('Flip Back Settings', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
-        'sections' => array(// Tab Sections.
-            'title' => array(// Section.
+            'Back Settings' => array(// Section.
                 'title' => __('Back Settings', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
                 'fields' => array(// Section Fields.
                     'oxi_flip_back_icons' => array(
@@ -583,6 +578,7 @@ FLBuilder::register_module(
             ),
         ),
     ),
+    
     'oxi_style' => array(// Tab.
         'title' => __('Style', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
         'sections' => array(// Tab Sections.
