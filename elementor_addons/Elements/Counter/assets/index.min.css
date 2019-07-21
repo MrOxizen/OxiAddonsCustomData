@@ -1,19 +1,19 @@
-.eael-counter {
+.sa-el-counter {
   display: inline-block;
 }
 
-.eael-counter-icon-wrap, .eael-counter-icon, .eael-counter-icon-divider, .eael-counter-num-divider {
+.sa-el-counter-icon-wrap, .sa-el-counter-icon, .sa-el-counter-icon-divider, .sa-el-counter-num-divider {
   display: inline-block;
 }
 
-.eael-counter-icon {
+.sa-el-counter-icon {
   line-height: 1;
 }
 
-.eael-counter-layout-3-number-wrap,
-.eael-counter-layout-3 .eael-icon-title-wrap,
-.eael-counter-layout-4-number-wrap,
-.eael-counter-layout-4 .eael-icon-title-wrap {
+.sa-el-counter-layout-3-number-wrap,
+.sa-el-counter-layout-3 .sa-el-icon-title-wrap,
+.sa-el-counter-layout-4-number-wrap,
+.sa-el-counter-layout-4 .sa-el-icon-title-wrap {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -28,7 +28,7 @@
           justify-content: center;
 }
 
-.eael-counter-layout-5, .eael-counter-layout-6 {
+.sa-el-counter-layout-5, .sa-el-counter-layout-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -43,13 +43,13 @@
           justify-content: center;
 }
 
-.eael-counter-layout-6 .eael-counter-icon-wrap {
+.sa-el-counter-layout-6 .sa-el-counter-icon-wrap {
   -webkit-box-ordinal-group: 3;
   -webkit-order: 2;
       -ms-flex-order: 2;
           order: 2;
 }
 
-.eael-counter .eael-icon-title-wrap .eael-counter-title {
+.sa-el-counter .sa-el-icon-title-wrap .sa-el-counter-title {
   display: inline-block;
 }

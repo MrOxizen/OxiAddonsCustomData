@@ -48,26 +48,26 @@ class Counter extends Widget_Base {
          */
         $this->start_controls_section(
                 'section_counter', [
-                'label' => __('Counter', 'essential-addons-elementor'),
+                'label' => __('Counter', SA_ELEMENTOR_TEXTDOMAIN),
                 ]
         );
 
         $this->add_control(
-                'eael_icon_type', [
-            'label' => esc_html__('Icon Type', 'essential-addons-elementor'),
+                'sa_el_icon_type', [
+            'label' => esc_html__('Icon Type', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::CHOOSE,
             'label_block' => false,
             'options' => [
                 'none' => [
-                    'title' => esc_html__('None', 'essential-addons-elementor'),
+                    'title' => esc_html__('None', SA_ELEMENTOR_TEXTDOMAIN),
                     'icon' => 'fa fa-ban',
                 ],
                 'icon' => [
-                    'title' => esc_html__('Icon', 'essential-addons-elementor'),
+                    'title' => esc_html__('Icon', SA_ELEMENTOR_TEXTDOMAIN),
                     'icon' => 'fa fa-info-circle',
                 ],
                 'image' => [
-                    'title' => esc_html__('Image', 'essential-addons-elementor'),
+                    'title' => esc_html__('Image', SA_ELEMENTOR_TEXTDOMAIN),
                     'icon' => 'fa fa-picture-o',
                 ],
             ],
@@ -77,42 +77,42 @@ class Counter extends Widget_Base {
 
         $this->add_control(
                 'counter_icon', [
-            'label' => __('Icon', 'essential-addons-elementor'),
+            'label' => __('Icon', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::ICON,
             'condition' => [
-                'eael_icon_type' => 'icon',
+                'sa_el_icon_type' => 'icon',
             ],
                 ]
         );
 
         $this->add_control(
                 'icon_image', [
-            'label' => __('Image', 'essential-addons-elementor'),
+            'label' => __('Image', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::MEDIA,
             'default' => [
                 'url' => Utils::get_placeholder_image_src(),
             ],
             'condition' => [
-                'eael_icon_type' => 'image',
+                'sa_el_icon_type' => 'image',
             ],
                 ]
         );
 
         $this->add_control(
                 'ending_number', [
-            'label' => __('Number', 'essential-addons-elementor'),
+            'label' => __('Number', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::NUMBER,
             'dynamic' => [
                 'active' => true,
             ],
-            'default' => __('250', 'essential-addons-elementor'),
+            'default' => __('250', SA_ELEMENTOR_TEXTDOMAIN),
             'separator' => 'before',
                 ]
         );
 
         $this->add_control(
                 'number_prefix', [
-            'label' => __('Number Prefix', 'essential-addons-elementor'),
+            'label' => __('Number Prefix', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::TEXT,
             'dynamic' => [
                 'active' => true,
@@ -122,7 +122,7 @@ class Counter extends Widget_Base {
 
         $this->add_control(
                 'number_suffix', [
-            'label' => __('Number Suffix', 'essential-addons-elementor'),
+            'label' => __('Number Suffix', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::TEXT,
             'dynamic' => [
                 'active' => true,
@@ -132,47 +132,47 @@ class Counter extends Widget_Base {
 
         $this->add_control(
                 'counter_title', [
-            'label' => __('Title', 'essential-addons-elementor'),
+            'label' => __('Title', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::TEXT,
             'dynamic' => [
                 'active' => true,
             ],
-            'default' => __('Counter Title', 'essential-addons-elementor'),
+            'default' => __('Counter Title', SA_ELEMENTOR_TEXTDOMAIN),
             'separator' => 'before',
                 ]
         );
 
         $this->add_control(
                 'title_html_tag', [
-            'label' => __('Title HTML Tag', 'essential-addons-elementor'),
+            'label' => __('Title HTML Tag', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
             'default' => 'div',
             'options' => [
-                'h1' => __('H1', 'essential-addons-elementor'),
-                'h2' => __('H2', 'essential-addons-elementor'),
-                'h3' => __('H3', 'essential-addons-elementor'),
-                'h4' => __('H4', 'essential-addons-elementor'),
-                'h5' => __('H5', 'essential-addons-elementor'),
-                'h6' => __('H6', 'essential-addons-elementor'),
-                'div' => __('div', 'essential-addons-elementor'),
-                'span' => __('span', 'essential-addons-elementor'),
-                'p' => __('p', 'essential-addons-elementor'),
+                'h1' => __('H1', SA_ELEMENTOR_TEXTDOMAIN),
+                'h2' => __('H2', SA_ELEMENTOR_TEXTDOMAIN),
+                'h3' => __('H3', SA_ELEMENTOR_TEXTDOMAIN),
+                'h4' => __('H4', SA_ELEMENTOR_TEXTDOMAIN),
+                'h5' => __('H5', SA_ELEMENTOR_TEXTDOMAIN),
+                'h6' => __('H6', SA_ELEMENTOR_TEXTDOMAIN),
+                'div' => __('div', SA_ELEMENTOR_TEXTDOMAIN),
+                'span' => __('span', SA_ELEMENTOR_TEXTDOMAIN),
+                'p' => __('p', SA_ELEMENTOR_TEXTDOMAIN),
             ],
                 ]
         );
 
         $this->add_control(
                 'counter_layout', [
-            'label' => __('Layout', 'essential-addons-elementor'),
+            'label' => __('Layout', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
             'default' => 'layout-1',
             'options' => [
-                'layout-1' => __('Layout 1', 'essential-addons-elementor'),
-                'layout-2' => __('Layout 2', 'essential-addons-elementor'),
-                'layout-3' => __('Layout 3', 'essential-addons-elementor'),
-                'layout-4' => __('Layout 4', 'essential-addons-elementor'),
-                'layout-5' => __('Layout 5', 'essential-addons-elementor'),
-                'layout-6' => __('Layout 6', 'essential-addons-elementor'),
+                'layout-1' => __('Layout 1', SA_ELEMENTOR_TEXTDOMAIN),
+                'layout-2' => __('Layout 2', SA_ELEMENTOR_TEXTDOMAIN),
+                'layout-3' => __('Layout 3', SA_ELEMENTOR_TEXTDOMAIN),
+                'layout-4' => __('Layout 4', SA_ELEMENTOR_TEXTDOMAIN),
+                'layout-5' => __('Layout 5', SA_ELEMENTOR_TEXTDOMAIN),
+                'layout-6' => __('Layout 6', SA_ELEMENTOR_TEXTDOMAIN),
             ],
             'separator' => 'before',
                 ]
@@ -185,31 +185,31 @@ class Counter extends Widget_Base {
          */
         $this->start_controls_section(
                 'section_counter_separators', [
-            'label' => __('Dividers', 'essential-addons-elementor'),
+            'label' => __('Dividers', SA_ELEMENTOR_TEXTDOMAIN),
                 ]
         );
 
         $this->add_control(
                 'icon_divider', [
-            'label' => __('Icon Divider', 'essential-addons-elementor'),
+            'label' => __('Icon Divider', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SWITCHER,
             'default' => 'no',
-            'label_on' => __('On', 'essential-addons-elementor'),
-            'label_off' => __('Off', 'essential-addons-elementor'),
+            'label_on' => __('On', SA_ELEMENTOR_TEXTDOMAIN),
+            'label_off' => __('Off', SA_ELEMENTOR_TEXTDOMAIN),
             'return_value' => 'yes',
             'condition' => [
-                'eael_icon_type!' => 'none',
+                'sa_el_icon_type!' => 'none',
             ],
                 ]
         );
 
         $this->add_control(
                 'num_divider', [
-            'label' => __('Number Divider', 'essential-addons-elementor'),
+            'label' => __('Number Divider', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SWITCHER,
             'default' => 'no',
-            'label_on' => __('On', 'essential-addons-elementor'),
-            'label_off' => __('Off', 'essential-addons-elementor'),
+            'label_on' => __('On', SA_ELEMENTOR_TEXTDOMAIN),
+            'label_off' => __('Off', SA_ELEMENTOR_TEXTDOMAIN),
             'return_value' => 'yes',
                 ]
         );
@@ -221,13 +221,13 @@ class Counter extends Widget_Base {
          */
         $this->start_controls_section(
                 'section_counter_settings', [
-            'label' => __('Settings', 'essential-addons-elementor'),
+            'label' => __('Settings', SA_ELEMENTOR_TEXTDOMAIN),
                 ]
         );
 
         $this->add_responsive_control(
                 'counter_speed', [
-            'label' => __('Counting Speed', 'essential-addons-elementor'),
+            'label' => __('Counting Speed', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SLIDER,
             'default' => ['size' => 1500],
             'range' => [
@@ -251,36 +251,36 @@ class Counter extends Widget_Base {
          */
         $this->start_controls_section(
                 'section_style', [
-            'label' => __('Counter', 'essential-addons-elementor'),
+            'label' => __('Counter', SA_ELEMENTOR_TEXTDOMAIN),
             'tab' => Controls_Manager::TAB_STYLE,
                 ]
         );
 
         $this->add_responsive_control(
                 'counter_align', [
-            'label' => __('Alignment', 'essential-addons-elementor'),
+            'label' => __('Alignment', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::CHOOSE,
             'options' => [
                 'left' => [
-                    'title' => __('Left', 'essential-addons-elementor'),
+                    'title' => __('Left', SA_ELEMENTOR_TEXTDOMAIN),
                     'icon' => 'fa fa-align-left',
                 ],
                 'center' => [
-                    'title' => __('Center', 'essential-addons-elementor'),
+                    'title' => __('Center', SA_ELEMENTOR_TEXTDOMAIN),
                     'icon' => 'fa fa-align-center',
                 ],
                 'right' => [
-                    'title' => __('Right', 'essential-addons-elementor'),
+                    'title' => __('Right', SA_ELEMENTOR_TEXTDOMAIN),
                     'icon' => 'fa fa-align-right',
                 ],
                 'justify' => [
-                    'title' => __('Justified', 'essential-addons-elementor'),
+                    'title' => __('Justified', SA_ELEMENTOR_TEXTDOMAIN),
                     'icon' => 'fa fa-align-justify',
                 ],
             ],
             'default' => 'center',
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-container' => 'text-align: {{VALUE}};',
+                '{{WRAPPER}} .sa-el-counter-container' => 'text-align: {{VALUE}};',
             ],
                 ]
         );
@@ -292,10 +292,10 @@ class Counter extends Widget_Base {
          */
         $this->start_controls_section(
                 'section_counter_icon_style', [
-            'label' => __('Icon', 'essential-addons-elementor'),
+            'label' => __('Icon', SA_ELEMENTOR_TEXTDOMAIN),
             'tab' => Controls_Manager::TAB_STYLE,
             'condition' => [
-                'eael_icon_type!' => 'none',
+                'sa_el_icon_type!' => 'none',
             ],
                 ]
         );
@@ -303,32 +303,32 @@ class Counter extends Widget_Base {
         $this->add_group_control(
                 Group_Control_Background::get_type(), [
             'name' => 'counter_icon_bg',
-            'label' => __('Background', 'essential-addons-elementor'),
+            'label' => __('Background', SA_ELEMENTOR_TEXTDOMAIN),
             'types' => ['none', 'classic', 'gradient'],
             'condition' => [
-                'eael_icon_type!' => 'none',
+                'sa_el_icon_type!' => 'none',
             ],
-            'selector' => '{{WRAPPER}} .eael-counter-icon',
+            'selector' => '{{WRAPPER}} .sa-el-counter-icon',
                 ]
         );
 
         $this->add_control(
                 'counter_icon_color', [
-            'label' => __('Color', 'essential-addons-elementor'),
+            'label' => __('Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
             'default' => '',
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-icon' => 'color: {{VALUE}};',
+                '{{WRAPPER}} .sa-el-counter-icon' => 'color: {{VALUE}};',
             ],
             'condition' => [
-                'eael_icon_type' => 'icon',
+                'sa_el_icon_type' => 'icon',
             ],
                 ]
         );
 
         $this->add_responsive_control(
                 'counter_icon_size', [
-            'label' => __('Size', 'essential-addons-elementor'),
+            'label' => __('Size', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'px' => [
@@ -339,17 +339,17 @@ class Counter extends Widget_Base {
             ],
             'size_units' => ['px', 'em'],
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-icon' => 'font-size: {{SIZE}}{{UNIT}}',
+                '{{WRAPPER}} .sa-el-counter-icon' => 'font-size: {{SIZE}}{{UNIT}}',
             ],
             'condition' => [
-                'eael_icon_type' => 'icon',
+                'sa_el_icon_type' => 'icon',
             ],
                 ]
         );
 
         $this->add_responsive_control(
                 'counter_icon_img_width', [
-            'label' => __('Image Width', 'essential-addons-elementor'),
+            'label' => __('Image Width', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'px' => [
@@ -360,17 +360,17 @@ class Counter extends Widget_Base {
             ],
             'size_units' => ['px', '%'],
             'condition' => [
-                'eael_icon_type' => 'image',
+                'sa_el_icon_type' => 'image',
             ],
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-icon img' => 'width: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}} .sa-el-counter-icon img' => 'width: {{SIZE}}{{UNIT}};',
             ],
                 ]
         );
 
         $this->add_responsive_control(
                 'counter_icon_rotation', [
-            'label' => __('Rotation', 'essential-addons-elementor'),
+            'label' => __('Rotation', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'px' => [
@@ -381,10 +381,10 @@ class Counter extends Widget_Base {
             ],
             'size_units' => '',
             'condition' => [
-                'eael_icon_type!' => 'none',
+                'sa_el_icon_type!' => 'none',
             ],
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-icon .fa, {{WRAPPER}} .eael-counter-icon img' => 'transform: rotate( {{SIZE}}deg );',
+                '{{WRAPPER}} .sa-el-counter-icon .fa, {{WRAPPER}} .sa-el-counter-icon img' => 'transform: rotate( {{SIZE}}deg );',
             ],
                 ]
         );
@@ -392,33 +392,33 @@ class Counter extends Widget_Base {
         $this->add_group_control(
                 Group_Control_Border::get_type(), [
             'name' => 'counter_icon_border',
-            'label' => __('Border', 'essential-addons-elementor'),
+            'label' => __('Border', SA_ELEMENTOR_TEXTDOMAIN),
             'placeholder' => '1px',
             'default' => '1px',
-            'selector' => '{{WRAPPER}} .eael-counter-icon',
+            'selector' => '{{WRAPPER}} .sa-el-counter-icon',
             'condition' => [
-                'eael_icon_type!' => 'none',
+                'sa_el_icon_type!' => 'none',
             ],
                 ]
         );
 
         $this->add_control(
                 'counter_icon_border_radius', [
-            'label' => __('Border Radius', 'essential-addons-elementor'),
+            'label' => __('Border Radius', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', '%'],
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} .sa-el-counter-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
             ],
             'condition' => [
-                'eael_icon_type!' => 'none',
+                'sa_el_icon_type!' => 'none',
             ],
                 ]
         );
 
         $this->add_responsive_control(
                 'counter_icon_padding', [
-            'label' => __('Padding', 'essential-addons-elementor'),
+            'label' => __('Padding', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', '%'],
             'placeholder' => [
@@ -428,17 +428,17 @@ class Counter extends Widget_Base {
                 'left' => '',
             ],
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-icon' => 'padding-top: {{TOP}}{{UNIT}}; padding-left: {{LEFT}}{{UNIT}}; padding-right: {{RIGHT}}{{UNIT}}; padding-bottom: {{BOTTOM}}{{UNIT}};',
+                '{{WRAPPER}} .sa-el-counter-icon' => 'padding-top: {{TOP}}{{UNIT}}; padding-left: {{LEFT}}{{UNIT}}; padding-right: {{RIGHT}}{{UNIT}}; padding-bottom: {{BOTTOM}}{{UNIT}};',
             ],
             'condition' => [
-                'eael_icon_type!' => 'none',
+                'sa_el_icon_type!' => 'none',
             ],
                 ]
         );
 
         $this->add_responsive_control(
                 'counter_icon_margin', [
-            'label' => __('Margin', 'essential-addons-elementor'),
+            'label' => __('Margin', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', '%'],
             'placeholder' => [
@@ -448,21 +448,21 @@ class Counter extends Widget_Base {
                 'left' => '',
             ],
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-icon-wrap' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
+                '{{WRAPPER}} .sa-el-counter-icon-wrap' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
             ],
             'condition' => [
-                'eael_icon_type!' => 'none',
+                'sa_el_icon_type!' => 'none',
             ],
                 ]
         );
 
         $this->add_control(
                 'icon_divider_heading', [
-            'label' => __('Icon Divider', 'essential-addons-elementor'),
+            'label' => __('Icon Divider', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::HEADING,
             'separator' => 'before',
             'condition' => [
-                'eael_icon_type!' => 'none',
+                'sa_el_icon_type!' => 'none',
                 'icon_divider' => 'yes',
             ],
                 ]
@@ -470,20 +470,20 @@ class Counter extends Widget_Base {
 
         $this->add_control(
                 'icon_divider_type', [
-            'label' => __('Divider Type', 'essential-addons-elementor'),
+            'label' => __('Divider Type', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
             'default' => 'solid',
             'options' => [
-                'solid' => __('Solid', 'essential-addons-elementor'),
-                'double' => __('Double', 'essential-addons-elementor'),
-                'dotted' => __('Dotted', 'essential-addons-elementor'),
-                'dashed' => __('Dashed', 'essential-addons-elementor'),
+                'solid' => __('Solid', SA_ELEMENTOR_TEXTDOMAIN),
+                'double' => __('Double', SA_ELEMENTOR_TEXTDOMAIN),
+                'dotted' => __('Dotted', SA_ELEMENTOR_TEXTDOMAIN),
+                'dashed' => __('Dashed', SA_ELEMENTOR_TEXTDOMAIN),
             ],
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-icon-divider' => 'border-bottom-style: {{VALUE}}',
+                '{{WRAPPER}} .sa-el-counter-icon-divider' => 'border-bottom-style: {{VALUE}}',
             ],
             'condition' => [
-                'eael_icon_type!' => 'none',
+                'sa_el_icon_type!' => 'none',
                 'icon_divider' => 'yes',
             ],
                 ]
@@ -491,7 +491,7 @@ class Counter extends Widget_Base {
 
         $this->add_responsive_control(
                 'icon_divider_height', [
-            'label' => __('Height', 'essential-addons-elementor'),
+            'label' => __('Height', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SLIDER,
             'default' => [
                 'size' => 2,
@@ -505,10 +505,10 @@ class Counter extends Widget_Base {
             ],
             'size_units' => ['px'],
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-icon-divider' => 'border-bottom-width: {{SIZE}}{{UNIT}}',
+                '{{WRAPPER}} .sa-el-counter-icon-divider' => 'border-bottom-width: {{SIZE}}{{UNIT}}',
             ],
             'condition' => [
-                'eael_icon_type!' => 'none',
+                'sa_el_icon_type!' => 'none',
                 'icon_divider' => 'yes',
             ],
                 ]
@@ -516,7 +516,7 @@ class Counter extends Widget_Base {
 
         $this->add_responsive_control(
                 'icon_divider_width', [
-            'label' => __('Width', 'essential-addons-elementor'),
+            'label' => __('Width', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SLIDER,
             'default' => [
                 'size' => 30,
@@ -535,10 +535,10 @@ class Counter extends Widget_Base {
             ],
             'size_units' => ['px', '%'],
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-icon-divider' => 'width: {{SIZE}}{{UNIT}}',
+                '{{WRAPPER}} .sa-el-counter-icon-divider' => 'width: {{SIZE}}{{UNIT}}',
             ],
             'condition' => [
-                'eael_icon_type!' => 'none',
+                'sa_el_icon_type!' => 'none',
                 'icon_divider' => 'yes',
             ],
                 ]
@@ -546,14 +546,14 @@ class Counter extends Widget_Base {
 
         $this->add_control(
                 'icon_divider_color', [
-            'label' => __('Color', 'essential-addons-elementor'),
+            'label' => __('Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
             'default' => '',
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-icon-divider' => 'border-bottom-color: {{VALUE}}',
+                '{{WRAPPER}} .sa-el-counter-icon-divider' => 'border-bottom-color: {{VALUE}}',
             ],
             'condition' => [
-                'eael_icon_type!' => 'none',
+                'sa_el_icon_type!' => 'none',
                 'icon_divider' => 'yes',
             ],
                 ]
@@ -561,7 +561,7 @@ class Counter extends Widget_Base {
 
         $this->add_responsive_control(
                 'icon_divider_margin', [
-            'label' => __('Spacing', 'essential-addons-elementor'),
+            'label' => __('Spacing', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'px' => [
@@ -577,10 +577,10 @@ class Counter extends Widget_Base {
             ],
             'size_units' => ['px', '%'],
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-icon-divider-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+                '{{WRAPPER}} .sa-el-counter-icon-divider-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}}',
             ],
             'condition' => [
-                'eael_icon_type!' => 'none',
+                'sa_el_icon_type!' => 'none',
                 'icon_divider' => 'yes',
             ],
                 ]
@@ -593,18 +593,18 @@ class Counter extends Widget_Base {
          */
         $this->start_controls_section(
                 'section_counter_num_style', [
-            'label' => __('Number', 'essential-addons-elementor'),
+            'label' => __('Number', SA_ELEMENTOR_TEXTDOMAIN),
             'tab' => Controls_Manager::TAB_STYLE,
                 ]
         );
 
         $this->add_control(
                 'counter_num_color', [
-            'label' => __('Number Color', 'essential-addons-elementor'),
+            'label' => __('Number Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
             'default' => '',
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-number' => 'color: {{VALUE}};',
+                '{{WRAPPER}} .sa-el-counter-number' => 'color: {{VALUE}};',
             ],
                 ]
         );
@@ -612,14 +612,14 @@ class Counter extends Widget_Base {
         $this->add_group_control(
                 Group_Control_Typography::get_type(), [
             'name' => 'counter_num_typography',
-            'label' => __('Typography', 'essential-addons-elementor'),
-            'selector' => '{{WRAPPER}} .eael-counter-number-wrap',
+            'label' => __('Typography', SA_ELEMENTOR_TEXTDOMAIN),
+            'selector' => '{{WRAPPER}} .sa-el-counter-number-wrap',
                 ]
         );
 
         $this->add_responsive_control(
                 'counter_num_margin', [
-            'label' => __('Margin', 'essential-addons-elementor'),
+            'label' => __('Margin', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', '%'],
             'placeholder' => [
@@ -629,14 +629,14 @@ class Counter extends Widget_Base {
                 'left' => '',
             ],
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-number-wrap' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
+                '{{WRAPPER}} .sa-el-counter-number-wrap' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
             ],
                 ]
         );
 
         $this->add_control(
                 'num_divider_heading', [
-            'label' => __('Number Divider', 'essential-addons-elementor'),
+            'label' => __('Number Divider', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::HEADING,
             'separator' => 'before',
             'condition' => [
@@ -647,17 +647,17 @@ class Counter extends Widget_Base {
 
         $this->add_control(
                 'num_divider_type', [
-            'label' => __('Divider Type', 'essential-addons-elementor'),
+            'label' => __('Divider Type', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
             'default' => 'solid',
             'options' => [
-                'solid' => __('Solid', 'essential-addons-elementor'),
-                'double' => __('Double', 'essential-addons-elementor'),
-                'dotted' => __('Dotted', 'essential-addons-elementor'),
-                'dashed' => __('Dashed', 'essential-addons-elementor'),
+                'solid' => __('Solid', SA_ELEMENTOR_TEXTDOMAIN),
+                'double' => __('Double', SA_ELEMENTOR_TEXTDOMAIN),
+                'dotted' => __('Dotted', SA_ELEMENTOR_TEXTDOMAIN),
+                'dashed' => __('Dashed', SA_ELEMENTOR_TEXTDOMAIN),
             ],
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-num-divider' => 'border-bottom-style: {{VALUE}}',
+                '{{WRAPPER}} .sa-el-counter-num-divider' => 'border-bottom-style: {{VALUE}}',
             ],
             'condition' => [
                 'num_divider' => 'yes',
@@ -667,7 +667,7 @@ class Counter extends Widget_Base {
 
         $this->add_responsive_control(
                 'num_divider_height', [
-            'label' => __('Height', 'essential-addons-elementor'),
+            'label' => __('Height', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SLIDER,
             'default' => [
                 'size' => 2,
@@ -681,7 +681,7 @@ class Counter extends Widget_Base {
             ],
             'size_units' => ['px'],
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-num-divider' => 'border-bottom-width: {{SIZE}}{{UNIT}}',
+                '{{WRAPPER}} .sa-el-counter-num-divider' => 'border-bottom-width: {{SIZE}}{{UNIT}}',
             ],
             'condition' => [
                 'num_divider' => 'yes',
@@ -691,7 +691,7 @@ class Counter extends Widget_Base {
 
         $this->add_responsive_control(
                 'num_divider_width', [
-            'label' => __('Width', 'essential-addons-elementor'),
+            'label' => __('Width', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SLIDER,
             'default' => [
                 'size' => 30,
@@ -710,7 +710,7 @@ class Counter extends Widget_Base {
             ],
             'size_units' => ['px', '%'],
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-num-divider' => 'width: {{SIZE}}{{UNIT}}',
+                '{{WRAPPER}} .sa-el-counter-num-divider' => 'width: {{SIZE}}{{UNIT}}',
             ],
             'condition' => [
                 'num_divider' => 'yes',
@@ -720,11 +720,11 @@ class Counter extends Widget_Base {
 
         $this->add_control(
                 'num_divider_color', [
-            'label' => __('Color', 'essential-addons-elementor'),
+            'label' => __('Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
             'default' => '',
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-num-divider' => 'border-bottom-color: {{VALUE}}',
+                '{{WRAPPER}} .sa-el-counter-num-divider' => 'border-bottom-color: {{VALUE}}',
             ],
             'condition' => [
                 'num_divider' => 'yes',
@@ -734,7 +734,7 @@ class Counter extends Widget_Base {
 
         $this->add_responsive_control(
                 'num_divider_margin', [
-            'label' => __('Spacing', 'essential-addons-elementor'),
+            'label' => __('Spacing', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'px' => [
@@ -750,7 +750,7 @@ class Counter extends Widget_Base {
             ],
             'size_units' => ['px', '%'],
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-num-divider-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+                '{{WRAPPER}} .sa-el-counter-num-divider-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}}',
             ],
             'condition' => [
                 'num_divider' => 'yes',
@@ -765,7 +765,7 @@ class Counter extends Widget_Base {
          */
         $this->start_controls_section(
                 'section_number_prefix_style', [
-            'label' => __('Prefix', 'essential-addons-elementor'),
+            'label' => __('Prefix', SA_ELEMENTOR_TEXTDOMAIN),
             'tab' => Controls_Manager::TAB_STYLE,
             'condition' => [
                 'number_prefix!' => '',
@@ -775,11 +775,11 @@ class Counter extends Widget_Base {
 
         $this->add_control(
                 'number_prefix_color', [
-            'label' => __('Color', 'essential-addons-elementor'),
+            'label' => __('Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
             'default' => '',
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-number-prefix' => 'color: {{VALUE}};',
+                '{{WRAPPER}} .sa-el-counter-number-prefix' => 'color: {{VALUE}};',
             ],
             'condition' => [
                 'number_prefix!' => '',
@@ -790,8 +790,8 @@ class Counter extends Widget_Base {
         $this->add_group_control(
                 Group_Control_Typography::get_type(), [
             'name' => 'number_prefix_typography',
-            'label' => __('Typography', 'essential-addons-elementor'),
-            'selector' => '{{WRAPPER}} .eael-counter-number-prefix',
+            'label' => __('Typography', SA_ELEMENTOR_TEXTDOMAIN),
+            'selector' => '{{WRAPPER}} .sa-el-counter-number-prefix',
             'condition' => [
                 'number_prefix!' => '',
             ],
@@ -805,7 +805,7 @@ class Counter extends Widget_Base {
          */
         $this->start_controls_section(
                 'section_number_suffix_style', [
-            'label' => __('Suffix', 'essential-addons-elementor'),
+            'label' => __('Suffix', SA_ELEMENTOR_TEXTDOMAIN),
             'tab' => Controls_Manager::TAB_STYLE,
             'condition' => [
                 'number_suffix!' => '',
@@ -815,11 +815,11 @@ class Counter extends Widget_Base {
 
         $this->add_control(
                 'section_number_suffix_color', [
-            'label' => __('Color', 'essential-addons-elementor'),
+            'label' => __('Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
             'default' => '',
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-number-suffix' => 'color: {{VALUE}};',
+                '{{WRAPPER}} .sa-el-counter-number-suffix' => 'color: {{VALUE}};',
             ],
             'condition' => [
                 'number_suffix!' => '',
@@ -830,8 +830,8 @@ class Counter extends Widget_Base {
         $this->add_group_control(
                 Group_Control_Typography::get_type(), [
             'name' => 'section_number_suffix_typography',
-            'label' => __('Typography', 'essential-addons-elementor'),
-            'selector' => '{{WRAPPER}} .eael-counter-number-suffix',
+            'label' => __('Typography', SA_ELEMENTOR_TEXTDOMAIN),
+            'selector' => '{{WRAPPER}} .sa-el-counter-number-suffix',
             'condition' => [
                 'number_suffix!' => '',
             ],
@@ -842,7 +842,7 @@ class Counter extends Widget_Base {
 
         $this->start_controls_section(
                 'section_counter_title_style', [
-            'label' => __('Title', 'essential-addons-elementor'),
+            'label' => __('Title', SA_ELEMENTOR_TEXTDOMAIN),
             'tab' => Controls_Manager::TAB_STYLE,
             'condition' => [
                 'counter_title!' => '',
@@ -852,11 +852,11 @@ class Counter extends Widget_Base {
 
         $this->add_control(
                 'counter_title_color', [
-            'label' => __('Text Color', 'essential-addons-elementor'),
+            'label' => __('Text Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
             'default' => '',
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-title' => 'color: {{VALUE}};',
+                '{{WRAPPER}} .sa-el-counter-title' => 'color: {{VALUE}};',
             ],
             'condition' => [
                 'counter_title!' => '',
@@ -866,11 +866,11 @@ class Counter extends Widget_Base {
 
         $this->add_control(
                 'counter_title_bg_color', [
-            'label' => __('Background Color', 'essential-addons-elementor'),
+            'label' => __('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
             'default' => '',
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-title' => 'background-color: {{VALUE}};',
+                '{{WRAPPER}} .sa-el-counter-title' => 'background-color: {{VALUE}};',
             ],
             'condition' => [
                 'counter_title!' => '',
@@ -881,8 +881,8 @@ class Counter extends Widget_Base {
         $this->add_group_control(
                 Group_Control_Typography::get_type(), [
             'name' => 'counter_title_typography',
-            'label' => __('Typography', 'essential-addons-elementor'),
-            'selector' => '{{WRAPPER}} .eael-counter-title',
+            'label' => __('Typography', SA_ELEMENTOR_TEXTDOMAIN),
+            'selector' => '{{WRAPPER}} .sa-el-counter-title',
             'condition' => [
                 'counter_title!' => '',
             ],
@@ -891,7 +891,7 @@ class Counter extends Widget_Base {
 
         $this->add_responsive_control(
                 'counter_title_margin', [
-            'label' => __('Margin', 'essential-addons-elementor'),
+            'label' => __('Margin', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', '%'],
             'placeholder' => [
@@ -901,7 +901,7 @@ class Counter extends Widget_Base {
                 'left' => '',
             ],
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-title' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
+                '{{WRAPPER}} .sa-el-counter-title' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
             ],
             'condition' => [
                 'counter_title!' => '',
@@ -911,7 +911,7 @@ class Counter extends Widget_Base {
 
         $this->add_responsive_control(
                 'counter_title_padding', [
-            'label' => __('Padding', 'essential-addons-elementor'),
+            'label' => __('Padding', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', '%'],
             'placeholder' => [
@@ -921,7 +921,7 @@ class Counter extends Widget_Base {
                 'left' => '',
             ],
             'selectors' => [
-                '{{WRAPPER}} .eael-counter-title' => 'padding-top: {{TOP}}{{UNIT}}; padding-left: {{LEFT}}{{UNIT}}; padding-right: {{RIGHT}}{{UNIT}}; padding-bottom: {{BOTTOM}}{{UNIT}};',
+                '{{WRAPPER}} .sa-el-counter-title' => 'padding-top: {{TOP}}{{UNIT}}; padding-left: {{LEFT}}{{UNIT}}; padding-right: {{RIGHT}}{{UNIT}}; padding-bottom: {{BOTTOM}}{{UNIT}};',
             ],
             'condition' => [
                 'counter_title!' => '',
@@ -938,15 +938,15 @@ class Counter extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
 
-        $this->add_render_attribute('counter', 'class', 'eael-counter eael-counter-' . esc_attr($this->get_id()));
+        $this->add_render_attribute('counter', 'class', 'sa-el-counter sa-el-counter-' . esc_attr($this->get_id()));
 
         if ($settings['counter_layout']) {
-            $this->add_render_attribute('counter', 'class', 'eael-counter-' . $settings['counter_layout']);
+            $this->add_render_attribute('counter', 'class', 'sa-el-counter-' . $settings['counter_layout']);
         }
 
-        $this->add_render_attribute('counter', 'data-target', '.eael-counter-number-' . esc_attr($this->get_id()));
+        $this->add_render_attribute('counter', 'data-target', '.sa-el-counter-number-' . esc_attr($this->get_id()));
 
-        $this->add_render_attribute('counter-number', 'class', 'eael-counter-number eael-counter-number-' . esc_attr($this->get_id()));
+        $this->add_render_attribute('counter-number', 'class', 'sa-el-counter-number sa-el-counter-number-' . esc_attr($this->get_id()));
 
         if ($settings['ending_number'] != '') {
             $this->add_render_attribute('counter-number', 'data-to', $settings['ending_number']);
@@ -957,9 +957,9 @@ class Counter extends Widget_Base {
         }
 
         $this->add_inline_editing_attributes('counter_title', 'none');
-        $this->add_render_attribute('counter_title', 'class', 'eael-counter-title');
+        $this->add_render_attribute('counter_title', 'class', 'sa-el-counter-title');
         ?>
-        <div class="eael-counter-container">
+        <div class="sa-el-counter-container">
             <div <?php echo $this->get_render_attribute_string('counter'); ?>>
         <?php if ($settings['counter_layout'] == 'layout-1' || $settings['counter_layout'] == 'layout-5' || $settings['counter_layout'] == 'layout-6') { ?>
             <?php
@@ -967,11 +967,11 @@ class Counter extends Widget_Base {
             $this->render_icon();
             ?>
 
-                    <div class="eael-counter-number-title-wrap">
-                        <div class="eael-counter-number-wrap">
+                    <div class="sa-el-counter-number-title-wrap">
+                        <div class="sa-el-counter-number-wrap">
             <?php
             if ($settings['number_prefix'] != '') {
-                printf('<span class="eael-counter-number-prefix">%1$s</span>', $settings['number_prefix']);
+                printf('<span class="sa-el-counter-number-prefix">%1$s</span>', $settings['number_prefix']);
             }
             ?>
                             <div <?php echo $this->get_render_attribute_string('counter-number'); ?>>
@@ -979,14 +979,14 @@ class Counter extends Widget_Base {
                             </div>
             <?php
             if ($settings['number_suffix'] != '') {
-                printf('<span class="eael-counter-number-suffix">%1$s</span>', $settings['number_suffix']);
+                printf('<span class="sa-el-counter-number-suffix">%1$s</span>', $settings['number_suffix']);
             }
             ?>
                         </div>
 
             <?php if ($settings['num_divider'] == 'yes') { ?>
-                            <div class="eael-counter-num-divider-wrap">
-                                <span class="eael-counter-num-divider"></span>
+                            <div class="sa-el-counter-num-divider-wrap">
+                                <span class="sa-el-counter-num-divider"></span>
                             </div>
             <?php } ?>
 
@@ -1010,10 +1010,10 @@ class Counter extends Widget_Base {
             }
             ?>
 
-                    <div class="eael-counter-number-wrap">
+                    <div class="sa-el-counter-number-wrap">
             <?php
             if ($settings['number_prefix'] != '') {
-                printf('<span class="eael-counter-number-prefix">%1$s</span>', $settings['number_prefix']);
+                printf('<span class="sa-el-counter-number-prefix">%1$s</span>', $settings['number_prefix']);
             }
             ?>
                         <div <?php echo $this->get_render_attribute_string('counter-number'); ?>>
@@ -1021,21 +1021,21 @@ class Counter extends Widget_Base {
                         </div>
                     <?php
                     if ($settings['number_suffix'] != '') {
-                        printf('<span class="eael-counter-number-suffix">%1$s</span>', $settings['number_suffix']);
+                        printf('<span class="sa-el-counter-number-suffix">%1$s</span>', $settings['number_suffix']);
                     }
                     ?>
                     </div>
 
                             <?php if ($settings['num_divider'] == 'yes') { ?>
-                        <div class="eael-counter-num-divider-wrap">
-                            <span class="eael-counter-num-divider"></span>
+                        <div class="sa-el-counter-num-divider-wrap">
+                            <span class="sa-el-counter-num-divider"></span>
                         </div>
                             <?php } ?>
         <?php } elseif ($settings['counter_layout'] == 'layout-3') { ?>
-                    <div class="eael-counter-number-wrap">
+                    <div class="sa-el-counter-number-wrap">
                             <?php
                             if ($settings['number_prefix'] != '') {
-                                printf('<span class="eael-counter-number-prefix">%1$s</span>', $settings['number_prefix']);
+                                printf('<span class="sa-el-counter-number-prefix">%1$s</span>', $settings['number_prefix']);
                             }
                             ?>
                         <div <?php echo $this->get_render_attribute_string('counter-number'); ?>>
@@ -1043,18 +1043,18 @@ class Counter extends Widget_Base {
                         </div>
                         <?php
                         if ($settings['number_suffix'] != '') {
-                            printf('<span class="eael-counter-number-suffix">%1$s</span>', $settings['number_suffix']);
+                            printf('<span class="sa-el-counter-number-suffix">%1$s</span>', $settings['number_suffix']);
                         }
                         ?>
                     </div>
 
                         <?php if ($settings['num_divider'] == 'yes') { ?>
-                        <div class="eael-counter-num-divider-wrap">
-                            <span class="eael-counter-num-divider"></span>
+                        <div class="sa-el-counter-num-divider-wrap">
+                            <span class="sa-el-counter-num-divider"></span>
                         </div>
                         <?php } ?>
 
-                    <div class="eael-icon-title-wrap">
+                    <div class="sa-el-icon-title-wrap">
                     <?php
                     // Counter icon
                     $this->render_icon();
@@ -1067,7 +1067,7 @@ class Counter extends Widget_Base {
                     ?>
                     </div>
         <?php } elseif ($settings['counter_layout'] == 'layout-4') { ?>
-                    <div class="eael-icon-title-wrap">
+                    <div class="sa-el-icon-title-wrap">
                         <?php
                         // Counter icon
                         $this->render_icon();
@@ -1080,10 +1080,10 @@ class Counter extends Widget_Base {
                         ?>
                     </div>
 
-                    <div class="eael-counter-number-wrap">
+                    <div class="sa-el-counter-number-wrap">
             <?php
             if ($settings['number_prefix'] != '') {
-                printf('<span class="eael-counter-number-prefix">%1$s</span>', $settings['number_prefix']);
+                printf('<span class="sa-el-counter-number-prefix">%1$s</span>', $settings['number_prefix']);
             }
             ?>
                         <div <?php echo $this->get_render_attribute_string('counter-number'); ?>>
@@ -1091,19 +1091,19 @@ class Counter extends Widget_Base {
                         </div>
                         <?php
                         if ($settings['number_suffix'] != '') {
-                            printf('<span class="eael-counter-number-suffix">%1$s</span>', $settings['number_suffix']);
+                            printf('<span class="sa-el-counter-number-suffix">%1$s</span>', $settings['number_suffix']);
                         }
                         ?>
                     </div>
 
             <?php if ($settings['num_divider'] == 'yes') { ?>
-                        <div class="eael-counter-num-divider-wrap">
-                            <span class="eael-counter-num-divider"></span>
+                        <div class="sa-el-counter-num-divider-wrap">
+                            <span class="sa-el-counter-num-divider"></span>
                         </div>
                         <?php } ?>
                     <?php } ?>
             </div>
-        </div><!-- .eael-counter-container -->
+        </div><!-- .sa-el-counter-container -->
                 <?php
             }
 
@@ -1113,22 +1113,22 @@ class Counter extends Widget_Base {
             private function render_icon() {
                 $settings = $this->get_settings_for_display();
 
-                if ($settings['eael_icon_type'] == 'icon') {
+                if ($settings['sa_el_icon_type'] == 'icon') {
                     if (!empty($settings['counter_icon'])) {
                         ?>
-                <span class="eael-counter-icon-wrap">
-                    <span class="eael-counter-icon">
+                <span class="sa-el-counter-icon-wrap">
+                    <span class="sa-el-counter-icon">
                         <span class="<?php echo $settings['counter_icon'] ?>" aria-hidden="true"></span>
                     </span>
                 </span>
                         <?php
                         }
-                    } elseif ($settings['eael_icon_type'] == 'image') {
+                    } elseif ($settings['sa_el_icon_type'] == 'image') {
                         $image = $settings['icon_image'];
                         if ($image['url']) {
                             ?>
-                <span class="eael-counter-icon-wrap">
-                    <span class="eael-counter-icon eael-counter-icon-img">
+                <span class="sa-el-counter-icon-wrap">
+                    <span class="sa-el-counter-icon sa-el-counter-icon-img">
                         <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr(get_post_meta($image['id'], '_wp_attachment_image_alt', true)); ?>">
                     </span>
                 </span>
@@ -1139,8 +1139,8 @@ class Counter extends Widget_Base {
                     if ($settings['icon_divider'] == 'yes') {
                         if ($settings['counter_layout'] == 'layout-1' || $settings['counter_layout'] == 'layout-2') {
                             ?>
-                <div class="eael-counter-icon-divider-wrap">
-                    <span class="eael-counter-icon-divider"></span>
+                <div class="sa-el-counter-icon-divider-wrap">
+                    <span class="sa-el-counter-icon-divider"></span>
                 </div>
                             <?php
                         }
@@ -1152,18 +1152,18 @@ class Counter extends Widget_Base {
                  */
                 protected function _icon_template() {
                     ?>
-        <# if ( settings.eael_icon_type == 'icon' ) { #>
+        <# if ( settings.sa_el_icon_type == 'icon' ) { #>
         <# if ( settings.counter_icon != '' ) { #>
-        <span class="eael-counter-icon-wrap">
-            <span class="eael-counter-icon">
+        <span class="sa-el-counter-icon-wrap">
+            <span class="sa-el-counter-icon">
                 <span class="{{ settings.counter_icon }}" aria-hidden="true"></span>
             </span>
         </span>
         <# } #>
-        <# } else if ( settings.eael_icon_type == 'image' ) { #>
+        <# } else if ( settings.sa_el_icon_type == 'image' ) { #>
         <# if ( settings.icon_image.url != '' ) { #>
-        <span class="eael-counter-icon-wrap">
-            <span class="eael-counter-icon eael-counter-icon-img">
+        <span class="sa-el-counter-icon-wrap">
+            <span class="sa-el-counter-icon sa-el-counter-icon-img">
                 <img src="{{ settings.icon_image.url }}">
             </span>
         </span>
@@ -1172,8 +1172,8 @@ class Counter extends Widget_Base {
 
         <# if ( settings.icon_divider == 'yes' ) { #>
         <# if ( settings.counter_layout == 'layout-1' || settings.counter_layout == 'layout-2' ) { #>
-        <div class="eael-counter-icon-divider-wrap">
-            <span class="eael-counter-icon-divider"></span>
+        <div class="sa-el-counter-icon-divider-wrap">
+            <span class="sa-el-counter-icon-divider"></span>
         </div>
         <# } #>
         <# } #>
@@ -1185,26 +1185,26 @@ class Counter extends Widget_Base {
      */
     protected function _number_template() {
         ?>
-        <div class="eael-counter-number-wrap">
+        <div class="sa-el-counter-number-wrap">
             <#
             if ( settings.number_prefix != '' ) {
             var prefix = settings.number_prefix;
 
-            view.addRenderAttribute( 'prefix', 'class', 'eael-counter-number-prefix' );
+            view.addRenderAttribute( 'prefix', 'class', 'sa-el-counter-number-prefix' );
 
             var prefix_html = '<span' + ' ' + view.getRenderAttributeString( 'prefix' ) + '>' + prefix + '</span>';
 
             print( prefix_html );
             }
             #>
-            <div class="eael-counter-number" data-to="{{ settings.ending_number }}" data-speed="{{ settings.counter_speed.size }}">
+            <div class="sa-el-counter-number" data-to="{{ settings.ending_number }}" data-speed="{{ settings.counter_speed.size }}">
                 0
             </div>
             <#
             if ( settings.number_suffix != '' ) {
             var suffix = settings.number_suffix;
 
-            view.addRenderAttribute( 'suffix', 'class', 'eael-counter-number-suffix' );
+            view.addRenderAttribute( 'suffix', 'class', 'sa-el-counter-number-suffix' );
 
             var suffix_html = '<span' + ' ' + view.getRenderAttributeString( 'suffix' ) + '>' + suffix + '</span>';
 
@@ -1224,7 +1224,7 @@ class Counter extends Widget_Base {
         if ( settings.counter_title != '' ) {
         var title = settings.counter_title;
 
-        view.addRenderAttribute( 'counter_title', 'class', 'eael-counter-title' );
+        view.addRenderAttribute( 'counter_title', 'class', 'sa-el-counter-title' );
 
         view.addInlineEditingAttributes( 'counter_title' );
 
@@ -1241,23 +1241,23 @@ class Counter extends Widget_Base {
      */
     protected function _content_template() {
         ?>
-        <div class="eael-counter-container">
-            <div class="eael-counter eael-counter-{{ settings.counter_layout }}" data-target=".eael-counter-number">
+        <div class="sa-el-counter-container">
+            <div class="sa-el-counter sa-el-counter-{{ settings.counter_layout }}" data-target=".sa-el-counter-number">
                 <# if ( settings.counter_layout == 'layout-1' || settings.counter_layout == 'layout-5' || settings.counter_layout == 'layout-6' ) { #>
         <?php
         // Counter icon
         $this->_icon_template();
         ?>
 
-                <div class="eael-counter-number-title-wrap">
+                <div class="sa-el-counter-number-title-wrap">
         <?php
         // Counter number
         $this->_number_template();
         ?>
 
                     <# if ( settings.num_divider == 'yes' ) { #>
-                    <div class="eael-counter-num-divider-wrap">
-                        <span class="eael-counter-num-divider"></span>
+                    <div class="sa-el-counter-num-divider-wrap">
+                        <span class="sa-el-counter-num-divider"></span>
                     </div>
                     <# } #>
 
@@ -1279,8 +1279,8 @@ class Counter extends Widget_Base {
         ?>
 
                 <# if ( settings.num_divider == 'yes' ) { #>
-                <div class="eael-counter-num-divider-wrap">
-                    <span class="eael-counter-num-divider"></span>
+                <div class="sa-el-counter-num-divider-wrap">
+                    <span class="sa-el-counter-num-divider"></span>
                 </div>
                 <# } #>
                 <# } else if ( settings.counter_layout == 'layout-3' ) { #>
@@ -1290,12 +1290,12 @@ class Counter extends Widget_Base {
         ?>
 
                 <# if ( settings.num_divider == 'yes' ) { #>
-                <div class="eael-counter-num-divider-wrap">
-                    <span class="eael-counter-num-divider"></span>
+                <div class="sa-el-counter-num-divider-wrap">
+                    <span class="sa-el-counter-num-divider"></span>
                 </div>
                 <# } #>
 
-                <div class="eael-icon-title-wrap">
+                <div class="sa-el-icon-title-wrap">
                 <?php
                 // Counter icon
                 $this->_icon_template();
@@ -1305,7 +1305,7 @@ class Counter extends Widget_Base {
                 ?>
                 </div>
                 <# } else if ( settings.counter_layout == 'layout-4' ) { #>
-                <div class="eael-icon-title-wrap">
+                <div class="sa-el-icon-title-wrap">
                     <?php
                     // Counter icon
                     $this->_icon_template();
@@ -1321,13 +1321,13 @@ class Counter extends Widget_Base {
                     ?>
 
                 <# if ( settings.num_divider == 'yes' ) { #>
-                <div class="eael-counter-num-divider-wrap">
-                    <span class="eael-counter-num-divider"></span>
+                <div class="sa-el-counter-num-divider-wrap">
+                    <span class="sa-el-counter-num-divider"></span>
                 </div>
                 <# } #>
                 <# } #>
             </div>
-        </div><!-- .eael-counter-container -->
+        </div><!-- .sa-el-counter-container -->
                 <?php
             }
 
