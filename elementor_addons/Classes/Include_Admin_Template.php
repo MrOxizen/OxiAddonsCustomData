@@ -26,7 +26,7 @@ trait Include_Admin_Template {
                 'button',
                 'icon_box',
                 'call_to_action',
-                'Tabs',
+                'tabs',
                 'info_box',
                 'dual_color_heading',
                 'tooltip',
