@@ -1,5 +1,5 @@
     /*________________*/
-    /* 08. Creative Button styles
+    /* Creative Button styles
 /*________________*/
     
     .sa_el_creative_button_wrapper {
@@ -30,7 +30,6 @@
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         -moz-osx-font-smoothing: grayscale;
-        text-decoration: none !important;
     }
     
     .sa_el_creative_button {
@@ -46,7 +45,7 @@
         vertical-align: middle;
     }
     /*______________________*/
-    /* 09. Individual sa_el_creative_button styles
+    /* Individual sa_el_creative_button styles
   /*______________________*/
     /*_- Winona _-*/
     
@@ -301,10 +300,10 @@
         transform: translate3d(0, 100%, 0);
     }
     
-    .sa_el_creative_button.sa_el_creative_button_shutouthor,
-    .sa_el_creative_button.sa_el_creative_button_shutoutver,
     .sa_el_creative_button.sa_el_creative_button_shutinhor,
     .sa_el_creative_button.sa_el_creative_button_shutinver,
+    .sa_el_creative_button.sa_el_creative_button_shutouthor,
+    .sa_el_creative_button.sa_el_creative_button_shutoutver,
     .sa_el_creative_button.sa_el_creative_button_scshutouthor,
     .sa_el_creative_button.sa_el_creative_button_scshutoutver,
     .sa_el_creative_button.sa_el_creative_button_dshutinhor,
