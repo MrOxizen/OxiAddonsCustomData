@@ -52,6 +52,14 @@ trait Public_Helper
                     ],
                 ],
             ],
+            'call_to_action' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Call_To_Action\Call_To_Action',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Call_To_Action/assets/index.min.css',
+                    ],
+                ],
+            ],
         ];
         return $response;
     }
