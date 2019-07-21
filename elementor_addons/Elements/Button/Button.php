@@ -77,7 +77,7 @@ class Button extends Widget_Base
 				'condition'     => [
 					'creative_button_effect' => ['sa_el_creative_button_winona', 'sa_el_creative_button_tamaya', 'sa_el_creative_button_rayen'],
 				],
-			],
+			]
 		);
 
 

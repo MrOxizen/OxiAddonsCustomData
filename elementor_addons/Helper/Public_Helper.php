@@ -87,6 +87,30 @@ trait Public_Helper
                     ]
                 ],
             ],
+            'counter' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Counter\Counter',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/index.min.js',
+                    ],
+                ],
+            ],
+            'count_down' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Count_Down\Count_Down',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Count_Down/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Count_Down/assets/index.min.js',
+                    ],
+                ],
+            ],
+            
+
         ];
         return $response;
     }
