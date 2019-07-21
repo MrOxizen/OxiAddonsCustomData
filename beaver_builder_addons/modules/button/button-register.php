@@ -7,6 +7,28 @@ FLBuilder::register_module('Button_module', array(
     'General' => array(
         'title' => __('Content', SA_FLBUILDER_TEXTDOMAIN),
         'sections' => array(
+            'styling' => array(
+                'title'  => __('Button Style', SA_FLBUILDER_TEXTDOMAIN),
+                'fields' => array(
+                    'styling' => array(
+                        'type'    => 'select',
+                        'label'   => __('Style', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'default',
+                        'options' => array(
+                            'default' => __('Default', SA_FLBUILDER_TEXTDOMAIN),
+                            'icon' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                        'toggle'  => array(
+                            'default'   => array(
+                                'fields' => array('button_width', 'button_padding'),
+                            ),
+                            'icon'   => array(
+                                'fields' => array('button_icon', 'icon_position', 'icon_style', 'icon_button_width', 'icon_button_height'),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
             'general' => array(
                 'title' => '',
                 'fields' => array(
@@ -16,20 +38,49 @@ FLBuilder::register_module('Button_module', array(
                         'default' => __('Click Here', SA_FLBUILDER_TEXTDOMAIN),
                         'preview' => array(
                             'type' => 'text',
-                            'selector' => '.oxi-button-text'
+                            'selector' => '.oxi__button'
                         ),
                         'connections' => array('string', 'html')
                     ),
-                    'icon' => array(
+                    'icon_style' => array(
+                        'type' => 'select',
+                        'label' => __('Show Item', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'show_icon_text',
+                        'options' => array(
+                            'show_text' => __('Show Text', SA_FLBUILDER_TEXTDOMAIN),
+                            'show_icon' => __('Show Icon', SA_FLBUILDER_TEXTDOMAIN),
+                            'show_icon_text' => __('Show Icon & Text', SA_FLBUILDER_TEXTDOMAIN)
+                        ),
+                        'toggle'  => array(
+                            'show_text'   => array(
+                                'fields' => array('icon_animation'),
+                            ),
+                            'show_icon'   => array(
+                                'fields' => array('icon_animation'),
+                            ),
+                            'show_icon_text'   => array(
+                                'fields' => array('icon_position'),
+                            ),
+                        ),
+                    ),
+                    'icon_animation' => array(
+                        'type' => 'select',
+                        'label' => __('Animation', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'default',
+                        'options' => array(
+                            'default' => __('Defalut', SA_FLBUILDER_TEXTDOMAIN),
+                            'left_to_right' => __('Left To Right', SA_FLBUILDER_TEXTDOMAIN),
+                            'right_to_left' => __('Right To Left', SA_FLBUILDER_TEXTDOMAIN),
+                            'top_to_bottom' => __('Top To Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                            'bottom_to_top' => __('Bottom To Top', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                    ),
+                    'button_icon' => array(
                         'type' => 'icon',
                         'label' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
                         'default' => __('', SA_FLBUILDER_TEXTDOMAIN),
                         'placeholder' => 'fa fa-twitter',
                         'help' => __('Insert Font Awesome Icon Class Name', SA_FLBUILDER_TEXTDOMAIN),
-                        'preview' => array(
-                            'type' => 'text',
-                            'selector' => '.oxi-button-icon'
-                        ),
                         'connections' => array('string', 'html'),
                         'show_remove' => true,
                     ),
@@ -64,7 +115,7 @@ FLBuilder::register_module('Button_module', array(
             'formatting' => array(
                 'title'  => __('Structure', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
-                    'width' => array(
+                    'button_width' => array(
                         'type'    => 'select',
                         'label'   => __('Width', SA_FLBUILDER_TEXTDOMAIN),
                         'default' => 'auto',
@@ -75,17 +126,17 @@ FLBuilder::register_module('Button_module', array(
                         ),
                         'toggle'  => array(
                             'auto'   => array(
-                                'fields' => array('align', 'mob_align'),
+                                'fields' => array('button_padding'),
                             ),
                             'full'   => array(
-                                'fields' => array(),
+                                'fields' => array('button_padding'),
                             ),
                             'custom' => array(
-                                'fields' => array('align', 'mob_align', 'custom_width', 'custom_height', 'padding_top_bottom', 'padding_left_right'),
+                                'fields' => array('custom_width', 'custom_height'),
                             ),
                         ),
                     ),
-                    'custom_width'       => array(
+                    'custom_width'  => array(
                         'type'        => 'text',
                         'label'       => __('Custom Width', SA_FLBUILDER_TEXTDOMAIN),
                         'default'     => '200',
@@ -101,6 +152,22 @@ FLBuilder::register_module('Button_module', array(
                         'size'        => '4',
                         'description' => 'px',
                     ),
+                    'icon_button_width'       => array(
+                        'type'        => 'text',
+                        'label'       => __('Custom Width', SA_FLBUILDER_TEXTDOMAIN),
+                        'default'     => '200',
+                        'maxlength'   => '3',
+                        'size'        => '4',
+                        'description' => 'px',
+                    ),
+                    'icon_button_height'      => array(
+                        'type'        => 'text',
+                        'label'       => __('Custom Height', SA_FLBUILDER_TEXTDOMAIN),
+                        'default'     => '45',
+                        'maxlength'   => '3',
+                        'size'        => '4',
+                        'description' => 'px',
+                    ),
                     'alignment' => array(
                         'type'    => 'align',
                         'label'   => 'Alignment',
@@ -108,14 +175,10 @@ FLBuilder::register_module('Button_module', array(
                         'responsive' => true,
                         'preview' => array(
                             'type'       => 'css',
-                            'property'   => 'text-align',
+                            'property'   => 'justify-content',
+                            'selector' => '.oxi__button_wrapper'
                         ),
                     ),
-                ),
-            ),
-            'padding' => array(
-                'title' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
-                'fields' => array(
                     'button_padding' => array(
                         'type' => 'dimension',
                         'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
@@ -137,19 +200,7 @@ FLBuilder::register_module('Button_module', array(
     'style' => array( //tab
         'title' => __('Styles', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
         'sections' => array(
-            'styling' => array(
-                'title'  => __('Button Style', SA_FLBUILDER_TEXTDOMAIN),
-                'fields' => array(
-                    'width' => array(
-                        'type'    => 'select',
-                        'label'   => __('Style', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'default',
-                        'options' => array(
-                            'default' => __('Default', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                    ),
-                ),
-            ),
+
             'Color' => array(
                 'title' => __('Color', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
@@ -214,10 +265,10 @@ FLBuilder::register_module('Button_module', array(
                                 'left' => '1',
                             ),
                         ),
-                        'responsive' => false,
+                        'responsive' => true,
                         'preview' => array(
                             'type' => 'css',
-                            'selector' => '.oxi-button-style',
+                            'selector' => '.oxi__button',
                             'important' => true,
                         ),
                     ),
@@ -303,7 +354,7 @@ FLBuilder::register_module('Button_module', array(
                         'responsive' => true,
                         'preview' => array(
                             'type' => 'css',
-                            'selector' => 'button-font',
+                            'selector' => '.oxi__button',
                             'important' => true,
                         ),
                     ),
