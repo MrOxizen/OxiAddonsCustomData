@@ -1,14 +1,14 @@
-.oxi__button_wrapper{
-    display: block;
-}
+ 
 .oxi__button_wrapper .oxi__button{
+    display: inline-block;
     background: #1976d2;
     color: white;
-    padding: 15px 15px;
+    padding: 12px 25px;
     border-radius: 5px;
+    text-align: center;
 }
 .oxi__button_wrapper .oxi__button:hover,
 .oxi__button_wrapper .oxi__button:focus{
-    background: #1e88e5;
+    background: #216daf;
     color: white;
 }

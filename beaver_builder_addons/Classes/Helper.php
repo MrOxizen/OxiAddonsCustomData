@@ -9,7 +9,7 @@ final class SA_FLBUILDER_HELPER
     public static function sa_fl_custom_box_shadow($setting)
     {
         $box = FLBuilderColor::shadow($setting);
-        echo 'border-radius:' . $box . '; ';
+        echo 'box-shadow:' . $box . '; ';
     }
 
     /**
@@ -182,11 +182,13 @@ final class SA_FLBUILDER_HELPER
      */
     public static function sa_fl_border_package($settings, $setting_name, $selector)
     {
-        FLBuilderCSS::border_field_rule(array(
-            'settings' => $settings,
-            'setting_name' => $setting_name,
-            'selector' => $selector,
-        ));
+        if ($setting_name != '') {
+            FLBuilderCSS::border_field_rule(array(
+                'settings' => $settings,
+                'setting_name' => $setting_name,
+                'selector' => $selector,
+            ));
+        }
     }
 
     /**
@@ -194,28 +196,30 @@ final class SA_FLBUILDER_HELPER
      */
     public static function sa_fl_dimension_utility($prefix, $settings, $setting_name, $selector, $unit)
     {
-        if ($setting_name == 'padding') {
-            $props = array(
-                'padding-top' => '' . $prefix . '_' . $setting_name . '_top',
-                'padding-right' => '' . $prefix . '_' . $setting_name . '_right',
-                'padding-bottom' => '' . $prefix . '_' . $setting_name . '_bottom',
-                'padding-left' => '' . $prefix . '_' . $setting_name . '_left',
-            );
-        } elseif ($setting_name == 'margin') {
-            $props = array(
-                'margin-top' => '' . $prefix . '_' . $setting_name . '_top',
-                'margin-right' => '' . $prefix . '_' . $setting_name . '_right',
-                'margin-bottom' => '' . $prefix . '_' . $setting_name . '_bottom',
-                'margin-left' => '' . $prefix . '_' . $setting_name . '_left',
-            );
+        if ($setting_name != '') {
+            if ($setting_name == 'padding') {
+                $props = array(
+                    'padding-top' => '' . $prefix . '_' . $setting_name . '_top',
+                    'padding-right' => '' . $prefix . '_' . $setting_name . '_right',
+                    'padding-bottom' => '' . $prefix . '_' . $setting_name . '_bottom',
+                    'padding-left' => '' . $prefix . '_' . $setting_name . '_left',
+                );
+            } elseif ($setting_name == 'margin') {
+                $props = array(
+                    'margin-top' => '' . $prefix . '_' . $setting_name . '_top',
+                    'margin-right' => '' . $prefix . '_' . $setting_name . '_right',
+                    'margin-bottom' => '' . $prefix . '_' . $setting_name . '_bottom',
+                    'margin-left' => '' . $prefix . '_' . $setting_name . '_left',
+                );
+            }
+            FLBuilderCSS::dimension_field_rule(array(
+                'settings' => $settings,
+                'setting_name' => $setting_name,
+                'selector' => $selector,
+                'unit' => $unit,
+                'props' => $props
+            ));
         }
-        FLBuilderCSS::dimension_field_rule(array(
-            'settings' => $settings,
-            'setting_name' => $setting_name,
-            'selector' => $selector,
-            'unit' => $unit,
-            'props' => $props
-        ));
     }
 
     /**
@@ -223,23 +227,40 @@ final class SA_FLBUILDER_HELPER
      */
     public static function sa_fl_typography_setting($settings, $setting_name, $selector)
     {
-        FLBuilderCSS::typography_field_rule(array(
-            'settings' => $settings,
-            'setting_name' => $setting_name,
-            'selector' => $selector,
-        ));
+        if ($setting_name != '') {
+            FLBuilderCSS::typography_field_rule(array(
+                'settings' => $settings,
+                'setting_name' => $setting_name,
+                'selector' => $selector,
+            ));
+        }
     }
     /**
      *   sa fl builder All element responsive  Settings
      */
     public static function sa_fl_responsive_setting($element, $settings, $setting_name, $selector)
     {
-        FLBuilderCSS::responsive_rule(array(
-            'settings'    => $settings,
-            'setting_name'    => $setting_name,
-            'selector'    => $selector,
-            'prop'        => $element,
-        ));
+        if ($setting_name != '') {
+            FLBuilderCSS::responsive_rule(array(
+                'settings'    => $settings,
+                'setting_name'    => $setting_name,
+                'selector'    => $selector,
+                'prop'        => $element,
+            ));
+        }
+    }
+    /**
+     *   sa fl builder All element responsive  Settings
+     */
+    public static function sa_fl_general_style($array = array(), $selector, $media = '')
+    {
+        if ($selector != '') {
+            FLBuilderCSS::rule(array(
+                'selector' => $selector,
+                'media' => $media, // optional
+                'props' => $array
+            ));
+        }
     }
 }
 new SA_FLBUILDER_HELPER();

@@ -16,19 +16,22 @@ if (!defined('ABSPATH')) {
  *
  * @author biplo
  */
-trait Public_Helper {
+trait Public_Helper
+{
 
-    function Get_Active_Elements() {
+    function Get_Active_Elements()
+    {
         $installed = get_option('shortcode-addons-elementor');
         if (empty($installed) || $installed == '') {
-            $installed = 'example=on&testimonial=on&flip_box=on&info_box=on&dual_color_heading=on&tooltip=on&advanced_accordion=on&advanced_tabs=on&offcanvas=on&advanced_menu_PRO=on&testimonial_Slider_PRO=on&static_product_PRO=on&Post_Grid=on&Post_Timeline=on&Content_Ticker=on&Product_Grid=on&Post_Block=on&Post_Carousel=on&Woo_Product_Collections=on&Content_Timeline=on';
+            $installed = 'button=on&testimonial=on&flip_box=on&info_box=on&dual_color_heading=on&tooltip=on&advanced_accordion=on&advanced_tabs=on&offcanvas=on&advanced_menu_PRO=on&testimonial_Slider_PRO=on&static_product_PRO=on&Post_Grid=on&Post_Timeline=on&Content_Ticker=on&Product_Grid=on&Post_Block=on&Post_Carousel=on&Woo_Product_Collections=on&Content_Timeline=on';
             update_option('shortcode-addons-elementor', $installed);
         }
         parse_str($installed, $settings);
         return $settings;
     }
 
-    function Get_Registered_elements() {
+    function Get_Registered_elements()
+    {
         $response = [
             'accordion' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Accordion\Accordion',
@@ -41,28 +44,55 @@ trait Public_Helper {
                     ],
                 ],
             ],
-            'example' => [
-                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Example\Example',
+            'button' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Button\Button',
                 'dependency' => [
                     'css' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Example/assets/index.min.css',
-                    ],
-                    'js' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Example/assets/index.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Button/assets/index.min.css',
                     ],
                 ],
             ],
-
+            'icon_box' => [
+                'class' => 'SA_ELEMENTOR_ADDONS\Elements\Icon_Box\Icon_Box',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Icon_Box/assets/index.min.css',
+                    ],
+                ],
+            ],
+            'call_to_action' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Call_To_Action\Call_To_Action',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Call_To_Action/assets/index.min.css',
+                    ],
+                ],
+            ],
+            'tabs' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Tabs\Tabs',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Tabs/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Tabs/assets/index.min.js',
+                    ],
+                ],
+            ],
         ];
         return $response;
     }
 
-    public function register_widget_categories($elements_manager) {
+    public function register_widget_categories($elements_manager)
+    {
         $elements_manager->add_category(
-                'sa-el-addons', [
-            'title' => __('Shortcode Addons', SA_ELEMENTOR_TEXTDOMAIN),
-            'icon' => 'font',
-                ], 1);
+            'sa-el-addons',
+            [
+                'title' => __('Shortcode Addons', SA_ELEMENTOR_TEXTDOMAIN),
+                'icon' => 'font',
+            ],
+            1
+        );
     }
 
     /**
@@ -70,16 +100,16 @@ trait Public_Helper {
      *
      * @since v1.0.0
      */
-    public function register_controls_group($controls_manager) {
-        
-    }
+    public function register_controls_group($controls_manager)
+    { }
 
     /**
      * Register widgets
      *
      * @since v3.0.0
      */
-    public function register_elements($widgets_manager) {
+    public function register_elements($widgets_manager)
+    {
         $active_elements = $this->Get_Active_Elements();
 
         asort($active_elements);
@@ -91,7 +121,8 @@ trait Public_Helper {
         }
     }
 
-    public function has_cache_files($post_type = null, $post_id = null) {
+    public function has_cache_files($post_type = null, $post_id = null)
+    {
         $css_path = SA_ELEMENTOR_ADDONS_ASSETS . ($post_type ? SA_ELEMENTOR_TEXTDOMAIN . $post_type : SA_ELEMENTOR_TEXTDOMAIN) . ($post_id ? '-' . $post_id : '') . '.min.css';
         $js_path = SA_ELEMENTOR_ADDONS_ASSETS . ($post_type ? SA_ELEMENTOR_TEXTDOMAIN . $post_type : SA_ELEMENTOR_TEXTDOMAIN) . ($post_id ? '-' . $post_id : '') . '.min.js';
 
@@ -102,7 +133,8 @@ trait Public_Helper {
         return false;
     }
 
-    public function sl_enqueue_scripts() {
+    public function sl_enqueue_scripts()
+    {
         if (!$this->has_cache_files()) {
 
             $this->generate_scripts($this->Get_Active_Elements());
@@ -120,7 +152,7 @@ trait Public_Helper {
         // hook extended assets
         do_action(SA_ELEMENTOR_TEXTDOMAIN . '/after_enqueue_scripts', $this->has_cache_files());
     }
-    
+
     /**
      * Get all elementor page templates
      *
@@ -153,5 +185,4 @@ trait Public_Helper {
         }
         return $options;
     }
-
 }

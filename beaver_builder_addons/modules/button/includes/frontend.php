@@ -3,21 +3,17 @@
 echo '<pre>';
 print_r($settings);
 echo '</pre>';
-
-// SA_FLBootstrap::sa_fl_custom_padding_margin('button', $settings, '');
-
-print_r(SA_FLBUILDER_HELPER::get_active_elements());
 /**
  * for Button and icon 
  */
 $button_position =  $icon = '';
 if (isset($settings->icon) && $settings->icon != '') {
-    $icon = '<i class="' . $settings->icon . '"></i>';
+    $icon = '<i class="oxi__icon-selector ' . $settings->icon . '"></i>';
 }
 if ($settings->icon_position == 'left') {
-    $button_position = '' . $icon . ' ' . $settings->text . '';
+    $button_position = '' . $icon . ' <span class="oxi__button-text">' . $settings->text . '</span>';
 } else {
-    $button_position = '' . $settings->text . ' ' . $icon . ' ';
+    $button_position = '<span class="oxi__button-text">' . $settings->text . '</span> ' . $icon . ' ';
 }
 ?>
 <div class="oxi__button_wrapper">
