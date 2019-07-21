@@ -79,17 +79,6 @@ trait Public_Helper
                     ],
                 ],
             ],
-            'content_ticker' => [
-                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Content_Ticker\Content_Ticker',
-                'dependency' => [
-                    'css' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Content_Ticker/assets/index.min.css',
-                    ],
-                    'js' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Content_Ticker/assets/index.min.js',
-                    ],
-                ],
-            ],
         ];
         return $response;
     }
