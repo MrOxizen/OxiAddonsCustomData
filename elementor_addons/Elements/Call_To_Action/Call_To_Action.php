@@ -1,6 +1,6 @@
 <?php
 
-namespace SA_ELEMENTOR_ADDONS\Elements\Button;
+namespace SA_ELEMENTOR_ADDONS\Elements\Call_To_Action;
 
 // If this file is called directly, abort.
 if (!defined('ABSPATH')) {
@@ -8,26 +8,29 @@ if (!defined('ABSPATH')) {
 }
 
 use \Elementor\Controls_Manager as Controls_Manager;
+use \Elementor\Frontend;
 use \Elementor\Group_Control_Border as Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow as Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography as Group_Control_Typography;
-use \Elementor\Scheme_Typography as Scheme_Typography;
+use \Elementor\Utils as Utils;
 use \Elementor\Widget_Base as Widget_Base;
 
 // use \SA_ELEMENTOR_ADDONS\Classes\Bootstrap;
 
-class Button extends Widget_Base {
+class Call_To_Action extends Widget_Base {
+
+    use \SA_ELEMENTOR_ADDONS\Helper\Public_Helper;
 
     public function get_name() {
-        return 'sa_el_creative_button';
+        return 'sa_el_call_to_action';
     }
 
     public function get_title() {
-        return esc_html__('Button', SA_ELEMENTOR_TEXTDOMAIN);
+        return esc_html__('Call_To_Action', SA_ELEMENTOR_TEXTDOMAIN);
     }
 
     public function get_icon() {
-        return 'eicon-button';
+        return 'eicon-call-to-action';
     }
 
     public function get_categories() {
@@ -40,13 +43,13 @@ class Button extends Widget_Base {
          * Call to Action Content Settings
          */
         $this->start_controls_section(
-                'eael_section_cta_content_settings', [
+                'sa_el_section_call_to_action_content_settings', [
             'label' => esc_html__('Content Settings', 'essential-addons-elementor')
                 ]
         );
 
         $this->add_control(
-                'eael_cta_type', [
+                'sa_el_call_to_action_type', [
             'label' => esc_html__('Content Style', 'essential-addons-elementor'),
             'type' => Controls_Manager::SELECT,
             'default' => 'cta-basic',
@@ -60,10 +63,10 @@ class Button extends Widget_Base {
         );
 
         /**
-         * Condition: 'eael_cta_type' => 'cta-basic'
+         * Condition: 'sa_el_call_to_action_type' => 'cta-basic'
          */
         $this->add_control(
-                'eael_cta_content_type', [
+                'sa_el_call_to_action_content_type', [
             'label' => esc_html__('Content Type', 'essential-addons-elementor'),
             'type' => Controls_Manager::SELECT,
             'default' => 'cta-default',
@@ -74,13 +77,13 @@ class Button extends Widget_Base {
                 'cta-right' => esc_html__('Right', 'essential-addons-elementor'),
             ],
             'condition' => [
-                'eael_cta_type' => 'cta-basic'
+                'sa_el_call_to_action_type' => 'cta-basic'
             ]
                 ]
         );
 
         $this->add_control(
-                'eael_cta_color_type', [
+                'sa_el_call_to_action_color_type', [
             'label' => esc_html__('Color Style', 'essential-addons-elementor'),
             'type' => Controls_Manager::SELECT,
             'default' => 'cta-bg-color',
@@ -93,22 +96,26 @@ class Button extends Widget_Base {
                 ]
         );
 
+
         /**
-         * Condition: 'eael_cta_type' => 'cta-icon-flex'
+         * Condition: 'sa_el_call_to_action_type' => 'cta-icon-flex'
          */
         $this->add_control(
-                'eael_cta_flex_grid_icon', [
+                'sa_el_call_to_action_flex_grid_icon', [
             'label' => esc_html__('Icon', 'essential-addons-elementor'),
             'type' => Controls_Manager::ICON,
             'default' => 'fa fa-bullhorn',
             'condition' => [
-                'eael_cta_type' => 'cta-icon-flex'
+                'sa_el_call_to_action_type' => 'cta-icon-flex'
             ]
                 ]
         );
 
+
+
+
         $this->add_control(
-                'eael_cta_title', [
+                'sa_el_call_to_action_title', [
             'label' => esc_html__('Title', 'essential-addons-elementor'),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
@@ -116,8 +123,9 @@ class Button extends Widget_Base {
             'dynamic' => ['active' => true]
                 ]
         );
+
         $this->add_control(
-                'eael_cta_title_content_type', [
+                'sa_el_call_to_action_title_content_type', [
             'label' => __('Content Type', 'essential-addons-elementor'),
             'type' => Controls_Manager::SELECT,
             'options' => [
@@ -129,30 +137,30 @@ class Button extends Widget_Base {
         );
 
         $this->add_control(
-                'eael_primary_templates', [
+                'sa_el_primary_templates', [
             'label' => __('Choose Template', 'essential-addons-elementor'),
             'type' => Controls_Manager::SELECT,
-            'options' => $this->eael_get_page_templates(),
+            'options' => $this->get_elementor_page_templates(),
             'condition' => [
-                'eael_cta_title_content_type' => 'template',
+                'sa_el_call_to_action_title_content_type' => 'template',
             ],
                 ]
         );
         $this->add_control(
-                'eael_cta_content', [
+                'sa_el_call_to_action_content', [
             'label' => esc_html__('Content', 'essential-addons-elementor'),
             'type' => Controls_Manager::WYSIWYG,
             'label_block' => true,
             'default' => esc_html__('Add a strong one liner supporting the heading above and giving users a reason to click on the button below.', 'essential-addons-elementor'),
             'separator' => 'after',
             'condition' => [
-                'eael_cta_title_content_type' => 'content'
+                'sa_el_call_to_action_title_content_type' => 'content'
             ]
                 ]
         );
 
         $this->add_control(
-                'eael_cta_btn_text', [
+                'sa_el_call_to_action_btn_text', [
             'label' => esc_html__('Button Text', 'essential-addons-elementor'),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
@@ -161,7 +169,7 @@ class Button extends Widget_Base {
         );
 
         $this->add_control(
-                'eael_cta_btn_link', [
+                'sa_el_call_to_action_btn_link', [
             'label' => esc_html__('Button Link', 'essential-addons-elementor'),
             'type' => Controls_Manager::URL,
             'label_block' => true,
@@ -175,10 +183,10 @@ class Button extends Widget_Base {
         );
 
         /**
-         * Condition: 'eael_cta_color_type' => 'cta-bg-img' && 'eael_cta_color_type' => 'cta-bg-img-fixed',
+         * Condition: 'sa_el_call_to_action_color_type' => 'cta-bg-img' && 'sa_el_call_to_action_color_type' => 'cta-bg-img-fixed',
          */
         $this->add_control(
-                'eael_cta_bg_image', [
+                'sa_el_call_to_action_bg_image', [
             'label' => esc_html__('Background Image', 'essential-addons-elementor'),
             'type' => Controls_Manager::MEDIA,
             'default' => [
@@ -189,14 +197,12 @@ class Button extends Widget_Base {
                 '{{WRAPPER}} .eael-call-to-action.bg-img-fixed' => 'background-image: url({{URL}});',
             ],
             'condition' => [
-                'eael_cta_color_type' => ['cta-bg-img', 'cta-bg-img-fixed'],
+                'sa_el_call_to_action_color_type' => ['cta-bg-img', 'cta-bg-img-fixed'],
             ]
                 ]
         );
-
         $this->end_controls_section();
-
-        if (!apply_filters('eael/pro_enabled', false)) {
+        if (!apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', FALSE)) {
             $this->start_controls_section(
                     'eael_section_pro', [
                 'label' => __('Go Premium for More Features', 'essential-addons-elementor')
@@ -220,7 +226,6 @@ class Button extends Widget_Base {
 
             $this->end_controls_section();
         }
-
         /**
          * -------------------------------------------
          * Tab Style (Cta Title Style)
@@ -608,104 +613,7 @@ class Button extends Widget_Base {
     }
 
     protected function render() {
-
-        $settings = $this->get_settings_for_display();
-        $target = $settings['eael_cta_btn_link']['is_external'] ? 'target="_blank"' : '';
-        $nofollow = $settings['eael_cta_btn_link']['nofollow'] ? 'rel="nofollow"' : '';
-        if ('cta-bg-color' == $settings['eael_cta_color_type']) {
-            $cta_class = 'bg-lite';
-        } else if ('cta-bg-img' == $settings['eael_cta_color_type']) {
-            $cta_class = 'bg-img';
-        } else if ('cta-bg-img-fixed' == $settings['eael_cta_color_type']) {
-            $cta_class = 'bg-img bg-fixed';
-        } else {
-            $cta_class = '';
-        }
-        // Is Basic Cta Content Center or Not
-        if ('cta-center' === $settings['eael_cta_content_type']) {
-            $cta_alignment = 'cta-center';
-        } elseif ('cta-right' === $settings['eael_cta_content_type']) {
-            $cta_alignment = 'cta-right';
-        } else {
-            $cta_alignment = 'cta-left';
-        }
-        // Button Effect
-        if ('left-to-right' == $settings['eael_cta_btn_effect_type']) {
-            $cta_btn_effect = 'effect-2';
-        } elseif ('top-to-bottom' == $settings['eael_cta_btn_effect_type']) {
-            $cta_btn_effect = 'effect-1';
-        } else {
-            $cta_btn_effect = '';
-        }
-        ?>
-        <?php if ('cta-basic' == $settings['eael_cta_type']) : ?>
-            <div class="eael-call-to-action <?php echo esc_attr($cta_class); ?> <?php echo esc_attr($cta_alignment); ?>">
-                <h2 class="title"><?php echo $settings['eael_cta_title']; ?></h2>
-            <?php if ('content' == $settings['eael_cta_title_content_type']) : ?>
-                    <p><?php echo $settings['eael_cta_content']; ?></p>
-            <?php elseif ('template' == $settings['eael_cta_title_content_type']) : ?>
-                <?php
-                if (!empty($settings['eael_primary_templates'])) {
-                    $eael_template_id = $settings['eael_primary_templates'];
-                    $eael_frontend = new Frontend;
-                    echo $eael_frontend->get_builder_content($eael_template_id, true);
-                }
-                ?>
-            <?php endif; ?>
-                <a href="<?php echo esc_url($settings['eael_cta_btn_link']['url']); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> class="cta-button <?php echo esc_attr($cta_btn_effect); ?>"><?php esc_html_e($settings['eael_cta_btn_text'], 'essential-addons-elementor'); ?></a>
-            </div>
-        <?php endif; ?>
-        <?php if ('cta-flex' == $settings['eael_cta_type']) : ?>
-            <div class="eael-call-to-action cta-flex <?php echo esc_attr($cta_class); ?>">
-                <div class="content">
-                    <h2 class="title"><?php echo $settings['eael_cta_title']; ?></h2>
-            <?php if ('content' == $settings['eael_cta_title_content_type']) : ?>
-                        <p><?php echo $settings['eael_cta_content']; ?></p>
-            <?php elseif ('template' == $settings['eael_cta_title_content_type']) : ?>
-                <?php
-                if (!empty($settings['eael_primary_templates'])) {
-                    $eael_template_id = $settings['eael_primary_templates'];
-                    $eael_frontend = new Frontend;
-                    echo $eael_frontend->get_builder_content($eael_template_id, true);
-                }
-                ?>
-            <?php endif; ?>
-                </div>
-                <div class="action">
-                    <a href="<?php echo esc_url($settings['eael_cta_btn_link']['url']); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> class="cta-button <?php echo esc_attr($cta_btn_effect); ?>"><?php esc_html_e($settings['eael_cta_btn_text'], 'essential-addons-elementor'); ?></a>
-                </div>
-            </div>
-        <?php endif; ?>
-        <?php if ('cta-icon-flex' == $settings['eael_cta_type']) : ?>
-            <div class="eael-call-to-action cta-icon-flex <?php echo esc_attr($cta_class); ?>">
-                <div class="icon">
-                    <i class="<?php echo esc_attr($settings['eael_cta_flex_grid_icon']); ?>"></i>
-                </div>
-                <div class="content">
-                    <h2 class="title"><?php echo $settings['eael_cta_title']; ?></h2>
-            <?php if ('content' == $settings['eael_cta_title_content_type']) : ?>
-                        <p><?php echo $settings['eael_cta_content']; ?></p>
-            <?php elseif ('template' == $settings['eael_cta_title_content_type']) : ?>
-                <?php
-                if (!empty($settings['eael_primary_templates'])) {
-                    $eael_template_id = $settings['eael_primary_templates'];
-                    $eael_frontend = new Frontend;
-                    echo $eael_frontend->get_builder_content($eael_template_id, true);
-                }
-                ?>
-            <?php endif; ?>
-                </div>
-                <div class="action">
-                    <a href="<?php echo esc_url($settings['eael_cta_btn_link']['url']); ?>" <?php echo $target; ?> class="cta-button <?php echo esc_attr($cta_btn_effect); ?>"><?php esc_html_e($settings['eael_cta_btn_text'], 'essential-addons-elementor'); ?></a>
-                </div>
-            </div>
-            <?php endif; ?>
-            <?php
-        }
-
-        protected function content_template() {
-            
-        }
-
+        
     }
-    
+
+}
