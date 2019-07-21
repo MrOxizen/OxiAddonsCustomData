@@ -68,6 +68,17 @@ trait Public_Helper
                     ],
                 ],
             ],
+            'tabs' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Tabs\Tabs',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Tabs/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Tabs/assets/index.min.js',
+                    ],
+                ],
+            ],
         ];
         return $response;
     }
