@@ -404,7 +404,6 @@ FLBuilder::register_module(
                     ),
                 ),
             ),
-            
         ),
     ),
     'oxi_style' => array(// Tab.
@@ -433,8 +432,7 @@ FLBuilder::register_module(
                             'oxi_text_left' => __('Left', SA_FLBUILDER_TEXTDOMAIN),
                             'oxi_text_right' => __('Right', SA_FLBUILDER_TEXTDOMAIN),
                             'oxi_text_center' => __('Center', SA_FLBUILDER_TEXTDOMAIN),
-                         ),
-                        
+                        ),
                     ),
                     'flip_box_min_height' => array(
                         'type' => 'unit',
@@ -461,7 +459,6 @@ FLBuilder::register_module(
                         'size' => '8',
                         'help' => __('Apply height to complete Flipbox for small devices. It will inherit medium height if empty.', SA_FLBUILDER_TEXTDOMAIN),
                     ),
-                    
                     'inner_padding_dimension' => array(
                         'type' => 'dimension',
                         'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
@@ -647,6 +644,236 @@ FLBuilder::register_module(
                             ),
                         ),
                         'responsive' => true,
+                    ),
+                ),
+            ),
+        ),
+    ),
+    'typography' => array(// Tab.
+        'title' => __('Typography', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
+        'sections' => array(// Tab Sections.
+            'front_title_typography' => array(
+                'title' => __('Front Title', SA_FLBUILDER_TEXTDOMAIN),
+                'fields' => array(
+                    'front_side_typography_title_tag' => array(
+                        'type' => 'select',
+                        'label' => __('Title Tag', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'h2',
+                        'options' => array(
+                            'h1' => __('H1', SA_FLBUILDER_TEXTDOMAIN),
+                            'h2' => __('H2', SA_FLBUILDER_TEXTDOMAIN),
+                            'h3' => __('H3', SA_FLBUILDER_TEXTDOMAIN),
+                            'h4' => __('H4', SA_FLBUILDER_TEXTDOMAIN),
+                            'h5' => __('H5', SA_FLBUILDER_TEXTDOMAIN),
+                            'h6' => __('H6', SA_FLBUILDER_TEXTDOMAIN),
+                            'div' => __('Div', SA_FLBUILDER_TEXTDOMAIN),
+                            'p' => __('p', SA_FLBUILDER_TEXTDOMAIN),
+                            'span' => __('span', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                    ),
+                    'front_title_font_typo' => array(
+                        'type' => 'typography',
+                        'label' => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
+                        'responsive' => true,
+                        'preview' => array(
+                            'type' => 'css',
+                            'selector' => '.uabb-face-text-title',
+                            'important' => true,
+                        ),
+                    ),
+                    'front_title_typography_color' => array(
+                        'type' => 'color',
+                        'label' => __('Front Title Color', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '',
+                        'show_reset' => true,
+                        'connections' => array('color'),
+                        'show_alpha' => true,
+                    ),
+                    'front_title_typography_margin_top' => array(
+                        'type' => 'unit',
+                        'label' => __('Margin Top', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '0',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                    'front_title_typography_margin_bottom' => array(
+                        'type' => 'unit',
+                        'label' => __('Margin Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '12',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                ),
+            ),
+            'front_desc_typography' => array(
+                'title' => __('Front Description', SA_FLBUILDER_TEXTDOMAIN),
+                'fields' => array(
+                    'front_desk_font_typo' => array(
+                        'type' => 'typography',
+                        'label' => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
+                        'responsive' => true,
+                        'preview' => array(
+                            'type' => 'css',
+                            'selector' => '.uabb-flip-box-section-content',
+                            'important' => true,
+                        ),
+                    ),
+                    'front_desc_typography_color' => array(
+                        'type' => 'color',
+                        'label' => __('Front Description Color', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '',
+                        'show_reset' => true,
+                        'connections' => array('color'),
+                        'show_alpha' => true,
+                    ),
+                    'front_desc_typography_margin_top' => array(
+                        'type' => 'unit',
+                        'label' => __('Margin Top', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '0',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                    'front_desc_typography_margin_bottom' => array(
+                        'type' => 'unit',
+                        'label' => __('Margin Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '25',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                ),
+            ),
+            'back_title_typography' => array(
+                'title' => __('Back Title', SA_FLBUILDER_TEXTDOMAIN),
+                'fields' => array(
+                    'back_side_typography_title_tag' => array(
+                        'type' => 'select',
+                        'label' => __('Title Tag', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'h2',
+                        'options' => array(
+                            'h1' => __('H1', SA_FLBUILDER_TEXTDOMAIN),
+                            'h2' => __('H2', SA_FLBUILDER_TEXTDOMAIN),
+                            'h3' => __('H3', SA_FLBUILDER_TEXTDOMAIN),
+                            'h4' => __('H4', SA_FLBUILDER_TEXTDOMAIN),
+                            'h5' => __('H5', SA_FLBUILDER_TEXTDOMAIN),
+                            'h6' => __('H6', SA_FLBUILDER_TEXTDOMAIN),
+                            'div' => __('Div', SA_FLBUILDER_TEXTDOMAIN),
+                            'p' => __('p', SA_FLBUILDER_TEXTDOMAIN),
+                            'span' => __('span', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                    ),
+                    'back_title_font_typo' => array(
+                        'type' => 'typography',
+                        'label' => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
+                        'responsive' => true,
+                        'preview' => array(
+                            'type' => 'css',
+                            'selector' => '.uabb-back-text-title',
+                            'important' => true,
+                        ),
+                    ),
+                    'back_title_typography_color' => array(
+                        'type' => 'color',
+                        'label' => __('Back Title Color', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '',
+                        'show_reset' => true,
+                        'connections' => array('color'),
+                        'show_alpha' => true,
+                    ),
+                    'back_title_typography_margin_top' => array(
+                        'type' => 'unit',
+                        'label' => __('Margin Top', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '25',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                    'back_title_typography_margin_bottom' => array(
+                        'type' => 'unit',
+                        'label' => __('Margin Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '12',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                ),
+            ),
+            'back_desc_typography' => array(
+                'title' => __('Back Description', SA_FLBUILDER_TEXTDOMAIN),
+                'fields' => array(
+                    'back_desc_font_typo' => array(
+                        'type' => 'typography',
+                        'label' => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
+                        'responsive' => true,
+                        'preview' => array(
+                            'type' => 'css',
+                            'selector' => '.uabb-back-flip-box-section-content',
+                            'important' => true,
+                        ),
+                    ),
+                    'back_desc_typography_color' => array(
+                        'type' => 'color',
+                        'label' => __('Back Description Color', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '',
+                        'show_reset' => true,
+                        'connections' => array('color'),
+                        'show_alpha' => true,
+                    ),
+                    'back_desc_typography_margin_top' => array(
+                        'type' => 'unit',
+                        'label' => __('Margin Top', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '0',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                    'back_desc_typography_margin_bottom' => array(
+                        'type' => 'unit',
+                        'label' => __('Margin Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '0',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                ),
+            ),
+            'margin_options' => array(// Section.
+                'title' => __('Margin', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
+                'fields' => array(// Section Fields.
+                    'icon_margin_top' => array(
+                        'type' => 'unit',
+                        'label' => __('Icon Margin Top', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '25',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                    'icon_margin_bottom' => array(
+                        'type' => 'unit',
+                        'label' => __('Icon Margin Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '15',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                    'button_margin_top' => array(
+                        'type' => 'unit',
+                        'label' => __('Button Margin Top', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '15',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                    'button_margin_bottom' => array(
+                        'type' => 'unit',
+                        'label' => __('Button Margin Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '0',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
                     ),
                 ),
             ),
