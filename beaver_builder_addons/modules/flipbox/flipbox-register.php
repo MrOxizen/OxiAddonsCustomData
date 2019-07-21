@@ -404,6 +404,34 @@ FLBuilder::register_module(
                     ),
                 ),
             ),
+            'button' => array(// Section.
+                'title' => __('Button', 'uabb'), // Section Title.
+                'fields' => array(// Section Fields.
+                    'show_button' => array(
+                        'type' => 'select',
+                        'label' => __('Show button', 'uabb'),
+                        'default' => 'no',
+                        'options' => array(
+                            'no' => __('No', 'uabb'),
+                            'yes' => __('Yes', 'uabb'),
+                        ),
+                        'toggle' => array(
+                            'no' => array(
+                                'fields' => array(),
+                            ),
+                            'yes' => array(
+                                'fields' => array('button', 'button_margin_top', 'button_margin_bottom'),
+                            ),
+                        ),
+                    ),
+                    'button' => array(
+                        'type' => 'form',
+                        'label' => __('Button Settings', 'uabb'),
+                        'form' => 'button_form_field', // ID of a registered form.
+                        'preview_text' => 'text', // ID of a field to use for the preview text.
+                    ),
+                ),
+            ),
         ),
     ),
     'oxi_style' => array(// Tab.
@@ -647,6 +675,7 @@ FLBuilder::register_module(
                     ),
                 ),
             ),
+            
         ),
     ),
     'typography' => array(// Tab.
