@@ -24,7 +24,7 @@ trait Include_Admin_Template {
             'Content Elements' => array(
                 'accordion',
                 'button',
-                'testimonial',
+                'icon_box',
                 'call_to_action',
                 'flip_box',
                 'info_box',

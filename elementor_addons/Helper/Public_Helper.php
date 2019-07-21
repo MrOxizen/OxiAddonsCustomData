@@ -52,6 +52,14 @@ trait Public_Helper
                     ],
                 ],
             ],
+            'icon_box' => [
+                'class' => 'SA_ELEMENTOR_ADDONS\Elements\Icon_Box\Icon_Box',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Icon_Box/assets/index.min.css',
+                    ],
+                ],
+            ],
             'call_to_action' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Call_To_Action\Call_To_Action',
                 'dependency' => [
