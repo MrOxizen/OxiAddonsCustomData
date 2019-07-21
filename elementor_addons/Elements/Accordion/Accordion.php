@@ -18,6 +18,7 @@ use \Elementor\Group_Control_Box_Shadow as Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography as Group_Control_Typography;
 use \Elementor\Scheme_Typography as Scheme_Typography;
 use \Elementor\Widget_Base as Widget_Base;
+use Elementor\Icons_Manager;
 use \SA_ELEMENTOR_ADDONS\Classes\Bootstrap;
 
 class Accordion extends Widget_Base {
@@ -29,7 +30,7 @@ class Accordion extends Widget_Base {
     }
 
     public function get_title() {
-        return esc_html__('SA Accordion', SA_ELEMENTOR_TEXTDOMAIN);
+        return esc_html__('Accordion', SA_ELEMENTOR_TEXTDOMAIN);
     }
 
     public function get_icon() {
@@ -632,7 +633,6 @@ class Accordion extends Widget_Base {
 
         $this->add_render_attribute('sa_el_accordion', 'class', 'sa_el_accordion');
         $this->add_render_attribute('sa_el_accordion', 'id', 'sa_el_accordion-' . esc_attr($this->get_id()));
-        print_r($id_int);
         ?>
         <div
         <?php echo $this->get_render_attribute_string('sa_el_accordion'); ?>
@@ -647,8 +647,8 @@ class Accordion extends Widget_Base {
                     $tab_title_setting_key = $this->get_repeater_setting_key('sa_accordion_tab_title', 'sa_accordion_tab', $index);
                     $tab_content_setting_key = $this->get_repeater_setting_key('sa_accordion_tab_content', 'sa_accordion_tab', $index);
 
-                    $tab_title_class = ['sa_el_tab_title', 'sa_el_header'];
-                    $tab_content_class = ['sa_el_content', 'clearfix'];
+                    $tab_title_class = ['sa_el_tab_title', 'sa_el_accordion_header'];
+                    $tab_content_class = ['sa_el_accordion_content', 'clearfix'];
 
                     if ($tab['sa_accordion_tab_default_active'] == 'yes') {
                         $tab_title_class[] = 'active-default';
@@ -675,14 +675,19 @@ class Accordion extends Widget_Base {
                 <div class="sa_el_accordion_list">
 
                     <div <?php echo $this->get_render_attribute_string($tab_title_setting_key); ?>>
-                        <span><?php if ($tab['sa_accordion_tab_icon_show'] === 'yes'): ?><i class="<?php echo esc_attr($tab['sa_accordion_tab_title_icon']); ?> fa-accordion-icon"></i><?php endif; ?><?php echo $tab['sa_accordion_tab_title']; ?></span>
-                        <?php if ($settings['sa_accordion_icon_show'] === 'yes'): ?><i class="<?php echo esc_attr($settings['sa_accordion_icon_selected']); ?> fa-toggle"></i>
+                        <span><?php if ($tab['sa_accordion_tab_icon_show'] === 'yes'): ?><i class="<?php echo esc_attr($tab['sa_accordion_tab_title_icon']); ?> fa-accordion-icon"></i>
+                            <?php endif; ?><?php echo $tab['sa_accordion_tab_title']; ?></span>
+                        <?php if ($settings['sa_accordion_icon_show'] === 'yes'): ?>
+                            <!--<i class="<?php echo esc_attr($settings['sa_accordion_icon_selected']); ?> fa-toggle"></i>-->
+                            <span class="sa_el_accordion_icon_off fa-toggle"><?php Icons_Manager::render_icon( $settings['sa_accordion_icon_selected'] ); ?></span>
+                                <span class="sa_el_accordion_icon_opened fa-toggle">
+                            <?php Icons_Manager::render_icon( $settings['sa_accordion_icon_active'] ); ?></span>
                         <?php endif; ?>
                     </div>
 
                     <div <?php echo $this->get_render_attribute_string($tab_content_setting_key); ?>>
                         <?php if ('content' == $tab['sa_accordion_text_type']): ?>
-                            <p><?php echo do_shortcode($tab['sa_accordion_tab_content']); ?></p>
+                            <p class="sa_el_accordion_text_content"><?php echo do_shortcode($tab['sa_accordion_tab_content']); ?></p>
                             <?php
                         elseif ('template' == $tab['sa_accordion_text_type']):
                             if (!empty($tab['sa_accordion_tab_template'])) {

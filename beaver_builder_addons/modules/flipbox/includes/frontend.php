@@ -7,7 +7,9 @@ echo "</pre>";
     .oxi-addons-BB-flipbox {
         background-color: transparent;
         width: 100%;
-        height: 280px;
+        height: 100%;
+        min-height: 100px;
+        
         perspective: 1000px;
     }
 
@@ -15,6 +17,7 @@ echo "</pre>";
         position: relative;
         width: 100%;
         height: 100%;
+        min-height: 300px;
         text-align: center;
         transition: transform 0.8s;
         transform-style: preserve-3d;
