@@ -59,10 +59,10 @@ class Count_down extends Widget_Base {
 			[
 				'label' => esc_html__( 'Label Position', SA_ELEMENTOR_TEXTDOMAIN ),
 				'type' => Controls_Manager::SELECT,
-				'default' => 'sa_el_countdown-label-block',
+				'default' => 'sa_el_countdown_label_block',
 				'options' => [
-					'sa_el_countdown-label-block' => esc_html__( 'Block', SA_ELEMENTOR_TEXTDOMAIN ),
-					'sa_el_countdown-label-inline' => esc_html__( 'Inline', SA_ELEMENTOR_TEXTDOMAIN ),
+					'sa_el_countdown_label_block' => esc_html__( 'Block', SA_ELEMENTOR_TEXTDOMAIN ),
+					'sa_el_countdown_label_inline' => esc_html__( 'Inline', SA_ELEMENTOR_TEXTDOMAIN ),
 				],
 			]
 		);
@@ -80,10 +80,10 @@ class Count_down extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .sa_el_countdown-label' => 'padding-left:{{SIZE}}px;',
+					'{{WRAPPER}} .sa_el_countdown_label' => 'padding-left:{{SIZE}}px;',
 				],
 				'condition' => [
-					'sa_el_countdown_label_view' => 'sa_el_countdown-label-inline',
+					'sa_el_countdown_label_view' => 'sa_el_countdown_label_inline',
 				],
 			]
 		);
@@ -221,7 +221,7 @@ class Count_down extends Widget_Base {
 			[
 				'label' => esc_html__( 'Display Separator', SA_ELEMENTOR_TEXTDOMAIN ),
 				'type' => Controls_Manager::SWITCHER,
-				'return_value' => 'sa_el_countdown-show-separator',
+				'return_value' => 'sa_el_countdown_show_separator',
 				'default' => '',
 			]
 		);
@@ -233,10 +233,10 @@ class Count_down extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'condition' => [
-					'sa_el_countdown_separator' => 'sa_el_countdown-show-separator',
+					'sa_el_countdown_separator' => 'sa_el_countdown_show_separator',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .sa_el_countdown-digits::after' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sa_el_countdown_digits::after' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -246,9 +246,9 @@ class Count_down extends Widget_Base {
 			[
              'name' => 'sa_el_countdown_separator_typography',
 				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
-				'selector' => '{{WRAPPER}} .sa_el_countdown-digits::after',
+				'selector' => '{{WRAPPER}} .sa_el_countdown_digits::after',
 				'condition' => [
-					'sa_el_countdown_separator' => 'sa_el_countdown-show-separator',
+					'sa_el_countdown_separator' => 'sa_el_countdown_show_separator',
 				],
 			]
 		);
@@ -461,7 +461,7 @@ class Count_down extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#fec503',
 				'selectors' => [
-					'{{WRAPPER}} .sa_el_countdown-digits' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sa_el_countdown_digits' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -471,7 +471,7 @@ class Count_down extends Widget_Base {
 			[
              'name' => 'sa_el_countdown_digit_typography',
 				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
-				'selector' => '{{WRAPPER}} .sa_el_countdown-digits',
+				'selector' => '{{WRAPPER}} .sa_el_countdown_digits',
 			]
 		);
 
@@ -490,7 +490,7 @@ class Count_down extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .sa_el_countdown-label' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sa_el_countdown_label' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -500,7 +500,7 @@ class Count_down extends Widget_Base {
 			[
              'name' => 'sa_el_countdown_label_typography',
 				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
-				'selector' => '{{WRAPPER}} .sa_el_countdown-label',
+				'selector' => '{{WRAPPER}} .sa_el_countdown_label',
 			]
 		);		
 
@@ -544,7 +544,7 @@ class Count_down extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .sa_el_countdown_days .sa_el_countdown-digits' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sa_el_countdown_days .sa_el_countdown_digits' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -556,7 +556,7 @@ class Count_down extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .sa_el_countdown_days .sa_el_countdown-label' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sa_el_countdown_days .sa_el_countdown_label' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -600,7 +600,7 @@ class Count_down extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .sa_el_countdown_hours .sa_el_countdown-digits' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sa_el_countdown_hours .sa_el_countdown_digits' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -612,7 +612,7 @@ class Count_down extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .sa_el_countdown_hours .sa_el_countdown-label' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sa_el_countdown_hours .sa_el_countdown_label' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -656,7 +656,7 @@ class Count_down extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .sa_el_countdown_minutes .sa_el_countdown-digits' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sa_el_countdown_minutes .sa_el_countdown_digits' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -668,7 +668,7 @@ class Count_down extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .sa_el_countdown_minutes .sa_el_countdown-label' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sa_el_countdown_minutes .sa_el_countdown_label' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -712,7 +712,7 @@ class Count_down extends Widget_Base {
 				'type'		=> Controls_Manager::COLOR,
 				'default'	=> '',
 				'selectors' => [
-					'{{WRAPPER}} .sa_el_countdown_seconds .sa_el_countdown-digits' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sa_el_countdown_seconds .sa_el_countdown_digits' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -724,7 +724,7 @@ class Count_down extends Widget_Base {
 				'type'		=> Controls_Manager::COLOR,
 				'default'	=> '',
 				'selectors'	=> [
-					'{{WRAPPER}} .sa_el_countdown_seconds .sa_el_countdown-label' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sa_el_countdown_seconds .sa_el_countdown_label' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -938,11 +938,11 @@ class Count_down extends Widget_Base {
 
 	<div <?php echo $this->get_render_attribute_string( 'sa_el_countdown' ); ?>>
 		<div class="sa_el_countdown_container <?php echo esc_attr($settings['sa_el_countdown_label_view'] ); ?> <?php echo esc_attr($settings['sa_el_countdown_separator'] ); ?>">
-			<ul id="sa_el_countdown-<?php echo esc_attr($this->get_id()); ?>" class="sa_el_countdown_items <?php echo esc_attr( $eael_countdown_style ); ?>" data-date="<?php echo esc_attr($due_date) ; ?>">
-			    <?php if ( ! empty( $settings['sa_el_countdown_days'] ) ) : ?><li class="sa_el_countdown_item"><div class="sa_el_countdown_days"><span data-days class="sa_el_countdown-digits">00</span><?php if ( ! empty( $settings['sa_el_countdown_days_label'] ) ) : ?><span class="sa_el_countdown-label"><?php echo esc_attr($settings['sa_el_countdown_days_label'] ); ?></span><?php endif; ?></div></li><?php endif; ?>
-			    <?php if ( ! empty( $settings['sa_el_countdown_hours'] ) ) : ?><li class="sa_el_countdown_item"><div class="sa_el_countdown_hours"><span data-hours class="sa_el_countdown-digits">00</span><?php if ( ! empty( $settings['sa_el_countdown_hours_label'] ) ) : ?><span class="sa_el_countdown-label"><?php echo esc_attr($settings['sa_el_countdown_hours_label'] ); ?></span><?php endif; ?></div></li><?php endif; ?>
-			   <?php if ( ! empty( $settings['sa_el_countdown_minutes'] ) ) : ?><li class="sa_el_countdown_item"><div class="sa_el_countdown_minutes"><span data-minutes class="sa_el_countdown-digits">00</span><?php if ( ! empty( $settings['sa_el_countdown_minutes_label'] ) ) : ?><span class="sa_el_countdown-label"><?php echo esc_attr($settings['sa_el_countdown_minutes_label'] ); ?></span><?php endif; ?></div></li><?php endif; ?>
-			   <?php if ( ! empty( $settings['sa_el_countdown_seconds'] ) ) : ?><li class="sa_el_countdown_item"><div class="sa_el_countdown_seconds"><span data-seconds class="sa_el_countdown-digits">00</span><?php if ( ! empty( $settings['sa_el_countdown_seconds_label'] ) ) : ?><span class="sa_el_countdown-label"><?php echo esc_attr($settings['sa_el_countdown_seconds_label'] ); ?></span><?php endif; ?></div></li><?php endif; ?>
+			<ul id="sa_el_countdown_<?php echo esc_attr($this->get_id()); ?>" class="sa_el_countdown_items <?php echo esc_attr( $eael_countdown_style ); ?>" data-date="<?php echo esc_attr($due_date) ; ?>">
+			    <?php if ( ! empty( $settings['sa_el_countdown_days'] ) ) : ?><li class="sa_el_countdown_item"><div class="sa_el_countdown_days"><span data-days class="sa_el_countdown_digits">00</span><?php if ( ! empty( $settings['sa_el_countdown_days_label'] ) ) : ?><span class="sa_el_countdown_label"><?php echo esc_attr($settings['sa_el_countdown_days_label'] ); ?></span><?php endif; ?></div></li><?php endif; ?>
+			    <?php if ( ! empty( $settings['sa_el_countdown_hours'] ) ) : ?><li class="sa_el_countdown_item"><div class="sa_el_countdown_hours"><span data-hours class="sa_el_countdown_digits">00</span><?php if ( ! empty( $settings['sa_el_countdown_hours_label'] ) ) : ?><span class="sa_el_countdown_label"><?php echo esc_attr($settings['sa_el_countdown_hours_label'] ); ?></span><?php endif; ?></div></li><?php endif; ?>
+			   <?php if ( ! empty( $settings['sa_el_countdown_minutes'] ) ) : ?><li class="sa_el_countdown_item"><div class="sa_el_countdown_minutes"><span data-minutes class="sa_el_countdown_digits">00</span><?php if ( ! empty( $settings['sa_el_countdown_minutes_label'] ) ) : ?><span class="sa_el_countdown_label"><?php echo esc_attr($settings['sa_el_countdown_minutes_label'] ); ?></span><?php endif; ?></div></li><?php endif; ?>
+			   <?php if ( ! empty( $settings['sa_el_countdown_seconds'] ) ) : ?><li class="sa_el_countdown_item"><div class="sa_el_countdown_seconds"><span data-seconds class="sa_el_countdown_digits">00</span><?php if ( ! empty( $settings['sa_el_countdown_seconds_label'] ) ) : ?><span class="sa_el_countdown_label"><?php echo esc_attr($settings['sa_el_countdown_seconds_label'] ); ?></span><?php endif; ?></div></li><?php endif; ?>
 			</ul>
 			<div class="clearfix"></div>
 		</div>

@@ -1,13 +1,13 @@
 /*---------------------------------*/
 
 
-/* 05. Countdown Styles
+/* Countdown Styles
 /*---------------------------------*/
 
 
 /*--- General ---*/
 
-.eael-countdown-items {
+.sa_el_countdown_items {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -16,7 +16,7 @@
     width: 100%;
 }
 
-.eael-countdown-items>li {
+.sa_el_countdown_items>li {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -24,42 +24,42 @@
     position: relative;
 }
 
-.eael-countdown-item>div {
+.sa_el_countdown_item>div {
     text-align: center;
     padding: 20px;
 }
 
-.eael-countdown-label-block .eael-countdown-digits,
-.eael-countdown-label-block .eael-countdown-label {
+.sa_el_countdown_label_block .sa_el_countdown_digits,
+.sa_el_countdown_label_block .sa_el_countdown_label {
     display: block;
     text-align: center;
 }
 
-.eael-countdown-digits {
+.sa_el_countdown_digits {
     font-size: 54px;
     line-height: 1;
 }
 
-.eael-countdown-label {
+.sa_el_countdown_label {
     font-size: 18px;
     line-height: 1;
     color: #ffffff;
 }
 
-.eael-countdown-show-separator .eael-countdown-digits::after {
+.sa_el_countdown_show_separator .sa_el_countdown_digits::after {
     content: ":";
     position: absolute;
     left: 98%;
     z-index: 9999;
 }
 
-.eael-countdown-item:last-child .eael-countdown-digits::after {
+.sa_el_countdown_item:last-child .sa_el_countdown_digits::after {
     display: none;
 }
 
 
 /*--- Style 1 ---*/
 
-.eael-countdown-items.style-1 .eael-countdown-item>div {
+.sa_el_countdown_items.style-1 .sa_el_countdown_item>div {
     background: #262625;
 }
