@@ -73,7 +73,11 @@ class Button extends Widget_Base
 				'default'     => 'Go!',
 				'placeholder' => __('Enter button secondary text', SA_ELEMENTOR_TEXTDOMAIN),
 				'title'       => __('Enter button secondary text here', SA_ELEMENTOR_TEXTDOMAIN),
-			]
+
+				'condition'     => [
+					'creative_button_effect' => ['sa_el_creative_button_winona', 'sa_el_creative_button_tamaya', 'sa_el_creative_button_rayen'],
+				],
+			],
 		);
 
 
@@ -447,7 +451,7 @@ class Button extends Widget_Base
 		} elseif ($settings['creative_button_effect'] == 'sa_el_creative_button_shutter') {
 			$style_class = 'sa_el_creative_button_' . $settings['creative_button_effect_shutter'];
 		}
-		
+
 		$this->add_render_attribute('sa_el_creative_button', [
 			'href'	=> esc_attr($settings['creative_button_link_url']['url']),
 		]);
@@ -462,7 +466,7 @@ class Button extends Widget_Base
 		$this->add_render_attribute('sa_el_creative_button', 'data-text', esc_attr($settings['creative_button_secondary_text']));
 		?>
 		<div class="sa_el_creative_button_wrapper">
-			<a class = "sa_el_creative_button <?php echo esc_attr($style_class);?>"<?php echo $this->get_render_attribute_string('sa_el_creative_button'); ?>>
+			<a class="sa_el_creative_button <?php echo esc_attr($style_class); ?>" <?php echo $this->get_render_attribute_string('sa_el_creative_button'); ?>>
 				<span>
 					<?php if (!empty($settings['sa_el_creative_button_icon']) && $settings['sa_el_creative_button_icon_alignment'] == 'left') : ?>
 						<i class="<?php echo esc_attr($settings['sa_el_creative_button_icon']); ?> sa_el_creative_button_icon_left" aria-hidden="true"></i>
