@@ -26,7 +26,7 @@ class Call_To_Action extends Widget_Base {
     }
 
     public function get_title() {
-        return esc_html__('Call_To_Action', SA_ELEMENTOR_TEXTDOMAIN);
+        return esc_html__('Call To Action', SA_ELEMENTOR_TEXTDOMAIN);
     }
 
     public function get_icon() {
@@ -44,93 +44,92 @@ class Call_To_Action extends Widget_Base {
          */
         $this->start_controls_section(
                 'sa_el_section_call_to_action_content_settings', [
-            'label' => esc_html__('Content Settings', 'essential-addons-elementor')
+            'label' => esc_html__('Content Settings', SA_ELEMENTOR_TEXTDOMAIN)
                 ]
         );
 
         $this->add_control(
                 'sa_el_call_to_action_type', [
-            'label' => esc_html__('Content Style', 'essential-addons-elementor'),
+            'label' => esc_html__('Content Style', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
-            'default' => 'cta-basic',
+            'default' => 'call-to-action-basic',
             'label_block' => false,
             'options' => [
-                'cta-basic' => esc_html__('Basic', 'essential-addons-elementor'),
-                'cta-flex' => esc_html__('Flex Grid', 'essential-addons-elementor'),
-                'cta-icon-flex' => esc_html__('Flex Grid with Icon', 'essential-addons-elementor'),
+                'call-to-action-basic' => esc_html__('Basic', SA_ELEMENTOR_TEXTDOMAIN),
+                'call-to-action-flex' => esc_html__('Flex Grid', SA_ELEMENTOR_TEXTDOMAIN),
+                'call-to-action-icon-flex' => esc_html__('Flex Grid with Icon', SA_ELEMENTOR_TEXTDOMAIN),
             ],
                 ]
         );
 
         /**
-         * Condition: 'sa_el_call_to_action_type' => 'cta-basic'
+         * Condition: 'sa_el_call_to_action_type' => 'call-to-action-basic'
          */
         $this->add_control(
                 'sa_el_call_to_action_content_type', [
-            'label' => esc_html__('Content Type', 'essential-addons-elementor'),
+            'label' => esc_html__('Content Type', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
-            'default' => 'cta-default',
+            'default' => 'call-to-action-default',
             'label_block' => false,
             'options' => [
-                'cta-default' => esc_html__('Left', 'essential-addons-elementor'),
-                'cta-center' => esc_html__('Center', 'essential-addons-elementor'),
-                'cta-right' => esc_html__('Right', 'essential-addons-elementor'),
+                'call-to-action-default' => esc_html__('Left', SA_ELEMENTOR_TEXTDOMAIN),
+                'call-to-action-center' => esc_html__('Center', SA_ELEMENTOR_TEXTDOMAIN),
+                'call-to-action-right' => esc_html__('Right', SA_ELEMENTOR_TEXTDOMAIN),
             ],
             'condition' => [
-                'sa_el_call_to_action_type' => 'cta-basic'
+                'sa_el_call_to_action_type' => 'call-to-action-basic'
             ]
                 ]
         );
 
         $this->add_control(
                 'sa_el_call_to_action_color_type', [
-            'label' => esc_html__('Color Style', 'essential-addons-elementor'),
+            'label' => esc_html__('Color Style', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
-            'default' => 'cta-bg-color',
+            'default' => 'call-to-action-bg-color',
             'label_block' => false,
             'options' => [
-                'cta-bg-color' => esc_html__('Background Color', 'essential-addons-elementor'),
-                'cta-bg-img' => esc_html__('Background Image', 'essential-addons-elementor'),
-                'cta-bg-img-fixed' => esc_html__('Background Fixed Image', 'essential-addons-elementor'),
+                'call-to-action-bg-color' => esc_html__('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
+                'call-to-action-bg-img' => esc_html__('Background Image', SA_ELEMENTOR_TEXTDOMAIN),
+                'call-to-action-bg-img-fixed' => esc_html__('Background Fixed Image', SA_ELEMENTOR_TEXTDOMAIN),
             ],
                 ]
         );
 
 
         /**
-         * Condition: 'sa_el_call_to_action_type' => 'cta-icon-flex'
+         * Condition: 'sa_el_call_to_action_type' => 'call-to-action-icon-flex'
          */
         $this->add_control(
                 'sa_el_call_to_action_flex_grid_icon', [
-            'label' => esc_html__('Icon', 'essential-addons-elementor'),
+            'label' => esc_html__('Icon', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::ICON,
             'default' => 'fa fa-bullhorn',
             'condition' => [
-                'sa_el_call_to_action_type' => 'cta-icon-flex'
+                'sa_el_call_to_action_type' => 'call-to-action-icon-flex'
             ]
                 ]
         );
 
-
-
+     
 
         $this->add_control(
                 'sa_el_call_to_action_title', [
-            'label' => esc_html__('Title', 'essential-addons-elementor'),
+            'label' => esc_html__('Title', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
-            'default' => esc_html__('The Ultimate Addons For Elementor', 'essential-addons-elementor'),
+            'default' => esc_html__('The Ultimate Addons For Elementor', SA_ELEMENTOR_TEXTDOMAIN),
             'dynamic' => ['active' => true]
                 ]
         );
 
         $this->add_control(
                 'sa_el_call_to_action_title_content_type', [
-            'label' => __('Content Type', 'essential-addons-elementor'),
+            'label' => __('Content Type', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
             'options' => [
-                'content' => __('Content', 'essential-addons-elementor'),
-                'template' => __('Saved Templates', 'essential-addons-elementor'),
+                'content' => __('Content', SA_ELEMENTOR_TEXTDOMAIN),
+                'template' => __('Saved Templates', SA_ELEMENTOR_TEXTDOMAIN),
             ],
             'default' => 'content',
                 ]
@@ -138,7 +137,7 @@ class Call_To_Action extends Widget_Base {
 
         $this->add_control(
                 'sa_el_primary_templates', [
-            'label' => __('Choose Template', 'essential-addons-elementor'),
+            'label' => __('Choose Template', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
             'options' => $this->get_elementor_page_templates(),
             'condition' => [
@@ -148,10 +147,10 @@ class Call_To_Action extends Widget_Base {
         );
         $this->add_control(
                 'sa_el_call_to_action_content', [
-            'label' => esc_html__('Content', 'essential-addons-elementor'),
+            'label' => esc_html__('Content', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::WYSIWYG,
             'label_block' => true,
-            'default' => esc_html__('Add a strong one liner supporting the heading above and giving users a reason to click on the button below.', 'essential-addons-elementor'),
+            'default' => esc_html__('Add a strong one liner supporting the heading above and giving users a reason to click on the button below.', SA_ELEMENTOR_TEXTDOMAIN),
             'separator' => 'after',
             'condition' => [
                 'sa_el_call_to_action_title_content_type' => 'content'
@@ -161,16 +160,16 @@ class Call_To_Action extends Widget_Base {
 
         $this->add_control(
                 'sa_el_call_to_action_btn_text', [
-            'label' => esc_html__('Button Text', 'essential-addons-elementor'),
+            'label' => esc_html__('Button Text', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
-            'default' => esc_html__('Button Text', 'essential-addons-elementor')
+            'default' => esc_html__('Button Text', SA_ELEMENTOR_TEXTDOMAIN)
                 ]
         );
 
         $this->add_control(
                 'sa_el_call_to_action_btn_link', [
-            'label' => esc_html__('Button Link', 'essential-addons-elementor'),
+            'label' => esc_html__('Button Link', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::URL,
             'label_block' => true,
             'default' => [
@@ -183,39 +182,68 @@ class Call_To_Action extends Widget_Base {
         );
 
         /**
-         * Condition: 'sa_el_call_to_action_color_type' => 'cta-bg-img' && 'sa_el_call_to_action_color_type' => 'cta-bg-img-fixed',
+         * Condition: 'sa_el_call_to_action_color_type' => 'call-to-action-bg-img' && 'sa_el_call_to_action_color_type' => 'call-to-action-bg-img-fixed',
          */
         $this->add_control(
                 'sa_el_call_to_action_bg_image', [
-            'label' => esc_html__('Background Image', 'essential-addons-elementor'),
+            'label' => esc_html__('Background Image', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::MEDIA,
             'default' => [
                 'url' => Utils::get_placeholder_image_src(),
             ],
             'selectors' => [
-                '{{WRAPPER}} .eael-call-to-action.bg-img' => 'background-image: url({{URL}});',
-                '{{WRAPPER}} .eael-call-to-action.bg-img-fixed' => 'background-image: url({{URL}});',
+                '{{WRAPPER}} .sa_el_call_to_action.bg-img' => 'background-image: url({{URL}});',
+                '{{WRAPPER}} .sa_el_call_to_action.bg-img-fixed' => 'background-image: url({{URL}});',
             ],
             'condition' => [
-                'sa_el_call_to_action_color_type' => ['cta-bg-img', 'cta-bg-img-fixed'],
+                'sa_el_call_to_action_color_type' => ['call-to-action-bg-img', 'call-to-action-bg-img-fixed'],
+            ]
+                ]
+        );
+        $this->add_control(
+                'sa_el_call_to_action_bg_image_overlay_color', [
+            'label' => esc_html__('Overlay Color', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::COLOR,
+            'default' => 'rgba(0, 0, 0, 0.8)',
+            'selectors' => [
+                '{{WRAPPER}} .sa_el_call_to_action.bg-img:after' => 'background: {{VALUE}};',
+            ],
+            'condition' => [
+                'sa_el_call_to_action_color_type' => ['call-to-action-bg-img', 'call-to-action-bg-img-fixed'],
+            ]
+                ]
+        );
+        $this->add_control(
+                'sa_el_call_to_action_bg_image', [
+            'label' => esc_html__('Background Image', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::MEDIA,
+            'default' => [
+                'url' => Utils::get_placeholder_image_src(),
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .sa_el_call_to_action.bg-img' => 'background-image: url({{URL}});',
+                '{{WRAPPER}} .sa_el_call_to_action.bg-img-fixed' => 'background-image: url({{URL}});',
+            ],
+            'condition' => [
+                'sa_el_call_to_action_color_type' => ['call-to-action-bg-img', 'call-to-action-bg-img-fixed'],
             ]
                 ]
         );
         $this->end_controls_section();
         if (!apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', FALSE)) {
             $this->start_controls_section(
-                    'eael_section_pro', [
-                'label' => __('Go Premium for More Features', 'essential-addons-elementor')
+                    'sa_el_section_pro', [
+                'label' => __('Go Premium for More Features', SA_ELEMENTOR_TEXTDOMAIN)
                     ]
             );
 
             $this->add_control(
-                    'eael_control_get_pro', [
-                'label' => __('Unlock more possibilities', 'essential-addons-elementor'),
+                    'sa_el_control_get_pro', [
+                'label' => __('Unlock more possibilities', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     '1' => [
-                        'title' => __('', 'essential-addons-elementor'),
+                        'title' => __('', SA_ELEMENTOR_TEXTDOMAIN),
                         'icon' => 'fa fa-unlock-alt',
                     ],
                 ],
@@ -228,29 +256,29 @@ class Call_To_Action extends Widget_Base {
         }
         /**
          * -------------------------------------------
-         * Tab Style (Cta Title Style)
+         * Tab Style (call-to-action Title Style)
          * -------------------------------------------
          */
         $this->start_controls_section(
-                'eael_section_cta_style_settings', [
-            'label' => esc_html__('Call to Action Style', 'essential-addons-elementor'),
+                'sa_el_section_call_to_action_style_settings', [
+            'label' => esc_html__('Call to Action Style', SA_ELEMENTOR_TEXTDOMAIN),
             'tab' => Controls_Manager::TAB_STYLE
                 ]
         );
 
         $this->add_control(
-                'eael_cta_container_width', [
-            'label' => esc_html__('Set max width for the container?', 'essential-addons-elementor'),
+                'sa_el_call_to_action_container_width', [
+            'label' => esc_html__('Set max width for the container?', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('yes', 'essential-addons-elementor'),
-            'label_off' => __('no', 'essential-addons-elementor'),
+            'label_on' => __('yes', SA_ELEMENTOR_TEXTDOMAIN),
+            'label_off' => __('no', SA_ELEMENTOR_TEXTDOMAIN),
             'default' => 'yes',
                 ]
         );
 
         $this->add_responsive_control(
-                'eael_cta_container_width_value', [
-            'label' => __('Container Max Width (% or px)', 'essential-addons-elementor'),
+                'sa_el_call_to_action_container_width_value', [
+            'label' => __('Container Max Width (% or px)', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SLIDER,
             'default' => [
                 'size' => 1170,
@@ -269,58 +297,58 @@ class Call_To_Action extends Widget_Base {
                 ],
             ],
             'selectors' => [
-                '{{WRAPPER}} .eael-call-to-action' => 'max-width: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}} .sa_el_call_to_action' => 'max-width: {{SIZE}}{{UNIT}};',
             ],
             'condition' => [
-                'eael_cta_container_width' => 'yes',
+                'sa_el_call_to_action_container_width' => 'yes',
             ],
                 ]
         );
 
         $this->add_control(
-                'eael_cta_bg_color', [
-            'label' => esc_html__('Background Color', 'essential-addons-elementor'),
+                'sa_el_call_to_action_bg_color', [
+            'label' => esc_html__('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
             'default' => '#f4f4f4',
             'selectors' => [
-                '{{WRAPPER}} .eael-call-to-action' => 'background-color: {{VALUE}};',
+                '{{WRAPPER}} .sa_el_call_to_action' => 'background-color: {{VALUE}};',
             ],
                 ]
         );
 
         $this->add_responsive_control(
-                'eael_cta_container_padding', [
-            'label' => esc_html__('Padding', 'essential-addons-elementor'),
+                'sa_el_call_to_action_container_padding', [
+            'label' => esc_html__('Padding', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', 'em', '%'],
             'selectors' => [
-                '{{WRAPPER}} .eael-call-to-action' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} .sa_el_call_to_action' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
             ],
                 ]
         );
 
         $this->add_responsive_control(
-                'eael_cta_container_margin', [
-            'label' => esc_html__('Margin', 'essential-addons-elementor'),
+                'sa_el_call_to_action_container_margin', [
+            'label' => esc_html__('Margin', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', 'em', '%'],
             'selectors' => [
-                '{{WRAPPER}} .eael-call-to-action' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} .sa_el_call_to_action' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
             ],
                 ]
         );
 
         $this->add_group_control(
                 Group_Control_Border::get_type(), [
-            'name' => 'eael_cta_border',
-            'label' => esc_html__('Border', 'essential-addons-elementor'),
-            'selector' => '{{WRAPPER}} .eael-call-to-action',
+            'name' => 'sa_el_call_to_action_border',
+            'label' => esc_html__('Border', SA_ELEMENTOR_TEXTDOMAIN),
+            'selector' => '{{WRAPPER}} .sa_el_call_to_action',
                 ]
         );
 
         $this->add_control(
-                'eael_cta_border_radius', [
-            'label' => esc_html__('Border Radius', 'essential-addons-elementor'),
+                'sa_el_call_to_action_border_radius', [
+            'label' => esc_html__('Border Radius', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'px' => [
@@ -328,15 +356,15 @@ class Call_To_Action extends Widget_Base {
                 ],
             ],
             'selectors' => [
-                '{{WRAPPER}} .eael-call-to-action' => 'border-radius: {{SIZE}}px;',
+                '{{WRAPPER}} .sa_el_call_to_action' => 'border-radius: {{SIZE}}px;',
             ],
                 ]
         );
 
         $this->add_group_control(
                 Group_Control_Box_Shadow::get_type(), [
-            'name' => 'eael_cta_shadow',
-            'selector' => '{{WRAPPER}} .eael-call-to-action',
+            'name' => 'sa_el_call_to_action_shadow',
+            'selector' => '{{WRAPPER}} .sa_el_call_to_action',
                 ]
         );
 
@@ -345,64 +373,64 @@ class Call_To_Action extends Widget_Base {
 
         /**
          * -------------------------------------------
-         * Tab Style (Cta Title Style)
+         * Tab Style (call-to-action Title Style)
          * -------------------------------------------
          */
         $this->start_controls_section(
-                'eael_section_cta_title_style_settings', [
-            'label' => esc_html__('Color &amp; Typography ', 'essential-addons-elementor'),
+                'sa_el_section_call_to_action_title_style_settings', [
+            'label' => esc_html__('Color &amp; Typography ', SA_ELEMENTOR_TEXTDOMAIN),
             'tab' => Controls_Manager::TAB_STYLE
                 ]
         );
 
         $this->add_control(
-                'eael_cta_title_heading', [
-            'label' => esc_html__('Title Style', 'essential-addons-elementor'),
+                'sa_el_call_to_action_title_heading', [
+            'label' => esc_html__('Title Style', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::HEADING,
                 ]
         );
 
         $this->add_control(
-                'eael_cta_title_color', [
-            'label' => esc_html__('Color', 'essential-addons-elementor'),
+                'sa_el_call_to_action_title_color', [
+            'label' => esc_html__('Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
             'default' => '',
             'selectors' => [
-                '{{WRAPPER}} .eael-call-to-action .title' => 'color: {{VALUE}};',
+                '{{WRAPPER}} .sa_el_call_to_action .title' => 'color: {{VALUE}};',
             ],
                 ]
         );
 
         $this->add_group_control(
                 Group_Control_Typography::get_type(), [
-            'name' => 'eael_cta_title_typography',
-            'selector' => '{{WRAPPER}} .eael-call-to-action .title',
+            'name' => 'sa_el_call_to_action_title_typography',
+            'selector' => '{{WRAPPER}} .sa_el_call_to_action .title',
                 ]
         );
 
         $this->add_control(
-                'eael_cta_content_heading', [
-            'label' => esc_html__('Content Style', 'essential-addons-elementor'),
+                'sa_el_call_to_action_content_heading', [
+            'label' => esc_html__('Content Style', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::HEADING,
             'separator' => 'before'
                 ]
         );
 
         $this->add_control(
-                'eael_cta_content_color', [
-            'label' => esc_html__('Color', 'essential-addons-elementor'),
+                'sa_el_call_to_action_content_color', [
+            'label' => esc_html__('Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
             'default' => '',
             'selectors' => [
-                '{{WRAPPER}} .eael-call-to-action p' => 'color: {{VALUE}};',
+                '{{WRAPPER}} .sa_el_call_to_action p' => 'color: {{VALUE}};',
             ],
                 ]
         );
 
         $this->add_group_control(
                 Group_Control_Typography::get_type(), [
-            'name' => 'eael_cta_content_typography',
-            'selector' => '{{WRAPPER}} .eael-call-to-action p',
+            'name' => 'sa_el_call_to_action_content_typography',
+            'selector' => '{{WRAPPER}} .sa_el_call_to_action p',
                 ]
         );
 
@@ -414,92 +442,92 @@ class Call_To_Action extends Widget_Base {
          * -------------------------------------------
          */
         $this->start_controls_section(
-                'eael_section_cta_btn_style_settings', [
-            'label' => esc_html__('Button Style', 'essential-addons-elementor'),
+                'sa_el_section_call_to_action_btn_style_settings', [
+            'label' => esc_html__('Button Style', SA_ELEMENTOR_TEXTDOMAIN),
             'tab' => Controls_Manager::TAB_STYLE
                 ]
         );
 
         $this->add_control(
-                'eael_cta_btn_effect_type', [
-            'label' => esc_html__('Effect', 'essential-addons-elementor'),
+                'sa_el_call_to_action_btn_effect_type', [
+            'label' => esc_html__('Effect', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
             'default' => 'default',
             'label_block' => false,
             'options' => [
-                'default' => esc_html__('Default', 'essential-addons-elementor'),
-                'top-to-bottom' => esc_html__('Top to Bottom', 'essential-addons-elementor'),
-                'left-to-right' => esc_html__('Left to Right', 'essential-addons-elementor'),
+                'default' => esc_html__('Default', SA_ELEMENTOR_TEXTDOMAIN),
+                'top-to-bottom' => esc_html__('Top to Bottom', SA_ELEMENTOR_TEXTDOMAIN),
+                'left-to-right' => esc_html__('Left to Right', SA_ELEMENTOR_TEXTDOMAIN),
             ],
                 ]
         );
 
         $this->add_responsive_control(
-                'eael_cta_btn_padding', [
-            'label' => esc_html__('Padding', 'essential-addons-elementor'),
+                'sa_el_call_to_action_btn_padding', [
+            'label' => esc_html__('Padding', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', 'em', '%'],
             'selectors' => [
-                '{{WRAPPER}} .eael-call-to-action .cta-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} .sa_el_call_to_action .call-to-action-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
             ],
                 ]
         );
 
         $this->add_responsive_control(
-                'eael_cta_btn_margin', [
-            'label' => esc_html__('Margin', 'essential-addons-elementor'),
+                'sa_el_call_to_action_btn_margin', [
+            'label' => esc_html__('Margin', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', 'em', '%'],
             'selectors' => [
-                '{{WRAPPER}} .eael-call-to-action .cta-button' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} .sa_el_call_to_action .call-to-action-button' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
             ],
                 ]
         );
         $this->add_group_control(
                 Group_Control_Typography::get_type(), [
-            'name' => 'eael_cta_btn_typography',
-            'selector' => '{{WRAPPER}} .eael-call-to-action .cta-button',
+            'name' => 'sa_el_call_to_action_btn_typography',
+            'selector' => '{{WRAPPER}} .sa_el_call_to_action .call-to-action-button',
                 ]
         );
 
-        $this->start_controls_tabs('eael_cta_button_tabs');
+        $this->start_controls_tabs('sa_el_call_to_action_button_tabs');
 
         // Normal State Tab
-        $this->start_controls_tab('eael_cta_btn_normal', ['label' => esc_html__('Normal', 'essential-addons-elementor')]);
+        $this->start_controls_tab('sa_el_call_to_action_btn_normal', ['label' => esc_html__('Normal', SA_ELEMENTOR_TEXTDOMAIN)]);
 
         $this->add_control(
-                'eael_cta_btn_normal_text_color', [
-            'label' => esc_html__('Text Color', 'essential-addons-elementor'),
+                'sa_el_call_to_action_btn_normal_text_color', [
+            'label' => esc_html__('Text Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
             'default' => '#4d4d4d',
             'selectors' => [
-                '{{WRAPPER}} .eael-call-to-action .cta-button' => 'color: {{VALUE}};',
+                '{{WRAPPER}} .sa_el_call_to_action .call-to-action-button' => 'color: {{VALUE}};',
             ],
                 ]
         );
 
         $this->add_control(
-                'eael_cta_btn_normal_bg_color', [
-            'label' => esc_html__('Background Color', 'essential-addons-elementor'),
+                'sa_el_call_to_action_btn_normal_bg_color', [
+            'label' => esc_html__('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
             'default' => '#f9f9f9',
             'selectors' => [
-                '{{WRAPPER}} .eael-call-to-action .cta-button' => 'background: {{VALUE}};',
+                '{{WRAPPER}} .sa_el_call_to_action .call-to-action-button' => 'background: {{VALUE}};',
             ],
                 ]
         );
 
         $this->add_group_control(
                 Group_Control_Border::get_type(), [
-            'name' => 'eael_cat_btn_normal_border',
-            'label' => esc_html__('Border', 'essential-addons-elementor'),
-            'selector' => '{{WRAPPER}} .eael-call-to-action .cta-button',
+            'name' => 'sa_el_call_to_action_btn_normal_border',
+            'label' => esc_html__('Border', SA_ELEMENTOR_TEXTDOMAIN),
+            'selector' => '{{WRAPPER}} .sa_el_call_to_action .call-to-action-button',
                 ]
         );
 
         $this->add_control(
-                'eael_cta_btn_border_radius', [
-            'label' => esc_html__('Border Radius', 'essential-addons-elementor'),
+                'sa_el_call_to_action_btn_border_radius', [
+            'label' => esc_html__('Border Radius', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'px' => [
@@ -507,7 +535,7 @@ class Call_To_Action extends Widget_Base {
                 ],
             ],
             'selectors' => [
-                '{{WRAPPER}} .eael-call-to-action .cta-button' => 'border-radius: {{SIZE}}px;',
+                '{{WRAPPER}} .sa_el_call_to_action .call-to-action-button' => 'border-radius: {{SIZE}}px;',
             ],
                 ]
         );
@@ -515,38 +543,38 @@ class Call_To_Action extends Widget_Base {
         $this->end_controls_tab();
 
         // Hover State Tab
-        $this->start_controls_tab('eael_cta_btn_hover', ['label' => esc_html__('Hover', 'essential-addons-elementor')]);
+        $this->start_controls_tab('sa_el_call_to_action_btn_hover', ['label' => esc_html__('Hover', SA_ELEMENTOR_TEXTDOMAIN)]);
 
         $this->add_control(
-                'eael_cta_btn_hover_text_color', [
-            'label' => esc_html__('Text Color', 'essential-addons-elementor'),
+                'sa_el_call_to_action_btn_hover_text_color', [
+            'label' => esc_html__('Text Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
             'default' => '#f9f9f9',
             'selectors' => [
-                '{{WRAPPER}} .eael-call-to-action .cta-button:hover' => 'color: {{VALUE}};',
+                '{{WRAPPER}} .sa_el_call_to_action .call-to-action-button:hover' => 'color: {{VALUE}};',
             ],
                 ]
         );
 
         $this->add_control(
-                'eael_cta_btn_hover_bg_color', [
-            'label' => esc_html__('Background Color', 'essential-addons-elementor'),
+                'sa_el_call_to_action_btn_hover_bg_color', [
+            'label' => esc_html__('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
             'default' => '#3F51B5',
             'selectors' => [
-                '{{WRAPPER}} .eael-call-to-action .cta-button:after' => 'background: {{VALUE}};',
-                '{{WRAPPER}} .eael-call-to-action .cta-button:hover' => 'background: {{VALUE}};',
+                '{{WRAPPER}} .sa_el_call_to_action .call-to-action-button:after' => 'background: {{VALUE}};',
+                '{{WRAPPER}} .sa_el_call_to_action .call-to-action-button:hover' => 'background: {{VALUE}};',
             ],
                 ]
         );
 
         $this->add_control(
-                'eael_cta_btn_hover_border_color', [
-            'label' => esc_html__('Border Color', 'essential-addons-elementor'),
+                'sa_el_call_to_action_btn_hover_border_color', [
+            'label' => esc_html__('Border Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
             'default' => '',
             'selectors' => [
-                '{{WRAPPER}} .eael-call-to-action .cta-button:hover' => 'border-color: {{VALUE}};',
+                '{{WRAPPER}} .sa_el_call_to_action .call-to-action-button:hover' => 'border-color: {{VALUE}};',
             ],
                 ]
         );
@@ -557,8 +585,8 @@ class Call_To_Action extends Widget_Base {
 
         $this->add_group_control(
                 Group_Control_Box_Shadow::get_type(), [
-            'name' => 'eael_cta_button_shadow',
-            'selector' => '{{WRAPPER}} .eael-call-to-action .cta-button',
+            'name' => 'sa_el_call_to_action_button_shadow',
+            'selector' => '{{WRAPPER}} .sa_el_call_to_action .call-to-action-button',
             'separator' => 'before'
                 ]
         );
@@ -571,18 +599,18 @@ class Call_To_Action extends Widget_Base {
          * -------------------------------------------
          */
         $this->start_controls_section(
-                'eael_section_cta_icon_style_settings', [
-            'label' => esc_html__('Icon Style', 'essential-addons-elementor'),
+                'sa_el_section_call_to_action_icon_style_settings', [
+            'label' => esc_html__('Icon Style', SA_ELEMENTOR_TEXTDOMAIN),
             'tab' => Controls_Manager::TAB_STYLE,
             'condition' => [
-                'eael_cta_type' => 'cta-icon-flex'
+                'sa_el_call_to_action_type' => 'call-to-action-icon-flex'
             ]
                 ]
         );
 
         $this->add_control(
-                'eael_section_cta_icon_size', [
-            'label' => esc_html__('Font Size', 'essential-addons-elementor'),
+                'sa_el_section_call_to_action_icon_size', [
+            'label' => esc_html__('Font Size', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SLIDER,
             'default' => [
                 'size' => 80
@@ -593,18 +621,18 @@ class Call_To_Action extends Widget_Base {
                 ],
             ],
             'selectors' => [
-                '{{WRAPPER}} .eael-call-to-action.cta-icon-flex .icon' => 'font-size: {{SIZE}}px;',
+                '{{WRAPPER}} .sa_el_call_to_action.call-to-action-icon-flex .icon' => 'font-size: {{SIZE}}px;',
             ],
                 ]
         );
 
         $this->add_control(
-                'eael_section_cta_icon_color', [
-            'label' => esc_html__('Color', 'essential-addons-elementor'),
+                'sa_el_section_call_to_action_icon_color', [
+            'label' => esc_html__('Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
             'default' => '#444',
             'selectors' => [
-                '{{WRAPPER}} .eael-call-to-action.cta-icon-flex .icon' => 'color: {{VALUE}};',
+                '{{WRAPPER}} .sa_el_call_to_action.call-to-action-icon-flex .icon' => 'color: {{VALUE}};',
             ],
                 ]
         );
@@ -613,7 +641,99 @@ class Call_To_Action extends Widget_Base {
     }
 
     protected function render() {
-        
+
+        $settings = $this->get_settings_for_display();
+        $target = $settings['sa_el_call_to_action_btn_link']['is_external'] ? 'target="_blank"' : '';
+        $nofollow = $settings['sa_el_call_to_action_btn_link']['nofollow'] ? 'rel="nofollow"' : '';
+        if ('call-to-action-bg-color' == $settings['sa_el_call_to_action_color_type']) {
+            $call_to_action_class = 'bg-lite';
+        } else if ('call-to-action-bg-img' == $settings['sa_el_call_to_action_color_type']) {
+            $call_to_action_class = 'bg-img';
+        } else if ('call-to-action-bg-img-fixed' == $settings['sa_el_call_to_action_color_type']) {
+            $call_to_action_class = 'bg-img bg-fixed';
+        } else {
+            $call_to_action_class = '';
+        }
+        // Is Basic call-to-action Content Center or Not
+        if ('call-to-action-center' === $settings['sa_el_call_to_action_content_type']) {
+            $call_to_action_alignment = 'call-to-action-center';
+        } elseif ('call-to-action-right' === $settings['sa_el_call_to_action_content_type']) {
+            $call_to_action_alignment = 'call-to-action-right';
+        } else {
+            $call_to_action_alignment = 'call-to-action-left';
+        }
+        // Button Effect
+        if ('left-to-right' == $settings['sa_el_call_to_action_btn_effect_type']) {
+            $call_to_action_btn_effect = 'effect-2';
+        } elseif ('top-to-bottom' == $settings['sa_el_call_to_action_btn_effect_type']) {
+            $call_to_action_btn_effect = 'effect-1';
+        } else {
+            $call_to_action_btn_effect = '';
+        }
+        ?>
+        <?php if ('call-to-action-basic' == $settings['sa_el_call_to_action_type']) : ?>
+            <div class="sa_el_call_to_action <?php echo esc_attr($call_to_action_class); ?> <?php echo esc_attr($call_to_action_alignment); ?>">
+                <h2 class="title"><?php echo $settings['sa_el_call_to_action_title']; ?></h2>
+                <?php if ('content' == $settings['sa_el_call_to_action_title_content_type']) : ?>
+                    <p><?php echo $settings['sa_el_call_to_action_content']; ?></p>
+                <?php elseif ('template' == $settings['sa_el_call_to_action_title_content_type']) : ?>
+                    <?php
+                    if (!empty($settings['sa_el_primary_templates'])) {
+                        $sa_el_template_id = $settings['sa_el_primary_templates'];
+                        $sa_el_frontend = new Frontend;
+                        echo $sa_el_frontend->get_builder_content($sa_el_template_id, true);
+                    }
+                    ?>
+                <?php endif; ?>
+                <a href="<?php echo esc_url($settings['sa_el_call_to_action_btn_link']['url']); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> class="call-to-action-button <?php echo esc_attr($call_to_action_btn_effect); ?>"><?php esc_html_e($settings['sa_el_call_to_action_btn_text'], SA_ELEMENTOR_TEXTDOMAIN); ?></a>
+            </div>
+        <?php endif; ?>
+        <?php if ('call-to-action-flex' == $settings['sa_el_call_to_action_type']) : ?>
+            <div class="sa_el_call_to_action call-to-action-flex <?php echo esc_attr($call_to_action_class); ?>">
+                <div class="content">
+                    <h2 class="title"><?php echo $settings['sa_el_call_to_action_title']; ?></h2>
+                    <?php if ('content' == $settings['sa_el_call_to_action_title_content_type']) : ?>
+                        <p><?php echo $settings['sa_el_call_to_action_content']; ?></p>
+                    <?php elseif ('template' == $settings['sa_el_call_to_action_title_content_type']) : ?>
+                        <?php
+                        if (!empty($settings['sa_el_primary_templates'])) {
+                            $sa_el_template_id = $settings['sa_el_primary_templates'];
+                            $sa_el_frontend = new Frontend;
+                            echo $sa_el_frontend->get_builder_content($sa_el_template_id, true);
+                        }
+                        ?>
+                    <?php endif; ?>
+                </div>
+                <div class="action">
+                    <a href="<?php echo esc_url($settings['sa_el_call_to_action_btn_link']['url']); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> class="call-to-action-button <?php echo esc_attr($call_to_action_btn_effect); ?>"><?php esc_html_e($settings['sa_el_call_to_action_btn_text'], SA_ELEMENTOR_TEXTDOMAIN); ?></a>
+                </div>
+            </div>
+        <?php endif; ?>
+        <?php if ('call-to-action-icon-flex' == $settings['sa_el_call_to_action_type']) : ?>
+            <div class="sa_el_call_to_action call-to-action-icon-flex <?php echo esc_attr($call_to_action_class); ?>">
+                <div class="icon">
+                    <i class="<?php echo esc_attr($settings['sa_el_call_to_action_flex_grid_icon']); ?>"></i>
+                </div>
+                <div class="content">
+                    <h2 class="title"><?php echo $settings['sa_el_call_to_action_title']; ?></h2>
+                    <?php if ('content' == $settings['sa_el_call_to_action_title_content_type']) : ?>
+                        <p><?php echo $settings['sa_el_call_to_action_content']; ?></p>
+                    <?php elseif ('template' == $settings['sa_el_call_to_action_title_content_type']) : ?>
+                        <?php
+                        if (!empty($settings['sa_el_primary_templates'])) {
+                            $sa_el_template_id = $settings['sa_el_primary_templates'];
+                            $sa_el_frontend = new Frontend;
+                            echo $sa_el_frontend->get_builder_content($sa_el_template_id, true);
+                        }
+                        ?>
+                    <?php endif; ?>
+                </div>
+                <div class="action">
+                    <a href="<?php echo esc_url($settings['sa_el_call_to_action_btn_link']['url']); ?>" <?php echo $target; ?> class="call-to-action-button <?php echo esc_attr($call_to_action_btn_effect); ?>"><?php esc_html_e($settings['sa_el_call_to_action_btn_text'], SA_ELEMENTOR_TEXTDOMAIN); ?></a>
+                </div>
+            </div>
+        <?php endif; ?>
+        <?php
     }
 
 }
