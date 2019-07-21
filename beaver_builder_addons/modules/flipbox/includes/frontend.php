@@ -4,41 +4,11 @@ print_r($settings);
 echo "</pre>";
 ?>
 <style>
-    .oxi-addons-BB-flipbox {
-        background-color: transparent;
-        width: 100%;
-        height: 100%;
-        min-height: 100px;
-        
-        perspective: 1000px;
-    }
-
-    .oxi-addons-BB-FL-row {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        min-height: 300px;
-        text-align: center;
-        transition: transform 0.8s;
-        transform-style: preserve-3d;
-    }
-
-    .oxi-addons-BB-flipbox:hover .oxi-addons-BB-FL-row {
-        transform: rotateY(180deg);
-    }
-
-    .oxi-addons-BB-FL-fontside, .oxi-addons-BB-FL-backside {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        backface-visibility: hidden;
-    }
+    
 
     
 
-    .oxi-addons-BB-FL-backside {
-        transform: rotateY(180deg);
-    }
+    
 </style>
 <div class="oxi-addons-BB-flipbox">
     <div class="oxi-addons-BB-FL-row">

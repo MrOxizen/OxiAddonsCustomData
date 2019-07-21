@@ -348,9 +348,9 @@ FLBuilder::register_settings_form(
         )
 );
 FLBuilder::register_module(
-    'OxiFlipBoxModule', array(
+        'OxiFlipBoxModule', array(
     'flip_front' => array(// Tab.
-        'title' => __('Genarel Settings', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
+        'title' => __('Content', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
         'sections' => array(// Tab Sections.
             'title' => array(// Section.
                 'title' => __('Front Settings', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
@@ -378,8 +378,108 @@ FLBuilder::register_module(
                     ),
                 ),
             ),
+            'Back Settings' => array(// Section.
+                'title' => __('Back Settings', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
+                'fields' => array(// Section Fields.
+                    'oxi_flip_back_icons' => array(
+                        'type' => 'form',
+                        'label' => __('Icon Settings', SA_FLBUILDER_TEXTDOMAIN),
+                        'form' => 'Oxi_flip_box_icon_back_field', // ID of a registered form.
+                        'preview_text' => 'icon', // ID of a field to use for the preview text.
+                    ),
+                    'oxi_flip_back_title' => array(
+                        'type' => 'text',
+                        'label' => __('Title on Front', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => __("Let's Flip!", SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Perhaps, this is the most highlighted text.', SA_FLBUILDER_TEXTDOMAIN),
+                        'connections' => array('string', 'html'),
+                    ),
+                    'oxi_flip_back_details' => array(
+                        'type' => 'editor',
+                        'media_buttons' => false,
+                        'rows' => 10,
+                        'label' => 'Details',
+                        'default' => __('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s.', SA_FLBUILDER_TEXTDOMAIN),
+                        'connections' => array('string', 'html'),
+                    ),
+                ),
+            ),
+            
+        ),
+    ),
+    'oxi_style' => array(// Tab.
+        'title' => __('Style', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
+        'sections' => array(// Tab Sections.
+            'general' => array(// Section.
+                'title' => __('Flipbox Styles', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
+                'fields' => array(// Section Fields.
+                    'flip_box_type' => array(
+                        'type' => 'select',
+                        'label' => __('Flip Type', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'horizontal_flip_left',
+                        'help' => __('Select Flip type for this flip box.', SA_FLBUILDER_TEXTDOMAIN),
+                        'options' => array(
+                            'horizontal_flip_left' => __('Flip Horizontally From Left', SA_FLBUILDER_TEXTDOMAIN),
+                            'horizontal_flip_right' => __('Flip Horizontally From Right', SA_FLBUILDER_TEXTDOMAIN),
+                            'vertical_flip_top' => __('Flip Vertically From Top', SA_FLBUILDER_TEXTDOMAIN),
+                            'vertical_flip_bottom' => __('Flip Vertically From Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                    ),
+                    'flip_box_text_align_option' => array(
+                        'type' => 'select',
+                        'label' => __('Text Align', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'oxi_text_center',
+                        'options' => array(
+                            'oxi_text_left' => __('Left', SA_FLBUILDER_TEXTDOMAIN),
+                            'oxi_text_right' => __('Right', SA_FLBUILDER_TEXTDOMAIN),
+                            'oxi_text_center' => __('Center', SA_FLBUILDER_TEXTDOMAIN),
+                         ),
+                        
+                    ),
+                    'flip_box_min_height' => array(
+                        'type' => 'unit',
+                        'label' => __('Desktop Height', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '300',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                        'help' => __('Apply height to complete Flipbox. It is useful when multiple Flipboxes are in same row.', SA_FLBUILDER_TEXTDOMAIN),
+                    ),
+                    'flip_box_min_height_medium' => array(
+                        'type' => 'unit',
+                        'label' => __('Medium Device Height', SA_FLBUILDER_TEXTDOMAIN),
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                        'help' => __('Apply height to complete Flipbox for medium devices. It will inherit desktop height if empty.', SA_FLBUILDER_TEXTDOMAIN),
+                    ),
+                    'flip_box_min_height_small' => array(
+                        'type' => 'unit',
+                        'label' => __('Small Device Height', SA_FLBUILDER_TEXTDOMAIN),
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                        'help' => __('Apply height to complete Flipbox for small devices. It will inherit medium height if empty.', SA_FLBUILDER_TEXTDOMAIN),
+                    ),
+                    
+                    'inner_padding_dimension' => array(
+                        'type' => 'dimension',
+                        'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
+                        'slider' => true,
+                        'units' => array('px'),
+                        'responsive' => array(
+                            'placeholder' => array(
+                                'default' => '15',
+                                'medium' => '',
+                                'responsive' => '',
+                            ),
+                        ),
+                    ),
+                ),
+            ),
             'front_styles' => array(// Section.
-                'title' => __('Front Styles', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
+                'title' => __('Front Side Body Style', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
                 'fields' => array(// Section Fields.
                     'front_background_type' => array(
                         'type' => 'select',
@@ -464,34 +564,8 @@ FLBuilder::register_module(
                     ),
                 ),
             ),
-            'Back Settings' => array(// Section.
-                'title' => __('Back Settings', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
-                'fields' => array(// Section Fields.
-                    'oxi_flip_back_icons' => array(
-                        'type' => 'form',
-                        'label' => __('Icon Settings', SA_FLBUILDER_TEXTDOMAIN),
-                        'form' => 'Oxi_flip_box_icon_back_field', // ID of a registered form.
-                        'preview_text' => 'icon', // ID of a field to use for the preview text.
-                    ),
-                    'oxi_flip_back_title' => array(
-                        'type' => 'text',
-                        'label' => __('Title on Front', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => __("Let's Flip!", SA_FLBUILDER_TEXTDOMAIN),
-                        'help' => __('Perhaps, this is the most highlighted text.', SA_FLBUILDER_TEXTDOMAIN),
-                        'connections' => array('string', 'html'),
-                    ),
-                    'oxi_flip_back_details' => array(
-                        'type' => 'editor',
-                        'media_buttons' => false,
-                        'rows' => 10,
-                        'label' => 'Details',
-                        'default' => __('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s.', SA_FLBUILDER_TEXTDOMAIN),
-                        'connections' => array('string', 'html'),
-                    ),
-                ),
-            ),
             'back_styles' => array(// Section.
-                'title' => __('Back Styles', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
+                'title' => __('Back Side Body Styles', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
                 'fields' => array(// Section Fields.
                     'back_background_type' => array(
                         'type' => 'select',
@@ -573,105 +647,6 @@ FLBuilder::register_module(
                             ),
                         ),
                         'responsive' => true,
-                    ),
-                ),
-            ),
-        ),
-    ),
-    
-    'oxi_style' => array(// Tab.
-        'title' => __('Style', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
-        'sections' => array(// Tab Sections.
-            'general' => array(// Section.
-                'title' => __('Flipbox Styles', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
-                'fields' => array(// Section Fields.
-                    'flip_type' => array(
-                        'type' => 'select',
-                        'label' => __('Flip Type', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'horizontal_flip_left',
-                        'help' => __('Select Flip type for this flip box.', SA_FLBUILDER_TEXTDOMAIN),
-                        'options' => array(
-                            'horizontal_flip_left' => __('Flip Horizontally From Left', SA_FLBUILDER_TEXTDOMAIN),
-                            'horizontal_flip_right' => __('Flip Horizontally From Right', SA_FLBUILDER_TEXTDOMAIN),
-                            'vertical_flip_top' => __('Flip Vertically From Top', SA_FLBUILDER_TEXTDOMAIN),
-                            'vertical_flip_bottom' => __('Flip Vertically From Bottom', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                    ),
-                    'flip_box_min_height_options' => array(
-                        'type' => 'select',
-                        'label' => __('Box Height', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'uabb-jq-height',
-                        'options' => array(
-                            'uabb-jq-height' => __('Display full content and adjust height of box accordingly', SA_FLBUILDER_TEXTDOMAIN),
-                            'uabb-custom-height' => __('Give a custom height of your choice to the box', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                        'toggle' => array(
-                            'uabb-jq-height' => array(
-                                'fields' => array(),
-                            ),
-                            'uabb-custom-height' => array(
-                                'fields' => array('flip_box_min_height', 'flip_box_min_height_medium', 'flip_box_min_height_small', 'responsive_compatibility'),
-                            ),
-                        ),
-                    ),
-                    'flip_box_min_height' => array(
-                        'type' => 'unit',
-                        'label' => __('Desktop Height', SA_FLBUILDER_TEXTDOMAIN),
-                        'placeholder' => '300',
-                        'slider' => true,
-                        'units' => array('px'),
-                        'size' => '8',
-                        'help' => __('Apply height to complete Flipbox. It is useful when multiple Flipboxes are in same row.', SA_FLBUILDER_TEXTDOMAIN),
-                    ),
-                    'flip_box_min_height_medium' => array(
-                        'type' => 'unit',
-                        'label' => __('Medium Device Height', SA_FLBUILDER_TEXTDOMAIN),
-                        'slider' => true,
-                        'units' => array('px'),
-                        'size' => '8',
-                        'help' => __('Apply height to complete Flipbox for medium devices. It will inherit desktop height if empty.', SA_FLBUILDER_TEXTDOMAIN),
-                    ),
-                    'flip_box_min_height_small' => array(
-                        'type' => 'unit',
-                        'label' => __('Small Device Height', SA_FLBUILDER_TEXTDOMAIN),
-                        'slider' => true,
-                        'units' => array('px'),
-                        'size' => '8',
-                        'help' => __('Apply height to complete Flipbox for small devices. It will inherit medium height if empty.', SA_FLBUILDER_TEXTDOMAIN),
-                    ),
-                    'responsive_compatibility' => array(
-                        'type' => 'select',
-                        'label' => __('Responsive Compatibility', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'no',
-                        'help' => __('If enabled your Flip Box would automatically manage its height for small devices.', SA_FLBUILDER_TEXTDOMAIN),
-                        'options' => array(
-                            'yes' => __('Yes', SA_FLBUILDER_TEXTDOMAIN),
-                            'no' => __('No', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                    ),
-                    'display_vertically_center' => array(
-                        'type' => 'select',
-                        'label' => __('Overall Vertical Alignment', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'vertical-middle',
-                        'help' => __('If enabled, the Content would align vertically center.', SA_FLBUILDER_TEXTDOMAIN),
-                        'options' => array(
-                            'vertical-middle' => __('Yes', SA_FLBUILDER_TEXTDOMAIN),
-                            'no' => __('No', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                    ),
-                    'inner_padding_dimension' => array(
-                        'type' => 'dimension',
-                        'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
-                        'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
-                        'slider' => true,
-                        'units' => array('px'),
-                        'responsive' => array(
-                            'placeholder' => array(
-                                'default' => '15',
-                                'medium' => '',
-                                'responsive' => '',
-                            ),
-                        ),
                     ),
                 ),
             ),

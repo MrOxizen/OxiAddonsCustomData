@@ -4,8 +4,102 @@ if (!empty($settings)) {
     $fontsidebgtype = $settings->front_background_type;
     $iconboxbackstyle = $settings->oxi_flip_back_icons->icon_style;
     $backsidebgtype = $settings->back_background_type;
+    $flipboxtype  = $settings->flip_box_type;
+    $flipboxtextalign  = $settings->flip_box_text_align_option;
+    
     ?>
     <?php
+    ?>
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-flipbox {
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+        perspective: 1000px;
+    }
+
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-row {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-height: <?php echo $settings->flip_box_min_height; ?>px;
+        <?php 
+        if("oxi_text_left" == $flipboxtextalign){
+          echo "text-align: left;";  
+        }elseif ("oxi_text_right" == $flipboxtextalign) {
+               echo "text-align: right;";  
+        } else {
+           echo "text-align: center;";  
+        }
+        ?>
+        
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside, .oxi-addons-BB-FL-backside {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        padding:100px;
+    }    
+    <?php
+    if('horizontal_flip_left' == $flipboxtype){
+        $hfl = "transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+       -moz-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);";
+        ?>
+        .fl-node-<?php echo $id; ?> .oxi-addons-BB-flipbox:hover .oxi-addons-BB-FL-row {
+            <?php echo $hfl;?>
+        }
+        .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-backside {
+            <?php echo $hfl;?>
+        }
+        <?php
+    }
+    if('horizontal_flip_right' == $flipboxtype){
+        $hfr = "transform: rotateY(-180deg);
+        -webkit-transform:  rotateY(-180deg);
+       -moz-transform:  rotateY(-180deg);
+        -ms-transform:  rotateY(-180deg);";
+        ?>
+        .fl-node-<?php echo $id; ?> .oxi-addons-BB-flipbox:hover .oxi-addons-BB-FL-row {
+            <?php echo $hfr;?>
+        }
+        .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-backside {
+            <?php echo $hfr;?>
+        }
+        <?php
+    }
+    if('vertical_flip_top' == $flipboxtype){
+        $vft = "transform: rotateX(180deg);
+        -webkit-transform:  rotateX(180deg);
+       -moz-transform:  rotateX(180deg);
+        -ms-transform: rotateX(180deg);";
+        ?>
+        .fl-node-<?php echo $id; ?> .oxi-addons-BB-flipbox:hover .oxi-addons-BB-FL-row {
+             <?php echo $vft;?>
+        }
+        .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-backside {
+            <?php echo $vft;?>
+        }
+        <?php
+    }
+    if('vertical_flip_bottom' == $flipboxtype){
+        $vfb = "transform: rotateX(-180deg);
+        -webkit-transform: rotateX(-180deg);
+       -moz-transform: rotateX(-180deg);
+        -ms-transform: rotateX(-180deg);";
+        ?>
+        .fl-node-<?php echo $id; ?> .oxi-addons-BB-flipbox:hover .oxi-addons-BB-FL-row {
+            <?php echo $vfb;?>
+        }
+        .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-backside {
+           <?php echo $vfb;?>
+        }
+        <?php
+    }
+    
     FLBuilderCSS::border_field_rule(array(
             'settings' => $settings,
             'setting_name' => 'front_border',
@@ -186,7 +280,16 @@ if (!empty($settings)) {
     
     
     
-    
+  @media only screen and (min-width : 669px) and (max-width : 993px){
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-row {
+        min-height: <?php echo $settings->flip_box_min_height_medium; ?>px;
+     }
+    }
+  @media only screen and (max-width : 668px){
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-row {
+        min-height: <?php echo $settings->flip_box_min_height_small; ?>px;
+     }
+    }   
     
     
     
