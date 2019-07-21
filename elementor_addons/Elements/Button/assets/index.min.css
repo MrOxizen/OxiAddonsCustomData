@@ -30,7 +30,6 @@
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         -moz-osx-font-smoothing: grayscale;
-        text-decoration: none !important;
     }
     
     .sa_el_creative_button {
