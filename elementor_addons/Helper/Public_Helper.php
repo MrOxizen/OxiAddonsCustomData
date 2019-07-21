@@ -91,13 +91,13 @@ trait Public_Helper
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Counter\Counter',
                 'dependency' => [
                     'css' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/index.min.css',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/vendor/css/odometer-theme-default.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/index.min.css',
                     ],
                     'js' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/index.min.js',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/vendor/js/waypoints.min.js',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/vendor/js/odometer.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/index.min.js',
                     ],
                 ],
             ],
