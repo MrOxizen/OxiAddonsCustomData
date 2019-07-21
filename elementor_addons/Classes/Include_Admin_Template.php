@@ -25,6 +25,7 @@ trait Include_Admin_Template {
                 'accordion',
                 'button',
                 'testimonial',
+                'call_to_action',
                 'flip_box',
                 'info_box',
                 'dual_color_heading',
