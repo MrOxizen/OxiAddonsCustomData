@@ -79,6 +79,14 @@ trait Public_Helper
                     ],
                 ],
             ],
+            'divider' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Divider\Divider',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Divider/assets/index.min.css',
+                    ]
+                ],
+            ],
         ];
         return $response;
     }
