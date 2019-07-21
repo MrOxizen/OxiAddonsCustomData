@@ -105,6 +105,7 @@ trait Public_Helper
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Count_Down/assets/index.min.css',
                     ],
                     'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Count_Down/assets/vendor/countdown.min.js',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Count_Down/assets/index.min.js',
                     ],
                 ],
