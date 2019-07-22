@@ -17,7 +17,7 @@ use Elementor\Scheme_Typography;
 class Icon_Box extends Widget_Base {
 
     public function get_name() {
-        return 'sa_el_icon_box_button';
+        return 'sa_el_icon_box';
     }
 
     public function get_title() {
@@ -35,7 +35,20 @@ class Icon_Box extends Widget_Base {
     public function get_keywords() {
         return ['info', 'box', 'icon'];
     }
-
+    /**
+     * Overriding default function to add custom html class.
+     *
+     * @return string
+     */
+    public function get_html_wrapper_class() {
+        $html_class = parent::get_html_wrapper_class();
+        $html_class .= ' oxi-addons-el-wrap';
+        $html_class .= ' ' . $this->get_name();
+        $html_class .= ' ' . $this->get_custom_wrapper_class();
+        return rtrim( $html_class );
+    }
+    
+    
     protected function _register_controls() {
 
         $this->start_controls_section(
@@ -553,6 +566,122 @@ class Icon_Box extends Widget_Base {
         );
 
         $this->end_controls_section();
+    }
+
+    public function render_content() {
+        do_action('elementor/widget/before_render_content', $this);
+
+        ob_start();
+
+        $skin = $this->get_current_skin();
+        if ($skin) {
+            $skin->set_parent($this);
+            $skin->render();
+        } else {
+            $this->render();
+        }
+
+        $widget_content = ob_get_clean();
+
+        if (empty($widget_content)) {
+            return;
+        }
+
+        $tag = 'div';
+        $link = $this->get_settings_for_display('link');
+        $this->add_render_attribute('icon_box', 'class', 'elementor-widget-container');
+
+        if (!empty($link['url'])) {
+            $tag = 'a';
+            $this->add_render_attribute('icon_box', 'class', 'ha-icon-box-link');
+            $this->add_render_attribute('icon_box', 'href', esc_url($link['url']));
+            if (!empty($link['is_external'])) {
+                $this->add_render_attribute('icon_box', 'target', '_blank');
+            }
+            if (!empty($link['nofollow'])) {
+                $this->set_render_attribute('icon_box', 'rel', 'nofollow');
+            }
+        }
+        ?>
+        <<?php echo $tag; ?> <?php echo $this->get_render_attribute_string('icon_box'); ?>>
+        <?php
+        /**
+         * Render widget content.
+         *
+         * Filters the widget content before it's rendered.
+         *
+         * @since 1.0.0
+         *
+         * @param string      $widget_content The content of the widget.
+         * @param Widget_Base $this           The widget.
+         */
+        $widget_content = apply_filters('elementor/widget/render_content', $widget_content, $this);
+
+        echo $widget_content; // XSS ok.
+        ?>
+        </<?php echo $tag; ?>>
+        <?php
+    }
+
+    protected function render() {
+        $settings = $this->get_settings_for_display();
+
+        $this->add_inline_editing_attributes('title', 'none');
+        $this->add_render_attribute('title', 'class', 'ha-icon-box-title');
+
+        $this->add_inline_editing_attributes('badge_text', 'none');
+        $this->add_render_attribute('badge_text', 'class', 'ha-badge ha-badge--top-right');
+        ?>
+
+        <?php if ($settings['badge_text']) : ?>
+            <span <?php echo $this->get_render_attribute_string('badge_text'); ?>><?php echo esc_html($settings['badge_text']); ?></span>
+        <?php endif; ?>
+
+        <?php if ($settings['icon']) : ?>
+            <span class="ha-icon-box-icon">
+                <i aria-hidden="true" class="<?php echo esc_attr($settings['icon']); ?>"></i>
+            </span>
+        <?php endif; ?>
+
+        <?php
+        if ($settings['title']) :
+            printf('<%1$s %2$s>%3$s</%1$s>', tag_escape($settings['title_tag']), $this->get_render_attribute_string('title'), esc_html($settings['title'])
+            );
+        endif;
+    }
+
+    public function _content_template() {
+        ?>
+        <#
+        view.addInlineEditingAttributes( 'title', 'none' );
+        view.addRenderAttribute( 'title', 'class', 'ha-icon-box-title' );
+
+        view.addInlineEditingAttributes( 'badge_text', 'none' );
+        view.addRenderAttribute( 'badge_text', 'class', 'ha-badge ha-badge--top-right' );
+
+        if (settings.link.url) {
+        view.addRenderAttribute( 'link', 'class', 'ha-icon-box-link' );
+        view.addRenderAttribute( 'link', 'href', settings.link.url );
+        print( '<a ' + view.getRenderAttributeString( 'link' ) + '>' );
+            } #>
+
+            <# if (settings.badge_text) { #>
+            <span {{{ view.getRenderAttributeString( 'badge_text' ) }}}>{{ settings.badge_text }}</span>
+            <# } #>
+
+            <# if (settings.icon) { #>
+            <span class="ha-icon-box-icon">
+                <i class="{{ settings.icon }}"></i>
+            </span>
+            <# } #>
+            <# if (settings.title) { #>
+            <{{ settings.title_tag }} {{{ view.getRenderAttributeString( 'title' ) }}}>{{ settings.title }}</{{ settings.title_tag }}>
+            <# } #>
+
+            <# if (settings.link.url) {
+            print( '</a>' );
+        } #>
+        <?php
     }
 
 }
