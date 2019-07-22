@@ -149,6 +149,14 @@ trait Public_Helper
                     ],
                 ],
             ],
+            'advanced_heading' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Advanced_Heading\Advanced_Heading',
+                'dependency' => [
+                    'css' => [
+                          SA_ELEMENTOR_ADDONS_URL . 'Elements/Advanced_Heading/assets/index.min.css',
+                    ],
+                ],
+            ],
 
         ];
         return $response;

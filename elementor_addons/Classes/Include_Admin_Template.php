@@ -34,6 +34,7 @@ trait Include_Admin_Template {
                 'fancy_text',
                 'feature_list',
                 'filterable_gallery',
+                'advanced_heading',
                 'offcanvas',
                 'advanced_menu_PRO',
                 'toggle_PRO',
