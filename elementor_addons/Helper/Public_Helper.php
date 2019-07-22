@@ -113,6 +113,17 @@ trait Public_Helper
                     ],
                 ],
             ],
+            'fancy_text' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Fancy_Text\Fancy_Text',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Fancy_Text/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Fancy_Text/assets/index.min.js',
+                    ],
+                ],
+            ],
             
 
         ];

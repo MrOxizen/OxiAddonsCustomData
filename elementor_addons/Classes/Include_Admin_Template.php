@@ -31,7 +31,7 @@ trait Include_Admin_Template {
                 'counter',
                 'count_down',              
                 'dual_color_heading',
-                'tooltip',
+                'fancy_text',
                 'advanced_accordion',
                 'advanced_tabs',
                 'feature_list',
