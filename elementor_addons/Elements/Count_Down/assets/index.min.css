@@ -1,0 +1,65 @@
+/*---------------------------------*/
+
+
+/* Countdown Styles
+/*---------------------------------*/
+
+
+/*--- General ---*/
+
+.sa_el_countdown_items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.sa_el_countdown_items>li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: table-cell;
+    position: relative;
+}
+
+.sa_el_countdown_item>div {
+    text-align: center;
+    padding: 20px;
+}
+
+.sa_el_countdown_label_block .sa_el_countdown_digits,
+.sa_el_countdown_label_block .sa_el_countdown_label {
+    display: block;
+    text-align: center;
+}
+
+.sa_el_countdown_digits {
+    font-size: 54px;
+    line-height: 1;
+}
+
+.sa_el_countdown_label {
+    font-size: 18px;
+    line-height: 1;
+    color: #ffffff;
+}
+
+.sa_el_countdown_show_separator .sa_el_countdown_digits::after {
+    content: ":";
+    position: absolute;
+    left: 98%;
+    z-index: 9999;
+}
+
+.sa_el_countdown_item:last-child .sa_el_countdown_digits::after {
+    display: none;
+}
+
+
+/*--- Style 1 ---*/
+
+.sa_el_countdown_items.style-1 .sa_el_countdown_item>div {
+    background: #262625;
+}

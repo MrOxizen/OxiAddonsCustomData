@@ -1,5 +1,5 @@
     /*________________*/
-    /* Creative Button styles
+    /* 08. Creative Button styles
 /*________________*/
     
     .sa_el_creative_button_wrapper {
@@ -30,6 +30,7 @@
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         -moz-osx-font-smoothing: grayscale;
+        text-decoration: none !important;
     }
     
     .sa_el_creative_button {
@@ -45,7 +46,7 @@
         vertical-align: middle;
     }
     /*______________________*/
-    /* Individual sa_el_creative_button styles
+    /* 09. Individual sa_el_creative_button styles
   /*______________________*/
     /*_- Winona _-*/
     
@@ -299,11 +300,44 @@
         -webkit-transform: translate3d(0, 100%, 0);
         transform: translate3d(0, 100%, 0);
     }
+    /* .sa_el_creative_button.sa_el_creative_button_shutinhor,
+    .sa_el_creative_button.sa_el_creative_button_shutinver {
+        transition: all .3s ease;
+        -webkit-transition: all .3s ease;
+        -moz-transition: all .3s ease;
+        -ms-transition: all .3s ease;
+        -o-transition: all .3s ease;
+    }
     
-    .sa_el_creative_button.sa_el_creative_button_shutinhor,
-    .sa_el_creative_button.sa_el_creative_button_shutinver,
+    .sa_el_creative_button.sa_el_creative_button_shutinhor::before,
+    .sa_el_creative_button.sa_el_creative_button_shutinhor::after,
+    .sa_el_creative_button.sa_el_creative_button_shutinver::before,
+    .sa_el_creative_button.sa_el_creative_button_shutinver::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        height: 0%;
+        width: 100%;
+        z-index: -1;
+        opacity: 0;
+    }
+    
+    .sa_el_creative_button.sa_el_creative_button_shutinhor::after {
+        bottom: 0;
+        top: inherit;
+    }
+    
+    .sa_el_creative_button.sa_el_creative_button_shutinhor:hover::before,
+    .sa_el_creative_button.sa_el_creative_button_shutinhor:hover::after {
+        height: 50%;
+        opacity: 1;
+    } */
+    
     .sa_el_creative_button.sa_el_creative_button_shutouthor,
     .sa_el_creative_button.sa_el_creative_button_shutoutver,
+    .sa_el_creative_button.sa_el_creative_button_shutinhor,
+    .sa_el_creative_button.sa_el_creative_button_shutinver,
     .sa_el_creative_button.sa_el_creative_button_scshutouthor,
     .sa_el_creative_button.sa_el_creative_button_scshutoutver,
     .sa_el_creative_button.sa_el_creative_button_dshutinhor,

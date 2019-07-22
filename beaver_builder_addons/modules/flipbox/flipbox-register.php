@@ -348,9 +348,9 @@ FLBuilder::register_settings_form(
         )
 );
 FLBuilder::register_module(
-    'OxiFlipBoxModule', array(
+        'OxiFlipBoxModule', array(
     'flip_front' => array(// Tab.
-        'title' => __('Genarel Settings', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
+        'title' => __('Content', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
         'sections' => array(// Tab Sections.
             'title' => array(// Section.
                 'title' => __('Front Settings', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
@@ -378,8 +378,105 @@ FLBuilder::register_module(
                     ),
                 ),
             ),
+            'Back Settings' => array(// Section.
+                'title' => __('Back Settings', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
+                'fields' => array(// Section Fields.
+                    'oxi_flip_back_icons' => array(
+                        'type' => 'form',
+                        'label' => __('Icon Settings', SA_FLBUILDER_TEXTDOMAIN),
+                        'form' => 'Oxi_flip_box_icon_back_field', // ID of a registered form.
+                        'preview_text' => 'icon', // ID of a field to use for the preview text.
+                    ),
+                    'oxi_flip_back_title' => array(
+                        'type' => 'text',
+                        'label' => __('Title on Front', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => __("Let's Flip!", SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Perhaps, this is the most highlighted text.', SA_FLBUILDER_TEXTDOMAIN),
+                        'connections' => array('string', 'html'),
+                    ),
+                    'oxi_flip_back_details' => array(
+                        'type' => 'editor',
+                        'media_buttons' => false,
+                        'rows' => 10,
+                        'label' => 'Details',
+                        'default' => __('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s.', SA_FLBUILDER_TEXTDOMAIN),
+                        'connections' => array('string', 'html'),
+                    ),
+                ),
+            ),
+        ),
+    ),
+    'oxi_style' => array(// Tab.
+        'title' => __('Style', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
+        'sections' => array(// Tab Sections.
+            'general' => array(// Section.
+                'title' => __('Flipbox Styles', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
+                'fields' => array(// Section Fields.
+                    'flip_box_type' => array(
+                        'type' => 'select',
+                        'label' => __('Flip Type', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'horizontal_flip_left',
+                        'help' => __('Select Flip type for this flip box.', SA_FLBUILDER_TEXTDOMAIN),
+                        'options' => array(
+                            'horizontal_flip_left' => __('Flip Horizontally From Left', SA_FLBUILDER_TEXTDOMAIN),
+                            'horizontal_flip_right' => __('Flip Horizontally From Right', SA_FLBUILDER_TEXTDOMAIN),
+                            'vertical_flip_top' => __('Flip Vertically From Top', SA_FLBUILDER_TEXTDOMAIN),
+                            'vertical_flip_bottom' => __('Flip Vertically From Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                    ),
+                    'flip_box_text_align_option' => array(
+                        'type' => 'select',
+                        'label' => __('Text Align', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'oxi_text_center',
+                        'options' => array(
+                            'oxi_text_left' => __('Left', SA_FLBUILDER_TEXTDOMAIN),
+                            'oxi_text_right' => __('Right', SA_FLBUILDER_TEXTDOMAIN),
+                            'oxi_text_center' => __('Center', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                    ),
+                    'flip_box_min_height' => array(
+                        'type' => 'unit',
+                        'label' => __('Desktop Height', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '300',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                        'help' => __('Apply height to complete Flipbox. It is useful when multiple Flipboxes are in same row.', SA_FLBUILDER_TEXTDOMAIN),
+                    ),
+                    'flip_box_min_height_medium' => array(
+                        'type' => 'unit',
+                        'label' => __('Medium Device Height', SA_FLBUILDER_TEXTDOMAIN),
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                        'help' => __('Apply height to complete Flipbox for medium devices. It will inherit desktop height if empty.', SA_FLBUILDER_TEXTDOMAIN),
+                    ),
+                    'flip_box_min_height_small' => array(
+                        'type' => 'unit',
+                        'label' => __('Small Device Height', SA_FLBUILDER_TEXTDOMAIN),
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                        'help' => __('Apply height to complete Flipbox for small devices. It will inherit medium height if empty.', SA_FLBUILDER_TEXTDOMAIN),
+                    ),
+                    'inner_padding_dimension' => array(
+                        'type' => 'dimension',
+                        'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
+                        'slider' => true,
+                        'units' => array('px'),
+                        'responsive' => array(
+                            'placeholder' => array(
+                                'default' => '15',
+                                'medium' => '',
+                                'responsive' => '',
+                            ),
+                        ),
+                    ),
+                ),
+            ),
             'front_styles' => array(// Section.
-                'title' => __('Front Styles', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
+                'title' => __('Front Side Body Style', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
                 'fields' => array(// Section Fields.
                     'front_background_type' => array(
                         'type' => 'select',
@@ -464,34 +561,8 @@ FLBuilder::register_module(
                     ),
                 ),
             ),
-            'Back Settings' => array(// Section.
-                'title' => __('Back Settings', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
-                'fields' => array(// Section Fields.
-                    'oxi_flip_back_icons' => array(
-                        'type' => 'form',
-                        'label' => __('Icon Settings', SA_FLBUILDER_TEXTDOMAIN),
-                        'form' => 'Oxi_flip_box_icon_back_field', // ID of a registered form.
-                        'preview_text' => 'icon', // ID of a field to use for the preview text.
-                    ),
-                    'oxi_flip_back_title' => array(
-                        'type' => 'text',
-                        'label' => __('Title on Front', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => __("Let's Flip!", SA_FLBUILDER_TEXTDOMAIN),
-                        'help' => __('Perhaps, this is the most highlighted text.', SA_FLBUILDER_TEXTDOMAIN),
-                        'connections' => array('string', 'html'),
-                    ),
-                    'oxi_flip_back_details' => array(
-                        'type' => 'editor',
-                        'media_buttons' => false,
-                        'rows' => 10,
-                        'label' => 'Details',
-                        'default' => __('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s.', SA_FLBUILDER_TEXTDOMAIN),
-                        'connections' => array('string', 'html'),
-                    ),
-                ),
-            ),
             'back_styles' => array(// Section.
-                'title' => __('Back Styles', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
+                'title' => __('Back Side Body Styles', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
                 'fields' => array(// Section Fields.
                     'back_background_type' => array(
                         'type' => 'select',
@@ -578,100 +649,231 @@ FLBuilder::register_module(
             ),
         ),
     ),
-    
-    'oxi_style' => array(// Tab.
-        'title' => __('Style', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
+    'typography' => array(// Tab.
+        'title' => __('Typography', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
         'sections' => array(// Tab Sections.
-            'general' => array(// Section.
-                'title' => __('Flipbox Styles', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
+            'front_title_typography' => array(
+                'title' => __('Front Title', SA_FLBUILDER_TEXTDOMAIN),
+                'fields' => array(
+                    'front_side_typography_title_tag' => array(
+                        'type' => 'select',
+                        'label' => __('Title Tag', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'h2',
+                        'options' => array(
+                            'h1' => __('H1', SA_FLBUILDER_TEXTDOMAIN),
+                            'h2' => __('H2', SA_FLBUILDER_TEXTDOMAIN),
+                            'h3' => __('H3', SA_FLBUILDER_TEXTDOMAIN),
+                            'h4' => __('H4', SA_FLBUILDER_TEXTDOMAIN),
+                            'h5' => __('H5', SA_FLBUILDER_TEXTDOMAIN),
+                            'h6' => __('H6', SA_FLBUILDER_TEXTDOMAIN),
+                            'div' => __('Div', SA_FLBUILDER_TEXTDOMAIN),
+                            'p' => __('p', SA_FLBUILDER_TEXTDOMAIN),
+                            'span' => __('span', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                    ),
+                    'front_title_font_typo' => array(
+                        'type' => 'typography',
+                        'label' => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
+                        'responsive' => true,
+                        'preview' => array(
+                            'type' => 'css',
+                            'selector' => '.uabb-face-text-title',
+                            'important' => true,
+                        ),
+                    ),
+                    'front_title_typography_color' => array(
+                        'type' => 'color',
+                        'label' => __('Front Title Color', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '',
+                        'show_reset' => true,
+                        'connections' => array('color'),
+                        'show_alpha' => true,
+                    ),
+                    'front_title_typography_margin_top' => array(
+                        'type' => 'unit',
+                        'label' => __('Margin Top', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '0',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                    'front_title_typography_margin_bottom' => array(
+                        'type' => 'unit',
+                        'label' => __('Margin Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '12',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                ),
+            ),
+            'front_desc_typography' => array(
+                'title' => __('Front Description', SA_FLBUILDER_TEXTDOMAIN),
+                'fields' => array(
+                    'front_desk_font_typo' => array(
+                        'type' => 'typography',
+                        'label' => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
+                        'responsive' => true,
+                        'preview' => array(
+                            'type' => 'css',
+                            'selector' => '.uabb-flip-box-section-content',
+                            'important' => true,
+                        ),
+                    ),
+                    'front_desc_typography_color' => array(
+                        'type' => 'color',
+                        'label' => __('Front Description Color', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '',
+                        'show_reset' => true,
+                        'connections' => array('color'),
+                        'show_alpha' => true,
+                    ),
+                    'front_desc_typography_margin_top' => array(
+                        'type' => 'unit',
+                        'label' => __('Margin Top', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '0',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                    'front_desc_typography_margin_bottom' => array(
+                        'type' => 'unit',
+                        'label' => __('Margin Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '25',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                ),
+            ),
+            'back_title_typography' => array(
+                'title' => __('Back Title', SA_FLBUILDER_TEXTDOMAIN),
+                'fields' => array(
+                    'back_side_typography_title_tag' => array(
+                        'type' => 'select',
+                        'label' => __('Title Tag', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'h2',
+                        'options' => array(
+                            'h1' => __('H1', SA_FLBUILDER_TEXTDOMAIN),
+                            'h2' => __('H2', SA_FLBUILDER_TEXTDOMAIN),
+                            'h3' => __('H3', SA_FLBUILDER_TEXTDOMAIN),
+                            'h4' => __('H4', SA_FLBUILDER_TEXTDOMAIN),
+                            'h5' => __('H5', SA_FLBUILDER_TEXTDOMAIN),
+                            'h6' => __('H6', SA_FLBUILDER_TEXTDOMAIN),
+                            'div' => __('Div', SA_FLBUILDER_TEXTDOMAIN),
+                            'p' => __('p', SA_FLBUILDER_TEXTDOMAIN),
+                            'span' => __('span', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                    ),
+                    'back_title_font_typo' => array(
+                        'type' => 'typography',
+                        'label' => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
+                        'responsive' => true,
+                        'preview' => array(
+                            'type' => 'css',
+                            'selector' => '.uabb-back-text-title',
+                            'important' => true,
+                        ),
+                    ),
+                    'back_title_typography_color' => array(
+                        'type' => 'color',
+                        'label' => __('Back Title Color', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '',
+                        'show_reset' => true,
+                        'connections' => array('color'),
+                        'show_alpha' => true,
+                    ),
+                    'back_title_typography_margin_top' => array(
+                        'type' => 'unit',
+                        'label' => __('Margin Top', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '25',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                    'back_title_typography_margin_bottom' => array(
+                        'type' => 'unit',
+                        'label' => __('Margin Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '12',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                ),
+            ),
+            'back_desc_typography' => array(
+                'title' => __('Back Description', SA_FLBUILDER_TEXTDOMAIN),
+                'fields' => array(
+                    'back_desc_font_typo' => array(
+                        'type' => 'typography',
+                        'label' => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
+                        'responsive' => true,
+                        'preview' => array(
+                            'type' => 'css',
+                            'selector' => '.uabb-back-flip-box-section-content',
+                            'important' => true,
+                        ),
+                    ),
+                    'back_desc_typography_color' => array(
+                        'type' => 'color',
+                        'label' => __('Back Description Color', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '',
+                        'show_reset' => true,
+                        'connections' => array('color'),
+                        'show_alpha' => true,
+                    ),
+                    'back_desc_typography_margin_top' => array(
+                        'type' => 'unit',
+                        'label' => __('Margin Top', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '0',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                    'back_desc_typography_margin_bottom' => array(
+                        'type' => 'unit',
+                        'label' => __('Margin Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '0',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                ),
+            ),
+            'margin_options' => array(// Section.
+                'title' => __('Margin', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
                 'fields' => array(// Section Fields.
-                    'flip_type' => array(
-                        'type' => 'select',
-                        'label' => __('Flip Type', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'horizontal_flip_left',
-                        'help' => __('Select Flip type for this flip box.', SA_FLBUILDER_TEXTDOMAIN),
-                        'options' => array(
-                            'horizontal_flip_left' => __('Flip Horizontally From Left', SA_FLBUILDER_TEXTDOMAIN),
-                            'horizontal_flip_right' => __('Flip Horizontally From Right', SA_FLBUILDER_TEXTDOMAIN),
-                            'vertical_flip_top' => __('Flip Vertically From Top', SA_FLBUILDER_TEXTDOMAIN),
-                            'vertical_flip_bottom' => __('Flip Vertically From Bottom', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                    ),
-                    'flip_box_min_height_options' => array(
-                        'type' => 'select',
-                        'label' => __('Box Height', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'uabb-jq-height',
-                        'options' => array(
-                            'uabb-jq-height' => __('Display full content and adjust height of box accordingly', SA_FLBUILDER_TEXTDOMAIN),
-                            'uabb-custom-height' => __('Give a custom height of your choice to the box', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                        'toggle' => array(
-                            'uabb-jq-height' => array(
-                                'fields' => array(),
-                            ),
-                            'uabb-custom-height' => array(
-                                'fields' => array('flip_box_min_height', 'flip_box_min_height_medium', 'flip_box_min_height_small', 'responsive_compatibility'),
-                            ),
-                        ),
-                    ),
-                    'flip_box_min_height' => array(
+                    'icon_margin_top' => array(
                         'type' => 'unit',
-                        'label' => __('Desktop Height', SA_FLBUILDER_TEXTDOMAIN),
-                        'placeholder' => '300',
+                        'label' => __('Icon Margin Top', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '25',
                         'slider' => true,
                         'units' => array('px'),
                         'size' => '8',
-                        'help' => __('Apply height to complete Flipbox. It is useful when multiple Flipboxes are in same row.', SA_FLBUILDER_TEXTDOMAIN),
                     ),
-                    'flip_box_min_height_medium' => array(
+                    'icon_margin_bottom' => array(
                         'type' => 'unit',
-                        'label' => __('Medium Device Height', SA_FLBUILDER_TEXTDOMAIN),
+                        'label' => __('Icon Margin Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '15',
                         'slider' => true,
                         'units' => array('px'),
                         'size' => '8',
-                        'help' => __('Apply height to complete Flipbox for medium devices. It will inherit desktop height if empty.', SA_FLBUILDER_TEXTDOMAIN),
                     ),
-                    'flip_box_min_height_small' => array(
+                    'button_margin_top' => array(
                         'type' => 'unit',
-                        'label' => __('Small Device Height', SA_FLBUILDER_TEXTDOMAIN),
+                        'label' => __('Button Margin Top', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '15',
                         'slider' => true,
                         'units' => array('px'),
                         'size' => '8',
-                        'help' => __('Apply height to complete Flipbox for small devices. It will inherit medium height if empty.', SA_FLBUILDER_TEXTDOMAIN),
                     ),
-                    'responsive_compatibility' => array(
-                        'type' => 'select',
-                        'label' => __('Responsive Compatibility', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'no',
-                        'help' => __('If enabled your Flip Box would automatically manage its height for small devices.', SA_FLBUILDER_TEXTDOMAIN),
-                        'options' => array(
-                            'yes' => __('Yes', SA_FLBUILDER_TEXTDOMAIN),
-                            'no' => __('No', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                    ),
-                    'display_vertically_center' => array(
-                        'type' => 'select',
-                        'label' => __('Overall Vertical Alignment', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'vertical-middle',
-                        'help' => __('If enabled, the Content would align vertically center.', SA_FLBUILDER_TEXTDOMAIN),
-                        'options' => array(
-                            'vertical-middle' => __('Yes', SA_FLBUILDER_TEXTDOMAIN),
-                            'no' => __('No', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                    ),
-                    'inner_padding_dimension' => array(
-                        'type' => 'dimension',
-                        'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
-                        'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
+                    'button_margin_bottom' => array(
+                        'type' => 'unit',
+                        'label' => __('Button Margin Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '0',
                         'slider' => true,
                         'units' => array('px'),
-                        'responsive' => array(
-                            'placeholder' => array(
-                                'default' => '15',
-                                'medium' => '',
-                                'responsive' => '',
-                            ),
-                        ),
+                        'size' => '8',
                     ),
                 ),
             ),
