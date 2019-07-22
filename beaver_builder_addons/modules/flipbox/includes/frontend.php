@@ -97,6 +97,7 @@ if ($settings->button->icon_position == 'left') {
             <div class="oxi-addons-BB-FL-F-details">
                 <?php echo $settings->oxi_flip_back_details; ?>
             </div>
+            <?php if("yes" == $settings->show_button){ ?>
             <div class="oxi__button_wrapper">
                 <?php
                 if ($settings->button->link != '') {
@@ -111,6 +112,7 @@ if ($settings->button->icon_position == 'left') {
                 ?>
 
             </div>
+            <?php }?>
         </div>
     </div>
 </div>

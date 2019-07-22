@@ -1,4 +1,5 @@
 <?php
+use SA_FLBUILDER_ADDONS\Classes\Bootstrap;
 
 class OxiFlipBoxModule extends FLBuilderModule {
 
