@@ -18,28 +18,29 @@ trait Template
         $flbuilder = array(
             'Content Elements' => array(
                 'button',
-                'flipbox'
+                'flipbox',
+                'heading',
             ),
         );
         ?>
-    <div class="oxi-addons-wrapper">
-        <div class="oxi-addons-import-layouts">
-            <h1>GLOBAL CONTROL</h1>
-            <p> Use the Buttons to Activate or Deactivate all the Elements of Essential Addons at once.</p>
+        <div class="oxi-addons-wrapper">
+            <div class="oxi-addons-import-layouts">
+                <h1>GLOBAL CONTROL</h1>
+                <p> Use the Buttons to Activate or Deactivate all the Elements of Essential Addons at once.</p>
+            </div>
         </div>
-    </div>
-    <div class="oxi-addons-wrapper">
-        <div class="oxi-addons-row">
-            <form action="" method="POST" id="sa-flbuilder-settings" name="sa-flbuilder-settings">
-                <?php
-                $installed = get_option('shortcode-addons-flbuilder');
-                parse_str($installed, $settings);
-                foreach ($flbuilder as $key => $value) {
-                    echo '<div class="oxi-sa-cards-wrapper">';
-                    echo '<div class="oxi-addons-ce-heading">' . oxi_addons_shortcode_name_converter($key) . '</div>';
-                    echo '<div class="row">';
-                    foreach ($value as $elements) {
-                        echo '  <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="oxi-addons-wrapper">
+            <div class="oxi-addons-row">
+                <form action="" method="POST" id="sa-flbuilder-settings" name="sa-flbuilder-settings">
+                    <?php
+                    $installed = get_option('shortcode-addons-flbuilder');
+                    parse_str($installed, $settings);
+                    foreach ($flbuilder as $key => $value) {
+                        echo '<div class="oxi-sa-cards-wrapper">';
+                        echo '<div class="oxi-addons-ce-heading">' . oxi_addons_shortcode_name_converter($key) . '</div>';
+                        echo '<div class="row">';
+                        foreach ($value as $elements) {
+                            echo '  <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="oxi-sa-cards">
                                 <div class="oxi-sa-cards-h1">
                                     ' . oxi_addons_shortcode_name_converter($elements) . '
@@ -50,13 +51,13 @@ trait Template
                                 </div>
                             </div>
                         </div>';
+                        }
+                        echo '</div></div>';
                     }
-                    echo '</div></div>';
-                }
-                ?>
-            </form>
+                    ?>
+                </form>
+            </div>
         </div>
-    </div>
-<?php
-}
+    <?php
+    }
 }
