@@ -1,6 +1,6 @@
 <?php
 
-class OxiFlipBoxModule extends FLBuilderModule {
+class OxiHeadingModule extends FLBuilderModule {
 
     /**
      * Constructor function that constructs default values for the Flip Box Module
@@ -10,12 +10,12 @@ class OxiFlipBoxModule extends FLBuilderModule {
     public function __construct() {
         parent::__construct(
                 array(
-                    'name' => __('Flip Box', SA_FLBUILDER_TEXTDOMAIN),
-                    'description' => __('Flip Box', SA_FLBUILDER_TEXTDOMAIN),
+                    'name' => __('Heading', SA_FLBUILDER_TEXTDOMAIN),
+                    'description' => __('Heading', SA_FLBUILDER_TEXTDOMAIN),
                     'group' => 'Shortcode Addons',
                     'category' => 'Content Elements',
-                    'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/flipbox',
-                    'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/flipbox',
+                    'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/heading',
+                    'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/heading',
                     'editor_export' => true, // Defaults to true and can be omitted.
                     'enabled' => true, // Defaults to true and can be omitted.
                     'icon' => '',
@@ -26,4 +26,4 @@ class OxiFlipBoxModule extends FLBuilderModule {
 
 }
 
-require_once FL_MODULE_SA_FLBUILDER_URL . 'modules/flipbox/flipbox-register.php';
+require_once FL_MODULE_SA_FLBUILDER_URL . 'modules/heading/heading-register.php';

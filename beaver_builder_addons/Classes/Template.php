@@ -18,7 +18,8 @@ trait Template
         $flbuilder = array(
             'Content Elements' => array(
                 'button',
-                'flipbox'
+                'flipbox',
+                'heading',
             ),
         );
         ?>
