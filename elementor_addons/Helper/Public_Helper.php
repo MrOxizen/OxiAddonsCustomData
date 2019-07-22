@@ -120,6 +120,7 @@ trait Public_Helper
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Fancy_Text/assets/index.min.css',
                     ],
                     'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Fancy_Text/assets/vendor/fancy-text.min.js',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Fancy_Text/assets/index.min.js',
                     ],
                 ],
@@ -133,6 +134,21 @@ trait Public_Helper
                 ],
             ],
 
+            'filterable_gallery' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Filterable_Gallery\Filterable_Gallery',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Filterable_Gallery/assets/vendor/magnific-popup/index.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Filterable_Gallery/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Filterable_Gallery/assets/vendor/imagesLoaded/imagesloaded.pkgd.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Filterable_Gallery/assets/vendor/isotope/isotope.pkgd.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Filterable_Gallery/assets/vendor/magnific-popup/jquery.magnific-popup.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Filterable_Gallery/assets/index.min.js',
+                    ],
+                ],
+            ],
 
         ];
         return $response;
