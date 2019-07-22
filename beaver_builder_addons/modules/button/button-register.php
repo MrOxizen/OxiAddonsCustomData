@@ -142,6 +142,73 @@ FLBuilder::register_module('Button_module', array(
                     ),
                 ),
             ),
+            'formatting' => array(
+                'title'  => __('Structure', SA_FLBUILDER_TEXTDOMAIN),
+                'fields' => array(
+                    'button_width' => array(
+                        'type'    => 'select',
+                        'label'   => __('Width', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'auto',
+                        'options' => array(
+                            'auto'   => _x('Auto', 'Width.', SA_FLBUILDER_TEXTDOMAIN),
+                            'full'   => __('Full Width', SA_FLBUILDER_TEXTDOMAIN),
+                            'custom' => __('Custom', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                        'toggle'  => array(
+                            'auto'   => array(
+                                'fields' => array('button_padding'),
+                            ),
+                            'full'   => array(
+                                'fields' => array('button_padding'),
+                            ),
+                            'custom' => array(
+                                'fields' => array('custom_width', 'custom_height'),
+                            ),
+                        ),
+                    ),
+                    'custom_width'  => array(
+                        'type'        => 'text',
+                        'label'       => __('Custom Width', SA_FLBUILDER_TEXTDOMAIN),
+                        'default'     => '200',
+                        'maxlength'   => '3',
+                        'size'        => '4',
+                        'description' => 'px',
+                    ),
+                    'custom_height'      => array(
+                        'type'        => 'text',
+                        'label'       => __('Custom Height', SA_FLBUILDER_TEXTDOMAIN),
+                        'default'     => '45',
+                        'maxlength'   => '3',
+                        'size'        => '4',
+                        'description' => 'px',
+                    ),
+                    'alignment' => array(
+                        'type'    => 'align',
+                        'label'   => 'Alignment',
+                        'default' => 'center',
+                        'responsive' => true,
+                        'preview' => array(
+                            'type'       => 'css',
+                            'property'   => 'justify-content',
+                            'selector' => '.oxi__button_wrapper'
+                        ),
+                    ),
+                    'button_padding' => array(
+                        'type' => 'dimension',
+                        'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Manage the inside Button padding', SA_FLBUILDER_TEXTDOMAIN),
+                        'slider' => true,
+                        'units' => array('px'),
+                        'responsive' => array(
+                            'placeholder' => array(
+                                'default' => '15',
+                                'medium' => '10',
+                                'responsive' => '5',
+                            ),
+                        ),
+                    ),
+                ),
+            ),
             'Color' => array(
                 'title' => __('Color', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
@@ -277,73 +344,6 @@ FLBuilder::register_module('Button_module', array(
                             'type'     => 'css',
                             'selector' => '.oxi-addons-hover-box-shadow',
                             'property' => 'box-shadow',
-                        ),
-                    ),
-                ),
-            ),
-            'formatting' => array(
-                'title'  => __('Structure', SA_FLBUILDER_TEXTDOMAIN),
-                'fields' => array(
-                    'button_width' => array(
-                        'type'    => 'select',
-                        'label'   => __('Width', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'auto',
-                        'options' => array(
-                            'auto'   => _x('Auto', 'Width.', SA_FLBUILDER_TEXTDOMAIN),
-                            'full'   => __('Full Width', SA_FLBUILDER_TEXTDOMAIN),
-                            'custom' => __('Custom', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                        'toggle'  => array(
-                            'auto'   => array(
-                                'fields' => array('button_padding'),
-                            ),
-                            'full'   => array(
-                                'fields' => array('button_padding'),
-                            ),
-                            'custom' => array(
-                                'fields' => array('custom_width', 'custom_height'),
-                            ),
-                        ),
-                    ),
-                    'custom_width'  => array(
-                        'type'        => 'text',
-                        'label'       => __('Custom Width', SA_FLBUILDER_TEXTDOMAIN),
-                        'default'     => '200',
-                        'maxlength'   => '3',
-                        'size'        => '4',
-                        'description' => 'px',
-                    ),
-                    'custom_height'      => array(
-                        'type'        => 'text',
-                        'label'       => __('Custom Height', SA_FLBUILDER_TEXTDOMAIN),
-                        'default'     => '45',
-                        'maxlength'   => '3',
-                        'size'        => '4',
-                        'description' => 'px',
-                    ),
-                    'alignment' => array(
-                        'type'    => 'align',
-                        'label'   => 'Alignment',
-                        'default' => 'center',
-                        'responsive' => true,
-                        'preview' => array(
-                            'type'       => 'css',
-                            'property'   => 'justify-content',
-                            'selector' => '.oxi__button_wrapper'
-                        ),
-                    ),
-                    'button_padding' => array(
-                        'type' => 'dimension',
-                        'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
-                        'help' => __('Manage the inside Button padding', SA_FLBUILDER_TEXTDOMAIN),
-                        'slider' => true,
-                        'units' => array('px'),
-                        'responsive' => array(
-                            'placeholder' => array(
-                                'default' => '15',
-                                'medium' => '10',
-                                'responsive' => '5',
-                            ),
                         ),
                     ),
                 ),
