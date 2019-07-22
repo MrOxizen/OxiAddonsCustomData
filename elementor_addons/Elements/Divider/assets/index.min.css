@@ -1,0 +1,100 @@
+.sa-el-divider-wrap {
+  font-size: 0;
+  line-height: 0;
+}
+
+.sa-el-divider {
+  text-align: center;
+}
+
+.sa-el-divider-left .divider-border-left {
+  display: none;
+}
+
+.sa-el-divider-right .divider-border-right {
+  display: none;
+}
+
+/*--- Horizontal ---*/
+.horizontal {
+  border: 0;
+  border-color: #000;
+  border-bottom-width: 4px;
+  border-top-width: 0px;
+  display: inline-block;
+  width: 80px;
+  height: 0;
+  border-style: dashed;
+}
+
+/*--- Vertical ---*/
+.vertical {
+  border: 0;
+  display: inline-block;
+  border-left: 2px solid #000;
+  height: 50px;
+}
+
+/*--- divider with Text ---*/
+.divider-text-container {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.divider-text-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+}
+
+.sa-el-divider-content h1.sa-el-divider-text:before,
+.sa-el-divider-content h2.sa-el-divider-text:before,
+.sa-el-divider-content h3.sa-el-divider-text:before,
+.sa-el-divider-content h4.sa-el-divider-text:before,
+.sa-el-divider-content h5.sa-el-divider-text:before,
+.sa-el-divider-content h6.sa-el-divider-text:before{
+    display: none;
+}
+.sa-el-divider-content h1.sa-el-divider-text,
+.sa-el-divider-content h2.sa-el-divider-text,
+.sa-el-divider-content h3.sa-el-divider-text,
+.sa-el-divider-content h4.sa-el-divider-text,
+.sa-el-divider-content h5.sa-el-divider-text,
+.sa-el-divider-content h6.sa-el-divider-text,
+.sa-el-divider-content div.sa-el-divider-text,
+.sa-el-divider-content span.sa-el-divider-text,
+.sa-el-divider-content p.sa-el-divider-text
+{
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.divider-border-wrap {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.divider-border {
+  border: 0;
+  height: 1px;
+  border-top: 1px solid #000;
+  display: block;
+  width: 100%;
+}
+
+.sa-el-divider-content {
+  display: inherit;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 auto;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+  margin: 0 20px;
+}

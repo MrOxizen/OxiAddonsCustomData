@@ -7,28 +7,6 @@ FLBuilder::register_module('Button_module', array(
     'General' => array(
         'title' => __('Content', SA_FLBUILDER_TEXTDOMAIN),
         'sections' => array(
-            'styling' => array(
-                'title'  => __('Button Style', SA_FLBUILDER_TEXTDOMAIN),
-                'fields' => array(
-                    'styling' => array(
-                        'type'    => 'select',
-                        'label'   => __('Style', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'default',
-                        'options' => array(
-                            'default' => __('Default', SA_FLBUILDER_TEXTDOMAIN),
-                            'icon' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                        'toggle'  => array(
-                            'default'   => array(
-                                'fields' => array('button_width', 'button_padding'),
-                            ),
-                            'icon'   => array(
-                                'fields' => array('button_icon', 'icon_position', 'icon_style', 'icon_button_width', 'icon_button_height'),
-                            ),
-                        ),
-                    ),
-                ),
-            ),
             'general' => array(
                 'title' => '',
                 'fields' => array(
@@ -42,38 +20,15 @@ FLBuilder::register_module('Button_module', array(
                         ),
                         'connections' => array('string', 'html')
                     ),
-                    'icon_style' => array(
-                        'type' => 'select',
-                        'label' => __('Show Item', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'show_icon_text',
-                        'options' => array(
-                            'show_text' => __('Show Text', SA_FLBUILDER_TEXTDOMAIN),
-                            'show_icon' => __('Show Icon', SA_FLBUILDER_TEXTDOMAIN),
-                            'show_icon_text' => __('Show Icon & Text', SA_FLBUILDER_TEXTDOMAIN)
+                    'secondary_text' => array(
+                        'type' => 'text',
+                        'label' => __('Secondary Text', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => __('Go!', SA_FLBUILDER_TEXTDOMAIN),
+                        'preview' => array(
+                            'type' => 'text',
+                            'selector' => '.oxi__button'
                         ),
-                        'toggle'  => array(
-                            'show_text'   => array(
-                                'fields' => array('icon_animation'),
-                            ),
-                            'show_icon'   => array(
-                                'fields' => array('icon_animation'),
-                            ),
-                            'show_icon_text'   => array(
-                                'fields' => array('icon_position'),
-                            ),
-                        ),
-                    ),
-                    'icon_animation' => array(
-                        'type' => 'select',
-                        'label' => __('Animation', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'default',
-                        'options' => array(
-                            'default' => __('Defalut', SA_FLBUILDER_TEXTDOMAIN),
-                            'left_to_right' => __('Left To Right', SA_FLBUILDER_TEXTDOMAIN),
-                            'right_to_left' => __('Right To Left', SA_FLBUILDER_TEXTDOMAIN),
-                            'top_to_bottom' => __('Top To Bottom', SA_FLBUILDER_TEXTDOMAIN),
-                            'bottom_to_top' => __('Bottom To Top', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
+                        'connections' => array('string', 'html')
                     ),
                     'button_icon' => array(
                         'type' => 'icon',
@@ -93,6 +48,12 @@ FLBuilder::register_module('Button_module', array(
                             'right' => __('Right Side', SA_FLBUILDER_TEXTDOMAIN)
                         ),
                     ),
+                    'icon_spacing' => array(
+                        'type'        => 'unit',
+                        'label'       => 'Icon Spacing',
+                        'description' => 'px',
+                        'default' => '5'
+                    ),
                 )
             ),
             'link' => array(
@@ -111,6 +72,75 @@ FLBuilder::register_module('Button_module', array(
                         'connection' => array('url')
                     )
                 )
+            ),
+        )
+    ),
+    'style' => array( //tab
+        'title' => __('Styles', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
+        'sections' => array(
+            'styling' => array(
+                'title'  => __('Button Style', SA_FLBUILDER_TEXTDOMAIN),
+                'fields' => array(
+                    'styling' => array(
+                        'type'    => 'select',
+                        'label'   => __('Button Effects', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'default',
+                        'options' => array(
+                            'default' => __('Default', SA_FLBUILDER_TEXTDOMAIN),
+                            'shutter' => __('Shutter', SA_FLBUILDER_TEXTDOMAIN),
+                            'rayen' => __('Rayen', SA_FLBUILDER_TEXTDOMAIN),
+                            'winona' => __('Winona', SA_FLBUILDER_TEXTDOMAIN),
+                            'tamaya' => __('Tamaya', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                        'toggle'  => array(
+                            'shutter'   => array(
+                                'fields' => array('shutter_effects'),
+                            ),
+                            'rayen'   => array(
+                                'fields' => array('rayen_effects'),
+                            ),
+                            'winona'   => array(
+                                'fields' => array('winona_effects', 'secondary_text'),
+                            ),
+                            'tamaya'   => array(
+                                'fields' => array('secondary_text'),
+                            ),
+                        ),
+                    ),
+                    'shutter_effects' => array(
+                        'type'    => 'select',
+                        'label'   => __('Shutter', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'left_to_right',
+                        'options' => array(
+                            'shutter_in_hori' => __('Shutter in Horizontal', SA_FLBUILDER_TEXTDOMAIN),
+                            'shutter_in_var' => __('Shutter in Vertical', SA_FLBUILDER_TEXTDOMAIN),
+                            'shutter_out_hori' => __('Shutter out Horizontal', SA_FLBUILDER_TEXTDOMAIN),
+                            'shutter_out_var' => __('Shutter out Vertical', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                    ),
+                    'rayen_effects' => array(
+                        'type'    => 'select',
+                        'label'   => __('Shutter', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'default',
+                        'options' => array(
+                            'left_to_right' => __('Left To Right', SA_FLBUILDER_TEXTDOMAIN),
+                            'right_to_left' => __('Right To Left', SA_FLBUILDER_TEXTDOMAIN),
+                            'top_to_bottom' => __('Top To Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                            'bottom_to_top' => __('Bottom To Top', SA_FLBUILDER_TEXTDOMAIN)
+                        ),
+                    ),
+                    'winona_effects' => array(
+                        'type'    => 'select',
+                        'label'   => __('Shutter', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'default',
+                        'options' => array(
+                            'left_to_right' => __('Left To Right', SA_FLBUILDER_TEXTDOMAIN),
+                            'right_to_left' => __('Right To Left', SA_FLBUILDER_TEXTDOMAIN),
+                            'top_to_bottom' => __('Top To Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                            'bottom_to_top' => __('Bottom To Top', SA_FLBUILDER_TEXTDOMAIN)
+                        ),
+                    ),
+                ),
             ),
             'formatting' => array(
                 'title'  => __('Structure', SA_FLBUILDER_TEXTDOMAIN),
@@ -152,22 +182,6 @@ FLBuilder::register_module('Button_module', array(
                         'size'        => '4',
                         'description' => 'px',
                     ),
-                    'icon_button_width'       => array(
-                        'type'        => 'text',
-                        'label'       => __('Custom Width', SA_FLBUILDER_TEXTDOMAIN),
-                        'default'     => '200',
-                        'maxlength'   => '3',
-                        'size'        => '4',
-                        'description' => 'px',
-                    ),
-                    'icon_button_height'      => array(
-                        'type'        => 'text',
-                        'label'       => __('Custom Height', SA_FLBUILDER_TEXTDOMAIN),
-                        'default'     => '45',
-                        'maxlength'   => '3',
-                        'size'        => '4',
-                        'description' => 'px',
-                    ),
                     'alignment' => array(
                         'type'    => 'align',
                         'label'   => 'Alignment',
@@ -195,12 +209,6 @@ FLBuilder::register_module('Button_module', array(
                     ),
                 ),
             ),
-        )
-    ),
-    'style' => array( //tab
-        'title' => __('Styles', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
-        'sections' => array(
-
             'Color' => array(
                 'title' => __('Color', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
@@ -216,7 +224,7 @@ FLBuilder::register_module('Button_module', array(
                         'type' => 'select',
                         'label' => __('Background Type', SA_FLBUILDER_TEXTDOMAIN),
                         'default' => 'color',
-                        'help' => __('Button Background Color and Gradient', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Button Gradient Only Work For Button Default Effect', SA_FLBUILDER_TEXTDOMAIN),
                         'options' => array(
                             'color' => __('Color', SA_FLBUILDER_TEXTDOMAIN),
                             'gradient' => __('Gradient', SA_FLBUILDER_TEXTDOMAIN),

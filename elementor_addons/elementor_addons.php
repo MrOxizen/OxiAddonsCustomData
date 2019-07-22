@@ -184,9 +184,9 @@ final class SA_ELEMENTOR_ADDONS {
     function Pro_Enable($value) {
         $valids = get_option('oxi_addons_license_status');
         if ($valids == 'valid') {
-            return '';
+            return TRUE;
         } else {
-            return $value;
+            return FALSE;
         }
     }
 

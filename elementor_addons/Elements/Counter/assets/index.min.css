@@ -1,0 +1,59 @@
+.sa-el-counter {
+  display: inline-block;
+}
+
+.sa-el-counter-icon-wrap,
+.sa-el-counter-icon,
+.sa-el-counter-icon-divider,
+.sa-el-counter-num-divider {
+  display: inline-block;
+}
+
+.sa-el-counter-icon {
+  line-height: 1;
+}
+
+.sa-el-counter-layout-3-number-wrap,
+.sa-el-counter-layout-3 .sa-el-icon-title-wrap,
+.sa-el-counter-layout-4-number-wrap,
+.sa-el-counter-layout-4 .sa-el-icon-title-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.sa-el-counter-layout-5,
+.sa-el-counter-layout-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.sa-el-counter-layout-6 .sa-el-counter-icon-wrap {
+  -webkit-box-ordinal-group: 3;
+  -webkit-order: 2;
+  -ms-flex-order: 2;
+  order: 2;
+}
+
+.sa-el-counter .sa-el-icon-title-wrap .sa-el-counter-title {
+  display: inline-block;
+}

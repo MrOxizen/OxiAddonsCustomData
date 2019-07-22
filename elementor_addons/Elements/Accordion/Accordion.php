@@ -34,7 +34,7 @@ class Accordion extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-button';
+        return 'eicon-accordion';
     }
 
     public function get_categories() {

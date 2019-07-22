@@ -68,6 +68,72 @@ trait Public_Helper
                     ],
                 ],
             ],
+            'tabs' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Tabs\Tabs',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Tabs/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Tabs/assets/index.min.js',
+                    ],
+                ],
+            ],
+            'divider' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Divider\Divider',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Divider/assets/index.min.css',
+                    ]
+                ],
+            ],
+            'counter' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Counter\Counter',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/vendor/css/odometer-theme-default.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/vendor/js/waypoints.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/vendor/js/odometer.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/index.min.js',
+                    ],
+                ],
+            ],
+            'count_down' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Count_Down\Count_Down',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Count_Down/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Count_Down/assets/vendor/countdown.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Count_Down/assets/index.min.js',
+                    ],
+                ],
+            ],
+            'fancy_text' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Fancy_Text\Fancy_Text',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Fancy_Text/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Fancy_Text/assets/index.min.js',
+                    ],
+                ],
+            ],
+            'feature_list' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Feature_List\Feature_List',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Feature_List/assets/index.min.css',
+                    ]
+                ],
+            ],
+
+
         ];
         return $response;
     }

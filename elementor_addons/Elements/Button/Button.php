@@ -77,7 +77,7 @@ class Button extends Widget_Base
 				'condition'     => [
 					'creative_button_effect' => ['sa_el_creative_button_winona', 'sa_el_creative_button_tamaya', 'sa_el_creative_button_rayen'],
 				],
-			],
+			]
 		);
 
 
@@ -305,6 +305,8 @@ class Button extends Widget_Base
 					'{{WRAPPER}} .sa_el_creative_button.sa_el_creative_button_tamaya::before' => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} .sa_el_creative_button.sa_el_creative_button_tamaya::after'  => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} .sa_el_creative_button.sa_el_creative_button_rayen:hover'    => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .sa_el_creative_button.sa_el_creative_button_shutinhor::before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .sa_el_creative_button.sa_el_creative_button_shutinver::before' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -379,8 +381,8 @@ class Button extends Widget_Base
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#f54',
 				'selectors' => [
-					'{{WRAPPER}} .sa_el_creative_button.sa_el_creative_button_shutinhor::before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .sa_el_creative_button.sa_el_creative_button_shutinver::before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .sa_el_creative_button.sa_el_creative_button_shutinhor' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .sa_el_creative_button.sa_el_creative_button_shutinver' => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} .sa_el_creative_button.sa_el_creative_button_shutouthor::before' => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} .sa_el_creative_button.sa_el_creative_button_shutoutver::before' => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} .sa_el_creative_button.sa_el_creative_button_scshutouthor::before' => 'background-color: {{VALUE}};',
