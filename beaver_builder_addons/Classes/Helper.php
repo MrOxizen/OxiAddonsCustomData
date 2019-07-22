@@ -262,5 +262,36 @@ final class SA_FLBUILDER_HELPER
             ));
         }
     }
+    /**
+     *  Get link rel attribute
+     *
+     *  @since 1.0
+     *  @param string $target gets an string for the link.
+     *  @param string $is_nofollow gets an string for is no follow.
+     *  @param string $echo gets an string for echo.
+     *  @return string
+     */
+    static public function Sa_fl_builder_get_link_rel($target, $is_nofollow = 0, $echo = 0)
+    {
+
+        $attr = '';
+        if ('_blank' == $target) {
+            $attr .= 'noopener';
+        }
+
+        if (1 == $is_nofollow) {
+            $attr .= ' nofollow';
+        }
+
+        if ('' == $attr) {
+            return;
+        }
+
+        $attr = trim($attr);
+        if (!$echo) {
+            return 'rel="' . $attr . '"';
+        }
+        return 'rel="' . $attr . '"';
+    }
 }
 new SA_FLBUILDER_HELPER();

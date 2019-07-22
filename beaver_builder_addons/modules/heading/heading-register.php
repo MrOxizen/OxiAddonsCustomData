@@ -9,24 +9,24 @@ FLBuilder::register_module(
     'Heading_module',
     array(
         'general'    => array(
-            'title'    => __('General', 'uabb'),
+            'title'    => __('Content', SA_FLBUILDER_TEXTDOMAIN),
             'sections' => array(
-                'general'     => array(
+                'content'     => array(
                     'title'  => '',
                     'fields' => array(
                         'heading' => array(
                             'type'        => 'text',
-                            'label'       => __('Heading', 'uabb'),
-                            'default'     => __('Design is a funny word', 'uabb'),
+                            'label'       => __('Heading', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'     => __('Lorem Ipsum Dummy Text', SA_FLBUILDER_TEXTDOMAIN),
                             'preview'     => array(
                                 'type'     => 'text',
-                                'selector' => '.uabb-heading-text',
+                                'selector' => '.oxi__addons_header',
                             ),
                             'connections' => array('string', 'html'),
                         ),
                         'link'    => array(
                             'type'          => 'link',
-                            'label'         => __('Link', 'uabb'),
+                            'label'         => __('Link', SA_FLBUILDER_TEXTDOMAIN),
                             'preview'       => array(
                                 'type' => 'none',
                             ),
@@ -37,7 +37,7 @@ FLBuilder::register_module(
                     ),
                 ),
                 'description' => array(
-                    'title'  => __('Description', 'uabb'),
+                    'title'  => __('Description', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
                         'description' => array(
                             'type'        => 'editor',
@@ -48,49 +48,40 @@ FLBuilder::register_module(
                         ),
                     ),
                 ),
-                'structure'   => array(
-                    'title'  => __('Structure', 'uabb'),
-                    'fields' => array(
-                        'alignment'          => array(
-                            'type'    => 'align',
-                            'label'   => __('Alignment', 'uabb'),
-                            'default' => 'center',
-                            'help'    => __('This is the overall alignment and would apply to all Heading elements', 'uabb'),
-                            'preview' => array(
-                                'type'     => 'css',
-                                'selector' => '.uabb-heading-wrapper .uabb-heading, .uabb-heading-wrapper .uabb-subheading *',
-                                'property' => 'text-align',
-                            ),
-                        ),
-                        'r_custom_alignment' => array(
-                            'type'    => 'align',
-                            'label'   => __('Responsive Alignment', 'uabb'),
-                            'default' => 'center',
-                            'preview' => array(
-                                'type' => 'none',
-                            ),
-                            'help'    => __('The alignment will apply on Mobile', 'uabb'),
-                        ),
-                    ),
-                ),
             ),
         ),
         'style'      => array(
-            'title'    => __('Separator', 'uabb'),
+            'title'    => __('Styles', SA_FLBUILDER_TEXTDOMAIN),
             'sections' => array(
-                'separator'            => array(
-                    'title'  => __('Separator', 'uabb'),
+                'structure'   => array(
+                    'title'  => __('Structure', SA_FLBUILDER_TEXTDOMAIN),
+                    'fields' => array(
+                        'alignment' => array(
+                            'type'    => 'align',
+                            'label'   => 'Alignment',
+                            'default' => 'center',
+                            'responsive' => true,
+                            'preview' => array(
+                                'type'       => 'css',
+                                'selector'   => '.my-selector',
+                                'property'   => 'text-align',
+                            ),
+                        ),
+                    ),
+                ),
+                'separator'  => array(
+                    'title'  => __('Separator', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
                         'separator_style'    => array(
                             'type'    => 'select',
-                            'label'   => __('Separator Style', 'uabb'),
+                            'label'   => __('Separator Style', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => 'none',
                             'options' => array(
-                                'none'       => __('None', 'uabb'),
-                                'line'       => __('Line', 'uabb'),
-                                'line_icon'  => __('Line With Icon', 'uabb'),
-                                'line_image' => __('Line With Image', 'uabb'),
-                                'line_text'  => __('Line With Text', 'uabb'),
+                                'none'       => __('None', SA_FLBUILDER_TEXTDOMAIN),
+                                'line'       => __('Line', SA_FLBUILDER_TEXTDOMAIN),
+                                'line_icon'  => __('Line With Icon', SA_FLBUILDER_TEXTDOMAIN),
+                                'line_image' => __('Line With Image', SA_FLBUILDER_TEXTDOMAIN),
+                                'line_text'  => __('Line With Text', SA_FLBUILDER_TEXTDOMAIN),
                             ),
                             'toggle'  => array(
                                 'line'       => array(
@@ -113,27 +104,27 @@ FLBuilder::register_module(
                         ),
                         'separator_position' => array(
                             'type'    => 'select',
-                            'label'   => __('Separator Position', 'uabb'),
+                            'label'   => __('Separator Position', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => 'center',
                             'options' => array(
-                                'center' => __('Between Heading & Description', 'uabb'),
-                                'top'    => __('Top', 'uabb'),
-                                'bottom' => __('Bottom', 'uabb'),
+                                'center' => __('Between Heading & Description', SA_FLBUILDER_TEXTDOMAIN),
+                                'top'    => __('Top', SA_FLBUILDER_TEXTDOMAIN),
+                                'bottom' => __('Bottom', SA_FLBUILDER_TEXTDOMAIN),
                             ),
                         ),
                     ),
                 ),
                 'separator_icon_basic' => array(
-                    'title'  => __('Icon Basics', 'uabb'),
+                    'title'  => __('Icon Basics', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
                         'icon'                 => array(
                             'type'        => 'icon',
-                            'label'       => __('Icon', 'uabb'),
+                            'label'       => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
                             'show_remove' => true,
                         ),
                         'icon_size'            => array(
                             'type'        => 'unit',
-                            'label'       => __('Size', 'uabb'),
+                            'label'       => __('Size', SA_FLBUILDER_TEXTDOMAIN),
                             'placeholder' => '30',
                             'maxlength'   => '5',
                             'size'        => '6',
@@ -148,7 +139,7 @@ FLBuilder::register_module(
                         ),
                         'separator_icon_color' => array(
                             'type'        => 'color',
-                            'label'       => __('Icon Color', 'uabb'),
+                            'label'       => __('Icon Color', SA_FLBUILDER_TEXTDOMAIN),
                             'default'     => '',
                             'show_reset'  => true,
                             'connections' => array('color'),
@@ -162,15 +153,15 @@ FLBuilder::register_module(
                     ),
                 ),
                 'separator_img_basic'  => array(
-                    'title'  => __('Image Basics', 'uabb'),
+                    'title'  => __('Image Basics', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
                         'photo_source'        => array(
                             'type'    => 'select',
-                            'label'   => __('Photo Source', 'uabb'),
+                            'label'   => __('Photo Source', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => 'library',
                             'options' => array(
-                                'library' => __('Media Library', 'uabb'),
-                                'url'     => __('URL', 'uabb'),
+                                'library' => __('Media Library', SA_FLBUILDER_TEXTDOMAIN),
+                                'url'     => __('URL', SA_FLBUILDER_TEXTDOMAIN),
                             ),
                             'toggle'  => array(
                                 'library' => array(
@@ -183,18 +174,18 @@ FLBuilder::register_module(
                         ),
                         'photo'               => array(
                             'type'        => 'photo',
-                            'label'       => __('Photo', 'uabb'),
+                            'label'       => __('Photo', SA_FLBUILDER_TEXTDOMAIN),
                             'show_remove' => true,
                             'connections' => array('photo'),
                         ),
                         'photo_url'           => array(
                             'type'        => 'text',
-                            'label'       => __('Photo URL', 'uabb'),
+                            'label'       => __('Photo URL', SA_FLBUILDER_TEXTDOMAIN),
                             'placeholder' => 'http://www.example.com/my-photo.jpg',
                         ),
                         'img_size'            => array(
                             'type'        => 'unit',
-                            'label'       => __('Size', 'uabb'),
+                            'label'       => __('Size', SA_FLBUILDER_TEXTDOMAIN),
                             'maxlength'   => '5',
                             'size'        => '6',
                             'units'       => array('px'),
@@ -203,12 +194,12 @@ FLBuilder::register_module(
                         ),
                         'responsive_img_size' => array(
                             'type'      => 'unit',
-                            'label'     => __('Responsive Size', 'uabb'),
+                            'label'     => __('Responsive Size', SA_FLBUILDER_TEXTDOMAIN),
                             'maxlength' => '5',
                             'size'      => '6',
                             'units'     => array('px'),
                             'slider'    => true,
-                            'help'      => __('Image size below medium devices. Leave it blank if you want to keep same size', 'uabb'),
+                            'help'      => __('Image size below medium devices. Leave it blank if you want to keep same size', SA_FLBUILDER_TEXTDOMAIN),
                             'preview'   => array(
                                 'type' => 'none',
                             ),
@@ -216,11 +207,11 @@ FLBuilder::register_module(
                     ),
                 ),
                 'separator_text'       => array(
-                    'title'  => __('Text', 'uabb'),
+                    'title'  => __('Text', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
                         'text_inline'              => array(
                             'type'    => 'text',
-                            'label'   => __('Text', 'uabb'),
+                            'label'   => __('Text', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => 'Ultimate',
                             'preview' => array(
                                 'type'     => 'text',
@@ -229,31 +220,31 @@ FLBuilder::register_module(
                         ),
                         'responsive_compatibility' => array(
                             'type'    => 'select',
-                            'label'   => __('Responsive Compatibility', 'uabb'),
-                            'help'    => __('There might be responsive issues for long texts. If you are facing such issues then select appropriate devices width to make your module responsive.', 'uabb'),
+                            'label'   => __('Responsive Compatibility', SA_FLBUILDER_TEXTDOMAIN),
+                            'help'    => __('There might be responsive issues for long texts. If you are facing such issues then select appropriate devices width to make your module responsive.', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => '',
                             'options' => array(
-                                ''                         => __('None', 'uabb'),
-                                'uabb-responsive-mobile'   => __('Small Devices', 'uabb'),
-                                'uabb-responsive-medsmall' => __('Medium & Small Devices', 'uabb'),
+                                ''                         => __('None', SA_FLBUILDER_TEXTDOMAIN),
+                                'uabb-responsive-mobile'   => __('Small Devices', SA_FLBUILDER_TEXTDOMAIN),
+                                'uabb-responsive-medsmall' => __('Medium & Small Devices', SA_FLBUILDER_TEXTDOMAIN),
                             ),
                         ),
                     ),
                 ),
                 'separator_line'       => array(
-                    'title'  => __('Line Style', 'uabb'),
+                    'title'  => __('Line Style', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
                         'separator_line_style'  => array(
                             'type'    => 'select',
-                            'label'   => __('Style', 'uabb'),
+                            'label'   => __('Style', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => 'solid',
                             'options' => array(
-                                'solid'  => __('Solid', 'uabb'),
-                                'dashed' => __('Dashed', 'uabb'),
-                                'dotted' => __('Dotted', 'uabb'),
-                                'double' => __('Double', 'uabb'),
+                                'solid'  => __('Solid', SA_FLBUILDER_TEXTDOMAIN),
+                                'dashed' => __('Dashed', SA_FLBUILDER_TEXTDOMAIN),
+                                'dotted' => __('Dotted', SA_FLBUILDER_TEXTDOMAIN),
+                                'double' => __('Double', SA_FLBUILDER_TEXTDOMAIN),
                             ),
-                            'help'    => __('The type of border to use. Double borders must have a height of at least 3px to render properly.', 'uabb'),
+                            'help'    => __('The type of border to use. Double borders must have a height of at least 3px to render properly.', SA_FLBUILDER_TEXTDOMAIN),
                             'preview' => array(
                                 'type'     => 'css',
                                 'selector' => '.uabb-separator, .uabb-separator-line > span',
@@ -262,7 +253,7 @@ FLBuilder::register_module(
                         ),
                         'separator_line_color'  => array(
                             'type'        => 'color',
-                            'label'       => __('Color', 'uabb'),
+                            'label'       => __('Color', SA_FLBUILDER_TEXTDOMAIN),
                             'default'     => '',
                             'show_reset'  => true,
                             'connections' => array('color'),
@@ -275,13 +266,13 @@ FLBuilder::register_module(
                         ),
                         'separator_line_height' => array(
                             'type'        => 'unit',
-                            'label'       => __('Thickness', 'uabb'),
+                            'label'       => __('Thickness', SA_FLBUILDER_TEXTDOMAIN),
                             'placeholder' => '1',
                             'maxlength'   => '2',
                             'size'        => '3',
                             'units'       => array('px'),
                             'slider'      => true,
-                            'help'        => __('Thickness of Border', 'uabb'),
+                            'help'        => __('Thickness of Border', SA_FLBUILDER_TEXTDOMAIN),
                             'preview'     => array(
                                 'type'     => 'css',
                                 'selector' => '.uabb-separator, .uabb-separator-line > span',
@@ -291,7 +282,7 @@ FLBuilder::register_module(
                         ),
                         'separator_line_width'  => array(
                             'type'        => 'unit',
-                            'label'       => __('Width', 'uabb'),
+                            'label'       => __('Width', SA_FLBUILDER_TEXTDOMAIN),
                             'placeholder' => '30',
                             'maxlength'   => '3',
                             'size'        => '5',
@@ -303,14 +294,14 @@ FLBuilder::register_module(
             ),
         ),
         'typography' => array(
-            'title'    => __('Typography', 'uabb'),
+            'title'    => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
             'sections' => array(
                 'heading_typo'              => array(
-                    'title'  => __('Heading', 'uabb'),
+                    'title'  => __('Heading', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
                         'tag'                   => array(
                             'type'    => 'select',
-                            'label'   => __('HTML Tag', 'uabb'),
+                            'label'   => __('HTML Tag', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => 'h3',
                             'options' => array(
                                 'h1' => 'h1',
@@ -323,7 +314,7 @@ FLBuilder::register_module(
                         ),
                         'font_typo'             => array(
                             'type'       => 'typography',
-                            'label'      => __('Typography', 'uabb'),
+                            'label'      => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
                             'responsive' => true,
                             'preview'    => array(
                                 'type'      => 'css',
@@ -333,7 +324,7 @@ FLBuilder::register_module(
                         ),
                         'color'                 => array(
                             'type'        => 'color',
-                            'label'       => __('Text Color', 'uabb'),
+                            'label'       => __('Text Color', SA_FLBUILDER_TEXTDOMAIN),
                             'default'     => '',
                             'show_reset'  => true,
                             'connections' => array('color'),
@@ -346,7 +337,7 @@ FLBuilder::register_module(
                         ),
                         'heading_margin_top'    => array(
                             'type'        => 'unit',
-                            'label'       => __('Margin Top', 'uabb'),
+                            'label'       => __('Margin Top', SA_FLBUILDER_TEXTDOMAIN),
                             'placeholder' => '0',
                             'size'        => '5',
                             'units'       => array('px'),
@@ -360,7 +351,7 @@ FLBuilder::register_module(
                         ),
                         'heading_margin_bottom' => array(
                             'type'        => 'unit',
-                            'label'       => __('Margin Bottom', 'uabb'),
+                            'label'       => __('Margin Bottom', SA_FLBUILDER_TEXTDOMAIN),
                             'placeholder' => '15',
                             'size'        => '5',
                             'units'       => array('px'),
@@ -375,11 +366,11 @@ FLBuilder::register_module(
                     ),
                 ),
                 'description_typo'          => array(
-                    'title'  => __('Description', 'uabb'),
+                    'title'  => __('Description', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
                         'desc_font_typo'     => array(
                             'type'       => 'typography',
-                            'label'      => __('Typography', 'uabb'),
+                            'label'      => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
                             'responsive' => true,
                             'preview'    => array(
                                 'type'      => 'css',
@@ -389,7 +380,7 @@ FLBuilder::register_module(
                         ),
                         'desc_color'         => array(
                             'type'        => 'color',
-                            'label'       => __('Color', 'uabb'),
+                            'label'       => __('Color', SA_FLBUILDER_TEXTDOMAIN),
                             'default'     => '',
                             'show_reset'  => true,
                             'connections' => array('color'),
@@ -402,7 +393,7 @@ FLBuilder::register_module(
                         ),
                         'desc_margin_top'    => array(
                             'type'        => 'unit',
-                            'label'       => __('Margin Top', 'uabb'),
+                            'label'       => __('Margin Top', SA_FLBUILDER_TEXTDOMAIN),
                             'placeholder' => '15',
                             'size'        => '5',
                             'units'       => array('px'),
@@ -416,7 +407,7 @@ FLBuilder::register_module(
                         ),
                         'desc_margin_bottom' => array(
                             'type'        => 'unit',
-                            'label'       => __('Margin Bottom', 'uabb'),
+                            'label'       => __('Margin Bottom', SA_FLBUILDER_TEXTDOMAIN),
                             'placeholder' => '0',
                             'size'        => '5',
                             'units'       => array('px'),
@@ -431,27 +422,27 @@ FLBuilder::register_module(
                     ),
                 ),
                 'separator_text_typography' => array(
-                    'title'  => __('Separator Text Typography', 'uabb'),
+                    'title'  => __('Separator Text Typography', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
                         'separator_text_tag_selection' => array(
                             'type'    => 'select',
-                            'label'   => __('Text Tag', 'uabb'),
+                            'label'   => __('Text Tag', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => 'h3',
                             'options' => array(
-                                'h1'   => __('H1', 'uabb'),
-                                'h2'   => __('H2', 'uabb'),
-                                'h3'   => __('H3', 'uabb'),
-                                'h4'   => __('H4', 'uabb'),
-                                'h5'   => __('H5', 'uabb'),
-                                'h6'   => __('H6', 'uabb'),
-                                'div'  => __('Div', 'uabb'),
-                                'p'    => __('p', 'uabb'),
-                                'span' => __('span', 'uabb'),
+                                'h1'   => __('H1', SA_FLBUILDER_TEXTDOMAIN),
+                                'h2'   => __('H2', SA_FLBUILDER_TEXTDOMAIN),
+                                'h3'   => __('H3', SA_FLBUILDER_TEXTDOMAIN),
+                                'h4'   => __('H4', SA_FLBUILDER_TEXTDOMAIN),
+                                'h5'   => __('H5', SA_FLBUILDER_TEXTDOMAIN),
+                                'h6'   => __('H6', SA_FLBUILDER_TEXTDOMAIN),
+                                'div'  => __('Div', SA_FLBUILDER_TEXTDOMAIN),
+                                'p'    => __('p', SA_FLBUILDER_TEXTDOMAIN),
+                                'span' => __('span', SA_FLBUILDER_TEXTDOMAIN),
                             ),
                         ),
                         'separator_font_typo'          => array(
                             'type'       => 'typography',
-                            'label'      => __('Typography', 'uabb'),
+                            'label'      => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
                             'responsive' => true,
                             'preview'    => array(
                                 'type'      => 'css',
@@ -461,7 +452,7 @@ FLBuilder::register_module(
                         ),
                         'separator_text_color'         => array(
                             'type'        => 'color',
-                            'label'       => __('Text Color', 'uabb'),
+                            'label'       => __('Text Color', SA_FLBUILDER_TEXTDOMAIN),
                             'default'     => '',
                             'show_reset'  => true,
                             'connections' => array('color'),
