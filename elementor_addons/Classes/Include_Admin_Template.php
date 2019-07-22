@@ -33,7 +33,7 @@ trait Include_Admin_Template {
                 'dual_color_heading',
                 'fancy_text',
                 'feature_list',
-                'advanced_tabs',
+                'filterable_gallery',
                 'offcanvas',
                 'advanced_menu_PRO',
                 'toggle_PRO',
@@ -56,8 +56,6 @@ trait Include_Admin_Template {
                 'Dynamic_Gallery',
             ),
             'Creative Elements' => array(
-                'Fancy_Text',
-                'Filterable_Gallery',
                 'Progress_Bar',
                 'Interactive_Promo',
                 'Lightbox_and_Modal',
