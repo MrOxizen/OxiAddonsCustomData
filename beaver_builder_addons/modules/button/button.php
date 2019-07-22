@@ -2,11 +2,11 @@
 
 use SA_FLBUILDER_ADDONS\Classes\Bootstrap;
 
-class Button_module extends FLBuilderModule {
+class Button_module extends FLBuilderModule
+{
 
-    use \SA_FLBUILDER_ADDONS\Helper\Public_Helper;
-
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct(array(
             'name' => __('Button', SA_FLBUILDER_TEXTDOMAIN),
             'description' => __('A totally shortcode addons element', SA_FLBUILDER_TEXTDOMAIN),
@@ -20,17 +20,16 @@ class Button_module extends FLBuilderModule {
             'partial_refresh' => false, // Defaults to false and can be omitted.
         ));
 
-//        /* Use these methods to enqueue css and js already
-//         * registered or to register and enqueue your own.
-//         */
-//        // Already registered
-//        $this->add_css('font-awesome');
-//        $this->add_js('jquery-bxslider');
-//        // Register and enqueue your own
-//        $this->add_css('example-lib', $this->url . 'css/example-lib.css');
-//        $this->add_js('example-lib', $this->url . 'js/example-lib.js', array(), '', true);
+        //        /* Use these methods to enqueue css and js already
+        //         * registered or to register and enqueue your own.
+        //         */
+        //        // Already registered
+        //        $this->add_css('font-awesome');
+        //        $this->add_js('jquery-bxslider');
+        //        // Register and enqueue your own
+        //        $this->add_css('example-lib', $this->url . 'css/example-lib.css');
+        //        $this->add_js('example-lib', $this->url . 'js/example-lib.js', array(), '', true);
     }
-
 }
 
 require_once FL_MODULE_SA_FLBUILDER_URL . 'modules/button/button-register.php';

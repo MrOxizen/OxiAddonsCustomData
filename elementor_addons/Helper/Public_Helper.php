@@ -113,7 +113,26 @@ trait Public_Helper
                     ],
                 ],
             ],
-            
+            'fancy_text' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Fancy_Text\Fancy_Text',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Fancy_Text/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Fancy_Text/assets/index.min.js',
+                    ],
+                ],
+            ],
+            'feature_list' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Feature_List\Feature_List',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Feature_List/assets/index.min.css',
+                    ]
+                ],
+            ],
+
 
         ];
         return $response;
