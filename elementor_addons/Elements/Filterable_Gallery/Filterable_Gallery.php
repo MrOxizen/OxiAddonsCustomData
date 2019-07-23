@@ -1341,7 +1341,7 @@ class Filterable_Gallery extends Widget_Base
             [
                 'label' => esc_html__('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#ff622a',
+                'default' => '#FD576B',
                 'selectors' => [
                     '{{WRAPPER}} .gallery-item-caption-wrap .gallery-item-buttons > a' => 'background: {{VALUE}};',
                 ],
