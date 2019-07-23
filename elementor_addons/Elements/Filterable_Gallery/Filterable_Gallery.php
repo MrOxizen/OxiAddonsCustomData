@@ -235,7 +235,7 @@ class Filterable_Gallery extends Widget_Base
             [
                 'label' => esc_html__('Gallery All Label', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::TEXT,
-                'default' => 'All',
+                'default' => 'All Item',
                 'condition' => [
                     'filter_enable' => 'yes',
                 ],
@@ -338,7 +338,7 @@ class Filterable_Gallery extends Widget_Base
                         'label' => esc_html__('Item Content', SA_ELEMENTOR_TEXTDOMAIN),
                         'type' => Controls_Manager::TEXTAREA,
                         'label_block' => true,
-                        'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, provident.', SA_ELEMENTOR_TEXTDOMAIN),
+                        'default' => esc_html__('Consectetur adipisicing elit. Lorem ipsum dolor sit amet,  Quidem, provident.', SA_ELEMENTOR_TEXTDOMAIN),
                     ],
                     [
                         'name' => 'sa_el_fg_gallery_img',
