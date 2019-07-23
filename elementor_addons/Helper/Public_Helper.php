@@ -88,12 +88,12 @@ trait Public_Helper {
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Counter\Counter',
                 'dependency' => [
                     'css' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/vendor/css/odometer-theme-default.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/odometer/css/odometer-theme-default.min.css',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/index.min.css',
                     ],
                     'js' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/vendor/js/waypoints.min.js',
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/vendor/js/odometer.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/waypoints/js/waypoints.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/odometer/js/odometer.min.js',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/index.min.js',
                     ],
                 ],
@@ -105,7 +105,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Count_Down/assets/index.min.css',
                     ],
                     'js' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Count_Down/assets/vendor/countdown.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/countdown/js/countdown.min.js',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Count_Down/assets/index.min.js',
                     ],
                 ],
@@ -117,7 +117,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Fancy_Text/assets/index.min.css',
                     ],
                     'js' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Fancy_Text/assets/vendor/fancy-text.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/fancy-text/js/fancy-text.min.js',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Fancy_Text/assets/index.min.js',
                     ],
                 ],
@@ -134,13 +134,13 @@ trait Public_Helper {
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Filterable_Gallery\Filterable_Gallery',
                 'dependency' => [
                     'css' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Filterable_Gallery/assets/vendor/magnific-popup/index.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/magnific-popup/css/index.min.css',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Filterable_Gallery/assets/index.min.css',
                     ],
                     'js' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Filterable_Gallery/assets/vendor/imagesLoaded/imagesloaded.pkgd.min.js',
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Filterable_Gallery/assets/vendor/isotope/isotope.pkgd.min.js',
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Filterable_Gallery/assets/vendor/magnific-popup/jquery.magnific-popup.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/imagesLoaded/js/imagesloaded.pkgd.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/isotope/js/isotope.pkgd.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/magnific-popup/js/jquery.magnific-popup.min.js',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Filterable_Gallery/assets/index.min.js',
                     ],
                 ],
@@ -165,10 +165,10 @@ trait Public_Helper {
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Flip_Carousel\Flip_Carousel',
                 'dependency' => [
                     'css' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Flip_Carousel/assets/vendor/jquery.flipster.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/flipster/css/jquery.flipster.min.css',
                     ],
                     'js' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Flip_Carousel/assets/vendor/jquery.flipster.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/flipster/js/jquery.flipster.min.js',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Flip_Carousel/assets/index.min.js',
                     ]
                 ]
@@ -191,7 +191,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Hotspots/assets/index.min.css',
                     ],
                     'js' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Hotspots/vendor/js/tipso.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/tipso/js/tipso.min.js',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Hotspots/assets/index.min.js',
                     ]
                 ],
@@ -211,12 +211,12 @@ trait Public_Helper {
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Image_Comparison\Image_Comparison',
                 'dependency' => [
                     'css' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Comparison/assets/vendor/css/twentytwenty.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/twentytwenty/css/twentytwenty.min.css',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Comparison/assets/index.min.css',
                     ],
                     'js' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Comparison/assets/vendor/js/jquery.event.move.min.js',
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Comparison/assets/vendor/js/jquery.twentytwenty.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/event_move/js/jquery.event.move.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/twentytwenty/js/jquery.twentytwenty.min.js',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Comparison/assets/index.min.js',
                     ],
                 ],
@@ -233,11 +233,11 @@ trait Public_Helper {
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Interactive_Card\Interactive_Card',
                 'dependency' => [
                     'css' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Interactive_Card/assets/vendor/css/interactive-cards.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/interactive-cards/css/interactive-cards.min.css',
                     ],
                     'js' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Interactive_Card/assets/vendor/js/jquery.nicescroll.min.js',
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Interactive_Card/assets/vendor/js/interactive-cards.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/nicescroll/js/jquery.nicescroll.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/interactive-cards/js/interactive-cards.min.js',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Interactive_Card/assets/index.min.js',
                     ],
                 ],
@@ -254,12 +254,12 @@ trait Public_Helper {
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Lightbox_Modal\Lightbox_Modal',
                 'dependency' => [
                     'css' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Lightbox_Modal/assets/vendor/index.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/magnific-popup/css/index.min.css',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Lightbox_Modal/assets/index.min.css',
                     ],
                     'js' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Lightbox_Modal/assets/vendor/jquery.magnific-popup.min.js',
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Lightbox_Modal/assets/vendor/jquery.cookie.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/magnific-popup/js/jquery.magnific-popup.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/cookie/js/jquery.cookie.min.js',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Lightbox_Modal/assets/index.min.js',
                     ],
                 ],
