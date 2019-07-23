@@ -199,7 +199,7 @@ class Lightbox_Modal extends Widget_Base
                 'label'   => __('Choose Lightbox Image', SA_ELEMENTOR_TEXTDOMAIN),
                 'type'    => Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => Utils::get_placeholder_image_src(),
+                    'url' => 'https://www.shortcode-addons.com/wp-content/uploads/2019/07/Untitled-1.jpg',
                 ],
                 'condition' => [
                     'sa_el_lightbox_type' => 'lightbox_type_image',
@@ -380,7 +380,7 @@ class Lightbox_Modal extends Widget_Base
                 'label'   => __('Trigger Image', SA_ELEMENTOR_TEXTDOMAIN),
                 'type'    => Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => 'https://www.shortcode-addons.com/wp-content/uploads/2019/07/Untitled-1.jpg',
+                    'url' => Utils::get_placeholder_image_src(),
                 ],
                 'condition' => [
                     'sa_el_lightbox_trigger_type' => 'sa_el_lightbox_trigger_button',
