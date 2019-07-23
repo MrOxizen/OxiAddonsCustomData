@@ -1093,7 +1093,6 @@ class Offcanvas extends Widget_Base {
      */
     protected function render() {
         $settings = $this->get_settings_for_display();
-
         $setting_attr = [
             'sa_content_id' => esc_attr($this->get_id()),
             'sa_direction' => esc_attr($settings['direction']),
@@ -1114,9 +1113,9 @@ class Offcanvas extends Widget_Base {
             'class' => [
                 'sa-el-offcanvas-content',
                 'sa-el-offcanvas-content-' . esc_attr($this->get_id()),
-                'sa-el-offcanvas-' . $setting_attr['transition'],
-                'elementor-element-' . $this->get_id(),
-                'sa-el-offcanvas-content-' . $setting_attr['direction'],
+                'sa-el-offcanvas-' . $setting_attr['sa_transition'],
+                'elementor-element-' . $setting_attr['sa_content_id'],
+                'sa-el-offcanvas-content-' . $setting_attr['sa_direction'],
             ],
                 ]
         );
