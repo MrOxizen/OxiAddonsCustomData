@@ -275,6 +275,18 @@ trait Public_Helper {
                     ],
                 ],
             ],
+            'offcanvas' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Offcanvas\Offcanvas',
+                'dependency' => [
+                     'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Offcanvas/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/offcanvas/js/offcanvas.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Offcanvas/assets/index.min.js',
+                    ],
+                ],
+            ],
         ];
         return $response;
     }

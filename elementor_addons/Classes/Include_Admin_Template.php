@@ -46,6 +46,7 @@ trait Include_Admin_Template {
                 'interactive_promo',
                 'lightbox_and_modal',
                 'logo_carousel',
+                'offcanvas',
             
             ),
             'Dynamic Content Elements' => array(
