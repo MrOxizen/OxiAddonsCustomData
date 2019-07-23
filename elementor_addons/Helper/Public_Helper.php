@@ -184,6 +184,29 @@ trait Public_Helper {
                     ]
                 ],
             ],
+            'image_hotspots' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Image_Hotspots\Image_Hotspots',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Hotspots/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL .'Elements/Image_Hotspots/vendor/js/tipso.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Hotspots/assets/index.min.js',
+                    ]
+                ],
+            ],
+            'image_scroller' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Image_Scroller\Image_Scroller',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Scroller/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Scroller/assets/index.min.js',
+                    ]
+                ],
+            ],
         ];
         return $response;
     }

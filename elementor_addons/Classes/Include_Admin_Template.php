@@ -38,6 +38,8 @@ trait Include_Admin_Template {
                 'flip_box',
                 'flip_carousel',
                 'image_accordion',
+                'image_hotspots',
+                'image_scroller',
                 'offcanvas',
                 'advanced_menu_PRO',
                 'toggle_PRO',
@@ -68,9 +70,7 @@ trait Include_Admin_Template {
                 'Logo_Carousel',
                 'Interactive_Cards',
                 'One_Page_Navigation',
-                'Image_Hotspots',
                 'Divider',
-                'Image_Scroller',
             ),
             'Marketing Elements' => array(
                 'Call_To_Action',
