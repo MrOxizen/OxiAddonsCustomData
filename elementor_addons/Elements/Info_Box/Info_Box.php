@@ -1,5 +1,5 @@
 <?php
-namespace  SA_ELEMENTOR_ADDONS\Elements\Info_Box;
+namespace SA_ELEMENTOR_ADDONS\Elements\Info_Box;
 
 // If this file is called directly, abort.
 if (!defined('ABSPATH')) {
@@ -149,7 +149,7 @@ class Info_Box extends Widget_Base {
 			[
 				'label' => esc_html__( 'Icon', SA_ELEMENTOR_TEXTDOMAIN ),
 				'type' => Controls_Manager::ICON,
-				'default' => 'fa fa-building-o',
+				'default' => 'eicon-info-box',
 				'condition' => [
 					'sa_el_infobox_img_or_icon' => 'icon'
 				]
@@ -211,7 +211,7 @@ class Info_Box extends Widget_Base {
             [
                 'label'                 => __( 'Choose Template', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type'                  => Controls_Manager::SELECT,
-                'options'               => $this->get_elementor_pagge_templates(),
+                'options'               => $this->get_elementor_page_templates(),
 				'condition'             => [
 					'sa_el_infobox_text_type'      => 'template',
 				],
