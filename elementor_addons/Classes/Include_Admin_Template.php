@@ -43,6 +43,10 @@ trait Include_Admin_Template {
                 'image_scroller',
                 'image_comparison',
                 'info_box',
+                'interactive_card',
+                'interactive_promo',
+                'lightbox_and_modal',
+                'logo_carousel',
             
             ),
             'Dynamic Content Elements' => array(

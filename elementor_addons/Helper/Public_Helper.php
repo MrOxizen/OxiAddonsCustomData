@@ -191,7 +191,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Hotspots/assets/index.min.css',
                     ],
                     'js' => [
-                        SA_ELEMENTOR_ADDONS_URL .'Elements/Image_Hotspots/vendor/js/tipso.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Hotspots/vendor/js/tipso.min.js',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Hotspots/assets/index.min.js',
                     ]
                 ],
@@ -210,7 +210,7 @@ trait Public_Helper {
             'image_comparison' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Image_Comparison\Image_Comparison',
                 'dependency' => [
-                     'css' => [
+                    'css' => [
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Comparison/assets/vendor/css/twentytwenty.min.css',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Comparison/assets/index.min.css',
                     ],
@@ -224,9 +224,55 @@ trait Public_Helper {
             'info_box' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Info_Box\Info_Box',
                 'dependency' => [
-                     'css' => [
+                    'css' => [
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Info_Box/assets/index.min.css',
                     ]
+                ],
+            ],
+            'interactive_card' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Interactive_Card\Interactive_Card',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Interactive_Card/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Interactive_Card/assets/vendor/js/jquery.nicescroll.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Interactive_Card/assets/vendor/js/interactive-cards.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Interactive_Card/assets/index.min.js',
+                    ],
+                ],
+            ],
+            'interactive_promo' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Interactive_Promo\Interactive_Promo',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Interactive_Promo/assets/index.min.css',
+                    ],
+                ],
+            ],
+            'lightbox_and_modal' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Lightbox_Modal\Lightbox_Modal',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Lightbox_Modal/assets/vendor/index.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Lightbox_Modal/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Lightbox_Modal/assets/vendor/jquery.magnific-popup.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Lightbox_Modal/assets/vendor/jquery.cookie.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Lightbox_Modal/assets/index.min.js',
+                    ],
+                ],
+            ],
+            'logo_carousel' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Logo_Carousel\Logo_Carousel',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Logo_Carousel/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Logo_Carousel/assets/index.min.js',
+                    ],
                 ],
             ],
         ];
