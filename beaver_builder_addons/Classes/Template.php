@@ -20,6 +20,7 @@ trait Template
                 'button',
                 'flipbox',
                 'heading',
+                'Image/Icon',
             ),
         );
         ?>
