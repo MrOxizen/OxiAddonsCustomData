@@ -40,42 +40,19 @@ trait Include_Admin_Template {
                 'image_accordion',
                 'image_hotspots',
                 'image_scroller',
-                'offcanvas',
-                'advanced_menu_PRO',
-                'toggle_PRO',
-                'testimonial_Slider_PRO',
-                'static_product_PRO',
-                'team_member_carousel',
+                'image_scroller',
+                'image_comparison',
+                'info_box',
+            
             ),
             'Dynamic Content Elements' => array(
-                'Post_Grid',
-                'Post_Timeline',
-                'Data_Table',
-                'Content_Ticker',
-                'Product_Grid',
-                'Advanced_Google_Map ',
-                'Post_Block',
-                'Post_Carousel',
-                'Smart Post_List',
-                'Woo_Product_Collections',
-                'Content_Timeline',
-                'Dynamic_Gallery',
+                
             ),
             'Creative Elements' => array(
-                'Progress_Bar',
-                'Interactive_Promo',
-                'Lightbox_and_Modal',
-                'Protected_Content',
-                'Image_Comparison',
-                'Logo_Carousel',
-                'Interactive_Cards',
-                'One_Page_Navigation',
-                'Divider',
+               
             ),
             'Marketing Elements' => array(
-                'Call_To_Action',
-                'Pricing_Table',
-                'Price_menu',
+               
             )
         );
         ?>

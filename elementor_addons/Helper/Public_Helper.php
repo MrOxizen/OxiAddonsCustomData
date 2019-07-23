@@ -207,6 +207,28 @@ trait Public_Helper {
                     ]
                 ],
             ],
+            'image_comparison' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Image_Comparison\Image_Comparison',
+                'dependency' => [
+                     'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Comparison/assets/vendor/css/twentytwenty.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Comparison/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Comparison/assets/vendor/js/jquery.event.move.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Comparison/assets/vendor/js/jquery.twentytwenty.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Comparison/assets/index.min.js',
+                    ],
+                ],
+            ],
+            'info_box' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Info_Box\Info_Box',
+                'dependency' => [
+                     'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Info_Box/assets/index.min.css',
+                    ]
+                ],
+            ],
         ];
         return $response;
     }
