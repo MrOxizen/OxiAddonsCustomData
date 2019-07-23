@@ -1,0 +1,47 @@
+/* -------------------------------- */
+/*  Dual Color Heading
+/* -------------------------------- */
+.sa_el_advance_header {
+  display: block;
+  margin-bottom: 50px;
+}
+.sa_el_advance_header h2.title:before {
+  display: none;
+}
+.sa_el_advance_header h2.title,
+.sa_el_advance_header h2.title span {
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 48px;
+  margin: 10px 0px;
+}
+
+.sa_el_advance_header .subtext {
+  font-size: 16px;
+  display: block;
+}
+
+.sa_el_advance_header i {
+  display: block;
+  padding: 0px;
+  margin: 20px 0px 10px 0px;
+  font-size: 36px;
+}
+
+.sa_el_advance_header h2.title span.lead {
+  color: #1abc9c;
+}
+
+/*--- Builder Related Css ---*/
+.sa_el_advance_header-content-align-center {
+  text-align: center;
+}
+
+.sa_el_advance_header-content-align-left {
+  text-align: left;
+}
+
+.sa_el_advance_header-content-align-right {
+  text-align: right;
+}
