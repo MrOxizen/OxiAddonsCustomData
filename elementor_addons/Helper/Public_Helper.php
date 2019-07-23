@@ -233,7 +233,7 @@ trait Public_Helper {
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Interactive_Card\Interactive_Card',
                 'dependency' => [
                     'css' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Interactive_Card/assets/index.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Interactive_Card/vendor/css/interactive-cards.min.css',
                     ],
                     'js' => [
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Interactive_Card/assets/vendor/js/jquery.nicescroll.min.js',

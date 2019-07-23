@@ -40,7 +40,6 @@ trait Include_Admin_Template {
                 'image_accordion',
                 'image_hotspots',
                 'image_scroller',
-                'image_scroller',
                 'image_comparison',
                 'info_box',
                 'interactive_card',
