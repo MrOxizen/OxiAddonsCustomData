@@ -16,11 +16,9 @@ if (!defined('ABSPATH')) {
  *
  * @author biplo
  */
-trait Public_Helper
-{
+trait Public_Helper {
 
-    function Get_Active_Elements()
-    {
+    function Get_Active_Elements() {
         $installed = get_option('shortcode-addons-elementor');
         if (empty($installed) || $installed == '') {
             $installed = 'button=on&testimonial=on&flip_box=on&info_box=on&dual_color_heading=on&tooltip=on&advanced_accordion=on&advanced_tabs=on&offcanvas=on&advanced_menu_PRO=on&testimonial_Slider_PRO=on&static_product_PRO=on&Post_Grid=on&Post_Timeline=on&Content_Ticker=on&Product_Grid=on&Post_Block=on&Post_Carousel=on&Woo_Product_Collections=on&Content_Timeline=on';
@@ -30,8 +28,7 @@ trait Public_Helper
         return $settings;
     }
 
-    function Get_Registered_elements()
-    {
+    function Get_Registered_elements() {
         $response = [
             'accordion' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Accordion\Accordion',
@@ -133,7 +130,6 @@ trait Public_Helper
                     ]
                 ],
             ],
-
             'filterable_gallery' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Filterable_Gallery\Filterable_Gallery',
                 'dependency' => [
@@ -153,24 +149,51 @@ trait Public_Helper
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Advanced_Heading\Advanced_Heading',
                 'dependency' => [
                     'css' => [
-                          SA_ELEMENTOR_ADDONS_URL . 'Elements/Advanced_Heading/assets/index.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Advanced_Heading/assets/index.min.css',
                     ],
                 ],
             ],
-
+            'flip_box' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Flip_Box\Flip_Box',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Flip_Box/assets/index.min.css',
+                    ],
+                ],
+            ],
+            'flip_carousel' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Flip_Carousel\Flip_Carousel',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Flip_Carousel/assets/vendor/jquery.flipster.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Flip_Carousel/assets/vendor/jquery.flipster.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Flip_Carousel/assets/index.min.js',
+                    ]
+                ]
+            ],
+            'image_accordion' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Image_Accordion\Image_Accordion',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Accordion/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Accordion/assets/index.min.js',
+                    ]
+                ],
+            ],
         ];
         return $response;
     }
 
-    public function register_widget_categories($elements_manager)
-    {
+    public function register_widget_categories($elements_manager) {
         $elements_manager->add_category(
-            'sa-el-addons',
-            [
-                'title' => __('Shortcode Addons', SA_ELEMENTOR_TEXTDOMAIN),
-                'icon' => 'font',
-            ],
-            1
+                'sa-el-addons', [
+            'title' => __('Shortcode Addons', SA_ELEMENTOR_TEXTDOMAIN),
+            'icon' => 'font',
+                ], 1
         );
     }
 
@@ -179,16 +202,16 @@ trait Public_Helper
      *
      * @since v1.0.0
      */
-    public function register_controls_group($controls_manager)
-    { }
+    public function register_controls_group($controls_manager) {
+        
+    }
 
     /**
      * Register widgets
      *
      * @since v3.0.0
      */
-    public function register_elements($widgets_manager)
-    {
+    public function register_elements($widgets_manager) {
         $active_elements = $this->Get_Active_Elements();
 
         asort($active_elements);
@@ -200,8 +223,7 @@ trait Public_Helper
         }
     }
 
-    public function has_cache_files($post_type = null, $post_id = null)
-    {
+    public function has_cache_files($post_type = null, $post_id = null) {
         $css_path = SA_ELEMENTOR_ADDONS_ASSETS . ($post_type ? SA_ELEMENTOR_TEXTDOMAIN . $post_type : SA_ELEMENTOR_TEXTDOMAIN) . ($post_id ? '-' . $post_id : '') . '.min.css';
         $js_path = SA_ELEMENTOR_ADDONS_ASSETS . ($post_type ? SA_ELEMENTOR_TEXTDOMAIN . $post_type : SA_ELEMENTOR_TEXTDOMAIN) . ($post_id ? '-' . $post_id : '') . '.min.js';
 
@@ -212,8 +234,7 @@ trait Public_Helper
         return false;
     }
 
-    public function sl_enqueue_scripts()
-    {
+    public function sl_enqueue_scripts() {
         if (!$this->has_cache_files()) {
 
             $this->generate_scripts($this->Get_Active_Elements());
@@ -237,8 +258,7 @@ trait Public_Helper
      *
      * @return array
      */
-    public function get_elementor_page_templates($type = null)
-    {
+    public function get_elementor_page_templates($type = null) {
         $args = [
             'post_type' => 'elementor_library',
             'posts_per_page' => -1,
@@ -264,4 +284,5 @@ trait Public_Helper
         }
         return $options;
     }
+
 }
