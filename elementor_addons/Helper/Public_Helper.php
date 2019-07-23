@@ -287,6 +287,14 @@ trait Public_Helper {
                     ],
                 ],
             ],
+            'tooltip' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Tooltip\Tooltip',
+                'dependency' => [
+                   'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Tooltip/assets/index.min.css',
+                    ],
+                ],
+            ],
         ];
         return $response;
     }
