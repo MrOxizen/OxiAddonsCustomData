@@ -1,0 +1,26 @@
+.sa_el_logo_carousel.grayscale-normal img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.sa_el_logo_carousel.grayscale-normal .swiper-slide:hover img {
+    -webkit-filter: none;
+    filter: none;
+}
+
+.sa_el_logo_carousel.grayscale-hover .swiper-slide:hover img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.sa_el_logo_carousel.swiper-container .swiper-slide {
+    text-align: center;
+}
+
+.sa_el_logo_carousel.swiper-container .swiper-slide img {
+    width: auto;
+}
+
+.sa_el_logo_carousel .sa_el_logo_carousel_title a {
+    color: inherit;
+}

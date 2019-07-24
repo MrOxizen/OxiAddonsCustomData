@@ -16,11 +16,9 @@ if (!defined('ABSPATH')) {
  *
  * @author biplo
  */
-trait Public_Helper
-{
+trait Public_Helper {
 
-    function Get_Active_Elements()
-    {
+    function Get_Active_Elements() {
         $installed = get_option('shortcode-addons-elementor');
         if (empty($installed) || $installed == '') {
             $installed = 'button=on&testimonial=on&flip_box=on&info_box=on&dual_color_heading=on&tooltip=on&advanced_accordion=on&advanced_tabs=on&offcanvas=on&advanced_menu_PRO=on&testimonial_Slider_PRO=on&static_product_PRO=on&Post_Grid=on&Post_Timeline=on&Content_Ticker=on&Product_Grid=on&Post_Block=on&Post_Carousel=on&Woo_Product_Collections=on&Content_Timeline=on';
@@ -30,8 +28,7 @@ trait Public_Helper
         return $settings;
     }
 
-    function Get_Registered_elements()
-    {
+    function Get_Registered_elements() {
         $response = [
             'accordion' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Accordion\Accordion',
@@ -91,12 +88,12 @@ trait Public_Helper
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Counter\Counter',
                 'dependency' => [
                     'css' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/vendor/css/odometer-theme-default.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/odometer/css/odometer-theme-default.min.css',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/index.min.css',
                     ],
                     'js' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/vendor/js/waypoints.min.js',
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/vendor/js/odometer.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/waypoints/js/waypoints.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/odometer/js/odometer.min.js',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/index.min.js',
                     ],
                 ],
@@ -108,7 +105,7 @@ trait Public_Helper
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Count_Down/assets/index.min.css',
                     ],
                     'js' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Count_Down/assets/vendor/countdown.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/countdown/js/countdown.min.js',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Count_Down/assets/index.min.js',
                     ],
                 ],
@@ -120,6 +117,7 @@ trait Public_Helper
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Fancy_Text/assets/index.min.css',
                     ],
                     'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/fancy-text/js/fancy-text.min.js',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Fancy_Text/assets/index.min.js',
                     ],
                 ],
@@ -132,21 +130,189 @@ trait Public_Helper
                     ]
                 ],
             ],
-
-
+            'filterable_gallery' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Filterable_Gallery\Filterable_Gallery',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/magnific-popup/css/index.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Filterable_Gallery/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/imagesLoaded/js/imagesloaded.pkgd.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/isotope/js/isotope.pkgd.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/magnific-popup/js/jquery.magnific-popup.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Filterable_Gallery/assets/index.min.js',
+                    ],
+                ],
+            ],
+            'advanced_heading' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Advanced_Heading\Advanced_Heading',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Advanced_Heading/assets/index.min.css',
+                    ],
+                ],
+            ],
+            'flip_box' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Flip_Box\Flip_Box',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Flip_Box/assets/index.min.css',
+                    ],
+                ],
+            ],
+            'flip_carousel' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Flip_Carousel\Flip_Carousel',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/flipster/css/jquery.flipster.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/flipster/js/jquery.flipster.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Flip_Carousel/assets/index.min.js',
+                    ]
+                ]
+            ],
+            'image_accordion' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Image_Accordion\Image_Accordion',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Accordion/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Accordion/assets/index.min.js',
+                    ]
+                ],
+            ],
+            'image_hotspots' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Image_Hotspots\Image_Hotspots',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Hotspots/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/tipso/js/tipso.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Hotspots/assets/index.min.js',
+                    ]
+                ],
+            ],
+            'image_scroller' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Image_Scroller\Image_Scroller',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Scroller/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Scroller/assets/index.min.js',
+                    ]
+                ],
+            ],
+            'image_comparison' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Image_Comparison\Image_Comparison',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/twentytwenty/css/twentytwenty.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Comparison/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/event_move/js/jquery.event.move.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/twentytwenty/js/jquery.twentytwenty.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Comparison/assets/index.min.js',
+                    ],
+                ],
+            ],
+            'info_box' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Info_Box\Info_Box',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Info_Box/assets/index.min.css',
+                    ]
+                ],
+            ],
+            'interactive_card' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Interactive_Card\Interactive_Card',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/interactive-cards/css/interactive-cards.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/nicescroll/js/jquery.nicescroll.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/interactive-cards/js/interactive-cards.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Interactive_Card/assets/index.min.js',
+                    ],
+                ],
+            ],
+            'interactive_promo' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Interactive_Promo\Interactive_Promo',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Interactive_Promo/assets/index.min.css',
+                    ],
+                ],
+            ],
+            'lightbox_and_modal' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Lightbox_Modal\Lightbox_Modal',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/magnific-popup/css/index.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Lightbox_Modal/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/magnific-popup/js/jquery.magnific-popup.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/cookie/js/jquery.cookie.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Lightbox_Modal/assets/index.min.js',
+                    ],
+                ],
+            ],
+            'logo_carousel' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Logo_Carousel\Logo_Carousel',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Logo_Carousel/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Logo_Carousel/assets/index.min.js',
+                    ],
+                ],
+            ],
+            'offcanvas' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Offcanvas\Offcanvas',
+                'dependency' => [
+                     'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Offcanvas/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/offcanvas/js/offcanvas.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Offcanvas/assets/index.min.js',
+                    ],
+                ],
+            ],
+            'tooltip' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Tooltip\Tooltip',
+                'dependency' => [
+                   'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Tooltip/assets/index.min.css',
+                    ],
+                ],
+            ],
+            'price_menu' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Price_Menu\Price_Menu',
+                'dependency' => [
+                   'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Price_Menu/assets/index.min.css',
+                    ],
+                ],
+            ],
         ];
         return $response;
     }
 
-    public function register_widget_categories($elements_manager)
-    {
+    public function register_widget_categories($elements_manager) {
         $elements_manager->add_category(
-            'sa-el-addons',
-            [
-                'title' => __('Shortcode Addons', SA_ELEMENTOR_TEXTDOMAIN),
-                'icon' => 'font',
-            ],
-            1
+                'sa-el-addons', [
+            'title' => __('Shortcode Addons', SA_ELEMENTOR_TEXTDOMAIN),
+            'icon' => 'font',
+                ], 1
         );
     }
 
@@ -155,16 +321,16 @@ trait Public_Helper
      *
      * @since v1.0.0
      */
-    public function register_controls_group($controls_manager)
-    { }
+    public function register_controls_group($controls_manager) {
+        
+    }
 
     /**
      * Register widgets
      *
      * @since v3.0.0
      */
-    public function register_elements($widgets_manager)
-    {
+    public function register_elements($widgets_manager) {
         $active_elements = $this->Get_Active_Elements();
 
         asort($active_elements);
@@ -176,8 +342,7 @@ trait Public_Helper
         }
     }
 
-    public function has_cache_files($post_type = null, $post_id = null)
-    {
+    public function has_cache_files($post_type = null, $post_id = null) {
         $css_path = SA_ELEMENTOR_ADDONS_ASSETS . ($post_type ? SA_ELEMENTOR_TEXTDOMAIN . $post_type : SA_ELEMENTOR_TEXTDOMAIN) . ($post_id ? '-' . $post_id : '') . '.min.css';
         $js_path = SA_ELEMENTOR_ADDONS_ASSETS . ($post_type ? SA_ELEMENTOR_TEXTDOMAIN . $post_type : SA_ELEMENTOR_TEXTDOMAIN) . ($post_id ? '-' . $post_id : '') . '.min.js';
 
@@ -188,8 +353,7 @@ trait Public_Helper
         return false;
     }
 
-    public function sl_enqueue_scripts()
-    {
+    public function sl_enqueue_scripts() {
         if (!$this->has_cache_files()) {
 
             $this->generate_scripts($this->Get_Active_Elements());
@@ -213,8 +377,7 @@ trait Public_Helper
      *
      * @return array
      */
-    public function get_elementor_page_templates($type = null)
-    {
+    public function get_elementor_page_templates($type = null) {
         $args = [
             'post_type' => 'elementor_library',
             'posts_per_page' => -1,
@@ -240,4 +403,5 @@ trait Public_Helper
         }
         return $options;
     }
+
 }
