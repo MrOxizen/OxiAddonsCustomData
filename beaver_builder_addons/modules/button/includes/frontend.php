@@ -1,7 +1,5 @@
 <?php
-// echo '<pre>';
-// print_r($settings);
-// echo '</pre>';
+
 /**
  * for Button and icon 
  */
@@ -16,7 +14,7 @@ if ($settings->icon_position == 'left') {
     $button_position = '<span class="oxi__button-text">' . $settings->text . '</span> ' . $icon . ' ';
 }
 ?>
-<div class="oxi__button_wrapper">
+<div class="oxi__button_wrapper_main">
     <?php
     if ($settings->link != '') {
         echo ' <a class="oxi__button" href="' . $settings->link . '" target="' . $settings->link_target . '" data-attr="' . $settings->secondary_text . '"
