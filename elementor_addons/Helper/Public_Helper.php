@@ -319,6 +319,19 @@ trait Public_Helper
                     ],
                 ],
             ],
+            'progress_bar' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Progress_Bar\Progress_Bar',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Progress_Bar/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/inview/js/inview.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/progress-bar/js/progress-bar.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Progress_Bar/assets/index.min.js',
+                    ],
+                ],
+            ],
         ];
         return $response;
     }
@@ -490,5 +503,10 @@ trait Public_Helper
             endforeach; ?>
         </ul>
     <?php
+
+    }
+    public function progressbar_general_style_condition($conditions)
+    {
+        return array_merge($conditions, ['circle_fill', 'half_circle_fill', 'box']);
     }
 }

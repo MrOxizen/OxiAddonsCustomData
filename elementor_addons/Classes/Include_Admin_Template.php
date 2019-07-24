@@ -50,6 +50,7 @@ trait Include_Admin_Template {
                 'tooltip',
                 'price_menu',
                 'pricing_table',
+                'progress_bar',
             
             ),
             'Dynamic Content Elements' => array(
