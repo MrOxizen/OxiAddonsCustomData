@@ -6,6 +6,7 @@ namespace SA_ELEMENTOR_ADDONS\Elements\Pricing_Table;
 if (!defined('ABSPATH')) {
 	exit;
 }
+
 use \Elementor\Utils;
 use \Elementor\Controls_Manager as Controls_Manager;
 use \Elementor\Group_Control_Border as Group_Control_Border;
@@ -62,8 +63,8 @@ class Pricing_Table extends Widget_Base
 				'options'     => [
 					'style-1'  	=> esc_html__('Default', SA_ELEMENTOR_TEXTDOMAIN),
 					'style-2' 	=> esc_html__('Pricing Style 2', SA_ELEMENTOR_TEXTDOMAIN),
-					'style-3' 	=> esc_html__('Pricing Style 3 '.apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('Pro Only', 'data', FALSE)) , SA_ELEMENTOR_TEXTDOMAIN),
-					'style-4' 	=> esc_html__('Pricing Style 4', SA_ELEMENTOR_TEXTDOMAIN),
+					'style-3' 	=> esc_html__('Pricing Style 3 ' . apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('Pro Only', 'data', FALSE)), SA_ELEMENTOR_TEXTDOMAIN),
+					'style-4' 	=> esc_html__('Pricing Style 4 ' . apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('Pro Only', 'data', FALSE)), SA_ELEMENTOR_TEXTDOMAIN),
 				],
 			]
 		);
@@ -88,7 +89,7 @@ class Pricing_Table extends Widget_Base
 				'label' => esc_html__('Title', SA_ELEMENTOR_TEXTDOMAIN),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => false,
-				'default' => esc_html__('Startup', SA_ELEMENTOR_TEXTDOMAIN)
+				'default' => esc_html__('Basic Plan', SA_ELEMENTOR_TEXTDOMAIN)
 			]
 		);
 
@@ -125,22 +126,26 @@ class Pricing_Table extends Widget_Base
 		/**
 		 * Condition: 'sa_el_pricing_table_style' => 'style-4'
 		 */
-		$this->add_control(
-			'sa_el_pricing_table_style_4_image',
-			[
-				'label' => esc_html__('Header Image', SA_ELEMENTOR_TEXTDOMAIN),
-				'type' => Controls_Manager::MEDIA,
-				'default' => [
-					'url' => Utils::get_placeholder_image_src(),
-				],
-				'selectors' => [
-					'{{WRAPPER}} .sa-el-pricing-image' => 'background-image: url({{URL}});',
-				],
-				'condition' => [
-					'sa_el_pricing_table_style' => 'style-4'
+
+		if (apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', TRUE))) {
+
+			$this->add_control(
+				'sa_el_pricing_table_style_4_image',
+				[
+					'label' => esc_html__('Header Image', SA_ELEMENTOR_TEXTDOMAIN),
+					'type' => Controls_Manager::MEDIA,
+					'default' => [
+						'url' => Utils::get_placeholder_image_src(),
+					],
+					'selectors' => [
+						'{{WRAPPER}} .sa-el-pricing-image' => 'background-image: url({{URL}});',
+					],
+					'condition' => [
+						'sa_el_pricing_table_style' => 'style-4'
+					]
 				]
-			]
-		);
+			);
+		}
 
 
 		$this->end_controls_section();
@@ -1676,9 +1681,6 @@ class Pricing_Table extends Widget_Base
 		else : $featured_class = '';
 		endif;
 
-		// $featured_class = ('yes' === $settings['sa_el_pricing_table_featured']) ? 'featured '.$settings['sa_el_pricing_table_featured_styles'] : '';
-		// dump($featured_class);
-
 		if ('yes' === $settings['sa_el_pricing_table_onsale']) {
 			if ($settings['sa_el_pricing_table_price_cur_placement'] == 'left') {
 				$pricing = '<del class="muted-price"><span class="muted-price-currency">' . $settings['sa_el_pricing_table_price_cur'] . '</span>' . $settings['sa_el_pricing_table_price'] . '</del> <span class="price-currency">' . $settings['sa_el_pricing_table_price_cur'] . '</span>' . $settings['sa_el_pricing_table_onsale_price'];
@@ -1725,8 +1727,8 @@ class Pricing_Table extends Widget_Base
 				<div class="sa-el-pricing-item <?php echo esc_attr($featured_class); ?>">
 					<div class="sa-el-pricing-icon">
 						<span class="icon" style="background:
-									<?php if ('yes' != $settings['sa_el_pricing_table_icon_bg_show']) : echo 'none';
-									endif;  ?>;"><i class="<?php echo esc_attr($settings['sa_el_pricing_table_style_2_icon']); ?>"></i></span>
+															<?php if ('yes' != $settings['sa_el_pricing_table_icon_bg_show']) : echo 'none';
+															endif;  ?>;"><i class="<?php echo esc_attr($settings['sa_el_pricing_table_style_2_icon']); ?>"></i></span>
 					</div>
 					<div class="header">
 						<div class="title"><?php echo $settings['sa_el_pricing_table_title']; ?></div>
@@ -1755,7 +1757,7 @@ class Pricing_Table extends Widget_Base
 		<?php endif; ?>
 		<?php if ('style-3' === $settings['sa_el_pricing_table_style'] && apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', TRUE))) : ?>
 			<div class="sa-el-pricing style-3">
-				<div class="sa-el-pricing-item <?php //echo esc_attr( $featured_class ); 
+				<div class="sa-el-pricing-item <?php echo esc_attr($featured_class);
 												?>">
 					<?php if ('top' === $settings['sa_el_pricing_table_style_3_price_position']) : ?>
 						<div class="sa-el-pricing-tag on-top">
@@ -1789,11 +1791,11 @@ class Pricing_Table extends Widget_Base
 					</div>
 				</div>
 			</div>
-			
+
 		<?php endif; ?>
-		<?php if ('style-4' === $settings['sa_el_pricing_table_style']) : ?>
+		<?php if ('style-4' === $settings['sa_el_pricing_table_style'] && apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', TRUE))) : ?>
 			<div class="sa-el-pricing style-4">
-				<div class="sa-el-pricing-item <?php //echo esc_attr( $featured_class ); 
+				<div class="sa-el-pricing-item <?php echo esc_attr($featured_class);
 												?>">
 					<div class="sa-el-pricing-image">
 						<div class="sa-el-pricing-tag">
