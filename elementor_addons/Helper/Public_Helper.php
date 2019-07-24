@@ -295,6 +295,14 @@ trait Public_Helper {
                     ],
                 ],
             ],
+            'price_menu' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Price_Menu\Price_Menu',
+                'dependency' => [
+                   'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Price_Menu/assets/index.min.css',
+                    ],
+                ],
+            ],
         ];
         return $response;
     }

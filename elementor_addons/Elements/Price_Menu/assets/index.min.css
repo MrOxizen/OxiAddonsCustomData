@@ -1,0 +1,117 @@
+.sa_el_restaurant_menu .sa_el_restaurant_menu_item_wrap {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.sa_el_restaurant_menu .sa_el_restaurant_menu_item {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.sa_el_restaurant_menu .sa_el_restaurant_menu_image {
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    margin-right: 10px;
+}
+
+.sa_el_restaurant_menu .sa_el_restaurant_menu_content {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.sa_el_restaurant_menu .sa_el_restaurant_menu_header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.sa_el_restaurant_menu .sa_el_restaurant_menu_title {
+    display: inline-block;
+    margin: 0;
+}
+
+.sa_el_restaurant_menu .sa_el_restaurant_menu_title a {
+    color: inherit;
+}
+
+.sa_el_restaurant_menu_style_1 .sa_el_restaurant_menu_price {
+    float: right;
+}
+
+.sa_el_restaurant_menu_style_3 .sa_el_restaurant_menu_image {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+}
+
+.sa_el_restaurant_menu_style_4 .sa_el_restaurant_menu_item,
+.sa_el_restaurant_menu_style_4 .sa_el_restaurant_menu_header {
+    display: block;
+}
+
+.sa_el_restaurant_menu_style_4 .sa_el_restaurant_menu_image {
+    display: inline-block;
+}
+
+.sa_el_restaurant_menu_style_1 .sa_el_price_title_connector {
+    border-bottom: 1px dashed #000;
+    height: 1px;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    margin: 0 20px;
+}
+
+.sa_el_restaurant_menu_style_sa .sa_el_restaurant_menu_item {
+    min-height: 150px;
+    position: relative;
+}
+
+.sa_el_restaurant_menu_style_sa .sa_el_restaurant_menu_price {
+    bottom: 0;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}
+
+.sa_el_restaurant_menu_style_sa .sa_el_restaurant_menu_price:after {
+    border-color: transparent #B83D11;
+    border-style: solid;
+    border-width: 110px 130px 0 0;
+    bottom: 0;
+    content: "";
+    position: absolute;
+    right: 0;
+    z-index: -1;
+}
+
+.sa_el_restaurant_menu_divider_wrap {
+    font-size: 0;
+    line-height: 0;
+}
+
+.sa_el_restaurant_menu_divider {
+    display: inline-block;
+}

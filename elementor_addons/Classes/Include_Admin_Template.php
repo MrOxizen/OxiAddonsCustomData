@@ -48,6 +48,7 @@ trait Include_Admin_Template {
                 'logo_carousel',
                 'offcanvas',
                 'tooltip',
+                'price_menu',
             
             ),
             'Dynamic Content Elements' => array(
