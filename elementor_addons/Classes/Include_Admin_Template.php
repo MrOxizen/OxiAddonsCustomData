@@ -49,6 +49,7 @@ trait Include_Admin_Template {
                 'offcanvas',
                 'tooltip',
                 'price_menu',
+                'pricing_table',
             
             ),
             'Dynamic Content Elements' => array(

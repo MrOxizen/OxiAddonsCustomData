@@ -25,7 +25,8 @@ define('SA_ELEMENTOR_TEXTDOMAIN', 'sa-el-addons');
 
 require_once SA_ELEMENTOR_ADDONS_URL . 'autoloader.php';
 
-final class SA_ELEMENTOR_ADDONS {
+final class SA_ELEMENTOR_ADDONS
+{
 
     /**
      * Minimum Elementor Version
@@ -49,8 +50,9 @@ final class SA_ELEMENTOR_ADDONS {
      * @since 1.6.0
      * @access public
      */
-    public function __construct() {
-// before init hook
+    public function __construct()
+    {
+        // before init hook
         do_action('sa-el-addons/before_init');
         // Load translation
         add_action('init', array($this, 'i18n'));
@@ -68,7 +70,8 @@ final class SA_ELEMENTOR_ADDONS {
      * @since 1.6.0
      * @access public
      */
-    public function i18n() {
+    public function i18n()
+    {
         load_plugin_textdomain('sa-el-addons');
     }
 
@@ -84,7 +87,8 @@ final class SA_ELEMENTOR_ADDONS {
      * @since 1.2.0
      * @access public
      */
-    public function init() {
+    public function init()
+    {
 
 
         // Check if Elementor installed and activated
@@ -108,7 +112,8 @@ final class SA_ELEMENTOR_ADDONS {
         // Once we get here, We have passed all validation checks so we can safely include our plugin
     }
 
-    public function admin_notice_missing_main_plugin() {
+    public function admin_notice_missing_main_plugin()
+    {
         $screen = get_current_screen();
         if (isset($screen->parent_file) && 'plugins.php' === $screen->parent_file && 'update' === $screen->id) {
             return;
@@ -147,7 +152,8 @@ final class SA_ELEMENTOR_ADDONS {
      * @since 1.0.0
      * @access public
      */
-    public function admin_notice_minimum_elementor_version() {
+    public function admin_notice_minimum_elementor_version()
+    {
         if (!current_user_can('update_plugins')) {
             return;
         }
@@ -168,28 +174,67 @@ final class SA_ELEMENTOR_ADDONS {
      * @since 1.0.0
      * @access public
      */
-    public function admin_notice_minimum_php_version() {
+    public function admin_notice_minimum_php_version()
+    {
         if (isset($_GET['activate'])) {
             unset($_GET['activate']);
         }
 
         $message = sprintf(
-                /* translators: 1: Plugin name 2: PHP 3: Required PHP version */
-                esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'elementor-hello-world'), '<strong>' . esc_html__('Shortcode Addons Elementor Extention', SA_ELEMENTOR_TEXTDOMAIN) . '</strong>', '<strong>' . esc_html__('PHP', SA_ELEMENTOR_TEXTDOMAIN) . '</strong>', self::MINIMUM_PHP_VERSION
+            /* translators: 1: Plugin name 2: PHP 3: Required PHP version */
+            esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'elementor-hello-world'),
+            '<strong>' . esc_html__('Shortcode Addons Elementor Extention', SA_ELEMENTOR_TEXTDOMAIN) . '</strong>',
+            '<strong>' . esc_html__('PHP', SA_ELEMENTOR_TEXTDOMAIN) . '</strong>',
+            self::MINIMUM_PHP_VERSION
         );
 
         printf('<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message);
     }
 
-    function Pro_Enable($value) {
+    function Pro_Enable($data = array('', '', FALSE))
+    {
+        /**
+         * Admin notice
+         *  $data[0] = DATA, $data[1] = TYPE & $data[2] = Boolean;
+         * Be Carefull aout data rendaring, While $data is array or String & $type is data type as blank or string.
+         * Data type String will return string data and Blank will return True False
+         * $boolean will define Pro or Free Version while True is PREMIUM & False is FREE;
+         * 
+         * @since 1.0.1
+         * @access public
+         */
         $valids = get_option('oxi_addons_license_status');
-        if ($valids == 'valid') {
-            return TRUE;
+      
+        if ($data[1] != '') {
+            if ($data[2] == TRUE) {
+                if ($valids == 'valid') {
+                    return $data[0];
+                } else {
+                    return '';
+                }
+            } else {
+                if ($valids == 'valid') {
+                    return '';
+                } else {
+                    return $data[0];
+                }
+            }
         } else {
-            return FALSE;
+            if ($data[2] == TRUE) {
+                if ($valids == 'valid') {
+                    return TRUE;
+                } else {
+                    return FALSE;
+                }
+            } else {
+                if ($valids == 'valid') {
+                    return FALSE;
+                } else {
+                    return TRUE;
+                }
+            }
         }
     }
-
 }
 
 new SA_ELEMENTOR_ADDONS;

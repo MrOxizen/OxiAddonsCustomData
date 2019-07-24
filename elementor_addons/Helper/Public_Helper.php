@@ -16,9 +16,11 @@ if (!defined('ABSPATH')) {
  *
  * @author biplo
  */
-trait Public_Helper {
+trait Public_Helper
+{
 
-    function Get_Active_Elements() {
+    function Get_Active_Elements()
+    {
         $installed = get_option('shortcode-addons-elementor');
         if (empty($installed) || $installed == '') {
             $installed = 'button=on&testimonial=on&flip_box=on&info_box=on&dual_color_heading=on&tooltip=on&advanced_accordion=on&advanced_tabs=on&offcanvas=on&advanced_menu_PRO=on&testimonial_Slider_PRO=on&static_product_PRO=on&Post_Grid=on&Post_Timeline=on&Content_Ticker=on&Product_Grid=on&Post_Block=on&Post_Carousel=on&Woo_Product_Collections=on&Content_Timeline=on';
@@ -28,7 +30,8 @@ trait Public_Helper {
         return $settings;
     }
 
-    function Get_Registered_elements() {
+    function Get_Registered_elements()
+    {
         $response = [
             'accordion' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Accordion\Accordion',
@@ -278,7 +281,7 @@ trait Public_Helper {
             'offcanvas' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Offcanvas\Offcanvas',
                 'dependency' => [
-                     'css' => [
+                    'css' => [
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Offcanvas/assets/index.min.css',
                     ],
                     'js' => [
@@ -290,7 +293,7 @@ trait Public_Helper {
             'tooltip' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Tooltip\Tooltip',
                 'dependency' => [
-                   'css' => [
+                    'css' => [
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Tooltip/assets/index.min.css',
                     ],
                 ],
@@ -298,8 +301,21 @@ trait Public_Helper {
             'price_menu' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Price_Menu\Price_Menu',
                 'dependency' => [
-                   'css' => [
+                    'css' => [
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Price_Menu/assets/index.min.css',
+                    ],
+                ],
+            ],
+            'pricing_table' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Pricing_Table\Pricing_Table',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/tooltipster/css/tooltipster.bundle.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Pricing_Table/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/tooltipster/js/tooltipster.bundle.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Pricing_Table/assets/index.min.js',
                     ],
                 ],
             ],
@@ -307,12 +323,15 @@ trait Public_Helper {
         return $response;
     }
 
-    public function register_widget_categories($elements_manager) {
+    public function register_widget_categories($elements_manager)
+    {
         $elements_manager->add_category(
-                'sa-el-addons', [
-            'title' => __('Shortcode Addons', SA_ELEMENTOR_TEXTDOMAIN),
-            'icon' => 'font',
-                ], 1
+            'sa-el-addons',
+            [
+                'title' => __('Shortcode Addons', SA_ELEMENTOR_TEXTDOMAIN),
+                'icon' => 'font',
+            ],
+            1
         );
     }
 
@@ -321,16 +340,16 @@ trait Public_Helper {
      *
      * @since v1.0.0
      */
-    public function register_controls_group($controls_manager) {
-        
-    }
+    public function register_controls_group($controls_manager)
+    { }
 
     /**
      * Register widgets
      *
      * @since v3.0.0
      */
-    public function register_elements($widgets_manager) {
+    public function register_elements($widgets_manager)
+    {
         $active_elements = $this->Get_Active_Elements();
 
         asort($active_elements);
@@ -342,7 +361,8 @@ trait Public_Helper {
         }
     }
 
-    public function has_cache_files($post_type = null, $post_id = null) {
+    public function has_cache_files($post_type = null, $post_id = null)
+    {
         $css_path = SA_ELEMENTOR_ADDONS_ASSETS . ($post_type ? SA_ELEMENTOR_TEXTDOMAIN . $post_type : SA_ELEMENTOR_TEXTDOMAIN) . ($post_id ? '-' . $post_id : '') . '.min.css';
         $js_path = SA_ELEMENTOR_ADDONS_ASSETS . ($post_type ? SA_ELEMENTOR_TEXTDOMAIN . $post_type : SA_ELEMENTOR_TEXTDOMAIN) . ($post_id ? '-' . $post_id : '') . '.min.js';
 
@@ -353,7 +373,8 @@ trait Public_Helper {
         return false;
     }
 
-    public function sl_enqueue_scripts() {
+    public function sl_enqueue_scripts()
+    {
         if (!$this->has_cache_files()) {
 
             $this->generate_scripts($this->Get_Active_Elements());
@@ -377,7 +398,8 @@ trait Public_Helper {
      *
      * @return array
      */
-    public function get_elementor_page_templates($type = null) {
+    public function get_elementor_page_templates($type = null)
+    {
         $args = [
             'post_type' => 'elementor_library',
             'posts_per_page' => -1,
@@ -404,4 +426,69 @@ trait Public_Helper {
         return $options;
     }
 
+    protected function render_feature_list($settings, $obj)
+    {
+        if (empty($settings['sa_el_pricing_table_items'])) {
+            return;
+        }
+
+        $counter = 0;
+        ?>
+        <ul>
+            <?php
+            foreach ($settings['sa_el_pricing_table_items'] as $item) :
+
+                if ('yes' !== $item['sa_el_pricing_table_icon_mood']) {
+                    $obj->add_render_attribute('pricing_feature_item' . $counter, 'class', 'disable-item');
+                }
+
+                if ('yes' === $item['sa_el_pricing_item_tooltip']) {
+                    $obj->add_render_attribute(
+                        'pricing_feature_item' . $counter,
+                        [
+                            'class' => 'tooltip',
+                            'title' => $item['sa_el_pricing_item_tooltip_content'],
+                            'id' => $obj->get_id() . $counter,
+                        ]
+                    );
+                }
+
+                if ('yes' == $item['sa_el_pricing_item_tooltip']) {
+
+                    if ($item['sa_el_pricing_item_tooltip_side']) {
+                        $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-side', $item['sa_el_pricing_item_tooltip_side']);
+                    }
+
+                    if ($item['sa_el_pricing_item_tooltip_trigger']) {
+                        $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-trigger', $item['sa_el_pricing_item_tooltip_trigger']);
+                    }
+
+                    if ($item['sa_el_pricing_item_tooltip_animation']) {
+                        $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-animation', $item['sa_el_pricing_item_tooltip_animation']);
+                    }
+
+                    if (!empty($item['pricing_item_tooltip_animation_duration'])) {
+                        $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-animation_duration', $item['pricing_item_tooltip_animation_duration']);
+                    }
+
+                    if (!empty($item['eael_pricing_table_toolip_arrow'])) {
+                        $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-arrow', $item['eael_pricing_table_toolip_arrow']);
+                    }
+
+                    if (!empty($item['sa_el_pricing_item_tooltip_theme'])) {
+                        $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-theme', $item['sa_el_pricing_item_tooltip_theme']);
+                    }
+                }
+                ?>
+                <li <?php echo $obj->get_render_attribute_string('pricing_feature_item' . $counter); ?>>
+                    <?php if ('show' === $settings['sa_el_pricing_table_icon_enabled']) : ?>
+                        <span class="li-icon" style="color:<?php echo esc_attr($item['sa_el_pricing_table_list_icon_color']); ?>"><i class="<?php echo esc_attr($item['sa_el_pricing_table_list_icon']); ?>"></i></span>
+                    <?php endif; ?>
+                    <?php echo $item['sa_el_pricing_table_item']; ?>
+                </li>
+                <?php $counter++;
+            endforeach; ?>
+        </ul>
+    <?php
+    }
 }
