@@ -230,7 +230,7 @@ class Call_To_Action extends Widget_Base {
                 ]
         );
         $this->end_controls_section();
-        if (!apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', FALSE)) {
+        if (!apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', ['','',TRUE])) {
             $this->start_controls_section(
                     'sa_el_section_pro', [
                 'label' => __('Go Premium for More Features', SA_ELEMENTOR_TEXTDOMAIN)

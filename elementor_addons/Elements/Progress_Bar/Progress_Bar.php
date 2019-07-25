@@ -63,12 +63,12 @@ class Progress_Bar extends Widget_Base
                 'default' => 'line',
                 'options' => [
                     'line'             => __('Line', SA_ELEMENTOR_TEXTDOMAIN),
-                    'line_rainbow'     => __('Line Rainbow ' . apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', FALSE)), SA_ELEMENTOR_TEXTDOMAIN),
+                    'line_rainbow'     => __('Line Rainbow ' . apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('Pro Only', 'data', FALSE)), SA_ELEMENTOR_TEXTDOMAIN),
                     'circle'           => __('Circle', SA_ELEMENTOR_TEXTDOMAIN),
-                    'circle_fill'      => __('Circle Fill ' .apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', FALSE)) , SA_ELEMENTOR_TEXTDOMAIN),
+                    'circle_fill'      => __('Circle Fill ' . apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('Pro Only', 'data', FALSE)), SA_ELEMENTOR_TEXTDOMAIN),
                     'half_circle'      => __('Half Circle', SA_ELEMENTOR_TEXTDOMAIN),
-                    'half_circle_fill' => __('Half Circle Fill ' . apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', FALSE)), SA_ELEMENTOR_TEXTDOMAIN),
-                    'box'              => __('Box ' . apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', FALSE)), SA_ELEMENTOR_TEXTDOMAIN),
+                    'half_circle_fill' => __('Half Circle Fill ' . apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('Pro Only', 'data', FALSE)), SA_ELEMENTOR_TEXTDOMAIN),
+                    'box'              => __('Box ' . apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('Pro Only', 'data', FALSE)), SA_ELEMENTOR_TEXTDOMAIN),
                 ],
             ]
         );
@@ -217,8 +217,12 @@ class Progress_Bar extends Widget_Base
         /**
          * Style Tab: General(Line)
          */
-        $style_condition = apply_filters('sa_el_progressbar_general_style_condition', ['line', 'line_rainbow']);
+        $style_condition = ['line', 'line_rainbow'];
 
+        if (apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('hasd', '', TRUE))) {
+            $style_condition = array_merge($style_condition, ['circle_fill', 'half_circle_fill', 'box']);
+        }
+        // print_r($style_condition);
         $this->start_controls_section(
             'progress_bar_section_style_general_line',
             [
@@ -372,11 +376,11 @@ class Progress_Bar extends Widget_Base
             ]
         );
 
-        if(apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', FALSE))){
+        if (apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', FALSE))) {
             $line_fill_color_condition = [
                 'progress_bar_layout' => 'line',
             ];
-        }else {
+        } else {
             $line_fill_color_condition = [];
         }
         $this->add_group_control(
@@ -406,7 +410,11 @@ class Progress_Bar extends Widget_Base
             ]
         );
 
-
+        $fill_stripe_animate_condition = ['progress_bar_line_fill_stripe' => 'yes'];
+        if (apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', TRUE))) {
+            $add_condition = ['progress_bar_layout' => 'line'];
+            $fill_stripe_animate_condition = array_merge($fill_stripe_animate_condition, $add_condition);
+        }
         $this->add_control(
             'progress_bar_line_fill_stripe_animate',
             [
@@ -418,10 +426,7 @@ class Progress_Bar extends Widget_Base
                     'none'    => __('Disabled', SA_ELEMENTOR_TEXTDOMAIN),
                 ],
                 'default'   => 'none',
-                'condition' => [
-                    'progress_bar_line_fill_stripe' => 'yes',
-                    'progress_bar_layout' => 'line',
-                ]
+                'condition' => [$fill_stripe_animate_condition]
             ]
         );
 
@@ -430,6 +435,10 @@ class Progress_Bar extends Widget_Base
         /**
          * Style Tab: General(Circle)
          */
+        $circle_general_condition = ['circle', 'half_circle'];
+        if (apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', TRUE))) {
+            $circle_general_condition = array_merge($circle_general_condition, ['circle_fill', 'half_circle_fill']);
+        }
 
         $this->start_controls_section(
             'progress_bar_section_style_general_circle',
@@ -437,7 +446,7 @@ class Progress_Bar extends Widget_Base
                 'label'     => __('General', SA_ELEMENTOR_TEXTDOMAIN),
                 'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => [
-                    'progress_bar_layout' => ['circle_fill', 'half_circle_fill'],
+                    'progress_bar_layout' => $circle_general_condition,
                 ],
             ]
         );
@@ -533,7 +542,7 @@ class Progress_Bar extends Widget_Base
         $this->add_control(
             'progress_bar_circle_stroke_color',
             [
-                'label'     => __('Stroke Color', 'essential-addons-elementor'),
+                'label'     => __('Stroke Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#eee',
                 'selectors' => [
@@ -542,7 +551,7 @@ class Progress_Bar extends Widget_Base
             ]
         );
 
-        if (apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', FALSE))) {
+        if (apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', TRUE))) {
             $circle_fill_color_condition = [
                 '{{WRAPPER}} .sa-el-progressbar-circle-half' => 'border-color: {{VALUE}}',
                 '{{WRAPPER}} .sa-el-progressbar-circle-fill .sa-el-progressbar-circle-half' => 'background-color: {{VALUE}}',
@@ -557,7 +566,7 @@ class Progress_Bar extends Widget_Base
         $this->add_control(
             'progress_bar_circle_fill_color',
             [
-                'label'     => __('Fill Color', 'essential-addons-elementor'),
+                'label'     => __('Fill Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#000',
                 'selectors' => $circle_fill_color_condition,
@@ -828,7 +837,7 @@ class Progress_Bar extends Widget_Base
         $wrap_classes   = ['sa-el-progressbar'];
         $circle_wrapper = [];
 
-        if (!apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', TRUE))) {
+        if (apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', FALSE))) {
             if (in_array($settings['progress_bar_layout'], ['line', 'line_rainbow', 'circle_fill', 'half_circle_fill', 'box'])) {
                 $settings['progress_bar_layout'] = 'line';
             }
@@ -842,8 +851,10 @@ class Progress_Bar extends Widget_Base
             $wrap_classes[] = 'sa-el-progressbar-line';
 
             // $wrap_classes = apply_filters('sa_el_progressbar_rainbow_wrap_class', $wrap_classes, $settings);
-            if ($settings['progress_bar_layout'] == 'line_rainbow') {
-                $wrap_classes[] = 'sa-el-progressbar-line-rainbow';
+            if (apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', TRUE))) {
+                if ($settings['progress_bar_layout'] == 'line_rainbow') {
+                    $wrap_classes[] = 'sa-el-progressbar-line-rainbow';
+                }
             }
 
             if ($settings['progress_bar_line_fill_stripe'] == 'yes') {
@@ -881,8 +892,10 @@ class Progress_Bar extends Widget_Base
 
             $wrap_classes[] = 'sa-el-progressbar-circle';
             // $wrap_classes = apply_filters('sa_el_progressbar_circle_fill_wrap_class', $wrap_classes, $settings);
-            if ($settings['progress_bar_layout'] == 'circle_fill') {
-                $wrap_classes[] = 'sa-el-progressbar-circle-fill';
+            if (apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', TRUE))) {
+                if ($settings['progress_bar_layout'] == 'circle_fill') {
+                    $wrap_classes[] = 'sa-el-progressbar-circle-fill';
+                }
             }
 
             $this->add_render_attribute(
@@ -921,8 +934,11 @@ class Progress_Bar extends Widget_Base
         if ($circle_condition) {
             $wrap_classes[] = 'sa-el-progressbar-half-circle';
             // $wrap_classes = apply_filters('sa_el_progressbar_half_circle_wrap_class', $wrap_classes, $settings);
-            if ($settings['progress_bar_layout'] == 'half_circle_fill') {
-                $wrap_classes[] = 'sa-el-progressbar-half-circle-fill';
+
+            if (apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', TRUE))) {
+                if ($settings['progress_bar_layout'] == 'half_circle_fill') {
+                    $wrap_classes[] = 'sa-el-progressbar-half-circle-fill';
+                }
             }
 
             $this->add_render_attribute(
@@ -963,30 +979,34 @@ class Progress_Bar extends Widget_Base
             </div>';
         }
         // do_action('add_sa_el_progressbar_block', $settings, $this, $wrap_classes);
-        if ($settings['progress_bar_layout'] == 'box') {
-            $wrap_classes[] = 'sa-el-progressbar-box';
 
-            $this->add_render_attribute('sa-el-progressbar-box', [
-                'class'         => $wrap_classes,
-                'data-layout'   => $settings['progress_bar_layout'],
-                'data-count'    => $settings['progress_bar_value']['size'],
-                'data-duration' => $settings['progress_bar_animation_duration']['size'],
-            ]);
-
-            $this->add_render_attribute('sa-el-progressbar-box-fill', [
-                'class' => 'sa-el-progressbar-box-fill',
-                'style' => '-webkit-transition-duration:' . $settings['progress_bar_animation_duration']['size'] . 'ms;-o-transition-duration:' . $settings['progress_bar_animation_duration']['size'] . 'ms;transition-duration:' . $settings['progress_bar_animation_duration']['size'] . 'ms;',
-            ]);
-
-            echo '<div class="sa-el-progressbar-box-container ' . $settings['progress_bar_box_alignment'] . '">
-				<div ' . $this->get_render_attribute_string('sa-el-progressbar-box') . '>
-	                <div class="sa-el-progressbar-box-inner-content">
-	                    ' . ($settings['progress_bar_title'] ? sprintf('<%1$s class="%2$s">', $settings['progress_bar_title_html_tag'], 'sa-el-progressbar-title') . $settings['progress_bar_title'] . sprintf('</%1$s>', $settings['progress_bar_title_html_tag']) : '') . '
-	                    ' . ($settings['progress_bar_show_count'] === 'yes' ? '<span class="sa-el-progressbar-count-wrap"><span class="sa-el-progressbar-count">0</span><span class="postfix">' . $settings['progress_bar_value']['unit'] . '</span></span>' : '') . '
-	                </div>
-	                <div ' . $this->get_render_attribute_string('sa-el-progressbar-box-fill') . '></div>
-	            </div>
-            </div>';
+        if (apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', TRUE))) {
+            if ($settings['progress_bar_layout'] == 'box') {
+                $wrap_classes[] = 'sa-el-progressbar-box';
+    
+                $this->add_render_attribute('sa-el-progressbar-box', [
+                    'class'         => $wrap_classes,
+                    'data-layout'   => $settings['progress_bar_layout'],
+                    'data-count'    => $settings['progress_bar_value']['size'],
+                    'data-duration' => $settings['progress_bar_animation_duration']['size'],
+                ]);
+    
+                $this->add_render_attribute('sa-el-progressbar-box-fill', [
+                    'class' => 'sa-el-progressbar-box-fill',
+                    'style' => '-webkit-transition-duration:' . $settings['progress_bar_animation_duration']['size'] . 'ms;-o-transition-duration:' . $settings['progress_bar_animation_duration']['size'] . 'ms;transition-duration:' . $settings['progress_bar_animation_duration']['size'] . 'ms;',
+                ]);
+    
+                echo '<div class="sa-el-progressbar-box-container ' . $settings['progress_bar_box_alignment'] . '">
+                    <div ' . $this->get_render_attribute_string('sa-el-progressbar-box') . '>
+                        <div class="sa-el-progressbar-box-inner-content">
+                            ' . ($settings['progress_bar_title'] ? sprintf('<%1$s class="%2$s">', $settings['progress_bar_title_html_tag'], 'sa-el-progressbar-title') . $settings['progress_bar_title'] . sprintf('</%1$s>', $settings['progress_bar_title_html_tag']) : '') . '
+                            ' . ($settings['progress_bar_show_count'] === 'yes' ? '<span class="sa-el-progressbar-count-wrap"><span class="sa-el-progressbar-count">0</span><span class="postfix">' . $settings['progress_bar_value']['unit'] . '</span></span>' : '') . '
+                        </div>
+                        <div ' . $this->get_render_attribute_string('sa-el-progressbar-box-fill') . '></div>
+                    </div>
+                </div>';
+            }
         }
+        
     }
 }
