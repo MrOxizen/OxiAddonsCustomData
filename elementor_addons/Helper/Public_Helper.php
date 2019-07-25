@@ -52,14 +52,7 @@ trait Public_Helper
                     ],
                 ],
             ],
-            'icon_box' => [
-                'class' => 'SA_ELEMENTOR_ADDONS\Elements\Icon_Box\Icon_Box',
-                'dependency' => [
-                    'css' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Icon_Box/assets/index.min.css',
-                    ],
-                ],
-            ],
+            
             'call_to_action' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Call_To_Action\Call_To_Action',
                 'dependency' => [
@@ -332,6 +325,15 @@ trait Public_Helper
                     ],
                 ],
             ],
+            'protected_content' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Protected_Content\Protected_Content',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Protected_Content/assets/index.min.css',
+                    ],
+                    
+                ],
+            ],
         ];
         return $response;
     }
@@ -438,7 +440,43 @@ trait Public_Helper
         }
         return $options;
     }
+    /**
+     * Get all User Roles
+     *
+     * @return array
+     */
+    
+    public function sa_el_user_roles(){
+        global $wp_roles;
+        $all = $wp_roles->roles;
+        $all_roles = array();
+        if (!empty($all)) {
+            foreach ($all as $key => $value) {
+                $all_roles[$key] = $all[$key]['name'];
+            }
+        }
+        return $all_roles;
+    }
 
+    /**
+     * Protected Form Input Fields
+     */
+     public function sa_el_get_block_pass_protected_form($settings)
+    {
+        echo '<div class="sa-el-password-protected-content-fields">';
+        echo '<form method="post">';
+        echo '<input type="password" name="sa_protection_password" class="sa-el-password" placeholder="' . $settings['sa_protection_password_placeholder'] . '">';
+        echo '<input type="submit" value="' . $settings['sa_protection_password_submit_btn_txt'] . '" class="sa-el-submit">';
+        echo '</form>';
+        if (isset($_POST['sa_protection_password']) && ($settings['sa_protection_password'] !== $_POST['sa_protection_password'])) {
+            echo sprintf(__('<p class="protected-content-error-msg">Password does not match.</p>', SA_ELEMENTOR_TEXTDOMAIN));
+        }
+        echo '</div>';
+    }
+
+     /**
+     *  Price Table Feature Function
+     */
     protected function render_feature_list($settings, $obj)
     {
         if (empty($settings['sa_el_pricing_table_items'])) {
@@ -484,8 +522,8 @@ trait Public_Helper
                         $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-animation_duration', $item['pricing_item_tooltip_animation_duration']);
                     }
 
-                    if (!empty($item['eael_pricing_table_toolip_arrow'])) {
-                        $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-arrow', $item['eael_pricing_table_toolip_arrow']);
+                    if (!empty($item['sa_el_pricing_table_toolip_arrow'])) {
+                        $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-arrow', $item['sa_el_pricing_table_toolip_arrow']);
                     }
 
                     if (!empty($item['sa_el_pricing_item_tooltip_theme'])) {

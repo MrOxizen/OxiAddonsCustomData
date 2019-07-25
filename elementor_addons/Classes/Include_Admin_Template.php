@@ -24,7 +24,6 @@ trait Include_Admin_Template {
             'Content Elements' => array(
                 'accordion',
                 'button',
-                'icon_box',
                 'call_to_action',
                 'tabs',
                 'divider',
@@ -51,7 +50,7 @@ trait Include_Admin_Template {
                 'price_menu',
                 'pricing_table',
                 'progress_bar',
-            
+                'protected_content',            
             ),
             'Dynamic Content Elements' => array(
                 
