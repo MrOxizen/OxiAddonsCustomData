@@ -55,7 +55,7 @@ class Offcanvas extends Widget_Base {
             'label' => __('Content Type', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
             'options' => [
-//                'sidebar' => __('Sidebar', SA_ELEMENTOR_TEXTDOMAIN),
+                'sidebar' => __('Sidebar', SA_ELEMENTOR_TEXTDOMAIN),
                 'custom' => __('Custom Content', SA_ELEMENTOR_TEXTDOMAIN),
                 'section' => __('Saved Section', SA_ELEMENTOR_TEXTDOMAIN),
                 'widget' => __('Saved Widget', SA_ELEMENTOR_TEXTDOMAIN),
@@ -65,25 +65,25 @@ class Offcanvas extends Widget_Base {
                 ]
         );
 
-//        $registered_sidebars = $this->get_registered_sidebars();
-//        $this->add_control(
-//                'sidebar', [
-//            'label' => __('Choose Sidebar', SA_ELEMENTOR_TEXTDOMAIN),
-//            'type' => Controls_Manager::SELECT,
-//            'default' => array_shift($registered_sidebars),
-//            'options' => $registered_sidebars,
-//            'condition' => [
-//                'content_type' => 'sidebar',
-//            ],
-//                ]
-//        );
+        $registered_sidebars = $this->sa_get_registered_sidebars();
+        $this->add_control(
+                'sidebar', [
+            'label' => __('Choose Sidebar', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::SELECT,
+            'default' => array_shift($registered_sidebars),
+            'options' => $registered_sidebars,
+            'condition' => [
+                'content_type' => 'sidebar',
+            ],
+                ]
+        );
 
         $this->add_control(
                 'saved_widget', [
             'label' => __('Choose Widget', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
             'options' => $this->get_elementor_page_templates('widget'),
-            'default' => '-1',
+            'default' => '',
             'condition' => [
                 'content_type' => 'widget',
             ],

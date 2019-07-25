@@ -16,11 +16,9 @@ if (!defined('ABSPATH')) {
  *
  * @author biplo
  */
-trait Public_Helper
-{
+trait Public_Helper {
 
-    function Get_Active_Elements()
-    {
+    function Get_Active_Elements() {
         $installed = get_option('shortcode-addons-elementor');
         if (empty($installed) || $installed == '') {
             $installed = 'button=on&testimonial=on&flip_box=on&info_box=on&dual_color_heading=on&tooltip=on&advanced_accordion=on&advanced_tabs=on&offcanvas=on&advanced_menu_PRO=on&testimonial_Slider_PRO=on&static_product_PRO=on&Post_Grid=on&Post_Timeline=on&Content_Ticker=on&Product_Grid=on&Post_Block=on&Post_Carousel=on&Woo_Product_Collections=on&Content_Timeline=on';
@@ -30,8 +28,7 @@ trait Public_Helper
         return $settings;
     }
 
-    function Get_Registered_elements()
-    {
+    function Get_Registered_elements() {
         $response = [
             'accordion' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Accordion\Accordion',
@@ -52,7 +49,6 @@ trait Public_Helper
                     ],
                 ],
             ],
-            
             'call_to_action' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Call_To_Action\Call_To_Action',
                 'dependency' => [
@@ -331,7 +327,6 @@ trait Public_Helper
                     'css' => [
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Protected_Content/assets/index.min.css',
                     ],
-                    
                 ],
             ],
             'single_product' => [
@@ -341,22 +336,67 @@ trait Public_Helper
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Single_Product/assets/index.min.css',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Single_Product/assets/overlay.min.css',
                     ],
-                    
+                ],
+            ],
+            'team_member_carousel' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Team_Member_Carousel\Team_Member_Carousel',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Team_Member_Carousel/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Team_Member_Carousel/assets/index.min.js',
+                    ],
+                ],
+            ],
+            'team_member' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Team_Member\Team_Member',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Team_Member/assets/index.min.css',
+                    ]
+                ],
+            ],
+            'testimonial_slider' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Testimonial_Slider\Testimonial_Slider',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Testimonial_Slider/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Testimonial_Slider/assets/index.min.js',
+                    ],
+                ],
+            ],
+            'testimonial' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Testimonial\Testimonial',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Testimonial/assets/index.min.css',
+                    ]
+                ],
+            ],
+            'toggle' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Toggle\Toggle',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Toggle/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Toggle/assets/index.min.js',
+                    ],
                 ],
             ],
         ];
         return $response;
     }
 
-    public function register_widget_categories($elements_manager)
-    {
+    public function register_widget_categories($elements_manager) {
         $elements_manager->add_category(
-            'sa-el-addons',
-            [
-                'title' => __('Shortcode Addons', SA_ELEMENTOR_TEXTDOMAIN),
-                'icon' => 'font',
-            ],
-            1
+                'sa-el-addons', [
+            'title' => __('Shortcode Addons', SA_ELEMENTOR_TEXTDOMAIN),
+            'icon' => 'font',
+                ], 1
         );
     }
 
@@ -365,16 +405,16 @@ trait Public_Helper
      *
      * @since v1.0.0
      */
-    public function register_controls_group($controls_manager)
-    { }
+    public function register_controls_group($controls_manager) {
+        
+    }
 
     /**
      * Register widgets
      *
      * @since v3.0.0
      */
-    public function register_elements($widgets_manager)
-    {
+    public function register_elements($widgets_manager) {
         $active_elements = $this->Get_Active_Elements();
 
         asort($active_elements);
@@ -386,8 +426,7 @@ trait Public_Helper
         }
     }
 
-    public function has_cache_files($post_type = null, $post_id = null)
-    {
+    public function has_cache_files($post_type = null, $post_id = null) {
         $css_path = SA_ELEMENTOR_ADDONS_ASSETS . ($post_type ? SA_ELEMENTOR_TEXTDOMAIN . $post_type : SA_ELEMENTOR_TEXTDOMAIN) . ($post_id ? '-' . $post_id : '') . '.min.css';
         $js_path = SA_ELEMENTOR_ADDONS_ASSETS . ($post_type ? SA_ELEMENTOR_TEXTDOMAIN . $post_type : SA_ELEMENTOR_TEXTDOMAIN) . ($post_id ? '-' . $post_id : '') . '.min.js';
 
@@ -398,8 +437,7 @@ trait Public_Helper
         return false;
     }
 
-    public function sl_enqueue_scripts()
-    {
+    public function sl_enqueue_scripts() {
         if (!$this->has_cache_files()) {
 
             $this->generate_scripts($this->Get_Active_Elements());
@@ -423,8 +461,7 @@ trait Public_Helper
      *
      * @return array
      */
-    public function get_elementor_page_templates($type = null)
-    {
+    public function get_elementor_page_templates($type = null) {
         $args = [
             'post_type' => 'elementor_library',
             'posts_per_page' => -1,
@@ -447,16 +484,18 @@ trait Public_Helper
             foreach ($page_templates as $post) {
                 $options[$post->ID] = $post->post_title;
             }
+        } else {
+            $options[] = 'No ' . ucfirst($type) . ' Found';
         }
         return $options;
     }
+
     /**
      * Get all User Roles
      *
      * @return array
      */
-    
-    public function sa_el_user_roles(){
+    public function sa_el_user_roles() {
         global $wp_roles;
         $all = $wp_roles->roles;
         $all_roles = array();
@@ -471,8 +510,7 @@ trait Public_Helper
     /**
      * Protected Form Input Fields
      */
-     public function sa_el_get_block_pass_protected_form($settings)
-    {
+    public function sa_el_get_block_pass_protected_form($settings) {
         echo '<div class="sa-el-password-protected-content-fields">';
         echo '<form method="post">';
         echo '<input type="password" name="sa_protection_password" class="sa-el-password" placeholder="' . $settings['sa_protection_password_placeholder'] . '">';
@@ -484,11 +522,27 @@ trait Public_Helper
         echo '</div>';
     }
 
-     /**
+    // Get all WordPress registered widgets
+    public function sa_get_registered_sidebars() {
+        global $wp_registered_sidebars;
+        $options = [];
+
+        if (!$wp_registered_sidebars) {
+            $options[''] = __('No sidebars were found', SA_ELEMENTOR_TEXTDOMAIN);
+        } else {
+            $options['---'] = __('Choose Sidebar', SA_ELEMENTOR_TEXTDOMAIN);
+
+            foreach ($wp_registered_sidebars as $sidebar_id => $sidebar) {
+                $options[$sidebar_id] = $sidebar['name'];
+            }
+        }
+        return $options;
+    }
+
+    /**
      *  Price Table Feature Function
      */
-    protected function render_feature_list($settings, $obj)
-    {
+    protected function render_feature_list($settings, $obj) {
         if (empty($settings['sa_el_pricing_table_items'])) {
             return;
         }
@@ -505,12 +559,11 @@ trait Public_Helper
 
                 if ('yes' === $item['sa_el_pricing_item_tooltip']) {
                     $obj->add_render_attribute(
-                        'pricing_feature_item' . $counter,
-                        [
-                            'class' => 'tooltip',
-                            'title' => $item['sa_el_pricing_item_tooltip_content'],
-                            'id' => $obj->get_id() . $counter,
-                        ]
+                            'pricing_feature_item' . $counter, [
+                        'class' => 'tooltip',
+                        'title' => $item['sa_el_pricing_item_tooltip_content'],
+                        'id' => $obj->get_id() . $counter,
+                            ]
                     );
                 }
 
@@ -544,13 +597,15 @@ trait Public_Helper
                 <li <?php echo $obj->get_render_attribute_string('pricing_feature_item' . $counter); ?>>
                     <?php if ('show' === $settings['sa_el_pricing_table_icon_enabled']) : ?>
                         <span class="li-icon" style="color:<?php echo esc_attr($item['sa_el_pricing_table_list_icon_color']); ?>"><i class="<?php echo esc_attr($item['sa_el_pricing_table_list_icon']); ?>"></i></span>
-                    <?php endif; ?>
-                    <?php echo $item['sa_el_pricing_table_item']; ?>
+                        <?php endif; ?>
+                        <?php echo $item['sa_el_pricing_table_item']; ?>
                 </li>
-                <?php $counter++;
-            endforeach; ?>
+                <?php
+                $counter++;
+            endforeach;
+            ?>
         </ul>
-    <?php
-
+        <?php
     }
+
 }

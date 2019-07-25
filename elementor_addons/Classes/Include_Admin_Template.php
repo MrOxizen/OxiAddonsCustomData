@@ -51,7 +51,12 @@ trait Include_Admin_Template {
                 'pricing_table',
                 'progress_bar',
                 'protected_content',         
-                'single_product',         
+                'single_product',      
+                'team_member_carousel',
+                'team_member',
+                'testimonial_slider',
+                'testimonial',
+                'toggle',
             ),
             'Dynamic Content Elements' => array(
                 

@@ -30,7 +30,7 @@ class Protected_Content extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-info-box';
+        return 'fas fa-unlock-alt';
     }
 
     public function get_categories() {
