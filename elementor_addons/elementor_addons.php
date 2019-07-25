@@ -196,7 +196,7 @@ final class SA_ELEMENTOR_ADDONS
         /**
          * Admin notice
          *  $data[0] = DATA, $data[1] = TYPE & $data[2] = Boolean;
-         * Be Carefull aout data rendaring, While $data is array or String & $type is data type as blank or string.
+         * Be Careful about data rendering, While $data is array or String & $type is data type as blank or string.
          * Data type String will return string data and Blank will return True False
          * $boolean will define Pro or Free Version while True is PREMIUM & False is FREE;
          * 
