@@ -883,7 +883,7 @@ class Lightbox_Modal extends Widget_Base
         $this->start_controls_tabs('sa_el_lightbox_open_btn_icon_content_tabs');
 
         $this->start_controls_tab(
-            'normal_default_content',
+            'normal_default_content_icon',
             [
                 'label'     => esc_html__('Normal', SA_ELEMENTOR_TEXTDOMAIN)
             ]
