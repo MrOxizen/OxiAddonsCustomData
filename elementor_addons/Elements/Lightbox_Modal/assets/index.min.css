@@ -101,6 +101,10 @@ button.mfp-close {
     margin-left: 5px;
 }
 
+.mfp-wrap {
+    z-index: 99999;
+}
+
 .mfp-content .sa_el_lightbox_modal_window {
     display: block;
 }
