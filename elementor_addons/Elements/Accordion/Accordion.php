@@ -188,6 +188,30 @@ class Accordion extends Widget_Base {
                 ]
         );
         $this->end_controls_section();
+        if (!apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', ['', '', TRUE])) {
+            $this->start_controls_section(
+                    'sa_el_section_pro', [
+                'label' => __('Go Premium for More Features', SA_ELEMENTOR_TEXTDOMAIN)
+                    ]
+            );
+
+            $this->add_control(
+                    'sa_el_control_get_pro', [
+                'label' => __('Unlock more possibilities', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    '1' => [
+                        'title' => __('', SA_ELEMENTOR_TEXTDOMAIN),
+                        'icon' => 'fa fa-unlock-alt',
+                    ],
+                ],
+                'default' => '1',
+                'description' => '<span class="pro-feature"> Get the  <a href="https://www.oxilab.org/downloads/short-code-addons/" target="_blank">Pro version</a> for more stunning elements and customization options.</span>'
+                    ]
+            );
+
+            $this->end_controls_section();
+        }
         $this->start_controls_section(
                 'sa_accordion_style_settings', [
             'label' => esc_html__('General Style', SA_ELEMENTOR_TEXTDOMAIN),
@@ -678,10 +702,10 @@ class Accordion extends Widget_Base {
                         <span><?php if ($tab['sa_accordion_tab_icon_show'] === 'yes'): ?><i class="<?php echo esc_attr($tab['sa_accordion_tab_title_icon']); ?> fa-accordion-icon"></i>
                             <?php endif; ?><?php echo $tab['sa_accordion_tab_title']; ?></span>
                         <?php if ($settings['sa_accordion_icon_show'] === 'yes'): ?>
-                            <!--<i class="<?php echo esc_attr($settings['sa_accordion_icon_selected']); ?> fa-toggle"></i>-->
-                            <span class="sa_el_accordion_icon_off fa-toggle"><?php Icons_Manager::render_icon( $settings['sa_accordion_icon_selected'] ); ?></span>
-                                <span class="sa_el_accordion_icon_opened fa-toggle">
-                            <?php Icons_Manager::render_icon( $settings['sa_accordion_icon_active'] ); ?></span>
+                                    <!--<i class="<?php echo esc_attr($settings['sa_accordion_icon_selected']); ?> fa-toggle"></i>-->
+                            <span class="sa_el_accordion_icon_off fa-toggle"><?php Icons_Manager::render_icon($settings['sa_accordion_icon_selected']); ?></span>
+                            <span class="sa_el_accordion_icon_opened fa-toggle">
+                                <?php Icons_Manager::render_icon($settings['sa_accordion_icon_active']); ?></span>
                         <?php endif; ?>
                     </div>
 

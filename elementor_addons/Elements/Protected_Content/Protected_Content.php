@@ -242,7 +242,30 @@ class Protected_Content extends Widget_Base {
         );
 
         $this->end_controls_section();
+        if (!apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', ['', '', TRUE])) {
+            $this->start_controls_section(
+                    'sa_el_section_pro', [
+                'label' => __('Go Premium for More Features', SA_ELEMENTOR_TEXTDOMAIN)
+                    ]
+            );
 
+            $this->add_control(
+                    'sa_el_control_get_pro', [
+                'label' => __('Unlock more possibilities', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    '1' => [
+                        'title' => __('', SA_ELEMENTOR_TEXTDOMAIN),
+                        'icon' => 'fa fa-unlock-alt',
+                    ],
+                ],
+                'default' => '1',
+                'description' => '<span class="pro-feature"> Get the  <a href="https://www.oxilab.org/downloads/short-code-addons/" target="_blank">Pro version</a> for more stunning elements and customization options.</span>'
+                    ]
+            );
+
+            $this->end_controls_section();
+        }
         $this->start_controls_section(
                 'sa_el_protected_content_style', [
             'label' => esc_html__('Content', SA_ELEMENTOR_TEXTDOMAIN),
@@ -771,7 +794,7 @@ class Protected_Content extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         ?>
-            <?php if ('role' == $settings['sa_el_protected_content_protection_type']) : ?>
+        <?php if ('role' == $settings['sa_el_protected_content_protection_type']) : ?>
             <div class="sa-el-protected-content">     
                 <?php if (true === $this->current_user_privileges()) : ?>
                     <?php $this->sa_el_render_content($this->get_settings_for_display()); ?>
@@ -781,7 +804,7 @@ class Protected_Content extends Widget_Base {
 
                 <?php if ('yes' == $settings['sa_el_show_fallback_message']) : ?>
                     <?php $this->sa_el_render_message($this->get_settings_for_display()); ?>
-            <?php endif; ?>
+                <?php endif; ?>
             </div>
         <?php else: ?>
             <?php
@@ -803,7 +826,7 @@ class Protected_Content extends Widget_Base {
             }
             ?>
             <div class="sa-el-protected-content">
-            <?php $this->sa_el_render_content($this->get_settings_for_display()); ?>
+                <?php $this->sa_el_render_content($this->get_settings_for_display()); ?>
             </div>
         <?php endif; ?>     
         <?php
