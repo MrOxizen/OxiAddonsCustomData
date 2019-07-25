@@ -607,8 +607,8 @@ class Lightbox_Modal extends Widget_Base
         );
 
         $this->end_controls_section(); # End of Animation Section
-        
-        if (!apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', ['', '', TRUE])) {
+
+        if (apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', ['', '', FALSE])) {
             $this->start_controls_section(
                 'sa_el_section_pro',
                 [
