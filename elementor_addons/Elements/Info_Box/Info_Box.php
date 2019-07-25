@@ -214,15 +214,28 @@ class Info_Box extends Widget_Base {
                 ]
         );
         $this->add_control(
-                'sa_el_infobox_text_type', [
-            'label' => __('Content Type', SA_ELEMENTOR_TEXTDOMAIN),
-            'type' => Controls_Manager::SELECT,
-            'options' => [
-                'content' => __('Content', SA_ELEMENTOR_TEXTDOMAIN),
-                'template' => __('Saved Templates', SA_ELEMENTOR_TEXTDOMAIN),
+            'sa_el_show_infobox_content', [
+            'label' => __('Show Content', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::SWITCHER,
+            'default' => 'yes',
+            'label_on' => __('Show', SA_ELEMENTOR_TEXTDOMAIN),
+            'label_off' => __('Hide', SA_ELEMENTOR_TEXTDOMAIN),
+            'return_value' => 'yes',
+            ]
+        );
+        $this->add_control(
+            'sa_el_infobox_text_type', [
+                'label' => __('Content Type', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::SELECT,
+                'options' => [
+                    'content' => __('Content', SA_ELEMENTOR_TEXTDOMAIN),
+                    'template' => __('Saved Templates', SA_ELEMENTOR_TEXTDOMAIN),
+                ],
+                'default' => 'content',
+                'condition' => [
+                    'sa_el_show_infobox_content' => 'yes',
+                ],
             ],
-            'default' => 'content',
-                ]
         );
 
         $this->add_control(
@@ -246,19 +259,11 @@ class Info_Box extends Widget_Base {
             'default' => esc_html__('Write a short description, that will describe the title or something informational and useful.', SA_ELEMENTOR_TEXTDOMAIN),
             'condition' => [
                 'sa_el_infobox_text_type' => 'content',
+                'sa_el_show_infobox_content' => 'yes',
             ],
                 ]
         );
-        $this->add_control(
-                'sa_el_show_infobox_content', [
-            'label' => __('Show Content', SA_ELEMENTOR_TEXTDOMAIN),
-            'type' => Controls_Manager::SWITCHER,
-            'default' => 'yes',
-            'label_on' => __('Show', SA_ELEMENTOR_TEXTDOMAIN),
-            'label_off' => __('Hide', SA_ELEMENTOR_TEXTDOMAIN),
-            'return_value' => 'yes',
-                ]
-        );
+        
         
         $this->end_controls_section();
 
@@ -1454,7 +1459,7 @@ class Info_Box extends Widget_Base {
                 <?php if (!empty($settings['sa_el_infobox_text'])) : ?>
                         <p><?php echo $settings['sa_el_infobox_text']; ?></p>
                 <?php endif; ?>
-                <?php $this->render_infobox_button($this->get_settings_for_display()); ?>
+                
             <?php
             elseif ('template' === $settings['sa_el_infobox_text_type']) :
                 if (!empty($settings['sa_el_primary_templates'])) {
@@ -1466,7 +1471,8 @@ class Info_Box extends Widget_Base {
             endif;
             ?>
                 <?php endif; ?>
-        </div>
+            </div>
+            <?php $this->render_infobox_button($this->get_settings_for_display()); ?>
                 <?php
                 echo ob_get_clean();
             }
