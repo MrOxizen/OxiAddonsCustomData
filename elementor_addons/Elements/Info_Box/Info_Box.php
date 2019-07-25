@@ -48,7 +48,7 @@ class Info_Box extends Widget_Base {
         );
 
         $this->add_control(
-                'sa_el_infobox_img_type', [
+            'sa_el_infobox_img_type', [
             'label' => esc_html__('Infobox Type', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
             'default' => 'img-on-top',
@@ -58,6 +58,33 @@ class Info_Box extends Widget_Base {
                 'img-on-left' => esc_html__('Image/Icon On Left', SA_ELEMENTOR_TEXTDOMAIN),
                 'img-on-right' => esc_html__('Image/Icon On Right', SA_ELEMENTOR_TEXTDOMAIN),
             ],
+                ]
+        );
+
+        $this->add_responsive_control(
+            'sa_el_infobox_content_alignment', [
+            'label' => esc_html__('Content Alignment', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::CHOOSE,
+            'label_block' => true,
+            'options' => [
+                'left' => [
+                    'title' => esc_html__('Left', SA_ELEMENTOR_TEXTDOMAIN),
+                    'icon' => 'fa fa-align-left',
+                ],
+                'center' => [
+                    'title' => esc_html__('Center', SA_ELEMENTOR_TEXTDOMAIN),
+                    'icon' => 'fa fa-align-center',
+                ],
+                'right' => [
+                    'title' => esc_html__('Right', SA_ELEMENTOR_TEXTDOMAIN),
+                    'icon' => 'fa fa-align-right',
+                ],
+            ],
+            'default' => 'center',
+            'prefix_class' => 'sa_el_infobox_content_align_',
+            'condition' => [
+                'sa_el_infobox_img_type' => 'img-on-top'
+            ]
                 ]
         );
 
@@ -187,15 +214,28 @@ class Info_Box extends Widget_Base {
                 ]
         );
         $this->add_control(
-                'sa_el_infobox_text_type', [
-            'label' => __('Content Type', SA_ELEMENTOR_TEXTDOMAIN),
-            'type' => Controls_Manager::SELECT,
-            'options' => [
-                'content' => __('Content', SA_ELEMENTOR_TEXTDOMAIN),
-                'template' => __('Saved Templates', SA_ELEMENTOR_TEXTDOMAIN),
+            'sa_el_show_infobox_content', [
+            'label' => __('Show Content', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::SWITCHER,
+            'default' => 'yes',
+            'label_on' => __('Show', SA_ELEMENTOR_TEXTDOMAIN),
+            'label_off' => __('Hide', SA_ELEMENTOR_TEXTDOMAIN),
+            'return_value' => 'yes',
+            ]
+        );
+        $this->add_control(
+            'sa_el_infobox_text_type', [
+                'label' => __('Content Type', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::SELECT,
+                'options' => [
+                    'content' => __('Content', SA_ELEMENTOR_TEXTDOMAIN),
+                    'template' => __('Saved Templates', SA_ELEMENTOR_TEXTDOMAIN),
+                ],
+                'default' => 'content',
+                'condition' => [
+                    'sa_el_show_infobox_content' => 'yes',
+                ],
             ],
-            'default' => 'content',
-                ]
         );
 
         $this->add_control(
@@ -219,45 +259,12 @@ class Info_Box extends Widget_Base {
             'default' => esc_html__('Write a short description, that will describe the title or something informational and useful.', SA_ELEMENTOR_TEXTDOMAIN),
             'condition' => [
                 'sa_el_infobox_text_type' => 'content',
+                'sa_el_show_infobox_content' => 'yes',
             ],
                 ]
         );
-        $this->add_control(
-                'sa_el_show_infobox_content', [
-            'label' => __('Show Content', SA_ELEMENTOR_TEXTDOMAIN),
-            'type' => Controls_Manager::SWITCHER,
-            'default' => 'yes',
-            'label_on' => __('Show', SA_ELEMENTOR_TEXTDOMAIN),
-            'label_off' => __('Hide', SA_ELEMENTOR_TEXTDOMAIN),
-            'return_value' => 'yes',
-                ]
-        );
-        $this->add_responsive_control(
-                'sa_el_infobox_content_alignment', [
-            'label' => esc_html__('Content Alignment', SA_ELEMENTOR_TEXTDOMAIN),
-            'type' => Controls_Manager::CHOOSE,
-            'label_block' => true,
-            'options' => [
-                'left' => [
-                    'title' => esc_html__('Left', SA_ELEMENTOR_TEXTDOMAIN),
-                    'icon' => 'fa fa-align-left',
-                ],
-                'center' => [
-                    'title' => esc_html__('Center', SA_ELEMENTOR_TEXTDOMAIN),
-                    'icon' => 'fa fa-align-center',
-                ],
-                'right' => [
-                    'title' => esc_html__('Right', SA_ELEMENTOR_TEXTDOMAIN),
-                    'icon' => 'fa fa-align-right',
-                ],
-            ],
-            'default' => 'center',
-            'prefix_class' => 'sa_el_infobox_content_align_',
-            'condition' => [
-                'sa_el_infobox_img_type' => 'img-on-top'
-            ]
-                ]
-        );
+        
+        
         $this->end_controls_section();
 
         /**
@@ -1452,7 +1459,7 @@ class Info_Box extends Widget_Base {
                 <?php if (!empty($settings['sa_el_infobox_text'])) : ?>
                         <p><?php echo $settings['sa_el_infobox_text']; ?></p>
                 <?php endif; ?>
-                <?php $this->render_infobox_button($this->get_settings_for_display()); ?>
+                
             <?php
             elseif ('template' === $settings['sa_el_infobox_text_type']) :
                 if (!empty($settings['sa_el_primary_templates'])) {
@@ -1464,7 +1471,8 @@ class Info_Box extends Widget_Base {
             endif;
             ?>
                 <?php endif; ?>
-        </div>
+            </div>
+            <?php $this->render_infobox_button($this->get_settings_for_display()); ?>
                 <?php
                 echo ob_get_clean();
             }
