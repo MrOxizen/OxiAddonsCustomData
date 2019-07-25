@@ -410,7 +410,7 @@ class Tooltip extends Widget_Base {
         );
         $this->end_controls_section();
 
-        if (!apply_filters('eael/pro_enabled', false)) {
+         if (!apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', ['', '', TRUE])) {
             $this->start_controls_section(
                     'sa_el_section_pro', [
                 'label' => __('Go Premium for More Features', SA_ELEMENTOR_TEXTDOMAIN)
@@ -428,7 +428,7 @@ class Tooltip extends Widget_Base {
                     ],
                 ],
                 'default' => '1',
-                'description' => '<span class="pro-feature"> Get the  <a href="https://wpdeveloper.net/in/upgrade-essential-addons-elementor" target="_blank">Pro version</a> for more stunning elements and customization options.</span>'
+                'description' => '<span class="pro-feature"> Get the  <a href="https://www.oxilab.org/downloads/short-code-addons/" target="_blank">Pro version</a> for more stunning elements and customization options.</span>'
                     ]
             );
 
