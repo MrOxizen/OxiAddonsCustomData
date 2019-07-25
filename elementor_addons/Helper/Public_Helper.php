@@ -334,6 +334,16 @@ trait Public_Helper
                     
                 ],
             ],
+            'single_product' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Single_Product\Single_Product',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Single_Product/assets/index.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Single_Product/assets/overlay.min.css',
+                    ],
+                    
+                ],
+            ],
         ];
         return $response;
     }
