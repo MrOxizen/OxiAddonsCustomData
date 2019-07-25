@@ -607,7 +607,33 @@ class Lightbox_Modal extends Widget_Base
         );
 
         $this->end_controls_section(); # End of Animation Section
+        
+        if (!apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', ['', '', TRUE])) {
+            $this->start_controls_section(
+                'sa_el_section_pro',
+                [
+                    'label' => __('Go Premium for More Features', SA_ELEMENTOR_TEXTDOMAIN)
+                ]
+            );
 
+            $this->add_control(
+                'sa_el_control_get_pro',
+                [
+                    'label' => __('Unlock more possibilities', SA_ELEMENTOR_TEXTDOMAIN),
+                    'type' => Controls_Manager::CHOOSE,
+                    'options' => [
+                        '1' => [
+                            'title' => __('', SA_ELEMENTOR_TEXTDOMAIN),
+                            'icon' => 'fa fa-unlock-alt',
+                        ],
+                    ],
+                    'default' => '1',
+                    'description' => '<span class="pro-feature"> Get the  <a href="https://www.oxilab.org/downloads/short-code-addons/" target="_blank">Pro version</a> for more stunning elements and customization options.</span>'
+                ]
+            );
+
+            $this->end_controls_section();
+        }
 
         /*-------------------------------------------------*/
         /*	Style TAB
