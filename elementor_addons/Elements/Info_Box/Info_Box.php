@@ -48,7 +48,7 @@ class Info_Box extends Widget_Base {
         );
 
         $this->add_control(
-                'sa_el_infobox_img_type', [
+            'sa_el_infobox_img_type', [
             'label' => esc_html__('Infobox Type', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
             'default' => 'img-on-top',
@@ -58,6 +58,33 @@ class Info_Box extends Widget_Base {
                 'img-on-left' => esc_html__('Image/Icon On Left', SA_ELEMENTOR_TEXTDOMAIN),
                 'img-on-right' => esc_html__('Image/Icon On Right', SA_ELEMENTOR_TEXTDOMAIN),
             ],
+                ]
+        );
+
+        $this->add_responsive_control(
+            'sa_el_infobox_content_alignment', [
+            'label' => esc_html__('Content Alignment', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::CHOOSE,
+            'label_block' => true,
+            'options' => [
+                'left' => [
+                    'title' => esc_html__('Left', SA_ELEMENTOR_TEXTDOMAIN),
+                    'icon' => 'fa fa-align-left',
+                ],
+                'center' => [
+                    'title' => esc_html__('Center', SA_ELEMENTOR_TEXTDOMAIN),
+                    'icon' => 'fa fa-align-center',
+                ],
+                'right' => [
+                    'title' => esc_html__('Right', SA_ELEMENTOR_TEXTDOMAIN),
+                    'icon' => 'fa fa-align-right',
+                ],
+            ],
+            'default' => 'center',
+            'prefix_class' => 'sa_el_infobox_content_align_',
+            'condition' => [
+                'sa_el_infobox_img_type' => 'img-on-top'
+            ]
                 ]
         );
 
@@ -232,32 +259,7 @@ class Info_Box extends Widget_Base {
             'return_value' => 'yes',
                 ]
         );
-        $this->add_responsive_control(
-                'sa_el_infobox_content_alignment', [
-            'label' => esc_html__('Content Alignment', SA_ELEMENTOR_TEXTDOMAIN),
-            'type' => Controls_Manager::CHOOSE,
-            'label_block' => true,
-            'options' => [
-                'left' => [
-                    'title' => esc_html__('Left', SA_ELEMENTOR_TEXTDOMAIN),
-                    'icon' => 'fa fa-align-left',
-                ],
-                'center' => [
-                    'title' => esc_html__('Center', SA_ELEMENTOR_TEXTDOMAIN),
-                    'icon' => 'fa fa-align-center',
-                ],
-                'right' => [
-                    'title' => esc_html__('Right', SA_ELEMENTOR_TEXTDOMAIN),
-                    'icon' => 'fa fa-align-right',
-                ],
-            ],
-            'default' => 'center',
-            'prefix_class' => 'sa_el_infobox_content_align_',
-            'condition' => [
-                'sa_el_infobox_img_type' => 'img-on-top'
-            ]
-                ]
-        );
+        
         $this->end_controls_section();
 
         /**
