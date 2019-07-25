@@ -976,17 +976,6 @@ class Lightbox_Modal extends Widget_Base
             ]
         );
 
-        $this->add_control(
-            'button_animation',
-            [
-                'label'     => __('Animation', SA_ELEMENTOR_TEXTDOMAIN),
-                'type'      => Controls_Manager::HOVER_ANIMATION,
-                'condition' => [
-                    'trigger_type'               => 'icon',
-                ],
-            ]
-        );
-
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
