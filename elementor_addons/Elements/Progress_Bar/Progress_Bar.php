@@ -183,7 +183,7 @@ class Progress_Bar extends Widget_Base
 
         $this->end_controls_section();
 
-        if (!apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', FALSE))) {
+        if (apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', FALSE))) {
             $this->start_controls_section(
                 'sa_el_section_pro',
                 [
@@ -194,8 +194,8 @@ class Progress_Bar extends Widget_Base
             $this->add_control(
                 'sa_el_control_get_pro',
                 [
-                    'label'   => __('Unlock more possibilities', SA_ELEMENTOR_TEXTDOMAIN),
-                    'type'    => Controls_Manager::CHOOSE,
+                    'label' => __('Unlock more possibilities', SA_ELEMENTOR_TEXTDOMAIN),
+                    'type' => Controls_Manager::CHOOSE,
                     'options' => [
                         '1' => [
                             'title' => __('', SA_ELEMENTOR_TEXTDOMAIN),
@@ -203,7 +203,7 @@ class Progress_Bar extends Widget_Base
                         ],
                     ],
                     'default' => '1',
-                    'description' => '<span class="pro-feature"> Get the  <a href="https://wpdeveloper.net/in/upgrade-essential-addons-elementor" target="_blank">Pro version</a> for more stunning elements and customization options.</span>'
+                    'description' => '<span class="pro-feature"> Get the  <a href="https://www.oxilab.org/downloads/short-code-addons/" target="_blank">Pro version</a> for more stunning elements and customization options.</span>'
                 ]
             );
 
@@ -983,19 +983,19 @@ class Progress_Bar extends Widget_Base
         if (apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', TRUE))) {
             if ($settings['progress_bar_layout'] == 'box') {
                 $wrap_classes[] = 'sa-el-progressbar-box';
-    
+
                 $this->add_render_attribute('sa-el-progressbar-box', [
                     'class'         => $wrap_classes,
                     'data-layout'   => $settings['progress_bar_layout'],
                     'data-count'    => $settings['progress_bar_value']['size'],
                     'data-duration' => $settings['progress_bar_animation_duration']['size'],
                 ]);
-    
+
                 $this->add_render_attribute('sa-el-progressbar-box-fill', [
                     'class' => 'sa-el-progressbar-box-fill',
                     'style' => '-webkit-transition-duration:' . $settings['progress_bar_animation_duration']['size'] . 'ms;-o-transition-duration:' . $settings['progress_bar_animation_duration']['size'] . 'ms;transition-duration:' . $settings['progress_bar_animation_duration']['size'] . 'ms;',
                 ]);
-    
+
                 echo '<div class="sa-el-progressbar-box-container ' . $settings['progress_bar_box_alignment'] . '">
                     <div ' . $this->get_render_attribute_string('sa-el-progressbar-box') . '>
                         <div class="sa-el-progressbar-box-inner-content">
@@ -1007,6 +1007,5 @@ class Progress_Bar extends Widget_Base
                 </div>';
             }
         }
-        
     }
 }
