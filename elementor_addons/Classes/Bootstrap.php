@@ -51,8 +51,6 @@ class Bootstrap {
         add_action('elementor/controls/controls_registered', array($this, 'register_controls_group'));
         add_action('elementor/widgets/widgets_registered', array($this, 'register_elements'));
 
-        add_filter('sa_el_progressbar_general_style_condition',[$this, 'progressbar_general_style_condition']);
-
     }
 
 }

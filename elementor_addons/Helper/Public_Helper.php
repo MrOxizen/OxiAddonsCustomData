@@ -505,8 +505,4 @@ trait Public_Helper
     <?php
 
     }
-    public function progressbar_general_style_condition($conditions)
-    {
-        return array_merge($conditions, ['circle_fill', 'half_circle_fill', 'box']);
-    }
 }
