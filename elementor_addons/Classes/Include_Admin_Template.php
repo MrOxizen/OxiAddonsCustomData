@@ -57,6 +57,8 @@ trait Include_Admin_Template {
                 'testimonial_slider',
                 'testimonial',
                 'toggle',
+                'card',
+                'justified_gallery'
             ),
             'Dynamic Content Elements' => array(
                 

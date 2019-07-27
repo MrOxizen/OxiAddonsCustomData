@@ -391,6 +391,23 @@ trait Public_Helper {
                     ],
                 ],
             ],
+            'card' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Card\Card',
+                'dependency' => [
+                 
+                ],
+            ],
+             'justified_gallery' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Justified_Gallery\Justified_Gallery',
+                'dependency' => [
+                    'css' => [
+                         SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/justifiedGallery/css/justifiedGallery.min.css',
+                    ],
+                    'js' => [
+                         SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/justifiedGallery/js/jquery.justifiedGallery.min.js',
+                    ],
+                ],
+            ],
         ];
         return $response;
     }

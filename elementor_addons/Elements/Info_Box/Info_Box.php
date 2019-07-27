@@ -233,9 +233,9 @@ class Info_Box extends Widget_Base {
                 ],
                 'default' => 'content',
                 'condition' => [
-                    'sa_el_show_infobox_content' => 'yes',
-                ],
-            ],
+                    'sa_el_show_infobox_content' => 'yes'
+                ]
+            ]
         );
 
         $this->add_control(
