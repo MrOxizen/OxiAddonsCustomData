@@ -37,7 +37,7 @@ class Card extends Widget_Base
      */
     public function get_title()
     {
-        return __('Card SA', SA_ELEMENTOR_TEXTDOMAIN);
+        return __('Card', SA_ELEMENTOR_TEXTDOMAIN);
     }
 
     /**
@@ -50,13 +50,8 @@ class Card extends Widget_Base
      */
     public function get_icon()
     {
-        return 'hm hm-card';
+        return 'eicon-call-to-action';
     }
-
-    // public function get_keywords()
-    // {
-    //     return ['card', 'blurb', 'infobox', 'content', 'block', 'box'];
-    // }
 
     public function get_categories()
     {
