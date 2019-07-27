@@ -28,7 +28,7 @@ class Single_Product extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-tabs';
+        return 'eicon-image-box';
     }
 
     public function get_categories() {
