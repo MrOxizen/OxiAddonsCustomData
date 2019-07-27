@@ -40,6 +40,10 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Accordion/assets/index.min.js',
                     ],
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => 'wp-forms',
+                'API' => 'aggasdhasd'
             ],
             'button' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Button\Button',
