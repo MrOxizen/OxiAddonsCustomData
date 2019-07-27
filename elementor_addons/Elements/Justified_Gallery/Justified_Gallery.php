@@ -16,7 +16,7 @@ use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
 use Elementor\Utils;
-use \Elementor\Widget_Base as Widget_Base;
+use Elementor\Widget_Base as Widget_Base;
 use \SA_ELEMENTOR_ADDONS\Classes\Bootstrap;
 
 class Justified_Gallery extends Widget_Base {
@@ -61,11 +61,6 @@ class Justified_Gallery extends Widget_Base {
         $repeater->add_control(
                 'images', [
             'type' => Controls_Manager::GALLERY,
-            'default' => [
-          
-                    'url' =>  'http://127.0.0.1/wordpress/wp-content/uploads/2019/07/ab6-1.jpg',
-            
-            ]
                 ]
         );
 
@@ -143,7 +138,7 @@ class Justified_Gallery extends Widget_Base {
                 ]
         );
 
-       
+
 
         $this->end_controls_section();
 
@@ -278,17 +273,6 @@ class Justified_Gallery extends Widget_Base {
                 ]
         );
 
-        $this->add_control(
-                'image_hover_cursor', [
-            'label' => __('Hover Cursor', SA_ELEMENTOR_TEXTDOMAIN),
-            'type' => Controls_Manager::SELECT2,
-            'options' => ha_get_css_cursors(),
-            'default' => 'default',
-            'selectors' => [
-                '{{WRAPPER}} .sa-el-justified-gallery-item:hover > img' => 'cursor: {{VALUE}};'
-            ]
-                ]
-        );
 
         $this->end_controls_tab();
         $this->end_controls_tabs();
@@ -529,7 +513,6 @@ class Justified_Gallery extends Widget_Base {
 
         $this->end_controls_section();
     }
-     
 
     protected function sa_get_gallery_data() {
         $gallery = $this->get_settings_for_display('gallery');
@@ -567,40 +550,43 @@ class Justified_Gallery extends Widget_Base {
             'items' => $items
         ];
     }
+
     protected function render() {
         $settings = $this->get_settings_for_display();
         $gallery = $this->sa_get_gallery_data();
 
-        if ( empty( $gallery ) ) {
+        if (empty($gallery)) {
             return;
         }
 
-        $this->add_render_attribute( 'container', 'class', [
+        $this->add_render_attribute('container', 'class', [
             'sa-el-justified-gallery-wrapper',
             'sa-el-js-justified-gallery',
-        ] );
+        ]);
 
-        $this->add_render_attribute( 'container', 'data-happy-settings' );
+        $this->add_render_attribute('container', 'data-happy-settings');
 
-        if ( $settings['show_filter'] === 'yes' ) : ?>
+        if ($settings['show_filter'] === 'yes') :
+            ?>
             <ul class="sa-el-gallery-filter sa-el-js-gallery-filter">
-                <?php if ( $settings['show_all_filter'] === 'yes' ) : ?>
-                    <li class="sa-el-filter-active"><button type="button" data-filter="*"><?php echo esc_html( $settings['all_filter_label'] ); ?></button></li>
+                <?php if ($settings['show_all_filter'] === 'yes') : ?>
+                    <li class="sa-el-filter-active"><button type="button" data-filter="*"><?php echo esc_html($settings['all_filter_label']); ?></button></li>
                 <?php endif; ?>
-                <?php foreach ( $gallery['menu'] as $key => $val ) : ?>
-                    <li><button type="button" data-filter=".<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $val ); ?></button></li>
-                <?php endforeach; ?>
+                <?php foreach ($gallery['menu'] as $key => $val) : ?>
+                    <li><button type="button" data-filter=".<?php echo esc_attr($key); ?>"><?php echo esc_html($val); ?></button></li>
+            <?php endforeach; ?>
             </ul>
         <?php endif; ?>
 
-        <div <?php echo $this->get_render_attribute_string( 'container' ); ?>>
-            <?php foreach ( $gallery['items'] as $id => $filters ) :
-                $caption = $settings['show_caption'] ? esc_attr( wp_get_attachment_caption( $id ) ) : '';
+        <div <?php echo $this->get_render_attribute_string('container'); ?>>
+            <?php
+            foreach ($gallery['items'] as $id => $filters) :
+                $caption = $settings['show_caption'] ? esc_attr(wp_get_attachment_caption($id)) : '';
                 ?>
-                <a class="sa-el-justified-gallery-item <?php echo esc_attr( implode( ' ', $filters ) ); ?>">
-                    <?php echo wp_get_attachment_image( $id, $settings['thumbnail_size'], false, [ 'alt' => $caption, 'class' => 'elementor-animation-' . esc_attr( $settings['image_hover_animation'] ) ] ); ?>
+                <a class="sa-el-justified-gallery-item <?php echo esc_attr(implode(' ', $filters)); ?>">
+                <?php echo wp_get_attachment_image($id, $settings['thumbnail_size'], false, ['alt' => $caption, 'class' => 'elementor-animation-' . esc_attr($settings['image_hover_animation'])]); ?>
                 </a>
-            <?php endforeach; ?>
+        <?php endforeach; ?>
         </div>
 
         <?php
