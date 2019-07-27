@@ -387,7 +387,7 @@ class Testimonial_Slider extends Widget_Base {
 			[
 				'label' => esc_html__( 'Display User & Company Block?', SA_ELEMENTOR_TEXTDOMAIN ),
 				'type' => Controls_Manager::SWITCHER,
-				'default' => '',
+				'default' => 'yes',
 			]
 		);
 
