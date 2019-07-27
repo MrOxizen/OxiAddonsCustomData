@@ -1,0 +1,101 @@
+.sa-el-tm-wrapper {
+    position: relative;
+}
+
+.sa-el-tm-description {
+    font-size: 18px;
+    color: #6d7882;
+}
+
+.sa-el-tm-wrapper .sa-el-tm-social-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sa-el-tm-wrapper .sa-el-tm-social-links li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sa-el-tm-wrapper .sa-el-tm-title-divider-wrap {
+    font-size: 0;
+    line-height: 1;
+}
+
+.sa-el-tm-wrapper li,
+.sa-el-tm-wrapper .sa-el-tm-social-icon,
+.sa-el-tm-wrapper .sa-el-tm-divider {
+    display: inline-block;
+}
+
+.sa-el-tm-wrapper .sa-el-tm:hover .sa-el-tm-overlay-content-wrap {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sa-el-tm-wrapper .sa-el-tm-image {
+    display: inline-block;
+    position: relative;
+}
+
+.sa-el-tm-content-normal {
+    position: relative;
+    z-index: 1;
+}
+
+.sa-el-tm-overlay-content-wrap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.25s linear 0s;
+    -o-transition: all 0.25s linear 0s;
+    transition: all 0.25s linear 0s;
+}
+
+.sa-el-tm-overlay-content-wrap:before {
+    background-color: #000;
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.sa-el-tm-overlay-content-wrap .sa-el-tm-content {
+    padding: 20px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.sa-el-tm-social-icon-wrap {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-transition: all 0.25s linear 0s;
+    -o-transition: all 0.25s linear 0s;
+    transition: all 0.25s linear 0s;
+}
+
+.sa-el-tm-carousel {
+    position: relative;
+}
+
+.sa-el-tm-carousel-dots-outside .swiper-pagination {
+    position: static;
+}
