@@ -5,7 +5,7 @@ namespace SA_ELEMENTOR_ADDONS\Elements\Card;
 /**
  * Card widget class
  *
- * @package Happy_Addons
+ * @package Shortcode_Addons
  */
 
 use \Elementor\Controls_Manager as Controls_Manager;
@@ -147,7 +147,7 @@ class Card extends Widget_Base
                 'label' => __('Title', SA_ELEMENTOR_TEXTDOMAIN),
                 'label_block' => true,
                 'type' => Controls_Manager::TEXT,
-                'default' => __('Happy Card Title', SA_ELEMENTOR_TEXTDOMAIN),
+                'default' => __('Your Card Title', SA_ELEMENTOR_TEXTDOMAIN),
                 'placeholder' => __('Type Card Title', SA_ELEMENTOR_TEXTDOMAIN),
             ]
         );
@@ -157,7 +157,7 @@ class Card extends Widget_Base
             [
                 'label' => __('Description', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => __('Happy card description goes here', SA_ELEMENTOR_TEXTDOMAIN),
+                'default' => __('Your card description goes here', SA_ELEMENTOR_TEXTDOMAIN),
                 'placeholder' => __('Type card description', SA_ELEMENTOR_TEXTDOMAIN),
                 'rows' => 5
             ]
