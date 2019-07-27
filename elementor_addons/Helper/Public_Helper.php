@@ -394,6 +394,9 @@ trait Public_Helper {
             'card' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Card\Card',
                 'dependency' => [
+                        'css' => [
+                            SA_ELEMENTOR_ADDONS_URL . 'Elements/Card/assets/index.min.css',
+                        ],
                  
                 ],
             ],
@@ -402,9 +405,11 @@ trait Public_Helper {
                 'dependency' => [
                     'css' => [
                          SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/justifiedGallery/css/justifiedGallery.min.css',
+                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Justified_Gallery/assets/index.min.css',
                     ],
                     'js' => [
                          SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/justifiedGallery/js/jquery.justifiedGallery.min.js',
+                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Justified_Gallery/assets/index.min.js',
                     ],
                 ],
             ],
@@ -471,10 +476,11 @@ trait Public_Helper {
             $css_file = '/assets/css/style.css';
             $js_file = '/assets/js/jquery.js';
         }
+        
         wp_enqueue_style(SA_ELEMENTOR_TEXTDOMAIN, content_url('uploads/OxiAddonsCustomData/elementor_addons/' . $css_file));
         wp_enqueue_script(SA_ELEMENTOR_TEXTDOMAIN . '-js', content_url('uploads/OxiAddonsCustomData/elementor_addons/' . $js_file), ['jquery']);
         // hook extended assets
-        do_action(SA_ELEMENTOR_TEXTDOMAIN . '/after_enqueue_scripts', $this->has_cache_files());
+        //do_action(SA_ELEMENTOR_TEXTDOMAIN . '/after_enqueue_scripts', $this->has_cache_files());
     }
 
     /**
