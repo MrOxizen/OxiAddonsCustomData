@@ -696,4 +696,3 @@ class SA_Content_Protection {
     }
 
 }
-new SA_Content_Protection();

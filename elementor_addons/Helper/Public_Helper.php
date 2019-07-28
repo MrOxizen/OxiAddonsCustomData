@@ -556,15 +556,10 @@ trait Public_Helper {
                 'class' => '\SA_ELEMENTOR_ADDONS\Extensions\SA_Content_Protection\SA_Content_Protection',
                 'dependency' => [
                     'css' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/justifiedGallery/css/justifiedGallery.min.css',
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Justified_Gallery/assets/index.min.css',
-                    ],
-                    'js' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/justifiedGallery/js/jquery.justifiedGallery.min.js',
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Justified_Gallery/assets/index.min.js',
-                    ],
+                        SA_ELEMENTOR_ADDONS_URL . 'Extensions/SA_Content_Protection/assets/index.min.css',
+                    ]
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Extension',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -572,6 +567,7 @@ trait Public_Helper {
         ];
         return $response;
     }
+
     public function register_widget_categories($elements_manager) {
         $elements_manager->add_category(
                 'sa-el-addons', [
@@ -601,8 +597,12 @@ trait Public_Helper {
         asort($active_elements);
 
         foreach ($active_elements as $key => $active_element) {
-            if (array_key_exists($key, $this->registered_elements) && class_exists($this->registered_elements[$key]['class'])) {
-                $widgets_manager->register_widget_type(new $this->registered_elements[$key]['class']);
+            if (array_key_exists('category', $this->registered_elements[$key]) && $this->registered_elements[$key]['category'] == 'Extension') {
+                  new $this->registered_elements[$key]['class'];
+            } else {
+                if (array_key_exists($key, $this->registered_elements) && class_exists($this->registered_elements[$key]['class'])) {
+                    $widgets_manager->register_widget_type(new $this->registered_elements[$key]['class']);
+                }
             }
         }
     }
@@ -777,10 +777,10 @@ trait Public_Helper {
                 }
                 ?>
                 <li <?php echo $obj->get_render_attribute_string('pricing_feature_item' . $counter); ?>>
-                    <?php if ('show' === $settings['sa_el_pricing_table_icon_enabled']) : ?>
+                        <?php if ('show' === $settings['sa_el_pricing_table_icon_enabled']) : ?>
                         <span class="li-icon" style="color:<?php echo esc_attr($item['sa_el_pricing_table_list_icon_color']); ?>"><i class="<?php echo esc_attr($item['sa_el_pricing_table_list_icon']); ?>"></i></span>
                         <?php endif; ?>
-                        <?php echo $item['sa_el_pricing_table_item']; ?>
+                <?php echo $item['sa_el_pricing_table_item']; ?>
                 </li>
                 <?php
                 $counter++;
