@@ -1,7 +1,7 @@
 <?php
 use SA_FLBUILDER_ADDONS\Classes\Bootstrap;
 
-class OxiImageIconModule extends FLBuilderModule {
+class OxiInfoListModule extends FLBuilderModule {
 
     /**
      * Constructor function that constructs default values for the Flip Box Module
@@ -11,12 +11,12 @@ class OxiImageIconModule extends FLBuilderModule {
     public function __construct() {
         parent::__construct(
                 array(
-                    'name' => __('Image/Icon', SA_FLBUILDER_TEXTDOMAIN),
-                    'description' => __('Image/Icon', SA_FLBUILDER_TEXTDOMAIN),
+                    'name' => __('Info Lists', SA_FLBUILDER_TEXTDOMAIN),
+                    'description' => __('Info Lists', SA_FLBUILDER_TEXTDOMAIN),
                     'group' => 'Shortcode Addons',
                     'category' => 'Content Elements',
-                    'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/imageicon',
-                    'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/imageicon',
+                    'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/info-lists',
+                    'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/info-lists',
                     'editor_export' => true, // Defaults to true and can be omitted.
                     'enabled' => true, // Defaults to true and can be omitted.
                     'icon' => '',
@@ -27,4 +27,4 @@ class OxiImageIconModule extends FLBuilderModule {
 
 }
 
-require_once FL_MODULE_SA_FLBUILDER_URL . 'modules/imageicon/image_icon_register.php';
+require_once FL_MODULE_SA_FLBUILDER_URL . 'modules/info-lists/info-list-register.php';
