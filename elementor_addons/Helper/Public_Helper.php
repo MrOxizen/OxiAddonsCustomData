@@ -553,13 +553,18 @@ trait Public_Helper {
                 'API' => ''
             ],
             'content_protection' => [
-                'class' => '\SA_ELEMENTOR_ADDONS\Extensions\Content_Protection\Content_Protection',
+                'class' => '\SA_ELEMENTOR_ADDONS\Extensions\SA_Content_Protection\SA_Content_Protection',
                 'dependency' => [
                     'css' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Extensions/Content_Protection/assets/index.min.css',
-                    ]
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/justifiedGallery/css/justifiedGallery.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Justified_Gallery/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/justifiedGallery/js/jquery.justifiedGallery.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Justified_Gallery/assets/index.min.js',
+                    ],
                 ],
-                'category' => 'Extension',
+                'category' => 'Content Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -567,7 +572,6 @@ trait Public_Helper {
         ];
         return $response;
     }
-
     public function register_widget_categories($elements_manager) {
         $elements_manager->add_category(
                 'sa-el-addons', [
@@ -589,7 +593,7 @@ trait Public_Helper {
     /**
      * Register widgets
      *
-     * @since v3.0.0
+     * @since v1.6.0
      */
     public function register_elements($widgets_manager) {
         $active_elements = $this->Get_Active_Elements();
