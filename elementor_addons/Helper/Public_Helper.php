@@ -40,7 +40,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Accordion/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Extension',
+                'category' => 'Content Elements',
                 'Premium' => TRUE,
                 'condition' => 'wp-forms',
                 'API' => ''
@@ -52,7 +52,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Button/assets/index.min.css',
                     ],
                 ],
-                'category' => 'Extension',
+                'category' => 'Content Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -64,7 +64,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Call_To_Action/assets/index.min.css',
                     ],
                 ],
-                'category' => 'Extension',
+                'category' => 'Content Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -548,6 +548,18 @@ trait Public_Helper {
                     ],
                 ],
                 'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'content_protection' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Extensions\Content_Protection\Content_Protection',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Extensions/Content_Protection/assets/index.min.css',
+                    ]
+                ],
+                'category' => 'Extension',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
