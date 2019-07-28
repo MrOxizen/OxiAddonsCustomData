@@ -21,6 +21,7 @@ trait Template
                 'flipbox',
                 'heading',
                 'Image/Icon',
+                'info-table',
             ),
         );
         ?>

@@ -51,24 +51,8 @@ FLBuilder::register_module(
             ),
         ),
         'style'      => array(
-            'title'    => __('Styles', SA_FLBUILDER_TEXTDOMAIN),
+            'title'    => __('Separator', SA_FLBUILDER_TEXTDOMAIN),
             'sections' => array(
-                'structure'   => array(
-                    'title'  => __('Structure', SA_FLBUILDER_TEXTDOMAIN),
-                    'fields' => array(
-                        'alignment' => array(
-                            'type'    => 'align',
-                            'label'   => 'Alignment',
-                            'default' => 'center',
-                            'responsive' => true,
-                            'preview' => array(
-                                'type'       => 'css',
-                                'selector'   => '.my-selector',
-                                'property'   => 'text-align',
-                            ),
-                        ),
-                    ),
-                ),
                 'separator'  => array(
                     'title'  => __('Separator', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
@@ -125,14 +109,14 @@ FLBuilder::register_module(
                         'icon_size'            => array(
                             'type'        => 'unit',
                             'label'       => __('Size', SA_FLBUILDER_TEXTDOMAIN),
-                            'placeholder' => '30',
+                            'placeholder' => '22',
                             'maxlength'   => '5',
                             'size'        => '6',
                             'units'       => array('px'),
                             'slider'      => true,
                             'preview'     => array(
                                 'type'     => 'css',
-                                'selector' => '.uabb-icon-wrap .uabb-icon i, .uabb-icon-wrap .uabb-icon i:before',
+                                'selector' => '.oxi__addons_image_icon_divider .oxi__icon',
                                 'property' => 'font-size',
                                 'unit'     => 'px',
                             ),
@@ -146,8 +130,38 @@ FLBuilder::register_module(
                             'show_alpha'  => true,
                             'preview'     => array(
                                 'type'     => 'css',
-                                'selector' => '.uabb-icon-wrap .uabb-icon i, .uabb-icon-wrap .uabb-icon i:before',
+                                'selector' => '.oxi__addons_image_icon_divider .oxi__icon',
                                 'property' => 'color',
+                            ),
+                        ),
+                        'padding_left'            => array(
+                            'type'        => 'unit',
+                            'label'       => __('Padding Left', SA_FLBUILDER_TEXTDOMAIN),
+                            'placeholder' => '5',
+                            'maxlength'   => '5',
+                            'size'        => '6',
+                            'units'       => array('px'),
+                            'slider'      => true,
+                            'preview'     => array(
+                                'type'     => 'css',
+                                'selector' => '.oxi__addons_image_icon_divider',
+                                'property' => 'padding-left',
+                                'unit'     => 'px',
+                            ),
+                        ),
+                        'padding_right'            => array(
+                            'type'        => 'unit',
+                            'label'       => __('Padding Right', SA_FLBUILDER_TEXTDOMAIN),
+                            'placeholder' => '5',
+                            'maxlength'   => '5',
+                            'size'        => '6',
+                            'units'       => array('px'),
+                            'slider'      => true,
+                            'preview'     => array(
+                                'type'     => 'css',
+                                'selector' => '.oxi__addons_image_icon_divider',
+                                'property' => 'padding-right',
+                                'unit'     => 'px',
                             ),
                         ),
                     ),
@@ -215,7 +229,7 @@ FLBuilder::register_module(
                             'default' => 'Ultimate',
                             'preview' => array(
                                 'type'     => 'text',
-                                'selector' => '.uabb-divider-text',
+                                'selector' => '.oxi__line_text',
                             ),
                         ),
                         'responsive_compatibility' => array(
@@ -224,9 +238,9 @@ FLBuilder::register_module(
                             'help'    => __('There might be responsive issues for long texts. If you are facing such issues then select appropriate devices width to make your module responsive.', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => '',
                             'options' => array(
-                                ''                         => __('None', SA_FLBUILDER_TEXTDOMAIN),
-                                'uabb-responsive-mobile'   => __('Small Devices', SA_FLBUILDER_TEXTDOMAIN),
-                                'uabb-responsive-medsmall' => __('Medium & Small Devices', SA_FLBUILDER_TEXTDOMAIN),
+                                'none'                         => __('None', SA_FLBUILDER_TEXTDOMAIN),
+                                'mobile_device'   => __('Small Devices', SA_FLBUILDER_TEXTDOMAIN),
+                                'medium_device' => __('Medium & Small Devices', SA_FLBUILDER_TEXTDOMAIN),
                             ),
                         ),
                     ),
@@ -244,11 +258,22 @@ FLBuilder::register_module(
                                 'dotted' => __('Dotted', SA_FLBUILDER_TEXTDOMAIN),
                                 'double' => __('Double', SA_FLBUILDER_TEXTDOMAIN),
                             ),
-                            'help'    => __('The type of border to use. Double borders must have a height of at least 3px to render properly.', SA_FLBUILDER_TEXTDOMAIN),
+                            'help'    => __('The type of border to use. Double borders must have a height of at least 2px to render properly.', SA_FLBUILDER_TEXTDOMAIN),
                             'preview' => array(
                                 'type'     => 'css',
-                                'selector' => '.uabb-separator, .uabb-separator-line > span',
+                                'selector' => '.oxi__addons_seperator_span',
                                 'property' => 'border-top-style',
+                            ),
+                        ),
+                        'alignment' => array(
+                            'type'    => 'align',
+                            'label'   => 'Alignment',
+                            'default' => 'center',
+                            'responsive' => true,
+                            'preview' => array(
+                                'type'       => 'css',
+                                'selector'   => '.oxi__addons_line_divider',
+                                'property'   => 'text-align',
                             ),
                         ),
                         'separator_line_color'  => array(
@@ -260,14 +285,14 @@ FLBuilder::register_module(
                             'show_alpha'  => true,
                             'preview'     => array(
                                 'type'     => 'css',
-                                'selector' => '.uabb-separator, .uabb-separator-line > span',
+                                'selector' => '.oxi__addons_seperator_span',
                                 'property' => 'border-top-color',
                             ),
                         ),
                         'separator_line_height' => array(
                             'type'        => 'unit',
                             'label'       => __('Thickness', SA_FLBUILDER_TEXTDOMAIN),
-                            'placeholder' => '1',
+                            'placeholder' => '2',
                             'maxlength'   => '2',
                             'size'        => '3',
                             'units'       => array('px'),
@@ -275,7 +300,7 @@ FLBuilder::register_module(
                             'help'        => __('Thickness of Border', SA_FLBUILDER_TEXTDOMAIN),
                             'preview'     => array(
                                 'type'     => 'css',
-                                'selector' => '.uabb-separator, .uabb-separator-line > span',
+                                'selector' => '.oxi__addons_seperator_span',
                                 'property' => 'border-top-width',
                                 'unit'     => 'px',
                             ),
@@ -283,11 +308,18 @@ FLBuilder::register_module(
                         'separator_line_width'  => array(
                             'type'        => 'unit',
                             'label'       => __('Width', SA_FLBUILDER_TEXTDOMAIN),
-                            'placeholder' => '30',
+                            'placeholder' => '40',
                             'maxlength'   => '3',
                             'size'        => '5',
                             'units'       => array('%'),
                             'slider'      => true,
+                            'responsive'      => true,
+                            'preview'     => array(
+                                'type'     => 'css',
+                                'selector' => '.oxi__addons_seperator_width',
+                                'property' => 'width',
+                                'unit'     => '%',
+                            ),
                         ),
                     ),
                 ),
@@ -299,7 +331,7 @@ FLBuilder::register_module(
                 'heading_typo'              => array(
                     'title'  => __('Heading', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
-                        'tag'                   => array(
+                        'tag' => array(
                             'type'    => 'select',
                             'label'   => __('HTML Tag', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => 'h3',
@@ -318,11 +350,11 @@ FLBuilder::register_module(
                             'responsive' => true,
                             'preview'    => array(
                                 'type'      => 'css',
-                                'selector'  => '.uabb-heading .uabb-heading-text, .uabb-heading *, .uabb-heading-text',
+                                'selector'  => '.oxi__addons_header',
                                 'important' => true,
                             ),
                         ),
-                        'color'                 => array(
+                        'title_color'                 => array(
                             'type'        => 'color',
                             'label'       => __('Text Color', SA_FLBUILDER_TEXTDOMAIN),
                             'default'     => '',
@@ -332,35 +364,21 @@ FLBuilder::register_module(
                             'preview'     => array(
                                 'type'     => 'css',
                                 'property' => 'color',
-                                'selector' => '.fl-module-content.fl-node-content .uabb-heading  .uabb-heading-text',
+                                'selector' => '.oxi__addons_header',
                             ),
                         ),
-                        'heading_margin_top'    => array(
-                            'type'        => 'unit',
-                            'label'       => __('Margin Top', SA_FLBUILDER_TEXTDOMAIN),
-                            'placeholder' => '0',
-                            'size'        => '5',
-                            'units'       => array('px'),
-                            'slider'      => true,
-                            'preview'     => array(
-                                'type'     => 'css',
-                                'property' => 'margin-top',
-                                'selector' => '.uabb-heading',
-                                'unit'     => 'px',
-                            ),
-                        ),
-                        'heading_margin_bottom' => array(
-                            'type'        => 'unit',
-                            'label'       => __('Margin Bottom', SA_FLBUILDER_TEXTDOMAIN),
-                            'placeholder' => '15',
-                            'size'        => '5',
-                            'units'       => array('px'),
-                            'slider'      => true,
-                            'preview'     => array(
-                                'type'     => 'css',
-                                'property' => 'margin-bottom',
-                                'selector' => '.uabb-heading',
-                                'unit'     => 'px',
+                        'heading_padding' => array(
+                            'type' => 'dimension',
+                            'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
+                            'help' => __('Manage Heading padding', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider' => true,
+                            'units' => array('px'),
+                            'responsive' => array(
+                                'placeholder' => array(
+                                    'default' => '0',
+                                    'medium' => '0',
+                                    'responsive' => '0',
+                                ),
                             ),
                         ),
                     ),
@@ -374,7 +392,7 @@ FLBuilder::register_module(
                             'responsive' => true,
                             'preview'    => array(
                                 'type'      => 'css',
-                                'selector'  => '.uabb-text-editor',
+                                'selector'  => '.oxi__addons_details',
                                 'important' => true,
                             ),
                         ),
@@ -388,35 +406,21 @@ FLBuilder::register_module(
                             'preview'     => array(
                                 'type'     => 'css',
                                 'property' => 'color',
-                                'selector' => '.fl-module-content.fl-node-content .uabb-subheading, .fl-module-content.fl-node-content .uabb-subheading *',
+                                'selector' => '.oxi__addons_details',
                             ),
                         ),
-                        'desc_margin_top'    => array(
-                            'type'        => 'unit',
-                            'label'       => __('Margin Top', SA_FLBUILDER_TEXTDOMAIN),
-                            'placeholder' => '15',
-                            'size'        => '5',
-                            'units'       => array('px'),
-                            'slider'      => true,
-                            'preview'     => array(
-                                'type'     => 'css',
-                                'property' => 'margin-top',
-                                'selector' => '.uabb-subheading',
-                                'unit'     => 'px',
-                            ),
-                        ),
-                        'desc_margin_bottom' => array(
-                            'type'        => 'unit',
-                            'label'       => __('Margin Bottom', SA_FLBUILDER_TEXTDOMAIN),
-                            'placeholder' => '0',
-                            'size'        => '5',
-                            'units'       => array('px'),
-                            'slider'      => true,
-                            'preview'     => array(
-                                'type'     => 'css',
-                                'property' => 'margin-bottom',
-                                'selector' => '.uabb-subheading',
-                                'unit'     => 'px',
+                        'desc_padding' => array(
+                            'type' => 'dimension',
+                            'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
+                            'help' => __('Manage Description padding', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider' => true,
+                            'units' => array('px'),
+                            'responsive' => array(
+                                'placeholder' => array(
+                                    'default' => '0',
+                                    'medium' => '0',
+                                    'responsive' => '0',
+                                ),
                             ),
                         ),
                     ),
@@ -446,7 +450,7 @@ FLBuilder::register_module(
                             'responsive' => true,
                             'preview'    => array(
                                 'type'      => 'css',
-                                'selector'  => '.uabb-divider-text',
+                                'selector'  => '.oxi__line_text',
                                 'important' => true,
                             ),
                         ),
@@ -460,7 +464,7 @@ FLBuilder::register_module(
                             'preview'     => array(
                                 'type'     => 'css',
                                 'property' => 'color',
-                                'selector' => '.uabb-divider-text',
+                                'selector' => '.oxi__line_text',
                             ),
                         ),
                     ),

@@ -189,8 +189,8 @@ FLBuilder::register_module('Button_module', array(
                         'responsive' => true,
                         'preview' => array(
                             'type'       => 'css',
-                            'property'   => 'justify-content',
-                            'selector' => '.oxi__button_wrapper'
+                            'property'   => 'text-align',
+                            'selector' => '.oxi__button_wrapper_main'
                         ),
                     ),
                     'button_padding' => array(

@@ -18,65 +18,11 @@ if ($settings->button_background_type === 'color') {
 SA_FLBUILDER_HELPER::sa_fl_general_style(array(
     'color' => $settings->text_color,
 ), '.fl-node-' . $id . ' .oxi__button');
+// button position styleing
+SA_FLBUILDER_HELPER::sa_fl_responsive_setting('text-align', $settings, 'alignment', '.fl-node-' . $id . ' .oxi__button_wrapper_main');
 
 
-/**
- * button alignment responsive role;
- */
-if ($settings->button_width !== 'full') {
-    ?>
-    .fl-node-<?php echo $id; ?> .oxi__button_wrapper{
-    display:flex;
-    }
-    <?php
-    if ($settings->alignment === 'left') {
-        echo '.fl-node-' . $id . ' .oxi__button_wrapper{
-                     justify-content: flex-start;
-                }';
-    } else if ($settings->alignment === 'center') {
-        echo '.fl-node-' . $id . ' .oxi__button_wrapper{
-                     justify-content: center;
-                }';
-    } else {
-        echo '.fl-node-' . $id . ' .oxi__button_wrapper{
-                     justify-content: flex-end;
-                }';
-    } ?>
-    @media only screen and (min-width : 669px) and (max-width : 993px){
-    <?php
-    if ($settings->alignment_medium === 'left') {
-        echo '.fl-node-' . $id . ' .oxi__button_wrapper{
-                     justify-content: flex-start;
-                }';
-    } else if ($settings->alignment_medium === 'center') {
-        echo '.fl-node-' . $id . ' .oxi__button_wrapper{
-                     justify-content: center;
-                }';
-    } else {
-        echo '.fl-node-' . $id . ' .oxi__button_wrapper{
-                     justify-content: flex-end;
-                }';
-    } ?>
-    }
-    @media only screen and (max-width : 668px){
-    <?php
-    if ($settings->alignment_responsive === 'left') {
-        echo '.fl-node-' . $id . ' .oxi__button_wrapper{
-                     justify-content: flex-start;
-                }';
-    } else if ($settings->alignment_responsive === 'center') {
-        echo '.fl-node-' . $id . ' .oxi__button_wrapper{
-                     justify-content: center;
-                }';
-    } else {
-        echo '.fl-node-' . $id . ' .oxi__button_wrapper{
-                     justify-content: flex-end;
-                }';
-    } ?>
-    }
-<?php
 
-}
 /**
  * coding for custom width, auto and full width
  */
@@ -84,7 +30,7 @@ SA_FLBUILDER_HELPER::sa_fl_dimension_utility('button', $settings, 'padding', '.f
 if ($settings->button_width === 'auto') {
     ?>
     .fl-node-<?php echo $id; ?> .oxi__button{
-    display: flex;
+    display: inline-block;
     }
 <?php
 } elseif ($settings->button_width === 'full') {
@@ -96,12 +42,16 @@ if ($settings->button_width === 'auto') {
     }
 <?php
 } else {
+    ?>
+    .fl-node-<?php echo $id; ?> .oxi__button_wrapper{
+    height: <?php echo $settings->custom_height; ?>px;
+    justify-content: center;
+    }
+    <?php
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
         'width' => $settings->custom_width . 'px',
         'height' => $settings->custom_height . 'px',
-        'display' => 'flex',
-        'justify-content' => 'center',
-        'align-items' => 'center',
+        'display' => 'inline-block',
         'padding' => '0'
     ), '.fl-node-' . $id . ' .oxi__button');
 }

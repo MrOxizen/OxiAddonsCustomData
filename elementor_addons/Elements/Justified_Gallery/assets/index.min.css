@@ -1,0 +1,118 @@
+.sa-el-btn {
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	text-decoration: none;
+	font-size: 14px;
+	line-height: 1;
+	-webkit-transition: all .3s;
+	        transition: all .3s;
+}
+.sa-el-btn:not(.sa-el-btn--link) {
+	padding: 15px 25px; 
+	border-radius: .25rem;
+	background-color: #562dd4;
+	color: #fff;
+}
+.sa-el-btn:not(.sa-el-btn--link):hover,
+.sa-el-btn:not(.sa-el-btn--link):focus {
+	background-color: #e2498a;
+}
+.sa-el-btn.sa-el-btn--link {
+	color: #562dd4;
+}
+.sa-el-btn.sa-el-btn--link:hover,
+.sa-el-btn.sa-el-btn--link:focus {
+	color: #e2498a;
+}
+.sa-el-btn-icon {
+	-webkit-transition: all .3s;
+	        transition: all .3s;
+}
+.sa-el-btn-icon + .sa-el-btn-text,
+.sa-el-btn-text + .sa-el-btn-icon {
+	margin-left: 5px;
+}
+
+
+.sa-el-gallery-filter {
+	margin: 0 10px 2rem;
+	padding: 0; 
+	list-style: none;
+}
+.sa-el-gallery-filter > li {
+	display: inline-block;
+	margin-bottom: 10px;
+}
+.sa-el-gallery-filter > li:not(:last-child) {
+	margin-right: 10px;
+}
+.sa-el-gallery-filter > li > button {
+	display: block;
+	padding: 10px 25px;
+	border: 2px solid #562dd4;
+	border-radius: .25rem;
+	background-color: transparent;
+	color: #562dd4;
+	text-transform: uppercase; 
+	font-size: 14px;
+	cursor: pointer;
+	-webkit-transition: all .3s;
+	        transition: all .3s;
+}
+.sa-el-gallery-filter > li > button:hover,
+.sa-el-gallery-filter > li > button:focus {
+	outline: 0; 
+	background-color: #562dd4;
+	color: #fff;
+}
+.sa-el-gallery-filter > .sa-el-filter-active > button {
+	background-color: #562dd4; 
+	color: #fff;
+}
+
+.sa-el-justified-gallery-item,
+.sa-el-justified-gallery-item > img {
+	border-radius: 6px;
+}
+
+.justified-gallery > .sa-el-justified-gallery-item > .caption {
+	bottom: -100px !important;
+	padding: 10px;
+	-webkit-transition: all .25s !important;
+	        transition: all .25s !important;
+	-webkit-animation: haSmoothReveal .3s forwards;
+	        animation: haSmoothReveal .3s forwards;
+}
+
+.justified-gallery > .sa-el-justified-gallery-item > .caption.caption-visible {
+	bottom: 0 !important;
+}
+
+.justified-gallery > .entry-visible > img,
+.justified-gallery > .entry-visible > a > img {
+	-webkit-transition: all 300ms, opacity 500ms ease-in;
+	        transition: all 300ms, opacity 500ms ease-in;
+}
+
+@-webkit-keyframes haSmoothReveal {
+	from {
+		-webkit-transform: translateY(100px);
+		        transform: translateY(100px);
+	}
+	to {
+		-webkit-transform: translateY(0);
+		        transform: translateY(0);
+	}
+}
+
+@keyframes haSmoothReveal {
+	from {
+		-webkit-transform: translateY(100px);
+		        transform: translateY(100px);
+	}
+	to {
+		-webkit-transform: translateY(0);
+		        transform: translateY(0);
+	}
+}

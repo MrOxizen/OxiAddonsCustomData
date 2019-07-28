@@ -1,7 +1,5 @@
 <?php
 
-use SA_FLBUILDER_ADDONS\Classes\Bootstrap;
-
 class Heading_module extends FLBuilderModule
 {
 

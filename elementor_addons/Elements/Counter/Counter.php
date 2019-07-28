@@ -48,7 +48,7 @@ class Counter extends Widget_Base {
          */
         $this->start_controls_section(
                 'section_counter', [
-                'label' => __('Counter', SA_ELEMENTOR_TEXTDOMAIN),
+            'label' => __('Counter', SA_ELEMENTOR_TEXTDOMAIN),
                 ]
         );
 
@@ -242,7 +242,31 @@ class Counter extends Widget_Base {
         );
 
         $this->end_controls_section();
+        $this->end_controls_section();
+        if (!apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', ['', '', TRUE])) {
+            $this->start_controls_section(
+                    'sa_el_section_pro', [
+                'label' => __('Go Premium for More Features', SA_ELEMENTOR_TEXTDOMAIN)
+                    ]
+            );
 
+            $this->add_control(
+                    'sa_el_control_get_pro', [
+                'label' => __('Unlock more possibilities', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    '1' => [
+                        'title' => __('', SA_ELEMENTOR_TEXTDOMAIN),
+                        'icon' => 'fa fa-unlock-alt',
+                    ],
+                ],
+                'default' => '1',
+                'description' => '<span class="pro-feature"> Get the  <a href="https://www.oxilab.org/downloads/short-code-addons/" target="_blank">Pro version</a> for more stunning elements and customization options.</span>'
+                    ]
+            );
+
+            $this->end_controls_section();
+        }
         /**
          * STYLE TAB
          */
@@ -961,100 +985,44 @@ class Counter extends Widget_Base {
         ?>
         <div class="sa-el-counter-container">
             <div <?php echo $this->get_render_attribute_string('counter'); ?>>
-        <?php if ($settings['counter_layout'] == 'layout-1' || $settings['counter_layout'] == 'layout-5' || $settings['counter_layout'] == 'layout-6') { ?>
-            <?php
-            // Counter icon
-            $this->render_icon();
-            ?>
+                <?php if ($settings['counter_layout'] == 'layout-1' || $settings['counter_layout'] == 'layout-5' || $settings['counter_layout'] == 'layout-6') { ?>
+                    <?php
+                    // Counter icon
+                    $this->render_icon();
+                    ?>
 
                     <div class="sa-el-counter-number-title-wrap">
                         <div class="sa-el-counter-number-wrap">
-            <?php
-            if ($settings['number_prefix'] != '') {
-                printf('<span class="sa-el-counter-number-prefix">%1$s</span>', $settings['number_prefix']);
-            }
-            ?>
-                            <div <?php echo $this->get_render_attribute_string('counter-number'); ?>>
-                                0
-                            </div>
-            <?php
-            if ($settings['number_suffix'] != '') {
-                printf('<span class="sa-el-counter-number-suffix">%1$s</span>', $settings['number_suffix']);
-            }
-            ?>
-                        </div>
-
-            <?php if ($settings['num_divider'] == 'yes') { ?>
-                            <div class="sa-el-counter-num-divider-wrap">
-                                <span class="sa-el-counter-num-divider"></span>
-                            </div>
-            <?php } ?>
-
-            <?php
-            if (!empty($settings['counter_title'])) {
-                printf('<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string('counter_title'));
-                echo $settings['counter_title'];
-                printf('</%1$s>', $settings['title_html_tag']);
-            }
-            ?>
-                    </div>
-        <?php } elseif ($settings['counter_layout'] == 'layout-2') { ?>
-            <?php
-            // Counter icon
-            $this->render_icon();
-
-            if (!empty($settings['counter_title'])) {
-                printf('<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string('counter_title'));
-                echo $settings['counter_title'];
-                printf('</%1$s>', $settings['title_html_tag']);
-            }
-            ?>
-
-                    <div class="sa-el-counter-number-wrap">
-            <?php
-            if ($settings['number_prefix'] != '') {
-                printf('<span class="sa-el-counter-number-prefix">%1$s</span>', $settings['number_prefix']);
-            }
-            ?>
-                        <div <?php echo $this->get_render_attribute_string('counter-number'); ?>>
-                            0
-                        </div>
-                    <?php
-                    if ($settings['number_suffix'] != '') {
-                        printf('<span class="sa-el-counter-number-suffix">%1$s</span>', $settings['number_suffix']);
-                    }
-                    ?>
-                    </div>
-
-                            <?php if ($settings['num_divider'] == 'yes') { ?>
-                        <div class="sa-el-counter-num-divider-wrap">
-                            <span class="sa-el-counter-num-divider"></span>
-                        </div>
-                            <?php } ?>
-        <?php } elseif ($settings['counter_layout'] == 'layout-3') { ?>
-                    <div class="sa-el-counter-number-wrap">
                             <?php
                             if ($settings['number_prefix'] != '') {
                                 printf('<span class="sa-el-counter-number-prefix">%1$s</span>', $settings['number_prefix']);
                             }
                             ?>
-                        <div <?php echo $this->get_render_attribute_string('counter-number'); ?>>
-                            0
+                            <div <?php echo $this->get_render_attribute_string('counter-number'); ?>>
+                                0
+                            </div>
+                            <?php
+                            if ($settings['number_suffix'] != '') {
+                                printf('<span class="sa-el-counter-number-suffix">%1$s</span>', $settings['number_suffix']);
+                            }
+                            ?>
                         </div>
+
+                        <?php if ($settings['num_divider'] == 'yes') { ?>
+                            <div class="sa-el-counter-num-divider-wrap">
+                                <span class="sa-el-counter-num-divider"></span>
+                            </div>
+                        <?php } ?>
+
                         <?php
-                        if ($settings['number_suffix'] != '') {
-                            printf('<span class="sa-el-counter-number-suffix">%1$s</span>', $settings['number_suffix']);
+                        if (!empty($settings['counter_title'])) {
+                            printf('<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string('counter_title'));
+                            echo $settings['counter_title'];
+                            printf('</%1$s>', $settings['title_html_tag']);
                         }
                         ?>
                     </div>
-
-                        <?php if ($settings['num_divider'] == 'yes') { ?>
-                        <div class="sa-el-counter-num-divider-wrap">
-                            <span class="sa-el-counter-num-divider"></span>
-                        </div>
-                        <?php } ?>
-
-                    <div class="sa-el-icon-title-wrap">
+                <?php } elseif ($settings['counter_layout'] == 'layout-2') { ?>
                     <?php
                     // Counter icon
                     $this->render_icon();
@@ -1065,8 +1033,64 @@ class Counter extends Widget_Base {
                         printf('</%1$s>', $settings['title_html_tag']);
                     }
                     ?>
+
+                    <div class="sa-el-counter-number-wrap">
+                        <?php
+                        if ($settings['number_prefix'] != '') {
+                            printf('<span class="sa-el-counter-number-prefix">%1$s</span>', $settings['number_prefix']);
+                        }
+                        ?>
+                        <div <?php echo $this->get_render_attribute_string('counter-number'); ?>>
+                            0
+                        </div>
+                        <?php
+                        if ($settings['number_suffix'] != '') {
+                            printf('<span class="sa-el-counter-number-suffix">%1$s</span>', $settings['number_suffix']);
+                        }
+                        ?>
                     </div>
-        <?php } elseif ($settings['counter_layout'] == 'layout-4') { ?>
+
+                    <?php if ($settings['num_divider'] == 'yes') { ?>
+                        <div class="sa-el-counter-num-divider-wrap">
+                            <span class="sa-el-counter-num-divider"></span>
+                        </div>
+                    <?php } ?>
+                <?php } elseif ($settings['counter_layout'] == 'layout-3') { ?>
+                    <div class="sa-el-counter-number-wrap">
+                        <?php
+                        if ($settings['number_prefix'] != '') {
+                            printf('<span class="sa-el-counter-number-prefix">%1$s</span>', $settings['number_prefix']);
+                        }
+                        ?>
+                        <div <?php echo $this->get_render_attribute_string('counter-number'); ?>>
+                            0
+                        </div>
+                        <?php
+                        if ($settings['number_suffix'] != '') {
+                            printf('<span class="sa-el-counter-number-suffix">%1$s</span>', $settings['number_suffix']);
+                        }
+                        ?>
+                    </div>
+
+                    <?php if ($settings['num_divider'] == 'yes') { ?>
+                        <div class="sa-el-counter-num-divider-wrap">
+                            <span class="sa-el-counter-num-divider"></span>
+                        </div>
+                    <?php } ?>
+
+                    <div class="sa-el-icon-title-wrap">
+                        <?php
+                        // Counter icon
+                        $this->render_icon();
+
+                        if (!empty($settings['counter_title'])) {
+                            printf('<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string('counter_title'));
+                            echo $settings['counter_title'];
+                            printf('</%1$s>', $settings['title_html_tag']);
+                        }
+                        ?>
+                    </div>
+                <?php } elseif ($settings['counter_layout'] == 'layout-4') { ?>
                     <div class="sa-el-icon-title-wrap">
                         <?php
                         // Counter icon
@@ -1081,11 +1105,11 @@ class Counter extends Widget_Base {
                     </div>
 
                     <div class="sa-el-counter-number-wrap">
-            <?php
-            if ($settings['number_prefix'] != '') {
-                printf('<span class="sa-el-counter-number-prefix">%1$s</span>', $settings['number_prefix']);
-            }
-            ?>
+                        <?php
+                        if ($settings['number_prefix'] != '') {
+                            printf('<span class="sa-el-counter-number-prefix">%1$s</span>', $settings['number_prefix']);
+                        }
+                        ?>
                         <div <?php echo $this->get_render_attribute_string('counter-number'); ?>>
                             0
                         </div>
@@ -1096,62 +1120,62 @@ class Counter extends Widget_Base {
                         ?>
                     </div>
 
-            <?php if ($settings['num_divider'] == 'yes') { ?>
+                    <?php if ($settings['num_divider'] == 'yes') { ?>
                         <div class="sa-el-counter-num-divider-wrap">
                             <span class="sa-el-counter-num-divider"></span>
                         </div>
-                        <?php } ?>
                     <?php } ?>
+                <?php } ?>
             </div>
         </div><!-- .sa-el-counter-container -->
-                <?php
-            }
+        <?php
+    }
 
-            /**
-             * Render counter icon output on the frontend.
-             */
-            private function render_icon() {
-                $settings = $this->get_settings_for_display();
+    /**
+     * Render counter icon output on the frontend.
+     */
+    private function render_icon() {
+        $settings = $this->get_settings_for_display();
 
-                if ($settings['sa_el_icon_type'] == 'icon') {
-                    if (!empty($settings['counter_icon'])) {
-                        ?>
+        if ($settings['sa_el_icon_type'] == 'icon') {
+            if (!empty($settings['counter_icon'])) {
+                ?>
                 <span class="sa-el-counter-icon-wrap">
                     <span class="sa-el-counter-icon">
                         <span class="<?php echo $settings['counter_icon'] ?>" aria-hidden="true"></span>
                     </span>
                 </span>
-                        <?php
-                        }
-                    } elseif ($settings['sa_el_icon_type'] == 'image') {
-                        $image = $settings['icon_image'];
-                        if ($image['url']) {
-                            ?>
+                <?php
+            }
+        } elseif ($settings['sa_el_icon_type'] == 'image') {
+            $image = $settings['icon_image'];
+            if ($image['url']) {
+                ?>
                 <span class="sa-el-counter-icon-wrap">
                     <span class="sa-el-counter-icon sa-el-counter-icon-img">
                         <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr(get_post_meta($image['id'], '_wp_attachment_image_alt', true)); ?>">
                     </span>
                 </span>
-                        <?php
-                        }
-                    }
+                <?php
+            }
+        }
 
-                    if ($settings['icon_divider'] == 'yes') {
-                        if ($settings['counter_layout'] == 'layout-1' || $settings['counter_layout'] == 'layout-2') {
-                            ?>
+        if ($settings['icon_divider'] == 'yes') {
+            if ($settings['counter_layout'] == 'layout-1' || $settings['counter_layout'] == 'layout-2') {
+                ?>
                 <div class="sa-el-counter-icon-divider-wrap">
                     <span class="sa-el-counter-icon-divider"></span>
                 </div>
-                            <?php
-                        }
-                    }
-                }
+                <?php
+            }
+        }
+    }
 
-                /**
-                 * Render counter icon output in the editor.
-                 */
-                protected function _icon_template() {
-                    ?>
+    /**
+     * Render counter icon output in the editor.
+     */
+    protected function _icon_template() {
+        ?>
         <# if ( settings.sa_el_icon_type == 'icon' ) { #>
         <# if ( settings.counter_icon != '' ) { #>
         <span class="sa-el-counter-icon-wrap">
@@ -1244,16 +1268,16 @@ class Counter extends Widget_Base {
         <div class="sa-el-counter-container">
             <div class="sa-el-counter sa-el-counter-{{ settings.counter_layout }}" data-target=".sa-el-counter-number">
                 <# if ( settings.counter_layout == 'layout-1' || settings.counter_layout == 'layout-5' || settings.counter_layout == 'layout-6' ) { #>
-        <?php
-        // Counter icon
-        $this->_icon_template();
-        ?>
+                <?php
+                // Counter icon
+                $this->_icon_template();
+                ?>
 
                 <div class="sa-el-counter-number-title-wrap">
-        <?php
-        // Counter number
-        $this->_number_template();
-        ?>
+                    <?php
+                    // Counter number
+                    $this->_number_template();
+                    ?>
 
                     <# if ( settings.num_divider == 'yes' ) { #>
                     <div class="sa-el-counter-num-divider-wrap">
@@ -1261,22 +1285,22 @@ class Counter extends Widget_Base {
                     </div>
                     <# } #>
 
-        <?php
-        // Title number
-        $this->_title_template();
-        ?>
+                    <?php
+                    // Title number
+                    $this->_title_template();
+                    ?>
                 </div>
                 <# } else if ( settings.counter_layout == 'layout-2' ) { #>
-        <?php
-        // Counter icon
-        $this->_icon_template();
+                <?php
+                // Counter icon
+                $this->_icon_template();
 
-        // Title number
-        $this->_title_template();
+                // Title number
+                $this->_title_template();
 
-        // Counter number
-        $this->_number_template();
-        ?>
+                // Counter number
+                $this->_number_template();
+                ?>
 
                 <# if ( settings.num_divider == 'yes' ) { #>
                 <div class="sa-el-counter-num-divider-wrap">
@@ -1284,10 +1308,10 @@ class Counter extends Widget_Base {
                 </div>
                 <# } #>
                 <# } else if ( settings.counter_layout == 'layout-3' ) { #>
-        <?php
-        // Counter number
-        $this->_number_template();
-        ?>
+                <?php
+                // Counter number
+                $this->_number_template();
+                ?>
 
                 <# if ( settings.num_divider == 'yes' ) { #>
                 <div class="sa-el-counter-num-divider-wrap">
@@ -1296,13 +1320,13 @@ class Counter extends Widget_Base {
                 <# } #>
 
                 <div class="sa-el-icon-title-wrap">
-                <?php
-                // Counter icon
-                $this->_icon_template();
+                    <?php
+                    // Counter icon
+                    $this->_icon_template();
 
-                // Title number
-                $this->_title_template();
-                ?>
+                    // Title number
+                    $this->_title_template();
+                    ?>
                 </div>
                 <# } else if ( settings.counter_layout == 'layout-4' ) { #>
                 <div class="sa-el-icon-title-wrap">
@@ -1315,10 +1339,10 @@ class Counter extends Widget_Base {
                     ?>
                 </div>
 
-                    <?php
-                    // Counter number
-                    $this->_number_template();
-                    ?>
+                <?php
+                // Counter number
+                $this->_number_template();
+                ?>
 
                 <# if ( settings.num_divider == 'yes' ) { #>
                 <div class="sa-el-counter-num-divider-wrap">
@@ -1328,8 +1352,7 @@ class Counter extends Widget_Base {
                 <# } #>
             </div>
         </div><!-- .sa-el-counter-container -->
-                <?php
-            }
+        <?php
+    }
 
-        }
-        
+}

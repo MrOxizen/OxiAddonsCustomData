@@ -1,0 +1,357 @@
+@-webkit-keyframes animateStripe {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    100% {
+        -webkit-transform: translate(35px, 0);
+        transform: translate(35px, 0);
+    }
+}
+
+@keyframes animateStripe {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    100% {
+        -webkit-transform: translate(35px, 0);
+        transform: translate(35px, 0);
+    }
+}
+
+@-webkit-keyframes animateStripeRTL {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    100% {
+        -webkit-transform: translate(-35px, 0);
+        transform: translate(-35px, 0);
+    }
+}
+
+@keyframes animateStripeRTL {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    100% {
+        -webkit-transform: translate(-35px, 0);
+        transform: translate(-35px, 0);
+    }
+}
+
+.sa-el-progressbar {
+    position: relative;
+}
+
+.sa-el-progressbar-title {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.sa-el-progressbar-line {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 12px;
+    background-color: #eeeeee;
+}
+
+.sa-el-progressbar-line .sa-el-progressbar-count-wrap {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 5px);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.sa-el-progressbar-line-fill {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 0;
+    height: 12px;
+    background-color: #000000;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-transition: width 1500ms linear;
+    -o-transition: width 1500ms linear;
+    transition: width 1500ms linear;
+    overflow: hidden;
+}
+
+.sa-el-progressbar-circle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.sa-el-progressbar-circle .sa-el-progressbar-title {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.sa-el-progressbar-circle .sa-el-progressbar-count-wrap {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.sa-el-progressbar-circle-shadow {
+    width: 220px;
+    height: 220px;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.sa-el-progressbar-circle-pie {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-clip-path: inset(0 0 0 50%);
+    clip-path: inset(0 0 0 50%);
+}
+
+.sa-el-progressbar-circle-inner {
+    height: 100%;
+    width: 100%;
+    border-width: 12px;
+    border-style: solid;
+    border-color: #eeeeee;
+    border-radius: 50%;
+}
+
+.sa-el-progressbar-circle-half {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border-width: 12px;
+    border-style: solid;
+    border-color: #000000;
+    border-radius: 50%;
+    -webkit-clip-path: inset(0 50% 0 0);
+    clip-path: inset(0 50% 0 0);
+}
+
+.sa-el-progressbar-circle-half-left {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.sa-el-progressbar-circle-half-right {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    visibility: hidden;
+}
+
+.sa-el-progressbar-circle-inner-content {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.sa-el-progressbar-half-circle {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.sa-el-progressbar-half-circle .sa-el-progressbar-circle-pie {
+    -webkit-clip-path: inset(0 0 50% 0);
+    clip-path: inset(0 0 50% 0);
+}
+
+.sa-el-progressbar-half-circle .sa-el-progressbar-circle-half {
+    -webkit-clip-path: inset(50% 0 0 0);
+    clip-path: inset(50% 0 0 0);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: -webkit-transform 1500ms linear;
+    transition: -webkit-transform 1500ms linear;
+    -o-transition: transform 1500ms linear;
+    transition: transform 1500ms linear;
+    transition: transform 1500ms linear, -webkit-transform 1500ms linear;
+}
+
+.sa-el-progressbar-half-circle .sa-el-progressbar-circle-inner-content {
+    top: initial;
+    bottom: 0;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+}
+
+.sa-el-progressbar-half-circle .sa-el-progressbar-title {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.sa-el-progressbar-half-circle .sa-el-progressbar-count-wrap {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.sa-el-progressbar-half-circle-after {
+    position: relative;
+    font-size: 12px;
+    font-weight: 400;
+    clear: both;
+}
+
+.sa-el-progressbar-postfix-label {
+    float: right;
+}
+
+.sa-el-progressbar-line-stripe .sa-el-progressbar-line-fill:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -35px;
+    width: calc(100% + 70px);
+    height: 100%;
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-size: 35px 35px;
+}
+
+.sa-el-progressbar-line-animate .sa-el-progressbar-line-fill:after {
+    -webkit-animation: animateStripe 2s linear infinite;
+    animation: animateStripe 2s linear infinite;
+}
+
+.sa-el-progressbar-line-animate-rtl .sa-el-progressbar-line-fill:after {
+    -webkit-animation: animateStripeRTL 2s linear infinite;
+    animation: animateStripeRTL 2s linear infinite;
+}
+
+.sa-el-progressbar-circle-wrap>div {
+    margin: 0 auto;
+}
+
+
+/*alignment*/
+
+.sa-el-progressbar-line-container.left,
+.sa-el-progressbar-circle-container.left>div,
+.sa-el-progressbar-box-container.left>div {
+    margin: 0 auto 0 0;
+}
+
+.sa-el-progressbar-line-container.center,
+.sa-el-progressbar-circle-container.center>div,
+.sa-el-progressbar-box-container.center>div {
+    margin: 0 auto;
+}
+
+.sa-el-progressbar-line-container.right,
+.sa-el-progressbar-circle-container.right>div,
+.sa-el-progressbar-box-container.right>div {
+    margin: 0 0 0 auto;
+}
+
+
+/*------------------------------*/
+
+
+/* 56. Progress Bar
+/*------------------------------*/
+
+@-webkit-keyframes animateRainbow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes animateRainbow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.sa-el-progressbar-line-rainbow .sa-el-progressbar-line-fill {
+    background: -webkit-gradient(linear, right top, left top, from(#9400d3), color-stop(#4b0082), color-stop(#0000ff), color-stop(#00ff00), color-stop(#ffff00), color-stop(#ff7f00), to(#ff0000));
+    background: -webkit-linear-gradient(right, #9400d3, #4b0082, #0000ff, #00ff00, #ffff00, #ff7f00, #ff0000);
+    background: -o-linear-gradient(right, #9400d3, #4b0082, #0000ff, #00ff00, #ffff00, #ff7f00, #ff0000);
+    background: linear-gradient(270deg, #9400d3, #4b0082, #0000ff, #00ff00, #ffff00, #ff7f00, #ff0000);
+    -webkit-background-size: 500% 500%;
+    background-size: 500% 500%;
+    -webkit-animation: animateRainbow 5s ease infinite;
+    animation: animateRainbow 5s ease infinite;
+}
+
+.sa-el-progressbar-circle-fill .sa-el-progressbar-circle-half {
+    background-color: #000000;
+}
+
+.sa-el-progressbar-half-circle-fill .sa-el-progressbar-circle-half {
+    background-color: #000000;
+}
+
+.sa-el-progressbar-box {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #eeeeee;
+    margin: 0 auto;
+}
+
+.sa-el-progressbar-box .sa-el-progressbar-box-inner-content {
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+    z-index: 9;
+}
+
+.sa-el-progressbar-box .sa-el-progressbar-count-wrap {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.sa-el-progressbar-box .sa-el-progressbar-title {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.sa-el-progressbar-box-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    background-color: #000000;
+    -webkit-transition: height 1500ms linear;
+    -o-transition: height 1500ms linear;
+    transition: height 1500ms linear;
+}

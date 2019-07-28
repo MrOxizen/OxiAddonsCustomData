@@ -20,79 +20,222 @@ trait Include_Admin_Template {
 
     public function View_Data() {
 
-        $elementor = array(
-            'Content Elements' => array(
-                'accordion',
-                'button',
-                'icon_box',
-                'call_to_action',
-                'tabs',
-                'divider',
-                'counter',
-                'count_down',              
-                'dual_color_heading',
-                'fancy_text',
-                'feature_list',
-                'filterable_gallery',
-                'advanced_heading',
-                'flip_box',
-                'flip_carousel',
-                'image_accordion',
-                'image_hotspots',
-                'image_scroller',
-                'image_comparison',
-                'info_box',
-                'interactive_card',
-                'interactive_promo',
-                'lightbox_and_modal',
-                'logo_carousel',
-            
-            ),
-            'Dynamic Content Elements' => array(
-                
-            ),
-            'Creative Elements' => array(
-               
-            ),
-            'Marketing Elements' => array(
-               
-            )
+        $registered_element = array(
+            'Extension' => array()
         );
+        $registered_el = $this->registered_elements;
+        foreach ($registered_el as $key => $value) {
+            $registered_element[$value['category']][$key] = array('name' => $key, 'Premium' => $value['Premium'], 'condition' => $value['condition'], 'API' => $value['API']);
+        }
         ?>
-        <div class="oxi-addons-wrapper">
-            <div class="oxi-addons-import-layouts">
-                <h1>GLOBAL CONTROL</h1>
-                <p> Use the Buttons to Activate or Deactivate all the Elements of Essential Addons at once.</p>
-            </div>
-        </div>
+
         <div class="oxi-addons-wrapper">
             <div class="oxi-addons-row">
                 <form action="" method="POST" id="sa-el-settings">
-                    <?php
-                    $settings = $this->Get_Active_Elements();
-                    foreach ($elementor as $key => $value) {
-                        echo '<div class="oxi-sa-cards-wrapper">';
-                        echo '<div class="oxi-addons-ce-heading">' . oxi_addons_shortcode_name_converter($key) . '</div>';
-                        echo '<div class="row">';
-                        foreach ($value as $elements) {
-                            echo '  <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="oxi-sa-cards">
-                                <div class="oxi-sa-cards-h1">
-                                    ' . oxi_addons_shortcode_name_converter($elements) . '
+                    <div class="oxi-addons-wrapper">
+                        <div class="sa-el-header-wrap">
+                            <div class="sa-el-header-left">
+                                <div class="sa-el-admin-logo-inline">
+                                    <img src="<?php echo WP_PLUGIN_URL . '/shortcode-addons/image/shortcode-addons.png'; ?>">
                                 </div>
-                                <div class="oxi-sa-cards-switcher">
-                                    <input type="checkbox" class="oxi-addons-switcher-btn" sa-elmentor="' . $elements . '" id="' . $elements . '" name="' . $elements . '" ' . (array_key_exists($elements, $settings) ? 'checked="checked"' : '') . '>
-                                    <label for="' . $elements . '" class="oxi-addons-switcher-label"></label>
+                                <h2 class="title">Elementor Elements Settings</h2>
+                            </div>
+                            <div class="sa-el-header-right">
+                                <button type="submit" class="button sa-el-btn sa-el-settings-save" sa-el-change="no" style="cursor: not-allowed" disabled="disabled">Save settings</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ctu-ultimate-wrapper ctu-ultimate-wrapper-2">
+                        <div class="ctu-ulimate-style-2">
+                            <div class="vc-tabs-li vc-tabs-li-2-id-4" ref="#tabs-general">
+                                General
+                            </div>
+                            <div class="vc-tabs-li vc-tabs-li-2-id-5" ref="#tabs-elements">
+                                Elements
+                            </div>
+                            <div class="vc-tabs-li vc-tabs-li-2-id-4" ref="#tabs-extention">
+                                Extension
+                            </div>
+                            <div class="vc-tabs-li vc-tabs-li-2-id-5" ref="#tabs-cache">
+                                Cache
+                            </div>
+                        </div>
+                        <div class="ctu-ultimate-style-2-content"> 
+                            <div class="ctu-ulitate-style-2-tabs" id="tabs-general">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="sa-el-admin-wrapper">
+                                            <div class="sa-el-admin-block">
+                                                <div class="sa-el-admin-header">
+                                                    <div class="sa-el-admin-header-icon">
+                                                        <span class="dashicons dashicons-format-aside"></span>
+                                                    </div>    
+                                                    <h4 class="sa-el-admin-header-title">Report a bug</h4>  
+                                                </div>
+                                                <div class="sa-el-admin-block-content">
+                                                    <p>Get started by spending some time with the documentation to get familiar with Essential Addons. Build awesome websites for you or your clients with ease.</p>
+                                                    <a href="https://essential-addons.com/elementor/docs/" class="sa-el-button" target="_blank">Report a bug</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>   
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="sa-el-admin-wrapper">
+                                            <div class="sa-el-admin-block">
+                                                <div class="sa-el-admin-header">
+                                                    <div class="sa-el-admin-header-icon">
+                                                        <span class="dashicons dashicons-format-aside"></span>
+                                                    </div>    
+                                                    <h4 class="sa-el-admin-header-title">Documentation</h4>  
+                                                </div>
+                                                <div class="sa-el-admin-block-content">
+                                                    <p>Get started by spending some time with the documentation to get familiar with Essential Addons. Build awesome websites for you or your clients with ease.</p>
+                                                    <a href="https://essential-addons.com/elementor/docs/" class="sa-el-button" target="_blank">Documentation</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>   
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="sa-el-admin-wrapper">
+                                            <div class="sa-el-admin-block">
+                                                <div class="sa-el-admin-header">
+                                                    <div class="sa-el-admin-header-icon">
+                                                        <span class="dashicons dashicons-format-aside"></span>
+                                                    </div>    
+                                                    <h4 class="sa-el-admin-header-title">Documentation</h4>  
+                                                </div>
+                                                <div class="sa-el-admin-block-content">
+                                                    <p>Get started by spending some time with the documentation to get familiar with Essential Addons. Build awesome websites for you or your clients with ease.</p>
+                                                    <a href="https://essential-addons.com/elementor/docs/" class="sa-el-button" target="_blank">Documentation</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>   
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="sa-el-admin-wrapper">
+                                            <div class="sa-el-admin-block">
+                                                <div class="sa-el-admin-header">
+                                                    <div class="sa-el-admin-header-icon">
+                                                        <span class="dashicons dashicons-format-aside"></span>
+                                                    </div>    
+                                                    <h4 class="sa-el-admin-header-title">Documentation</h4>  
+                                                </div>
+                                                <div class="sa-el-admin-block-content">
+                                                    <p>Get started by spending some time with the documentation to get familiar with Essential Addons. Build awesome websites for you or your clients with ease.</p>
+                                                    <a href="https://essential-addons.com/elementor/docs/" class="sa-el-button" target="_blank">Documentation</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>   
+                                </div>   
+                            </div> 
+                            <div class="ctu-ulitate-style-2-tabs" id="tabs-elements">
+                                <div class="oxi-addons-wrapper">
+                                    <div class="oxi-addons-import-layouts">
+                                        <h1>GLOBAL CONTROL</h1>
+                                        <p> Use the Buttons to Activate or Deactivate all the Elements of Essential Addons at once.</p>
+                                    </div>
+                                    <div class="sa-el-btn-group">
+                                        <button type="button" class="sa-el-btn sa-el-btn-control-enable">Enable All</button>
+                                        <button type="button" class="sa-el-btn sa-el-btn-control-disable">Disable All</button>
+                                    </div>
+                                </div>
+                                <div class="oxi-addons-wrapper">
+                                    <div class="oxi-addons-row">
+
+                                        <?php
+                                        $settings = $this->Get_Active_Elements();
+                                        foreach ($registered_element as $key => $value) {
+                                            if ($key != 'Extension') {
+                                                echo '<div class="oxi-sa-cards-wrapper">';
+                                                echo '<div class="oxi-addons-ce-heading">' . oxi_addons_shortcode_name_converter($key) . '</div>';
+                                                echo '<div class="row">';
+                                                foreach ($value as $elements) {
+                                                    echo '  <div class="col-lg-4 col-md-6 col-sm-12">
+                                                                <div class="oxi-sa-cards">
+                                                                    <div class="oxi-sa-cards-h1">
+                                                                        ' . oxi_addons_shortcode_name_converter($elements['name']) . '
+                                                                    </div>
+                                                                    <div class="oxi-sa-cards-switcher">
+                                                                        <input type="checkbox" class="oxi-addons-switcher-btn" sa-elmentor="' . $elements['name'] . '" id="' . $elements['name'] . '" name="' . $elements['name'] . '" ' . (array_key_exists($elements['name'], $settings) ? 'checked="checked"' : '') . '>
+                                                                        <label for="' . $elements['name'] . '" class="oxi-addons-switcher-label"></label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>';
+                                                }
+                                                echo '</div></div>';
+                                            }
+                                        }
+                                        ?>
+
+                                    </div>
                                 </div>
                             </div>
-                        </div>';
-                        }
-                        echo '</div></div>';
-                    }
-                    ?>
+                            <div class="ctu-ulitate-style-2-tabs" id="tabs-extention">
+                                <div class="oxi-addons-wrapper">
+                                    <div class="oxi-addons-row">
+                                        <?php
+                                        $settings = $this->Get_Active_Elements();
+                                        foreach ($registered_element as $key => $value) {
+                                            if ($key == 'Extension') {
+                                                echo '<div class="oxi-sa-cards-wrapper">';
+                                                echo '<div class="oxi-addons-ce-heading">' . oxi_addons_shortcode_name_converter($key) . '</div>';
+                                                echo '<div class="row">';
+                                                foreach ($value as $elements) {
+                                                    echo '  <div class="col-lg-4 col-md-6 col-sm-12">
+                                                                <div class="oxi-sa-cards">
+                                                                    <div class="oxi-sa-cards-h1">
+                                                                        ' . oxi_addons_shortcode_name_converter($elements['name']) . '
+                                                                    </div>
+                                                                    <div class="oxi-sa-cards-switcher">
+                                                                        <input type="checkbox" class="oxi-addons-switcher-btn" sa-elmentor="' . $elements['name'] . '" id="' . $elements['name'] . '" name="' . $elements['name'] . '" ' . (array_key_exists($elements['name'], $settings) ? 'checked="checked"' : '') . '>
+                                                                        <label for="' . $elements['name'] . '" class="oxi-addons-switcher-label"></label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>';
+                                                }
+                                                echo '</div></div>';
+                                            }
+                                        }
+                                        ?>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ctu-ulitate-style-2-tabs" id="tabs-cache">
+
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
+
+
+
+        <div id="OXIAADDONSCHANGEDPOPUP" class="modal fade">
+            <div class="modal-dialog modal-confirm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="icon-box">
+
+                        </div>
+                    </div>
+                    <div class="modal-body text-center">
+                        <h4></h4>	
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>  
+
+
+
+
+
+
+
         <?php
     }
 

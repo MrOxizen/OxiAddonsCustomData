@@ -474,7 +474,30 @@ class Image_Hotspots extends Widget_Base {
         );
 
         $this->end_controls_section();
+        if (!apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', ['', '', TRUE])) {
+            $this->start_controls_section(
+                    'sa_el_section_pro', [
+                'label' => __('Go Premium for More Features', SA_ELEMENTOR_TEXTDOMAIN)
+                    ]
+            );
 
+            $this->add_control(
+                    'sa_el_control_get_pro', [
+                'label' => __('Unlock more possibilities', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    '1' => [
+                        'title' => __('', SA_ELEMENTOR_TEXTDOMAIN),
+                        'icon' => 'fa fa-unlock-alt',
+                    ],
+                ],
+                'default' => '1',
+                'description' => '<span class="pro-feature"> Get the  <a href="https://www.oxilab.org/downloads/short-code-addons/" target="_blank">Pro version</a> for more stunning elements and customization options.</span>'
+                    ]
+            );
+
+            $this->end_controls_section();
+        }
         /* ----------------------------------------------------------------------------------- */
         /* 	STYLE TAB
           /*----------------------------------------------------------------------------------- */
@@ -668,84 +691,84 @@ class Image_Hotspots extends Widget_Base {
         ?>
         <div class="sa-el-image-hotspots">
             <div class="sa-el-hot-spot-image">
-        <?php
-        $i = 1;
-        foreach ($settings['hot_spots'] as $index => $item) :
+                <?php
+                $i = 1;
+                foreach ($settings['hot_spots'] as $index => $item) :
 
-            $this->add_render_attribute('hotspot' . $i, 'class', 'sa-el-hot-spot-wrap elementor-repeater-item-' . esc_attr($item['_id']));
+                    $this->add_render_attribute('hotspot' . $i, 'class', 'sa-el-hot-spot-wrap elementor-repeater-item-' . esc_attr($item['_id']));
 
-            if ($item['tooltip'] == 'yes' && $item['tooltip_content'] != '') {
-                $this->add_render_attribute('hotspot' . $i, 'class', 'sa-el-hot-spot-tooptip');
-                $this->add_render_attribute('hotspot' . $i, 'data-tipso', '<span class="sa-el-single-tooltip sa-el-tooltip-' . $this->get_id() . '">' . $this->parse_text_editor($item['tooltip_content']) . '</span>');
-            }
+                    if ($item['tooltip'] == 'yes' && $item['tooltip_content'] != '') {
+                        $this->add_render_attribute('hotspot' . $i, 'class', 'sa-el-hot-spot-tooptip');
+                        $this->add_render_attribute('hotspot' . $i, 'data-tipso', '<span class="sa-el-single-tooltip sa-el-tooltip-' . $this->get_id() . '">' . $this->parse_text_editor($item['tooltip_content']) . '</span>');
+                    }
 
-            $this->add_render_attribute('hotspot' . $i, 'data-tooltip-position-global', $settings['tooltip_position']);
+                    $this->add_render_attribute('hotspot' . $i, 'data-tooltip-position-global', $settings['tooltip_position']);
 
-            if ($item['hotspot_link'] != '#' && $item['hotspot_link'] != '') {
-                $this->add_render_attribute('hotspot' . $i, 'data-link', esc_url($item['hotspot_link']));
-            }
+                    if ($item['hotspot_link'] != '#' && $item['hotspot_link'] != '') {
+                        $this->add_render_attribute('hotspot' . $i, 'data-link', esc_url($item['hotspot_link']));
+                    }
 
-            if ($item['hotspot_link_target']) {
-                $this->add_render_attribute('hotspot' . $i, 'data-link-target', '_blank');
-            }
+                    if ($item['hotspot_link_target']) {
+                        $this->add_render_attribute('hotspot' . $i, 'data-link-target', '_blank');
+                    }
 
-            if ($item['tooltip_position_local'] != 'global') {
-                $this->add_render_attribute('hotspot' . $i, 'data-tooltip-position-local', $item['tooltip_position_local']);
-            }
+                    if ($item['tooltip_position_local'] != 'global') {
+                        $this->add_render_attribute('hotspot' . $i, 'data-tooltip-position-local', $item['tooltip_position_local']);
+                    }
 
-            if ($settings['tooltip_size']) {
-                $this->add_render_attribute('hotspot' . $i, 'data-tooltip-size', $settings['tooltip_size']);
-            }
+                    if ($settings['tooltip_size']) {
+                        $this->add_render_attribute('hotspot' . $i, 'data-tooltip-size', $settings['tooltip_size']);
+                    }
 
-            if ($settings['tooltip_width']) {
-                $this->add_render_attribute('hotspot' . $i, 'data-tooltip-width', $settings['tooltip_width']['size']);
-            }
+                    if ($settings['tooltip_width']) {
+                        $this->add_render_attribute('hotspot' . $i, 'data-tooltip-width', $settings['tooltip_width']['size']);
+                    }
 
-            if ($settings['tooltip_animation_in']) {
-                $this->add_render_attribute('hotspot' . $i, 'data-tooltip-animation-in', $settings['tooltip_animation_in']);
-            }
+                    if ($settings['tooltip_animation_in']) {
+                        $this->add_render_attribute('hotspot' . $i, 'data-tooltip-animation-in', $settings['tooltip_animation_in']);
+                    }
 
-            if ($settings['tooltip_animation_out']) {
-                $this->add_render_attribute('hotspot' . $i, 'data-tooltip-animation-out', $settings['tooltip_animation_out']);
-            }
+                    if ($settings['tooltip_animation_out']) {
+                        $this->add_render_attribute('hotspot' . $i, 'data-tooltip-animation-out', $settings['tooltip_animation_out']);
+                    }
 
-            if ($settings['tooltip_bg_color']) {
-                $this->add_render_attribute('hotspot' . $i, 'data-tooltip-background', $settings['tooltip_bg_color']);
-            }
+                    if ($settings['tooltip_bg_color']) {
+                        $this->add_render_attribute('hotspot' . $i, 'data-tooltip-background', $settings['tooltip_bg_color']);
+                    }
 
-            if ($settings['tooltip_color']) {
-                $this->add_render_attribute('hotspot' . $i, 'data-tooltip-text-color', $settings['tooltip_color']);
-            }
+                    if ($settings['tooltip_color']) {
+                        $this->add_render_attribute('hotspot' . $i, 'data-tooltip-text-color', $settings['tooltip_color']);
+                    }
 
-            if ($settings['tooltip_arrow'] == 'yes') {
-                $this->add_render_attribute('hotspot' . $i, 'data-tooltip-arrow', $settings['tooltip_arrow']);
-            }
+                    if ($settings['tooltip_arrow'] == 'yes') {
+                        $this->add_render_attribute('hotspot' . $i, 'data-tooltip-arrow', $settings['tooltip_arrow']);
+                    }
 
-            $this->add_render_attribute('hotspot_inner_' . $i, 'class', 'sa-el-hot-spot-inner');
+                    $this->add_render_attribute('hotspot_inner_' . $i, 'class', 'sa-el-hot-spot-inner');
 
-            if ($settings['hotspot_pulse'] == 'yes') {
-                $this->add_render_attribute('hotspot_inner_' . $i, 'class', 'hotspot-animation');
-            }
-            ?>
-                    <span <?php echo $this->get_render_attribute_string('hotspot' . $i); ?>>
-                        <span <?php echo $this->get_render_attribute_string('hotspot_inner_' . $i); ?>>
-                    <?php
-                    if ($item['hotspot_type'] == 'icon') {
-                        printf('<span class="sa-el-hotspot-icon-wrap"><span class="sa-el-hotspot-icon tooltip %1$s"></span></span>', esc_attr($item['hotspot_icon']));
-                    } elseif ($item['hotspot_type'] == 'text') {
-                        printf('<span class="sa-el-hotspot-icon-wrap"><span class="sa-el-hotspot-text">%1$s</span></span>', esc_attr($item['hotspot_text']));
+                    if ($settings['hotspot_pulse'] == 'yes') {
+                        $this->add_render_attribute('hotspot_inner_' . $i, 'class', 'hotspot-animation');
                     }
                     ?>
+                    <span <?php echo $this->get_render_attribute_string('hotspot' . $i); ?>>
+                        <span <?php echo $this->get_render_attribute_string('hotspot_inner_' . $i); ?>>
+                            <?php
+                            if ($item['hotspot_type'] == 'icon') {
+                                printf('<span class="sa-el-hotspot-icon-wrap"><span class="sa-el-hotspot-icon tooltip %1$s"></span></span>', esc_attr($item['hotspot_icon']));
+                            } elseif ($item['hotspot_type'] == 'text') {
+                                printf('<span class="sa-el-hotspot-icon-wrap"><span class="sa-el-hotspot-text">%1$s</span></span>', esc_attr($item['hotspot_text']));
+                            }
+                            ?>
                         </span>
                     </span>
                     <?php $i++;
-                endforeach; ?>
+                endforeach;
+                ?>
 
-                <?php echo Group_Control_Image_Size::get_attachment_image_html($settings); ?>
+        <?php echo Group_Control_Image_Size::get_attachment_image_html($settings); ?>
             </div>
         </div>
-                <?php
-            }
+        <?php
+    }
 
-        }
-        
+}
