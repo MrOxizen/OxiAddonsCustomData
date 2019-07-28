@@ -608,6 +608,32 @@ class Lightbox_Modal extends Widget_Base
 
         $this->end_controls_section(); # End of Animation Section
 
+        if (apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', ['', '', FALSE ])) {
+            $this->start_controls_section(
+                'sa_el_section_pro',
+                [
+                    'label' => __('Go Premium for More Features', SA_ELEMENTOR_TEXTDOMAIN)
+                ]
+            );
+
+            $this->add_control(
+                'sa_el_control_get_pro',
+                [
+                    'label' => __('Unlock more possibilities', SA_ELEMENTOR_TEXTDOMAIN),
+                    'type' => Controls_Manager::CHOOSE,
+                    'options' => [
+                        '1' => [
+                            'title' => __('', SA_ELEMENTOR_TEXTDOMAIN),
+                            'icon' => 'fa fa-unlock-alt',
+                        ],
+                    ],
+                    'default' => '1',
+                    'description' => '<span class="pro-feature"> Get the  <a href="https://www.oxilab.org/downloads/short-code-addons/" target="_blank">Pro version</a> for more stunning elements and customization options.</span>'
+                ]
+            );
+
+            $this->end_controls_section();
+        }
 
         /*-------------------------------------------------*/
         /*	Style TAB
@@ -838,21 +864,152 @@ class Lightbox_Modal extends Widget_Base
             ]
         );
 
-        $this->add_control(
-            'icon_color',
+        $this->add_responsive_control(
+            'sa_el_lightbox_open_btn_icon_padding',
             [
-                'label'                 => __('Color', SA_ELEMENTOR_TEXTDOMAIN),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
-                    '{{WRAPPER}} .sa_el_trigger_icon' => 'color: {{VALUE}}',
+                'label'      => esc_html__('Padding', SA_ELEMENTOR_TEXTDOMAIN),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px'],
+                'selectors'  => [
+                    '{{WRAPPER}} .sa_el_lightbox_btn > .sa_el_trigger_icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
-                'condition'             => [
-                    'sa_el_lightbox_trigger_type' => 'sa_el_lightbox_trigger_button',
-                    'trigger_type'  => 'icon',
+
+            ]
+        );
+
+        $this->add_responsive_control(
+            'sa_el_lightbox_open_btn_icon_margin',
+            [
+                'label'      => esc_html__('Margin', SA_ELEMENTOR_TEXTDOMAIN),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px'],
+                'selectors'  => [
+                    '{{WRAPPER}} .sa_el_lightbox_btn > .sa_el_trigger_icon' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
+
+        $this->add_control(
+            'sa_el_lightbox_open_btn_icon_border_radius',
+            [
+                'label' => esc_html__('Button Border Radius', SA_ELEMENTOR_TEXTDOMAIN),
+                'type'  => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .sa_el_lightbox_btn > .sa_el_trigger_icon' => 'border-radius: {{SIZE}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->start_controls_tabs('sa_el_lightbox_open_btn_icon_content_tabs');
+
+        $this->start_controls_tab(
+            'normal_default_content_icon',
+            [
+                'label'     => esc_html__('Normal', SA_ELEMENTOR_TEXTDOMAIN)
+            ]
+        );
+
+        $this->add_control(
+            'sa_el_lightbox_open_btn_icon_color',
+            [
+                'label'     => esc_html__('Icon Color', SA_ELEMENTOR_TEXTDOMAIN),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#ffffff',
+                'selectors' => [
+                    '{{WRAPPER}} .sa_el_lightbox_btn > .sa_el_trigger_icon' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'sa_el_lightbox_open_btn_icon_background_color',
+            [
+                'label'     => esc_html__('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#333333',
+                'selectors' => [
+                    '{{WRAPPER}} .sa_el_lightbox_btn > .sa_el_trigger_icon' => 'background-color: {{VALUE}};',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name'      => 'sa_el_lightbox_open_btn_icon_border',
+                'selector'  => '{{WRAPPER}} .sa_el_lightbox_btn > .sa_el_trigger_icon',
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name'     => 'sa_el_lightbox_open_btn_icon_shadow',
+                'selector' => '{{WRAPPER}} .sa_el_lightbox_btn > .sa_el_trigger_icon'
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'sa_el_lightbox_open_btn_icon_hover',
+            [
+                'label'     => esc_html__('Hover', SA_ELEMENTOR_TEXTDOMAIN),
+                'condition' => [
+                    'sa_el_lightbox_trigger_type' => 'sa_el_lightbox_trigger_button',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'sa_el_lightbox_open_btn_icon_hover_text_color',
+            [
+                'label'     => esc_html__('Icon Color', SA_ELEMENTOR_TEXTDOMAIN),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#ffffff',
+                'selectors' => [
+                    '{{WRAPPER}} .sa_el_lightbox_btn > .sa_el_trigger_icon:hover' => 'color: {{VALUE}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'sa_el_lightbox_open_btn_icon_hover_background_color',
+            [
+                'label'     => esc_html__('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#272727',
+                'selectors' => [
+                    '{{WRAPPER}} .sa_el_lightbox_btn > .sa_el_trigger_icon:hover' => 'background-color: {{VALUE}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'sa_el_lightbox_open_btn_icon_hover_border_color',
+            [
+                'label'     => esc_html__('Border Color', SA_ELEMENTOR_TEXTDOMAIN),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .sa_el_lightbox_btn > .sa_el_trigger_icon:hover' => 'border-color: {{VALUE}};',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name'     => 'sa_el_lightbox_open_btn_icon_hover_shadow',
+                'selector' => '{{WRAPPER}} .sa_el_lightbox_btn > .sa_el_trigger_icon:hover'
+            ]
+        );
+        $this->end_controls_tabs();
 
         $this->add_responsive_control(
             'icon_size',
@@ -946,7 +1103,6 @@ class Lightbox_Modal extends Widget_Base
                 'condition' => [
                     'sa_el_lightbox_trigger_type' => 'sa_el_lightbox_trigger_button',
                     'trigger_type'               => 'button',
-                    'sa_el_lightbox_open_btn!'    => '',
                 ]
             ]
         );
@@ -993,6 +1149,7 @@ class Lightbox_Modal extends Widget_Base
                 'selectors'  => [
                     '{{WRAPPER}} .sa_el_lightbox_btn > span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
+
             ]
         );
 

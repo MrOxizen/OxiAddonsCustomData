@@ -20,10 +20,6 @@ trait Public_Helper {
 
     function Get_Active_Elements() {
         $installed = get_option('shortcode-addons-elementor');
-        if (empty($installed) || $installed == '') {
-            $installed = 'button=on&testimonial=on&flip_box=on&info_box=on&dual_color_heading=on&tooltip=on&advanced_accordion=on&advanced_tabs=on&offcanvas=on&advanced_menu_PRO=on&testimonial_Slider_PRO=on&static_product_PRO=on&Post_Grid=on&Post_Timeline=on&Content_Ticker=on&Product_Grid=on&Post_Block=on&Post_Carousel=on&Woo_Product_Collections=on&Content_Timeline=on';
-            update_option('shortcode-addons-elementor', $installed);
-        }
         parse_str($installed, $settings);
         return $settings;
     }
@@ -40,6 +36,10 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Accordion/assets/index.min.js',
                     ],
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => 'wp-forms',
+                'API' => ''
             ],
             'button' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Button\Button',
@@ -48,14 +48,10 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Button/assets/index.min.css',
                     ],
                 ],
-            ],
-            'icon_box' => [
-                'class' => 'SA_ELEMENTOR_ADDONS\Elements\Icon_Box\Icon_Box',
-                'dependency' => [
-                    'css' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Icon_Box/assets/index.min.css',
-                    ],
-                ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'call_to_action' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Call_To_Action\Call_To_Action',
@@ -64,6 +60,10 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Call_To_Action/assets/index.min.css',
                     ],
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'tabs' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Tabs\Tabs',
@@ -75,6 +75,10 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Tabs/assets/index.min.js',
                     ],
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'divider' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Divider\Divider',
@@ -83,6 +87,10 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Divider/assets/index.min.css',
                     ]
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'counter' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Counter\Counter',
@@ -97,6 +105,10 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/index.min.js',
                     ],
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'count_down' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Count_Down\Count_Down',
@@ -109,6 +121,10 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Count_Down/assets/index.min.js',
                     ],
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'fancy_text' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Fancy_Text\Fancy_Text',
@@ -121,6 +137,10 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Fancy_Text/assets/index.min.js',
                     ],
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'feature_list' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Feature_List\Feature_List',
@@ -129,6 +149,10 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Feature_List/assets/index.min.css',
                     ]
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'filterable_gallery' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Filterable_Gallery\Filterable_Gallery',
@@ -144,6 +168,10 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Filterable_Gallery/assets/index.min.js',
                     ],
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'advanced_heading' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Advanced_Heading\Advanced_Heading',
@@ -152,6 +180,10 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Advanced_Heading/assets/index.min.css',
                     ],
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'flip_box' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Flip_Box\Flip_Box',
@@ -160,6 +192,10 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Flip_Box/assets/index.min.css',
                     ],
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'flip_carousel' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Flip_Carousel\Flip_Carousel',
@@ -171,7 +207,11 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/flipster/js/jquery.flipster.min.js',
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Flip_Carousel/assets/index.min.js',
                     ]
-                ]
+                ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'image_accordion' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Image_Accordion\Image_Accordion',
@@ -183,6 +223,10 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Accordion/assets/index.min.js',
                     ]
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'image_hotspots' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Image_Hotspots\Image_Hotspots',
@@ -195,6 +239,10 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Hotspots/assets/index.min.js',
                     ]
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'image_scroller' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Image_Scroller\Image_Scroller',
@@ -206,6 +254,10 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Scroller/assets/index.min.js',
                     ]
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'image_comparison' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Image_Comparison\Image_Comparison',
@@ -220,6 +272,10 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Comparison/assets/index.min.js',
                     ],
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'info_box' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Info_Box\Info_Box',
@@ -228,6 +284,10 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Info_Box/assets/index.min.css',
                     ]
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'interactive_card' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Interactive_Card\Interactive_Card',
@@ -241,6 +301,10 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Interactive_Card/assets/index.min.js',
                     ],
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'interactive_promo' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Interactive_Promo\Interactive_Promo',
@@ -249,6 +313,10 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Interactive_Promo/assets/index.min.css',
                     ],
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'lightbox_and_modal' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Lightbox_Modal\Lightbox_Modal',
@@ -263,6 +331,10 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Lightbox_Modal/assets/index.min.js',
                     ],
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'logo_carousel' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Logo_Carousel\Logo_Carousel',
@@ -274,11 +346,15 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Logo_Carousel/assets/index.min.js',
                     ],
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'offcanvas' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Offcanvas\Offcanvas',
                 'dependency' => [
-                     'css' => [
+                    'css' => [
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Offcanvas/assets/index.min.css',
                     ],
                     'js' => [
@@ -286,22 +362,191 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Offcanvas/assets/index.min.js',
                     ],
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'tooltip' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Tooltip\Tooltip',
                 'dependency' => [
-                   'css' => [
+                    'css' => [
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Tooltip/assets/index.min.css',
                     ],
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
             'price_menu' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Price_Menu\Price_Menu',
                 'dependency' => [
-                   'css' => [
+                    'css' => [
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Price_Menu/assets/index.min.css',
                     ],
                 ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'pricing_table' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Pricing_Table\Pricing_Table',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/tooltipster/css/tooltipster.bundle.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Pricing_Table/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/tooltipster/js/tooltipster.bundle.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Pricing_Table/assets/index.min.js',
+                    ],
+                ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'progress_bar' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Progress_Bar\Progress_Bar',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Progress_Bar/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/inview/js/inview.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/progress-bar/js/progress-bar.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Progress_Bar/assets/index.min.js',
+                    ],
+                ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'protected_content' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Protected_Content\Protected_Content',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Protected_Content/assets/index.min.css',
+                    ],
+                ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'single_product' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Single_Product\Single_Product',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Single_Product/assets/index.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Single_Product/assets/overlay.min.css',
+                    ],
+                ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'team_member_carousel' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Team_Member_Carousel\Team_Member_Carousel',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Team_Member_Carousel/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Team_Member_Carousel/assets/index.min.js',
+                    ],
+                ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'team_member' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Team_Member\Team_Member',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Team_Member/assets/index.min.css',
+                    ]
+                ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'testimonial_slider' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Testimonial_Slider\Testimonial_Slider',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Testimonial_Slider/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Testimonial_Slider/assets/index.min.js',
+                    ],
+                ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'testimonial' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Testimonial\Testimonial',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Testimonial/assets/index.min.css',
+                    ]
+                ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'toggle' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Toggle\Toggle',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Toggle/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Toggle/assets/index.min.js',
+                    ],
+                ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'card' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Card\Card',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Card/assets/index.min.css',
+                    ],
+                ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'justified_gallery' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Justified_Gallery\Justified_Gallery',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/justifiedGallery/css/justifiedGallery.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Justified_Gallery/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/justifiedGallery/js/jquery.justifiedGallery.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Justified_Gallery/assets/index.min.js',
+                    ],
+                ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
             ],
         ];
         return $response;
@@ -366,10 +611,11 @@ trait Public_Helper {
             $css_file = '/assets/css/style.css';
             $js_file = '/assets/js/jquery.js';
         }
+
         wp_enqueue_style(SA_ELEMENTOR_TEXTDOMAIN, content_url('uploads/OxiAddonsCustomData/elementor_addons/' . $css_file));
         wp_enqueue_script(SA_ELEMENTOR_TEXTDOMAIN . '-js', content_url('uploads/OxiAddonsCustomData/elementor_addons/' . $js_file), ['jquery']);
         // hook extended assets
-        do_action(SA_ELEMENTOR_TEXTDOMAIN . '/after_enqueue_scripts', $this->has_cache_files());
+        //do_action(SA_ELEMENTOR_TEXTDOMAIN . '/after_enqueue_scripts', $this->has_cache_files());
     }
 
     /**
@@ -400,8 +646,128 @@ trait Public_Helper {
             foreach ($page_templates as $post) {
                 $options[$post->ID] = $post->post_title;
             }
+        } else {
+            $options[] = 'No ' . ucfirst($type) . ' Found';
         }
         return $options;
+    }
+
+    /**
+     * Get all User Roles
+     *
+     * @return array
+     */
+    public function sa_el_user_roles() {
+        global $wp_roles;
+        $all = $wp_roles->roles;
+        $all_roles = array();
+        if (!empty($all)) {
+            foreach ($all as $key => $value) {
+                $all_roles[$key] = $all[$key]['name'];
+            }
+        }
+        return $all_roles;
+    }
+
+    /**
+     * Protected Form Input Fields
+     */
+    public function sa_el_get_block_pass_protected_form($settings) {
+        echo '<div class="sa-el-password-protected-content-fields">';
+        echo '<form method="post">';
+        echo '<input type="password" name="sa_protection_password" class="sa-el-password" placeholder="' . $settings['sa_protection_password_placeholder'] . '">';
+        echo '<input type="submit" value="' . $settings['sa_protection_password_submit_btn_txt'] . '" class="sa-el-submit">';
+        echo '</form>';
+        if (isset($_POST['sa_protection_password']) && ($settings['sa_protection_password'] !== $_POST['sa_protection_password'])) {
+            echo sprintf(__('<p class="protected-content-error-msg">Password does not match.</p>', SA_ELEMENTOR_TEXTDOMAIN));
+        }
+        echo '</div>';
+    }
+
+    // Get all WordPress registered widgets
+    public function sa_get_registered_sidebars() {
+        global $wp_registered_sidebars;
+        $options = [];
+
+        if (!$wp_registered_sidebars) {
+            $options[''] = __('No sidebars were found', SA_ELEMENTOR_TEXTDOMAIN);
+        } else {
+            $options['---'] = __('Choose Sidebar', SA_ELEMENTOR_TEXTDOMAIN);
+
+            foreach ($wp_registered_sidebars as $sidebar_id => $sidebar) {
+                $options[$sidebar_id] = $sidebar['name'];
+            }
+        }
+        return $options;
+    }
+
+    /**
+     *  Price Table Feature Function
+     */
+    protected function render_feature_list($settings, $obj) {
+        if (empty($settings['sa_el_pricing_table_items'])) {
+            return;
+        }
+
+        $counter = 0;
+        ?>
+        <ul>
+            <?php
+            foreach ($settings['sa_el_pricing_table_items'] as $item) :
+
+                if ('yes' !== $item['sa_el_pricing_table_icon_mood']) {
+                    $obj->add_render_attribute('pricing_feature_item' . $counter, 'class', 'disable-item');
+                }
+
+                if ('yes' === $item['sa_el_pricing_item_tooltip']) {
+                    $obj->add_render_attribute(
+                            'pricing_feature_item' . $counter, [
+                        'class' => 'tooltip',
+                        'title' => $item['sa_el_pricing_item_tooltip_content'],
+                        'id' => $obj->get_id() . $counter,
+                            ]
+                    );
+                }
+
+                if ('yes' == $item['sa_el_pricing_item_tooltip']) {
+
+                    if ($item['sa_el_pricing_item_tooltip_side']) {
+                        $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-side', $item['sa_el_pricing_item_tooltip_side']);
+                    }
+
+                    if ($item['sa_el_pricing_item_tooltip_trigger']) {
+                        $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-trigger', $item['sa_el_pricing_item_tooltip_trigger']);
+                    }
+
+                    if ($item['sa_el_pricing_item_tooltip_animation']) {
+                        $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-animation', $item['sa_el_pricing_item_tooltip_animation']);
+                    }
+
+                    if (!empty($item['pricing_item_tooltip_animation_duration'])) {
+                        $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-animation_duration', $item['pricing_item_tooltip_animation_duration']);
+                    }
+
+                    if (!empty($item['sa_el_pricing_table_toolip_arrow'])) {
+                        $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-arrow', $item['sa_el_pricing_table_toolip_arrow']);
+                    }
+
+                    if (!empty($item['sa_el_pricing_item_tooltip_theme'])) {
+                        $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-theme', $item['sa_el_pricing_item_tooltip_theme']);
+                    }
+                }
+                ?>
+                <li <?php echo $obj->get_render_attribute_string('pricing_feature_item' . $counter); ?>>
+                    <?php if ('show' === $settings['sa_el_pricing_table_icon_enabled']) : ?>
+                        <span class="li-icon" style="color:<?php echo esc_attr($item['sa_el_pricing_table_list_icon_color']); ?>"><i class="<?php echo esc_attr($item['sa_el_pricing_table_list_icon']); ?>"></i></span>
+                        <?php endif; ?>
+                        <?php echo $item['sa_el_pricing_table_item']; ?>
+                </li>
+                <?php
+                $counter++;
+            endforeach;
+            ?>
+        </ul>
+        <?php
     }
 
 }

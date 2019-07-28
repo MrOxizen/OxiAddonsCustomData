@@ -102,3 +102,362 @@ label:active:after {
     margin: 0 0 0 0;
     margin-bottom: 60px;
 }
+
+
+.modal-confirm {		
+    color: #434e65;
+    width: 525px;
+}
+.modal-confirm .modal-content {
+    padding: 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+}
+.modal-confirm .modal-header {
+    background: #47c9a2;
+    border-bottom: none;   
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    margin: -20px -20px 0;
+    border-radius: 5px 5px 0 0;
+    padding: 35px;
+}
+.modal-confirm h4 {
+    text-align: center;
+    font-size: 36px;
+    margin: 10px 0;
+}
+.modal-confirm .form-control, .modal-confirm .btn {
+    min-height: 40px;
+    border-radius: 3px; 
+}
+.modal-confirm .close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #fff;
+    text-shadow: none;
+    opacity: 0.5;
+}
+.modal-confirm .close:hover {
+    opacity: 0.8;
+}
+.modal-confirm .icon-box {
+    color: #fff;	
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95px;
+    height: 95px;
+    display: inline-block;
+    border-radius: 50%;
+    z-index: 9;
+    border: 5px solid #fff;
+    padding: 15px;
+    text-align: center;
+}
+.modal-confirm .icon-box .dashicons {
+    font-size: 64px;
+    margin: -4px 0 0 -4px;
+    width: 64px;
+    height: 64px;
+}
+.modal-confirm.modal-dialog {
+    margin-top: 80px;
+}
+
+/* Tabs CSS for Settings page */
+
+.ctu-ultimate-wrapper {
+    width: 100%;
+    float: left;
+}
+.ctu-ultimate-wrapper-2{
+    width: 100%;
+    float: left;
+}
+.ctu-ulimate-style-2{
+    margin: 0 0 0 0;
+    max-width: 100%; 
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -o-flexbox;
+    display: -moz-flexbox;
+    display: inline-flex;
+    overflow: hidden;
+    list-style: none;
+    margin-top: 10px;
+    text-align: center;
+    -webkit-box-pack: flex-start;
+    -ms-flex-pack: flex-start;
+    -o-flex-pack: flex-start;
+    -moz-flex-pack: flex-start;
+    justify-content: flex-start;
+    border-top: 3px solid rgba(50, 222, 212, 1);
+    margin-bottom: 0px;
+    background-color: rgba(255, 255, 255, 1);
+    -webkit-border-radius: 5px 5px 0 0;
+    -ms-border-radius: 5px 5px 0 0;
+    -o-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(225, 225, 225, 0.57);
+    -ms-box-shadow: 0px 0px 20px 0px rgba(225, 225, 225, 0.57); 
+    -o-box-shadow: 0px 0px 20px 0px rgba(225, 225, 225, 0.57); 
+    -moz-box-shadow: 0px 0px 20px 0px rgba(225, 225, 225, 0.57); 
+    box-shadow: 0px 0px 20px 0px rgba(225, 225, 225, 0.57); 
+}
+.ctu-ulimate-style-2 .vc-tabs-li{
+    cursor: pointer;
+    text-align: center;
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -o-flexbox;
+    display: -moz-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -o-flex-pack: center;
+    -moz-flex-pack: center;
+    justify-content: center ;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -o-flex-align: center;
+    -moz-flex-align: center;
+    align-items: center;
+    padding: 15px 10px;
+    margin: 0;
+    font-size: 20px;
+    width: 170px;
+    float: left;
+    color: #b5b5b5;
+    border-right: 1px solid  rgba(50, 222, 212, 1);
+    font-weight:  500;   
+}
+.ctu-ulimate-style-2 .vc-tabs-li:last-child{
+    border-right: none;
+}
+.ctu-ulimate-style-2 .vc-tabs-li.active{
+    color: #ffffff;
+    position: relative;
+    -webkit-transition:  all 0.5s linear;
+    -ms-transition:  all 0.5s linear;
+    -o-transition:  all 0.5s linear;
+    -moz-transition:  all 0.5s linear;
+    transition:  all 0.5s linear;
+    background-color: rgba(50, 222, 212, 1);
+}
+
+.ctu-ultimate-style-2-content{
+    width: 100%;
+    float: left;
+}
+.ctu-ulitate-style-2-tabs{
+    width: 100%;
+    float:left;
+    background-color: rgba(252, 252, 252, 0.79);
+    display: none;
+    -webkit-box-shadow: 0px 0px 17px 0px rgba(225, 225, 225, 0.57);
+    -ms-box-shadow: 0px 0px 17px 0px rgba(225, 225, 225, 0.57);
+    -o-box-shadow: 0px 0px 17px 0px rgba(225, 225, 225, 0.57);
+    -moz-box-shadow: 0px 0px 17px 0px rgba(225, 225, 225, 0.57);
+    box-shadow: 0px 0px 17px 0px rgba(225, 225, 225, 0.57);
+    margin-bottom:10px;
+    padding: 30px 20px 20px 20px;
+}
+
+.sa-el-header-wrap {
+    background: #fff;
+    -webkit-display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 10px;
+    margin: 30px 0;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 8px 21px 0px rgba(36, 39, 50, 0.08);
+    box-shadow: 0px 8px 21px 0px rgba(36, 39, 50, 0.08);
+}
+.sa-el-header-left, .sa-el-header-right {
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+}
+.sa-el-header-left{
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+.sa-el-header-right {
+    text-align: right;
+}
+.sa-el-header-left .sa-el-admin-logo-inline{
+    width: 40px;
+    padding: 5px 0px;
+    margin-right: 10px;
+}
+.sa-el-header-left .title {
+    font-size: 22px;
+    color: #3f3f3f;
+    font-weight: 500;
+    margin: 0px;
+    line-height: 2.5;
+}
+.oxi-addons-wrapper .sa-el-btn{
+    background-color: #0099cc;
+    color: #fff;
+    padding: 6px 20px;
+    border: none;
+    box-shadow: none;
+    font-size: 14px;
+    height: auto;
+    text-transform: uppercase;
+    text-shadow: none;
+    letter-spacing: 0.05em;
+    align-items: center;
+    justify-content: center;
+    display: inline-flex;
+}
+.oxi-addons-wrapper .sa-el-btn .dashicons-admin-generic{
+    margin-right: 5px;
+    -webkit-animation:spin 3s linear infinite;
+    -moz-animation:spin 3s linear infinite;
+    animation:spin 3s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+.oxi-addons-wrapper .sa-el-header-right .sa-el-btn {
+    border-radius: 3px;
+    background: #e74c3c;
+    width: 160px;
+    height: 50px;
+    transition: all 300ms ease-in-out;
+}
+.oxi-addons-wrapper .sa-el-header-right .sa-el-btn:hover{
+    background: #ab1202;
+    color: #fff;
+}
+.oxi-addons-wrapper .sa-el-header-right .sa-el-btn:focus{
+    background: rgba(50, 222, 212, 1);
+    color: #fff;
+}
+.sa-el-admin-wrapper{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.sa-el-admin-block {
+    background-color: #FFF;
+    flex: 1 1 auto;
+    min-width: 250px;
+    width: 100%;
+    margin: 10px 10px 25px 10px;
+    box-shadow: 0px 8px 38px 0px rgba(16, 16, 16, 0.07);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.sa-el-admin-header {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    padding: 30px 0 0 25px;
+}
+.sa-el-admin-header-icon{
+    height: 45px;
+    width: 45px;
+    background: rgba(50, 222, 212, 1);
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sa-el-admin-header-icon .dashicons{
+    color: #fff;
+}
+.sa-el-admin-header .sa-el-admin-header-title {
+    margin: 0.7em 0 1em;
+    padding: 0 1.3em;
+    font-size: 18px;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #333333;
+}
+.sa-el-admin-block-content{
+    overflow: hidden;
+    position: relative;
+    padding: 1em 1.5em 1.5em;
+    background-color: #fff;
+    padding-left: 90px;
+    padding-bottom: 30px;
+    padding-top: 0px;
+}
+.sa-el-admin-block-content p{
+    font-size: 15px;
+    color: #707070;
+    margin: 0px 0 20px 0;
+    line-height: 1.4;
+}
+.sa-el-admin-block-content .sa-el-button {
+    font-size: 14px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 14px 15px 0px rgba(0, 5, 41, 0.08);
+    box-shadow: 0px 14px 15px 0px rgba(0, 5, 41, 0.08);
+    box-shadow: 0px 14px 15px 0px rgba(0, 5, 41, 0.08);
+    background: rgba(50, 222, 212, 1);
+    color: #fff;
+    display: inline-block;
+    padding: 12px 22px 14px;
+    text-decoration: none;
+    line-height: 1;
+    transition: all 0.3s;
+}
+.sa-el-admin-block-content .sa-el-button:hover,
+.sa-el-admin-block-content .sa-el-button:focus{
+    background: rgb(42, 169, 162);
+    color: #fff;
+}
+.sa-el-btn-group{
+    text-align: center;
+    width: 100%;
+    float: left;
+    margin-bottom: 50px;
+}
+.oxi-addons-wrapper .sa-el-btn-control-enable,
+.oxi-addons-wrapper .sa-el-btn-control-disable{
+    cursor: pointer;
+    border-radius: 3px;
+    margin: 5px 10px;
+    color: #fff;
+    background-color: rgba(50, 222, 212, 1);
+    width: 130px;
+    height: 45px;
+    transition: all 300ms ease-in-out;
+}
+.oxi-addons-wrapper .sa-el-btn-control-enable:hover,
+.oxi-addons-wrapper .sa-el-btn-control-enable:focus{
+    background: rgb(42, 169, 162);
+    color: #fff;
+}
+.oxi-addons-wrapper .sa-el-btn-control-disable{
+    background: #e74c3c;
+}
+.oxi-addons-wrapper .sa-el-btn-control-disable:hover,
+.oxi-addons-wrapper .sa-el-btn-control-disable:focus{
+    color: #fff;
+    background:#ab1202;
+
+}

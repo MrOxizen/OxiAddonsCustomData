@@ -55,7 +55,7 @@ class Offcanvas extends Widget_Base {
             'label' => __('Content Type', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
             'options' => [
-//                'sidebar' => __('Sidebar', SA_ELEMENTOR_TEXTDOMAIN),
+                'sidebar' => __('Sidebar', SA_ELEMENTOR_TEXTDOMAIN),
                 'custom' => __('Custom Content', SA_ELEMENTOR_TEXTDOMAIN),
                 'section' => __('Saved Section', SA_ELEMENTOR_TEXTDOMAIN),
                 'widget' => __('Saved Widget', SA_ELEMENTOR_TEXTDOMAIN),
@@ -65,25 +65,25 @@ class Offcanvas extends Widget_Base {
                 ]
         );
 
-//        $registered_sidebars = $this->get_registered_sidebars();
-//        $this->add_control(
-//                'sidebar', [
-//            'label' => __('Choose Sidebar', SA_ELEMENTOR_TEXTDOMAIN),
-//            'type' => Controls_Manager::SELECT,
-//            'default' => array_shift($registered_sidebars),
-//            'options' => $registered_sidebars,
-//            'condition' => [
-//                'content_type' => 'sidebar',
-//            ],
-//                ]
-//        );
+        $registered_sidebars = $this->sa_get_registered_sidebars();
+        $this->add_control(
+                'sidebar', [
+            'label' => __('Choose Sidebar', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::SELECT,
+            'default' => array_shift($registered_sidebars),
+            'options' => $registered_sidebars,
+            'condition' => [
+                'content_type' => 'sidebar',
+            ],
+                ]
+        );
 
         $this->add_control(
                 'saved_widget', [
             'label' => __('Choose Widget', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
             'options' => $this->get_elementor_page_templates('widget'),
-            'default' => '-1',
+            'default' => '',
             'condition' => [
                 'content_type' => 'widget',
             ],
@@ -312,7 +312,30 @@ class Offcanvas extends Widget_Base {
         );
 
         $this->end_controls_section();
+        if (!apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', ['', '', TRUE])) {
+            $this->start_controls_section(
+                    'sa_el_section_pro', [
+                'label' => __('Go Premium for More Features', SA_ELEMENTOR_TEXTDOMAIN)
+                    ]
+            );
 
+            $this->add_control(
+                    'sa_el_control_get_pro', [
+                'label' => __('Unlock more possibilities', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    '1' => [
+                        'title' => __('', SA_ELEMENTOR_TEXTDOMAIN),
+                        'icon' => 'fa fa-unlock-alt',
+                    ],
+                ],
+                'default' => '1',
+                'description' => '<span class="pro-feature"> Get the  <a href="https://www.oxilab.org/downloads/short-code-addons/" target="_blank">Pro version</a> for more stunning elements and customization options.</span>'
+                    ]
+            );
+
+            $this->end_controls_section();
+        }
         /* ----------------------------------------------------------------------------------- */
         /*    STYLE TAB
           /*----------------------------------------------------------------------------------- */
@@ -1032,11 +1055,11 @@ class Offcanvas extends Widget_Base {
         ?>
         <div class="sa-el-offcanvas-header">
             <div <?php echo $this->get_render_attribute_string('close-button'); ?>>
-        <?php if ($settings['close_button_icon'] != '') { ?>
+                <?php if ($settings['close_button_icon'] != '') { ?>
                     <span class="<?php echo esc_attr($settings['close_button_icon']); ?>"></span>
-        <?php } else { ?>
+                <?php } else { ?>
                     <span class="fa fa-close"></span>
-        <?php } // end of if( $settings['close_button_icon'] != '' )  ?>
+                <?php } // end of if( $settings['close_button_icon'] != '' )  ?>
             </div>
         </div>
         <?php
@@ -1076,7 +1099,7 @@ class Offcanvas extends Widget_Base {
                 <div class="sa-el-offcanvas-custom-widget">
                     <h3 class="sa-el-offcanvas-widget-title"><?php echo $item['title']; ?></h3>
                     <div class="sa-el-offcanvas-widget-content">
-                <?php echo $item['description']; ?>
+                        <?php echo $item['description']; ?>
                     </div>
                 </div>
                 <?php
@@ -1137,40 +1160,40 @@ class Offcanvas extends Widget_Base {
         ?>
         <div <?php echo $this->get_render_attribute_string('content-wrap'); ?>>
 
-        <?php if ($settings['button_text'] != '' || $settings['button_text'] != ''): ?>
+            <?php if ($settings['button_text'] != '' || $settings['button_text'] != ''): ?>
                 <div class="sa-el-offcanvas-toggle-wrap">
                     <div <?php echo $this->get_render_attribute_string('toggle-button'); ?>>
-            <?php if (!empty($settings['button_icon'])): ?>
+                        <?php if (!empty($settings['button_icon'])): ?>
                             <span class="sa-el-offcanvas-toggle-icon <?php echo esc_attr($settings['button_icon']); ?>"></span>
-            <?php endif; ?>
+                        <?php endif; ?>
                         <span class="sa-el-toggle-text">
-            <?php echo $settings['button_text']; ?>
+                            <?php echo $settings['button_text']; ?>
                         </span>
                     </div>
                 </div>
-                <?php endif; // end of if( $settings['button_text'] != '' || $settings['button_text'] != '' )  ?>
+            <?php endif; // end of if( $settings['button_text'] != '' || $settings['button_text'] != '' )  ?>
 
             <div <?php echo $this->get_render_attribute_string('content'); ?>>
-        <?php $this->render_close_button(); ?>
+                <?php $this->render_close_button(); ?>
                 <div class="sa-el-offcanvas-body">
-        <?php
-        if ('sidebar' == $settings['content_type']) {
+                    <?php
+                    if ('sidebar' == $settings['content_type']) {
 
-            $this->render_sidebar();
-        } else if ('custom' == $settings['content_type']) {
+                        $this->render_sidebar();
+                    } else if ('custom' == $settings['content_type']) {
 
-            $this->render_custom_content();
-        } else if ('section' == $settings['content_type'] && !empty($settings['saved_section'])) {
+                        $this->render_custom_content();
+                    } else if ('section' == $settings['content_type'] && !empty($settings['saved_section'])) {
 
-            echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display($settings['saved_section']);
-        } elseif ('template' == $settings['content_type'] && !empty($settings['templates'])) {
+                        echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display($settings['saved_section']);
+                    } elseif ('template' == $settings['content_type'] && !empty($settings['templates'])) {
 
-            echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display($settings['templates']);
-        } elseif ('widget' == $settings['content_type'] && !empty($settings['saved_widget'])) {
+                        echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display($settings['templates']);
+                    } elseif ('widget' == $settings['content_type'] && !empty($settings['saved_widget'])) {
 
-            echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display($settings['saved_widget']);
-        }
-        ?>
+                        echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display($settings['saved_widget']);
+                    }
+                    ?>
                 </div><!-- /.sa-el-offcanvas-body -->
             </div>
         </div>

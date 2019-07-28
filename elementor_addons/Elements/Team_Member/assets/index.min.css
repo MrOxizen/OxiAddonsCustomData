@@ -1,0 +1,56 @@
+.sa-el-team-member>.elementor-widget-container {
+    padding: 1.25rem;
+}
+
+.sa-el-team-member-figure {
+    display: inline-block;
+    margin: 0 0 1.5rem !important;
+}
+
+.sa-el-team-member-figure img {
+    width: 100%;
+    height: 100%;
+    vertical-align: bottom;
+}
+
+.sa-el-team-member-name {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    color: #151515;
+    font-size: 18px;
+}
+
+.sa-el-team-member-position {
+    margin-bottom: 1.5rem;
+    color: #7f7f7f;
+    font-size: 14px;
+}
+
+.sa-el-team-member-bio {
+    margin-bottom: 1.5rem;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.sa-el-team-member-links>a {
+    display: inline-block;
+    color: #9895ad;
+    text-align: center;
+    line-height: 1;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+
+.sa-el-team-member-links>a:hover,
+.sa-el-team-member-links>a:focus {
+    color: #222;
+}
+
+.sa-el-team-member-links>a>i {
+    width: 1em;
+    height: 1em;
+}
+
+.sa-el-team-member-links>a:not(:last-child) {
+    margin-right: .3rem;
+}

@@ -140,7 +140,7 @@ class Interactive_Card extends Widget_Base {
                 'sa_el_primary_templates', [
             'label' => __('Choose Template', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
-           'options' => $this->get_elementor_page_templates(),
+            'options' => $this->get_elementor_page_templates(),
             'condition' => [
                 'sa_el_interactive_card_text_type' => 'template',
             ],
@@ -397,7 +397,30 @@ class Interactive_Card extends Widget_Base {
         );
 
         $this->end_controls_section();
+        if (!apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', ['', '', TRUE])) {
+            $this->start_controls_section(
+                    'sa_el_section_pro', [
+                'label' => __('Go Premium for More Features', SA_ELEMENTOR_TEXTDOMAIN)
+                    ]
+            );
 
+            $this->add_control(
+                    'sa_el_control_get_pro', [
+                'label' => __('Unlock more possibilities', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    '1' => [
+                        'title' => __('', SA_ELEMENTOR_TEXTDOMAIN),
+                        'icon' => 'fa fa-unlock-alt',
+                    ],
+                ],
+                'default' => '1',
+                'description' => '<span class="pro-feature"> Get the  <a href="https://www.oxilab.org/downloads/short-code-addons/" target="_blank">Pro version</a> for more stunning elements and customization options.</span>'
+                    ]
+            );
+
+            $this->end_controls_section();
+        }
         /**
          * -------------------------------------------
          * Tab Style (General Style)
@@ -1328,126 +1351,128 @@ class Interactive_Card extends Widget_Base {
         $this->end_controls_section();
     }
 
+    protected function render() {
 
-	protected function render( ) {
+        $settings = $this->get_settings_for_display();
 
-		$settings = $this->get_settings_for_display();
+        // Rear Button Link Target and NoFollow
+        $target = $settings['sa_el_interactive_card_rear_btn_link']['is_external'] ? 'target="_blank"' : '';
+        $nofollow = $settings['sa_el_interactive_card_rear_btn_link']['nofollow'] ? 'rel="nofollow"' : '';
 
-		// Rear Button Link Target and NoFollow
-		$target = $settings['sa_el_interactive_card_rear_btn_link']['is_external'] ? 'target="_blank"' : '';
-		$nofollow = $settings['sa_el_interactive_card_rear_btn_link']['nofollow'] ? 'rel="nofollow"' : '';
+        // Youtube FullScreen
+        if ('yes' === $settings['sa_el_interactive_card_youtube_video_fullscreen']) : $full_screen = 'allowfullscreen';
+        else: $full_screen = '';
+        endif;
 
-		// Youtube FullScreen
-		if( 'yes' === $settings['sa_el_interactive_card_youtube_video_fullscreen'] ) : $full_screen = 'allowfullscreen'; else: $full_screen = ''; endif;
+        $this->add_render_attribute('sa-el-interactive-card', [
+            'class' => 'interactive-card',
+            'data-interactive-card-id' => esc_attr($this->get_id()),
+            'data-animation' => $settings['sa_el_interactive_card_content_animation'],
+            'data-animation-time' => $settings['sa_el_interactive_card_animation_reveal_time']
+        ]);
+        ?>
+        <div id="interactive-card-<?php echo esc_attr($this->get_id()); ?>"  
+             <?php echo $this->get_render_attribute_string('sa-el-interactive-card'); ?>>
+                 <?php if ('text-card' === $settings['sa_el_interactive_card_style']) : ?>
+                <div class="front-content front-text-content">
+                    <div class="image-screen">
+                        <div class="header">
+                            <?php if (!empty($settings['sa_el_interactive_card_front_panel_counter'])) : ?>
+                                <div class="card-number"><?php echo $settings['sa_el_interactive_card_front_panel_counter']; ?></div>
+                            <?php endif; ?>
+                            <?php if (!empty($settings['sa_el_interactive_card_front_panel_title'])) : ?>
+                                <div class="title"><?php echo $settings['sa_el_interactive_card_front_panel_title']; ?></div>
+                            <?php endif; ?>
+                        </div>
+                        <?php if ('content' == $settings['sa_el_interactive_card_text_type']): ?>
+                            <?php if (!empty($settings['sa_el_interactive_card_front_panel_content'])) : ?>
+                                <div class="front-text-body">
+                                    <?php echo $settings['sa_el_interactive_card_front_panel_content']; ?>
+                                </div>
+                            <?php endif; ?>
+                        <?php elseif ('template' == $settings['sa_el_interactive_card_text_type']) : ?>
+                            <div class="front-text-body">
+                                <?php
+                                if (!empty($settings['sa_el_primary_templates'])) {
+                                    $sa_el_template_id = $settings['sa_el_primary_templates'];
+                                    $sa_el_frontend = new Frontend;
 
-		$this->add_render_attribute( 'sa-el-interactive-card', [
-			'class'	=> 'interactive-card',
-			'data-interactive-card-id'	=> esc_attr($this->get_id()),
-			'data-animation'			=> $settings['sa_el_interactive_card_content_animation'],
-			'data-animation-time'		=> $settings['sa_el_interactive_card_animation_reveal_time']
-		]);
+                                    echo $sa_el_frontend->get_builder_content($sa_el_template_id, true);
+                                }
+                                ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (!empty($settings['sa_el_interactive_card_front_panel_btn'])) : ?>
+                            <div class="footer">
+                                <a href="javascript:;" class="interactive-btn"><?php echo $settings['sa_el_interactive_card_front_panel_btn']; ?></a>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php elseif ('img-card' === $settings['sa_el_interactive_card_style']) : ?>
+                <div class="front-content">
+                    <div class="image-screen">
+                        <div class="image-screen-overlay"></div>
+                    </div>
+                </div>
+            <?php endif; ?>
 
-	?>
-	<div id="interactive-card-<?php echo esc_attr( $this->get_id() ); ?>"  
-		<?php echo 	$this->get_render_attribute_string( 'sa-el-interactive-card' ); ?>>
-		<?php if( 'text-card' === $settings['sa_el_interactive_card_style'] ) : ?>
-		<div class="front-content front-text-content">
-			<div class="image-screen">
-				<div class="header">
-					<?php if ( ! empty( $settings['sa_el_interactive_card_front_panel_counter'] ) ) : ?>
-					<div class="card-number"><?php echo $settings['sa_el_interactive_card_front_panel_counter']; ?></div>
-					<?php endif; ?>
-					<?php if ( ! empty( $settings['sa_el_interactive_card_front_panel_title'] ) ) : ?>
-					<div class="title"><?php echo $settings['sa_el_interactive_card_front_panel_title']; ?></div>
-					<?php endif; ?>
-				</div>
-				<?php if( 'content' == $settings['sa_el_interactive_card_text_type'] ):  ?>
-				<?php if ( ! empty( $settings['sa_el_interactive_card_front_panel_content'] ) ) : ?>
-					<div class="front-text-body">
-						<?php echo $settings['sa_el_interactive_card_front_panel_content']; ?>
-					</div>
-				<?php endif; ?>
-				<?php elseif( 'template' == $settings['sa_el_interactive_card_text_type'] ) : ?>
-					<div class="front-text-body">
-						<?php
-							if ( !empty( $settings['sa_el_primary_templates'] ) ) {
-								$sa_el_template_id = $settings['sa_el_primary_templates'];
-								$sa_el_frontend = new Frontend;
+            <div class="content">
+                <span class="close close-me"><i class="<?php echo esc_attr($settings['sa_el_interactive_card_close_button_icon']); ?>"></i></span>
+                <?php if ('img-grid' === $settings['sa_el_interactive_card_type']) : ?>
+                    <div class="content-inner">
+                        <div class="text">
+                            <div class="text-inner">
+                                <?php if (!empty($settings['sa_el_interactive_card_rear_title'])) : ?>
+                                    <div class="title"><?php echo $settings['sa_el_interactive_card_rear_title']; ?></div>
+                                <?php endif; ?>
+                                <?php if ('content' == $settings['sa_el_interactive_card_rear_text_type']) : ?>
+                                    <?php echo wpautop($settings['sa_el_interactive_card_rear_content']); ?>
+                                <?php elseif ('template' == $settings['sa_el_interactive_card_rear_text_type']) : ?>
+                                    <?php
+                                    if (!empty($settings['sa_el_primary_rear_templates'])) {
+                                        $sa_el_template_id = $settings['sa_el_primary_rear_templates'];
+                                        $sa_el_frontend = new Frontend;
 
-								echo $sa_el_frontend->get_builder_content( $sa_el_template_id, true );
-							}
-						?>
-					</div>
-				<?php endif; ?>
-				<?php if ( ! empty( $settings['sa_el_interactive_card_front_panel_btn'] ) ) : ?>
-				<div class="footer">
-					<a href="javascript:;" class="interactive-btn"><?php echo $settings['sa_el_interactive_card_front_panel_btn']; ?></a>
-				</div>
-				<?php endif; ?>
-			</div>
-		</div>
-		<?php elseif( 'img-card' === $settings['sa_el_interactive_card_style'] ) : ?>
-		<div class="front-content">
-			<div class="image-screen">
-				<div class="image-screen-overlay"></div>
-			</div>
-		</div>
-		<?php endif; ?>
+                                        echo $sa_el_frontend->get_builder_content($sa_el_template_id, true);
+                                    }
+                                    ?>
+                                <?php endif; ?>
+                                <?php if (!empty($settings['sa_el_interactive_card_rear_btn'])) : ?>
+                                    <a href="<?php echo esc_url($settings['sa_el_interactive_card_rear_btn_link']['url']); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> class="interactive-btn"><?php echo $settings['sa_el_interactive_card_rear_btn']; ?></a>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        <?php if (!empty($settings['sa_el_interactive_card_rear_image'])) : ?>
+                            <div class="image"></div>
+                        <?php endif; ?>
+                    </div>
+                <?php elseif ('scrollable' === $settings['sa_el_interactive_card_type']) : ?>
+                    <div class="content-overflow">
+                        <?php if ('content' == $settings['sa_el_interactive_card_rear_text_type']) : ?>
+                            <?php echo do_shortcode(wp_kses_post($settings['sa_el_interactive_card_rear_custom_code'])); ?>
+                        <?php elseif ('template' == $settings['sa_el_interactive_card_rear_text_type']) : ?>
+                            <?php
+                            if (!empty($settings['sa_el_primary_rear_templates'])) {
+                                $sa_el_template_id = $settings['sa_el_primary_rear_templates'];
+                                $sa_el_frontend = new Frontend;
 
-		<div class="content">
-			<span class="close close-me"><i class="<?php echo esc_attr( $settings['sa_el_interactive_card_close_button_icon'] ); ?>"></i></span>
-			<?php if( 'img-grid' === $settings['sa_el_interactive_card_type'] ) : ?>
-				<div class="content-inner">
-					<div class="text">
-						<div class="text-inner">
-							<?php if ( ! empty( $settings['sa_el_interactive_card_rear_title'] ) ) : ?>
-							<div class="title"><?php echo $settings['sa_el_interactive_card_rear_title']; ?></div>
-							<?php endif; ?>
-							<?php if( 'content' == $settings['sa_el_interactive_card_rear_text_type'] ) : ?>
-							<?php echo wpautop($settings['sa_el_interactive_card_rear_content']); ?>
-							<?php elseif( 'template' == $settings['sa_el_interactive_card_rear_text_type'] ) : ?>
-								<?php
-									if ( !empty( $settings['sa_el_primary_rear_templates'] ) ) {
-										$sa_el_template_id = $settings['sa_el_primary_rear_templates'];
-										$sa_el_frontend = new Frontend;
+                                echo $sa_el_frontend->get_builder_content($sa_el_template_id, true);
+                            }
+                            ?>
+                        <?php endif; ?>
+                    </div>
+                    <?php elseif ('video' === $settings['sa_el_interactive_card_type']) :
+                    ?>
+                    <iframe src="<?php echo esc_url(str_replace('watch?v=', 'embed/', $settings['sa_el_interactive_card_youtube_video_url'])); ?>" <?php echo $full_screen; ?>></iframe>
+                <?php endif; ?>
+            </div>
+        </div>
+        <?php
+    }
 
-										echo $sa_el_frontend->get_builder_content( $sa_el_template_id, true );
-									}
-								?>
-							<?php endif; ?>
-							<?php if ( ! empty( $settings['sa_el_interactive_card_rear_btn'] ) ) : ?>
-							<a href="<?php echo esc_url( $settings['sa_el_interactive_card_rear_btn_link']['url'] ); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> class="interactive-btn"><?php echo $settings['sa_el_interactive_card_rear_btn']; ?></a>
-							<?php endif; ?>
-						</div>
-					</div>
-					<?php if ( ! empty( $settings['sa_el_interactive_card_rear_image'] ) ) : ?>
-					<div class="image"></div>
-					<?php endif; ?>
-				</div>
-			<?php elseif( 'scrollable' === $settings['sa_el_interactive_card_type'] ) : ?>
-				<div class="content-overflow">
-					<?php if( 'content' == $settings['sa_el_interactive_card_rear_text_type'] ) : ?>
-						<?php echo do_shortcode( wp_kses_post($settings['sa_el_interactive_card_rear_custom_code']) ); ?>
-					<?php elseif( 'template' == $settings['sa_el_interactive_card_rear_text_type'] ) : ?>
-						<?php
-							if ( !empty( $settings['sa_el_primary_rear_templates'] ) ) {
-								$sa_el_template_id = $settings['sa_el_primary_rear_templates'];
-								$sa_el_frontend = new Frontend;
-								
-								echo $sa_el_frontend->get_builder_content( $sa_el_template_id, true );
-							}
-						?>
-					<?php endif; ?>
-				</div>
-			<?php
-				elseif( 'video' === $settings['sa_el_interactive_card_type'] ) :
-			?>
-				<iframe src="<?php echo esc_url(str_replace('watch?v=', 'embed/', $settings['sa_el_interactive_card_youtube_video_url'])); ?>" <?php echo $full_screen; ?>></iframe>
-			<?php endif; ?>
-		</div>
-	</div>
-	<?php
-	}
+    protected function content_template() {
+        
+    }
 
-	protected function content_template() { }
 }
