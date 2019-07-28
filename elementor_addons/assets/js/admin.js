@@ -47,12 +47,9 @@ jQuery(document).ready(function ($) {
         }
     }
 
-
-
-
     $('.sa-el-btn-group .sa-el-btn-control-enable').on('click', function (e) {
         e.preventDefault();
-        $(".oxi-sa-cards .oxi-sa-cards-switcher input:enabled").each(
+        $("#tabs-elements .oxi-sa-cards .oxi-sa-cards-switcher input:enabled").each(
                 function (i) {
                     $(this)
                             .prop("checked", true)
@@ -63,7 +60,7 @@ jQuery(document).ready(function ($) {
 
     $('.sa-el-btn-group .sa-el-btn-control-disable').on('click', function (e) {
         e.preventDefault();
-        $(".oxi-sa-cards .oxi-sa-cards-switcher input:enabled").each(
+        $("#tabs-elements .oxi-sa-cards .oxi-sa-cards-switcher input:enabled").each(
                 function (i) {
                     $(this)
                             .prop("checked", false)
