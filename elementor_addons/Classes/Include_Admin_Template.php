@@ -75,9 +75,6 @@ trait Include_Admin_Template {
         foreach ($registered_el as $key => $value) {
             $registered_element[$value['category']][$key] = array('name' => $key, 'Premium' => $value['Premium'], 'condition' => $value['condition'], 'API' => $value['API']);
         }
-        echo '<pre>';
-        print_r($registered_element);
-        echo '</pre>';
         ?>
 
         <div class="oxi-addons-wrapper">
