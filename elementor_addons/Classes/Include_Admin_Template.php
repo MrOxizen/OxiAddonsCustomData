@@ -67,6 +67,17 @@ trait Include_Admin_Template {
             'Marketing Elements' => array(
             )
         );
+
+        $registered_element = array(
+            'Extension' => array()
+        );
+        $registered_el = $this->registered_elements;
+        foreach ($registered_el as $key => $value) {
+            $registered_element[$value['category']][$key] = array('name' => $key, 'Premium' => $value['Premium'], 'condition' => $value['condition'], 'API' => $value['API']);
+        }
+        echo '<pre>';
+        print_r($registered_element);
+        echo '</pre>';
         ?>
 
         <div class="oxi-addons-wrapper">
@@ -186,24 +197,26 @@ trait Include_Admin_Template {
 
                                         <?php
                                         $settings = $this->Get_Active_Elements();
-                                        foreach ($elementor as $key => $value) {
-                                            echo '<div class="oxi-sa-cards-wrapper">';
-                                            echo '<div class="oxi-addons-ce-heading">' . oxi_addons_shortcode_name_converter($key) . '</div>';
-                                            echo '<div class="row">';
-                                            foreach ($value as $elements) {
-                                                echo '  <div class="col-lg-4 col-md-6 col-sm-12">
+                                        foreach ($registered_element as $key => $value) {
+                                            if ($key != 'Extension') {
+                                                echo '<div class="oxi-sa-cards-wrapper">';
+                                                echo '<div class="oxi-addons-ce-heading">' . oxi_addons_shortcode_name_converter($key) . '</div>';
+                                                echo '<div class="row">';
+                                                foreach ($value as $elements) {
+                                                    echo '  <div class="col-lg-4 col-md-6 col-sm-12">
                                                                 <div class="oxi-sa-cards">
                                                                     <div class="oxi-sa-cards-h1">
-                                                                        ' . oxi_addons_shortcode_name_converter($elements) . '
+                                                                        ' . oxi_addons_shortcode_name_converter($elements['name']) . '
                                                                     </div>
                                                                     <div class="oxi-sa-cards-switcher">
-                                                                        <input type="checkbox" class="oxi-addons-switcher-btn" sa-elmentor="' . $elements . '" id="' . $elements . '" name="' . $elements . '" ' . (array_key_exists($elements, $settings) ? 'checked="checked"' : '') . '>
-                                                                        <label for="' . $elements . '" class="oxi-addons-switcher-label"></label>
+                                                                        <input type="checkbox" class="oxi-addons-switcher-btn" sa-elmentor="' . $elements['name'] . '" id="' . $elements['name'] . '" name="' . $elements['name'] . '" ' . (array_key_exists($elements['name'], $settings) ? 'checked="checked"' : '') . '>
+                                                                        <label for="' . $elements['name'] . '" class="oxi-addons-switcher-label"></label>
                                                                     </div>
                                                                 </div>
                                                             </div>';
+                                                }
+                                                echo '</div></div>';
                                             }
-                                            echo '</div></div>';
                                         }
                                         ?>
 
@@ -211,7 +224,35 @@ trait Include_Admin_Template {
                                 </div>
                             </div>
                             <div class="ctu-ulitate-style-2-tabs" id="tabs-extention">
+                                <div class="oxi-addons-wrapper">
+                                    <div class="oxi-addons-row">
+                                        <?php
+                                        $settings = $this->Get_Active_Elements();
+                                        foreach ($registered_element as $key => $value) {
+                                            if ($key == 'Extension') {
+                                                echo '<div class="oxi-sa-cards-wrapper">';
+                                                echo '<div class="oxi-addons-ce-heading">' . oxi_addons_shortcode_name_converter($key) . '</div>';
+                                                echo '<div class="row">';
+                                                foreach ($value as $elements) {
+                                                    echo '  <div class="col-lg-4 col-md-6 col-sm-12">
+                                                                <div class="oxi-sa-cards">
+                                                                    <div class="oxi-sa-cards-h1">
+                                                                        ' . oxi_addons_shortcode_name_converter($elements['name']) . '
+                                                                    </div>
+                                                                    <div class="oxi-sa-cards-switcher">
+                                                                        <input type="checkbox" class="oxi-addons-switcher-btn" sa-elmentor="' . $elements['name'] . '" id="' . $elements['name'] . '" name="' . $elements['name'] . '" ' . (array_key_exists($elements['name'], $settings) ? 'checked="checked"' : '') . '>
+                                                                        <label for="' . $elements['name'] . '" class="oxi-addons-switcher-label"></label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>';
+                                                }
+                                                echo '</div></div>';
+                                            }
+                                        }
+                                        ?>
 
+                                    </div>
+                                </div>
                             </div>
                             <div class="ctu-ulitate-style-2-tabs" id="tabs-cache">
 
