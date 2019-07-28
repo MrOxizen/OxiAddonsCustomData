@@ -28,7 +28,7 @@ class Single_Product extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-tabs';
+        return 'eicon-image-box';
     }
 
     public function get_categories() {
@@ -197,8 +197,8 @@ class Single_Product extends Widget_Base {
                 'sa_el_static_product_show_details_btn' => 'yes',
             ],
             'selectors' => [
-                '{{WRAPPER}} .sa-el-static-product-button-icon-right' => 'margin-left: {{SIZE}}px;',
-                '{{WRAPPER}} .sa-el-static-product-button-icon-left' => 'margin-right: {{SIZE}}px;',
+                '{{WRAPPER}} .sa-el-single-product-button-icon-right' => 'margin-left: {{SIZE}}px;',
+                '{{WRAPPER}} .sa-el-single-product-button-icon-left' => 'margin-right: {{SIZE}}px;',
             ],
                 ]
         );
@@ -211,7 +211,7 @@ class Single_Product extends Widget_Base {
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px'],
             'selectors' => [
-                '{{WRAPPER}} .sa-el-static-product-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} .sa-el-single-product-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
             ],
             'condition' => [
                 'sa_el_static_product_show_details_btn' => 'yes',
@@ -230,7 +230,7 @@ class Single_Product extends Widget_Base {
                 ],
             ],
             'selectors' => [
-                '{{WRAPPER}} .sa-el-static-product-btn' => 'border-radius: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}} .sa-el-single-product-btn' => 'border-radius: {{SIZE}}{{UNIT}};',
             ],
             'condition' => [
                 'sa_el_static_product_show_details_btn' => 'yes',
@@ -242,7 +242,7 @@ class Single_Product extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'sa_el_static_product_btn_typography',
             'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-            'selector' => '{{WRAPPER}} .sa-el-static-product-btn',
+            'selector' => '{{WRAPPER}} .sa-el-single-product-btn',
             'condition' => [
                 'sa_el_static_product_show_details_btn' => 'yes',
             ],
@@ -264,7 +264,7 @@ class Single_Product extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#ffffff',
             'selectors' => [
-                '{{WRAPPER}} .sa-el-static-product-btn' => 'color: {{VALUE}};',
+                '{{WRAPPER}} .sa-el-single-product-btn' => 'color: {{VALUE}};',
             ],
             'condition' => [
                 'sa_el_static_product_show_details_btn' => 'yes',
@@ -280,7 +280,7 @@ class Single_Product extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#646464',
             'selectors' => [
-                '{{WRAPPER}} .sa-el-static-product-btn' => 'background-color: {{VALUE}};',
+                '{{WRAPPER}} .sa-el-single-product-btn' => 'background-color: {{VALUE}};',
             ],
             'condition' => [
                 'sa_el_static_product_show_details_btn' => 'yes',
@@ -291,7 +291,7 @@ class Single_Product extends Widget_Base {
         $this->add_group_control(
                 Group_Control_Border::get_type(), [
             'name' => 'sa_el_static_product_btn_border',
-            'selector' => '{{WRAPPER}} .sa-el-static-product-btn',
+            'selector' => '{{WRAPPER}} .sa-el-single-product-btn',
             'condition' => [
                 'sa_el_static_product_show_details_btn' => 'yes',
             ],
@@ -315,7 +315,7 @@ class Single_Product extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#ffffff',
             'selectors' => [
-                '{{WRAPPER}} .sa-el-static-product-btn:hover' => 'color: {{VALUE}};',
+                '{{WRAPPER}} .sa-el-single-product-btn:hover' => 'color: {{VALUE}};',
             ],
             'condition' => [
                 'sa_el_static_product_show_details_btn' => 'yes',
@@ -329,7 +329,7 @@ class Single_Product extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#272727',
             'selectors' => [
-                '{{WRAPPER}} .sa-el-static-product-btn:hover' => 'background-color: {{VALUE}};',
+                '{{WRAPPER}} .sa-el-single-product-btn:hover' => 'background-color: {{VALUE}};',
             ],
             'condition' => [
                 'sa_el_static_product_show_details_btn' => 'yes',
@@ -342,7 +342,7 @@ class Single_Product extends Widget_Base {
             'label' => esc_html__('Border Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
             'selectors' => [
-                '{{WRAPPER}} .sa-el-static-product-btn:hover' => 'border-color: {{VALUE}};',
+                '{{WRAPPER}} .sa-el-single-product-btn:hover' => 'border-color: {{VALUE}};',
             ],
             'condition' => [
                 'sa_el_static_product_show_details_btn' => 'yes',
@@ -396,7 +396,7 @@ class Single_Product extends Widget_Base {
                 ],
             ],
             'selectors' => [
-                '{{WRAPPER}} .sa-el-static-product' => 'max-width: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}} .sa-el-single-product' => 'max-width: {{SIZE}}{{UNIT}};',
             ],
             'condition' => [
                 'sa_el_static_product_container_width' => 'yes',
@@ -426,8 +426,8 @@ class Single_Product extends Widget_Base {
             ],
             'default' => 'center',
             'selectors' => [
-                '{{WRAPPER}} .sa-el-static-product-details' => 'text-align: {{VALUE}}',
-                '{{WRAPPER}} .sa-el-static-product-btn-wrap' => 'text-align: {{VALUE}}',
+                '{{WRAPPER}} .sa-el-single-product-details' => 'text-align: {{VALUE}}',
+                '{{WRAPPER}} .sa-el-single-product-btn-wrap' => 'text-align: {{VALUE}}',
             ],
                 ]
         );
@@ -438,7 +438,7 @@ class Single_Product extends Widget_Base {
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px'],
             'selectors' => [
-                '{{WRAPPER}} .sa-el-static-product-details' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} .sa-el-single-product-details' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
             ],
                 ]
         );
@@ -446,7 +446,7 @@ class Single_Product extends Widget_Base {
         $this->add_group_control(
                 Group_Control_Border::get_type(), [
             'name' => 'sa_el_static_product_border',
-            'selector' => '{{WRAPPER}} .sa-el-static-product',
+            'selector' => '{{WRAPPER}} .sa-el-single-product',
                 ]
         );
 
@@ -462,7 +462,7 @@ class Single_Product extends Widget_Base {
                 ],
             ],
             'selectors' => [
-                '{{WRAPPER}} .sa-el-static-product' => 'border-radius: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}} .sa-el-single-product' => 'border-radius: {{SIZE}}{{UNIT}};',
             ],
                 ]
         );
@@ -470,7 +470,7 @@ class Single_Product extends Widget_Base {
         $this->add_group_control(
                 Group_Control_Box_Shadow::get_type(), [
             'name' => 'sa_el_static_product_box_shadow',
-            'selector' => '{{WRAPPER}} .sa-el-static-product',
+            'selector' => '{{WRAPPER}} .sa-el-single-product',
             'separator' => '',
                 ]
         );
@@ -487,14 +487,14 @@ class Single_Product extends Widget_Base {
         $this->add_group_control(
                 Group_Control_Border::get_type(), [
             'name' => 'sa_el_static_product_hover_border',
-            'selector' => '{{WRAPPER}} .sa-el-static-product:hover',
+            'selector' => '{{WRAPPER}} .sa-el-single-product:hover',
                 ]
         );
 
         $this->add_group_control(
                 Group_Control_Box_Shadow::get_type(), [
             'name' => 'sa_el_static_product_hover_box_shadow',
-            'selector' => '{{WRAPPER}} .sa-el-static-product:hover',
+            'selector' => '{{WRAPPER}} .sa-el-single-product:hover',
             'separator' => '',
                 ]
         );
@@ -516,7 +516,7 @@ class Single_Product extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => 'rgba(0,0,0, .75)',
             'selectors' => [
-                '{{WRAPPER}} .sa-el-static-product-thumb-overlay' => 'background-color: {{VALUE}};',
+                '{{WRAPPER}} .sa-el-single-product-thumb-overlay' => 'background-color: {{VALUE}};',
             ],
                 ]
         );
@@ -527,7 +527,7 @@ class Single_Product extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#ffffff',
             'selectors' => [
-                '{{WRAPPER}} .sa-el-static-product-thumb-overlay > a' => 'color: {{VALUE}};',
+                '{{WRAPPER}} .sa-el-single-product-thumb-overlay > a' => 'color: {{VALUE}};',
             ],
                 ]
         );
@@ -536,7 +536,7 @@ class Single_Product extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'sa_el_static_product_live_link_typography',
             'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-            'selector' => '{{WRAPPER}} .sa-el-static-product-thumb-overlay > a',
+            'selector' => '{{WRAPPER}} .sa-el-single-product-thumb-overlay > a',
                 ]
         );
 
@@ -546,7 +546,7 @@ class Single_Product extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#303133',
             'selectors' => [
-                '{{WRAPPER}} .sa-el-static-product-details > h2 > a' => 'color: {{VALUE}};',
+                '{{WRAPPER}} .sa-el-single-product-details > h2 > a' => 'color: {{VALUE}};',
             ],
                 ]
         );
@@ -555,7 +555,7 @@ class Single_Product extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'sa_el_static_product_title_typography',
             'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-            'selector' => '{{WRAPPER}} .sa-el-static-product-details > h2',
+            'selector' => '{{WRAPPER}} .sa-el-single-product-details > h2',
                 ]
         );
 
@@ -565,7 +565,7 @@ class Single_Product extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#7a7a7a',
             'selectors' => [
-                '{{WRAPPER}} .sa-el-static-product-details > p' => 'color: {{VALUE}};',
+                '{{WRAPPER}} .sa-el-single-product-details > p' => 'color: {{VALUE}};',
             ],
                 ]
         );
@@ -576,7 +576,7 @@ class Single_Product extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#fff',
             'selectors' => [
-                '{{WRAPPER}} .sa-el-static-product-details' => 'background-color: {{VALUE}};',
+                '{{WRAPPER}} .sa-el-single-product-details' => 'background-color: {{VALUE}};',
             ],
                 ]
         );
@@ -585,7 +585,7 @@ class Single_Product extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'sa_el_static_product_content_typography',
             'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-            'selector' => '{{WRAPPER}} .sa-el-static-product-details > p',
+            'selector' => '{{WRAPPER}} .sa-el-single-product-details > p',
                 ]
         );
 
@@ -601,32 +601,32 @@ class Single_Product extends Widget_Base {
         ?>
 
 
-        <div id="sa-el-static-product-<?php echo esc_attr($this->get_id()); ?>" class="sa-el-static-product">
-            <div class="sa-el-static-product-media">
-                <div class="sa-el-static-product-thumb-overlay">
+        <div id="sa-el-single-product-<?php echo esc_attr($this->get_id()); ?>" class="sa-el-single-product">
+            <div class="sa-el-single-product-media">
+                <div class="sa-el-single-product-thumb-overlay">
                     <a href="<?php echo esc_attr($settings['sa_el_static_product_demo_link_url']); ?>" target="<?php echo esc_attr($settings['sa_el_static_product_demo_link_target']); ?>"><span><?php echo esc_attr($settings['sa_el_static_product_demo_text']); ?></span></a>
                 </div>
-                <div class="sa-el-static-product-thumb">
+                <div class="sa-el-single-product-thumb">
         <?php echo '<img src="' . $static_product_image['url'] . '" alt="' . esc_attr(get_post_meta($static_product_image['id'], '_wp_attachment_image_alt', true)) . '">'; ?>
                 </div>
             </div>
-            <div class="sa-el-static-product-details">
+            <div class="sa-el-single-product-details">
         <?php if (!empty($settings['sa_el_static_product_heading'])) : ?>
                     <h2><a href="<?php echo esc_attr($settings['sa_el_static_product_link_url']); ?>" target="<?php echo esc_attr($settings['sa_el_static_product_link_target']); ?>"><?php echo esc_attr($settings['sa_el_static_product_heading']); ?></a></h2>
         <?php endif; ?>
                 <p><?php echo $settings['sa_el_static_product_description']; ?></p>
 
         <?php if (!empty($settings['sa_el_static_product_show_details_btn'])) : ?>
-                    <div class="sa-el-static-product-btn-wrap">
-                        <a href="<?php echo esc_attr($settings['sa_el_static_product_link_url']); ?>" target="<?php echo esc_attr($settings['sa_el_static_product_link_target']); ?>" class="sa-el-static-product-btn">
+                    <div class="sa-el-single-product-btn-wrap">
+                        <a href="<?php echo esc_attr($settings['sa_el_static_product_link_url']); ?>" target="<?php echo esc_attr($settings['sa_el_static_product_link_target']); ?>" class="sa-el-single-product-btn">
             <?php if (!empty($settings['sa_el_static_product_btn_icon']) && $settings['sa_el_static_product_btn_icon_align'] == 'left') : ?>
-                                <i class="<?php echo esc_attr($settings['sa_el_static_product_btn_icon']); ?> sa-el-static-product-button-icon-left" aria-hidden="true"></i>
+                                <i class="<?php echo esc_attr($settings['sa_el_static_product_btn_icon']); ?> sa-el-single-product-button-icon-left" aria-hidden="true"></i>
             <?php endif; ?>
 
             <?php echo esc_attr($settings['sa_el_static_product_btn']); ?>
 
             <?php if (!empty($settings['sa_el_static_product_btn_icon']) && $settings['sa_el_static_product_btn_icon_align'] == 'right') : ?>
-                                <i class="<?php echo esc_attr($settings['sa_el_static_product_btn_icon']); ?> sa-el-static-product-button-icon-right" aria-hidden="true"></i>
+                                <i class="<?php echo esc_attr($settings['sa_el_static_product_btn_icon']); ?> sa-el-single-product-button-icon-right" aria-hidden="true"></i>
             <?php endif; ?>
                         </a>
                     </div>
