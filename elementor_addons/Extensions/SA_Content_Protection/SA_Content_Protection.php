@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
 
 use \Elementor\Controls_Manager;
 use \Elementor\Frontend;
-use Elementor\Element_Base;
+//use Elementor\Element_Base;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
@@ -650,11 +650,6 @@ class SA_Content_Protection {
     public function render_content($content, $widget) {
         $settings = $widget->get_settings_for_display();
         $html = '';
-
-        if (apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', ['', '', TRUE])) {
-          $extensions[] = 'sa-el-content-protection';
-          return $extensions;
-        }
 
         if ($settings['sa_el_ext_content_protection'] == 'yes') {
             if ($settings['sa_el_ext_content_protection_type'] == 'role') {

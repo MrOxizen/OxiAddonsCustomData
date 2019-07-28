@@ -595,12 +595,11 @@ trait Public_Helper {
         $active_elements = $this->Get_Active_Elements();
 
         asort($active_elements);
-
         foreach ($active_elements as $key => $active_element) {
-            if (array_key_exists('category', $this->registered_elements[$key]) && $this->registered_elements[$key]['category'] == 'Extension') {
-                  new $this->registered_elements[$key]['class'];
-            } else {
-                if (array_key_exists($key, $this->registered_elements) && class_exists($this->registered_elements[$key]['class'])) {
+            if (array_key_exists($key, $this->registered_elements) && class_exists($this->registered_elements[$key]['class'])) {
+                if ($this->registered_elements[$key]['category'] == 'Extension') {
+                    new $this->registered_elements[$key]['class'];
+                } else {
                     $widgets_manager->register_widget_type(new $this->registered_elements[$key]['class']);
                 }
             }
@@ -777,10 +776,10 @@ trait Public_Helper {
                 }
                 ?>
                 <li <?php echo $obj->get_render_attribute_string('pricing_feature_item' . $counter); ?>>
-                        <?php if ('show' === $settings['sa_el_pricing_table_icon_enabled']) : ?>
+                    <?php if ('show' === $settings['sa_el_pricing_table_icon_enabled']) : ?>
                         <span class="li-icon" style="color:<?php echo esc_attr($item['sa_el_pricing_table_list_icon_color']); ?>"><i class="<?php echo esc_attr($item['sa_el_pricing_table_list_icon']); ?>"></i></span>
                         <?php endif; ?>
-                <?php echo $item['sa_el_pricing_table_item']; ?>
+                        <?php echo $item['sa_el_pricing_table_item']; ?>
                 </li>
                 <?php
                 $counter++;
