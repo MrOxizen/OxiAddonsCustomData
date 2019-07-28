@@ -20,10 +20,6 @@ trait Public_Helper {
 
     function Get_Active_Elements() {
         $installed = get_option('shortcode-addons-elementor');
-        if (empty($installed) || $installed == '') {
-            $installed = 'button=on&testimonial=on&flip_box=on&info_box=on&dual_color_heading=on&tooltip=on&advanced_accordion=on&advanced_tabs=on&offcanvas=on&advanced_menu_PRO=on&testimonial_Slider_PRO=on&static_product_PRO=on&Post_Grid=on&Post_Timeline=on&Content_Ticker=on&Product_Grid=on&Post_Block=on&Post_Carousel=on&Woo_Product_Collections=on&Content_Timeline=on';
-            update_option('shortcode-addons-elementor', $installed);
-        }
         parse_str($installed, $settings);
         return $settings;
     }
