@@ -20,10 +20,11 @@ trait Template
                 'button',
                 'flipbox',
                 'heading',
-                'Image/Icon',
+                'Image-Icon',
                 'info-lists',
                 'info-table',
                 'info-boxes',
+                'call-to-action',
             ),
         );
         ?>
