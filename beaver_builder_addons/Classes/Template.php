@@ -22,6 +22,7 @@ trait Template
                 'heading',
                 'Image/Icon',
                 'info-table',
+                'info-boxes',
             ),
         );
         ?>
