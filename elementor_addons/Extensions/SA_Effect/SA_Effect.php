@@ -26,6 +26,9 @@ class SA_Effect {
         add_action('elementor/element/common/_section_style/after_section_end', [$this, 'register_controls'], 10);
 
     }
+    public function get_name() {
+        return 'sa-el-effects';
+    }
      public function register_controls($element) {
 
         $element->start_controls_section(
@@ -39,7 +42,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_floating_fx',
             [
-                'label' => __( 'Floating Effects', 'happy-elementor-addons' ),
+                'label' => __( 'Floating Effects', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
                 'frontend_available' => true,
@@ -49,7 +52,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_floating_fx_translate_toggle',
             [
-                'label' => __( 'Translate', 'happy-elementor-addons' ),
+                'label' => __( 'Translate', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::POPOVER_TOGGLE,
                 'return_value' => 'yes',
                 'frontend_available' => true,
@@ -64,7 +67,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_floating_fx_translate_x',
             [
-                'label' => __( 'Translate X', 'happy-elementor-addons' ),
+                'label' => __( 'Translate X', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'sizes' => [
@@ -80,8 +83,8 @@ class SA_Effect {
                     ]
                 ],
                 'labels' => [
-                    __( 'From', 'happy-elementor-addons' ),
-                    __( 'To', 'happy-elementor-addons' ),
+                    __( 'From', SA_ELEMENTOR_TEXTDOMAIN ),
+                    __( 'To', SA_ELEMENTOR_TEXTDOMAIN ),
                 ],
                 'scales' => 1,
                 'handles' => 'range',
@@ -97,7 +100,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_floating_fx_translate_y',
             [
-                'label' => __( 'Translate Y', 'happy-elementor-addons' ),
+                'label' => __( 'Translate Y', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'sizes' => [
@@ -113,8 +116,8 @@ class SA_Effect {
                     ]
                 ],
                 'labels' => [
-                    __( 'From', 'happy-elementor-addons' ),
-                    __( 'To', 'happy-elementor-addons' ),
+                    __( 'From', SA_ELEMENTOR_TEXTDOMAIN ),
+                    __( 'To', SA_ELEMENTOR_TEXTDOMAIN ),
                 ],
                 'scales' => 1,
                 'handles' => 'range',
@@ -130,7 +133,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_floating_fx_translate_duration',
             [
-                'label' => __( 'Duration', 'happy-elementor-addons' ),
+                'label' => __( 'Duration', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -155,7 +158,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_floating_fx_translate_delay',
             [
-                'label' => __( 'Delay', 'happy-elementor-addons' ),
+                'label' => __( 'Delay', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -179,7 +182,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_floating_fx_rotate_toggle',
             [
-                'label' => __( 'Rotate', 'happy-elementor-addons' ),
+                'label' => __( 'Rotate', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::POPOVER_TOGGLE,
                 'return_value' => 'yes',
                 'frontend_available' => true,
@@ -194,7 +197,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_floating_fx_rotate_x',
             [
-                'label' => __( 'Rotate X', 'happy-elementor-addons' ),
+                'label' => __( 'Rotate X', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'sizes' => [
@@ -210,8 +213,8 @@ class SA_Effect {
                     ]
                 ],
                 'labels' => [
-                    __( 'From', 'happy-elementor-addons' ),
-                    __( 'To', 'happy-elementor-addons' ),
+                    __( 'From', SA_ELEMENTOR_TEXTDOMAIN ),
+                    __( 'To', SA_ELEMENTOR_TEXTDOMAIN ),
                 ],
                 'scales' => 1,
                 'handles' => 'range',
@@ -227,7 +230,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_floating_fx_rotate_y',
             [
-                'label' => __( 'Rotate Y', 'happy-elementor-addons' ),
+                'label' => __( 'Rotate Y', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'sizes' => [
@@ -243,8 +246,8 @@ class SA_Effect {
                     ]
                 ],
                 'labels' => [
-                    __( 'From', 'happy-elementor-addons' ),
-                    __( 'To', 'happy-elementor-addons' ),
+                    __( 'From', SA_ELEMENTOR_TEXTDOMAIN ),
+                    __( 'To', SA_ELEMENTOR_TEXTDOMAIN ),
                 ],
                 'scales' => 1,
                 'handles' => 'range',
@@ -260,7 +263,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_floating_fx_rotate_z',
             [
-                'label' => __( 'Rotate Z', 'happy-elementor-addons' ),
+                'label' => __( 'Rotate Z', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'sizes' => [
@@ -276,8 +279,8 @@ class SA_Effect {
                     ]
                 ],
                 'labels' => [
-                    __( 'From', 'happy-elementor-addons' ),
-                    __( 'To', 'happy-elementor-addons' ),
+                    __( 'From', SA_ELEMENTOR_TEXTDOMAIN ),
+                    __( 'To', SA_ELEMENTOR_TEXTDOMAIN ),
                 ],
                 'scales' => 1,
                 'handles' => 'range',
@@ -293,7 +296,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_floating_fx_rotate_duration',
             [
-                'label' => __( 'Duration', 'happy-elementor-addons' ),
+                'label' => __( 'Duration', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -318,7 +321,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_floating_fx_rotate_delay',
             [
-                'label' => __( 'Delay', 'happy-elementor-addons' ),
+                'label' => __( 'Delay', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -342,7 +345,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_floating_fx_scale_toggle',
             [
-                'label' => __( 'Scale', 'happy-elementor-addons' ),
+                'label' => __( 'Scale', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::POPOVER_TOGGLE,
                 'return_value' => 'yes',
                 'frontend_available' => true,
@@ -357,7 +360,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_floating_fx_scale_x',
             [
-                'label' => __( 'Scale X', 'happy-elementor-addons' ),
+                'label' => __( 'Scale X', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'sizes' => [
@@ -374,8 +377,8 @@ class SA_Effect {
                     ]
                 ],
                 'labels' => [
-                    __( 'From', 'happy-elementor-addons' ),
-                    __( 'To', 'happy-elementor-addons' ),
+                    __( 'From', SA_ELEMENTOR_TEXTDOMAIN ),
+                    __( 'To', SA_ELEMENTOR_TEXTDOMAIN ),
                 ],
                 'scales' => 1,
                 'handles' => 'range',
@@ -391,7 +394,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_floating_fx_scale_y',
             [
-                'label' => __( 'Scale Y', 'happy-elementor-addons' ),
+                'label' => __( 'Scale Y', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'sizes' => [
@@ -408,8 +411,8 @@ class SA_Effect {
                     ]
                 ],
                 'labels' => [
-                    __( 'From', 'happy-elementor-addons' ),
-                    __( 'To', 'happy-elementor-addons' ),
+                    __( 'From', SA_ELEMENTOR_TEXTDOMAIN ),
+                    __( 'To', SA_ELEMENTOR_TEXTDOMAIN ),
                 ],
                 'scales' => 1,
                 'handles' => 'range',
@@ -425,7 +428,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_floating_fx_scale_duration',
             [
-                'label' => __( 'Duration', 'happy-elementor-addons' ),
+                'label' => __( 'Duration', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -450,7 +453,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_floating_fx_scale_delay',
             [
-                'label' => __( 'Delay', 'happy-elementor-addons' ),
+                'label' => __( 'Delay', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -481,7 +484,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_transform_fx',
             [
-                'label' => __( 'CSS Transform', 'happy-elementor-addons' ),
+                'label' => __( 'CSS Transform', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
             ]
@@ -490,7 +493,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_transform_fx_translate_toggle',
             [
-                'label' => __( 'Translate', 'happy-elementor-addons' ),
+                'label' => __( 'Translate', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::POPOVER_TOGGLE,
                 'return_value' => 'yes',
                 'condition' => [
@@ -504,7 +507,7 @@ class SA_Effect {
         $element->add_responsive_control(
             'sa_el_transform_fx_translate_x',
             [
-                'label' => __( 'Translate X', 'happy-elementor-addons' ),
+                'label' => __( 'Translate X', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -523,7 +526,7 @@ class SA_Effect {
         $element->add_responsive_control(
             'sa_el_transform_fx_translate_y',
             [
-                'label' => __( 'Translate Y', 'happy-elementor-addons' ),
+                'label' => __( 'Translate Y', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -567,7 +570,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_transform_fx_rotate_toggle',
             [
-                'label' => __( 'Rotate', 'happy-elementor-addons' ),
+                'label' => __( 'Rotate', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::POPOVER_TOGGLE,
                 'condition' => [
                     'sa_el_transform_fx' => 'yes',
@@ -580,7 +583,7 @@ class SA_Effect {
         $element->add_responsive_control(
             'sa_el_transform_fx_rotate_x',
             [
-                'label' => __( 'Rotate X', 'happy-elementor-addons' ),
+                'label' => __( 'Rotate X', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -599,7 +602,7 @@ class SA_Effect {
         $element->add_responsive_control(
             'sa_el_transform_fx_rotate_y',
             [
-                'label' => __( 'Rotate Y', 'happy-elementor-addons' ),
+                'label' => __( 'Rotate Y', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -618,7 +621,7 @@ class SA_Effect {
         $element->add_responsive_control(
             'sa_el_transform_fx_rotate_z',
             [
-                'label' => __( 'Rotate Z', 'happy-elementor-addons' ),
+                'label' => __( 'Rotate Z', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -671,7 +674,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_transform_fx_scale_toggle',
             [
-                'label' => __( 'Scale', 'happy-elementor-addons' ),
+                'label' => __( 'Scale', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::POPOVER_TOGGLE,
                 'return_value' => 'yes',
                 'condition' => [
@@ -685,7 +688,7 @@ class SA_Effect {
         $element->add_responsive_control(
             'sa_el_transform_fx_scale_x',
             [
-                'label' => __( 'Scale X', 'happy-elementor-addons' ),
+                'label' => __( 'Scale X', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'default' => [
@@ -708,7 +711,7 @@ class SA_Effect {
         $element->add_responsive_control(
             'sa_el_transform_fx_scale_y',
             [
-                'label' => __( 'Scale Y', 'happy-elementor-addons' ),
+                'label' => __( 'Scale Y', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'default' => [
@@ -774,7 +777,7 @@ class SA_Effect {
         $element->add_control(
             'sa_el_transform_fx_skew_toggle',
             [
-                'label' => __( 'Skew', 'happy-elementor-addons' ),
+                'label' => __( 'Skew', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::POPOVER_TOGGLE,
                 'return_value' => 'yes',
                 'condition' => [
@@ -788,7 +791,7 @@ class SA_Effect {
         $element->add_responsive_control(
             'sa_el_transform_fx_skew_x',
             [
-                'label' => __( 'Skew X', 'happy-elementor-addons' ),
+                'label' => __( 'Skew X', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['deg'],
                 'range' => [
@@ -807,7 +810,7 @@ class SA_Effect {
         $element->add_responsive_control(
             'sa_el_transform_fx_skew_y',
             [
-                'label' => __( 'Skew Y', 'happy-elementor-addons' ),
+                'label' => __( 'Skew Y', SA_ELEMENTOR_TEXTDOMAIN ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['deg'],
                 'range' => [
