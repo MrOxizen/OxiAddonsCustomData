@@ -552,12 +552,46 @@ trait Public_Helper {
                 'condition' => '',
                 'API' => ''
             ],
-            'content_protection' => [
+            'sa_content_protection' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Extensions\SA_Content_Protection\SA_Content_Protection',
                 'dependency' => [
                     'css' => [
                         SA_ELEMENTOR_ADDONS_URL . 'Extensions/SA_Content_Protection/assets/index.min.css',
                     ]
+                ],
+                'category' => 'Extension',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'sa_parallax_section' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Extensions\SA_Parallax_Section\SA_Parallax_Section',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Extensions/SA_Parallax_Section/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL .  'assets/vendor/TweenMax/js/TweenMax.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/jarallax/js/jarallax.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/jquery-parallax/js/jquery-parallax.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Extensions/SA_Parallax_Section/assets/index.min.js',
+                    ],
+                ],
+                'category' => 'Extension',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'sa_particle_section' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Extensions\SA_Particle_Section\SA_Particle_Section',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Extensions/SA_Particle_Section/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/particles/js/particles.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Extensions/SA_Particle_Section/assets/index.min.js',
+                    ],
                 ],
                 'category' => 'Extension',
                 'Premium' => TRUE,
