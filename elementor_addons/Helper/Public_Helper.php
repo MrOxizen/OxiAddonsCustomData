@@ -619,22 +619,15 @@ trait Public_Helper {
 
     public function sl_enqueue_scripts() {
         if (!$this->has_cache_files()) {
-
-            $this->generate_scripts($this->Get_Active_Elements());
+            $this->generate_scripts(array_keys($this->Get_Active_Elements()));
         }
-        // enqueue scripts
-        if ($this->has_cache_files()) {
-            $css_file = 'cache/' . SA_ELEMENTOR_TEXTDOMAIN . '.min.css';
-            $js_file = 'cache/' . SA_ELEMENTOR_TEXTDOMAIN . '.min.js';
-        } else {
-            $css_file = '/assets/css/style.css';
-            $js_file = '/assets/js/jquery.js';
-        }
+        $css_file = 'cache/' . SA_ELEMENTOR_TEXTDOMAIN . '.min.css';
+        $js_file = 'cache/' . SA_ELEMENTOR_TEXTDOMAIN . '.min.js';
 
         wp_enqueue_style(SA_ELEMENTOR_TEXTDOMAIN, content_url('uploads/OxiAddonsCustomData/elementor_addons/' . $css_file));
         wp_enqueue_script(SA_ELEMENTOR_TEXTDOMAIN . '-js', content_url('uploads/OxiAddonsCustomData/elementor_addons/' . $js_file), ['jquery']);
         // hook extended assets
-        //do_action(SA_ELEMENTOR_TEXTDOMAIN . '/after_enqueue_scripts', $this->has_cache_files());
+        do_action(SA_ELEMENTOR_TEXTDOMAIN . '/after_enqueue_scripts', $this->has_cache_files());
     }
 
     /**

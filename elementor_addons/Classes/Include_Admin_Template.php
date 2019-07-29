@@ -18,6 +18,25 @@ if (!defined('ABSPATH')) {
  */
 trait Include_Admin_Template {
 
+    /**
+     * Remove files in dir
+     *
+     * @since 3.0.0
+     */
+    public function empty_dir($path) {
+        if (!is_dir($path) || !file_exists($path)) {
+            return;
+        }
+
+        foreach (scandir($path) as $item) {
+            if ($item == '.' || $item == '..') {
+                continue;
+            }
+
+            unlink($this->safe_path($path . DIRECTORY_SEPARATOR . $item));
+        }
+    }
+
     public function View_Data() {
 
         $registered_element = array(
@@ -204,7 +223,24 @@ trait Include_Admin_Template {
                                 </div>
                             </div>
                             <div class="ctu-ulitate-style-2-tabs" id="tabs-cache">
-
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="sa-el-admin-wrapper">
+                                            <div class="sa-el-admin-block">
+                                                <div class="sa-el-admin-header tabs-cache">
+                                                    <div class="sa-el-admin-header-icon">
+                                                        <span class="dashicons dashicons-format-aside"></span>
+                                                    </div>    
+                                                    <h4 class="sa-el-admin-header-title">Clear Cache</h4>  
+                                                </div>
+                                                <div class="sa-el-admin-block-content">
+                                                    <p>Shortcode Addons Elementor Elements styles & scripts are saved in Uploads folder. This option will clear all those cached files.</p>
+                                                    <a href="#" class="sa-el-button sa-el-button-clear-cache">Clear Cache</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>   
+                                </div>   
                             </div>
                         </div>
                     </div>
@@ -241,13 +277,19 @@ trait Include_Admin_Template {
 
     public function sa_elementor_save_settings() {
         check_ajax_referer('sa-elemetor', 'security');
-        $elements = sanitize_text_field($_POST['elements']);
-        update_option('shortcode-addons-elementor', $elements);
-        $output = get_option('shortcode-addons-elementor');
-        parse_str($elements, $element);
-        $this->generate_scripts(array_keys($element));
-        echo $output;
-        die();
+        $satype = sanitize_text_field($_POST['satype']);
+        if ($satype == 'elements') {
+            $elements = sanitize_text_field($_POST['elements']);
+            update_option('shortcode-addons-elementor', $elements);
+            parse_str($elements, $element);
+            $this->generate_scripts(array_keys($element));
+            die();
+        } else if ($satype == 'cache') {
+            // clear cache files
+            $this->empty_dir(SA_ELEMENTOR_ADDONS_ASSETS);
+            return wp_send_json(true);
+            die();
+        }
     }
 
 }

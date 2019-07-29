@@ -28,7 +28,7 @@ jQuery(document).ready(function ($) {
                     $('.sa-el-header-right .sa-el-settings-save').html('saved &#128522;');
                     $('#OXIAADDONSCHANGEDPOPUP .icon-box').html('<span class="dashicons dashicons-yes"></span>');
                     $('#OXIAADDONSCHANGEDPOPUP .modal-body.text-center h4').html('Great!');
-                    $('#OXIAADDONSCHANGEDPOPUP .modal-body.text-center p').html('Your account has been created successfully.');
+                    $('#OXIAADDONSCHANGEDPOPUP .modal-body.text-center p').html('Select elements has been saved successfully.');
                     $('#OXIAADDONSCHANGEDPOPUP').modal('show');
                     OXIAADDONSCHANGEDPOPUP();
                 }
@@ -37,6 +37,31 @@ jQuery(document).ready(function ($) {
 
         return false;
     })
+    $('.sa-el-admin-block-content .sa-el-button-clear-cache').on('click', function (e) {
+        e.preventDefault();
+        jQuery.post({
+            url: saelemetor.ajaxurl,
+            beforeSend: function () {
+                $('.sa-el-admin-block-content .sa-el-button-clear-cache').html('<span class="dashicons dashicons-admin-generic"></span> Deleting');
+            },
+            data: {
+                action: 'sa_elementor_save_settings',
+                security: saelemetor.nonce,
+                satype: 'cache'
+            },
+            success: function (data) {
+                console.log(data);
+                $('.sa-el-admin-block-content .sa-el-button-clear-cache').html('Complete &#128522;');
+                $('#OXIAADDONSCHANGEDPOPUP .icon-box').html('<span class="dashicons dashicons-yes"></span>');
+                $('#OXIAADDONSCHANGEDPOPUP .modal-body.text-center h4').html('Great!');
+                $('#OXIAADDONSCHANGEDPOPUP .modal-body.text-center p').html('Cache has been delete successfully.');
+                $('#OXIAADDONSCHANGEDPOPUP').modal('show');
+                OXIAADDONSCHANGEDPOPUP();
+            }
+        });
+        return false;
+    })
+
 
 
     function OXIAADDONSCHANGEDPOPUP() {
