@@ -65,7 +65,6 @@ trait Scripts_Loader {
         if (!file_exists($cachedir)) {
             wp_mkdir_p($cachedir);
         }
-        print_r($elements);
         // collect sa-el-addons js
         $js_paths = array(
             SA_ELEMENTOR_ADDONS_URL . 'assets/js/jquery.js',
