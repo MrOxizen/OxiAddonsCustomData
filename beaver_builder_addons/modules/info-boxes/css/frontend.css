@@ -31,6 +31,7 @@ a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, d
 }
 .oxi__addons_info_boxes_main .oxi__addons_image{
      text-align: center; 
+     width: 100%;
 }
 .oxi__addons_info_boxes_main .oxi__icon_image .oxi__icon { 
      font-size: 70px;
