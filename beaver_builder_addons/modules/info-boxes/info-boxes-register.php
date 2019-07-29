@@ -148,12 +148,11 @@ FLBuilder::register_module(
                             'type' => 'select',
                             'label' => __('Position Type', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => 'i_h_d',
-                            'help' => __('Set Position top bottom center', SA_FLBUILDER_TEXTDOMAIN),
+                            'help' => __('Note: if you select info boxes type left or right then not working this section', SA_FLBUILDER_TEXTDOMAIN),
                             'options' => array(
                                 'i_h_d' => __('Icon > Heading > Description', SA_FLBUILDER_TEXTDOMAIN),
                                 'h_i_d' => __('Heading > Icon > Description', SA_FLBUILDER_TEXTDOMAIN),
                                 'h_d_i' => __('Heading > Description > Icon', SA_FLBUILDER_TEXTDOMAIN),
-                                'd_h_i' => __('Description > Heading  > Icon', SA_FLBUILDER_TEXTDOMAIN),
                             ),
                         ),
 
@@ -197,6 +196,20 @@ FLBuilder::register_module(
                                 'property' => 'background-image',
                             ),
                         ),
+                        'main_padding' => array(
+                            'type' => 'dimension',
+                            'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
+                            'help' => __('Manage the inside Info Boxe main area Padding', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider' => true,
+                            'units' => array('px'),
+                            'responsive' => array(
+                                'placeholder' => array(
+                                    'default' => '5',
+                                    'medium' => '5',
+                                    'responsive' => '5',
+                                ),
+                            ),
+                        ),
                         'main_hover' => array(
                             'type'    => 'select',
                             'label'   => __('Main Background Hover setting', SA_FLBUILDER_TEXTDOMAIN),
@@ -216,7 +229,7 @@ FLBuilder::register_module(
                 'border' => array(
                     'title' => __('Border, Radius & Shadow', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
-                        'front_border' => array(
+                        'info_boxes_border_settings' => array(
                             'type' => 'border',
                             'label' => __('Border', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => array(
@@ -232,7 +245,7 @@ FLBuilder::register_module(
                             'responsive' => true,
                             'preview' => array(
                                 'type' => 'css',
-                                'selector' => '.oxi__addons_info_table_main',
+                                'selector' => '.oxi__addons_info_boxes_main',
                                 'important' => true,
                             ),
                         ),
@@ -318,7 +331,7 @@ FLBuilder::register_module(
                             'type'        => 'unit',
                             'label'       => __('Icon Size', SA_FLBUILDER_TEXTDOMAIN),
                             'help'        => __('Info Boxes Icons Size', SA_FLBUILDER_TEXTDOMAIN),
-                            'placeholder' => '40',
+                            'placeholder' => '70',
                             'maxlength'   => '3',
                             'size'        => '6',
                             'slider'      => true,
@@ -644,7 +657,7 @@ FLBuilder::register_module(
                             'responsive' => true,
                             'preview'    => array(
                                 'type'      => 'css',
-                                'selector'  => '.oxi__addons_description p',
+                                'selector'  => '.oxi__addons_details p',
                                 'important' => true,
                             ),
                         ),

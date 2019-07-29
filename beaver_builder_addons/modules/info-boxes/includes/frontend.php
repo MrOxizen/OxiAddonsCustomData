@@ -51,7 +51,7 @@ if ($settings->image_icon_type == 'icon') {
     }
     $icon_image = '
         <div class="oxi__icon_image_main">
-            <div class="oxi__addons_image">
+            <div class="oxi__icon_image">
              ' . $image . '
             </div>
         </div>
@@ -59,21 +59,37 @@ if ($settings->image_icon_type == 'icon') {
 }
 $position = '';
 if ($settings->position == 'i_h_d') {
-    $position = $icon_image;
-    $position .= $heading;
-    $position .= $description;
+    $position = '
+        <div class="oxi__addons_img_heading_desc">
+            ' . $icon_image . '
+        <div class="oxi__addons_header_desc">' . $heading . ' ' . $description . '</div>
+        </div>
+    ';
 } elseif ($settings->position == 'h_i_d') {
-    $position = $heading;
-    $position .= $icon_image;
-    $position .= $description;
+    if ($settings->info_boxes_type == 'img-on-top') {
+        $position = '  <div class="oxi__addons_img_heading_desc">
+                ' . $heading . '
+                <div class="oxi__addons_header_desc">  ' . $icon_image . ' ' . $description . '</div>
+        </div>';
+    } else {
+        $position = '  <div class="oxi__addons_img_heading_desc">
+               ' . $icon_image . '
+                <div class="oxi__addons_header_desc"> ' . $heading . '  ' . $description . '</div>
+        </div>';
+    }
 } elseif ($settings->position == 'h_d_i') {
-    $position = $heading;
-    $position .= $description;
-    $position .= $icon_image;
-} elseif ($settings->position == 'd_h_i') {
-    $position = $description;
-    $position .= $heading;
-    $position .= $icon_image;
+    if ($settings->info_boxes_type == 'img-on-right') {
+        $position =  '  <div class="oxi__addons_img_heading_desc"> 
+                    ' . $icon_image . '
+                        <div class="oxi__addons_header_desc">' . $heading . ' ' . $description . '</div>
+                    
+        </div>';
+    } else {
+        $position =  '  <div class="oxi__addons_img_heading_desc">  
+                        <div class="oxi__addons_header_desc">' . $heading . ' ' . $description . '</div>
+                        ' . $icon_image . '
+        </div>';
+    }
 }
 ?>
 <div class="oxi__addons_info_boxes_wrapper">

@@ -24,14 +24,29 @@ a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, d
      width: 100%;
      display: flex;
      flex-direction: column;
+     padding: 5px;
+     transition: all 0.3s ease;
 } 
-.oxi__addons_info_boxes_main .oxi__icon_image{
-     text-align: center;
-     width: 100%;
+.oxi__addons_info_boxes_main .oxi__addons_img_heading_desc {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
 }
+.oxi__addons_info_boxes_main .oxi__icon_image{ 
+     width: 100px;
+     height: 100px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+} 
+.oxi__addons_info_boxes_main .oxi__icon_image_main{
+    width: 100%;
+    display: flex; 
+} 
 .oxi__addons_info_boxes_main .oxi__addons_image{
-     text-align: center; 
-}
+    width: 70px;
+    height: 70px;
+} 
 .oxi__addons_info_boxes_main .oxi__icon_image .oxi__icon { 
      font-size: 70px;
      color: #444;
