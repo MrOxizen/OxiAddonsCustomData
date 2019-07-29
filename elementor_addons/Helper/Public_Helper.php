@@ -552,12 +552,46 @@ trait Public_Helper {
                 'condition' => '',
                 'API' => ''
             ],
-            'content_protection' => [
-                'class' => '\SA_ELEMENTOR_ADDONS\Extensions\Content_Protection\Content_Protection',
+            'sa_content_protection' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Extensions\SA_Content_Protection\SA_Content_Protection',
                 'dependency' => [
                     'css' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Extensions/Content_Protection/assets/index.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'Extensions/SA_Content_Protection/assets/index.min.css',
                     ]
+                ],
+                'category' => 'Extension',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'sa_parallax_section' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Extensions\SA_Parallax_Section\SA_Parallax_Section',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Extensions/SA_Parallax_Section/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL .  'assets/vendor/TweenMax/js/TweenMax.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/jarallax/js/jarallax.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/jquery-parallax/js/jquery-parallax.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Extensions/SA_Parallax_Section/assets/index.min.js',
+                    ],
+                ],
+                'category' => 'Extension',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'sa_particle_section' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Extensions\SA_Particle_Section\SA_Particle_Section',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Extensions/SA_Particle_Section/assets/index.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/particles/js/particles.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Extensions/SA_Particle_Section/assets/index.min.js',
+                    ],
                 ],
                 'category' => 'Extension',
                 'Premium' => TRUE,
@@ -589,16 +623,19 @@ trait Public_Helper {
     /**
      * Register widgets
      *
-     * @since v3.0.0
+     * @since v1.6.0
      */
     public function register_elements($widgets_manager) {
         $active_elements = $this->Get_Active_Elements();
 
         asort($active_elements);
-
         foreach ($active_elements as $key => $active_element) {
             if (array_key_exists($key, $this->registered_elements) && class_exists($this->registered_elements[$key]['class'])) {
-                $widgets_manager->register_widget_type(new $this->registered_elements[$key]['class']);
+                if ($this->registered_elements[$key]['category'] == 'Extension') {
+                    new $this->registered_elements[$key]['class'];
+                } else {
+                    $widgets_manager->register_widget_type(new $this->registered_elements[$key]['class']);
+                }
             }
         }
     }

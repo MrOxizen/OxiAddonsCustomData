@@ -1,0 +1,22 @@
+.elementor-element.sa-el-prallax-multi {
+  overflow: hidden;
+}
+
+.elementor-element .sa-el-parallax-layer {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.elementor-section.sa-el-particles-section .elementor-container {
+  z-index: 1;
+}
+
+.elementor-section.sa-el-particles-section > canvas {
+  position: absolute;
+  top: 0;
+}

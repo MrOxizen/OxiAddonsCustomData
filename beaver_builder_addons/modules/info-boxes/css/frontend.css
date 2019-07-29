@@ -16,11 +16,11 @@ a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, d
      padding: 0;
      vertical-align: baseline;
 }
-.oxi__addons_info_table_wrapper{
+.oxi__addons_info_boxes_wrapper{
      display: flex;
      width: 100%;
 }
-.oxi__addons_info_table_main{ 
+.oxi__addons_info_boxes_main{ 
      width: 100%;
      display: flex;
      flex-direction: column;
