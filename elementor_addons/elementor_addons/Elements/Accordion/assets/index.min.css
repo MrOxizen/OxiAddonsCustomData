@@ -1,0 +1,123 @@
+/*------------------------------*/
+
+
+/*  Accordion
+/*------------------------------*/
+
+.sa_el_accordion {
+    width: auto;
+    height: auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header:focus {
+   box-shadow: none;
+   outline: none;
+   border: none;
+}
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header {
+    padding: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer;
+}
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header.active .sa_el_accordion_icon_off{
+    display: none;
+}
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header .sa_el_accordion_icon_off{
+    display: block;
+}
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header .sa_el_accordion_icon_opened{
+    display: none;
+}
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header.active .sa_el_accordion_icon_opened{
+    display: block;
+}
+
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header .fa-toggle {
+      z-index: 10;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header.active .fa-toggle {
+    
+    z-index: 10;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.fa-accordion-icon {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_content {
+    display: none;
+    border: 1px solid #eee;
+    padding: 15px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_content .sa_el_accordion_text_content {
+    margin: 0;
+}
+
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_content.active {
+    display: block;
+}
+
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 1;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+    100% {
+        opacity: 1;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 1;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+    100% {
+        opacity: 1;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+}

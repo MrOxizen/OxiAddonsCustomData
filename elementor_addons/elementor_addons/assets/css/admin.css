@@ -1,0 +1,104 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 13, 2019, 11:10:49 AM
+    Author     : biplo
+*/
+
+input[type=checkbox].oxi-addons-switcher-btn{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+label.oxi-addons-switcher-label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 48px;
+    height: 24px;
+    background: rgba(128, 128, 128, 0.5);
+    display: block;
+    border-radius: 24px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 0 0 0 !important;
+    right: 2px;
+}
+
+label.oxi-addons-switcher-label:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+input.oxi-addons-switcher-btn:checked + label.oxi-addons-switcher-label {
+    background: rgba(251, 83, 59, 0.9);;
+}
+
+input.oxi-addons-switcher-btn:checked + label.oxi-addons-switcher-label:after {
+    left: calc(100% - 2px);
+    transform: translateX(-100%);
+}
+
+label:active:after {
+    width: 35px;
+}
+
+.oxi-sa-cards{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 30px;
+    margin: 10px;
+    padding: 15px 10px 15px 15px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0px 1px 10px 0px rgba(0, 4, 32, 0.08);
+    transition: all 0.33s;
+    font-family: "Source Sans Pro";
+}
+.oxi-sa-cards:hover{
+    box-shadow: 0px 4px 20px 0px rgba(0, 4, 32, 0.08);
+    background-color: rgba(241, 241, 241, 0.28);
+}
+.oxi-sa-cards .oxi-sa-cards-h1{
+    width: calc(100% - 50px);
+}
+.oxi-sa-cards .oxi-sa-cards-switcher{
+    width: 50px;
+    position: relative;
+}
+
+.oxi-addons-ce-heading{
+    width: 100%;
+    font-size: 30px;
+    text-align: left;
+    font-weight: 600;
+    font-style: normal;
+    line-height: 1;
+    font-family: "Source Sans Pro";
+    padding: 10px 10px 30px 15px;
+}
+
+.oxi-sa-cards-wrapper {
+    border: 1px solid rgba(197, 197, 197, 0.50);
+    padding: 20px 20px 30px;
+    background: #fff;
+    border-radius: 5px;
+    margin: 0 0 0 0;
+    margin-bottom: 60px;
+}
