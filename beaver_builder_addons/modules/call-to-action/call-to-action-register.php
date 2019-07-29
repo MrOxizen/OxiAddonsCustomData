@@ -757,7 +757,7 @@ FLBuilder::register_module(
         'title' => __('Typography', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
         'sections' => array(// Tab Sections.
             'front_title_typography' => array(
-                'title' => __('Front Title', SA_FLBUILDER_TEXTDOMAIN),
+                'title' => __('Title', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
                     'front_side_typography_title_tag' => array(
                         'type' => 'select',
@@ -787,7 +787,7 @@ FLBuilder::register_module(
                     ),
                     'front_title_typography_color' => array(
                         'type' => 'color',
-                        'label' => __('Front Title Color', SA_FLBUILDER_TEXTDOMAIN),
+                        'label' => __('Title Color', SA_FLBUILDER_TEXTDOMAIN),
                         'default' => '',
                         'show_reset' => true,
                         'connections' => array('color'),
@@ -826,7 +826,7 @@ FLBuilder::register_module(
                     ),
                     'front_desc_typography_color' => array(
                         'type' => 'color',
-                        'label' => __('Front Description Color', SA_FLBUILDER_TEXTDOMAIN),
+                        'label' => __('Description Color', SA_FLBUILDER_TEXTDOMAIN),
                         'default' => '',
                         'show_reset' => true,
                         'connections' => array('color'),
