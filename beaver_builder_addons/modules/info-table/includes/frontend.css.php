@@ -42,22 +42,23 @@ SA_FLBUILDER_HELPER::sa_fl_dimension_utility('heading_sub_heading', $settings, '
 
 
 // Button Styling  
-SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-    'color' => $settings->btn_text_color,
-    'background-color' => $settings->btn_bg_color,
-    'margin-top' => $settings->btn_top_margin . 'px;',
-    'margin-bottom' => $settings->btn_bottom_margin . 'px;',
-), '.fl-node-' . $id . ' .oxi__addons_button');
+if ($settings->info_link_type == 'cta') {
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'color' => $settings->btn_text_color,
+        'background-color' => $settings->btn_bg_color,
+        'margin-top' => $settings->btn_top_margin . 'px;',
+        'margin-bottom' => $settings->btn_bottom_margin . 'px;',
+    ), '.fl-node-' . $id . ' .oxi__addons_button');
 
-SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-    'color' => $settings->btn_text_hover_color,
-    'background-color' => $settings->btn_bg_hover_color,
-), '.fl-node-' . $id . ' .oxi__addons_button:hover');
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'color' => $settings->btn_text_hover_color,
+        'background-color' => $settings->btn_bg_hover_color,
+    ), '.fl-node-' . $id . ' .oxi__addons_button:hover');
 
-SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'btn_typography', '.fl-node-' . $id . ' .oxi__addons_button');
-SA_FLBUILDER_HELPER::sa_fl_dimension_utility('btn', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_button', 'px');
-SA_FLBUILDER_HELPER::sa_fl_custom_border_radius('btn', $settings, '.fl-node-' . $id . ' .oxi__addons_button', 'true');
-
+    SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'btn_typography', '.fl-node-' . $id . ' .oxi__addons_button');
+    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('btn', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_button', 'px');
+    SA_FLBUILDER_HELPER::sa_fl_custom_border_radius('btn', $settings, '.fl-node-' . $id . ' .oxi__addons_button', 'true');
+}
 // icon styleing  
 SA_FLBUILDER_HELPER::sa_fl_dimension_utility('icon_image', $settings, 'padding', '.fl-node-' . $id . ' .oxi__icon_image_main', 'px');
 SA_FLBUILDER_HELPER::sa_fl_general_style(array(

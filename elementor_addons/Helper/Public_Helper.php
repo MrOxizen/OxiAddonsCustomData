@@ -552,7 +552,7 @@ trait Public_Helper {
                 'condition' => '',
                 'API' => ''
             ],
-            'content_protection' => [
+            'sa_content_protection' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Extensions\SA_Content_Protection\SA_Content_Protection',
                 'dependency' => [
                     'css' => [
@@ -564,6 +564,8 @@ trait Public_Helper {
                 'condition' => '',
                 'API' => ''
             ],
+         
+           
         ];
         return $response;
     }

@@ -58,7 +58,7 @@ if ($settings->image_type == 'icon') {
     $image = '';
     if ($settings->photo_source == 'library') {
         if ($settings->photo != '') {
-            $image = '<img class="oxi__image" src="' . $settings->photo_src . '" alt="' . $settings->it_title . '-image"/>';
+            $image = '<img class="oxi__addons_image" src="' . $settings->photo_src . '" alt="' . $settings->it_title . '-image"/>';
         }
     } else if ($settings->photo_source == 'url') {
         if ($settings->photo_url != '') {

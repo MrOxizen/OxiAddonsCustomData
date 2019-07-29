@@ -914,7 +914,7 @@ FLBuilder::register_module(
                             'responsive' => true,
                             'preview'    => array(
                                 'type'      => 'css',
-                                'selector'  => '.info-table-button a',
+                                'selector'  => '.oxi__addons_button',
                                 'important' => true,
                             ),
                         ),
