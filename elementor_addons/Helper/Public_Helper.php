@@ -564,8 +564,23 @@ trait Public_Helper {
                 'condition' => '',
                 'API' => ''
             ],
-         
-           
+            'sa_advance_tooltip' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Extensions\SA_Advance_Tooltip\SA_Advance_Tooltip',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/tippy/css/tippy.min.css',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/popper/js/popper.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/tippy/js/tippy.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Extensions/SA_Advance_Tooltip/assets/index.min.js',
+                    ],
+                ],
+                'category' => 'Extension',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
         ];
         return $response;
     }
@@ -726,62 +741,63 @@ trait Public_Helper {
         $counter = 0;
         ?>
         <ul>
-            <?php
-            foreach ($settings['sa_el_pricing_table_items'] as $item) :
+        <?php
+        foreach ($settings['sa_el_pricing_table_items'] as $item) :
 
-                if ('yes' !== $item['sa_el_pricing_table_icon_mood']) {
-                    $obj->add_render_attribute('pricing_feature_item' . $counter, 'class', 'disable-item');
+            if ('yes' !== $item['sa_el_pricing_table_icon_mood']) {
+                $obj->add_render_attribute('pricing_feature_item' . $counter, 'class', 'disable-item');
+            }
+
+            if ('yes' === $item['sa_el_pricing_item_tooltip']) {
+                $obj->add_render_attribute(
+                        'pricing_feature_item' . $counter, [
+                    'class' => 'tooltip',
+                    'title' => $item['sa_el_pricing_item_tooltip_content'],
+                    'id' => $obj->get_id() . $counter,
+                        ]
+                );
+            }
+
+            if ('yes' == $item['sa_el_pricing_item_tooltip']) {
+
+                if ($item['sa_el_pricing_item_tooltip_side']) {
+                    $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-side', $item['sa_el_pricing_item_tooltip_side']);
                 }
 
-                if ('yes' === $item['sa_el_pricing_item_tooltip']) {
-                    $obj->add_render_attribute(
-                            'pricing_feature_item' . $counter, [
-                        'class' => 'tooltip',
-                        'title' => $item['sa_el_pricing_item_tooltip_content'],
-                        'id' => $obj->get_id() . $counter,
-                            ]
-                    );
+                if ($item['sa_el_pricing_item_tooltip_trigger']) {
+                    $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-trigger', $item['sa_el_pricing_item_tooltip_trigger']);
                 }
 
-                if ('yes' == $item['sa_el_pricing_item_tooltip']) {
-
-                    if ($item['sa_el_pricing_item_tooltip_side']) {
-                        $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-side', $item['sa_el_pricing_item_tooltip_side']);
-                    }
-
-                    if ($item['sa_el_pricing_item_tooltip_trigger']) {
-                        $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-trigger', $item['sa_el_pricing_item_tooltip_trigger']);
-                    }
-
-                    if ($item['sa_el_pricing_item_tooltip_animation']) {
-                        $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-animation', $item['sa_el_pricing_item_tooltip_animation']);
-                    }
-
-                    if (!empty($item['pricing_item_tooltip_animation_duration'])) {
-                        $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-animation_duration', $item['pricing_item_tooltip_animation_duration']);
-                    }
-
-                    if (!empty($item['sa_el_pricing_table_toolip_arrow'])) {
-                        $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-arrow', $item['sa_el_pricing_table_toolip_arrow']);
-                    }
-
-                    if (!empty($item['sa_el_pricing_item_tooltip_theme'])) {
-                        $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-theme', $item['sa_el_pricing_item_tooltip_theme']);
-                    }
+                if ($item['sa_el_pricing_item_tooltip_animation']) {
+                    $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-animation', $item['sa_el_pricing_item_tooltip_animation']);
                 }
-                ?>
+
+                if (!empty($item['pricing_item_tooltip_animation_duration'])) {
+                    $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-animation_duration', $item['pricing_item_tooltip_animation_duration']);
+                }
+
+                if (!empty($item['sa_el_pricing_table_toolip_arrow'])) {
+                    $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-arrow', $item['sa_el_pricing_table_toolip_arrow']);
+                }
+
+                if (!empty($item['sa_el_pricing_item_tooltip_theme'])) {
+                    $obj->add_render_attribute('pricing_feature_item' . $counter, 'data-theme', $item['sa_el_pricing_item_tooltip_theme']);
+                }
+            }
+            ?>
                 <li <?php echo $obj->get_render_attribute_string('pricing_feature_item' . $counter); ?>>
-                    <?php if ('show' === $settings['sa_el_pricing_table_icon_enabled']) : ?>
+                <?php if ('show' === $settings['sa_el_pricing_table_icon_enabled']) : ?>
                         <span class="li-icon" style="color:<?php echo esc_attr($item['sa_el_pricing_table_list_icon_color']); ?>"><i class="<?php echo esc_attr($item['sa_el_pricing_table_list_icon']); ?>"></i></span>
-                        <?php endif; ?>
+                    <?php endif; ?>
                         <?php echo $item['sa_el_pricing_table_item']; ?>
                 </li>
-                <?php
-                $counter++;
-            endforeach;
-            ?>
+                        <?php
+                        $counter++;
+                    endforeach;
+                    ?>
         </ul>
-        <?php
-    }
+            <?php
+        }
 
-}
+    }
+    
