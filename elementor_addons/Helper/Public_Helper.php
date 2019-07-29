@@ -581,6 +581,15 @@ trait Public_Helper {
                 'condition' => '',
                 'API' => ''
             ],
+            'SA_effect' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Extensions\SA_Effect\SA_Effect',
+                'dependency' => [
+                                 ],
+                'category' => 'Extension',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
         ];
         return $response;
     }

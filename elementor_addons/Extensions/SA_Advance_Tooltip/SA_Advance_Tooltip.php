@@ -36,14 +36,14 @@ class SA_Advance_Tooltip {
 
         $element->start_controls_section(
                 'sa_el_tooltip_section', [
-            'label' => __('SA Advanced Tooltip', 'essential-addons-elementor'),
+            'label' => __('SA Advanced Tooltip', SA_ELEMENTOR_TEXTDOMAIN),
             'tab' => Controls_Manager::TAB_ADVANCED,
                 ]
         );
 
         $element->add_control(
                 'sa_el_tooltip_section_enable', [
-            'label' => __('Enable Advanced Tooltip', 'essential-addons-elementor'),
+            'label' => __('Enable Advanced Tooltip', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SWITCHER,
                 ]
         );
@@ -51,7 +51,7 @@ class SA_Advance_Tooltip {
         $element->start_controls_tabs('sa_el_tooltip_tabs');
 
         $element->start_controls_tab('sa_el_tooltip_settings', [
-            'label' => __('Settings', 'essential-addons-elementor'),
+            'label' => __('Settings', SA_ELEMENTOR_TEXTDOMAIN),
             'condition' => [
                 'sa_el_tooltip_section_enable!' => '',
             ],
@@ -59,9 +59,9 @@ class SA_Advance_Tooltip {
 
         $element->add_control(
                 'sa_el_tooltip_section_content', [
-            'label' => __('Content', 'essential-addons-elementor'),
+            'label' => __('Content', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::TEXT,
-            'default' => __('I am a tooltip', 'essential-addons-elementor'),
+            'default' => __('I am a tooltip', SA_ELEMENTOR_TEXTDOMAIN),
             'dynamic' => ['active' => true],
             'frontend_available' => true,
             'condition' => [
@@ -72,14 +72,14 @@ class SA_Advance_Tooltip {
 
         $element->add_control(
                 'sa_el_tooltip_section_position', [
-            'label' => __('Position', 'essential-addons-elementor'),
+            'label' => __('Position', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
             'default' => 'top',
             'options' => [
-                'top' => __('Top', 'essential-addons-elementor'),
-                'bottom' => __('Bottom', 'essential-addons-elementor'),
-                'left' => __('Left', 'essential-addons-elementor'),
-                'right' => __('Right', 'essential-addons-elementor'),
+                'top' => __('Top', SA_ELEMENTOR_TEXTDOMAIN),
+                'bottom' => __('Bottom', SA_ELEMENTOR_TEXTDOMAIN),
+                'left' => __('Left', SA_ELEMENTOR_TEXTDOMAIN),
+                'right' => __('Right', SA_ELEMENTOR_TEXTDOMAIN),
             ],
             'frontend_available' => true,
             'condition' => [
@@ -90,15 +90,15 @@ class SA_Advance_Tooltip {
 
         $element->add_control(
                 'sa_el_tooltip_section_animation', [
-            'label' => __('Animation', 'essential-addons-elementor'),
+            'label' => __('Animation', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
             'default' => 'scale',
             'options' => [
-                'shift-away' => __('Shift Away', 'essential-addons-elementor'),
-                'shift-toward' => __('Shift Toward', 'essential-addons-elementor'),
-                'scale' => __('Scale', 'essential-addons-elementor'),
-                'fade' => __('Fade', 'essential-addons-elementor'),
-                'perspective' => __('Perspective', 'essential-addons-elementor'),
+                'shift-away' => __('Shift Away', SA_ELEMENTOR_TEXTDOMAIN),
+                'shift-toward' => __('Shift Toward', SA_ELEMENTOR_TEXTDOMAIN),
+                'scale' => __('Scale', SA_ELEMENTOR_TEXTDOMAIN),
+                'fade' => __('Fade', SA_ELEMENTOR_TEXTDOMAIN),
+                'perspective' => __('Perspective', SA_ELEMENTOR_TEXTDOMAIN),
             ],
             'frontend_available' => true,
             'condition' => [
@@ -109,10 +109,10 @@ class SA_Advance_Tooltip {
 
         $element->add_control(
                 'sa_el_tooltip_section_arrow', [
-            'label' => __('Arrow', 'essential-addons-elementor'),
+            'label' => __('Arrow', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Show', 'essential-addons-elementor'),
-            'label_off' => __('Hide', 'essential-addons-elementor'),
+            'label_on' => __('Show', SA_ELEMENTOR_TEXTDOMAIN),
+            'label_off' => __('Hide', SA_ELEMENTOR_TEXTDOMAIN),
             'return_value' => true,
             'default' => true,
             'frontend_available' => true,
@@ -124,12 +124,12 @@ class SA_Advance_Tooltip {
 
         $element->add_control(
                 'sa_el_tooltip_section_arrow_type', [
-            'label' => __('Arrow Type', 'essential-addons-elementor'),
+            'label' => __('Arrow Type', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
             'default' => 'sharp',
             'options' => [
-                'sharp' => __('Sharp', 'essential-addons-elementor'),
-                'round' => __('Round', 'essential-addons-elementor'),
+                'sharp' => __('Sharp', SA_ELEMENTOR_TEXTDOMAIN),
+                'round' => __('Round', SA_ELEMENTOR_TEXTDOMAIN),
             ],
             'frontend_available' => true,
             'condition' => [
@@ -141,12 +141,12 @@ class SA_Advance_Tooltip {
 
         $element->add_control(
                 'sa_el_tooltip_section_trigger', [
-            'label' => __('Trigger', 'essential-addons-elementor'),
+            'label' => __('Trigger', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
             'default' => 'mouseenter',
             'options' => [
-                'click' => __('Click', 'essential-addons-elementor'),
-                'mouseenter' => __('Hover', 'essential-addons-elementor'),
+                'click' => __('Click', SA_ELEMENTOR_TEXTDOMAIN),
+                'mouseenter' => __('Hover', SA_ELEMENTOR_TEXTDOMAIN),
             ],
             'frontend_available' => true,
             'condition' => [
@@ -157,7 +157,7 @@ class SA_Advance_Tooltip {
 
         $element->add_control(
                 'sa_el_tooltip_section_duration', [
-            'label' => __('Duration', 'essential-addons-elementor'),
+            'label' => __('Duration', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::NUMBER,
             'min' => 100,
             'max' => 1000,
@@ -172,7 +172,7 @@ class SA_Advance_Tooltip {
 
         $element->add_control(
                 'sa_el_tooltip_section_delay', [
-            'label' => __('Delay out (s)', 'essential-addons-elementor'),
+            'label' => __('Delay out (s)', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::NUMBER,
             'min' => 100,
             'max' => 1000,
@@ -187,13 +187,13 @@ class SA_Advance_Tooltip {
 
         $element->add_control(
                 'sa_el_tooltip_section_size', [
-            'label' => __('Size', 'essential-addons-elementor'),
+            'label' => __('Size', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
             'default' => 'regular',
             'options' => [
-                'small' => __('Small', 'essential-addons-elementor'),
-                'regular' => __('Regular', 'essential-addons-elementor'),
-                'large' => __('Large', 'essential-addons-elementor'),
+                'small' => __('Small', SA_ELEMENTOR_TEXTDOMAIN),
+                'regular' => __('Regular', SA_ELEMENTOR_TEXTDOMAIN),
+                'large' => __('Large', SA_ELEMENTOR_TEXTDOMAIN),
             ],
             'frontend_available' => true,
             'condition' => [
@@ -205,7 +205,7 @@ class SA_Advance_Tooltip {
         $element->end_controls_tab();
 
         $element->start_controls_tab('sa_el_tooltip_section_styles', [
-            'label' => __('Styles', 'essential-addons-elementor'),
+            'label' => __('Styles', SA_ELEMENTOR_TEXTDOMAIN),
             'condition' => [
                 'sa_el_tooltip_section_enable!' => '',
             ],
@@ -225,7 +225,7 @@ class SA_Advance_Tooltip {
 
         $element->add_control(
                 'sa_el_tooltip_section_background_color', [
-            'label' => __('Background Color', 'essential-addons-elementor'),
+            'label' => __('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
             'default' => '#000000',
             'selectors' => [
@@ -244,7 +244,7 @@ class SA_Advance_Tooltip {
 
         $element->add_control(
                 'sa_el_tooltip_section_color', [
-            'label' => __('Color', 'essential-addons-elementor'),
+            'label' => __('Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
             'default' => '#ffffff',
             'selectors' => [
@@ -258,7 +258,7 @@ class SA_Advance_Tooltip {
 
         $element->add_control(
                 'sa_el_tooltip_section_border_color', [
-            'label' => __('Border Color', 'essential-addons-elementor'),
+            'label' => __('Border Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
             'default' => '',
             'selectors' => [
@@ -273,7 +273,7 @@ class SA_Advance_Tooltip {
 
         $element->add_control(
                 'sa_el_tooltip_section_border_radius', [
-            'label' => __('Border Radius', 'essential-addons-elementor'),
+            'label' => __('Border Radius', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', '%'],
             'selectors' => [
@@ -287,7 +287,7 @@ class SA_Advance_Tooltip {
 
         $element->add_control(
                 'sa_el_tooltip_section_distance', [
-            'label' => __('Distance', 'essential-addons-elementor'),
+            'label' => __('Distance', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::NUMBER,
             'min' => 05,
             'max' => 50,
@@ -302,7 +302,7 @@ class SA_Advance_Tooltip {
 
         $element->add_control(
                 'sa_el_tooltip_section_padding', [
-            'label' => __('Padding', 'essential-addons-elementor'),
+            'label' => __('Padding', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', 'em', '%'],
             'selectors' => [
@@ -327,7 +327,7 @@ class SA_Advance_Tooltip {
 
         $element->add_control(
                 'sa_el_tooltip_section_width', [
-            'label' => __('Max Width', 'essential-addons-elementor'),
+            'label' => __('Max Width', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SLIDER,
             'default' => [
                 'size' => '350',
