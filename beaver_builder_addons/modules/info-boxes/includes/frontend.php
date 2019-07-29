@@ -4,9 +4,9 @@
  * @package shortcode addons
  */
 
-echo '<pre>';
-print_r($settings);
-echo '</pre>';
+// echo '<pre>';
+// print_r($settings);
+// echo '</pre>';
 $heading = $description  = $button =   '';
 //header
 $heading = '<' . $settings->title_tag_selection . ' class="oxi__addons_header">
@@ -57,11 +57,28 @@ if ($settings->image_icon_type == 'icon') {
         </div>
     ';
 }
+$position = '';
+if ($settings->position == 'i_h_d') {
+    $position = $icon_image;
+    $position .= $heading;
+    $position .= $description;
+} elseif ($settings->position == 'h_i_d') {
+    $position = $heading;
+    $position .= $icon_image;
+    $position .= $description;
+} elseif ($settings->position == 'h_d_i') {
+    $position = $heading;
+    $position .= $description;
+    $position .= $icon_image;
+} elseif ($settings->position == 'd_h_i') {
+    $position = $description;
+    $position .= $heading;
+    $position .= $icon_image;
+}
 ?>
 <div class="oxi__addons_info_boxes_wrapper">
     <div class="oxi__addons_info_boxes_main">
-        <?php echo $icon_image; ?>
-        <?php echo $heading; ?>
-        <?php echo $description; ?>
+        <?php echo $position; ?>
+        <?php echo $button; ?>
     </div>
 </div>
