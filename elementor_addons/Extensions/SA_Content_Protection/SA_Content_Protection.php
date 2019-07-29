@@ -1,9 +1,9 @@
 <?php
 
-namespace SA_ELEMENTOR_ADDONS\Extensions\Content_Protection;
+namespace SA_ELEMENTOR_ADDONS\Extensions\SA_Content_Protection;
 
 /**
- * Description of Content_Protection
+ * Description of SA_Content_Protection
  *
  * @author Jabir
  */
@@ -13,12 +13,13 @@ if (!defined('ABSPATH')) {
 
 use \Elementor\Controls_Manager;
 use \Elementor\Frontend;
+//use Elementor\Element_Base;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Scheme_Typography;
 
-class Content_Protection {
+class SA_Content_Protection {
 
     use \SA_ELEMENTOR_ADDONS\Helper\Public_Helper;
 
@@ -30,7 +31,7 @@ class Content_Protection {
     public function register_controls($element) {
         $element->start_controls_section(
                 'sa_el_ext_content_protection_section', [
-            'label' => esc_html__('EA Content Protection', SA_ELEMENTOR_TEXTDOMAIN),
+            'label' => esc_html__('SA Content Protection', SA_ELEMENTOR_TEXTDOMAIN),
             'tab' => Controls_Manager::TAB_ADVANCED,
                 ]
         );
@@ -649,12 +650,6 @@ class Content_Protection {
     public function render_content($content, $widget) {
         $settings = $widget->get_settings_for_display();
         $html = '';
-
-        // inject element to loaded extensions
-        add_filter('eael/section/after_render', function ($extensions) {
-            $extensions[] = 'sa-el-content-protection';
-            return $extensions;
-        });
 
         if ($settings['sa_el_ext_content_protection'] == 'yes') {
             if ($settings['sa_el_ext_content_protection_type'] == 'role') {
