@@ -57,13 +57,6 @@ if ($settings->button->icon_position == 'left') {
     $button_position = '<span class="oxi__button-text">' . $settings->button->text . '</span> ' . $icon . ' ';
 }
 ?>
-<style>
-
-
-
-
-
-</style>
 <div class="oxi-addons-BB-flipbox">
     <div class="oxi-addons-BB-FL-row">
         <div class="oxi-addons-BB-FL-fontside">
