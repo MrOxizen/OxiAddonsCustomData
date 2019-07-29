@@ -141,6 +141,24 @@ FLBuilder::register_module(
         'style'         => array(
             'title'    => __('Styles', SA_FLBUILDER_TEXTDOMAIN),
             'sections' => array(
+                'position' => array(
+                    'title' => __('Position', SA_FLBUILDER_TEXTDOMAIN),
+                    'fields' => array(
+                        'position' => array(
+                            'type' => 'select',
+                            'label' => __('Position Type', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'i_h_d',
+                            'help' => __('Set Position top bottom center', SA_FLBUILDER_TEXTDOMAIN),
+                            'options' => array(
+                                'i_h_d' => __('Icon > Heading > Description', SA_FLBUILDER_TEXTDOMAIN),
+                                'h_i_d' => __('Heading > Icon > Description', SA_FLBUILDER_TEXTDOMAIN),
+                                'h_d_i' => __('Heading > Description > Icon', SA_FLBUILDER_TEXTDOMAIN),
+                                'd_h_i' => __('Description > Heading  > Icon', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                        ),
+
+                    ),
+                ),
                 'main_background_setting' => array(
                     'title' => __('Main Background Settings', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
