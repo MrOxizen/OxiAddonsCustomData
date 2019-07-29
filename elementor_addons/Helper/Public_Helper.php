@@ -552,7 +552,7 @@ trait Public_Helper {
                 'condition' => '',
                 'API' => ''
             ],
-            'sa_content_protection' => [
+            'content_protection' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Extensions\SA_Content_Protection\SA_Content_Protection',
                 'dependency' => [
                     'css' => [
@@ -564,7 +564,7 @@ trait Public_Helper {
                 'condition' => '',
                 'API' => ''
             ],
-            'sa_advance_tooltip' => [
+            'advance_tooltip' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Extensions\SA_Advance_Tooltip\SA_Advance_Tooltip',
                 'dependency' => [
                     'css' => [
