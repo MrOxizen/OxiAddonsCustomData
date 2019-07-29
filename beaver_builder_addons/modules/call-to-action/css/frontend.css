@@ -1,28 +1,37 @@
- *{
-     padding: 0;
-     margin: 0;
-     box-sizing: border-box;
+.oxi__button_wrapper .oxi__button{ 
+    background: #1976d2;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;   
 }
-a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, font, form, h1, h2, h3, h4, h5, h6, html, iframe, ins, kbd, label, legend, li, object, ol, p, pre, q, s, samp, small, span, strike, strong, sub, sup, table, tbody, td, tfoot, th, thead, tr, tt, ul, var{
-     border: 0;
-     border-top-color: currentcolor;
-     border-top-style: none;
-     border-top-width: 0px;
-     font-size: 100%;
-     font-style: inherit;
-     font-weight: inherit;
-     margin: 0;
-     outline: 0;
-     padding: 0;
-     vertical-align: baseline;
+.oxi__button_wrapper .oxi__button .oxi__button_wrapper{
+    display: flex;  
+    align-items: center;
+    transition: all 0.3s ease;
 }
-.oxi__addons_info_table_wrapper{
-     display: flex;
-     width: 100%;
-}
-.oxi__addons_info_table_main{ 
-     width: 100%;
-     display: flex;
-     flex-direction: column;
+.oxi__button_wrapper  .oxi__button-text,
+.oxi__button_wrapper  .oxi__icon-selector{
+    z-index: 999;
 } 
- 
+.oxi__button_wrapper .oxi__button:hover,
+.oxi__button_wrapper .oxi__button:focus{
+    background: #216daf;
+    color: white;
+} 
+.oxi__button_wrapper .oxi__button::after{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+} 
+
+.entry .entry-content a {
+            text-decoration: none !important;
+        }
+.oxi__button_wrapper a{
+            text-decoration:none !important;
+        }
+.oxi__button_wrapper a:hover{
+            text-decoration:none !important;
+        }

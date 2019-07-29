@@ -326,7 +326,7 @@ label:active:after {
     justify-content: center;
     display: inline-flex;
 }
-.oxi-addons-wrapper .sa-el-btn .dashicons-admin-generic{
+.oxi-addons-wrapper .dashicons-admin-generic{
     margin-right: 5px;
     -webkit-animation:spin 3s linear infinite;
     -moz-animation:spin 3s linear infinite;
@@ -461,3 +461,19 @@ label:active:after {
     background:#ab1202;
 
 }
+.sa-el-admin-block-content .sa-el-button-clear-cache{
+    width: 130px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    background: #e74c3c;
+}
+.sa-el-admin-block-content .sa-el-button-clear-cache:hover,
+.sa-el-admin-block-content .sa-el-button-clear-cache:focus {
+    color: #fff;
+    background: #ab1202;
+}
+.tabs-cache .sa-el-admin-header-icon {
+    background: #e74c3c;}

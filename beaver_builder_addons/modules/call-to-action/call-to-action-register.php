@@ -1,7 +1,7 @@
 <?php
 
 FLBuilder::register_settings_form(
-        'Oxi_flip_box_icon_form_field', array(
+        'Oxi_call_box_icon_form_field', array(
     'title' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
     'tabs' => array(
         array(
@@ -24,6 +24,16 @@ FLBuilder::register_settings_form(
                             'size' => '6',
                             'slider' => true,
                             'units' => array('px'),
+                        ),
+                        'Call_to_action_text_align_option' => array(
+                            'type' => 'select',
+                            'label' => __('Text Align', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'oxi_text_center',
+                            'options' => array(
+                                'oxi_text_left' => __('Left', SA_FLBUILDER_TEXTDOMAIN),
+                                'oxi_text_right' => __('Right', SA_FLBUILDER_TEXTDOMAIN),
+                                'oxi_text_center' => __('Center', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
                         ),
                     ),
                 ),
@@ -100,6 +110,7 @@ FLBuilder::register_settings_form(
                                 ),
                             ),
                         ),
+                        
                         'icon_border_width' => array(
                             'type' => 'unit',
                             'label' => __('Border Width', SA_FLBUILDER_TEXTDOMAIN),
@@ -156,16 +167,6 @@ FLBuilder::register_settings_form(
                             'show_reset' => true,
                             'connections' => array('color'),
                             'show_alpha' => true,
-                        ),
-                        /* Gradient Color Option */
-                        'icon_three_d' => array(
-                            'type' => 'select',
-                            'label' => __('Gradient', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => '0',
-                            'options' => array(
-                                '0' => __('No', SA_FLBUILDER_TEXTDOMAIN),
-                                '1' => __('Yes', SA_FLBUILDER_TEXTDOMAIN),
-                            ),
                         ),
                     ),
                 ),
@@ -550,21 +551,21 @@ FLBuilder::register_settings_form(
 );
 FLBuilder::register_module(
         'SA_Call_to_Action', array(
-    'flip_front' => array(// Tab.
+    'call_front' => array(// Tab.
         'title' => __('Content', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
         'sections' => array(// Tab Sections.
             'title' => array(// Section.
                 'title' => __('Front Settings', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
                 'fields' => array(// Section Fields.
-                    
-                    'oxi_flip_front_title' => array(
+
+                    'oxi_call_front_title' => array(
                         'type' => 'text',
                         'label' => __('Title on Front', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => __("Let's Flip!", SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => __("Call To Action!", SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Perhaps, this is the most highlighted text.', SA_FLBUILDER_TEXTDOMAIN),
                         'connections' => array('string', 'html'),
                     ),
-                    'oxi_flip_front_details' => array(
+                    'oxi_call_front_details' => array(
                         'type' => 'editor',
                         'media_buttons' => false,
                         'rows' => 10,
@@ -574,7 +575,6 @@ FLBuilder::register_module(
                     ),
                 ),
             ),
-            
             'button' => array(// Section.
                 'title' => __('Button', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
                 'fields' => array(// Section Fields.
@@ -614,43 +614,29 @@ FLBuilder::register_module(
                     'content_style' => array(
                         'type' => 'select',
                         'label' => __('Flip Type', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'horizontal_flip_left',
-                        'help' => __('Select Flip type for this flip box.', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'horizontal_call_left',
+                        'help' => __('Select Flip type for this call box.', SA_FLBUILDER_TEXTDOMAIN),
                         'options' => array(
                             'basic' => __('Basic', SA_FLBUILDER_TEXTDOMAIN),
                             'flex_grid' => __('Flex Grid', SA_FLBUILDER_TEXTDOMAIN),
                             'flex_grid_icon' => __('Flex Grid Icon', SA_FLBUILDER_TEXTDOMAIN),
                         ),
                         'toggle' => array(
-                                'basic' => array(
-                                    'fields' => array('Call_to_action_text_align_option'),
-                                ),
-                                'flex_grid_icon' => array(
-                                    'fields' => array('oxi_call_to_action_icons'),
-                                ),
+                            'flex_grid_icon' => array(
+                                'fields' => array('oxi_call_to_action_icons'),
                             ),
-                    ),
-                    'Call_to_action_text_align_option' => array(
-                        'type' => 'select',
-                        'label' => __('Text Align', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'oxi_text_center',
-                        'options' => array(
-                            'oxi_text_left' => __('Left', SA_FLBUILDER_TEXTDOMAIN),
-                            'oxi_text_right' => __('Right', SA_FLBUILDER_TEXTDOMAIN),
-                            'oxi_text_center' => __('Center', SA_FLBUILDER_TEXTDOMAIN),
                         ),
                     ),
                     'oxi_call_to_action_icons' => array(
                         'type' => 'form',
                         'label' => __('Icon Settings', SA_FLBUILDER_TEXTDOMAIN),
-                        'form' => 'Oxi_flip_box_icon_form_field', // ID of a registered form.
+                        'form' => 'Oxi_call_box_icon_form_field', // ID of a registered form.
                         'preview_text' => 'icon', // ID of a field to use for the preview text.
                     ),
-                   
                     'inner_padding_dimension' => array(
                         'type' => 'dimension',
                         'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
-                        'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Manage the outside spacing of content area of callbox.', SA_FLBUILDER_TEXTDOMAIN),
                         'slider' => true,
                         'units' => array('px'),
                         'responsive' => array(
@@ -674,7 +660,6 @@ FLBuilder::register_module(
                         'options' => array(
                             'color' => __('Color', SA_FLBUILDER_TEXTDOMAIN),
                             'image' => __('Image', SA_FLBUILDER_TEXTDOMAIN),
-                            'fixed_image' => __('Fixed Image', SA_FLBUILDER_TEXTDOMAIN),
                         ),
                         'toggle' => array(
                             'color' => array(
@@ -750,7 +735,6 @@ FLBuilder::register_module(
                     ),
                 ),
             ),
-           
         ),
     ),
     'typography' => array(// Tab.
@@ -820,7 +804,7 @@ FLBuilder::register_module(
                         'responsive' => true,
                         'preview' => array(
                             'type' => 'css',
-                            'selector' => '.uabb-flip-box-section-content',
+                            'selector' => '.uabb-call-box-section-content',
                             'important' => true,
                         ),
                     ),
@@ -850,7 +834,6 @@ FLBuilder::register_module(
                     ),
                 ),
             ),
-           
             'margin_options' => array(// Section.
                 'title' => __('Margin', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
                 'fields' => array(// Section Fields.
@@ -870,6 +853,22 @@ FLBuilder::register_module(
                         'units' => array('px'),
                         'size' => '8',
                     ),
+                    'icon_margin_right' => array(
+                        'type' => 'unit',
+                        'label' => __('Icon Margin Right', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '15',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                    'icon_margin_left' => array(
+                        'type' => 'unit',
+                        'label' => __('Icon Margin Left', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '15',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
                     'button_margin_top' => array(
                         'type' => 'unit',
                         'label' => __('Button Margin Top', SA_FLBUILDER_TEXTDOMAIN),
@@ -881,6 +880,22 @@ FLBuilder::register_module(
                     'button_margin_bottom' => array(
                         'type' => 'unit',
                         'label' => __('Button Margin Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '0',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                    'button_margin_right' => array(
+                        'type' => 'unit',
+                        'label' => __('Button Margin Right', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '0',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                    'button_margin_left' => array(
+                        'type' => 'unit',
+                        'label' => __('Button Margin Left', SA_FLBUILDER_TEXTDOMAIN),
                         'placeholder' => '0',
                         'slider' => true,
                         'units' => array('px'),
