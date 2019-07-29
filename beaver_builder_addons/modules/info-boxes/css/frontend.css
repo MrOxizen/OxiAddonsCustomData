@@ -38,10 +38,12 @@ a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, d
      display: flex;
      justify-content: center;
      align-items: center;
+      transition: all 0.3s ease;
 } 
 .oxi__addons_info_boxes_main .oxi__icon_image_main{
     width: 100%;
     display: flex; 
+    padding: 5px;
 } 
 .oxi__addons_info_boxes_main .oxi__addons_image{
     width: 70px;
@@ -54,11 +56,20 @@ a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, d
      padding: 10px 0;
 } 
 .oxi__addons_info_boxes_main .oxi__addons_header { 
+     position: relative;
      font-size: 22px;
      color: #666;
      margin: 0;
      padding: 0;
      text-align: center;
+} 
+.oxi__addons_info_boxes_main .oxi__addons_header::before { 
+     content: '';
+     position: absolute;   
+} 
+.oxi__addons_info_boxes_main .oxi__addons_header::after { 
+     content: '';
+     position: absolute;   
 } 
 .oxi__addons_info_boxes_main .oxi__addons_details p { 
      font-size: 16px;

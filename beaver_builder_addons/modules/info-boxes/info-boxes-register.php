@@ -39,7 +39,7 @@ FLBuilder::register_module(
                             ),
                             'toggle'  => array(
                                 'icon'  => array(
-                                    'fields' => array('icon_main', 'icon_size'),
+                                    'fields' => array('icon_main', 'icon_size', 'icon_color', 'icon_hover_color'),
                                 ),
                                 'photo' => array(
                                     'fields' => array('image_size'),
@@ -141,6 +141,69 @@ FLBuilder::register_module(
         'style'         => array(
             'title'    => __('Styles', SA_FLBUILDER_TEXTDOMAIN),
             'sections' => array(
+                'divider_option' => array(
+                    'fields' => array(
+                        'divider_eanble' => array(
+                            'type'    => 'select',
+                            'label'   => __('Divider', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'none',
+                            'options' => array(
+                                'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
+                                'enable' => __('Enable', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                            'toggle' => array(
+                                'enable' => array(
+                                    'sections' => array('divider_setting'),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                'divider_setting' => array(
+                    'title' => __('Divider Setting', SA_FLBUILDER_TEXTDOMAIN),
+                    'fields' => array(
+                        'divider_position' => array(
+                            'type'    => 'select',
+                            'label'   => __('Divider Position', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'line_header',
+                            'options' => array(
+                                'line_header' => __('Divider > Heading', SA_FLBUILDER_TEXTDOMAIN),
+                                'heading_line' => __('Heading > Divider', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                        ),
+                        'divider_width'     => array(
+                            'type'        => 'unit',
+                            'label'       => __('Divider Width', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider'      => true,
+                            'units'       => array('px'),
+                            'maxlength'   => '3',
+                            'size'        => '6',
+                            'placeholder' => '50',
+                            'preview'     => array(
+                                'type' => 'refresh',
+                            ),
+                        ),
+                        'divider_height'     => array(
+                            'type'        => 'unit',
+                            'label'       => __('Divider Height', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider'      => true,
+                            'units'       => array('px'),
+                            'maxlength'   => '3',
+                            'size'        => '6',
+                            'placeholder' => '2',
+                            'preview'     => array(
+                                'type' => 'refresh',
+                            ),
+                        ),
+                        'divider_color'              => array(
+                            'type'       => 'color',
+                            'label'      => __('Divider Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'    => '',
+                            'show_reset' => true,
+                            'show_alpha' => true,
+                        ),
+                    ),
+                ),
                 'position' => array(
                     'title' => __('Position', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
@@ -347,6 +410,7 @@ FLBuilder::register_module(
                             'slider'      => true,
                             'units'       => array('px'),
                         ),
+
                         /* Icon Background SIze */
                         'icon_img_bg_size'          => array(
                             'type'        => 'unit',
@@ -373,7 +437,7 @@ FLBuilder::register_module(
                             ),
                             'toggle'  => array(
                                 'solid'  => array(
-                                    'fields' => array('icon_border_width', 'icon_img_border_color', 'icon_img_border_hover_color'),
+                                    'fields' => array('icon_img_border_width', 'icon_img_border_color', 'icon_img_border_hover_color'),
                                 ),
                                 'dashed' => array(
                                     'fields' => array('icon_img_border_width', 'icon_img_border_color', 'icon_img_border_hover_color'),
@@ -408,6 +472,20 @@ FLBuilder::register_module(
                                 'placeholder' => array(
                                     'default' => '15',
                                     'medium' => '10',
+                                    'responsive' => '5',
+                                ),
+                            ),
+                        ),
+                        'icon_padding' => array(
+                            'type' => 'dimension',
+                            'label' => __('Margin', SA_FLBUILDER_TEXTDOMAIN),
+                            'help' => __('Manage the inside Info Boxe Hover Border Radius', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider' => true,
+                            'units' => array('px'),
+                            'responsive' => array(
+                                'placeholder' => array(
+                                    'default' => '5',
+                                    'medium' => '5',
                                     'responsive' => '5',
                                 ),
                             ),
@@ -449,6 +527,7 @@ FLBuilder::register_module(
                         ),
                     ),
                 ),
+
                 'hover_icon_img_colors'  => array( // Section.
                     'title'  => __('Icon / Image Hover Colors', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
                     'fields' => array( // Section Fields.  
@@ -510,6 +589,45 @@ FLBuilder::register_module(
                                 'right' => __('Right', SA_FLBUILDER_TEXTDOMAIN),
                             ),
                         ),
+                        'btn_border_style'     => array(
+                            'type'    => 'select',
+                            'label'   => __('Border Style', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'none',
+                            'help'    => __('The type of border to use. Double borders must have a width of at least 3px to render properly.', SA_FLBUILDER_TEXTDOMAIN),
+                            'options' => array(
+                                'none'   => __('None', SA_FLBUILDER_TEXTDOMAIN),
+                                'solid'  => __('Solid', SA_FLBUILDER_TEXTDOMAIN),
+                                'dashed' => __('Dashed', SA_FLBUILDER_TEXTDOMAIN),
+                                'dotted' => __('Dotted', SA_FLBUILDER_TEXTDOMAIN),
+                                'double' => __('Double', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                            'toggle'  => array(
+                                'solid'  => array(
+                                    'fields' => array('btn_border_color', 'btn_border_width', 'btn_hover_border_color'),
+                                ),
+                                'dashed' => array(
+                                    'fields' => array('btn_border_color', 'btn_border_width', 'btn_hover_border_color'),
+                                ),
+                                'dotted' => array(
+                                    'fields' => array('btn_border_color', 'btn_border_width', 'btn_hover_border_color'),
+                                ),
+                                'double' => array(
+                                    'fields' => array('btn_border_color', 'btn_border_width', 'btn_hover_border_color'),
+                                ),
+                            ),
+                        ),
+                        'btn_border_width'     => array(
+                            'type'        => 'unit',
+                            'label'       => __('Border Width', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider'      => true,
+                            'units'       => array('px'),
+                            'maxlength'   => '3',
+                            'size'        => '6',
+                            'placeholder' => '1',
+                            'preview'     => array(
+                                'type' => 'refresh',
+                            ),
+                        ),
                         'btn_text_color'         => array(
                             'type'       => 'color',
                             'label'      => __('Text Color', SA_FLBUILDER_TEXTDOMAIN),
@@ -541,6 +659,21 @@ FLBuilder::register_module(
                             'show_reset' => true,
                             'show_alpha' => true,
                         ),
+                        'btn_border_color'           => array(
+                            'type'       => 'color',
+                            'label'      => __('Border Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'    => '',
+                            'show_reset' => true,
+                            'show_alpha' => true,
+                        ),
+                        'btn_hover_border_color'           => array(
+                            'type'       => 'color',
+                            'label'      => __('Border Hover Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'    => '',
+                            'show_reset' => true,
+                            'show_alpha' => true,
+                        ),
+
                         'btn_border_radius' => array(
                             'type' => 'dimension',
                             'label' => __('Boder Radius', SA_FLBUILDER_TEXTDOMAIN),
