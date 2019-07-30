@@ -34,7 +34,7 @@ class Interactive_Card extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'fas fa-address-card';
+        return 'eicon-accordion';
     }
 
     public function get_categories() {

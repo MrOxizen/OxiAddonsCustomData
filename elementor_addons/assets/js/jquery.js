@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-(function($) {
+(function ($) {
     window.isEditMode = false;
 
-    $(window).on("elementor/frontend/init", function() {
+    $(window).on("elementor/frontend/init", function () {
         window.isEditMode = elementorFrontend.isEditMode();
     });
+
 })(jQuery);

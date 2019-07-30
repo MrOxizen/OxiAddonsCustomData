@@ -36,7 +36,7 @@ class Image_Hotspots extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-image-hotspot';
+        return 'eicon-image-hotspot oxi-el-admin-icon';
     }
 
     public function get_categories() {

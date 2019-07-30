@@ -69,7 +69,7 @@ class Team_Member_Carousel extends Widget_Base
      */
     public function get_icon()
     {
-        return 'fa fa-user-o';
+        return 'eicon-accordion';
     }
 
     /**

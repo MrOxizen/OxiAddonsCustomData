@@ -1,0 +1,56 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 30, 2019, 9:47:46 AM
+    Author     : biplo
+*/
+
+
+
+
+.elementor-panel #elementor-panel-category-sa-el-addons .elementor-element .icon:after,
+.elementor-panel #elementor-panel-elements .sa-el-widgets-addons .icon:after{
+    content: "SA";
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    color: #FFF;
+    background: #e74c3c;
+    font-size: 9px;
+    letter-spacing: 1px;
+    font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+    padding: 0.35em 0.65em;
+}
+.elementor-panel #elementor-panel-category-sa-el-addons .elementor-element:hover .icon:after,
+.elementor-panel #elementor-panel-elements .sa-el-widgets-addons:hover .icon:after{
+    color: #e74c3c;
+    background: #FFF;
+}
+.elementor-panel #elementor-panel-category-sa-el-addons .elementor-element,
+.elementor-panel #elementor-panel-elements .sa-el-widgets-addons {
+    -webkit-transition: background-image .3s;
+    transition: background-image .3s;
+}
+.elementor-panel #elementor-panel-category-sa-el-addons .elementor-element:hover,
+.elementor-panel #elementor-panel-category-sa-el-addons .elementor-element:focus,
+.elementor-panel #elementor-panel-elements .sa-el-widgets-addons:hover,
+.elementor-panel #elementor-panel-elements .sa-el-widgets-addons:focus {
+    background-image: -webkit-linear-gradient(315deg, #e74c3c 0%, #e74c3c 100%);
+    background-image:         linear-gradient(135deg, #e74c3c 0%, #e74c3c 100%);
+}
+.elementor-panel #elementor-panel-category-sa-el-addons .elementor-element:hover .icon,
+.elementor-panel #elementor-panel-category-sa-el-addons .elementor-element:hover .title,
+.elementor-panel #elementor-panel-category-sa-el-addons .elementor-element:focus .icon,
+.elementor-panel #elementor-panel-category-sa-el-addons .elementor-element:focus .title,
+.elementor-panel #elementor-panel-elements .sa-el-widgets-addons:hover .icon,
+.elementor-panel #elementor-panel-elements .sa-el-widgets-addons:hover .title,
+.elementor-panel #elementor-panel-elements .sa-el-widgets-addons:focus .icon,
+.elementor-panel #elementor-panel-elements .sa-el-widgets-addons:focus .title {
+    background: transparent;
+    color: #FFF;
+    -webkit-text-fill-color: initial;
+}

@@ -25,6 +25,7 @@ trait Public_Helper {
             update_option('shortcode-addons-elementor', $installed);
         }
         parse_str($installed, $settings);
+        ksort($settings);
         return $settings;
     }
 
@@ -581,7 +582,7 @@ trait Public_Helper {
                 'condition' => '',
                 'API' => ''
             ],
-            'SA_effect' => [
+            '3D_&_CSS_effect' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Extensions\SA_Effect\SA_Effect',
                 'dependency' => [
                     'js' => [
@@ -622,8 +623,6 @@ trait Public_Helper {
      */
     public function register_elements($widgets_manager) {
         $active_elements = $this->Get_Active_Elements();
-
-        asort($active_elements);
         foreach ($active_elements as $key => $active_element) {
             if (array_key_exists($key, $this->registered_elements) && class_exists($this->registered_elements[$key]['class'])) {
                 if ($this->registered_elements[$key]['category'] == 'Extension') {
@@ -657,6 +656,13 @@ trait Public_Helper {
         wp_enqueue_script(SA_ELEMENTOR_TEXTDOMAIN . '-js', content_url('uploads/OxiAddonsCustomData/elementor_addons/' . $js_file), ['jquery']);
         // hook extended assets
         do_action(SA_ELEMENTOR_TEXTDOMAIN . '/after_enqueue_scripts', $this->has_cache_files());
+    }
+
+    public function enqueue_editor_scripts() {
+        $css_file = 'assets/css/before-elementor.css';
+        $js_file = 'assets/js/before-elementor.js';
+        wp_enqueue_style(SA_ELEMENTOR_TEXTDOMAIN . '-before', content_url('uploads/OxiAddonsCustomData/elementor_addons/' . $css_file));
+        wp_enqueue_script(SA_ELEMENTOR_TEXTDOMAIN . '-before', content_url('uploads/OxiAddonsCustomData/elementor_addons/' . $js_file), ['jquery']);
     }
 
     /**
