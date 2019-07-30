@@ -34,7 +34,7 @@ final class SA_ELEMENTOR_ADDONS
      * @since 1.2.0
      * @var string Minimum Elementor version required to run the plugin.
      */
-    const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
+    const MINIMUM_ELEMENTOR_VERSION = '2.6.0';
 
     /**
      * Minimum PHP Version

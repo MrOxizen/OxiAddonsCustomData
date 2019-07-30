@@ -90,11 +90,11 @@ trait Include_Admin_Template {
                                                     <div class="sa-el-admin-header-icon">
                                                         <span class="dashicons dashicons-format-aside"></span>
                                                     </div>    
-                                                    <h4 class="sa-el-admin-header-title">Report a bug</h4>  
+                                                    <h4 class="sa-el-admin-header-title">Documentation</h4>  
                                                 </div>
                                                 <div class="sa-el-admin-block-content">
-                                                    <p>Get started by spending some time with the documentation to get familiar with Essential Addons. Build awesome websites for you or your clients with ease.</p>
-                                                    <a href="https://essential-addons.com/elementor/docs/" class="sa-el-button" target="_blank">Report a bug</a>
+                                                    <p>Get started by spending some time with the documentation to get familiar with Shortcode Addons. Build awesome websites for you or your clients with ease.</p>
+                                                    <a href="https://www.shortcode-addons.com/docs/elementor-extension/" class="sa-el-button" target="_blank">Documentation</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -106,11 +106,11 @@ trait Include_Admin_Template {
                                                     <div class="sa-el-admin-header-icon">
                                                         <span class="dashicons dashicons-format-aside"></span>
                                                     </div>    
-                                                    <h4 class="sa-el-admin-header-title">Documentation</h4>  
+                                                    <h4 class="sa-el-admin-header-title">Report a bug</h4>  
                                                 </div>
                                                 <div class="sa-el-admin-block-content">
                                                     <p>Get started by spending some time with the documentation to get familiar with Essential Addons. Build awesome websites for you or your clients with ease.</p>
-                                                    <a href="https://essential-addons.com/elementor/docs/" class="sa-el-button" target="_blank">Documentation</a>
+                                                    <a href="https://wordpress.org/support/plugin/shortcode-addons/" class="sa-el-button" target="_blank">Report a bug</a>
                                                 </div>
                                             </div>
                                         </div>
