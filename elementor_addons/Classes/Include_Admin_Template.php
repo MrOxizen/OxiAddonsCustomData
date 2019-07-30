@@ -82,9 +82,22 @@ trait Include_Admin_Template {
                         </div>
                         <div class="ctu-ultimate-style-2-content"> 
                             <div class="ctu-ulitate-style-2-tabs" id="tabs-general">
+                                <div class="about-wrap text-center">
+                                    <h1>Welcome to Elementor Extension</h1>
+                                    <div class="about-text">
+                                        Thank you for Installing Elementor Extention, The most friendly Elementor addons or all in one Package for Elementor. Here's how to get started.
+                                    </div>
+                                </div>
+                                <div class="feature-section">
+                                    <div class="about-container">
+                                        <div class="about-addons-videos"><iframe src="//www.youtube.com/embed/Ovvqi7iZJ-s" frameborder="0" allowfullscreen class="about-video"></iframe></div>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-lg-6 col-md-12">
                                         <div class="sa-el-admin-wrapper">
+
+
                                             <div class="sa-el-admin-block">
                                                 <div class="sa-el-admin-header">
                                                     <div class="sa-el-admin-header-icon">
