@@ -10,24 +10,24 @@
  */
 FLBuilder::register_module(
         'OxiAccordionsModule', array(
-    'info_list_item' => array(// Tab.
+    'accordion' => array(// Tab.
         'title' => __('List Item', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
         'sections' => array(// Tab Sections.
-            'info_list_general' => array(// Section.
+            'accordion_general' => array(// Section.
                 'title' => '', // Section Title.
                 'fields' => array(// Section Fields.
-                    'add_list_item' => array(
+                    'add_accordion' => array(
                         'type' => 'form',
                         'label' => __('List Item', SA_FLBUILDER_TEXTDOMAIN),
                         'form' => 'oxi_sa_accordion_item_form',
-                        'preview_text' => 'list_item_title',
+                        'preview_text' => 'accordion_title',
                         'multiple' => true,
                     ),
                 ),
             ),
         ),
     ),
-    'info_list_general' => array(// Tab.
+    'accordion_general' => array(// Tab.
         'title' => __('General', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
         'sections' => array(// Tab Sections.
             'Active_icon' => array(
@@ -112,7 +112,7 @@ FLBuilder::register_module(
             ),
         ),
     ),
-    'info_list_style' => array(// Tab.
+    'accordion_style' => array(// Tab.
         'title' => __('Typography', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
         'sections' => array(// Tab Sections.
             'heading_typography' => array(
@@ -212,15 +212,15 @@ FLBuilder::register_module(
 // Add List Items.
 FLBuilder::register_settings_form(
     'oxi_sa_accordion_item_form', array(
-    'title' => __('Add List Item', SA_FLBUILDER_TEXTDOMAIN),
+    'title' => __('Add Accordion', SA_FLBUILDER_TEXTDOMAIN),
     'tabs' => array(
-        'list_item_general' => array(
+        'accordion_general' => array(
             'title' => __('General', SA_FLBUILDER_TEXTDOMAIN),
             'sections' => array(
                 'title' => array(
                     'title' => __('General Settings', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
-                        'list_item_title' => array(
+                        'accordion_title' => array(
                             'type' => 'text',
                             'label' => __('Title', SA_FLBUILDER_TEXTDOMAIN),
                             'description' => '',
@@ -230,7 +230,7 @@ FLBuilder::register_settings_form(
                             'class' => 'uabb-list-item-title',
                             'connections' => array('string', 'html'),
                         ),
-                        'list_item_description' => array(
+                        'accordion_description' => array(
                             'type' => 'editor',
                             'default' => __('Enter description text here.', SA_FLBUILDER_TEXTDOMAIN),
                             'label' => '',
@@ -241,7 +241,7 @@ FLBuilder::register_settings_form(
                 ),
             ),
         ),
-        'list_item_image' => array(
+        'accordion_image' => array(
             'title' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
             'sections' => array(
                 'title' => array(

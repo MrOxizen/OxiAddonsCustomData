@@ -119,10 +119,10 @@ trait Include_Admin_Template {
                                                     <div class="sa-el-admin-header-icon">
                                                         <span class="dashicons dashicons-format-aside"></span>
                                                     </div>    
-                                                    <h4 class="sa-el-admin-header-title">Report a bug</h4>  
+                                                    <h4 class="sa-el-admin-header-title">Contribute to Shortcode Addons</h4>  
                                                 </div>
                                                 <div class="sa-el-admin-block-content">
-                                                    <p>Get started by spending some time with the documentation to get familiar with Essential Addons. Build awesome websites for you or your clients with ease.</p>
+                                                    <p>You can contribute to make Shortcode Addons better reporting bugs & creating issues. Our Development team always try to make more powerfull addons day by day with solved Issues</p>
                                                     <a href="https://wordpress.org/support/plugin/shortcode-addons/" class="sa-el-button" target="_blank">Report a bug</a>
                                                 </div>
                                             </div>
@@ -135,27 +135,11 @@ trait Include_Admin_Template {
                                                     <div class="sa-el-admin-header-icon">
                                                         <span class="dashicons dashicons-format-aside"></span>
                                                     </div>    
-                                                    <h4 class="sa-el-admin-header-title">Documentation</h4>  
+                                                    <h4 class="sa-el-admin-header-title">Video Tutorials </h4>  
                                                 </div>
                                                 <div class="sa-el-admin-block-content">
-                                                    <p>Get started by spending some time with the documentation to get familiar with Essential Addons. Build awesome websites for you or your clients with ease.</p>
-                                                    <a href="https://essential-addons.com/elementor/docs/" class="sa-el-button" target="_blank">Documentation</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>   
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="sa-el-admin-wrapper">
-                                            <div class="sa-el-admin-block">
-                                                <div class="sa-el-admin-header">
-                                                    <div class="sa-el-admin-header-icon">
-                                                        <span class="dashicons dashicons-format-aside"></span>
-                                                    </div>    
-                                                    <h4 class="sa-el-admin-header-title">Documentation</h4>  
-                                                </div>
-                                                <div class="sa-el-admin-block-content">
-                                                    <p>Get started by spending some time with the documentation to get familiar with Essential Addons. Build awesome websites for you or your clients with ease.</p>
-                                                    <a href="https://essential-addons.com/elementor/docs/" class="sa-el-button" target="_blank">Documentation</a>
+                                                    <p>Unable to use Shortcode Addons Elementor Extention? Don't worry you can check your web tutorials to make easier to use :) </p>
+                                                    <a href="https://www.shortcode-addons.com/docs/elementor-extension/" class="sa-el-button" target="_blank">Video Tutorials</a>
                                                 </div>
                                             </div>
                                         </div>
