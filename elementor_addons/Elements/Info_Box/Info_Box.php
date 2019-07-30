@@ -29,7 +29,7 @@ class Info_Box extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-info-box';
+        return 'eicon-info-box  oxi-el-admin-icon';
     }
 
     public function get_categories() {

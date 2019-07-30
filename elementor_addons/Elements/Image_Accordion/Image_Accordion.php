@@ -32,7 +32,7 @@ class Image_Accordion extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'fas fa-images';
+        return 'eicon-featured-image  oxi-el-admin-icon';
     }
 
     public function get_categories() {

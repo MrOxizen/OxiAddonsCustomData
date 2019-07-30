@@ -28,7 +28,7 @@ class Pricing_Table extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-price-table';
+        return 'eicon-price-table oxi-el-admin-icon';
     }
 
     public function get_categories() {

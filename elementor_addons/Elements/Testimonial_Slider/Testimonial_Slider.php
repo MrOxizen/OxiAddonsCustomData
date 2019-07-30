@@ -22,7 +22,7 @@ class Testimonial_Slider extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-accordion';
+        return 'eicon-accordion oxi-el-admin-icon';
     }
 
     public function get_categories() {

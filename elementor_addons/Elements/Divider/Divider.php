@@ -32,7 +32,7 @@ class Divider extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-divider';
+        return 'eicon-divider  oxi-el-admin-icon';
     }
 
     public function get_categories() {

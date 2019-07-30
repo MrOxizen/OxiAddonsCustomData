@@ -28,7 +28,7 @@ class Count_down extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-countdown';
+        return 'eicon-countdown  oxi-el-admin-icon';
     }
 
     public function get_categories() {

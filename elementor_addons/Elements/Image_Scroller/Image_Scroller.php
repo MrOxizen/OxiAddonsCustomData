@@ -35,7 +35,7 @@ class Image_Scroller extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'fa fa-image';
+        return 'eicon-v-align-stretch oxi-el-admin-icon';
     }
 
     public function get_categories() {

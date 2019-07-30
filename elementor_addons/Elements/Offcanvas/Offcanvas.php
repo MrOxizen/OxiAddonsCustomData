@@ -27,7 +27,7 @@ class Offcanvas extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-sidebar';
+        return 'eicon-sidebar oxi-el-admin-icon';
     }
 
     public function get_categories() {

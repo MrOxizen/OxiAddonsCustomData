@@ -32,7 +32,7 @@ class Advanced_Heading extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'fab fa-autoprefixer';
+        return 'eicon-heading  oxi-el-admin-icon';
     }
 
     public function get_categories() {

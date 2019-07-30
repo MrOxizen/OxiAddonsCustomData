@@ -26,7 +26,7 @@ class Flip_Carousel extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-carousel';
+        return 'eicon-carousel  oxi-el-admin-icon';
     }
 
     public function get_categories() {

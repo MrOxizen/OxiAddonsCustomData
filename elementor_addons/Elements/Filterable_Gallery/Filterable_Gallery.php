@@ -21,11 +21,11 @@ class Filterable_Gallery extends Widget_Base {
     }
 
     public function get_title() {
-        return esc_html__('EA Filterable Gallery', SA_ELEMENTOR_TEXTDOMAIN);
+        return esc_html__('Filterable Gallery', SA_ELEMENTOR_TEXTDOMAIN);
     }
 
     public function get_icon() {
-        return 'eicon-gallery-grid';
+        return 'eicon-gallery-grid  oxi-el-admin-icon';
     }
 
     public function get_categories() {

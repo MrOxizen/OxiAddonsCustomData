@@ -26,7 +26,7 @@ class Fancy_Text extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-animation-text';
+        return 'eicon-animation-text  oxi-el-admin-icon';
     }
 
     public function get_categories() {

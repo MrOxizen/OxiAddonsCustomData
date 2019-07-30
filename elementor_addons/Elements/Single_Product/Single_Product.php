@@ -28,7 +28,7 @@ class Single_Product extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-image-box';
+        return 'eicon-image-box oxi-el-admin-icon';
     }
 
     public function get_categories() {

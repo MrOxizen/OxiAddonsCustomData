@@ -26,7 +26,7 @@ class Tooltip extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-alert';
+        return 'eicon-alert oxi-el-admin-icon';
     }
 
     public function get_categories() {
