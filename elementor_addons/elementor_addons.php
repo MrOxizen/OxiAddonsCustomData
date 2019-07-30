@@ -34,7 +34,7 @@ final class SA_ELEMENTOR_ADDONS
      * @since 1.2.0
      * @var string Minimum Elementor version required to run the plugin.
      */
-    const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
+    const MINIMUM_ELEMENTOR_VERSION = '2.6.0';
 
     /**
      * Minimum PHP Version
@@ -161,7 +161,7 @@ final class SA_ELEMENTOR_ADDONS
         $file_path = 'elementor/elementor.php';
 
         $upgrade_link = wp_nonce_url(self_admin_url('update.php?action=upgrade-plugin&plugin=') . $file_path, 'upgrade-plugin_' . $file_path);
-        $message = '<p><strong>' . __('Shortcode Addons Elementor Templates & Blocks', SA_ELEMENTOR_TEXTDOMAIN) . '</strong>' . __(' widgets not working because you are using an old version of Elementor.', SA_ELEMENTOR_TEXTDOMAIN) . '</p>';
+        $message = '<p><strong>' . __('Shortcode Addons Elementor Extention', SA_ELEMENTOR_TEXTDOMAIN) . '</strong>' . __(' widgets not working because you are using an old version of Elementor.', SA_ELEMENTOR_TEXTDOMAIN) . '</p>';
         $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $upgrade_link, __('Update Elementor Now', SA_ELEMENTOR_TEXTDOMAIN)) . '</p>';
         echo '<div class="error">' . $message . '</div>';
     }

@@ -29,7 +29,7 @@ class Toggle extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-toggle';
+        return 'eicon-toggle oxi-el-admin-icon';
     }
 
     public function get_categories() {

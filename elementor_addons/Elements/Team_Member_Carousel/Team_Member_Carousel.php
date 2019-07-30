@@ -69,7 +69,7 @@ class Team_Member_Carousel extends Widget_Base
      */
     public function get_icon()
     {
-        return 'eicon-accordion';
+        return 'eicon-accordion oxi-el-admin-icon';
     }
 
     /**

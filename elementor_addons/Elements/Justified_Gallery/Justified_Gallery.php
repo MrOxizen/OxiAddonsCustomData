@@ -32,7 +32,7 @@ class Justified_Gallery extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'fas fa-th';
+        return 'eicon-gallery-justified  oxi-el-admin-icon';
     }
 
     public function get_categories() {

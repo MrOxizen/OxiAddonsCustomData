@@ -9,7 +9,10 @@ and open the template in the editor.
 */
 
 
-
+.elementor-panel #elementor-panel-category-sa-el-addons .elementor-element .icon,
+.elementor-panel #elementor-panel-elements .sa-el-widgets-addons .icon{
+    position: relative;
+}
 
 .elementor-panel #elementor-panel-category-sa-el-addons .elementor-element .icon:after,
 .elementor-panel #elementor-panel-elements .sa-el-widgets-addons .icon:after{

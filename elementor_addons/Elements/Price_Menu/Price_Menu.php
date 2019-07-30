@@ -28,7 +28,7 @@ class Price_Menu extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-price-list';
+        return 'eicon-price-list oxi-el-admin-icon';
     }
 
     protected function _register_controls() {

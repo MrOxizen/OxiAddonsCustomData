@@ -46,7 +46,7 @@ class Team_Member extends Widget_Base
      */
     public function get_icon()
     {
-        return 'eicon-person';
+        return 'eicon-person oxi-el-admin-icon';
     }
 
     public function get_categories()

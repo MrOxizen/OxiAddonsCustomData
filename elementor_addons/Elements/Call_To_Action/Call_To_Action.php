@@ -30,7 +30,7 @@ class Call_To_Action extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-call-to-action';
+        return 'eicon-call-to-action  oxi-el-admin-icon';
     }
 
     public function get_categories() {

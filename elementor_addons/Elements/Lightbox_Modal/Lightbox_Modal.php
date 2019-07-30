@@ -32,7 +32,7 @@ class Lightbox_Modal extends Widget_Base
 
     public function get_icon()
     {
-        return 'fa fa-eye';
+        return 'eicon-lightbox oxi-el-admin-icon';
     }
 
     public function get_categories()

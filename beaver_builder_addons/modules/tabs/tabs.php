@@ -14,10 +14,6 @@ class Tabs extends FLBuilderModule
             'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/tabs',
             'icon' => 'tabs.svg',
         ));
-
-        // Register and enqueue your own
-        //    $this->add_css('example-lib', $this->url . 'css/example-lib.css');
-        $this->add_js('try', $this->url . 'js/try.js', array(), '', true);
     }
 }
 

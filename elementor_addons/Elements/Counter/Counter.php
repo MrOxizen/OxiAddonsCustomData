@@ -31,7 +31,7 @@ class Counter extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-counter';
+        return 'eicon-counter  oxi-el-admin-icon';
     }
 
     public function get_categories() {

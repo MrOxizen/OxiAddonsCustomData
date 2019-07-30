@@ -27,7 +27,7 @@ class Flip_Box extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-flip-box';
+        return 'eicon-flip-box  oxi-el-admin-icon';
     }
 
     public function get_categories() {

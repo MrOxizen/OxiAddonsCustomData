@@ -30,7 +30,7 @@ class Progress_Bar extends Widget_Base
 
     public function get_icon()
     {
-        return 'fa fa-tasks';
+        return ' eicon-text-align-left oxi-el-admin-icon';
     }
 
     public function get_categories()

@@ -25,7 +25,7 @@ class Testimonial extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-testimonial';
+		return 'eicon-testimonial oxi-el-admin-icon';
 	}
 
    public function get_categories() {

@@ -36,7 +36,7 @@ class Image_Comparison extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-image-before-after';
+        return 'eicon-image-before-after  oxi-el-admin-icon';
     }
 
     public function get_categories() {
