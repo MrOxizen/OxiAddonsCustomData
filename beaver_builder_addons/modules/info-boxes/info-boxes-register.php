@@ -20,7 +20,7 @@ FLBuilder::register_module(
                         'info_boxes_type' => array(
                             'type' => 'select',
                             'label' => __('Info Boxes Type', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => 'color',
+                            'default' => 'img-on-top',
                             'help' => __('Button Gradient Only Work For Button Default Effect', SA_FLBUILDER_TEXTDOMAIN),
                             'options' => array(
                                 'img-on-top' => __('Image/Icon On Top', SA_FLBUILDER_TEXTDOMAIN),
