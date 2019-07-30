@@ -1,0 +1,33 @@
+.oxi-sa-module-content{
+    width: 100%;
+
+}
+.oxi-SA-BB-List-items{
+    width: 100%;
+    display: flex;
+}
+
+.oxi-SA-BB-Icon-Image a{
+    z-index: 2;
+    width: 25%;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.oxi-SA-BB-conector{
+    border: 0.2px solid #000;
+    position: absolute;
+    z-index: 0;
+    height: 100%;
+    top: 0%;
+    transform: translateY(50%);
+}
+.oxi-SA-BB-List-items-connector{
+    width: 100%;
+    padding-bottom: 50px;
+    position: relative;
+}
+.oxi-SA-BB-List-items-connector:last-child .oxi-SA-BB-conector{
+    border: none;
+}
