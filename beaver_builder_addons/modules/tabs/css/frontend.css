@@ -16,80 +16,78 @@ a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, d
      padding: 0;
      vertical-align: baseline;
 }
-.oxi__addons_info_boxes_wrapper{
-     display: flex;
+.oxi__tab_wraper_main{ 
      width: 100%;
 }
-.oxi__addons_info_boxes_main{ 
+.oxi__tab_wraper_main .oxi__tab_nav_main{ 
      width: 100%;
-     display: flex;
-     flex-direction: column;
-     padding: 5px;
-     transition: all 0.3s ease;
-} 
-.oxi__addons_info_boxes_main .oxi__addons_img_heading_desc {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
 }
-.oxi__addons_info_boxes_main .oxi__icon_image{ 
-     width: 100px;
-     height: 100px;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-      transition: all 0.3s ease;
-} 
-.oxi__addons_info_boxes_main .oxi__icon_image_main{
-    width: 100%;
-    display: flex; 
-    padding: 5px;
-} 
-.oxi__addons_info_boxes_main .oxi__addons_image{
-    width: 70px;
-    height: 70px;
-} 
-.oxi__addons_info_boxes_main .oxi__icon_image .oxi__icon { 
-     font-size: 70px;
-     color: #444;
-     margin: 0;
-     padding: 10px 0;
-} 
-.oxi__addons_info_boxes_main .oxi__addons_header { 
+
+.oxi__tab_wraper_main .oxi__tab_ul{
      position: relative;
-     font-size: 22px;
-     color: #666;
-     margin: 0;
-     padding: 0;
-     text-align: center;
+	padding: 0px;
+	margin: 0px;
+	list-style-type: none;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: start;
+	-webkit-justify-content: flex-start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+     z-index: 1;
+     background-color: rgb(204, 201, 201);
+}
+.oxi__tab_wraper_main .oxi__tab_li {
+	position: relative;
+	padding: 1em 1.5em;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 auto;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+	cursor: pointer;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	text-align: center;
 } 
-.oxi__addons_info_boxes_main .oxi__addons_header::before { 
-     content: '';
-     position: absolute;   
+.oxi__tab_wraper_main .oxi__tab_li.active {
+      background: red;
+      color: #fff;
 } 
-.oxi__addons_info_boxes_main .oxi__addons_header::after { 
-     content: '';
-     position: absolute;   
+.oxi__tab_wraper_main .oxi__tab_content_main {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 auto;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+}    
+.oxi__tab_wraper_main .oxi__tab_content_main .oxi__tab_content{
+	display: none;
+	width: 100%; 
+	opacity: 0;
+	-webkit-animation: fadeIn linear 0.3s;
+	animation: fadeIn linear 0.3s;
 } 
-.oxi__addons_info_boxes_main .oxi__addons_details p { 
-     font-size: 16px;
-     color: #666;
-     margin: 0;
-     padding: 10px 0;
-     text-align: center;
-} 
-.oxi__addons_info_boxes_main .oxi__addons_button_main { 
-    width: 100%;
-    text-align: center;
-} 
-.oxi__addons_info_boxes_main .oxi__addons_button { 
-    padding: 7px 20px;
-    color: #fff;
-    background-color: #666;
-    transition: all 0.3s ease;
-} 
-.oxi__addons_info_boxes_main .oxi__addons_button:hover {  
-    color: #fff;
-    background-color: #444; 
+.oxi__tab_wraper_main .oxi__tab_content_main .oxi__tab_content.active{
+	display: block; 
+	opacity: 1; 
 } 
  
