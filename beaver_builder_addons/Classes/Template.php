@@ -21,7 +21,6 @@ trait Template
                 'flipbox',
                 'heading',
                 'Image-Icon',
-                'info-lists',
                 'info-table',
                 'info-boxes',
                 'call-to-action',
