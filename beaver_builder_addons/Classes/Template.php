@@ -26,6 +26,7 @@ trait Template
                 'info-boxes',
                 'call-to-action',
                 'tabs',
+                'accordions',
             ),
         );
         ?>
