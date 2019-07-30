@@ -1,6 +1,6 @@
 <?php
 
-namespace SA_ELEMENTOR_ADDONS\Extensions\SA_Effect;
+namespace SA_ELEMENTOR_ADDONS\Extensions\CSS_3D_effect;
 
 /**
  * Description of SA_Content_Protection
@@ -18,11 +18,12 @@ use \Elementor\Group_Control_Typography;
 use \Elementor\Scheme_Typography;
 
 
-class SA_Effect {
+class CSS_3D_effect {
 
     use \SA_ELEMENTOR_ADDONS\Helper\Public_Helper;
 
     public function __construct() {
+      
         add_action('elementor/element/common/_section_style/after_section_end', [$this, 'register_controls'], 10);
 
     }
@@ -33,7 +34,7 @@ class SA_Effect {
 
         $element->start_controls_section(
                 'sa_el_effects_section', [
-            'label' => __('SA Advanced Effects', SA_ELEMENTOR_TEXTDOMAIN),
+            'label' => __('SA 3D Css Effects', SA_ELEMENTOR_TEXTDOMAIN),
             'tab' => Controls_Manager::TAB_ADVANCED,
                 ]
         );
