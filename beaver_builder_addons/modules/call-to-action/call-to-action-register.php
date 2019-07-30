@@ -622,6 +622,9 @@ FLBuilder::register_module(
                             'flex_grid_icon' => __('Flex Grid Icon', SA_FLBUILDER_TEXTDOMAIN),
                         ),
                         'toggle' => array(
+                            'basic' => array(
+                                'fields' => array('oxi_call_to_action_icons'),
+                            ),
                             'flex_grid_icon' => array(
                                 'fields' => array('oxi_call_to_action_icons'),
                             ),

@@ -2,7 +2,6 @@
 //echo "<pre>";
 //print_r($settings);
 //echo "</pre>";
-
 $fronttitletage = $settings->front_side_typography_title_tag;
 $titletage = $bctitletage = '';
 if ("h1" == $fronttitletage) {
@@ -42,7 +41,8 @@ if ($settings->button->icon_position == 'left') {
 <div class="oxi-addons-BB-callbox">
     <div class="oxi-addons-BB-FL-row">
         <div class="oxi-addons-BB-FL-fontside">
-            <div class="oxi-addons-BB-FL-fontside-icon-area">
+           <?php if('flex_grid' !== $settings->content_style){ ?>
+             <div class="oxi-addons-BB-FL-fontside-icon-area">
                 <div class="oxi-addons-BB-FL-fontside-icon-inner">
                     <div class="oxi-addons-BB-FL-F-Icon">
 
@@ -51,6 +51,7 @@ if ($settings->button->icon_position == 'left') {
                     </div>
                 </div>
             </div>
+           <?php }?>
             <div class="oxi-addons-BB-FL-F-TT-DS">
                 <div class="oxi-addons-BB-FL-F-title">
                     <?php echo $titletage; ?>
