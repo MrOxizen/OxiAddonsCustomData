@@ -582,11 +582,11 @@ trait Public_Helper {
                 'condition' => '',
                 'API' => ''
             ],
-            '3D_&_CSS_effect' => [
-                'class' => '\SA_ELEMENTOR_ADDONS\Extensions\SA_Effect\SA_Effect',
+            '3D_css_effect' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Extensions\CSS_3D_effect\CSS_3D_effect',
                 'dependency' => [
                     'js' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Extensions/SA_Effect/assets/index.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'Extensions/CSS_3D_effect/assets/index.min.js',
                     ],
                 ],
                 'category' => 'Extension',

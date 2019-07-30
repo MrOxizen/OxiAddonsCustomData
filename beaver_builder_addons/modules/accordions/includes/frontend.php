@@ -1,98 +1,79 @@
 <?php
-echo "<pre>";
-print_r($settings);
-echo "</pre>";
+//echo "<pre>";
+//print_r($settings);
+//echo "</pre>";
 ?>
-
-
-<div class="oxi-sa-module-content oxi-sa-info-list">
-    <?php
-    foreach ($settings->add_list_item as $items) {
-        $nofollow = '';
-        if($items->list_item_url_nofollow == 'yes'){
-            $nofollow = 'nofollow';
-        }
-        if($items->image_type == 'photo'){
-           if($items->photo_source == 'url'){
-                $oxiPhoto = '<div class="oxi-SA-BB-Image">
-                                <img src="' . $items->photo_url . '"/>
-                            </div>';
-           }else{
-               $oxiPhoto = '<div class="oxi-SA-BB-Image">
-                                <img src="' . $items->photo_src . '"/>
-                            </div>';
-           }
-        }else{
-           $oxiPhoto = '<div class="oxi-SA-BB-Icon" style="color:#'.$items->icon_color.'">
-                                <i style="background:#'.$items->icon_BG_color.'" class="' . $items->icon . '"></i>
-                            </div>';
-        }
-        if ($items->list_item_link == 'complete') {
-            echo '
-            <div class="oxi-SA-BB-List-items-connector">
-                <a href="' . $items->list_item_url . '" target="' . $items->list_item_url_target . '" rel="' . $nofollow . '">
-                    <div class="oxi-SA-BB-List-items">
-                        <div class="oxi-SA-BB-Icon-Image">
-                            '.$oxiPhoto.'
-                        </div>
-                        <div class="oxi-SA-BB-content-area">
-                            <div class="oxi-SA-BB-title">
-                                ' . $items->list_item_title . '
-                            </div>
-                            <div class="oxi-SA-BB-details">
-                                ' . $items->list_item_description . '
-                            </div>
-                        </div>
-
-                    </div>
-                </a>
-            <div class="oxi-SA-BB-conector"></div>
-        </div>';
-        } else if ($items->list_item_link == 'list-title') {
-            echo '
-            <div class="oxi-SA-BB-List-items-connector">
-                <div class="oxi-SA-BB-List-items">
-                    <div class="oxi-SA-BB-Icon-Image">
-                        '.$oxiPhoto.'
-                    </div>
-                    <div class="oxi-SA-BB-content-area">
-                        <a href="' . $items->list_item_url . '" target="' . $items->list_item_url_target . '" rel="' . $nofollow . '">
-                            <div class="oxi-SA-BB-title">
-                                ' . $items->list_item_title . '
-                            </div>
-                        </a>
-                        <div class="oxi-SA-BB-details">
-                            ' . $items->list_item_description . '
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="oxi-SA-BB-conector"></div>
-            </div>';
-        } else{
-            
-            echo '
-            <div class="oxi-SA-BB-List-items-connector">
-                <div class="oxi-SA-BB-List-items">
-                <a href="' . $items->list_item_url . '" target="' . $items->list_item_url_target . '" rel="' . $nofollow . '">
-                    <div class="oxi-SA-BB-Icon-Image">
-                       '.$oxiPhoto.'
-                    </div>
-                    </a>
-                    <div class="oxi-SA-BB-content-area">
-                            <div class="oxi-SA-BB-title">
-                                ' . $items->list_item_title . '
-                            </div>
-                        <div class="oxi-SA-BB-details">
-                            ' . $items->list_item_description . '
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="oxi-SA-BB-conector"></div>
-            </div>';
-        }
-        
+<style>
+    .SA-FL-accordion-header{
+        width: 100%;
+        float: left;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        border: 1px solid #000;
+        border-radius: 5px;
+        padding: 10px;
     }
-    ?>
+    .span-deactive{
+            display: flex;
+            float: left;
+            align-items: center;
+            justify-content: center;
+            background: red;
+            font-size: 20px;
+            width: 100%;    
+            max-width: 100px;
+            height: 100px;
+            color: blue;
+            border: 1px solid yellow;
+            border-radius: 5px;
+            margin: 10px;
+            
+        }
+        .SA-FL-accordion-header.active .span-active{
+            display: flex;
+            float: left;
+            align-items: center;
+            justify-content: center;
+             background: red;
+            font-size: 20px;
+            width: 100%;    
+            max-width: 100px;
+            height: 100px;
+            color: blue;
+            border: 1px solid yellow;
+            border-radius: 5px;
+            margin: 10px;
+            
+        }
+        .SA-FL-accordion-header:hover .span-deactive{
+            color: white;
+            border-color: green;
+            background: blue; 
+        }
+        .SA-FL-accordion-header .span-active{
+            display: none;
+        }
+        .SA-FL-accordion-header.active .span-deactive{
+            display: none;
+        }
+</style>
+
+<div class="SA-FL-accordion-main-area">
+    <?php foreach ($settings->add_accordion as $value) { ?>
+        <div class="SA-FL-accordion-area">
+            <div class="SA-FL-accordion-header" ref="">
+                <div class="span-active">icon one</div>
+                <div class="span-deactive">icon two</div>
+                <div class="heading-data">This is accordion</div>
+            </div>
+            <div class="SA-FL-accordion-details-area" id="">
+                <div class="SA-FL-accordion-details">
+                    loreal i's taata taata d'art boa poaceous
+                </div>
+            </div>
+        </div>  
+
+    <?php } ?>
+
 </div>

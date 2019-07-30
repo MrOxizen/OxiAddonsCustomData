@@ -82,9 +82,22 @@ trait Include_Admin_Template {
                         </div>
                         <div class="ctu-ultimate-style-2-content"> 
                             <div class="ctu-ulitate-style-2-tabs" id="tabs-general">
+                                <div class="about-wrap text-center">
+                                    <h1>Welcome to Elementor Extension</h1>
+                                    <div class="about-text">
+                                        Thank you for Installing Elementor Extention, The most friendly Elementor addons or all in one Package for Elementor. Here's how to get started.
+                                    </div>
+                                </div>
+                                <div class="feature-section">
+                                    <div class="about-container">
+                                        <div class="about-addons-videos"><iframe src="//www.youtube.com/embed/Ovvqi7iZJ-s" frameborder="0" allowfullscreen class="about-video"></iframe></div>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-lg-6 col-md-12">
                                         <div class="sa-el-admin-wrapper">
+
+
                                             <div class="sa-el-admin-block">
                                                 <div class="sa-el-admin-header">
                                                     <div class="sa-el-admin-header-icon">
@@ -106,10 +119,10 @@ trait Include_Admin_Template {
                                                     <div class="sa-el-admin-header-icon">
                                                         <span class="dashicons dashicons-format-aside"></span>
                                                     </div>    
-                                                    <h4 class="sa-el-admin-header-title">Report a bug</h4>  
+                                                    <h4 class="sa-el-admin-header-title">Contribute to Shortcode Addons</h4>  
                                                 </div>
                                                 <div class="sa-el-admin-block-content">
-                                                    <p>Get started by spending some time with the documentation to get familiar with Essential Addons. Build awesome websites for you or your clients with ease.</p>
+                                                    <p>You can contribute to make Shortcode Addons better reporting bugs & creating issues. Our Development team always try to make more powerfull addons day by day with solved Issues</p>
                                                     <a href="https://wordpress.org/support/plugin/shortcode-addons/" class="sa-el-button" target="_blank">Report a bug</a>
                                                 </div>
                                             </div>
@@ -122,27 +135,11 @@ trait Include_Admin_Template {
                                                     <div class="sa-el-admin-header-icon">
                                                         <span class="dashicons dashicons-format-aside"></span>
                                                     </div>    
-                                                    <h4 class="sa-el-admin-header-title">Documentation</h4>  
+                                                    <h4 class="sa-el-admin-header-title">Video Tutorials </h4>  
                                                 </div>
                                                 <div class="sa-el-admin-block-content">
-                                                    <p>Get started by spending some time with the documentation to get familiar with Essential Addons. Build awesome websites for you or your clients with ease.</p>
-                                                    <a href="https://essential-addons.com/elementor/docs/" class="sa-el-button" target="_blank">Documentation</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>   
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="sa-el-admin-wrapper">
-                                            <div class="sa-el-admin-block">
-                                                <div class="sa-el-admin-header">
-                                                    <div class="sa-el-admin-header-icon">
-                                                        <span class="dashicons dashicons-format-aside"></span>
-                                                    </div>    
-                                                    <h4 class="sa-el-admin-header-title">Documentation</h4>  
-                                                </div>
-                                                <div class="sa-el-admin-block-content">
-                                                    <p>Get started by spending some time with the documentation to get familiar with Essential Addons. Build awesome websites for you or your clients with ease.</p>
-                                                    <a href="https://essential-addons.com/elementor/docs/" class="sa-el-button" target="_blank">Documentation</a>
+                                                    <p>Unable to use Shortcode Addons Elementor Extention? Don't worry you can check your web tutorials to make easier to use :) </p>
+                                                    <a href="https://www.shortcode-addons.com/docs/elementor-extension/" class="sa-el-button" target="_blank">Video Tutorials</a>
                                                 </div>
                                             </div>
                                         </div>

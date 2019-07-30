@@ -28,3 +28,5 @@ class OxiAccordionsModule extends FLBuilderModule {
 }
 
 require_once FL_MODULE_SA_FLBUILDER_URL . 'modules/accordions/accordions-register.php';
+
+

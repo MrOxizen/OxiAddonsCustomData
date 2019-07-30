@@ -43,15 +43,12 @@ class Bootstrap {
 
     // Elements
     public function register_hooks() {
-        // Enqueue
-        //add_action('wp_enqueue_scripts', array($this, 'sl_enqueue_scripts'));
-        add_action('elementor/frontend/after_enqueue_scripts', array($this, 'sl_enqueue_scripts'));
-        add_action( 'elementor/editor/before_enqueue_scripts', array($this, 'enqueue_editor_scripts') );
-        // echo apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', 'ahsgdhads');
-
         add_action('elementor/elements/categories_registered', array($this, 'register_widget_categories'));
         add_action('elementor/controls/controls_registered', array($this, 'register_controls_group'));
         add_action('elementor/widgets/widgets_registered', array($this, 'register_elements'));
+
+        add_action('elementor/frontend/after_enqueue_scripts', array($this, 'sl_enqueue_scripts'));
+        add_action('elementor/editor/after_enqueue_scripts', array($this, 'enqueue_editor_scripts'));
     }
 
 }
