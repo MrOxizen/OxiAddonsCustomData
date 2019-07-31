@@ -43,11 +43,11 @@ FLBuilder::register_module(
                         ),
                         'toggle' => array(
                             'icon' => array(
-                                'fields' => array('icon_basic', 'icon_color', 'icon_BG_color'),
+                                'fields' => array('active_icons', 'icon_color', 'icon_BG_color'),
                             ),
                         ),
                     ),
-                    'icon_basic' => array(
+                    'active_icons' => array(
                         'type' => 'icon',
                         'label' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
                         'show_remove' => true,

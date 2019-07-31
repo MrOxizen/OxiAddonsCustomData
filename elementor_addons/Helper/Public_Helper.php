@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+use SA_ELEMENTOR_ADDONS\Classes\Sa_Foreground_Control;
 /**
  * Description of Public_Helper
  *
@@ -65,7 +65,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Call_To_Action/assets/index.min.css',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Marketing Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -92,7 +92,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Divider/assets/index.min.css',
                     ]
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -110,7 +110,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -126,7 +126,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Count_Down/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -142,7 +142,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Fancy_Text/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -173,7 +173,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Filterable_Gallery/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -213,7 +213,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Flip_Carousel/assets/index.min.js',
                     ]
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Carousel & Slider',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -228,7 +228,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Accordion/assets/index.min.js',
                     ]
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -244,7 +244,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Hotspots/assets/index.min.js',
                     ]
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -259,7 +259,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Scroller/assets/index.min.js',
                     ]
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -277,7 +277,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Comparison/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -306,7 +306,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Interactive_Card/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -318,7 +318,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Interactive_Promo/assets/index.min.css',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -336,7 +336,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Lightbox_Modal/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -351,7 +351,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Logo_Carousel/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Carousel & Slider',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -391,7 +391,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Price_Menu/assets/index.min.css',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Marketing Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -408,7 +408,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Pricing_Table/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Marketing Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -425,7 +425,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Progress_Bar/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -437,7 +437,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Protected_Content/assets/index.min.css',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -465,7 +465,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Team_Member_Carousel/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Carousel & Slider',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -492,7 +492,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Testimonial_Slider/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Carousel & Slider',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -548,7 +548,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Justified_Gallery/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -594,10 +594,87 @@ trait Public_Helper {
                 'condition' => '',
                 'API' => ''
             ],
+             'video' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Video\Video',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Video/assets/index.min.css',
+                    ]
+                ],
+                'category' => 'Creative Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+             'gradient_heading' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Gradient_Heading\Gradient_Heading',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Gradient_Heading/assets/index.min.css',
+                    ]
+                ],
+                'category' => 'Creative Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'dual_button' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Dual_Button\Dual_Button',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Dual_Button/assets/index.min.css',
+                    ]
+                ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'icon_box' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Icon_Box\Icon_Box',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Icon_Box/assets/index.min.css',
+                    ]
+                ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'icon_box' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Icon_Box\Icon_Box',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Icon_Box/assets/index.min.css',
+                    ]
+                ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'number_widget' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Number_Widget\Number_Widget',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Number_Widget/assets/index.min.css',
+                    ]
+                ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            
         ];
         return $response;
     }
-
+/**
+     * Register Widget Category 
+     *
+     * @since v1.0.0
+     */
     public function register_widget_categories($elements_manager) {
         $elements_manager->add_category(
                 'sa-el-addons', [
@@ -613,7 +690,7 @@ trait Public_Helper {
      * @since v1.0.0
      */
     public function register_controls_group($controls_manager) {
-        
+        $controls_manager->add_group_control('saforegroundcolor', new Sa_Foreground_Control);
     }
 
     /**
