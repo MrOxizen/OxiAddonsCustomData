@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+use SA_ELEMENTOR_ADDONS\Classes\Sa_Foreground_Control;
 /**
  * Description of Public_Helper
  *
@@ -606,10 +606,26 @@ trait Public_Helper {
                 'condition' => '',
                 'API' => ''
             ],
+             'gradient_heading' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Gradient_Heading\Gradient_Heading',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Gradient_Heading/assets/index.min.css',
+                    ]
+                ],
+                'category' => 'Creative Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
         ];
         return $response;
     }
-
+/**
+     * Register Widget Category 
+     *
+     * @since v1.0.0
+     */
     public function register_widget_categories($elements_manager) {
         $elements_manager->add_category(
                 'sa-el-addons', [
@@ -625,7 +641,7 @@ trait Public_Helper {
      * @since v1.0.0
      */
     public function register_controls_group($controls_manager) {
-        
+        $controls_manager->add_group_control('saforegroundcolor', new Sa_Foreground_Control);
     }
 
     /**
