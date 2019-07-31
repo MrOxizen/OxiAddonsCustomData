@@ -39,12 +39,24 @@ trait Include_Admin_Template {
 
     public function View_Data() {
 
-        $registered_element = array(
-            'Extension' => array()
-        );
+        $registered_element = $element = $array1 = array('Extension' => array());
+
         $registered_el = $this->registered_elements;
         foreach ($registered_el as $key => $value) {
-            $registered_element[$value['category']][$key] = array('name' => $key, 'Premium' => $value['Premium'], 'condition' => $value['condition'], 'API' => $value['API']);
+            $array1[$value['category']] = $value['category'];
+            $element[$value['category']][$key] = array('name' => $key, 'Premium' => $value['Premium'], 'condition' => $value['condition'], 'API' => $value['API']);
+        }
+        $array2 = array(
+            'Content Elements' => 'Content Elements',
+            'Creative Elements' => 'Creative Elements',
+            'Marketing Elements' => 'Marketing Elements',
+            'Carousel & Slider' => 'Carousel & Slider',
+            'Social Elements' => 'Social Elements',
+            'Form Contents' => 'Form Contents',
+            'Extension' => 'Extension');
+        $margecat = array_merge($array2, $array1);
+        foreach ($margecat as $value) {
+            (array_key_exists($value, $element) ? $registered_element[$value] = $element[$value] : '');
         }
         ?>
 
