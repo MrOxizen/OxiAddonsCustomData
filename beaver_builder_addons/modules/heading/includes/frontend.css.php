@@ -11,11 +11,11 @@ SA_FLBUILDER_HELPER::sa_fl_general_style(array(
 ), '.fl-node-' . $id . ' .oxi__addons_header');
 SA_FLBUILDER_HELPER::sa_fl_dimension_utility('heading', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_header', 'px');
 // details add typography, padding, color, setting
-SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'desc_font_typo', '.fl-node-' . $id . ' .oxi__addons_details');
+SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'desc_font_typo', '.fl-node-' . $id . ' .oxi__addons_details *');
 SA_FLBUILDER_HELPER::sa_fl_general_style(array(
     'color' => $settings->desc_color,
-), '.fl-node-' . $id . ' .oxi__addons_details');
-SA_FLBUILDER_HELPER::sa_fl_dimension_utility('desc', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_details', 'px');
+), '.fl-node-' . $id . ' .oxi__addons_details *');
+SA_FLBUILDER_HELPER::sa_fl_dimension_utility('desc', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_details *', 'px');
 // Line Text Seperator add typography, padding, color, setting
 if ($settings->separator_style === 'line_text') {
     SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'separator_font_typo', '.fl-node-' . $id . ' .oxi__line_text');

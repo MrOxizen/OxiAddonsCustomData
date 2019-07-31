@@ -71,7 +71,8 @@ a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, d
      content: '';
      position: absolute;   
 } 
-.oxi__addons_info_boxes_main .oxi__addons_details p { 
+.oxi__addons_info_boxes_main .oxi__addons_details,
+.oxi__addons_info_boxes_main .oxi__addons_details *{ 
      font-size: 16px;
      color: #666;
      margin: 0;

@@ -39,7 +39,8 @@ a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, d
     background: rgb(246, 245, 245);
     border-top: 4px double rgb(215, 215, 215);
   }
- .oxi__addons_info_table_wrapper .oxi__addons_details p{
+   .oxi__addons_info_table_wrapper .oxi__addons_details ,
+ .oxi__addons_info_table_wrapper .oxi__addons_details *{
      font-size: 16px;
      font-weight: normal; 
      margin: 0;
