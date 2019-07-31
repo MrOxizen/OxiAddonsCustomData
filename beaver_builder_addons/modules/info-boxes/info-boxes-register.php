@@ -479,7 +479,7 @@ FLBuilder::register_module(
                         'icon_padding' => array(
                             'type' => 'dimension',
                             'label' => __('Margin', SA_FLBUILDER_TEXTDOMAIN),
-                            'help' => __('Manage the inside Info Boxe Hover Border Radius', SA_FLBUILDER_TEXTDOMAIN),
+                            'help' => __('Manage the inside Info Boxe Hover Margin', SA_FLBUILDER_TEXTDOMAIN),
                             'slider' => true,
                             'units' => array('px'),
                             'responsive' => array(

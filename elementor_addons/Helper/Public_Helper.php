@@ -65,7 +65,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Call_To_Action/assets/index.min.css',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Marketing Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -92,7 +92,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Divider/assets/index.min.css',
                     ]
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -110,7 +110,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Counter/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -126,7 +126,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Count_Down/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -142,7 +142,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Fancy_Text/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -590,6 +590,18 @@ trait Public_Helper {
                     ],
                 ],
                 'category' => 'Extension',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+             'video' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Video\Video',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Video/assets/index.min.css',
+                    ]
+                ],
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
