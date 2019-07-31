@@ -13,11 +13,11 @@ if ($settings->general_border_style != 'none') {
         'border-width' => $settings->general_border_width ? $settings->general_border_width . 'px;' : '',
         'border-color' => $settings->general_border_color,
         'border-style' => $settings->general_border_style,
-    ), '.fl-node-' . $id . ' .oxi__tab_wraper_main');
+    ), '.fl-node-' . $id . ' .oxi__addons_wrapper');
 }
-SA_FLBUILDER_HELPER::sa_fl_custom_border_radius('general', $settings, '.fl-node-' . $id . ' .oxi__tab_wraper_main', 'true');
+SA_FLBUILDER_HELPER::sa_fl_custom_border_radius('general', $settings, '.fl-node-' . $id . ' .oxi__addons_wrapper', 'true');
 ?>
-.fl-node-<?php echo $id; ?> .oxi__tab_wraper_main{
+.fl-node-<?php echo $id; ?> .oxi__addons_wrapper{
 <?php
 if ($settings->general_shadow != '') {
     SA_FLBUILDER_HELPER::sa_fl_custom_box_shadow($settings->general_shadow);
@@ -44,7 +44,10 @@ SA_FLBUILDER_HELPER::sa_fl_general_style(array(
     'font-size' => $settings->title_icon_size ? $settings->title_icon_size . 'px;' : '',
     'color' => $settings->title_icon_color,
 ), '.fl-node-' . $id . ' .oxi__icon_image_main .oxi__icon');
-
+SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+    'width' => $settings->title_icon_size ? $settings->title_icon_size . 'px;' : '',
+    'height' => $settings->title_icon_size ? $settings->title_icon_size . 'px;' : '',
+), '.fl-node-' . $id . ' .oxi__addons_image');
 if ($settings->title_border_style != 'none') {
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
         'border-width' => $settings->title_border_width ? $settings->title_border_width . 'px;' : '',
@@ -60,10 +63,10 @@ if ($settings->tab_title_hover == 'enable') {
         'background-color' => $settings->title_hover_bg_color,
         'color' => $settings->title_hover_color,
         'border-color' => $settings->title_hover_border_color,
-    ), '.fl-node-' . $id . ' .oxi__tab_ul .oxi__tab_li');
+    ), '.fl-node-' . $id . ' .oxi__tab_ul .oxi__tab_li:hover');
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
         'color' => $settings->title_hover_icon_color,
-    ), '.fl-node-' . $id . ' .oxi__tab_ul .oxi__tab_li .oxi__icon');
+    ), '.fl-node-' . $id . ' .oxi__tab_ul .oxi__tab_li:hover .oxi__icon');
 }
 //start coding for hover styling
 if ($settings->tab_title_active == 'enable') {
@@ -78,21 +81,22 @@ if ($settings->tab_title_active == 'enable') {
 }
 
 // start coding for Icon style
+
 if ($settings->tab_icon == 'enable') {
-    if ($settings->tab_icon_position == 'left') {
+    if ($settings->icon_position['left']) {
         SA_FLBUILDER_HELPER::sa_fl_general_style(array(
             'padding-right' => $settings->icon_gap ? $settings->icon_gap . 'px;' : '',
         ), '.fl-node-' . $id . ' .oxi__icon_image_main');
-    } elseif ($settings->tab_icon_position == 'right') {
+    } elseif ($settings->icon_position['right']) {
         SA_FLBUILDER_HELPER::sa_fl_general_style(array(
             'padding-left' => $settings->icon_gap ? $settings->icon_gap . 'px;' : '',
         ), '.fl-node-' . $id . ' .oxi__icon_image_main');
-    } elseif ($settings->tab_icon_position == 'stacked') { }
+    } elseif ($settings->icon_position == 'stacked') { }
 }
 
 
 // start coding for description
-SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'description_typography', '.fl-node-' . $id . ' .oxi__tab_content p');
+SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'description_typography', '.fl-node-' . $id . ' .oxi__tab_content *');
 SA_FLBUILDER_HELPER::sa_fl_dimension_utility('dsc', $settings, 'padding', '.fl-node-' . $id . ' .oxi__tab_content', 'px');
 SA_FLBUILDER_HELPER::sa_fl_dimension_utility('desc_margin', $settings, 'padding', '.fl-node-' . $id . ' .oxi__tab_content_main', 'px');
 SA_FLBUILDER_HELPER::sa_fl_general_style(array(
@@ -100,7 +104,7 @@ SA_FLBUILDER_HELPER::sa_fl_general_style(array(
 ), '.fl-node-' . $id . ' .oxi__tab_content_main');
 SA_FLBUILDER_HELPER::sa_fl_general_style(array(
     'color' => $settings->desc_color,
-), '.fl-node-' . $id . ' .oxi__tab_content p');
+), '.fl-node-' . $id . ' .oxi__tab_content *');
 
 if ($settings->desc_border_style != 'none') {
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
@@ -121,4 +125,13 @@ if ($settings->desc_shadow != '') {
 
 // start coding for caret styling
 
-if ($settings->caret == 'enable') { }
+if ($settings->caret == 'enable') {
+    if ($settings->caret_style == 'outside') {
+        SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+            'bottom' => '0px',
+            'border-left' => $settings->caret_size ? $settings->caret_size : '10' . 'px solid transparent',
+            'border-right' => $settings->caret_size ? $settings->caret_size : '10' . 'px solid transparent',
+            'border-bottom' => $settings->caret_size ? $settings->caret_size : '10' . 'px solid' . $settings->caret_color,
+        ), '.fl-node-' . $id . ' .oxi__tab_ul .oxi__tab_li::after');
+    } else { }
+}

@@ -49,7 +49,7 @@ FLBuilder::register_module(
                             ),
                             'toggle' => array(
                                 'enable' => array(
-                                    'fields' => array('tab_icon_position', 'title_icon_color', 'title_icon_size'),
+                                    'fields' => array('tab_icon_position', 'title_icon_color', 'title_icon_size', 'title_active_icon_color', 'title_hover_icon_color'),
                                 )
                             )
                         ),
@@ -179,7 +179,7 @@ FLBuilder::register_module(
                             'show_spread' => true,
                             'preview'     => array(
                                 'type'     => 'css',
-                                'selector' => '.my-selector',
+                                'selector' => '.oxi__addons_wrapper',
                                 'property' => 'box-shadow',
                             ),
                         ),
@@ -398,14 +398,14 @@ FLBuilder::register_module(
                     'fields' => array(
                         'desc_bg_color'         => array(
                             'type'       => 'color',
-                            'label'      => __('Background Active color', SA_FLBUILDER_TEXTDOMAIN),
+                            'label'      => __('Background color', SA_FLBUILDER_TEXTDOMAIN),
                             'default'    => '',
                             'show_reset' => true,
                             'show_alpha' => true,
                         ),
                         'desc_color'         => array(
                             'type'       => 'color',
-                            'label'      => __('Active Text Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'label'      => __('Text Color', SA_FLBUILDER_TEXTDOMAIN),
                             'default'    => '',
                             'show_reset' => true,
                             'show_alpha' => true,
@@ -509,7 +509,7 @@ FLBuilder::register_module(
                         'caret_color' => array(
                             'type'        => 'color',
                             'label'       => __('Caret Color', SA_FLBUILDER_TEXTDOMAIN),
-                            'default'     => '',
+                            'default'     => 'ccc',
                             'show_reset'  => true,
                             'connections' => array('color'),
                             'show_alpha'  => true,
@@ -530,7 +530,7 @@ FLBuilder::register_module(
                             'responsive' => true,
                             'preview'    => array(
                                 'type'      => 'css',
-                                'selector'  => '.oxi__addons_header',
+                                'selector'  => '.oxi__tab_wraper_main .oxi__tab_li',
                                 'important' => true,
                             ),
                         ),
@@ -573,7 +573,7 @@ FLBuilder::register_module(
                             'responsive' => true,
                             'preview'    => array(
                                 'type'      => 'css',
-                                'selector'  => '.oxi__addons_details p',
+                                'selector'  => '.oxi__tab_content , .oxi__tab_content *',
                                 'important' => true,
                             ),
                         ),
@@ -629,7 +629,6 @@ FLBuilder::register_settings_form(
                                 'default'     => __('Name of the element', SA_FLBUILDER_TEXTDOMAIN),
                                 'help'        => __('Provide a title for this icon list item.', SA_FLBUILDER_TEXTDOMAIN),
                                 'placeholder' => __('Title', SA_FLBUILDER_TEXTDOMAIN),
-                                'class'       => 'uabb-list-item-title',
                                 'connections' => array('string', 'html'),
                             ),
                             'list_item_description' => array(
