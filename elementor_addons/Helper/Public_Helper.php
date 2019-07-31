@@ -213,7 +213,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Flip_Carousel/assets/index.min.js',
                     ]
                 ],
-                'category' => 'Creative Elements',
+                'category' => 'Carousel & Slider',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -351,7 +351,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Logo_Carousel/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Creative Elements',
+                'category' => 'Carousel & Slider',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -465,7 +465,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Team_Member_Carousel/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Carousel & Slider',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -492,7 +492,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Testimonial_Slider/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Carousel & Slider',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
