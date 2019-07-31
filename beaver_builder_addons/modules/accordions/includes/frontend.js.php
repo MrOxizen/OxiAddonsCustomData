@@ -1,17 +1,16 @@
-jQuery(document).ready(function(){
-    jQuery(".SA-FL-accordion-header").addClass("active");
-    jQuery(".SA-FL-accordion-header").next().slideDown();
-    jQuery(".SA-FL-accordion-header").click(function(){
-        if(jQuery(this).hasClass("active")){
+    jQuery(document).ready(function() {
+       jQuery(".SA-FL-accordion-heading:eq(1)").addClass("active");
+       jQuery(".SA-FL-accordion-heading:eq(1)").next().slideDown();
+       jQuery(".SA-FL-accordion-heading").on("click", function() {
+         if (jQuery(this).hasClass("active")) {
+                 var activeTab = jQuery(this).attr("ref");
+                 jQuery(activeTab).slideUp(200);
+                 jQuery(this).removeClass("active");
+                 
+         } else {
                 var activeTab = jQuery(this).attr("ref");
-                jQuery(activeTab).slideUp();
-                jQuery(this).removeClass("active");
-            }else{
-                var activeTab = jQuery(this).attr("ref");
-                jQuery(activeTab).slideDown();
-                jQuery(this).addClass("active");
-            }
-    });
-    
+                jQuery(activeTab).slideDown(200);
+                jQuery(this).addClass("active"); 
+         }
+       });
 });
-
