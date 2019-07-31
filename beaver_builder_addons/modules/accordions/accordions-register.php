@@ -33,6 +33,7 @@ FLBuilder::register_settings_form(
                             'slider' => true,
                             'units' => array('px'),
                         ),
+                        
                     ),
                 ),
                 'icon_style' => array(
@@ -162,42 +163,13 @@ FLBuilder::register_settings_form(
                             'slider' => true,
                             'units' => array('px'),
                         ),
+                        
                     ),
                 ),
                 'icon_style' => array(
                     'title' => __('Style', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
-                        /* Icon Style */
-                        'icon_style' => array(
-                            'type' => 'select',
-                            'label' => __('Icon Background Style', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => 'simple',
-                            'options' => array(
-                                'simple' => __('Simple', SA_FLBUILDER_TEXTDOMAIN),
-                                'circle' => __('Circle Background', SA_FLBUILDER_TEXTDOMAIN),
-                                'square' => __('Square Background', SA_FLBUILDER_TEXTDOMAIN),
-                                'custom' => __('Design your own', SA_FLBUILDER_TEXTDOMAIN),
-                            ),
-                            'toggle' => array(
-                                'simple' => array(
-                                    'fields' => array(),
-                                ),
-                                'circle' => array(
-                                    'fields' => array('icon_color_preset', 'icon_bg_color', 'icon_bg_color_opc', 'icon_bg_hover_color', 'icon_bg_hover_color_opc', 'icon_three_d'),
-                                ),
-                                'square' => array(
-                                    'fields' => array('icon_color_preset', 'icon_bg_color', 'icon_bg_color_opc', 'icon_bg_hover_color', 'icon_bg_hover_color_opc', 'icon_three_d'),
-                                ),
-                                'custom' => array(
-                                    'fields' => array('icon_color_preset', 'icon_border_style', 'icon_bg_color', 'icon_bg_color_opc', 'icon_bg_hover_color', 'icon_bg_hover_color_opc', 'icon_three_d', 'icon_bg_size', 'icon_bg_border_radius'),
-                                ),
-                            ),
-                            'trigger' => array(
-                                'custom' => array(
-                                    'fields' => array('icon_border_style'),
-                                ),
-                            ),
-                        ),
+                        
                         /* Icon Background SIze */
                         'icon_bg_size' => array(
                             'type' => 'unit',
@@ -277,14 +249,7 @@ FLBuilder::register_settings_form(
                             'connections' => array('color'),
                             'show_alpha' => true,
                         ),
-                        'icon_bg_color_opc' => array(
-                            'type' => 'text',
-                            'label' => __('Opacity', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => '',
-                            'description' => '%',
-                            'maxlength' => '3',
-                            'size' => '5',
-                        ),
+                       
                         /* Border Color Dependent on Border Style for ICon */
                         'icon_border_color' => array(
                             'type' => 'color',
@@ -294,16 +259,8 @@ FLBuilder::register_settings_form(
                             'connections' => array('color'),
                             'show_alpha' => true,
                         ),
-                        /* Gradient Color Option */
-                        'icon_three_d' => array(
-                            'type' => 'select',
-                            'label' => __('Gradient', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => '0',
-                            'options' => array(
-                                '0' => __('No', SA_FLBUILDER_TEXTDOMAIN),
-                                '1' => __('Yes', SA_FLBUILDER_TEXTDOMAIN),
-                            ),
-                        ),
+                      
+                       
                     ),
                 ),
             ),
