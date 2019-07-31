@@ -59,15 +59,16 @@
         }
 </style>
 
+
 <div class="SA-FL-accordion-main-area">
     <?php foreach ($settings->add_accordion as $value) { ?>
         <div class="SA-FL-accordion-area">
-            <div class="SA-FL-accordion-header" ref="">
+            <div class="SA-FL-accordion-header" ref="#hello">
                 <div class="span-active">icon one</div>
                 <div class="span-deactive">icon two</div>
                 <div class="heading-data">This is accordion</div>
             </div>
-            <div class="SA-FL-accordion-details-area" id="">
+            <div class="SA-FL-accordion-details-area" id="hello">
                 <div class="SA-FL-accordion-details">
                     loreal i's taata taata d'art boa poaceous
                 </div>
@@ -77,3 +78,5 @@
     <?php } ?>
 
 </div>
+
+
