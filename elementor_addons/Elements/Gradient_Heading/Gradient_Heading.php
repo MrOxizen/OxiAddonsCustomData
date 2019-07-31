@@ -89,7 +89,7 @@ class Gradient_Heading extends Widget_Base {
                     'icon' => 'eicon-editor-h6'
                 ]
             ],
-            'default' => 'h1',
+            'default' => 'h2',
             'toggle' => false,
                 ]
         );

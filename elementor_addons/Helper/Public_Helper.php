@@ -618,6 +618,18 @@ trait Public_Helper {
                 'condition' => '',
                 'API' => ''
             ],
+            'dual_button' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Dual_Button\Dual_Button',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Dual_Button/assets/index.min.css',
+                    ]
+                ],
+                'category' => 'Creative Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
         ];
         return $response;
     }

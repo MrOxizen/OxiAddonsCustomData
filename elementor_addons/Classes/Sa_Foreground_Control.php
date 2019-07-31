@@ -106,7 +106,7 @@ class Sa_Foreground_Control extends Group_Control_Base {
         $fields['color_b'] = [
             'label' => _x( 'Second Color', 'Background Control', 'elementor' ),
             'type' => Controls_Manager::COLOR,
-            'default' => '#d12351',
+            'default' => '#001ae5',
             'render_type' => 'ui',
             'condition' => [
                 'color_type' => [ 'gradient' ],
@@ -150,7 +150,7 @@ class Sa_Foreground_Control extends Group_Control_Base {
             'size_units' => [ 'deg' ],
             'default' => [
                 'unit' => 'deg',
-                'size' => 210,
+                'size' => 180,
             ],
             'range' => [
                 'deg' => [
