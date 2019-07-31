@@ -27,14 +27,16 @@ if (!empty($settings)) {
             display: flex;
             align-items: center;
             justify-content: center;
-            background: red;
-            font-size: 20px;
+            background: #<?php echo $settings->active_icons_settings->icon_bg_color; ?>;
+            font-size: <?php echo $settings->active_icons_settings->icon_size; ?>px;
             width: 100%;
-            max-width: 30px;
-            height: 30px;
-            color: #fff;
-            border: 1px solid yellow;
-            border-radius: 10px;
+            max-width: <?php echo $settings->active_icons_settings->icon_bg_size; ?>px;
+            height: <?php echo $settings->active_icons_settings->icon_bg_size; ?>px;
+            color: #<?php echo $settings->active_icons_settings->icon_color; ?>;
+            border-width: <?php echo $settings->active_icons_settings->icon_border_width; ?>px;
+            border-style: <?php echo $settings->active_icons_settings->icon_border_style; ?>;
+            border-color: #<?php echo $settings->active_icons_settings->icon_border_color; ?>;
+            border-radius: <?php echo $settings->active_icons_settings->icon_bg_border_radius; ?>px;
             margin: 5px;
             
         }
@@ -42,14 +44,16 @@ if (!empty($settings)) {
             display: flex;
             align-items: center;
             justify-content: center;
-            background: blue;
-            font-size: 20px;
-            width: 100%;    
-            max-width: 30px;
-            height: 30px;
-            color: #fff;
-            border: 1px solid green;
-            border-radius: 5px;
+            background: #<?php echo $settings->deactive_icons_settings->icon_bg_color; ?>;
+            font-size: <?php echo $settings->deactive_icons_settings->icon_size; ?>px;
+            width: 100%;
+            max-width: <?php echo $settings->deactive_icons_settings->icon_bg_size; ?>px;
+            height: <?php echo $settings->deactive_icons_settings->icon_bg_size; ?>px;
+            color: #<?php echo $settings->deactive_icons_settings->icon_color; ?>;
+            border-width: <?php echo $settings->deactive_icons_settings->icon_border_width; ?>px;
+            border-style: <?php echo $settings->deactive_icons_settings->icon_border_style; ?>;
+            border-color: #<?php echo $settings->deactive_icons_settings->icon_border_color; ?>;
+            border-radius: <?php echo $settings->deactive_icons_settings->icon_bg_border_radius; ?>px;
             margin: 5px;
             
         }
