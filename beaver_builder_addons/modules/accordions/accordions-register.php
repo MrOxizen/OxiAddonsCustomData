@@ -8,6 +8,267 @@
  *
  * @package OXSA Info List Module
  */
+FLBuilder::register_settings_form(
+        'oxi_SA_active_icon_form', array(
+    'title' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
+    'tabs' => array(
+        array(
+            'title' => __('Active Icon', SA_FLBUILDER_TEXTDOMAIN),
+            'sections' => array(
+                'icon_basic' => array(
+                    'title' => __('Icon Basics', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
+                    'fields' => array(// Section Fields.
+                        'icon' => array(
+                            'type' => 'icon',
+                            'label' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'ua-icon ua-icon-cog',
+                            'show_remove' => true,
+                        ),
+                        'icon_size' => array(
+                            'type' => 'unit',
+                            'label' => __('Size', SA_FLBUILDER_TEXTDOMAIN),
+                            'placeholder' => '30',
+                            'maxlength' => '5',
+                            'size' => '6',
+                            'slider' => true,
+                            'units' => array('px'),
+                        ),
+                        
+                    ),
+                ),
+                'icon_style' => array(
+                    'title' => __('Style', SA_FLBUILDER_TEXTDOMAIN),
+                    'fields' => array(
+                        
+                        /* Icon Background SIze */
+                        'icon_bg_size' => array(
+                            'type' => 'unit',
+                            'label' => __('Background Size', SA_FLBUILDER_TEXTDOMAIN),
+                            'help' => 'Spacing between Icon & Background edge',
+                            'placeholder' => '30',
+                            'maxlength' => '3',
+                            'size' => '6',
+                            'slider' => true,
+                            'units' => array('px'),
+                        ),
+                        /* Border Style and Radius for Icon */
+                        'icon_border_style' => array(
+                            'type' => 'select',
+                            'label' => __('Border Style', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'none',
+                            'help' => __('The type of border to use. Double borders must have a width of at least 3px to render properly.', SA_FLBUILDER_TEXTDOMAIN),
+                            'options' => array(
+                                'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
+                                'solid' => __('Solid', SA_FLBUILDER_TEXTDOMAIN),
+                                'dashed' => __('Dashed', SA_FLBUILDER_TEXTDOMAIN),
+                                'dotted' => __('Dotted', SA_FLBUILDER_TEXTDOMAIN),
+                                'double' => __('Double', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                            'toggle' => array(
+                                'solid' => array(
+                                    'fields' => array('icon_border_width', 'icon_border_color', 'icon_border_hover_color'),
+                                ),
+                                'dashed' => array(
+                                    'fields' => array('icon_border_width', 'icon_border_color', 'icon_border_hover_color'),
+                                ),
+                                'dotted' => array(
+                                    'fields' => array('icon_border_width', 'icon_border_color', 'icon_border_hover_color'),
+                                ),
+                                'double' => array(
+                                    'fields' => array('icon_border_width', 'icon_border_color', 'icon_border_hover_color'),
+                                ),
+                            ),
+                        ),
+                        'icon_border_width' => array(
+                            'type' => 'unit',
+                            'label' => __('Border Width', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider' => true,
+                            'units' => array('px'),
+                            'maxlength' => '3',
+                            'size' => '6',
+                            'placeholder' => '1',
+                        ),
+                        'icon_bg_border_radius' => array(
+                            'type' => 'unit',
+                            'label' => __('Border Radius', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider' => true,
+                            'units' => array('px'),
+                            'maxlength' => '3',
+                            'size' => '6',
+                            'placeholder' => '20',
+                        ),
+                    ),
+                ),
+                'icon_colors' => array(// Section.
+                    'title' => __('Colors', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
+                    'fields' => array(// Section Fields.
+
+                        /* Icon Color */
+                        'icon_color' => array(
+                            'type' => 'color',
+                            'label' => __('Icon Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => '',
+                            'show_reset' => true,
+                        ),
+                        /* Background Color Dependent on Icon Style * */
+                        'icon_bg_color' => array(
+                            'type' => 'color',
+                            'label' => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => '',
+                            'show_reset' => true,
+                            'connections' => array('color'),
+                            'show_alpha' => true,
+                        ),
+                       
+                        /* Border Color Dependent on Border Style for ICon */
+                        'icon_border_color' => array(
+                            'type' => 'color',
+                            'label' => __('Border Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => '',
+                            'show_reset' => true,
+                            'connections' => array('color'),
+                            'show_alpha' => true,
+                        ),
+                      
+                       
+                    ),
+                ),
+            ),
+        ),
+    ),
+        )
+);
+FLBuilder::register_settings_form(
+        'oxi_SA_deactive_icon_form', array(
+    'title' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
+    'tabs' => array(
+        array(
+            'title' => __('Active Icon', SA_FLBUILDER_TEXTDOMAIN),
+            'sections' => array(
+                'icon_basic' => array(
+                    'title' => __('Icon Basics', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
+                    'fields' => array(// Section Fields.
+                        'icon' => array(
+                            'type' => 'icon',
+                            'label' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'ua-icon ua-icon-cog',
+                            'show_remove' => true,
+                        ),
+                        'icon_size' => array(
+                            'type' => 'unit',
+                            'label' => __('Size', SA_FLBUILDER_TEXTDOMAIN),
+                            'placeholder' => '30',
+                            'maxlength' => '5',
+                            'size' => '6',
+                            'slider' => true,
+                            'units' => array('px'),
+                        ),
+                        
+                    ),
+                ),
+                'icon_style' => array(
+                    'title' => __('Style', SA_FLBUILDER_TEXTDOMAIN),
+                    'fields' => array(
+                        
+                        /* Icon Background SIze */
+                        'icon_bg_size' => array(
+                            'type' => 'unit',
+                            'label' => __('Background Size', SA_FLBUILDER_TEXTDOMAIN),
+                            'help' => 'Spacing between Icon & Background edge',
+                            'placeholder' => '30',
+                            'maxlength' => '3',
+                            'size' => '6',
+                            'slider' => true,
+                            'units' => array('px'),
+                        ),
+                        /* Border Style and Radius for Icon */
+                        'icon_border_style' => array(
+                            'type' => 'select',
+                            'label' => __('Border Style', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'none',
+                            'help' => __('The type of border to use. Double borders must have a width of at least 3px to render properly.', SA_FLBUILDER_TEXTDOMAIN),
+                            'options' => array(
+                                'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
+                                'solid' => __('Solid', SA_FLBUILDER_TEXTDOMAIN),
+                                'dashed' => __('Dashed', SA_FLBUILDER_TEXTDOMAIN),
+                                'dotted' => __('Dotted', SA_FLBUILDER_TEXTDOMAIN),
+                                'double' => __('Double', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                            'toggle' => array(
+                                'solid' => array(
+                                    'fields' => array('icon_border_width', 'icon_border_color', 'icon_border_hover_color'),
+                                ),
+                                'dashed' => array(
+                                    'fields' => array('icon_border_width', 'icon_border_color', 'icon_border_hover_color'),
+                                ),
+                                'dotted' => array(
+                                    'fields' => array('icon_border_width', 'icon_border_color', 'icon_border_hover_color'),
+                                ),
+                                'double' => array(
+                                    'fields' => array('icon_border_width', 'icon_border_color', 'icon_border_hover_color'),
+                                ),
+                            ),
+                        ),
+                        'icon_border_width' => array(
+                            'type' => 'unit',
+                            'label' => __('Border Width', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider' => true,
+                            'units' => array('px'),
+                            'maxlength' => '3',
+                            'size' => '6',
+                            'placeholder' => '1',
+                        ),
+                        'icon_bg_border_radius' => array(
+                            'type' => 'unit',
+                            'label' => __('Border Radius', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider' => true,
+                            'units' => array('px'),
+                            'maxlength' => '3',
+                            'size' => '6',
+                            'placeholder' => '20',
+                        ),
+                    ),
+                ),
+                'icon_colors' => array(// Section.
+                    'title' => __('Colors', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
+                    'fields' => array(// Section Fields.
+
+                        /* Icon Color */
+                        'icon_color' => array(
+                            'type' => 'color',
+                            'label' => __('Icon Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => '',
+                            'show_reset' => true,
+                        ),
+                        /* Background Color Dependent on Icon Style * */
+                        'icon_bg_color' => array(
+                            'type' => 'color',
+                            'label' => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => '',
+                            'show_reset' => true,
+                            'connections' => array('color'),
+                            'show_alpha' => true,
+                        ),
+                       
+                        /* Border Color Dependent on Border Style for ICon */
+                        'icon_border_color' => array(
+                            'type' => 'color',
+                            'label' => __('Border Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => '',
+                            'show_reset' => true,
+                            'connections' => array('color'),
+                            'show_alpha' => true,
+                        ),
+                      
+                       
+                    ),
+                ),
+            ),
+        ),
+    ),
+        )
+);
+
 FLBuilder::register_module(
         'OxiAccordionsModule', array(
     'accordion' => array(// Tab.
@@ -43,30 +304,15 @@ FLBuilder::register_module(
                         ),
                         'toggle' => array(
                             'icon' => array(
-                                'fields' => array('active_icons', 'icon_color', 'icon_BG_color'),
+                                'fields' => array('active_icons_settings'),
                             ),
                         ),
                     ),
-                    'active_icons' => array(
-                        'type' => 'icon',
-                        'label' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
-                        'show_remove' => true,
-                    ),
-                    'icon_color' => array(
-                        'type' => 'color',
-                        'label' => __('Icon Color', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '',
-                        'show_reset' => true,
-                        'connections' => array('color'),
-                        'show_alpha' => true,
-                    ),
-                    'icon_BG_color' => array(
-                        'type' => 'color',
-                        'label' => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '#fff',
-                        'show_reset' => true,
-                        'connections' => array('color'),
-                        'show_alpha' => true,
+                    'active_icons_settings' => array(
+                        'type' => 'form',
+                        'label' => __('Icon Settings', SA_FLBUILDER_TEXTDOMAIN),
+                        'form' => 'oxi_SA_active_icon_form', // ID of a registered form.
+                        'preview_text' => 'icon', // ID of a field to use for the preview text.
                     ),
                 ),
             ),
@@ -83,30 +329,15 @@ FLBuilder::register_module(
                         ),
                         'toggle' => array(
                             'icon' => array(
-                                'fields' => array('d_icon', 'd_icon_color', 'd_icon_BG_color'),
+                                'fields' => array('deactive_icons_settings'),
                             ),
                         ),
                     ),
-                    'd_icon' => array(
-                        'type' => 'icon',
-                        'label' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
-                        'show_remove' => true,
-                    ),
-                    'd_icon_color' => array(
-                        'type' => 'color',
-                        'label' => __('Icon Color', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '',
-                        'show_reset' => true,
-                        'connections' => array('color'),
-                        'show_alpha' => true,
-                    ),
-                    'd_icon_BG_color' => array(
-                        'type' => 'color',
-                        'label' => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '#fff',
-                        'show_reset' => true,
-                        'connections' => array('color'),
-                        'show_alpha' => true,
+                    'deactive_icons_settings' => array(
+                        'type' => 'form',
+                        'label' => __('Icon Settings', SA_FLBUILDER_TEXTDOMAIN),
+                        'form' => 'oxi_SA_deactive_icon_form', // ID of a registered form.
+                        'preview_text' => 'icon', // ID of a field to use for the preview text.
                     ),
                 ),
             ),
@@ -267,3 +498,7 @@ FLBuilder::register_settings_form(
     ),
         )
 );
+
+
+
+
