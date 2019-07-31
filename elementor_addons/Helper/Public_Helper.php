@@ -173,7 +173,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Filterable_Gallery/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -213,7 +213,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Flip_Carousel/assets/index.min.js',
                     ]
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -228,7 +228,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Accordion/assets/index.min.js',
                     ]
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -244,7 +244,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Hotspots/assets/index.min.js',
                     ]
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -259,7 +259,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Scroller/assets/index.min.js',
                     ]
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -277,7 +277,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Image_Comparison/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -306,7 +306,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Interactive_Card/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -318,7 +318,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Interactive_Promo/assets/index.min.css',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -336,7 +336,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Lightbox_Modal/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -351,7 +351,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Logo_Carousel/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -391,7 +391,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Price_Menu/assets/index.min.css',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Marketing Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -408,7 +408,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Pricing_Table/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Marketing Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -425,7 +425,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Progress_Bar/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -437,7 +437,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Protected_Content/assets/index.min.css',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -548,7 +548,7 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Justified_Gallery/assets/index.min.js',
                     ],
                 ],
-                'category' => 'Content Elements',
+                'category' => 'Creative Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
