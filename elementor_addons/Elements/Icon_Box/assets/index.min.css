@@ -1,0 +1,58 @@
+.elementor-widget-sa-el-icon-box .elementor-widget-container {
+    position: relative;
+    padding: 1.25rem;
+    background: #0F8CBD;
+}
+
+.sa-el-icon-box-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #fff;
+    font-size: 24px;
+    -webkit-transition: color .3s;
+    transition: color .3s;
+}
+
+.sa-el-icon-box-icon {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-align: center;
+    font-size: 3rem;
+    -webkit-transition: border .3s, background .3s, color .3s, -webkit-transform .3s;
+    transition: border .3s, background .3s, color .3s, -webkit-transform .3s;
+    transition: transform .3s, border .3s, background .3s, color .3s;
+    transition: transform .3s, border .3s, background .3s, color .3s, -webkit-transform .3s;
+}
+
+.sa-el-icon-box-icon>i {
+    position: relative;
+    display: block;
+    width: 1em;
+    height: 1em;
+    -webkit-transition: -webkit-transform .3s;
+    transition: -webkit-transform .3s;
+    transition: transform .3s;
+    transition: transform .3s, -webkit-transform .3s;
+}
+
+.sa-el-icon-box-icon>i:before {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.sa-el-icon-box-link {
+    display: block;
+    color: transparent;
+    text-decoration: none;
+}
+
+.sa-el-icon-box .sa-el-badge {
+    position: absolute;
+    z-index: 9999;
+    background-color: #e2498a;
+    color: #fff;
+}
