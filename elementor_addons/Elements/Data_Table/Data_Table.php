@@ -2,21 +2,18 @@
 
 namespace SA_ELEMENTOR_ADDONS\Elements\Data_Table;
 
-// If this file is called directly, abort.
 if (!defined('ABSPATH')) {
     exit;
 }
 
+
 use \Elementor\Controls_Manager as Controls_Manager;
-use \Elementor\Group_Control_Background as Group_Control_Background;
-use \Elementor\Scheme_Typography as Scheme_Typography;
+use \Elementor\Frontend;
 use \Elementor\Group_Control_Border as Group_Control_Border;
-use \Elementor\Group_Control_Box_Shadow as Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography as Group_Control_Typography;
 use \Elementor\Utils as Utils;
 use \Elementor\Widget_Base as Widget_Base;
 
-// use \SA_ELEMENTOR_ADDONS\Classes\Bootstrap;
 
 class Data_Table extends Widget_Base {
 
@@ -49,20 +46,16 @@ class Data_Table extends Widget_Base {
                 ]
         );
 
-        do_action('sa_el_section_data_table_enabled', $this);
-
-        if (!apply_filters('eael/pro_enabled', false)) {
-            $this->add_control(
-                    'sa_el_pricing_table_style_pro_alert', [
-                'label' => esc_html__('Sorting feature is available in pro version!', SA_ELEMENTOR_TEXTDOMAIN),
-                'type' => Controls_Manager::HEADING,
-                'condition' => [
-                    'sa_el_section_data_table_enabled' => 'true',
+        $this->add_control(
+                'sa_el_section_data_table_enabled', [
+            'label' => __('Enable Table Sorting', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::SWITCHER,
+            'label_on' => esc_html__('Yes', SA_ELEMENTOR_TEXTDOMAIN),
+            'label_off' => esc_html__('No', SA_ELEMENTOR_TEXTDOMAIN),
+            'return_value' => 'true',
                 ]
-                    ]
-            );
-        }
-
+        );
+       
         $this->add_control(
                 'sa_el_data_table_header_cols_data', [
             'type' => Controls_Manager::REPEATER,
@@ -253,7 +246,7 @@ class Data_Table extends Widget_Base {
                     'name' => 'sa_el_primary_templates_for_tables',
                     'label' => __('Choose Template', SA_ELEMENTOR_TEXTDOMAIN),
                     'type' => Controls_Manager::SELECT,
-                    'options' => $this->sa_el_get_page_templates(),
+                    'options' => $this->get_elementor_page_templates(),
                     'condition' => [
                         'sa_el_data_table_content_type' => 'template',
                     ],
@@ -321,30 +314,7 @@ class Data_Table extends Widget_Base {
 
         $this->end_controls_section();
 
-        if (!apply_filters('eael/pro_enabled', false)) {
-            $this->start_controls_section(
-                    'sa_el_section_pro', [
-                'label' => __('Go Premium for More Features', SA_ELEMENTOR_TEXTDOMAIN)
-                    ]
-            );
-
-            $this->add_control(
-                    'sa_el_control_get_pro', [
-                'label' => __('Unlock more possibilities', SA_ELEMENTOR_TEXTDOMAIN),
-                'type' => Controls_Manager::CHOOSE,
-                'options' => [
-                    '1' => [
-                        'title' => __('', SA_ELEMENTOR_TEXTDOMAIN),
-                        'icon' => 'fa fa-unlock-alt',
-                    ],
-                ],
-                'default' => '1',
-                'description' => '<span class="pro-feature"> Get the  <a href="https://wpdeveloper.net/in/upgrade-essential-addons-elementor" target="_blank">Pro version</a> for more stunning elements and customization options.</span>'
-                    ]
-            );
-
-            $this->end_controls_section();
-        }
+       
 
         /**
          * -------------------------------------------
@@ -939,9 +909,9 @@ class Data_Table extends Widget_Base {
             'data-table_id' => esc_attr($this->get_id()),
             'data-custom_responsive' => $settings['sa_el_enable_responsive_header_styles'] ? 'true' : 'false'
         ]);
-        if (isset($settings['sa_el_section_data_table_enabled']) && $settings['sa_el_section_data_table_enabled']) {
+       
             $this->add_render_attribute('sa_el_data_table_wrap', 'data-table_enabled', 'true');
-        }
+   
         $this->add_render_attribute('sa_el_data_table', [
             'class' => ['tablesorter sa-el-data-table', esc_attr($settings['table_alignment'])],
             'id' => 'sa-el-data-table-' . esc_attr($this->get_id())
@@ -959,56 +929,57 @@ class Data_Table extends Widget_Base {
             <table <?php echo $this->get_render_attribute_string('sa_el_data_table'); ?>>
                 <thead>
                     <tr class="table-header">
-        <?php
-        $i = 0;
-        foreach ($settings['sa_el_data_table_header_cols_data'] as $header_title) :
-            $this->add_render_attribute('th_class' . $i, [
-                'class' => [$header_title['sa_el_data_table_header_css_class']],
-                'id' => $header_title['sa_el_data_table_header_css_id'],
-                'colspan' => $header_title['sa_el_data_table_header_col_span']
-            ]);
+                        <?php
+                        $i = 0;
+                        foreach ($settings['sa_el_data_table_header_cols_data'] as $header_title) :
+                            $this->add_render_attribute('th_class' . $i, [
+                                'class' => [$header_title['sa_el_data_table_header_css_class']],
+                                'id' => $header_title['sa_el_data_table_header_css_id'],
+                                'colspan' => $header_title['sa_el_data_table_header_col_span']
+                            ]);
 
-            if (apply_filters('eael/pro_enabled', false)) {
-                $this->add_render_attribute('th_class' . $i, 'class', 'sorting');
-            }
-            ?>
+                           
+                                $this->add_render_attribute('th_class' . $i, 'class', 'sorting');
+                           
+                            ?>
                             <th <?php echo $this->get_render_attribute_string('th_class' . $i); ?>>
-            <?php
-            if ($header_title['sa_el_data_table_header_col_icon_enabled'] == 'true' && $header_title['sa_el_data_table_header_icon_type'] == 'icon') :
-                $this->add_render_attribute('table_header_col_icon' . $i, [
-                    'class' => ['data-header-icon', esc_attr($header_title['sa_el_data_table_header_col_icon'])]
-                ]);
-                ?>
+                                <?php
+                                if ($header_title['sa_el_data_table_header_col_icon_enabled'] == 'true' && $header_title['sa_el_data_table_header_icon_type'] == 'icon') :
+                                    $this->add_render_attribute('table_header_col_icon' . $i, [
+                                        'class' => ['data-header-icon', esc_attr($header_title['sa_el_data_table_header_col_icon'])]
+                                    ]);
+                                    ?>
                                     <i <?php echo $this->get_render_attribute_string('table_header_col_icon' . $i); ?>></i>
-            <?php endif; ?>
-            <?php
-            if ($header_title['sa_el_data_table_header_col_icon_enabled'] == 'true' && $header_title['sa_el_data_table_header_icon_type'] == 'image') :
-                $this->add_render_attribute('data_table_th_img' . $i, [
-                    'src' => esc_url($header_title['sa_el_data_table_header_col_img']['url']),
-                    'class' => 'sa-el-data-table-th-img',
-                    'style' => "width:{$header_title['sa_el_data_table_header_col_img_size']}px;",
-                    'alt' => esc_attr(get_post_meta($header_title['sa_el_data_table_header_col_img']['id'], '_wp_attachment_image_alt', true))
-                ]);
-                ?><img <?php echo $this->get_render_attribute_string('data_table_th_img' . $i); ?>><?php endif; ?><?php echo __($header_title['sa_el_data_table_header_col'], SA_ELEMENTOR_TEXTDOMAIN); ?></th>
-            <?php $i++;
-        endforeach; ?>
+                                <?php endif; ?>
+                                <?php
+                                if ($header_title['sa_el_data_table_header_col_icon_enabled'] == 'true' && $header_title['sa_el_data_table_header_icon_type'] == 'image') :
+                                    $this->add_render_attribute('data_table_th_img' . $i, [
+                                        'src' => esc_url($header_title['sa_el_data_table_header_col_img']['url']),
+                                        'class' => 'sa-el-data-table-th-img',
+                                        'style' => "width:{$header_title['sa_el_data_table_header_col_img_size']}px;",
+                                        'alt' => esc_attr(get_post_meta($header_title['sa_el_data_table_header_col_img']['id'], '_wp_attachment_image_alt', true))
+                                    ]);
+                                    ?><img <?php echo $this->get_render_attribute_string('data_table_th_img' . $i); ?>><?php endif; ?><?php echo __($header_title['sa_el_data_table_header_col'], SA_ELEMENTOR_TEXTDOMAIN); ?></th>
+                                <?php $i++;
+                            endforeach;
+                            ?>
                     </tr>
                 </thead>
                 <tbody>
-        <?php for ($i = 0; $i < count($table_tr); $i++) : ?>
+                    <?php for ($i = 0; $i < count($table_tr); $i++) : ?>
                         <tr>
-            <?php
-            for ($j = 0; $j < count($table_td); $j++) {
-                if ($table_tr[$i]['id'] == $table_td[$j]['row_id']) {
+                            <?php
+                            for ($j = 0; $j < count($table_td); $j++) {
+                                if ($table_tr[$i]['id'] == $table_td[$j]['row_id']) {
 
-                    $this->add_render_attribute('table_inside_td' . $i . $j, [
-                        'colspan' => $table_td[$j]['colspan'] > 1 ? $table_td[$j]['colspan'] : '',
-                        'rowspan' => $table_td[$j]['rowspan'] > 1 ? $table_td[$j]['rowspan'] : '',
-                        'class' => $table_td[$j]['tr_class'],
-                        'id' => $table_td[$j]['tr_id']
-                            ]
-                    );
-                    ?>
+                                    $this->add_render_attribute('table_inside_td' . $i . $j, [
+                                        'colspan' => $table_td[$j]['colspan'] > 1 ? $table_td[$j]['colspan'] : '',
+                                        'rowspan' => $table_td[$j]['rowspan'] > 1 ? $table_td[$j]['rowspan'] : '',
+                                        'class' => $table_td[$j]['tr_class'],
+                                        'id' => $table_td[$j]['tr_id']
+                                            ]
+                                    );
+                                    ?>
                                     <?php if ($table_td[$j]['content_type'] == 'textarea' && !empty($table_td[$j]['link_url'])) : ?>
                                         <td <?php echo $this->get_render_attribute_string('table_inside_td' . $i . $j); ?>>
                                             <div class="td-content-wrapper">
@@ -1020,24 +991,24 @@ class Data_Table extends Widget_Base {
                                         <td <?php echo $this->get_render_attribute_string('table_inside_td' . $i . $j); ?>>
                                             <div class="td-content-wrapper">
                                                 <div <?php echo $this->get_render_attribute_string('td_content'); ?>>
-                                        <?php
-                                        $sa_el_frontend = new Frontend;
-                                        echo $sa_el_frontend->get_builder_content(intval($table_td[$j]['template']), true);
-                                        ?>
+                                                    <?php
+                                                    $sa_el_frontend = new Frontend;
+                                                    echo $sa_el_frontend->get_builder_content(intval($table_td[$j]['template']), true);
+                                                    ?>
                                                 </div>
                                             </div>
                                         </td>
-                                        <?php else: ?>
+                                    <?php else: ?>
                                         <td <?php echo $this->get_render_attribute_string('table_inside_td' . $i . $j); ?>>
                                             <div class="td-content-wrapper"><div <?php echo $this->get_render_attribute_string('td_content'); ?>><?php echo $table_td[$j]['title']; ?></div></div>
                                         </td>
-                                        <?php endif; ?>
-                                        <?php
-                                    }
+                                    <?php endif; ?>
+                                    <?php
                                 }
-                                ?>
+                            }
+                            ?>
                         </tr>
-                            <?php endfor; ?>
+                    <?php endfor; ?>
                 </tbody>
             </table>
         </div>
