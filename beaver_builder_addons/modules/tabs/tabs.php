@@ -2,7 +2,6 @@
 
 class Tabs extends FLBuilderModule
 {
-
     public function __construct()
     {
         parent::__construct(array(
@@ -13,6 +12,8 @@ class Tabs extends FLBuilderModule
             'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/tabs',
             'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/tabs',
             'icon' => 'tabs.svg',
+            'editor_export' => true,
+            'enabled'       => true,
         ));
     }
 }

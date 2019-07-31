@@ -16,6 +16,20 @@ FLBuilder::register_module(
                 'general' => array(
                     'title'  => 'General',
                     'fields' => array(
+                        'initial_open' => array(
+                            'type' => 'select',
+                            'label' => __('Initial Open', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => '0',
+                            'options' => array(
+                                '0' => __('1st Tab', SA_FLBUILDER_TEXTDOMAIN),
+                                '1' => __('2nd Tab', SA_FLBUILDER_TEXTDOMAIN),
+                                '2' => __('3rd Tab', SA_FLBUILDER_TEXTDOMAIN),
+                                '3' => __('4th Tab', SA_FLBUILDER_TEXTDOMAIN),
+                                '4' => __('5th Tab', SA_FLBUILDER_TEXTDOMAIN),
+                                '5' => __('6th Tab', SA_FLBUILDER_TEXTDOMAIN),
+                                '6' => __('7th Tab', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                        ),
                         'tab_layout' => array(
                             'type' => 'select',
                             'label' => __('Layout', SA_FLBUILDER_TEXTDOMAIN),
@@ -27,7 +41,7 @@ FLBuilder::register_module(
                         ),
                         'tab_icon' => array(
                             'type' => 'select',
-                            'label' => __('Icon ', SA_FLBUILDER_TEXTDOMAIN),
+                            'label' => __('Icon / Image ', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => 'none',
                             'options' => array(
                                 'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
@@ -35,16 +49,17 @@ FLBuilder::register_module(
                             ),
                             'toggle' => array(
                                 'enable' => array(
-                                    'fields' => array('tab_icon_position', 'icon_color'),
+                                    'fields' => array('tab_icon_position', 'title_icon_color', 'title_icon_size'),
                                 )
                             )
                         ),
-                        'tab_icon_position' => array(
+                        'icon_position' => array(
                             'type' => 'select',
-                            'label' => __('Icon Position', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => 'inline',
+                            'label' => __('Icon / Image Position', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'left',
                             'options' => array(
-                                'inline' => __('Inline', SA_FLBUILDER_TEXTDOMAIN),
+                                'left' => __('Left', SA_FLBUILDER_TEXTDOMAIN),
+                                'right' => __('Right', SA_FLBUILDER_TEXTDOMAIN),
                                 'stacked' => __('Stacked', SA_FLBUILDER_TEXTDOMAIN),
                             ),
                         ),
@@ -199,6 +214,18 @@ FLBuilder::register_module(
                             'show_reset' => true,
                             'show_alpha' => true,
                         ),
+                        'title_icon_size'     => array(
+                            'type'        => 'unit',
+                            'label'       => __('Icon / Image Size', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider'      => true,
+                            'units'       => array('px'),
+                            'maxlength'   => '3',
+                            'size'        => '6',
+                            'placeholder' => '22',
+                            'preview'     => array(
+                                'type' => 'refresh',
+                            ),
+                        ),
                         'title_icon_color' => array(
                             'type'        => 'color',
                             'label'       => __('Icon Color', SA_FLBUILDER_TEXTDOMAIN),
@@ -273,6 +300,20 @@ FLBuilder::register_module(
                 'title_hover' => array(
                     'title' => __('Title Hover Setting', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
+                        'tab_title_hover' => array(
+                            'type' => 'select',
+                            'label' => __('Hover style', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'none',
+                            'options' => array(
+                                'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
+                                'enable' => __('Enable', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                            'toggle' => array(
+                                'enable' => array(
+                                    'fields' => array('title_hover_bg_color', 'title_hover_color', 'title_hover_icon_color', 'title_hover_border_color'),
+                                )
+                            )
+                        ),
                         'title_hover_bg_color'         => array(
                             'type'       => 'color',
                             'label'      => __('Background Hover color', SA_FLBUILDER_TEXTDOMAIN),
@@ -307,6 +348,20 @@ FLBuilder::register_module(
                 'title_active' => array(
                     'title' => __('Title Active Setting', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
+                        'tab_title_active' => array(
+                            'type' => 'select',
+                            'label' => __('Active style', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'none',
+                            'options' => array(
+                                'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
+                                'enable' => __('Enable', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                            'toggle' => array(
+                                'enable' => array(
+                                    'fields' => array('title_active_bg_color', 'title_active_color', 'title_active_icon_color', 'title_active_border_color'),
+                                )
+                            ),
+                        ),
                         'title_active_bg_color'         => array(
                             'type'       => 'color',
                             'label'      => __('Background Active color', SA_FLBUILDER_TEXTDOMAIN),
@@ -469,22 +524,6 @@ FLBuilder::register_module(
                 'title_typography'     => array(
                     'title'  => __('Title Settings', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
-                        'title_tag_selection' => array(
-                            'type'    => 'select',
-                            'label'   => __('Select Tag', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => 'h3',
-                            'options' => array(
-                                'h1'   => __('H1', SA_FLBUILDER_TEXTDOMAIN),
-                                'h2'   => __('H2', SA_FLBUILDER_TEXTDOMAIN),
-                                'h3'   => __('H3', SA_FLBUILDER_TEXTDOMAIN),
-                                'h4'   => __('H4', SA_FLBUILDER_TEXTDOMAIN),
-                                'h5'   => __('H5', SA_FLBUILDER_TEXTDOMAIN),
-                                'h6'   => __('H6', SA_FLBUILDER_TEXTDOMAIN),
-                                'div'  => __('Div', SA_FLBUILDER_TEXTDOMAIN),
-                                'p'    => __('p', SA_FLBUILDER_TEXTDOMAIN),
-                                'span' => __('span', SA_FLBUILDER_TEXTDOMAIN),
-                            ),
-                        ),
                         'title_font_typo'     => array(
                             'type'       => 'typography',
                             'label'      => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
@@ -509,7 +548,7 @@ FLBuilder::register_module(
                                 ),
                             ),
                         ),
-                        'title_margin_padding' => array(
+                        'title_margin' => array(
                             'type' => 'dimension',
                             'label' => __('Margin', SA_FLBUILDER_TEXTDOMAIN),
                             'help' => __('Manage the tabs box Margin', SA_FLBUILDER_TEXTDOMAIN),
@@ -537,13 +576,6 @@ FLBuilder::register_module(
                                 'selector'  => '.oxi__addons_details p',
                                 'important' => true,
                             ),
-                        ),
-                        'description_color'     => array(
-                            'type'       => 'color',
-                            'label'      => __('Color', SA_FLBUILDER_TEXTDOMAIN),
-                            'default'    => '',
-                            'show_reset' => true,
-                            'show_alpha' => true,
                         ),
                         'dsc_padding' => array(
                             'type' => 'dimension',
@@ -647,18 +679,6 @@ FLBuilder::register_settings_form(
                                 'label'       => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
                                 'show_remove' => true,
                             ),
-                            'icon_size'     => array(
-                                'type'        => 'unit',
-                                'label'       => __('Icon Size', SA_FLBUILDER_TEXTDOMAIN),
-                                'slider'      => true,
-                                'units'       => array('px'),
-                                'maxlength'   => '3',
-                                'size'        => '6',
-                                'placeholder' => '22',
-                                'preview'     => array(
-                                    'type' => 'refresh',
-                                ),
-                            ),
                         ),
                     ),
                     /* Image Basic Setting */
@@ -692,18 +712,6 @@ FLBuilder::register_settings_form(
                                 'type'        => 'text',
                                 'label'       => __('Photo URL', SA_FLBUILDER_TEXTDOMAIN),
                                 'placeholder' => 'http://www.example.com/my-photo.jpg',
-                            ),
-                            'image_size'     => array(
-                                'type'        => 'unit',
-                                'label'       => __('Image Size', SA_FLBUILDER_TEXTDOMAIN),
-                                'slider'      => true,
-                                'units'       => array('px'),
-                                'maxlength'   => '3',
-                                'size'        => '6',
-                                'placeholder' => '50',
-                                'preview'     => array(
-                                    'type' => 'refresh',
-                                ),
                             ),
                         ),
                     ),

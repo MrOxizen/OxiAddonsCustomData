@@ -40,8 +40,7 @@ a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, d
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	align-items: center;
-     z-index: 1;
-     background-color: rgb(204, 201, 201);
+     z-index: 1; 
 }
 .oxi__tab_wraper_main .oxi__tab_li {
 	position: relative;
@@ -64,7 +63,14 @@ a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, d
 	-ms-flex-align: center;
 	align-items: center;
 	text-align: center;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	background-color: rgb(204, 201, 201);
 } 
+.oxi__tab_wraper_main .oxi__tab_li:hover {
+	background-color: #333;
+} 
+
 .oxi__tab_wraper_main .oxi__tab_li.active {
       background: red;
       color: #fff;
@@ -89,5 +95,12 @@ a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, d
 .oxi__tab_wraper_main .oxi__tab_content_main .oxi__tab_content.active{
 	display: block; 
 	opacity: 1; 
+} 
+/***
+start coding for image styleing
+*/
+.oxi__tab_wraper_main .oxi__addons_image{
+	width: 50px;
+	height: 50px;
 } 
  
