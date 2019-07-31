@@ -625,11 +625,48 @@ trait Public_Helper {
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Dual_Button/assets/index.min.css',
                     ]
                 ],
-                'category' => 'Creative Elements',
+                'category' => 'Content Elements',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
             ],
+            'icon_box' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Icon_Box\Icon_Box',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Icon_Box/assets/index.min.css',
+                    ]
+                ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'icon_box' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Icon_Box\Icon_Box',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Icon_Box/assets/index.min.css',
+                    ]
+                ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            'number_widget' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Number_Widget\Number_Widget',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Number_Widget/assets/index.min.css',
+                    ]
+                ],
+                'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+            
         ];
         return $response;
     }
