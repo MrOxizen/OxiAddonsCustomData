@@ -174,6 +174,7 @@ trait Include_Admin_Template {
 
                                         <?php
                                         $settings = $this->Get_Active_Elements();
+                                       
                                         foreach ($registered_element as $key => $value) {
                                             if ($key != 'Extension') {
                                                 echo '<div class="oxi-sa-cards-wrapper">';
@@ -182,11 +183,11 @@ trait Include_Admin_Template {
                                                 foreach ($value as $elements) {
                                                     echo '  <div class="col-lg-4 col-md-6 col-sm-12">
                                                                 <div class="oxi-sa-cards">
-                                                                    ' . (($elements['Premium'] == TRUE && apply_filters('sa-addons-pro-sa-addons', '') == FALSE) ? '<sup class="pro-label">Pro</sup>' : "") . '
+                                                                    ' . (($elements['Premium'] == TRUE && apply_filters('sa-addons/pro/sa-addons', '') == FALSE) ? '<sup class="pro-label">Pro</sup>' : "") . '
                                                                     <div class="oxi-sa-cards-h1">
                                                                         ' . oxi_addons_shortcode_name_converter($elements['name']) . '
                                                                     </div>
-                                                                    <div class="oxi-sa-cards-switcher ' . (($elements['Premium'] == TRUE && apply_filters('sa-addons-pro-sa-addons', '') == FALSE) ? 'oxi-sa-cards-switcher-disabled' : "") . '">
+                                                                    <div class="oxi-sa-cards-switcher ' . (($elements['Premium'] == TRUE && apply_filters('sa-addons/pro/sa-addons', '') == FALSE) ? 'oxi-sa-cards-switcher-disabled' : "") . '">
                                                                         <input type="checkbox" class="oxi-addons-switcher-btn" sa-elmentor="' . $elements['name'] . '" id="' . $elements['name'] . '" name="' . $elements['name'] . '" ' . (array_key_exists($elements['name'], $settings) ? 'checked="checked"' : '') . ' >
                                                                         <label for="' . $elements['name'] . '" class="oxi-addons-switcher-label"></label>
                                                                     </div>
@@ -206,6 +207,7 @@ trait Include_Admin_Template {
                                     <div class="oxi-addons-row">
                                         <?php
                                         $settings = $this->Get_Active_Elements();
+                                      
                                         foreach ($registered_element as $key => $value) {
                                             if ($key == 'Extension') {
                                                 echo '<div class="oxi-sa-cards-wrapper">';
@@ -214,11 +216,12 @@ trait Include_Admin_Template {
                                                 foreach ($value as $elements) {
                                                     echo '  <div class="col-lg-4 col-md-6 col-sm-12">
                                                                 <div class="oxi-sa-cards">
+                                                                    ' . (($elements['Premium'] == TRUE && apply_filters('sa-addons/pro/sa-addons', '') == FALSE) ? '<sup class="pro-label">Pro</sup>' : "") . '
                                                                     <div class="oxi-sa-cards-h1">
                                                                         ' . oxi_addons_shortcode_name_converter($elements['name']) . '
                                                                     </div>
-                                                                    <div class="oxi-sa-cards-switcher">
-                                                                        <input type="checkbox" class="oxi-addons-switcher-btn" sa-elmentor="' . $elements['name'] . '" id="' . $elements['name'] . '" name="' . $elements['name'] . '" ' . (array_key_exists($elements['name'], $settings) ? 'checked="checked"' : '') . '>
+                                                                    <div class="oxi-sa-cards-switcher ' . (($elements['Premium'] == TRUE && apply_filters('sa-addons/pro/sa-addons', '') == FALSE) ? 'oxi-sa-cards-switcher-disabled' : "") . '">
+                                                                        <input type="checkbox" class="oxi-addons-switcher-btn" sa-elmentor="' . $elements['name'] . '" id="' . $elements['name'] . '" name="' . $elements['name'] . '" ' . (array_key_exists($elements['name'], $settings) ? 'checked="checked"' : '') . ' >
                                                                         <label for="' . $elements['name'] . '" class="oxi-addons-switcher-label"></label>
                                                                     </div>
                                                                 </div>
@@ -257,11 +260,8 @@ trait Include_Admin_Template {
                 </form>
             </div>
         </div>
-
-
-
         <div id="OXIAADDONSCHANGEDPOPUP" class="modal fade">
-            <div class="modal-dialog modal-confirm">
+            <div class="modal-dialog modal-confirm  bounceIn ">
                 <div class="modal-content">
                     <div class="modal-header">
                         <div class="icon-box">
@@ -275,13 +275,6 @@ trait Include_Admin_Template {
                 </div>
             </div>
         </div>  
-
-
-
-
-
-
-
         <?php
     }
 

@@ -15,6 +15,7 @@
   text-transform: uppercase;
   line-height: 48px;
   margin: 10px 0px;
+  padding : 0;
 }
 
 .sa_el_advance_header .subtext {
