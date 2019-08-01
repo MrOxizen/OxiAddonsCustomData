@@ -724,7 +724,7 @@ class Icon_Box extends Widget_Base
 
                 $this->Sa_El_Icon_Render($settings['icon']);
 				
-				?>
+			?>
             </span>
         <?php endif; ?>
 

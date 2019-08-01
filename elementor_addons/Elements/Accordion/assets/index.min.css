@@ -13,16 +13,18 @@
 }
 
 .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header:focus {
-   box-shadow: none;
-   outline: none;
-   border: none;
+    box-shadow: none;
+    outline: none;
+    border: none;
 }
+
 .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header {
-    padding: 15px;
-    border: 1px solid rgba(0, 0, 0, 0.02);
     font-size: 1rem;
-    font-weight: 600;
     line-height: 1;
+    font-family: "Lato";
+    font-weight: 700;
+    font-style: normal;
+    padding: 10px 10px 10px 10px;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
@@ -40,47 +42,50 @@
     align-items: center;
     cursor: pointer;
 }
-.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header.active .sa_el_accordion_icon_off{
+
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header.active .sa_el_accordion_icon_off {
     display: none;
 }
-.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header .sa_el_accordion_icon_off{
+
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header .sa_el_accordion_icon_off {
     display: block;
 }
-.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header .sa_el_accordion_icon_opened{
+
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header .sa_el_accordion_icon_opened {
     display: none;
 }
-.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header.active .sa_el_accordion_icon_opened{
+
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header.active .sa_el_accordion_icon_opened {
     display: block;
 }
 
 .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header .fa-toggle {
-      z-index: 10;
-    -webkit-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-}
-
-.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header.active .fa-toggle {
-    
     z-index: 10;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
 
-.fa-accordion-icon {
+.sa_el_accordion .sa_el_accordion_list .sa_el_accordion_header.active .fa-toggle {
+    z-index: 10;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.sa-fa-accordion-icon {
     display: inline-block;
     margin-right: 10px;
 }
 
 .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_content {
     display: none;
-    border: 1px solid #eee;
-    padding: 15px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    font-size: 1rem;
-    line-height: 1.7;
+    background: #ffffff;
+    font-size: 18px;
+    box-shadow: 1px 1px 15px 1px rgba(207, 207, 207, 1);
+    border-radius: 0px 0px 0px 0px;
+    padding: 15px 15px 15px 15px;
+    margin: 10px;
 }
 
 .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_content .sa_el_accordion_text_content {
@@ -90,7 +95,6 @@
 .sa_el_accordion .sa_el_accordion_list .sa_el_accordion_content.active {
     display: block;
 }
-
 
 @-webkit-keyframes fadeIn {
     0% {
