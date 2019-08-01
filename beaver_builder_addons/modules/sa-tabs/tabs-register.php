@@ -38,6 +38,23 @@ FLBuilder::register_module(
                                 'horizontal' => __('Horizontal', SA_FLBUILDER_TEXTDOMAIN),
                                 'vertical' => __('Vertical', SA_FLBUILDER_TEXTDOMAIN),
                             ),
+                            'toggle' => array(
+                                'vertical' => array(
+                                    'fields' => array('tab_width'),
+                                )
+                            )
+                        ),
+                        'tab_width'     => array(
+                            'type'        => 'unit',
+                            'label'       => __('Vartical Tab Width', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider'      => true,
+                            'units'       => array('%'),
+                            'maxlength'   => '3',
+                            'size'        => '6',
+                            'placeholder' => '1',
+                            'preview'     => array(
+                                'type' => 'refresh',
+                            ),
                         ),
                         'tab_icon' => array(
                             'type' => 'select',
@@ -509,7 +526,7 @@ FLBuilder::register_module(
                         'caret_color' => array(
                             'type'        => 'color',
                             'label'       => __('Caret Color', SA_FLBUILDER_TEXTDOMAIN),
-                            'default'     => 'ccc',
+                            'default'     => '000',
                             'show_reset'  => true,
                             'connections' => array('color'),
                             'show_alpha'  => true,

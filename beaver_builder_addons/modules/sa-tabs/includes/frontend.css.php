@@ -83,15 +83,21 @@ if ($settings->tab_title_active == 'enable') {
 // start coding for Icon style
 
 if ($settings->tab_icon == 'enable') {
-    if ($settings->icon_position['left']) {
+
+    if ($settings->icon_position == 'left') {
         SA_FLBUILDER_HELPER::sa_fl_general_style(array(
             'padding-right' => $settings->icon_gap ? $settings->icon_gap . 'px;' : '',
         ), '.fl-node-' . $id . ' .oxi__icon_image_main');
-    } elseif ($settings->icon_position['right']) {
+    } elseif ($settings->icon_position == 'right') {
         SA_FLBUILDER_HELPER::sa_fl_general_style(array(
             'padding-left' => $settings->icon_gap ? $settings->icon_gap . 'px;' : '',
         ), '.fl-node-' . $id . ' .oxi__icon_image_main');
-    } elseif ($settings->icon_position == 'stacked') { }
+    } elseif ($settings->icon_position == 'stacked') {
+        SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+            'display' => 'block',
+            'flex-row' => 'reverse',
+        ), '.fl-node-' . $id . ' .oxi__tab_ul .oxi__tab_li');
+    }
 }
 
 
@@ -122,10 +128,17 @@ if ($settings->desc_shadow != '') {
 ?>
 }
 <?php
-
-// start coding for caret styling
-
-if ($settings->caret == 'enable') {
+if ($settings->tab_layout == 'vertical') {
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'width' =>  $settings->tab_width ? $settings->tab_width . '%' : '50%',
+    ), '.fl-node-' . $id . ' .oxi__tab_nav_main');
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'display' => 'flex',
+        'display' => '-webkit-flex',
+    ), '.fl-node-' . $id . ' .oxi__addons_wrapper');
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'display' => 'block',
+    ), '.fl-node-' . $id . ' .oxi__tab_ul');
     if ($settings->caret_style == 'inside') {
         SA_FLBUILDER_HELPER::sa_fl_general_style(array(
             'bottom' => '0px',
@@ -146,20 +159,62 @@ if ($settings->caret == 'enable') {
 
     } else {
         SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-            'bottom' => $settings->caret_size ? '-' . $settings->caret_size . 'px' : '-10px',
+            'left' => 'auto',
+            'right' => $settings->caret_size ? '-' . $settings->caret_size . 'px' : '-10px',
             'border-left' => $settings->caret_size ? $settings->caret_size . 'px' : '10px',
             'border-left-style' => 'solid',
-            'border-right' => $settings->caret_size ? $settings->caret_size . 'px' : '10px',
-            'border-right-style' => 'solid',
+            'border-right' => '0px',
             'border-top' => $settings->caret_size ? $settings->caret_size . 'px' : '10px',
             'border-top-style' => 'solid',
-            'border-top-color' => $settings->caret_color ? $settings->caret_color : '#000',
+            'border-bottom' => $settings->caret_size ? $settings->caret_size . 'px' : '10px',
+            'border-bottom-style' => 'solid',
+            'border-left-color' => $settings->caret_color ? $settings->caret_color : '#000',
         ), '.fl-node-' . $id . ' .oxi__tab_ul .oxi__tab_li.active::after');
         ?>
         .fl-node-<?php echo $id; ?> .oxi__tab_ul .oxi__tab_li.active::after{
-        border-right-color: transparent !important;
-        border-left-color: transparent !important;
+        border-top-color: transparent !important;
+        border-bottom-color: transparent !important;
         }
     <?php
+    }
+} else {
+    // start coding for caret styling
+    if ($settings->caret == 'enable') {
+        if ($settings->caret_style == 'inside') {
+            SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+                'bottom' => '0px',
+                'border-left' => $settings->caret_size ? $settings->caret_size . 'px' : '10px',
+                'border-left-style' => 'solid',
+                'border-right' => $settings->caret_size ? $settings->caret_size . 'px' : '10px',
+                'border-right-style' => 'solid',
+                'border-bottom' => $settings->caret_size ? $settings->caret_size . 'px' : '10px',
+                'border-bottom-style' => 'solid',
+                'border-bottom-color' => $settings->caret_color ? $settings->caret_color : '#fff',
+            ), '.fl-node-' . $id . ' .oxi__tab_ul .oxi__tab_li.active::after');
+            ?>
+            .fl-node-<?php echo $id; ?> .oxi__tab_ul .oxi__tab_li.active::after{
+            border-right-color: transparent !important;
+            border-left-color: transparent !important;
+            }
+        <?php
+
+        } else {
+            SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+                'bottom' => $settings->caret_size ? '-' . $settings->caret_size . 'px' : '-10px',
+                'border-left' => $settings->caret_size ? $settings->caret_size . 'px' : '10px',
+                'border-left-style' => 'solid',
+                'border-right' => $settings->caret_size ? $settings->caret_size . 'px' : '10px',
+                'border-right-style' => 'solid',
+                'border-top' => $settings->caret_size ? $settings->caret_size . 'px' : '10px',
+                'border-top-style' => 'solid',
+                'border-top-color' => $settings->caret_color ? $settings->caret_color : '#000',
+            ), '.fl-node-' . $id . ' .oxi__tab_ul .oxi__tab_li.active::after');
+            ?>
+            .fl-node-<?php echo $id; ?> .oxi__tab_ul .oxi__tab_li.active::after{
+            border-right-color: transparent !important;
+            border-left-color: transparent !important;
+            }
+        <?php
+        }
     }
 }
