@@ -42,7 +42,7 @@ label.oxi-addons-switcher-label:after {
 }
 
 input.oxi-addons-switcher-btn:checked + label.oxi-addons-switcher-label {
-    background: rgba(251, 83, 59, 0.9);;
+    background: rgba(50, 222, 212, 1);
 }
 
 input.oxi-addons-switcher-btn:checked + label.oxi-addons-switcher-label:after {
@@ -55,6 +55,7 @@ label:active:after {
 }
 
 .oxi-sa-cards{
+    position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -70,13 +71,33 @@ label:active:after {
     box-shadow: 0px 1px 10px 0px rgba(0, 4, 32, 0.08);
     transition: all 0.33s;
     font-family: "Source Sans Pro";
+    overflow: hidden;
 }
 .oxi-sa-cards:hover{
     box-shadow: 0px 4px 20px 0px rgba(0, 4, 32, 0.08);
     background-color: rgba(241, 241, 241, 0.28);
 }
+.oxi-sa-cards .pro-label{
+    font-size: 10px;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    position: absolute;
+    top: 6px;
+    left: -25px;
+    width: 80px;
+    padding: 8px;
+    background: rgba(251, 83, 59, 0.9);
+    box-shadow: 0px 3px 7px 0px rgba(0, 5, 41, 0.1);
+    color: #fff;
+}
 .oxi-sa-cards .oxi-sa-cards-h1{
     width: calc(100% - 50px);
+    padding-left: 10px;
 }
 .oxi-sa-cards .oxi-sa-cards-switcher{
     width: 50px;

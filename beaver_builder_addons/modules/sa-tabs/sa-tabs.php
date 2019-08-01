@@ -9,8 +9,8 @@ class Tabs extends FLBuilderModule
             'description' => __('A totally shortcode addons element', SA_FLBUILDER_TEXTDOMAIN),
             'group' => __('Shortcode Addons', SA_FLBUILDER_TEXTDOMAIN),
             'category' => __('Content Elements', SA_FLBUILDER_TEXTDOMAIN),
-            'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/tabs',
-            'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/tabs',
+            'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-tabs',
+            'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-tabs',
             'icon' => 'tabs.svg',
             'editor_export' => true,
             'enabled'       => true,
@@ -18,4 +18,4 @@ class Tabs extends FLBuilderModule
     }
 }
 
-require_once FL_MODULE_SA_FLBUILDER_URL . 'modules/tabs/tabs-register.php';
+require_once FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-tabs/tabs-register.php';

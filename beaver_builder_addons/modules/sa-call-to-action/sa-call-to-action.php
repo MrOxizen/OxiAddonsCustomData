@@ -1,18 +1,18 @@
 <?php
 
-class info_table extends FLBuilderModule
+class SA_Call_to_Action extends FLBuilderModule
 {
 
     public function __construct()
     {
         parent::__construct(array(
-            'name' => __('Info Table', SA_FLBUILDER_TEXTDOMAIN),
+            'name' => __('Call To Action', SA_FLBUILDER_TEXTDOMAIN),
             'description' => __('A totally shortcode addons element', SA_FLBUILDER_TEXTDOMAIN),
             'group' => __('Shortcode Addons', SA_FLBUILDER_TEXTDOMAIN),
             'category' => __('Content Elements', SA_FLBUILDER_TEXTDOMAIN),
-            'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/info-table',
-            'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/info-table',
-            'icon' => 'info.svg',
+            'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-call-to-action',
+            'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-call-to-action',
+            'icon' => 'info-boxes.svg',
         ));
 
         //        /* Use these methods to enqueue css and js already
@@ -27,4 +27,4 @@ class info_table extends FLBuilderModule
     }
 }
 
-require_once FL_MODULE_SA_FLBUILDER_URL . 'modules/info-table/info-table-register.php';
+require_once FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-call-to-action/call-to-action-register.php';
