@@ -15,6 +15,7 @@ defined('ABSPATH') || die();
 
 class Icon_Box extends Widget_Base
 {
+    use \SA_ELEMENTOR_ADDONS\Helper\Public_Helper;
 
     public function get_name()
     {
@@ -68,15 +69,14 @@ class Icon_Box extends Widget_Base
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
-        $icon = (version_compare(ELEMENTOR_VERSION, '2.6', '>=') ? Controls_Manager::ICONS : Controls_Manager::ICON);
-        $icondefault = (version_compare(ELEMENTOR_VERSION, '2.6', '>=') ? ['value' => 'fas fa-balance-scale', 'library' => 'fa-solid',] : 'fa fa-balance-scale');
+        
         $this->add_control(
             'icon',
             [
                 'show_label' => false,
-                'type' => $icon,
+                'type' => $this->Sa_El_Icon_Type(),
                 'label_block' => true,
-                'default' => $icondefault,
+                'default' => $this->Sa_El_Default_Icon('fas fa-balance-scale', 'fa-solid', 'fa fa-balance-scale'),
                 'separator' => 'before',
             ]
         );
@@ -721,13 +721,10 @@ class Icon_Box extends Widget_Base
         <?php if ($settings['icon']) : ?>
             <span class="sa-el-icon-box-icon">
             <?php
-				if ( version_compare(ELEMENTOR_VERSION, '2.6', '>=') ) {
-					Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] );
-				} else {
-					?><i aria-hidden='true' class="<?php echo esc_attr($settings['icon']); ?>"></i><?php
-				}
+
+                $this->Sa_El_Icon_Render($settings['icon']);
+				
 				?>
-               <!-- <?php //Icons_Manager::render_icon($settings['icon']); ?> -->
             </span>
         <?php endif; ?>
 
@@ -742,25 +739,4 @@ class Icon_Box extends Widget_Base
         endif;
     }
 
-    /*public function _content_template()
-    {
-        ?>
-        <# view.addInlineEditingAttributes( 'title' , 'none' ); view.addRenderAttribute( 'title' , 'class' , 'sa-el-icon-box-title' ); view.addInlineEditingAttributes( 'badge_text' , 'none' ); view.addRenderAttribute( 'badge_text' , 'class' , 'sa-el-badge sa-el-badge--top-right' ); if (settings.link.url) { view.addRenderAttribute( 'link' , 'class' , 'sa-el-icon-box-link' ); view.addRenderAttribute( 'link' , 'href' , settings.link.url ); print( '<a ' + view.getRenderAttributeString( 'link' ) + '>' ); } #>
-
-            <# if (settings.badge_text) { #>
-                <span {{{ view.getRenderAttributeString( 'badge_text' ) }}}>{{ settings.badge_text }}</span>
-                <# } #>
-
-                    <# if (settings.icon) { #>
-                        <span class="sa-el-icon-box-icon">
-                            <i class="{{ settings.icon }}"></i>
-                        </span>
-                        <# } #>
-                            <# if (settings.title) { #>
-                                <{{ settings.title_tag }} {{{ view.getRenderAttributeString( 'title' ) }}}>{{ settings.title }}</{{ settings.title_tag }}>
-                                <# } #>
-
-                                    <# if (settings.link.url) { print( '</a>' ); } #>
-                                    <?php
-    }*/
 }
