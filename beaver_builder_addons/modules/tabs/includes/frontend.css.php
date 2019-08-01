@@ -126,12 +126,40 @@ if ($settings->desc_shadow != '') {
 // start coding for caret styling
 
 if ($settings->caret == 'enable') {
-    if ($settings->caret_style == 'outside') {
+    if ($settings->caret_style == 'inside') {
         SA_FLBUILDER_HELPER::sa_fl_general_style(array(
             'bottom' => '0px',
-            'border-left' => $settings->caret_size ? $settings->caret_size : '10' . 'px solid transparent',
-            'border-right' => $settings->caret_size ? $settings->caret_size : '10' . 'px solid transparent',
-            'border-bottom' => $settings->caret_size ? $settings->caret_size : '10' . 'px solid' . $settings->caret_color,
-        ), '.fl-node-' . $id . ' .oxi__tab_ul .oxi__tab_li::after');
-    } else { }
+            'border-left' => $settings->caret_size ? $settings->caret_size . 'px' : '10px',
+            'border-left-style' => 'solid',
+            'border-right' => $settings->caret_size ? $settings->caret_size . 'px' : '10px',
+            'border-right-style' => 'solid',
+            'border-bottom' => $settings->caret_size ? $settings->caret_size . 'px' : '10px',
+            'border-bottom-style' => 'solid',
+            'border-bottom-color' => $settings->caret_color ? $settings->caret_color : '#fff',
+        ), '.fl-node-' . $id . ' .oxi__tab_ul .oxi__tab_li.active::after');
+        ?>
+        .fl-node-<?php echo $id; ?> .oxi__tab_ul .oxi__tab_li.active::after{
+        border-right-color: transparent !important;
+        border-left-color: transparent !important;
+        }
+    <?php
+
+    } else {
+        SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+            'bottom' => $settings->caret_size ? '-' . $settings->caret_size . 'px' : '-10px',
+            'border-left' => $settings->caret_size ? $settings->caret_size . 'px' : '10px',
+            'border-left-style' => 'solid',
+            'border-right' => $settings->caret_size ? $settings->caret_size . 'px' : '10px',
+            'border-right-style' => 'solid',
+            'border-top' => $settings->caret_size ? $settings->caret_size . 'px' : '10px',
+            'border-top-style' => 'solid',
+            'border-top-color' => $settings->caret_color ? $settings->caret_color : '#000',
+        ), '.fl-node-' . $id . ' .oxi__tab_ul .oxi__tab_li.active::after');
+        ?>
+        .fl-node-<?php echo $id; ?> .oxi__tab_ul .oxi__tab_li.active::after{
+        border-right-color: transparent !important;
+        border-left-color: transparent !important;
+        }
+    <?php
+    }
 }
