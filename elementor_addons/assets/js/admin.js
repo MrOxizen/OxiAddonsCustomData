@@ -83,9 +83,9 @@ jQuery(document).ready(function ($) {
                 }
         );
     });
-    $(".oxi-sa-cards-switcher-disabled").each(function (i) {
-        $(this).prop("checked", true).change();
-    });
+//    $(".oxi-sa-cards-switcher-disabled").each(function (i) {
+//        $(this).prop("checked", true).change();
+//    });
 
 
 
