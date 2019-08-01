@@ -13,7 +13,7 @@ use \Elementor\Group_Control_Typography;
 use \Elementor\Scheme_Typography;
 
 use \Elementor\Widget_Base as Widget_Base;
-use \SA_ELEMENTOR_ADDONS\Classes\Sa_Foreground_Control;
+use \SA_ELEMENTOR_ADDONS\Classes\Sa_Foreground_Control as Sa_Foreground_Control;
 
 class Gradient_Heading extends Widget_Base {
     public function get_name() {

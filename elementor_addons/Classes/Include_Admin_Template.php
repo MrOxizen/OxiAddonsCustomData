@@ -174,6 +174,9 @@ trait Include_Admin_Template {
 
                                         <?php
                                         $settings = $this->Get_Active_Elements();
+                                        echo '<pre>';
+                                        print_r($registered_element);
+                                        echo '</pre>';
                                         foreach ($registered_element as $key => $value) {
                                             if ($key != 'Extension') {
                                                 echo '<div class="oxi-sa-cards-wrapper">';
@@ -184,6 +187,7 @@ trait Include_Admin_Template {
                                                                 <div class="oxi-sa-cards">
                                                                     <div class="oxi-sa-cards-h1">
                                                                         ' . oxi_addons_shortcode_name_converter($elements['name']) . '
+                                                                        ' . (($elements['name'] == TRUE && apply_filters('sa-addons-pro-sa-addons', '') == FALSE) ? '<sup class="pro-label">Pro</sup>' : "") . '
                                                                     </div>
                                                                     <div class="oxi-sa-cards-switcher">
                                                                         <input type="checkbox" class="oxi-addons-switcher-btn" sa-elmentor="' . $elements['name'] . '" id="' . $elements['name'] . '" name="' . $elements['name'] . '" ' . (array_key_exists($elements['name'], $settings) ? 'checked="checked"' : '') . '>
