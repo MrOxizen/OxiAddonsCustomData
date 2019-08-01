@@ -11,11 +11,11 @@ class Tabs extends FLBuilderModule
             'category' => __('Content Elements', SA_FLBUILDER_TEXTDOMAIN),
             'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/tabs',
             'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/tabs',
-            'icon' => 'tabs.svg',
+            'icon' => 'tab.svg',
             'editor_export' => true,
             'enabled'       => true,
         ));
     }
 }
 
-require_once FL_MODULE_SA_FLBUILDER_URL . 'modules/tabs/tabs-register.php';
+require_once FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-tabs/tabs-register.php';

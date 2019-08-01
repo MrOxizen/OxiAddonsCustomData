@@ -46,7 +46,7 @@ class Bootstrap
         require_once FL_MODULE_SA_FLBUILDER_URL . 'Classes/Helper.php';
         $active = $this->active_elements;
         foreach ($active as $key => $value) {
-            require_once FL_MODULE_SA_FLBUILDER_URL . 'modules/' . $key . '/' . $key . '.php';
+            require_once FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-' . $key . '/sa-' . $key . '.php';
         }
     }
 }
