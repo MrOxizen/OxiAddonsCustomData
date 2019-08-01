@@ -45,7 +45,7 @@ trait Public_Helper {
                 ],
                 'category' => 'Content Elements',
                 'Premium' => FALSE,
-                'condition' => 'wp-forms',
+                'condition' => '',
                 'API' => ''
             ],
             'button' => [
@@ -200,7 +200,7 @@ trait Public_Helper {
                     ],
                 ],
                 'category' => 'Content Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -247,7 +247,7 @@ trait Public_Helper {
                     ]
                 ],
                 'category' => 'Creative Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -292,7 +292,7 @@ trait Public_Helper {
                     ]
                 ],
                 'category' => 'Content Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -309,7 +309,7 @@ trait Public_Helper {
                     ],
                 ],
                 'category' => 'Creative Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -321,7 +321,7 @@ trait Public_Helper {
                     ],
                 ],
                 'category' => 'Creative Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -382,7 +382,7 @@ trait Public_Helper {
                     ],
                 ],
                 'category' => 'Content Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -411,7 +411,7 @@ trait Public_Helper {
                     ],
                 ],
                 'category' => 'Marketing Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -428,7 +428,7 @@ trait Public_Helper {
                     ],
                 ],
                 'category' => 'Creative Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -440,7 +440,7 @@ trait Public_Helper {
                     ],
                 ],
                 'category' => 'Creative Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -453,7 +453,7 @@ trait Public_Helper {
                     ],
                 ],
                 'category' => 'Content Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -480,7 +480,7 @@ trait Public_Helper {
                     ]
                 ],
                 'category' => 'Content Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -507,7 +507,7 @@ trait Public_Helper {
                     ]
                 ],
                 'category' => 'Content Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -522,7 +522,7 @@ trait Public_Helper {
                     ],
                 ],
                 'category' => 'Content Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -534,7 +534,7 @@ trait Public_Helper {
                     ],
                 ],
                 'category' => 'Content Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -592,19 +592,7 @@ trait Public_Helper {
                     ],
                 ],
                 'category' => 'Extension',
-                'Premium' => TRUE,
-                'condition' => '',
-                'API' => ''
-            ],
-             'video' => [
-                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Video\Video',
-                'dependency' => [
-                    'css' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Video/assets/index.min.css',
-                    ]
-                ],
-                'category' => 'Creative Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -640,19 +628,7 @@ trait Public_Helper {
                     ]
                 ],
                 'category' => 'Content Elements',
-                'Premium' => TRUE,
-                'condition' => '',
-                'API' => ''
-            ],
-            'icon_box' => [
-                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Icon_Box\Icon_Box',
-                'dependency' => [
-                    'css' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Icon_Box/assets/index.min.css',
-                    ]
-                ],
-                'category' => 'Content Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -664,7 +640,7 @@ trait Public_Helper {
                     ]
                 ],
                 'category' => 'Content Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -759,7 +735,6 @@ trait Public_Helper {
         wp_enqueue_style(SA_ELEMENTOR_TEXTDOMAIN . '-before', content_url('uploads/OxiAddonsCustomData/elementor_addons/' . $css_file));
         wp_enqueue_script(SA_ELEMENTOR_TEXTDOMAIN . '-before', content_url('uploads/OxiAddonsCustomData/elementor_addons/' . $js_file), ['jquery']);
     }
-
     /**
      * Get all elementor page templates
      *
