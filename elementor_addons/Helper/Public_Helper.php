@@ -44,7 +44,7 @@ trait Public_Helper {
                     ],
                 ],
                 'category' => 'Content Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => 'wp-forms',
                 'API' => ''
             ],
@@ -56,7 +56,7 @@ trait Public_Helper {
                     ],
                 ],
                 'category' => 'Content Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -68,7 +68,7 @@ trait Public_Helper {
                     ],
                 ],
                 'category' => 'Marketing Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
