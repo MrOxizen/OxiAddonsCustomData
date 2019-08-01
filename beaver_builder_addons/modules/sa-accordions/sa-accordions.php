@@ -18,8 +18,8 @@ class OxiAccordionsModule extends FLBuilderModule
                 'description' => __('Accordions', SA_FLBUILDER_TEXTDOMAIN),
                 'group' => 'Shortcode Addons',
                 'category' => 'Content Elements',
-                'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/accordions',
-                'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/accordions',
+                'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-accordions',
+                'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-accordions',
                 'editor_export' => true, // Defaults to true and can be omitted.
                 'enabled' => true, // Defaults to true and can be omitted.
                 'icon' => '',

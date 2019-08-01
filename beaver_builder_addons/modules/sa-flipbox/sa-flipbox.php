@@ -18,8 +18,8 @@ class OxiFlipBoxModule extends FLBuilderModule
                 'description' => __('Flip Box', SA_FLBUILDER_TEXTDOMAIN),
                 'group' => 'Shortcode Addons',
                 'category' => 'Content Elements',
-                'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/flipbox',
-                'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/flipbox',
+                'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-flipbox',
+                'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-flipbox',
                 'editor_export' => true, // Defaults to true and can be omitted.
                 'enabled' => true, // Defaults to true and can be omitted.
                 'icon' => '',

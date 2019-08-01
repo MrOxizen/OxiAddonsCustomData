@@ -10,8 +10,8 @@ class info_table extends FLBuilderModule
             'description' => __('A totally shortcode addons element', SA_FLBUILDER_TEXTDOMAIN),
             'group' => __('Shortcode Addons', SA_FLBUILDER_TEXTDOMAIN),
             'category' => __('Content Elements', SA_FLBUILDER_TEXTDOMAIN),
-            'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/info-table',
-            'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/info-table',
+            'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-info-table',
+            'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-info-table',
             'icon' => 'info.svg',
         ));
 
