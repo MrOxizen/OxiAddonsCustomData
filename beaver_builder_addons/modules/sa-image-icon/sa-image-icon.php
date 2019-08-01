@@ -18,8 +18,8 @@ class OxiImageIconModule extends FLBuilderModule
                 'description' => __('Image Icon', SA_FLBUILDER_TEXTDOMAIN),
                 'group' => 'Shortcode Addons',
                 'category' => 'Content Elements',
-                'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/image-icon',
-                'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/image-icon',
+                'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-image-icon',
+                'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-image-icon',
                 'editor_export' => true, // Defaults to true and can be omitted.
                 'enabled' => true, // Defaults to true and can be omitted.
                 'icon' => '',

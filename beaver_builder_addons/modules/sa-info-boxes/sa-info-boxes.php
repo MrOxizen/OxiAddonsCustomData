@@ -10,8 +10,8 @@ class info_boxes extends FLBuilderModule
             'description' => __('A totally shortcode addons element', SA_FLBUILDER_TEXTDOMAIN),
             'group' => __('Shortcode Addons', SA_FLBUILDER_TEXTDOMAIN),
             'category' => __('Content Elements', SA_FLBUILDER_TEXTDOMAIN),
-            'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/info-boxes',
-            'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/info-boxes',
+            'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-info-boxes',
+            'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-info-boxes',
             'icon' => 'info-boxes.svg',
         ));
 

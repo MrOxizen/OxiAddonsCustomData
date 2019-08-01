@@ -10,8 +10,8 @@ class SA_Call_to_Action extends FLBuilderModule
             'description' => __('A totally shortcode addons element', SA_FLBUILDER_TEXTDOMAIN),
             'group' => __('Shortcode Addons', SA_FLBUILDER_TEXTDOMAIN),
             'category' => __('Content Elements', SA_FLBUILDER_TEXTDOMAIN),
-            'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/call-to-action',
-            'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/call-to-action',
+            'dir' => FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-call-to-action',
+            'url' => FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-call-to-action',
             'icon' => 'info-boxes.svg',
         ));
 
