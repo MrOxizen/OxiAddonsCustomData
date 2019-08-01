@@ -1,5 +1,4 @@
 jQuery(document).ready(function ($) {
-    var form_sa_el_data = $("form#sa-el-settings").serialize();
     $('.oxi-addons-switcher-btn').on('change', function (e) {
         $('.sa-el-header-right .sa-el-settings-save').removeAttr("disabled").removeAttr("sa-el-change").css('cursor', 'pointer').html('Save Settings');
         ;
@@ -83,10 +82,17 @@ jQuery(document).ready(function ($) {
                 }
         );
     });
-//    $(".oxi-sa-cards-switcher-disabled").each(function (i) {
-//        $(this).prop("checked", true).change();
-//    });
-
+    $(".oxi-sa-cards-switcher-disabled").each(function (i) {
+        $(this).children('input').attr("disabled", "disabled");
+    });
+    $(".oxi-sa-cards-switcher-disabled").on('click', function (e) {
+        e.preventDefault();
+        $('#OXIAADDONSCHANGEDPOPUP .icon-box').html('<span class="dashicons dashicons-shield-alt"></span>');
+        $('#OXIAADDONSCHANGEDPOPUP .modal-body.text-center h4').html('Go Premium');
+        $('#OXIAADDONSCHANGEDPOPUP .modal-body.text-center p').html('Purchase our <a href="https://www.oxilab.org/downloads/short-code-addons/" target="_blank">premium version</a> to unlock these pro components!');
+        $('#OXIAADDONSCHANGEDPOPUP').modal('show');
+        OXIAADDONSCHANGEDPOPUP();
+    });
 
 
     $('.sa-el-btn-group .sa-el-btn-control-disable').on('click', function (e) {

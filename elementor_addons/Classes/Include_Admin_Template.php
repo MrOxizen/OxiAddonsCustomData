@@ -257,11 +257,8 @@ trait Include_Admin_Template {
                 </form>
             </div>
         </div>
-
-
-
         <div id="OXIAADDONSCHANGEDPOPUP" class="modal fade">
-            <div class="modal-dialog modal-confirm">
+            <div class="modal-dialog modal-confirm  bounceIn ">
                 <div class="modal-content">
                     <div class="modal-header">
                         <div class="icon-box">
@@ -275,13 +272,6 @@ trait Include_Admin_Template {
                 </div>
             </div>
         </div>  
-
-
-
-
-
-
-
         <?php
     }
 
