@@ -13,11 +13,11 @@ SA_FLBUILDER_HELPER::sa_fl_general_style(array(
 
 SA_FLBUILDER_HELPER::sa_fl_dimension_utility('heading', $settings, 'padding', '.fl-node-' . $id . '  .oxi__addons_header', 'px');
 // Typography Description 
-SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'description_font_typo', '.fl-node-' . $id . ' .oxi__addons_details p');
+SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'description_font_typo', '.fl-node-' . $id . ' .oxi__addons_details *');
 SA_FLBUILDER_HELPER::sa_fl_general_style(array(
     'color' => $settings->description_color,
-), '.fl-node-' . $id . ' .oxi__addons_details p');
-SA_FLBUILDER_HELPER::sa_fl_dimension_utility('dsc', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_details p', 'px');
+), '.fl-node-' . $id . ' .oxi__addons_details *');
+SA_FLBUILDER_HELPER::sa_fl_dimension_utility('dsc', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_details *', 'px');
 
 
 

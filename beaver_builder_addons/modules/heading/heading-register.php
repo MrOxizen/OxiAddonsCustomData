@@ -17,7 +17,7 @@ FLBuilder::register_module(
                         'heading' => array(
                             'type'        => 'text',
                             'label'       => __('Heading', SA_FLBUILDER_TEXTDOMAIN),
-                            'default'     => __('Lorem Ipsum Dummy Text', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'     => __('Heading text here', SA_FLBUILDER_TEXTDOMAIN),
                             'preview'     => array(
                                 'type'     => 'text',
                                 'selector' => '.oxi__addons_header',
@@ -43,7 +43,7 @@ FLBuilder::register_module(
                             'type'        => 'editor',
                             'label'       => '',
                             'rows'        => 7,
-                            'default'     => '',
+                            'default'     => 'Lorem Ipsum is simply dummy text',
                             'connections' => array('string', 'html'),
                         ),
                     ),
@@ -59,7 +59,7 @@ FLBuilder::register_module(
                         'separator_style'    => array(
                             'type'    => 'select',
                             'label'   => __('Separator Style', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => 'none',
+                            'default' => 'line',
                             'options' => array(
                                 'none'       => __('None', SA_FLBUILDER_TEXTDOMAIN),
                                 'line'       => __('Line', SA_FLBUILDER_TEXTDOMAIN),

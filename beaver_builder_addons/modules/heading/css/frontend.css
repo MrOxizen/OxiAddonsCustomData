@@ -28,15 +28,17 @@ a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, d
 .oxi__addons_heading_wrapper .oxi__addons_header{ 
      padding: 0px;
      margin: 0px;
+     text-align: center;
 } 
 h1, h2, h3, h4, h5, h6{
      margin: 0;
      padding: 0;
-}
-.oxi__addons_heading_wrapper .oxi__line_text ,
-.oxi__addons_heading_wrapper .oxi__addons_details p{
+} 
+.oxi__addons_heading_wrapper .oxi__addons_details,
+.oxi__addons_heading_wrapper .oxi__addons_details *{
      margin: 0;
      padding: 0;
+     text-align: center;
 }
 .oxi__addons_heading_wrapper .oxi__addons_line_divider {
      display: table;

@@ -64,15 +64,16 @@ a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, d
 	align-items: center;
 	text-align: center;
 	-webkit-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;
-	background-color: rgb(204, 201, 201);
+	transition: all 0.3s ease;
+	background-color: rgb(219, 219, 219);
 } 
 .oxi__tab_wraper_main .oxi__tab_li:hover {
-	background-color: #333;
+	background-color: rgb(206, 206, 206);
+	color: rgb(68, 68, 68);
 } 
 
 .oxi__tab_wraper_main .oxi__tab_li.active {
-      background: red;
+     background-color: #333;
       color: #fff;
 } 
 .oxi__tab_wraper_main .oxi__tab_content_main {
@@ -85,16 +86,30 @@ a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, d
 	-ms-flex: 1 1 auto;
 	flex: 1 1 auto;
 }    
-.oxi__tab_wraper_main .oxi__tab_content_main .oxi__tab_content{
+.oxi__tab_wraper_main .oxi__tab_content_main .oxi__tab_content {
 	display: none;
 	width: 100%; 
 	opacity: 0;
 	-webkit-animation: fadeIn linear 0.3s;
 	animation: fadeIn linear 0.3s;
+	padding: 15px 10px 10px 10px;
+} 
+.oxi__tab_wraper_main .oxi__tab_content_main .oxi__tab_content,
+.oxi__tab_wraper_main .oxi__tab_content_main .oxi__tab_content *{
+	font-size: 16px;
+	color: #666;
+	text-align: center;
+} 
+.oxi__tab_wraper_main .oxi__addons_wrapper{
+	border: 1px solid #d5d5d5;
+	box-shadow: 0px 2px 4px 0px #dcdcdc;
 } 
 .oxi__tab_wraper_main .oxi__tab_content_main .oxi__tab_content.active{
 	display: block; 
 	opacity: 1; 
+} 
+.oxi__tab_wraper_main .oxi__icon_image_main{
+	padding-right: 5px;
 } 
 /***
 start coding for image styleing
@@ -103,4 +118,9 @@ start coding for image styleing
 	width: 50px;
 	height: 50px;
 } 
+.oxi__tab_wraper_main .oxi__tab_ul .oxi__tab_li::after {
+	content: "";
+	position: absolute; 
+	transform: translateX(-50%); 
+}
  

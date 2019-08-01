@@ -11,6 +11,8 @@ if (!defined('ABSPATH')) {
  * and open the template in the editor.
  */
 use SA_ELEMENTOR_ADDONS\Classes\Sa_Foreground_Control;
+use Elementor\Icons_Manager;
+use \Elementor\Controls_Manager as Controls_Manager;
 /**
  * Description of Public_Helper
  *
@@ -654,14 +656,30 @@ trait Public_Helper {
                 'condition' => '',
                 'API' => ''
             ],
-            'number_widget' => [
-                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Number_Widget\Number_Widget',
+            'number' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Number\Number',
                 'dependency' => [
                     'css' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Number_Widget/assets/index.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Number/assets/index.min.css',
                     ]
                 ],
                 'category' => 'Content Elements',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
+             'data_table' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Elements\Data_Table\Data_Table',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Data_Table/assets/index.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/table-sorter/js/jquery.tablesorter.min.js',
+                    ],
+                    'js' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Data_Table/assets/index.min.js',
+                    ],
+                ],
+                'category' => 'Dynamic Contents',
                 'Premium' => TRUE,
                 'condition' => '',
                 'API' => ''
@@ -892,6 +910,27 @@ trait Public_Helper {
             ?>
         </ul>
         <?php
+    }
+
+    // Elementor icon libray type
+    public function Sa_El_Icon_Type()
+    {
+        return (version_compare(ELEMENTOR_VERSION, '2.6', '>=') ? Controls_Manager::ICONS : Controls_Manager::ICON);
+    }
+    // Default icon class fa5 and fa4
+    public function Sa_El_Default_Icon($FA5_Class, $libray, $FA4_Class)
+    {
+        return (version_compare(ELEMENTOR_VERSION, '2.6', '>=') ? ['value' => $FA5_Class, 'library' => $libray,] : $FA4_Class);
+
+    }
+    // #Elementor icon render
+    public function Sa_El_Icon_Render($settings)
+    {
+        if ( version_compare(ELEMENTOR_VERSION, '2.6', '>=') ) {
+            Icons_Manager::render_icon( $settings, [ 'aria-hidden' => 'true' ] );
+        } else {
+            ?><i aria-hidden='true' class="<?php echo esc_attr($settings); ?>"></i><?php
+        }
     }
 
 }
