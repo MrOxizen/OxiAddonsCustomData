@@ -83,7 +83,7 @@ trait Public_Helper {
                     ],
                 ],
                 'category' => 'Content Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -95,7 +95,7 @@ trait Public_Helper {
                     ]
                 ],
                 'category' => 'Creative Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -113,7 +113,7 @@ trait Public_Helper {
                     ],
                 ],
                 'category' => 'Creative Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -129,7 +129,7 @@ trait Public_Helper {
                     ],
                 ],
                 'category' => 'Creative Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -157,7 +157,7 @@ trait Public_Helper {
                     ]
                 ],
                 'category' => 'Content Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],

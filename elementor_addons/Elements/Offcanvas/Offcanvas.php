@@ -356,7 +356,7 @@ class Offcanvas extends Widget_Base {
             'name' => 'offcanvas_bar_bg',
             'label' => __('Background', SA_ELEMENTOR_TEXTDOMAIN),
             'types' => ['classic', 'gradient'],
-            'selector' => '.sa-el-offcanvas-content-{{ID}}',
+            'selector' => '.sa-el-offcanvas-content.sa-el-offcanvas-content-{{ID}}',
                 ]
         );
 
@@ -366,7 +366,7 @@ class Offcanvas extends Widget_Base {
             'label' => __('Border', SA_ELEMENTOR_TEXTDOMAIN),
             'placeholder' => '1px',
             'default' => '1px',
-            'selector' => '.sa-el-offcanvas-content-{{ID}}',
+            'selector' => '.sa-el-offcanvas-content.sa-el-offcanvas-content-{{ID}}',
                 ]
         );
 
@@ -795,7 +795,7 @@ class Offcanvas extends Widget_Base {
                 'button_bg_color_normal', [
             'label' => __('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
-            'default' => '',
+            'default' => '#f20089',
             'selectors' => [
                 '{{WRAPPER}} .sa-el-offcanvas-toggle' => 'background-color: {{VALUE}}',
             ],
@@ -806,7 +806,7 @@ class Offcanvas extends Widget_Base {
                 'button_text_color_normal', [
             'label' => __('Text Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
-            'default' => '',
+            'default' => '#ffffff',
             'selectors' => [
                 '{{WRAPPER}} .sa-el-offcanvas-toggle' => 'color: {{VALUE}}',
             ],
