@@ -18,4 +18,4 @@ class Tabs extends FLBuilderModule
     }
 }
 
-require_once FL_MODULE_SA_FLBUILDER_URL . 'modules/tabs/tabs-register.php';
+require_once FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-tabs/tabs-register.php';
