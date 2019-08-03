@@ -26,6 +26,9 @@ trait Template
                 'call-to-action',
                 'tabs',
                 'accordions',
+                'text-blocks',
+                'footer-info',
+                'icon-effects',
             ),
         );
         ?>

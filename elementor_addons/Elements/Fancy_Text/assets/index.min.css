@@ -4,6 +4,11 @@
 /* 03. Fancy Text Style
 /*--------------------------*/
 
+.sa_el_fancy_text_container {
+    background: #F15540;
+    color: #fff;
+}
+
 .sa_el_fancy_text_container p {
     margin: 0;
 }
@@ -18,7 +23,7 @@
     display: inline-block;
 }
 
-.typed_cursor {
+.typed-cursor {
     opacity: 1;
     -webkit-animation: blink_cursor 0.7s infinite;
     animation: blink_cursor 0.7s infinite;
@@ -56,7 +61,7 @@
 }
 
 .sa_el_fancy_text_container.style-2 .sa_el_fancy_text_strings {
-    background: #ff5544;
-    color: #fff;
-    padding: 10px 25px;
+    background: #fff;
+    color: #ff5544;
+    padding: 5px 5px;
 }

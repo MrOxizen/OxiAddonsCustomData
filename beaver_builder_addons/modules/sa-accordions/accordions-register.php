@@ -21,13 +21,14 @@ FLBuilder::register_settings_form(
                         'icon' => array(
                             'type' => 'icon',
                             'label' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => 'ua-icon ua-icon-cog',
+                            'default' => 'fas fa-minus',
                             'show_remove' => true,
                         ),
                         'icon_size' => array(
                             'type' => 'unit',
                             'label' => __('Size', SA_FLBUILDER_TEXTDOMAIN),
                             'placeholder' => '30',
+                            'default' => '20',
                             'maxlength' => '5',
                             'size' => '6',
                             'slider' => true,
@@ -46,6 +47,7 @@ FLBuilder::register_settings_form(
                             'label' => __('Background Size', SA_FLBUILDER_TEXTDOMAIN),
                             'help' => 'Spacing between Icon & Background edge',
                             'placeholder' => '30',
+                            'default' => '30',
                             'maxlength' => '3',
                             'size' => '6',
                             'slider' => true,
@@ -85,6 +87,7 @@ FLBuilder::register_settings_form(
                             'slider' => true,
                             'units' => array('px'),
                             'maxlength' => '3',
+                            'default' => '1',
                             'size' => '6',
                             'placeholder' => '1',
                         ),
@@ -94,6 +97,7 @@ FLBuilder::register_settings_form(
                             'slider' => true,
                             'units' => array('px'),
                             'maxlength' => '3',
+                            'default' => '5',
                             'size' => '6',
                             'placeholder' => '20',
                         ),
@@ -107,14 +111,14 @@ FLBuilder::register_settings_form(
                         'icon_color' => array(
                             'type' => 'color',
                             'label' => __('Icon Color', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => '',
+                            'default' => 'fff',
                             'show_reset' => true,
                         ),
                         /* Background Color Dependent on Icon Style * */
                         'icon_bg_color' => array(
                             'type' => 'color',
                             'label' => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => '',
+                            'default' => '005b54',
                             'show_reset' => true,
                             'connections' => array('color'),
                             'show_alpha' => true,
@@ -124,7 +128,7 @@ FLBuilder::register_settings_form(
                         'icon_border_color' => array(
                             'type' => 'color',
                             'label' => __('Border Color', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => '',
+                            'default' => 'f9e500',
                             'show_reset' => true,
                             'connections' => array('color'),
                             'show_alpha' => true,
@@ -143,7 +147,7 @@ FLBuilder::register_settings_form(
     'title' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
     'tabs' => array(
         array(
-            'title' => __('Active Icon', SA_FLBUILDER_TEXTDOMAIN),
+            'title' => __('Deactive Icon', SA_FLBUILDER_TEXTDOMAIN),
             'sections' => array(
                 'icon_basic' => array(
                     'title' => __('Icon Basics', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
@@ -151,7 +155,7 @@ FLBuilder::register_settings_form(
                         'icon' => array(
                             'type' => 'icon',
                             'label' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => 'ua-icon ua-icon-cog',
+                            'default' => 'fas fa-plus',
                             'show_remove' => true,
                         ),
                         'icon_size' => array(
@@ -159,6 +163,7 @@ FLBuilder::register_settings_form(
                             'label' => __('Size', SA_FLBUILDER_TEXTDOMAIN),
                             'placeholder' => '30',
                             'maxlength' => '5',
+                            'default' => '20',
                             'size' => '6',
                             'slider' => true,
                             'units' => array('px'),
@@ -177,6 +182,7 @@ FLBuilder::register_settings_form(
                             'help' => 'Spacing between Icon & Background edge',
                             'placeholder' => '30',
                             'maxlength' => '3',
+                            'default' => '30',
                             'size' => '6',
                             'slider' => true,
                             'units' => array('px'),
@@ -215,6 +221,7 @@ FLBuilder::register_settings_form(
                             'slider' => true,
                             'units' => array('px'),
                             'maxlength' => '3',
+                            'default' => '1',
                             'size' => '6',
                             'placeholder' => '1',
                         ),
@@ -224,6 +231,7 @@ FLBuilder::register_settings_form(
                             'slider' => true,
                             'units' => array('px'),
                             'maxlength' => '3',
+                            'default' => '5',
                             'size' => '6',
                             'placeholder' => '20',
                         ),
@@ -238,13 +246,14 @@ FLBuilder::register_settings_form(
                             'type' => 'color',
                             'label' => __('Icon Color', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => '',
+                            'default' => 'fff',
                             'show_reset' => true,
                         ),
                         /* Background Color Dependent on Icon Style * */
                         'icon_bg_color' => array(
                             'type' => 'color',
                             'label' => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => '',
+                            'default' => 'a59c9b',
                             'show_reset' => true,
                             'connections' => array('color'),
                             'show_alpha' => true,
@@ -254,7 +263,7 @@ FLBuilder::register_settings_form(
                         'icon_border_color' => array(
                             'type' => 'color',
                             'label' => __('Border Color', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => '',
+                            'default' => '00e2f7',
                             'show_reset' => true,
                             'connections' => array('color'),
                             'show_alpha' => true,
@@ -297,7 +306,7 @@ FLBuilder::register_module(
                     'active_icon' => array(
                         'type' => 'select',
                         'label' => __('Active Icon', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'none',
+                        'default' => 'icon',
                         'options' => array(
                             'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
                             'icon' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
@@ -322,7 +331,7 @@ FLBuilder::register_module(
                     'deactive_icon' => array(
                         'type' => 'select',
                         'label' => __('Deactive Icon', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'none',
+                        'default' => 'icon',
                         'options' => array(
                             'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
                             'icon' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
@@ -341,17 +350,18 @@ FLBuilder::register_module(
                     ),
                 ),
             ),
+            
         ),
     ),
     'accordion_style' => array(// Tab.
         'title' => __('Style', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
         'sections' => array(// Tab Sections.
-            'Active_icon' => array(
+            'accordion_background' => array(
                 'title' => __('Background', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
                     'accordion_abg_color' => array(
                         'type' => 'color',
-                        'default' => '',
+                        'default' => '00bcb0',
                         'show_reset' => true,
                         'label' => __('Active Background Color', SA_FLBUILDER_TEXTDOMAIN),
                         'connections' => array('color'),
@@ -360,7 +370,7 @@ FLBuilder::register_module(
                     ),
                     'accordion_dbg_color' => array(
                         'type' => 'color',
-                        'default' => '',
+                        'default' => 'eaeaea',
                         'show_reset' => true,
                         'label' => __('Deactive Background Color', SA_FLBUILDER_TEXTDOMAIN),
                         'connections' => array('color'),
@@ -381,16 +391,16 @@ FLBuilder::register_module(
                             ),
                             'toggle' => array(
                                 'solid' => array(
-                                    'fields' => array('body_border', 'accordion_border_color', 'accordion_aborder_color'),
+                                    'fields' => array('body_border_width', 'accordion_border_color', 'accordion_aborder_color'),
                                 ),
                                 'dashed' => array(
-                                    'fields' => array('body_border', 'accordion_border_color', 'accordion_aborder_color'),
+                                    'fields' => array('body_border_width', 'accordion_border_color', 'accordion_aborder_color'),
                                 ),
                                 'dotted' => array(
-                                    'fields' => array('body_border', 'accordion_border_color', 'accordion_aborder_color'),
+                                    'fields' => array('body_border_width', 'accordion_border_color', 'accordion_aborder_color'),
                                 ),
                                 'double' => array(
-                                    'fields' => array('body_border', 'accordion_border_color', 'accordion_aborder_color'),
+                                    'fields' => array('body_border_width', 'accordion_border_color', 'accordion_aborder_color'),
                                 ),
                             ),
                         ),
@@ -398,6 +408,7 @@ FLBuilder::register_module(
                         'type' => 'dimension',
                         'label' => __('Border', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '1',
                         'slider' => true,
                         'units' => array('px'),
                         
@@ -420,6 +431,21 @@ FLBuilder::register_module(
                         'show_alpha' => true,
                         
                     ),
+                    'body_padding' => array(
+                        'type' => 'dimension',
+                        'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Space between accordion to another accordion', SA_FLBUILDER_TEXTDOMAIN),
+                        'slider' => true,
+                        'default' => '15',
+                        'units' => array('px'),
+                        'responsive' => array(
+                            'placeholder' => array(
+                                'default' => '15',
+                                'medium' => '',
+                                'responsive' => '',
+                            ),
+                        ),
+                    ),
                     'body_margin' => array(
                         'type' => 'dimension',
                         'label' => __('Margin', SA_FLBUILDER_TEXTDOMAIN),
@@ -437,29 +463,96 @@ FLBuilder::register_module(
                     
                 ),
             ),
-            'Deactive_icon' => array(
-                'title' => __('Deactive Icon', SA_FLBUILDER_TEXTDOMAIN),
+            'accordion_description_background' => array(
+                'title' => __('Description Background', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
-                    'deactive_icon' => array(
-                        'type' => 'select',
-                        'label' => __('Deactive Icon', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'none',
-                        'options' => array(
-                            'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
-                            'icon' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
+                    'accordion_descbg_color' => array(
+                        'type' => 'color',
+                        'default' => 'fff',
+                        'show_reset' => true,
+                        'label' => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
+                        'connections' => array('color'),
+                        'show_alpha' => true,
+                        
+                    ),
+                    
+                    'accordion_description_border_style' => array(
+                            'type' => 'select',
+                            'label' => __('Border Style', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'solid',
+                            'help' => __('The type of border to use. Double borders must have a width of at least 3px to render properly.', SA_FLBUILDER_TEXTDOMAIN),
+                            'options' => array(
+                                'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
+                                'solid' => __('Solid', SA_FLBUILDER_TEXTDOMAIN),
+                                'dashed' => __('Dashed', SA_FLBUILDER_TEXTDOMAIN),
+                                'dotted' => __('Dotted', SA_FLBUILDER_TEXTDOMAIN),
+                                'double' => __('Double', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                            'toggle' => array(
+                                'solid' => array(
+                                    'fields' => array('body_description_border_width', 'accordion_border_color', 'accordion_aborder_color'),
+                                ),
+                                'dashed' => array(
+                                    'fields' => array('body_description_border_width', 'accordion_border_color', 'accordion_aborder_color'),
+                                ),
+                                'dotted' => array(
+                                    'fields' => array('body_description_border_width', 'accordion_border_color', 'accordion_aborder_color'),
+                                ),
+                                'double' => array(
+                                    'fields' => array('body_description_border_width', 'accordion_border_color', 'accordion_aborder_color'),
+                                ),
+                            ),
                         ),
-                        'toggle' => array(
-                            'icon' => array(
-                                'fields' => array('deactive_icons_settings'),
+                    'body_description_border_width' => array(
+                        'type' => 'dimension',
+                        'label' => __('Border', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '1',
+                        'slider' => true,
+                        'units' => array('px'),
+                        
+                    ),
+                    'accordion_description_border_color' => array(
+                        'type' => 'color',
+                        'default' => 'ddd',
+                        'show_reset' => true,
+                        'label' => __('Border Color', SA_FLBUILDER_TEXTDOMAIN),
+                        'connections' => array('color'),
+                        'show_alpha' => true,
+                        
+                    ),
+                    
+                    'description_padding' => array(
+                        'type' => 'dimension',
+                        'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Space between accordion to another accordion', SA_FLBUILDER_TEXTDOMAIN),
+                        'slider' => true,
+                        'default' => '15',
+                        'units' => array('px'),
+                        'responsive' => array(
+                            'placeholder' => array(
+                                'default' => '15',
+                                'medium' => '',
+                                'responsive' => '',
                             ),
                         ),
                     ),
-                    'deactive_icons_settings' => array(
-                        'type' => 'form',
-                        'label' => __('Icon Settings', SA_FLBUILDER_TEXTDOMAIN),
-                        'form' => 'oxi_SA_deactive_icon_form', // ID of a registered form.
-                        'preview_text' => 'icon', // ID of a field to use for the preview text.
+                    'description__margin' => array(
+                        'type' => 'dimension',
+                        'label' => __('Margin', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Space between accordion to another accordion', SA_FLBUILDER_TEXTDOMAIN),
+                        'slider' => true,
+                        
+                        'units' => array('px'),
+                        'responsive' => array(
+                            'placeholder' => array(
+                                'default' => '15',
+                                'medium' => '',
+                                'responsive' => '',
+                            ),
+                        ),
                     ),
+                    
                 ),
             ),
         ),
@@ -473,7 +566,7 @@ FLBuilder::register_module(
                     'heading_tag_selection' => array(
                         'type' => 'select',
                         'label' => __('Select Tag', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'h3',
+                        'default' => 'h5',
                         'options' => array(
                             'h1' => __('H1', SA_FLBUILDER_TEXTDOMAIN),
                             'h2' => __('H2', SA_FLBUILDER_TEXTDOMAIN),
@@ -490,36 +583,39 @@ FLBuilder::register_module(
                         'type' => 'typography',
                         'label' => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
                         'responsive' => true,
-                        'preview' => array(
-                            'type' => 'css',
-                            'selector' => '.uabb-info-list-title,.uabb-info-list-title a',
-                            'important' => true,
-                        ),
+                        
                     ),
-                    'heading_color' => array(
+                    'active_heading_color' => array(
                         'type' => 'color',
-                        'default' => '',
+                        'default' => 'fff',
                         'show_reset' => true,
-                        'label' => __('Choose Color', SA_FLBUILDER_TEXTDOMAIN),
+                        'label' => __('Active Title Color', SA_FLBUILDER_TEXTDOMAIN),
                         'connections' => array('color'),
                         'show_alpha' => true,
                         
                     ),
-                    'heading_margin_top' => array(
-                        'label' => __('Margin Top', SA_FLBUILDER_TEXTDOMAIN),
-                        'type' => 'unit',
-                        'size' => '8',
-                        'slider' => true,
-                        'units' => array('px'),
-                        'max_length' => '3',
+                    'deactive_heading_color' => array(
+                        'type' => 'color',
+                        'default' => '6b6564',
+                        'show_reset' => true,
+                        'label' => __('Deactive Title Color', SA_FLBUILDER_TEXTDOMAIN),
+                        'connections' => array('color'),
+                        'show_alpha' => true,
+                        
                     ),
-                    'heading_margin_bottom' => array(
-                        'label' => __('Margin Bottom', SA_FLBUILDER_TEXTDOMAIN),
-                        'type' => 'unit',
-                        'size' => '8',
+                    'sa_accordion_title_padding' => array(
+                        'type' => 'dimension',
+                        'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Space between accordion to another accordion', SA_FLBUILDER_TEXTDOMAIN),
                         'slider' => true,
                         'units' => array('px'),
-                        'max_length' => '3',
+                        'responsive' => array(
+                            'placeholder' => array(
+                                'default' => '15',
+                                'medium' => '',
+                                'responsive' => '',
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -530,11 +626,7 @@ FLBuilder::register_module(
                         'type' => 'typography',
                         'label' => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
                         'responsive' => true,
-                        'preview' => array(
-                            'type' => 'css',
-                            'selector' => '.uabb-info-list-description *',
-                            'important' => true,
-                        ),
+                        'default' => '',
                     ),
                     'description_color' => array(
                         'type' => 'color',
@@ -544,7 +636,7 @@ FLBuilder::register_module(
                             'selector' => '.uabb-info-list-content .uabb-info-list-description *',
                             'property' => 'color',
                         ),
-                        'default' => '',
+                        'default' => '333333',
                         'show_reset' => true,
                         'connections' => array('color'),
                         'show_alpha' => true,

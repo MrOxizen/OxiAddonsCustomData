@@ -1,7 +1,7 @@
     jQuery(document).ready(function() {
-       jQuery(".SA-FL-accordion-heading:eq(1)").addClass("active");
-       jQuery(".SA-FL-accordion-heading:eq(1)").next().slideDown();
-       jQuery(".SA-FL-accordion-heading").on("click", function() {
+       jQuery(".SA-FL-accordion-heading-<?php echo $id; ?>:eq(0)").addClass("active");
+       jQuery(".SA-FL-accordion-heading-<?php echo $id; ?>:eq(0)").next().slideDown();
+       jQuery(".SA-FL-accordion-heading-<?php echo $id; ?>").on("click", function() {
          if (jQuery(this).hasClass("active")) {
                  var activeTab = jQuery(this).attr("ref");
                  jQuery(activeTab).slideUp(200);

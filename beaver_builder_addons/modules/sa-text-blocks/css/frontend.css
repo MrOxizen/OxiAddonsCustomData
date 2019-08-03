@@ -1,0 +1,107 @@
+ *{
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+}
+a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, font, form, h1, h2, h3, h4, h5, h6, html, iframe, ins, kbd, label, legend, li, object, ol, p, pre, q, s, samp, small, span, strike, strong, sub, sup, table, tbody, td, tfoot, th, thead, tr, tt, ul, var{
+     border: 0;
+     border-top-color: currentcolor;
+     border-top-style: none;
+     border-top-width: 0px;
+     font-size: 100%;
+     font-style: inherit;
+     font-weight: inherit;
+     margin: 0;
+     outline: 0;
+     padding: 0;
+     vertical-align: baseline;
+}
+.oxi__addons_wrapper_main{
+     display: flex;
+     width: 100%;
+}
+.oxi__addons_heading_wrapper{
+     width: 100%;
+     display: block;
+}
+.oxi__addons_wrapper_main .oxi__addons_heading_top{
+     font-size: 40px;
+     color: #202020;
+     font-family: "Raleway";
+     font-weight: 300;
+     font-style: normal;
+     line-height: 1;
+     text-align: center;
+     padding:10px 0 ;
+     margin: 0; 
+     text-transform: uppercase;
+}
+.oxi__addons_wrapper_main .oxi__addons_heading_middle{
+        font-size: 60px;
+     color: #ff715e;
+     font-family: "Raleway";
+     font-weight: 300;
+     font-style: normal;
+     line-height: 1;
+     text-align: center;
+      padding:10px 0 ;
+     margin: 0; 
+  text-transform: uppercase;
+}
+.oxi__addons_wrapper_main .oxi__addons_heading_bottom{
+     font-size: 26px;
+     color: #202020;
+     font-family: "Raleway";
+     font-weight: 300;
+     font-style: normal;
+     line-height: 1;
+     text-align: center;
+     padding:10px 0 ;
+     margin: 0; 
+}
+
+.oxi__addons_heading_wrapper .oxi__addons_line_divider {
+     display: table;
+     width: 100%; 
+     line-height: 0; 
+     text-align: center;
+} 
+.oxi__addons_heading_wrapper .oxi__addons_seperator {
+     display: table-cell;  
+     vertical-align: middle;
+}
+.oxi__addons_heading_wrapper .oxi__addons_seperator_span { 
+     border-top: 2px solid rgb(43, 43, 43); 
+     width: 100%;
+     display: inline-block; 
+}
+.oxi__addons_heading_wrapper .oxi__addons_seperator_width { 
+     width: 40%;
+}
+ 
+.oxi__addons_heading_wrapper .oxi__before { 
+     width: 50%;
+}
+.oxi__addons_heading_wrapper .oxi__after { 
+     width: 50%;
+}
+/*
+*style for icon
+*/
+.oxi__addons_heading_wrapper .oxi__addons_image_icon_divider{
+     padding-left: 5px;
+     padding-right: 5px;
+}
+.oxi__addons_heading_wrapper .oxi__addons_image_icon_divider .oxi__icon{
+     font-size: 22px;
+     color: #000;
+}
+.oxi__addons_heading_wrapper .oxi__addons_image_icon_divider{
+     width: 50px;
+}
+.oxi__addons_heading_wrapper .oxi__addons_image{
+     width: 100%;
+}
+ 
+
+
