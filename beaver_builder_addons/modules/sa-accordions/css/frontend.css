@@ -1,0 +1,9 @@
+.SA-FL-accordion-heading-text h1,
+.SA-FL-accordion-heading-text h2,
+.SA-FL-accordion-heading-text h3,
+.SA-FL-accordion-heading-text h4,
+.SA-FL-accordion-heading-text h5, 
+.SA-FL-accordion-heading-text h6{
+    margin: 0;
+    padding: 0;
+}
