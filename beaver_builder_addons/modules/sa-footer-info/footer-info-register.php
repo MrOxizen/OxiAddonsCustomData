@@ -38,6 +38,17 @@ FLBuilder::register_module(
                             'bottom' => __('Bottom', SA_FLBUILDER_TEXTDOMAIN),
                         ),
                     ),
+                    'icon_align' => array(
+                        'type' => 'select',
+                        'label' => __('Icon Align', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'center',
+                        'help' => __('Set your Icon Position Align!', SA_FLBUILDER_TEXTDOMAIN),
+                        'options' => array(
+                            'left' => __('Left', SA_FLBUILDER_TEXTDOMAIN),
+                            'center' => __('Center', SA_FLBUILDER_TEXTDOMAIN),
+                            'right' => __('Right', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                    ),
                     'add_footer_icon' => array(
                         'type' => 'form',
                         'label' => __('Icon Item', SA_FLBUILDER_TEXTDOMAIN),

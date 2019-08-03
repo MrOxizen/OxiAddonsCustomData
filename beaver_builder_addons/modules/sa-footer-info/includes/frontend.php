@@ -2,9 +2,9 @@
 /**
  * @package shortcode addons
  */
-// echo '<pre>';
-// print_r($settings);
-// echo '</pre>';
+//echo '<pre>';
+//print_r($settings);
+//echo '</pre>';
 
 $footer = $description = $separator = $oxi_addons_main = '';
 if ($settings->footer != '') {
@@ -110,23 +110,68 @@ if ($settings->separator_style === 'none') {
     ';
     }
 }
+
 ?>
 <div class="oxi__addons_footer_wrapper">
     <div class="oxi__addons_main_footer">
-        <?php echo $oxi_addons_main; ?>
-
-
-        <div class="oxi__addons_footer_icon_area">
-            <?php
-                    foreach ($settings->add_footer_icon as $value) {
+        <?php
+        if ($settings->icon_position == 'bottom') {
+            ?>
+            <?php echo $oxi_addons_main; ?>
+            <div class="oxi__addons_footer_icon_area">
+                <?php
+                foreach ($settings->add_footer_icon as $value) {
+                    if ($value->link != '') {
+                        
                         ?>
+                        <a href="<?php echo $value->link; ?>" target="<?php echo $value->link_target; ?>" ref="<?php echo $value->link_nofollow; ?>">
+                            <div class="oxi_footer_info_icon">
+                                <i class="<?php echo $value->icon; ?>"></i>
+                                
+                            </div>
+                        </a>
+                        <?php
+                    } else {
+                        ?>
+                        <div class="oxi_footer_info_icon">
+                            <i class="<?php echo $value->icon; ?>"></i>
+                        </div>
+                        <?php
+                    }
+                }
+                ?>
+            </div>  
+
+
+            <?php
+        } else {
+            ?>    
+            
+            <div class="oxi__addons_footer_icon_area">
+                <?php
+                foreach ($settings->add_footer_icon as $value) {
+                    if ($value->link != '') {
+                        ?>
+                        <a href="<?php echo $value->link ?>" target="<?php echo $value->link_target ?>" ref="<?php echo $value->link_nofollow ?>">
                             <div class="oxi_footer_info_icon">
                                 <i class="<?php echo $value->icon; ?>"></i>
                             </div>
+                        </a>
+                        <?php
+                    } else {
+                        ?>
+                        <div class="oxi_footer_info_icon">
+                            <i class="<?php echo $value->icon; ?>"></i>
+                        </div>
                         <?php
                     }
-                    ?>
-        </div>
+                }
+                ?>
+            </div>
+            <?php echo $oxi_addons_main; ?>
+            <?php
+        }
+        ?>
     </div>
 
 </div>
