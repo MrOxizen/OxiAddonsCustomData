@@ -72,7 +72,7 @@ class Single_Product extends Widget_Base {
                 'sa_el_static_product_description', [
             'label' => __('Product Description', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::WYSIWYG,
-            'default' => __('Click to inspect, then edit as needed.', SA_ELEMENTOR_TEXTDOMAIN),
+            'default' => __('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s.', SA_ELEMENTOR_TEXTDOMAIN),
                 ]
         );
 
@@ -278,7 +278,7 @@ class Single_Product extends Widget_Base {
                 'sa_el_static_product_btn_background_color', [
             'label' => esc_html__('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
-            'default' => '#646464',
+            'default' => '#ff1e05',
             'selectors' => [
                 '{{WRAPPER}} .sa-el-single-product-btn' => 'background-color: {{VALUE}};',
             ],
@@ -354,6 +354,30 @@ class Single_Product extends Widget_Base {
 
         $this->end_controls_section();
 
+        if (!apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', ['', '', TRUE])) {
+            $this->start_controls_section(
+                    'sa_el_section_pro', [
+                'label' => __('Go Premium for More Features', SA_ELEMENTOR_TEXTDOMAIN)
+                    ]
+            );
+
+            $this->add_control(
+                    'sa_el_control_get_pro', [
+                'label' => __('Unlock more possibilities', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    '1' => [
+                        'title' => __('', SA_ELEMENTOR_TEXTDOMAIN),
+                        'icon' => 'fa fa-unlock-alt',
+                    ],
+                ],
+                'default' => '1',
+                'description' => '<span class="pro-feature"> Get the  <a href="https://www.oxilab.org/downloads/short-code-addons/" target="_blank">Pro version</a> for more stunning elements and customization options.</span>'
+                    ]
+            );
+
+            $this->end_controls_section();
+        }
 
 
         // Style Controls
