@@ -436,6 +436,7 @@ FLBuilder::register_module(
                         'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Space between accordion to another accordion', SA_FLBUILDER_TEXTDOMAIN),
                         'slider' => true,
+                        'default' => '15',
                         'units' => array('px'),
                         'responsive' => array(
                             'placeholder' => array(
@@ -465,9 +466,9 @@ FLBuilder::register_module(
             'accordion_description_background' => array(
                 'title' => __('Description Background', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
-                    'accordion_abg_color' => array(
+                    'accordion_descbg_color' => array(
                         'type' => 'color',
-                        'default' => '00bcb0',
+                        'default' => 'fff',
                         'show_reset' => true,
                         'label' => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
                         'connections' => array('color'),
@@ -478,7 +479,7 @@ FLBuilder::register_module(
                     'accordion_description_border_style' => array(
                             'type' => 'select',
                             'label' => __('Border Style', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => 'none',
+                            'default' => 'solid',
                             'help' => __('The type of border to use. Double borders must have a width of at least 3px to render properly.', SA_FLBUILDER_TEXTDOMAIN),
                             'options' => array(
                                 'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
@@ -513,7 +514,7 @@ FLBuilder::register_module(
                     ),
                     'accordion_description_border_color' => array(
                         'type' => 'color',
-                        'default' => '',
+                        'default' => 'ddd',
                         'show_reset' => true,
                         'label' => __('Border Color', SA_FLBUILDER_TEXTDOMAIN),
                         'connections' => array('color'),
@@ -526,6 +527,7 @@ FLBuilder::register_module(
                         'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Space between accordion to another accordion', SA_FLBUILDER_TEXTDOMAIN),
                         'slider' => true,
+                        'default' => '15',
                         'units' => array('px'),
                         'responsive' => array(
                             'placeholder' => array(
@@ -540,6 +542,7 @@ FLBuilder::register_module(
                         'label' => __('Margin', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Space between accordion to another accordion', SA_FLBUILDER_TEXTDOMAIN),
                         'slider' => true,
+                        
                         'units' => array('px'),
                         'responsive' => array(
                             'placeholder' => array(
@@ -563,7 +566,7 @@ FLBuilder::register_module(
                     'heading_tag_selection' => array(
                         'type' => 'select',
                         'label' => __('Select Tag', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'h3',
+                        'default' => 'h5',
                         'options' => array(
                             'h1' => __('H1', SA_FLBUILDER_TEXTDOMAIN),
                             'h2' => __('H2', SA_FLBUILDER_TEXTDOMAIN),
@@ -580,11 +583,7 @@ FLBuilder::register_module(
                         'type' => 'typography',
                         'label' => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
                         'responsive' => true,
-                        'preview' => array(
-                            'type' => 'css',
-                            'selector' => '.uabb-info-list-title,.uabb-info-list-title a',
-                            'important' => true,
-                        ),
+                        
                     ),
                     'active_heading_color' => array(
                         'type' => 'color',
@@ -627,11 +626,7 @@ FLBuilder::register_module(
                         'type' => 'typography',
                         'label' => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
                         'responsive' => true,
-                        'preview' => array(
-                            'type' => 'css',
-                            'selector' => '.uabb-info-list-description *',
-                            'important' => true,
-                        ),
+                        'default' => '',
                     ),
                     'description_color' => array(
                         'type' => 'color',
@@ -641,7 +636,7 @@ FLBuilder::register_module(
                             'selector' => '.uabb-info-list-content .uabb-info-list-description *',
                             'property' => 'color',
                         ),
-                        'default' => '',
+                        'default' => '333333',
                         'show_reset' => true,
                         'connections' => array('color'),
                         'show_alpha' => true,

@@ -9,7 +9,6 @@ if (!empty($settings)) {
     .fl-node-<?php echo $id; ?> .SA-FL-accordions{
         width: 100%;
         height: auto;
-        background: #<?php echo $settings->accordion_dbg_color; ?>;
         margin: 0px auto;
     }
     <?php
@@ -24,6 +23,7 @@ if (!empty($settings)) {
     .fl-node-<?php echo $id; ?> .SA-FL-accordion-heading-<?php echo $id; ?>{
         display: flex;
         align-items: center;
+        background: #<?php echo $settings->accordion_dbg_color; ?>;
         padding-top: <?php echo $settings->body_padding_top; ?>px;
         padding-right: <?php echo $settings->body_padding_right; ?>px;
         padding-bottom: <?php echo $settings->body_padding_bottom; ?>px;
@@ -106,22 +106,33 @@ if (!empty($settings)) {
     .fl-node-<?php echo $id; ?> .SA-FL-accordion-heading-<?php echo $id; ?>.active .span-deactive{
             display: none;
         }
+     <?php
+    FLBuilderCSS::typography_field_rule(array(
+        'settings' => $settings,
+        'setting_name' => 'description_font_typo',
+        'selector' => ".fl-node-$id .SA-FL-accordion-conetent-$id",
+    ));
     
+    
+    ?>
     .fl-node-<?php echo $id; ?> .SA-FL-accordion-conetent-<?php echo $id; ?>{
-        background-color: #fff;
+        background-color: #<?php echo $settings->accordion_descbg_color; ?>;
         display:none;
-        padding-top: <?php echo $settings->body_padding_top; ?>px;
-        padding-right: <?php echo $settings->body_padding_right; ?>px;
-        padding-bottom: <?php echo $settings->body_padding_bottom; ?>px;
-        padding-left: <?php echo $settings->body_padding_left; ?>px;
-        color: #<?php echo $settings->deactive_heading_color; ?>;
-        border-top: <?php echo $settings->body_border_width_top; ?>px;
-        border-right: <?php echo $settings->body_border_width_right; ?>px;
-        border-bottom: <?php echo $settings->body_border_width_bottom; ?>px;
-        border-left: <?php echo $settings->body_border_width_left; ?>px;
-        border-style: <?php echo $settings->accordion_border_style; ?>;
-        border-color: #<?php echo $settings->accordion_border_color; ?>;
-        color: #333;
+        padding-top: <?php echo $settings->description_padding_top; ?>px;
+        padding-right: <?php echo $settings->description_padding_right; ?>px;
+        padding-bottom: <?php echo $settings->description_padding_bottom; ?>px;
+        padding-left: <?php echo $settings->description_padding_left; ?>px;
+        color: #<?php echo $settings->description_color; ?>;
+        border-top: <?php echo $settings->body_description_border_width_top; ?>px;
+        border-right: <?php echo $settings->body_description_border_width_right; ?>px;
+        border-bottom: <?php echo $settings->body_description_border_width_bottom; ?>px;
+        border-left: <?php echo $settings->body_description_border_width_left; ?>px;
+        border-style: <?php echo $settings->accordion_description_border_style; ?>;
+        border-color: #<?php echo $settings->accordion_description_border_color; ?>;
+        margin-top: <?php echo $settings->description__margin_top; ?>px;
+        margin-right: <?php echo $settings->description__margin_right; ?>px;
+        margin-bottom: <?php echo $settings->description__margin_bottom; ?>px;
+        margin-left: <?php echo $settings->description__margin_left; ?>px;
     }
     
 

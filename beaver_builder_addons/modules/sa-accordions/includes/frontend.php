@@ -1,7 +1,7 @@
 <?php
-echo "<pre>";
-print_r($settings);
-echo "</pre>";
+//echo "<pre>";
+//print_r($settings);
+//echo "</pre>";
 ?>
 <div class="SA-FL-accordion-main-area">
     <?php
