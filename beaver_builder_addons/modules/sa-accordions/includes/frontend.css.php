@@ -17,49 +17,46 @@ if (!empty($settings)) {
         'setting_name' => 'heading_font_typo',
         'selector' => ".fl-node-$id .SA-FL-accordion-heading-$id .SA-FL-accordion-heading-text",
     ));
+    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('body', $settings, 'padding', '.fl-node-'.$id.' .SA-FL-accordion-heading-'.$id.'', 'px');
+    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('body', $settings, 'margin', '.fl-node-'.$id.' .SA-FL-accordion-heading-'.$id.'', 'px');
+    if($settings->accordion_border_style != 'none'){
+         SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'border-width' => $settings->body_border_width ? $settings->body_border_width . 'px;' : '',
+        'border-color' => $settings->accordion_border_color,
+        'border-style' => $settings->accordion_border_style,
+
+    ), '.fl-node-' . $id . ' .SA-FL-accordion-heading-'.$id.'');
+    }
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'background-color' => $settings->accordion_dbg_color,
+        'color' => $settings->deactive_heading_color,
+        'display' => 'flex',
+        'align-items' => 'center',
+        'align-items' => 'center',
+        '-webkit-transition' => 'all 0.2s linear',
+        '-moz-transition' => 'all 0.2s linear',
+        'transition' => 'all 0.2s linear',
+        'cursor' => 'pointer',
+    ), '.fl-node-' . $id . ' .SA-FL-accordion-heading-'.$id.'');
     
+    
+    
+    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('sa', $settings, 'padding', '.fl-node-'.$id.' .SA-FL-accordion-heading-'.$id.' .SA-FL-accordion-heading-text', 'px');
+    
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'background-color' => $settings->accordion_abg_color,
+        'border-color' => $settings->accordion_aborder_color,
+        'color' => $settings->active_heading_color,
+    ), '.fl-node-' . $id . ' .SA-FL-accordion-heading-'.$id.'.active');
+    
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'background-color' => $settings->accordion_abg_color,
+        'border-color' => $settings->accordion_aborder_color,
+        'color' => $settings->active_heading_color,
+    ), '.fl-node-' . $id . ' .SA-FL-accordion-heading-'.$id.':hover');
     
     ?>
-    .fl-node-<?php echo $id; ?> .SA-FL-accordion-heading-<?php echo $id; ?>{
-        display: flex;
-        align-items: center;
-        background: #<?php echo $settings->accordion_dbg_color; ?>;
-        padding-top: <?php echo $settings->body_padding_top; ?>px;
-        padding-right: <?php echo $settings->body_padding_right; ?>px;
-        padding-bottom: <?php echo $settings->body_padding_bottom; ?>px;
-        padding-left: <?php echo $settings->body_padding_left; ?>px;
-        color: #<?php echo $settings->deactive_heading_color; ?>;
-        border-top: <?php echo $settings->body_border_width_top; ?>px;
-        border-right: <?php echo $settings->body_border_width_right; ?>px;
-        border-bottom: <?php echo $settings->body_border_width_bottom; ?>px;
-        border-left: <?php echo $settings->body_border_width_left; ?>px;
-        border-style: <?php echo $settings->accordion_border_style; ?>;
-        border-color: #<?php echo $settings->accordion_border_color; ?>;
-        -webkit-transition:all 0.2s linear;
-        -moz-transition:all 0.2s linear;
-        transition:all 0.2s linear;
-        cursor: pointer;
-        margin-top: <?php echo $settings->body_margin_top; ?>px;
-        margin-right: <?php echo $settings->body_margin_right; ?>px;
-        margin-bottom: <?php echo $settings->body_margin_bottom; ?>px;
-        margin-left: <?php echo $settings->body_margin_left; ?>px;
-    }
-    .fl-node-<?php echo $id; ?> .SA-FL-accordion-heading-<?php echo $id; ?> .SA-FL-accordion-heading-text{
-        padding-top: <?php echo $settings->sa_accordion_title_padding_top; ?>px;
-        padding-right: <?php echo $settings->sa_accordion_title_padding_right; ?>px;
-        padding-bottom: <?php echo $settings->sa_accordion_title_padding_bottom; ?>px;
-        padding-left: <?php echo $settings->sa_accordion_title_padding_left; ?>px;
-    }
-    .fl-node-<?php echo $id; ?> .SA-FL-accordion-heading-<?php echo $id; ?>.active{
-        background: #<?php echo $settings->accordion_abg_color; ?>;
-        border-color: #<?php echo $settings->accordion_aborder_color; ?>;
-        color: #<?php echo $settings->active_heading_color; ?>;
-    }
-    .fl-node-<?php echo $id; ?> .SA-FL-accordion-heading-<?php echo $id; ?>:hover{
-        background: #<?php echo $settings->accordion_abg_color; ?>;
-        border-color: #<?php echo $settings->accordion_aborder_color; ?>;
-        color: #<?php echo $settings->active_heading_color; ?>;
-    }
+   
     .fl-node-<?php echo $id; ?> .SA-FL-accordion-heading-<?php echo $id; ?>.active .span-active{
             display: flex;
             align-items: center;
