@@ -189,7 +189,7 @@ class Card extends Widget_Base
                         'icon' => 'eicon-editor-h6'
                     ]
                 ],
-                'default' => 'h2',
+                'default' => 'h3',
                 'toggle' => false,
             ]
         );
@@ -217,6 +217,7 @@ class Card extends Widget_Base
                         'icon' => 'fa fa-align-justify',
                     ],
                 ],
+                'default' => 'center',
                 'toggle' => true,
                 'selectors' => [
                     '{{WRAPPER}} .elementor-widget-container' => 'text-align: {{VALUE}}'
@@ -295,13 +296,14 @@ class Card extends Widget_Base
                     'button_icon!' => '',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .sa-el-btn--icon-before .sa-el-btn-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .sa-el-btn--icon-after .sa-el-btn-icon' => 'margin-left: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .sa-el-card-btn--icon-before .sa-el-card-btn-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .sa-el-card-btn--icon-after .sa-el-card-btn-icon' => 'margin-left: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
-
+        
         $this->end_controls_section();
+        
         $this->start_controls_section(
             '_section_style_image',
             [
@@ -652,9 +654,9 @@ class Card extends Widget_Base
                     ],
                 ],
                 'selectors' => [
-                    '(desktop){{WRAPPER}} .sa-el-badge' => '-ms-transform: translate({{badge_offset_x.SIZE || 0}}{{UNIT}}, {{badge_offset_y.SIZE || 0}}{{UNIT}}); -webkit-transform: translate({{badge_offset_x.SIZE || 0}}{{UNIT}}, {{badge_offset_y.SIZE || 0}}{{UNIT}}); transform: translate({{badge_offset_x.SIZE || 0}}{{UNIT}}, {{badge_offset_y.SIZE || 0}}{{UNIT}});',
-                    '(tablet){{WRAPPER}} .sa-el-badge' => '-ms-transform: translate({{badge_offset_x_tablet.SIZE || 0}}{{UNIT}}, {{badge_offset_y_tablet.SIZE || 0}}{{UNIT}}); -webkit-transform: translate({{badge_offset_x_tablet.SIZE || 0}}{{UNIT}}, {{badge_offset_y_tablet.SIZE || 0}}{{UNIT}}); transform: translate({{badge_offset_x_tablet.SIZE || 0}}{{UNIT}}, {{badge_offset_y_tablet.SIZE || 0}}{{UNIT}});',
-                    '(mobile){{WRAPPER}} .sa-el-badge' => '-ms-transform: translate({{badge_offset_x_mobile.SIZE || 0}}{{UNIT}}, {{badge_offset_y_mobile.SIZE || 0}}{{UNIT}}); -webkit-transform: translate({{badge_offset_x_mobile.SIZE || 0}}{{UNIT}}, {{badge_offset_y_mobile.SIZE || 0}}{{UNIT}}); transform: translate({{badge_offset_x_mobile.SIZE || 0}}{{UNIT}}, {{badge_offset_y_mobile.SIZE || 0}}{{UNIT}});',
+                    '(desktop){{WRAPPER}} .sa-el-card-badge' => '-ms-transform: translate({{badge_offset_x.SIZE || 0}}{{UNIT}}, {{badge_offset_y.SIZE || 0}}{{UNIT}}); -webkit-transform: translate({{badge_offset_x.SIZE || 0}}{{UNIT}}, {{badge_offset_y.SIZE || 0}}{{UNIT}}); transform: translate({{badge_offset_x.SIZE || 0}}{{UNIT}}, {{badge_offset_y.SIZE || 0}}{{UNIT}});',
+                    '(tablet){{WRAPPER}} .sa-el-card-badge' => '-ms-transform: translate({{badge_offset_x_tablet.SIZE || 0}}{{UNIT}}, {{badge_offset_y_tablet.SIZE || 0}}{{UNIT}}); -webkit-transform: translate({{badge_offset_x_tablet.SIZE || 0}}{{UNIT}}, {{badge_offset_y_tablet.SIZE || 0}}{{UNIT}}); transform: translate({{badge_offset_x_tablet.SIZE || 0}}{{UNIT}}, {{badge_offset_y_tablet.SIZE || 0}}{{UNIT}});',
+                    '(mobile){{WRAPPER}} .sa-el-card-badge' => '-ms-transform: translate({{badge_offset_x_mobile.SIZE || 0}}{{UNIT}}, {{badge_offset_y_mobile.SIZE || 0}}{{UNIT}}); -webkit-transform: translate({{badge_offset_x_mobile.SIZE || 0}}{{UNIT}}, {{badge_offset_y_mobile.SIZE || 0}}{{UNIT}}); transform: translate({{badge_offset_x_mobile.SIZE || 0}}{{UNIT}}, {{badge_offset_y_mobile.SIZE || 0}}{{UNIT}});',
                 ],
             ]
         );
@@ -667,7 +669,7 @@ class Card extends Widget_Base
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .sa-el-badge' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .sa-el-card-badge' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -677,8 +679,9 @@ class Card extends Widget_Base
             [
                 'label' => __('Text Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
+                'default' => '#fff',
                 'selectors' => [
-                    '{{WRAPPER}} .sa-el-badge' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .sa-el-card-badge' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -688,8 +691,9 @@ class Card extends Widget_Base
             [
                 'label' => __('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
+                'default' => '#FE246E',
                 'selectors' => [
-                    '{{WRAPPER}} .sa-el-badge' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .sa-el-card-badge' => 'background-color: {{VALUE}}',
                 ],
             ]
         );
@@ -698,7 +702,7 @@ class Card extends Widget_Base
             Group_Control_Border::get_type(),
             [
                 'name' => 'badge_border',
-                'selector' => '{{WRAPPER}} .sa-el-badge',
+                'selector' => '{{WRAPPER}} .sa-el-card-badge',
             ]
         );
 
@@ -709,7 +713,7 @@ class Card extends Widget_Base
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .sa-el-badge' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .sa-el-card-badge' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -721,7 +725,7 @@ class Card extends Widget_Base
                 'exclude' => [
                     'box_shadow_position',
                 ],
-                'selector' => '{{WRAPPER}} .sa-el-badge',
+                'selector' => '{{WRAPPER}} .sa-el-card-badge',
             ]
         );
 
@@ -736,7 +740,7 @@ class Card extends Widget_Base
                 'default' => [
                     'font_size' => ['']
                 ],
-                'selector' => '{{WRAPPER}} .sa-el-badge',
+                'selector' => '{{WRAPPER}} .sa-el-card-badge',
                 'scheme' => Scheme_Typography::TYPOGRAPHY_3,
             ]
         );
@@ -864,7 +868,7 @@ class Card extends Widget_Base
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .sa-el-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .sa-el-card-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -873,7 +877,7 @@ class Card extends Widget_Base
             Group_Control_Typography::get_type(),
             [
                 'name' => 'button_typography',
-                'selector' => '{{WRAPPER}} .sa-el-btn',
+                'selector' => '{{WRAPPER}} .sa-el-card-btn',
                 'scheme' => Scheme_Typography::TYPOGRAPHY_4,
             ]
         );
@@ -882,7 +886,7 @@ class Card extends Widget_Base
             Group_Control_Border::get_type(),
             [
                 'name' => 'button_border',
-                'selector' => '{{WRAPPER}} .sa-el-btn',
+                'selector' => '{{WRAPPER}} .sa-el-card-btn',
             ]
         );
 
@@ -893,7 +897,7 @@ class Card extends Widget_Base
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .sa-el-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .sa-el-card-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -902,7 +906,7 @@ class Card extends Widget_Base
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'button_box_shadow',
-                'selector' => '{{WRAPPER}} .sa-el-btn',
+                'selector' => '{{WRAPPER}} .sa-el-card-btn',
             ]
         );
 
@@ -928,9 +932,9 @@ class Card extends Widget_Base
             [
                 'label' => __('Text Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                'default' => '#fff',
                 'selectors' => [
-                    '{{WRAPPER}} .sa-el-btn' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .sa-el-card-btn' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -940,8 +944,9 @@ class Card extends Widget_Base
             [
                 'label' => __('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
+                'default' => '#FE246E',
                 'selectors' => [
-                    '{{WRAPPER}} .sa-el-btn' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .sa-el-card-btn' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
@@ -961,7 +966,7 @@ class Card extends Widget_Base
                 'label' => __('Text Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .sa-el-btn:hover, {{WRAPPER}} .sa-el-btn:focus' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .sa-el-card-btn:hover, {{WRAPPER}} .sa-el-card-btn:focus' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -972,7 +977,7 @@ class Card extends Widget_Base
                 'label' => __('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .sa-el-btn:hover, {{WRAPPER}} .sa-el-btn:focus' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .sa-el-card-btn:hover, {{WRAPPER}} .sa-el-card-btn:focus' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
@@ -986,7 +991,7 @@ class Card extends Widget_Base
                     'button_border_border!' => '',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .sa-el-btn:hover, {{WRAPPER}} .sa-el-btn:focus' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .sa-el-card-btn:hover, {{WRAPPER}} .sa-el-card-btn:focus' => 'border-color: {{VALUE}};',
                 ],
             ]
         );
@@ -1004,7 +1009,7 @@ class Card extends Widget_Base
         $this->add_render_attribute(
             'badge_text',
             'class',
-            ['sa-el-badge', sprintf( 'sa-el-badge--%s', esc_attr( $settings['badge_position'] ) )]
+            ['sa-el-card-badge', sprintf( 'sa-el-card-badge--%s', esc_attr( $settings['badge_position'] ) )]
         );
 
         $this->add_inline_editing_attributes( 'title', 'none' );
@@ -1014,9 +1019,9 @@ class Card extends Widget_Base
         $this->add_render_attribute( 'description', 'class', 'sa-el-card-text' );
 
         $this->add_inline_editing_attributes( 'button_text', 'none' );
-        $this->add_render_attribute( 'button_text', 'class', 'sa-el-btn-text' );
+        $this->add_render_attribute( 'button_text', 'class', 'sa-el-card-btn-text' );
 
-        $this->add_render_attribute( 'button', 'class', 'sa-el-btn' );
+        $this->add_render_attribute( 'button', 'class', 'sa-el-card-btn' );
         $this->add_render_attribute( 'button', 'href', esc_url( $settings['button_link']['url'] ) );
         if ( ! empty( $settings['button_link']['is_external'] ) ) {
             $this->add_render_attribute( 'button', 'target', '_blank' );
@@ -1070,13 +1075,13 @@ class Card extends Widget_Base
                 );
             elseif ( $settings['button_text'] && $settings['button_icon'] ) :
                 if ( $settings['button_icon_position'] === 'before' ) :
-                    $this->add_render_attribute( 'button', 'class', 'sa-el-btn--icon-before' );
-                    $btn_before = sprintf( '<i class="sa-el-btn-icon %1$s"></i>', esc_attr( $settings['button_icon'] ) );
+                    $this->add_render_attribute( 'button', 'class', 'sa-el-card-btn--icon-before' );
+                    $btn_before = sprintf( '<i class="sa-el-card-btn-icon %1$s"></i>', esc_attr( $settings['button_icon'] ) );
                     $btn_after = sprintf( '<span %1$s>%2$s</span>', $this->get_render_attribute_string( 'button_text' ), esc_html( $settings['button_text'] ) );
                 else :
-                    $this->add_render_attribute( 'button', 'class', 'sa-el-btn--icon-after' );
+                    $this->add_render_attribute( 'button', 'class', 'sa-el-card-btn--icon-after' );
                     $btn_before = sprintf( '<span %1$s>%2$s</span>', $this->get_render_attribute_string( 'button_text' ), esc_html( $settings['button_text'] ) );
-                    $btn_after = sprintf( '<i class="sa-el-btn-icon %1$s"></i>', esc_attr( $settings['button_icon'] ) );
+                    $btn_after = sprintf( '<i class="sa-el-card-btn-icon %1$s"></i>', esc_attr( $settings['button_icon'] ) );
                 endif;
                 printf( '<a %1$s>%2$s %3$s</a>',
                     $this->get_render_attribute_string( 'button' ),
@@ -1089,74 +1094,5 @@ class Card extends Widget_Base
         <?php
     }
 
-    public function _content_template() {
-        ?>
-        <#
-        view.addInlineEditingAttributes( 'badge_text', 'none' );
-        view.addRenderAttribute(
-            'badge_text',
-            'class',
-            ['sa-el-badge', 'sa-el-badge--' + settings.badge_position]
-        );
-
-        view.addInlineEditingAttributes( 'title', 'none' );
-        view.addRenderAttribute( 'title', 'class', 'sa-el-card-title' );
-
-        view.addInlineEditingAttributes( 'description', 'basic' );
-        view.addRenderAttribute( 'description', 'class', 'sa-el-card-text' );
-
-        view.addInlineEditingAttributes( 'button_text', 'none' );
-        view.addRenderAttribute( 'button_text', 'class', 'sa-el-btn-text' );
-
-        view.addRenderAttribute( 'button', 'class', 'sa-el-btn' );
-        view.addRenderAttribute( 'button', 'href', settings.button_link.url );
-
-        if ( settings.image.url || settings.image.id ) {
-            var image = {
-                id: settings.image.id,
-                url: settings.image.url,
-                size: settings.thumbnail_size,
-                dimension: settings.thumbnail_custom_dimension,
-                model: view.getEditModel()
-            };
-
-            var image_url = elementor.imagesManager.getImageUrl( image ); #>
-            <figure class="sa-el-card-figure">
-                <img class="elementor-animation-{{settings.hover_animation}}" src="{{ image_url }}">
-                <# if (settings.badge_text) { #>
-                    <div {{{ view.getRenderAttributeString( 'badge_text' ) }}}>{{ settings.badge_text }}</div>
-                <# } #>
-            </figure>
-        <# } #>
-
-        <div class="sa-el-card-body">
-            <# if (settings.title) { #>
-                <{{ settings.title_tag }} {{{ view.getRenderAttributeString( 'title' ) }}}>{{ settings.title }}</{{ settings.title_tag }}>
-            <# } #>
-
-            <# if (settings.description) { #>
-                <div {{{ view.getRenderAttributeString( 'description' ) }}}>
-                    <p>{{{ settings.description }}}</p>
-                </div>
-            <# } #>
-
-            <# if ( settings.button_text && ! settings.button_icon ) { #>
-                <a {{{ view.getRenderAttributeString( 'button' ) }}}><span {{{ view.getRenderAttributeString( 'button_text' ) }}}>{{ settings.button_text }}</span></a>
-            <# } else if ( ! settings.button_text && settings.button_icon ) { #>
-                <a {{{ view.getRenderAttributeString( 'button' ) }}}><i class="{{ settings.button_icon }}"></i></a>
-            <# } else if ( settings.button_text && settings.button_icon ) {
-                if ( settings.button_icon_position === 'before' ) {
-                    view.addRenderAttribute( 'button', 'class', 'sa-el-btn--icon-before' );
-                    var button_before = '<i class="sa-el-btn-icon ' + settings.button_icon + '"></i>';
-                    var button_after = '<span ' + view.getRenderAttributeString( 'button_text' ) + '>' + settings.button_text + '</span>';
-                } else {
-                    view.addRenderAttribute( 'button', 'class', 'sa-el-btn--icon-after' );
-                    var button_after = '<i class="sa-el-btn-icon ' + settings.button_icon + '"></i>';
-                    var button_before = '<span ' + view.getRenderAttributeString( 'button_text' ) + '>' + settings.button_text + '</span>';
-                } #>
-                <a {{{ view.getRenderAttributeString( 'button' ) }}}>{{{ button_before }}} {{{ button_after }}}</a>
-            <# } #>
-        </div>
-        <?php
-    }
+   
 }
