@@ -1,0 +1,13 @@
+.elementor-widget-container{
+    overflow: hidden;
+}
+.sa_el_ribon_switch-wrapper{
+    position: absolute;
+
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items:  center;
+    z-index: 99999;
+}
+    

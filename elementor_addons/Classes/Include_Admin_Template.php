@@ -174,7 +174,7 @@ trait Include_Admin_Template {
 
                                         <?php
                                         $settings = $this->Get_Active_Elements();
-                                       
+
                                         foreach ($registered_element as $key => $value) {
                                             if ($key != 'Extension') {
                                                 echo '<div class="oxi-sa-cards-wrapper">';
@@ -207,7 +207,7 @@ trait Include_Admin_Template {
                                     <div class="oxi-addons-row">
                                         <?php
                                         $settings = $this->Get_Active_Elements();
-                                      
+
                                         foreach ($registered_element as $key => $value) {
                                             if ($key == 'Extension') {
                                                 echo '<div class="oxi-sa-cards-wrapper">';
@@ -284,8 +284,7 @@ trait Include_Admin_Template {
         if ($satype == 'elements') {
             $elements = sanitize_text_field($_POST['elements']);
             update_option('shortcode-addons-elementor', $elements);
-            parse_str($elements, $element);
-            $this->generate_scripts(array_keys($element));
+            $this->empty_dir(SA_ELEMENTOR_ADDONS_ASSETS);
             die();
         } else if ($satype == 'cache') {
             // clear cache files

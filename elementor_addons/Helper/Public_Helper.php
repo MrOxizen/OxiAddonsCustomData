@@ -668,9 +668,6 @@ trait Public_Helper {
                     'css' => [
                         SA_ELEMENTOR_ADDONS_URL . 'Extensions/SA_Ribon/assets/index.min.css',
                     ],
-                    'js' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Extensions/SA_Ribon/assets/index.min.js',
-                    ],
                 ],
                 'category' => 'Extension',
                 'Premium' => TRUE,
@@ -918,10 +915,15 @@ trait Public_Helper {
     // #Elementor icon render
     public function Sa_El_Icon_Render($settings) {
         if (version_compare(ELEMENTOR_VERSION, '2.6', '>=')) {
+            ob_start(); 
             Icons_Manager::render_icon($settings, ['aria-hidden' => 'true']);
+            $list = ob_get_contents(); 
+            ob_end_clean();
+            $rt = $list;
         } else {
-            ?><i aria-hidden='true' class="<?php echo esc_attr($settings); ?>"></i><?php
+            $rt = '<i aria-hidden="true" class="' . esc_attr($settings) . '"></i>';
         }
+        return $rt;
     }
 
 }

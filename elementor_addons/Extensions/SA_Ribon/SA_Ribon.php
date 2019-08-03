@@ -24,8 +24,7 @@ class SA_Ribon {
 
     public function __construct() {
         add_action('elementor/element/common/_section_style/after_section_end', [$this, 'register_controls'], 10);
-        add_action('elementor/widget/before_render_content', array($this, 'before_render'));
-        add_action('elementor/widget/before_render_content', array($this, 'after_render'));
+        add_action('elementor/widget/render_content', [$this, 'render_content'], 10, 2);
     }
 
     public function get_name() {
@@ -78,7 +77,7 @@ class SA_Ribon {
             ],
             'toggle' => false,
             'default' => 'right',
-            'prefix_class' => 'sa_el_ribon__'
+            'prefix_class' => 'sa_el_ribon__',
                 ]
         );
         $element->add_control(
@@ -115,6 +114,59 @@ class SA_Ribon {
             ],
                 ]
         );
+        $element->add_control(
+                'ribon_icon_position', [
+            'label' => __('Icon Position', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::CHOOSE,
+            'label_block' => false,
+            'options' => [
+                'left' => [
+                    'title' => __('Left', SA_ELEMENTOR_TEXTDOMAIN),
+                    'icon' => 'eicon-h-align-left',
+                ],
+                'right' => [
+                    'title' => __('Right', SA_ELEMENTOR_TEXTDOMAIN),
+                    'icon' => 'eicon-h-align-right',
+                ],
+            ],
+            'condition' => [
+                'sa_el_ribon_icon' => 'yes',
+            ],
+            'toggle' => false,
+            'default' => 'left',
+            'prefix_class' => 'sa_el_ribon_icon__'
+                ]
+        );
+        $element->add_responsive_control(
+                'sa_ribon_icon_spacing', [
+            'label' => __('Icon Spacing', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::SLIDER,
+            'size_units' => ['px'],
+            'range' => [
+                'px' => [
+                    'min' => 0,
+                    'max' => 40,
+                ],
+            ],
+            'default' => [
+                'size' => 15,
+                'unit' => 'px',
+            ],
+            'tablet_default' => [
+                'unit' => 'px',
+            ],
+            'mobile_default' => [
+                'unit' => 'px',
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .sa_el_ribon_icon_left' => 'padding-right: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}} .sa_el_ribon_icon_right' => 'padding-left: {{SIZE}}{{UNIT}};',
+            ],
+            'condition' => [
+                'sa_el_ribon_icon' => 'yes',
+            ],
+                ]
+        );
         $element->end_controls_tab();
         $element->start_controls_tab(
                 'sa_el_ribon_style', [
@@ -129,8 +181,9 @@ class SA_Ribon {
                 'ribon_color', [
             'label' => __('Text Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
+            'default' => '#fff',
             'selectors' => [
-                '{{WRAPPER}} .sa-el-ribon' => 'color: {{VALUE}}',
+                '{{WRAPPER}} .sa_el_ribon_switch-wrapper-{{ID}}' => 'color: {{VALUE}}',
             ],
             'condition' => [
                 'sa_el_ribon_switch' => 'yes',
@@ -142,8 +195,9 @@ class SA_Ribon {
                 'ribon_bg_color', [
             'label' => __('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
+            'default' => '#8200f4',
             'selectors' => [
-                '{{WRAPPER}} .sa-el-ribon' => 'background-color: {{VALUE}}',
+                '{{WRAPPER}} .sa_el_ribon_switch-wrapper-{{ID}}' => 'background-color: {{VALUE}}',
             ], 'condition' => [
                 'sa_el_ribon_switch' => 'yes',
             ],
@@ -152,7 +206,7 @@ class SA_Ribon {
         $element->add_group_control(
                 Group_Control_Typography::get_type(), [
             'name' => 'ribon_typography',
-            'selector' => '{{WRAPPER}} .sa-el-ribon',
+            'selector' => '{{WRAPPER}} .sa_el_ribon_switch-wrapper-{{ID}}',
             'condition' => [
                 'sa_el_ribon_switch' => 'yes',
             ],
@@ -172,7 +226,7 @@ class SA_Ribon {
                 ],
             ],
             'default' => [
-                'size' => 38,
+                'size' => 35,
                 'unit' => 'px',
             ],
             'tablet_default' => [
@@ -182,8 +236,7 @@ class SA_Ribon {
                 'unit' => 'px',
             ],
             'selectors' => [
-                '{{WRAPPER}} .sa-el-divider.vertical' => 'height: {{SIZE}}{{UNIT}};',
-                '{{WRAPPER}} .divider-border' => 'border-top-width: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}} .sa_el_ribon_switch-wrapper-{{ID}}' => 'height: {{SIZE}}{{UNIT}};'
             ], 'condition' => [
                 'sa_el_ribon_switch' => 'yes',
             ],
@@ -201,7 +254,7 @@ class SA_Ribon {
                 ],
             ],
             'default' => [
-                'size' => 140,
+                'size' => 200,
                 'unit' => 'px',
             ],
             'tablet_default' => [
@@ -211,7 +264,7 @@ class SA_Ribon {
                 'unit' => 'px',
             ],
             'selectors' => [
-                '{{WRAPPER}} .sa-el-ribon.horizontal' => 'width: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}} .sa_el_ribon_switch-wrapper-{{ID}}' => 'width: {{SIZE}}{{UNIT}};'
             ],
             'condition' => [
                 'sa_el_ribon_switch' => 'yes',
@@ -220,8 +273,8 @@ class SA_Ribon {
         );
 
         $element->add_responsive_control(
-                'sa_ribon_left_right', [
-            'label' => __('Left & Right', SA_ELEMENTOR_TEXTDOMAIN),
+                'sa_ribon_left', [
+            'label' => __('Left', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
             'range' => [
@@ -231,7 +284,7 @@ class SA_Ribon {
                 ],
             ],
             'default' => [
-                'size' => -66,
+                'size' => -44,
                 'unit' => 'px',
             ],
             'tablet_default' => [
@@ -241,10 +294,39 @@ class SA_Ribon {
                 'unit' => 'px',
             ],
             'selectors' => [
-                '{{WRAPPER}} .sa-el-ribon.horizontal' => 'width: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}} .sa_el_ribon_switch-wrapper-{{ID}}' => 'left: {{SIZE}}{{UNIT}};',
             ],
             'condition' => [
-                'sa_el_ribon_switch' => 'yes',
+                'ribon_position' => 'left',
+            ],
+                ]
+        );
+        $element->add_responsive_control(
+                'sa_ribon_right', [
+            'label' => __('Right', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::SLIDER,
+            'size_units' => ['px'],
+            'range' => [
+                'px' => [
+                    'min' => -150,
+                    'max' => 200,
+                ],
+            ],
+            'default' => [
+                'size' => -44,
+                'unit' => 'px',
+            ],
+            'tablet_default' => [
+                'unit' => 'px',
+            ],
+            'mobile_default' => [
+                'unit' => 'px',
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .sa_el_ribon_switch-wrapper-{{ID}}' => 'right: {{SIZE}}{{UNIT}};',
+            ],
+            'condition' => [
+                'ribon_position' => 'right',
             ],
                 ]
         );
@@ -261,7 +343,7 @@ class SA_Ribon {
                 ],
             ],
             'default' => [
-                'size' => 15,
+                'size' => 28,
                 'unit' => 'px',
             ],
             'tablet_default' => [
@@ -271,7 +353,7 @@ class SA_Ribon {
                 'unit' => 'px',
             ],
             'selectors' => [
-                '{{WRAPPER}} .sa-el-ribon.horizontal' => 'width: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}}  .sa_el_ribon_switch-wrapper-{{ID}}' => 'top: {{SIZE}}{{UNIT}};',
             ],
             'condition' => [
                 'sa_el_ribon_switch' => 'yes',
@@ -279,7 +361,7 @@ class SA_Ribon {
                 ]
         );
         $element->add_responsive_control(
-                'sa_ribon_rotate', [
+                'sa_ribon_rotate_left', [
             'label' => __('Rotate', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
@@ -290,7 +372,7 @@ class SA_Ribon {
                 ],
             ],
             'default' => [
-                'size' => 45,
+                'size' => -41,
                 'unit' => 'px',
             ],
             'tablet_default' => [
@@ -300,10 +382,39 @@ class SA_Ribon {
                 'unit' => 'px',
             ],
             'selectors' => [
-                '{{WRAPPER}} .sa-el-ribon.horizontal' => 'width: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}} .sa_el_ribon_switch-wrapper-{{ID}}' => 'transform: rotate({{SIZE}}deg);',
             ],
             'condition' => [
-                'sa_el_ribon_switch' => 'yes',
+                'ribon_position' => 'left',
+            ],
+                ]
+        );
+        $element->add_responsive_control(
+                'sa_ribon_rotate_right', [
+            'label' => __('Rotate', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::SLIDER,
+            'size_units' => ['px'],
+            'range' => [
+                'px' => [
+                    'min' => -360,
+                    'max' => 360,
+                ],
+            ],
+            'default' => [
+                'size' => 41,
+                'unit' => 'px',
+            ],
+            'tablet_default' => [
+                'unit' => 'px',
+            ],
+            'mobile_default' => [
+                'unit' => 'px',
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .sa_el_ribon_switch-wrapper-{{ID}}' => 'transform: rotate({{SIZE}}deg);',
+            ],
+            'condition' => [
+                'ribon_position' => 'right',
             ],
                 ]
         );
@@ -315,10 +426,16 @@ class SA_Ribon {
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', 'em', '%'],
             'selectors' => [
-                '{{WRAPPER}} .sa-el-ribon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} .sa_el_ribon_switch-wrapper-{{ID}}' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
             ], 'condition' => [
                 'sa_el_ribon_switch' => 'yes',
             ],
+                ]
+        );
+        $element->add_group_control(
+                Group_Control_Box_Shadow::get_type(), [
+            'name' => 'ribon_box_shadow',
+            'selector' => '{{WRAPPER}}  .sa_el_ribon_switch-wrapper-{{ID}}',
                 ]
         );
         $element->end_controls_tab();
@@ -328,26 +445,43 @@ class SA_Ribon {
         $element->end_controls_tabs();
         $element->end_controls_section();
     }
-      public function before_render($element)
-    {
 
-        $settings = $element->get_settings_for_display();
+    public function render_content($content, $widget) {
 
-        if ($element->get_settings('sa_el_ribon_switch') == 'yes') {
-
-            $element->add_render_attribute('_wrapper', [
-                'id' => 'sa_el_ribon_' . $element->get_id(),
-                'class' => 'sa_el_ribon',
-            ]);
+        $settings = $widget->get_settings_for_display();
+        $html = $icon = '';
+        if ($settings['sa_el_ribon_switch'] == 'yes') {
+            $html .= '<div class="sa_el_ribon_switch-wrapper sa_el_ribon_switch-wrapper-' . $widget->get_id() . '">';
+            if ($settings['sa_el_ribon_icon'] == 'yes'):
+                $icon = $this->Sa_El_Icon_Render($settings['sa_el_ribon_icon_class']);
+            endif;
+            if ($settings['ribon_icon_position'] == 'left'):
+                $html .= '<div class="ssssssssssssssssss">';
+                $html .= '<span class="sa_el_ribon_icon sa_el_ribon_icon_left">' . $icon . '</span>';
+                $html .= '<span>' . $settings['sa_el_ribon_section_content'] . '</span></div>';
+            else:
+                $html .= '<div class="ssssssssssssssssss">';
+                $html .= '<span>' . $settings['sa_el_ribon_section_content'] . '</span>';
+                $html .= '<span class="sa_el_ribon_icon sa_el_ribon_icon_right">' . $icon . '</span></div>';
+            endif;
+            $html .= '</div>';
         }
+        $css = '<style>
+               
+                .elementor-element-' . $widget->get_id() . '{
+                overflow : hidden;    
+                } 
+            </style>';
+        $html .= $content;
+        $html .= $css;
 
+        return $html;
     }
 
-    public function after_render($element)
-    {
-        $settings = $element->get_settings_for_display();
-
-        
-    }
-
+//
+//    public function after_render($element)
+//    {
+//        $settings = $element->get_settings_for_display();
+//        
+//    }
 }
