@@ -6,9 +6,9 @@
   display: inline-block;
   min-width: 150px;
   text-align: center;
-  padding: 12px 24px;
+  padding: 12px 20px;
   font-size: .93rem;
-  color: #333;
+  color: #4b00ff;
   line-height: 1;
   cursor: pointer;
   -webkit-transition: all 0.3s ease-in-out;
