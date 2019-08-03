@@ -4,12 +4,12 @@
  * start coding for fornend for dynamic style
  * @package shortcode addons
  */
-// heading add typography, padding, color, setting
+// footer add typography, padding, color, setting
 SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'font_typo', '.fl-node-' . $id . ' .oxi__addons_header');
 SA_FLBUILDER_HELPER::sa_fl_general_style(array(
     'color' => $settings->title_color,
 ), '.fl-node-' . $id . ' .oxi__addons_header');
-SA_FLBUILDER_HELPER::sa_fl_dimension_utility('heading', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_header', 'px');
+SA_FLBUILDER_HELPER::sa_fl_dimension_utility('footer', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_header', 'px');
 // details add typography, padding, color, setting
 SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'desc_font_typo', '.fl-node-' . $id . ' .oxi__addons_details *');
 SA_FLBUILDER_HELPER::sa_fl_general_style(array(
@@ -239,3 +239,37 @@ if ($settings->responsive_compatibility != 'none') {
     }
 <?php
 }
+?>
+
+
+<?php 
+if($settings->add_footer_icon != ''){
+foreach($settings->add_footer_icon as $value){
+?>   
+.fl-node-<?php echo $id; ?> .oxi_footer_info_icon{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #<?php echo $value->icon_bg_color; ?>;
+            font-size: <?php echo $value->icon_size; ?>px;
+            width: 100%;
+            max-width: <?php echo $value->icon_bg_size; ?>px;
+            height: <?php echo $value->icon_bg_size; ?>px;
+            color: #<?php echo $value->icon_color; ?>;
+            border-width: <?php echo $value->icon_border_width; ?>px;
+            border-style: <?php echo $value->icon_border_style; ?>;
+            border-color: #<?php echo $value->icon_border_color; ?>;
+            border-radius: <?php echo $value->icon_bg_border_radius; ?>px;
+            margin: 5px;
+            
+        }
+        
+        
+        <?php
+}
+
+
+}
+
+
+?>
