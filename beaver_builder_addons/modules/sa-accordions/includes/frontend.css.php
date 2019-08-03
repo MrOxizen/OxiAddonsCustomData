@@ -109,10 +109,18 @@ if (!empty($settings)) {
     
     .fl-node-<?php echo $id; ?> .SA-FL-accordion-conetent-<?php echo $id; ?>{
         background-color: #fff;
-        border-bottom: 1px solid #ddd;
         display:none;
-        padding: 10px 15px;
-        margin: 0;
+        padding-top: <?php echo $settings->body_padding_top; ?>px;
+        padding-right: <?php echo $settings->body_padding_right; ?>px;
+        padding-bottom: <?php echo $settings->body_padding_bottom; ?>px;
+        padding-left: <?php echo $settings->body_padding_left; ?>px;
+        color: #<?php echo $settings->deactive_heading_color; ?>;
+        border-top: <?php echo $settings->body_border_width_top; ?>px;
+        border-right: <?php echo $settings->body_border_width_right; ?>px;
+        border-bottom: <?php echo $settings->body_border_width_bottom; ?>px;
+        border-left: <?php echo $settings->body_border_width_left; ?>px;
+        border-style: <?php echo $settings->accordion_border_style; ?>;
+        border-color: #<?php echo $settings->accordion_border_color; ?>;
         color: #333;
     }
     

@@ -475,7 +475,7 @@ FLBuilder::register_module(
                         
                     ),
                     
-                    'accordion_border_style' => array(
+                    'accordion_description_border_style' => array(
                             'type' => 'select',
                             'label' => __('Border Style', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => 'none',
@@ -489,20 +489,20 @@ FLBuilder::register_module(
                             ),
                             'toggle' => array(
                                 'solid' => array(
-                                    'fields' => array('body_border_width', 'accordion_border_color', 'accordion_aborder_color'),
+                                    'fields' => array('body_description_border_width', 'accordion_border_color', 'accordion_aborder_color'),
                                 ),
                                 'dashed' => array(
-                                    'fields' => array('body_border_width', 'accordion_border_color', 'accordion_aborder_color'),
+                                    'fields' => array('body_description_border_width', 'accordion_border_color', 'accordion_aborder_color'),
                                 ),
                                 'dotted' => array(
-                                    'fields' => array('body_border_width', 'accordion_border_color', 'accordion_aborder_color'),
+                                    'fields' => array('body_description_border_width', 'accordion_border_color', 'accordion_aborder_color'),
                                 ),
                                 'double' => array(
-                                    'fields' => array('body_border_width', 'accordion_border_color', 'accordion_aborder_color'),
+                                    'fields' => array('body_description_border_width', 'accordion_border_color', 'accordion_aborder_color'),
                                 ),
                             ),
                         ),
-                    'body_border_width' => array(
+                    'body_description_border_width' => array(
                         'type' => 'dimension',
                         'label' => __('Border', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
@@ -511,7 +511,7 @@ FLBuilder::register_module(
                         'units' => array('px'),
                         
                     ),
-                    'accordion_border_color' => array(
+                    'accordion_description_border_color' => array(
                         'type' => 'color',
                         'default' => '',
                         'show_reset' => true,
@@ -521,7 +521,7 @@ FLBuilder::register_module(
                         
                     ),
                     
-                    'body_padding' => array(
+                    'description_padding' => array(
                         'type' => 'dimension',
                         'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Space between accordion to another accordion', SA_FLBUILDER_TEXTDOMAIN),
@@ -535,7 +535,7 @@ FLBuilder::register_module(
                             ),
                         ),
                     ),
-                    'body_margin' => array(
+                    'description__margin' => array(
                         'type' => 'dimension',
                         'label' => __('Margin', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Space between accordion to another accordion', SA_FLBUILDER_TEXTDOMAIN),
