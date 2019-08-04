@@ -644,7 +644,7 @@ class Image_Hotspots extends Widget_Base {
                 'tooltip_bg_color', [
             'label' => __('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
-            'default' => '',
+            'default' => '#d30038',
                 ]
         );
 

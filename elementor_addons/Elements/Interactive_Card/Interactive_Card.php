@@ -489,7 +489,7 @@ class Interactive_Card extends Widget_Base {
                 'sa_el_interactive_card_general_bg_color', [
             'label' => esc_html__('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
-            'default' => '#120021',
+            'default' => '#c63579',
             'selectors' => [
                 '{{WRAPPER}} .interactive-card' => 'background: {{VALUE}};',
             ],
@@ -546,7 +546,7 @@ class Interactive_Card extends Widget_Base {
                 'sa_el_interactive_card_front_panel_bg_color', [
             'label' => esc_html__('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
-            'default' => '#120021',
+            'default' => '#c63579',
             'selectors' => [
                 '{{WRAPPER}} .interactive-card .front-text-content .image-screen' => 'background: {{VALUE}};',
             ],
@@ -722,7 +722,7 @@ class Interactive_Card extends Widget_Base {
                 'sa_el_interactive_card_front_counter_color', [
             'label' => esc_html__('Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
-            'default' => '#737373',
+            'default' => '#fff',
             'selectors' => [
                 '{{WRAPPER}} .interactive-card .front-text-content .header .card-number' => 'color: {{VALUE}};',
             ],
@@ -941,7 +941,7 @@ class Interactive_Card extends Widget_Base {
                 'sa_el_interactive_card_front_btn_normal_text_color', [
             'label' => esc_html__('Text Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
-            'default' => '#fff',
+            'default' => '#c63579',
             'selectors' => [
                 '{{WRAPPER}} .interactive-card .front-text-content .footer a.interactive-btn' => 'color: {{VALUE}};',
             ],
@@ -955,7 +955,7 @@ class Interactive_Card extends Widget_Base {
                 'sa_el_interactive_card_front_btn_normal_bg_color', [
             'label' => esc_html__('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
-            'default' => '#49508c',
+            'default' => '#fff',
             'selectors' => [
                 '{{WRAPPER}} .interactive-card .front-text-content .footer a.interactive-btn' => 'background: {{VALUE}};',
             ],
@@ -1024,7 +1024,7 @@ class Interactive_Card extends Widget_Base {
                 'sa_el_interactive_card_front_btn_hover_bg_color', [
             'label' => esc_html__('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
-            'default' => '#7e5ae2',
+            'default' => '#009cd1',
             'selectors' => [
                 '{{WRAPPER}} .interactive-card .front-text-content .footer a.interactive-btn:hover' => 'background: {{VALUE}};',
             ],
@@ -1144,7 +1144,7 @@ class Interactive_Card extends Widget_Base {
                 'sa_el_interactive_card_rear_btn_normal_bg_color', [
             'label' => esc_html__('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
-            'default' => '#49508c',
+            'default' => '#f15540',
             'selectors' => [
                 '{{WRAPPER}} .interactive-card .interactive-btn' => 'background: {{VALUE}};',
             ],
