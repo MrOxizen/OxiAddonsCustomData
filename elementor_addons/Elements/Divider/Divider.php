@@ -77,7 +77,7 @@ class Divider extends Widget_Base {
                     'icon' => 'fa fa-picture-o',
                 ],
             ],
-            'default' => 'plain',
+            'default' => 'icon',
                 ]
         );
 
@@ -110,9 +110,9 @@ class Divider extends Widget_Base {
         $this->add_control(
                 'divider_icon', [
             'label' => __('Icon', SA_ELEMENTOR_TEXTDOMAIN),
-            'type' => Controls_Manager::ICON,
+            'type' => $this->Sa_El_Icon_Type(),
             'label_block' => true,
-            'default' => 'fa fa-circle',
+            'default' => $this->Sa_El_Default_Icon('fas fa-certificate', 'fa-solid', 'fas fa-certificate'),
             'condition' => [
                 'divider_type' => 'icon',
             ],
@@ -822,7 +822,7 @@ class Divider extends Widget_Base {
                                 ?>
                             <?php } elseif ($settings['divider_type'] == 'icon' && $settings['divider_icon']) { ?>
                                 <span <?php echo $this->get_render_attribute_string('divider-content'); ?>><?php
-                                    echo  $this->Sa_El_Icon_Render($settings['sa_el_dch_icon']);
+                                    echo  $this->Sa_El_Icon_Render($settings['divider_icon']);
                                     ?>
                                 </span>
                             <?php } elseif ($settings['divider_type'] == 'image') { ?>
@@ -842,45 +842,6 @@ class Divider extends Widget_Base {
             }
             ?>
         </div>    
-        <?php
-    }
-
-    /**
-     * Render divider widget output in the editor.
-     */
-    protected function _content_template() {
-        ?>
-        <div class="sa-el-divider-wrap">
-            <# if ( settings.divider_type == 'plain' ) { #>
-            <div class="sa-el-divider {{ settings.divider_direction }} {{ settings.divider_style }} "></div>
-            <# } else { #>
-            <div class="divider-text-container">
-                <div class="divider-text-wrap">
-                    <span class="divider-border-wrap divider-border-left">
-                        <span class="divider-border"></span>
-                    </span>
-                    <span class="sa-el-divider-content">
-                        <# if ( settings.divider_type == 'text' && settings.divider_text != '' ) { #>
-                        <{{ settings.text_html_tag }} class="sa-el-divider-{{ settings.divider_type }} elementor-inline-editing" data-elementor-setting-key="divider_text" data-elementor-inline-editing-toolbar="none">
-                        {{ settings.divider_text }}
-                        </{{ settings.text_html_tag }}>
-                        <# } else if ( settings.divider_type == 'icon' && settings.divider_icon != '' ) { #>
-                        <span class="sa-el-divider-{{ settings.divider_type }}">
-                            <span class="{{ settings.divider_icon }}" aria-hidden="true"></span>
-                        </span>
-                        <# } else if ( settings.divider_type == 'image' ) { #>
-                        <span class="sa-el-divider-{{ settings.divider_type }}">
-                            <img src="{{ settings.divider_image.url }}">
-                        </span>
-                        <# } #>
-                    </span>
-                    <span class="divider-border-wrap divider-border-right">
-                        <span class="divider-border"></span>
-                    </span>
-                </div>
-            </div>
-            <# } #>
-        </div>
         <?php
     }
 
