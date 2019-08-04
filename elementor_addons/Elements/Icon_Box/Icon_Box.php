@@ -144,7 +144,7 @@ class Icon_Box extends Widget_Base
                         'icon' => 'eicon-editor-h6'
                     ]
                 ],
-                'default' => 'h2',
+                'default' => 'h3',
                 'toggle' => false,
             ]
         );
@@ -722,7 +722,7 @@ class Icon_Box extends Widget_Base
             <span class="sa-el-icon-box-icon">
             <?php
 
-                $this->Sa_El_Icon_Render($settings['icon']);
+                echo $this->Sa_El_Icon_Render($settings['icon']);
 				
 			?>
             </span>
