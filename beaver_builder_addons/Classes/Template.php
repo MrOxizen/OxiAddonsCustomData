@@ -29,6 +29,8 @@ trait Template
                 'text-blocks',
                 'footer-info',
                 'icon-effects',
+                'offcanvas',
+                'alert-box',
             ),
         );
         ?>

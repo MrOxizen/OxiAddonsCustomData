@@ -356,7 +356,7 @@ FLBuilder::register_module(
                     ),
                 ),
                 'heading_middle_typo'              => array(
-                    'title'  => __('Top Text Settings', SA_FLBUILDER_TEXTDOMAIN),
+                    'title'  => __('Middle Text Settings', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
                         'tag_middle' => array(
                             'type'    => 'select',
@@ -414,7 +414,7 @@ FLBuilder::register_module(
                     ),
                 ),
                 'heading_bottom_typo'              => array(
-                    'title'  => __('Top Text Settings', SA_FLBUILDER_TEXTDOMAIN),
+                    'title'  => __('Bottom Text Settings', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
                         'tag_bottom' => array(
                             'type'    => 'select',
