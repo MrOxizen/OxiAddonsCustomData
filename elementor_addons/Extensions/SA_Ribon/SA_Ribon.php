@@ -12,8 +12,6 @@ if (!defined('ABSPATH')) {
 }
 
 use \Elementor\Controls_Manager;
-use \Elementor\Frontend;
-use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Scheme_Typography;
@@ -456,32 +454,18 @@ class SA_Ribon {
                 $icon = $this->Sa_El_Icon_Render($settings['sa_el_ribon_icon_class']);
             endif;
             if ($settings['ribon_icon_position'] == 'left'):
-                $html .= '<div class="ssssssssssssssssss">';
                 $html .= '<span class="sa_el_ribon_icon sa_el_ribon_icon_left">' . $icon . '</span>';
-                $html .= '<span>' . $settings['sa_el_ribon_section_content'] . '</span></div>';
-            else:
-                $html .= '<div class="ssssssssssssssssss">';
                 $html .= '<span>' . $settings['sa_el_ribon_section_content'] . '</span>';
-                $html .= '<span class="sa_el_ribon_icon sa_el_ribon_icon_right">' . $icon . '</span></div>';
+            else:
+                $html .= '<span>' . $settings['sa_el_ribon_section_content'] . '</span>';
+                $html .= '<span class="sa_el_ribon_icon sa_el_ribon_icon_right">' . $icon . '</span>';
             endif;
             $html .= '</div>';
         }
-        $css = '<style>
-               
-                .elementor-element-' . $widget->get_id() . '{
-                overflow : hidden;    
-                } 
-            </style>';
+
         $html .= $content;
-        $html .= $css;
 
         return $html;
     }
 
-//
-//    public function after_render($element)
-//    {
-//        $settings = $element->get_settings_for_display();
-//        
-//    }
 }

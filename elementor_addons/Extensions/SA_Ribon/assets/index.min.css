@@ -1,13 +1,14 @@
-.elementor-widget-container{
+.sa_el_ribon__right,
+.sa_el_ribon__left {
+    position: relative;
     overflow: hidden;
 }
-.sa_el_ribon_switch-wrapper{
-    position: absolute;
 
+.sa_el_ribon_switch-wrapper {
+    position: absolute;
     top: 0;
     display: flex;
     justify-content: center;
-    align-items:  center;
+    align-items: center;
     z-index: 99999;
 }
-    
