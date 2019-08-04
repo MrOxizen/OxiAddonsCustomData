@@ -5,6 +5,7 @@ namespace SA_ELEMENTOR_ADDONS\Elements\Dual_Button;
 if (!defined('ABSPATH')) {
     exit;
 }
+
 use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
@@ -15,6 +16,7 @@ use \Elementor\Widget_Base as Widget_Base;
 class Dual_Button extends Widget_Base
 {
 
+    use \SA_ELEMENTOR_ADDONS\Helper\Public_Helper;
 
     public function get_name()
     {
@@ -92,7 +94,7 @@ class Dual_Button extends Widget_Base
             'left_button_icon',
             [
                 'label' => __('Icon', SA_ELEMENTOR_TEXTDOMAIN),
-                'type' => Controls_Manager::ICON,
+                'type' => $this->Sa_El_Icon_Type(),
             ]
         );
 
@@ -195,7 +197,7 @@ class Dual_Button extends Widget_Base
             'button_connector_icon',
             [
                 'label' => __('Icon', SA_ELEMENTOR_TEXTDOMAIN),
-                'type' => Controls_Manager::ICON,
+                'type' =>  $this->Sa_El_Icon_Type(),
                 'condition' => [
                     'button_connector_hide!' => 'yes',
                     'button_connector_type' => 'icon',
@@ -234,7 +236,7 @@ class Dual_Button extends Widget_Base
             'right_button_icon',
             [
                 'label' => __('Icon', SA_ELEMENTOR_TEXTDOMAIN),
-                'type' => Controls_Manager::ICON,
+                'type' =>  $this->Sa_El_Icon_Type(),
             ]
         );
 
@@ -758,7 +760,7 @@ class Dual_Button extends Widget_Base
         $this->add_render_attribute('button_connector_text', 'class', 'sa-el-dual-btn-connector');
         if ($settings['button_connector_type'] === 'icon') {
             $this->add_render_attribute('button_connector_text', 'class', 'sa-el-dual-btn-connector--icon');
-            $connector = sprintf('<i class="%s"></i>', esc_attr($settings['button_connector_icon']));
+            $connector = $this->Sa_El_Icon_Render($settings['button_connector_icon']);
         } else {
             $this->add_render_attribute('button_connector_text', 'class', 'sa-el-dual-btn-connector--text');
             $this->add_inline_editing_attributes('button_connector_text', 'none');
@@ -787,11 +789,15 @@ class Dual_Button extends Widget_Base
         <div class="sa-el-dual-btn-wrapper">
             <a <?php echo $this->get_render_attribute_string('left_button'); ?>>
                 <?php if ($settings['left_button_icon_position'] === 'before') : ?>
-                    <i <?php echo $this->get_render_attribute_string('left_button_icon'); ?>></i>
+                <span  <?php echo $this->get_render_attribute_string('left_button_icon')?>>
+                    <?php echo $this->Sa_El_Icon_Render($settings['left_button_icon']) ?>
+                </span>
                 <?php endif; ?>
                 <span <?php echo $this->get_render_attribute_string('left_button_text'); ?>><?php echo esc_html($settings['left_button_text']); ?></span>
                 <?php if ($settings['left_button_icon_position'] === 'after') : ?>
-                    <i <?php echo $this->get_render_attribute_string('left_button_icon'); ?>></i>
+                <span  <?php echo $this->get_render_attribute_string('left_button_icon')?>>
+                    <?php echo $this->Sa_El_Icon_Render($settings['left_button_icon']) ?>
+                </span>
                 <?php endif; ?>
             </a>
             <?php if ($settings['button_connector_hide'] !== 'yes') : ?>
@@ -801,11 +807,15 @@ class Dual_Button extends Widget_Base
         <div class="sa-el-dual-btn-wrapper">
             <a <?php echo $this->get_render_attribute_string('right_button'); ?>>
                 <?php if ($settings['right_button_icon_position'] === 'before') : ?>
-                    <i <?php echo $this->get_render_attribute_string('right_button_icon'); ?>></i>
+                <span  <?php echo $this->get_render_attribute_string('right_button_icon')?>>
+                    <?php echo $this->Sa_El_Icon_Render($settings['right_button_icon']) ?>
+                </span>
                 <?php endif; ?>
                 <span <?php echo $this->get_render_attribute_string('right_button_text'); ?>><?php echo esc_html($settings['right_button_text']); ?></span>
                 <?php if ($settings['right_button_icon_position'] === 'after') : ?>
-                    <i <?php echo $this->get_render_attribute_string('right_button_icon'); ?>></i>
+                <span  <?php echo $this->get_render_attribute_string('right_button_icon')?>>
+                    <?php echo $this->Sa_El_Icon_Render($settings['right_button_icon']) ?>
+                </span>
                 <?php endif; ?>
             </a>
         </div>

@@ -491,13 +491,13 @@ class Button extends Widget_Base
             <a class="sa_el_creative_button <?php echo esc_attr($style_class); ?>" <?php echo $this->get_render_attribute_string('sa_el_creative_button'); ?>>
                 <span>
                     <?php if (!empty($settings['sa_el_creative_button_icon']) && $settings['sa_el_creative_button_icon_alignment'] == 'left') : ?>
-                        <span class="sa_el_creative_button_icon_left"><?php $this->Sa_El_Icon_Render($settings['sa_el_creative_button_icon']); ?></span>
+                        <span class="sa_el_creative_button_icon_left"><?php echo $this->Sa_El_Icon_Render($settings['sa_el_creative_button_icon']); ?></span>
                     <?php endif; ?>
 
                     <?php echo $settings['creative_button_text']; ?>
 
                     <?php if (!empty($settings['sa_el_creative_button_icon']) && $settings['sa_el_creative_button_icon_alignment'] == 'right') : ?>
-                    <span class="sa_el_creative_button_icon_right"><?php $this->Sa_El_Icon_Render($settings['sa_el_creative_button_icon']); ?></span> 
+                    <span class="sa_el_creative_button_icon_right"><?php echo $this->Sa_El_Icon_Render($settings['sa_el_creative_button_icon']); ?></span> 
                     <?php endif; ?>
                 </span>
             </a>

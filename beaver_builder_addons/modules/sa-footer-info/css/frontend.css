@@ -16,16 +16,16 @@ a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, d
      padding: 0;
      vertical-align: baseline;
 }
-.oxi__addons_heading_wrapper{
+.oxi__addons_footer_wrapper{
      display: flex;
      width: 100%;
 }
-.oxi__addons_main_heading{
+.oxi__addons_main_footer{
      width: 100%;
      display: flex;
      flex-direction: column;
 } 
-.oxi__addons_heading_wrapper .oxi__addons_header{ 
+.oxi__addons_footer_wrapper .oxi__addons_header{ 
      padding: 0px;
      margin: 0px;
      text-align: center;
@@ -34,53 +34,57 @@ h1, h2, h3, h4, h5, h6{
      margin: 0;
      padding: 0;
 } 
-.oxi__addons_heading_wrapper .oxi__addons_details,
-.oxi__addons_heading_wrapper .oxi__addons_details *{
+.oxi__addons_footer_wrapper .oxi__addons_details,
+.oxi__addons_footer_wrapper .oxi__addons_details *{
      margin: 0;
      padding: 0;
      text-align: center;
 }
-.oxi__addons_heading_wrapper .oxi__addons_line_divider {
+.oxi__addons_footer_wrapper .oxi__addons_line_divider {
      display: table;
      width: 100%; 
      line-height: 0;
      
 } 
-.oxi__addons_heading_wrapper .oxi__addons_seperator {
+.oxi__addons_footer_wrapper .oxi__addons_seperator {
      display: table-cell;  
      vertical-align: middle;
 }
-.oxi__addons_heading_wrapper .oxi__addons_seperator_span { 
+.oxi__addons_footer_wrapper .oxi__addons_seperator_span { 
      border-top: 2px solid rgb(43, 43, 43); 
      width: 100%;
      display: inline-block;
 }
-.oxi__addons_heading_wrapper .oxi__addons_seperator_width { 
+.oxi__addons_footer_wrapper .oxi__addons_seperator_width { 
      width: 40%;
 }
  
-.oxi__addons_heading_wrapper .oxi__before { 
+.oxi__addons_footer_wrapper .oxi__before { 
      width: 50%;
 }
-.oxi__addons_heading_wrapper .oxi__after { 
+.oxi__addons_footer_wrapper .oxi__after { 
      width: 50%;
 }
 /*
 *style for icon
 */
-.oxi__addons_heading_wrapper .oxi__addons_image_icon_divider{
+.oxi__addons_footer_wrapper .oxi__addons_image_icon_divider{
      padding-left: 5px;
      padding-right: 5px;
 }
-.oxi__addons_heading_wrapper .oxi__addons_image_icon_divider .oxi__icon{
+.oxi__addons_footer_wrapper .oxi__addons_image_icon_divider .oxi__icon{
      font-size: 22px;
      color: #000;
 }
-.oxi__addons_heading_wrapper .oxi__addons_image_icon_divider{
+.oxi__addons_footer_wrapper .oxi__addons_image_icon_divider{
      width: 50px;
 }
-.oxi__addons_heading_wrapper .oxi__addons_image{
+.oxi__addons_footer_wrapper .oxi__addons_image{
      width: 100%;
+}
+.oxi__addons_footer_wrapper .oxi__addons_footer_icon_area{
+    display: flex;
+    width: 100%;
 }
  
 

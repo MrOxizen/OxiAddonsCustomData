@@ -10,9 +10,11 @@ if (!defined('ABSPATH')) {
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 use SA_ELEMENTOR_ADDONS\Classes\Sa_Foreground_Control;
 use Elementor\Icons_Manager;
 use \Elementor\Controls_Manager as Controls_Manager;
+
 /**
  * Description of Public_Helper
  *
@@ -596,7 +598,7 @@ trait Public_Helper {
                 'condition' => '',
                 'API' => ''
             ],
-             'gradient_heading' => [
+            'gradient_heading' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Gradient_Heading\Gradient_Heading',
                 'dependency' => [
                     'css' => [
@@ -644,7 +646,7 @@ trait Public_Helper {
                 'condition' => '',
                 'API' => ''
             ],
-             'data_table' => [
+            'data_table' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Data_Table\Data_Table',
                 'dependency' => [
                     'css' => [
@@ -660,11 +662,23 @@ trait Public_Helper {
                 'condition' => '',
                 'API' => ''
             ],
-            
+            'ribon' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Extensions\SA_Ribon\SA_Ribon',
+                'dependency' => [
+                    'css' => [
+                        SA_ELEMENTOR_ADDONS_URL . 'Extensions/SA_Ribon/assets/index.min.css',
+                    ],
+                ],
+                'category' => 'Extension',
+                'Premium' => TRUE,
+                'condition' => '',
+                'API' => ''
+            ],
         ];
         return $response;
     }
-/**
+
+    /**
      * Register Widget Category 
      *
      * @since v1.0.0
@@ -735,6 +749,7 @@ trait Public_Helper {
         wp_enqueue_style(SA_ELEMENTOR_TEXTDOMAIN . '-before', content_url('uploads/OxiAddonsCustomData/elementor_addons/' . $css_file));
         wp_enqueue_script(SA_ELEMENTOR_TEXTDOMAIN . '-before', content_url('uploads/OxiAddonsCustomData/elementor_addons/' . $js_file), ['jquery']);
     }
+
     /**
      * Get all elementor page templates
      *
@@ -888,24 +903,27 @@ trait Public_Helper {
     }
 
     // Elementor icon libray type
-    public function Sa_El_Icon_Type()
-    {
+    public function Sa_El_Icon_Type() {
         return (version_compare(ELEMENTOR_VERSION, '2.6', '>=') ? Controls_Manager::ICONS : Controls_Manager::ICON);
     }
-    // Default icon class fa5 and fa4
-    public function Sa_El_Default_Icon($FA5_Class, $libray, $FA4_Class)
-    {
-        return (version_compare(ELEMENTOR_VERSION, '2.6', '>=') ? ['value' => $FA5_Class, 'library' => $libray,] : $FA4_Class);
 
+    // Default icon class fa5 and fa4
+    public function Sa_El_Default_Icon($FA5_Class, $libray, $FA4_Class) {
+        return (version_compare(ELEMENTOR_VERSION, '2.6', '>=') ? ['value' => $FA5_Class, 'library' => $libray,] : $FA4_Class);
     }
+
     // #Elementor icon render
-    public function Sa_El_Icon_Render($settings)
-    {
-        if ( version_compare(ELEMENTOR_VERSION, '2.6', '>=') ) {
-            Icons_Manager::render_icon( $settings, [ 'aria-hidden' => 'true' ] );
+    public function Sa_El_Icon_Render($settings) {
+        if (version_compare(ELEMENTOR_VERSION, '2.6', '>=')) {
+            ob_start(); 
+            Icons_Manager::render_icon($settings, ['aria-hidden' => 'true']);
+            $list = ob_get_contents(); 
+            ob_end_clean();
+            $rt = $list;
         } else {
-            ?><i aria-hidden='true' class="<?php echo esc_attr($settings); ?>"></i><?php
+            $rt = '<i aria-hidden="true" class="' . esc_attr($settings) . '"></i>';
         }
+        return $rt;
     }
 
 }

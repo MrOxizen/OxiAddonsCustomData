@@ -1,26 +1,16 @@
 <?php
-
 /**
  * @package shortcode addons
  */
+//echo '<pre>';
+//print_r($settings);
+//echo '</pre>';
 
-// echo '<pre>';
-// print_r($settings);
-// echo '</pre>';
-
-$heading = $description = $separator =  $oxi_addons_main =  '';
-if ($settings->heading != '') {
-    if ($settings->link == '') {
-        $heading = '<' . $settings->tag . ' class="oxi__addons_header">
-                        ' . $settings->heading . '
+$footer = $description = $separator = $oxi_addons_main = '';
+if ($settings->footer != '') {
+    $footer = '<' . $settings->tag . ' class="oxi__addons_header">
+                        ' . $settings->footer . '
                     </' . $settings->tag . '>';
-    } else {
-        $heading = '<a href="' . $settings->link . '" class="oxi__addons_header" target="' . $settings->link_target . '"  ' . SA_FLBUILDER_HELPER::Sa_fl_builder_get_link_rel($settings->link_target, $settings->link_nofollow, 1) . ' > 
-                         <' . $settings->tag . '>
-                            ' . $settings->heading . ' 
-                         </' . $settings->tag . '>
-                    </a>';
-    }
 }
 if ($settings->description != '') {
     $description = '
@@ -40,7 +30,7 @@ if ($settings->separator_style != 'none') {
     } else if ($settings->separator_style === 'line_icon') {
         $divider_icon = '';
         if (!empty($settings->icon)) {
-            $divider_icon =  '<i class="oxi__icon ' . $settings->icon . '"></i>';
+            $divider_icon = '<i class="oxi__icon ' . $settings->icon . '"></i>';
         }
 
         $separator = '<div class="oxi__addons_line_divider oxi__addons_seperator_width oxi__margin">
@@ -58,11 +48,11 @@ if ($settings->separator_style != 'none') {
         $divider_image = '';
         if ($settings->photo_source == 'library') {
             if ($settings->photo != '') {
-                $divider_image = '<img class="oxi__addons_image" src="' . $settings->photo_src . '" alt="' . $settings->heading . '"/>';
+                $divider_image = '<img class="oxi__addons_image" src="' . $settings->photo_src . '" alt="' . $settings->footer . '"/>';
             }
         } else if ($settings->photo_source == 'url') {
             if ($settings->photo_url != '') {
-                $divider_image = '<img class="oxi__addons_image" src="' . $settings->photo_url . '" alt="' . $settings->heading . '"/>';
+                $divider_image = '<img class="oxi__addons_image" src="' . $settings->photo_url . '" alt="' . $settings->footer . '"/>';
             }
         }
         $separator = '<div class="oxi__addons_line_divider oxi__addons_seperator_width oxi__margin">
@@ -95,34 +85,93 @@ if ($settings->separator_style != 'none') {
     }
 }
 if ($settings->separator_style === 'none') {
-    $oxi_addons_main =  '
-        ' . $heading . ' 
+    $oxi_addons_main = '
+        ' . $footer . ' 
         ' . $description . '
     ';
 } else {
     if ($settings->separator_position === 'top') {
-        $oxi_addons_main =  '
+        $oxi_addons_main = '
         ' . $separator . ' 
-        ' . $heading . ' 
+        ' . $footer . ' 
         ' . $description . '
     ';
     } else if ($settings->separator_position === 'bottom') {
-        $oxi_addons_main =  '
-        ' . $heading . ' 
+        $oxi_addons_main = '
+        ' . $footer . ' 
         ' . $description . '
         ' . $separator . '
     ';
     } else if ($settings->separator_position === 'center') {
-        $oxi_addons_main =  '
-        ' . $heading . ' 
+        $oxi_addons_main = '
+        ' . $footer . ' 
         ' . $separator . ' 
         ' . $description . '
     ';
     }
 }
+
 ?>
-<div class="oxi__addons_heading_wrapper">
-    <div class="oxi__addons_main_heading">
-        <?php echo $oxi_addons_main; ?>
+<div class="oxi__addons_footer_wrapper">
+    <div class="oxi__addons_main_footer">
+        <?php
+        if ($settings->icon_position == 'bottom') {
+            ?>
+            <?php echo $oxi_addons_main; ?>
+            <div class="oxi__addons_footer_icon_area">
+                <?php
+                foreach ($settings->add_footer_icon as $value) {
+                    if ($value->link != '') {
+                        
+                        ?>
+                        <a href="<?php echo $value->link; ?>" target="<?php echo $value->link_target; ?>" ref="<?php echo $value->link_nofollow; ?>">
+                            <div class="oxi_footer_info_icon">
+                                <i class="<?php echo $value->icon; ?>"></i>
+                                
+                            </div>
+                        </a>
+                        <?php
+                    } else {
+                        ?>
+                        <div class="oxi_footer_info_icon">
+                            <i class="<?php echo $value->icon; ?>"></i>
+                        </div>
+                        <?php
+                    }
+                }
+                ?>
+            </div>  
+
+
+            <?php
+        } else {
+            ?>    
+            
+            <div class="oxi__addons_footer_icon_area">
+                <?php
+                foreach ($settings->add_footer_icon as $value) {
+                    if ($value->link != '') {
+                        ?>
+                        <a href="<?php echo $value->link ?>" target="<?php echo $value->link_target ?>" ref="<?php echo $value->link_nofollow ?>">
+                            <div class="oxi_footer_info_icon">
+                                <i class="<?php echo $value->icon; ?>"></i>
+                            </div>
+                        </a>
+                        <?php
+                    } else {
+                        ?>
+                        <div class="oxi_footer_info_icon">
+                            <i class="<?php echo $value->icon; ?>"></i>
+                        </div>
+                        <?php
+                    }
+                }
+                ?>
+            </div>
+            <?php echo $oxi_addons_main; ?>
+            <?php
+        }
+        ?>
     </div>
+
 </div>
