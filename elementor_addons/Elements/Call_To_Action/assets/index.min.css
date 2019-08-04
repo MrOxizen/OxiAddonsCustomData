@@ -6,16 +6,24 @@
     width: 100%;
     height: auto;
     display: block;
-    padding: 30px;
+    padding: 40px;
     font-size: 16px;
-    color: #4d4d4d;
     font-weight: 400;
     line-height: 27px;
     margin: 0 auto;
 }
 
 .sa_el_call_to_action p {
-    margin-bottom: 10px;
+    font-size: 13px;
+
+    font-family: "Roboto";
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1.3;
+    text-align: left;
+    letter-spacing: 1px;
+    padding: 3px 20px 3px 20px;
+    margin: 0px 0px 0px 0px;
 }
 .sa_el_call_to_action h2:before {
     display: none;
@@ -23,9 +31,16 @@
 .sa_el_call_to_action h2.title {
 
 
-    font-size: 36px;
+    font-size: 26px;
+    font-family: "Roboto";
     font-weight: 600;
-    line-height: 36px;
+    font-style: normal;
+    line-height: 1.2;
+    text-align: left;
+    letter-spacing: 1px;
+    padding: 7px 20px 7px 20px;
+    letter-spacing: 1px;
+
     margin-bottom: 10px;
     text-transform: capitalize;
     font-style: normal;
@@ -154,14 +169,14 @@
 .sa_el_call_to_action .call-to-action-button {
     position: relative;
     display: inline-block;
-    padding: 12px 30px;
-    background: #f9f9f9;
-    font-size: 16px;
+
+
+
     text-decoration: none;
-    color: #4d4d4d;
-    -webkit-transition: .5s;
-    -o-transition: .5s;
-    transition: .5s;
+
+    -webkit-transition:  0.4s ease-in-out;
+    -o-transition:  0.4s ease-in-out;
+    transition:  0.4s ease-in-out;
     -webkit-box-shadow: 0px 0px 3px -1px rgba(0, 0, 0, 0.2);
     -ms-box-shadow: 0px 0px 3px -1px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 0px 3px -1px rgba(0, 0, 0, 0.2);
@@ -169,6 +184,22 @@
     margin-top: 10px;
     z-index: 0;
     overflow: hidden;
+
+
+    font-size: 17px;
+    border-width: 0px 0px 0px 0px;
+    border-style: solid;
+    border-color: #272727;
+    font-family: "Roboto";
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1.3;
+    text-align: center;
+    letter-spacing: 1px;
+    text-align: center;
+    border-radius: 50px 50px 50px 50px;
+    padding: 15px 35px 15px 35px;
+
 }
 
 .sa_el_call_to_action .call-to-action-button:last-child {

@@ -442,7 +442,7 @@ class Data_Table extends Widget_Base {
                 'sa_el_data_table_header_title_bg_color', [
             'label' => esc_html__('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
-            'default' => '#4a4893',
+            'default' => '#00c6c7',
             'selectors' => [
                 '{{WRAPPER}} .sa-el-data-table thead tr th' => 'background-color: {{VALUE}};'
             ],

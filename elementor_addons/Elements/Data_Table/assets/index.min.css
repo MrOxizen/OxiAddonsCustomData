@@ -13,7 +13,7 @@ table.sa-el-data-table thead .sorting_asc:after {
   position: absolute;
   top: 50%;
   right: 10px;
-  font-family: "FontAwesome";
+  font-family: "Font Awesome\ 5 Free";
   color: #fff;
   z-index: 1;
   -webkit-transform: translateY(-50%);
@@ -343,13 +343,4 @@ table.sa-el-data-table .sorting_asc.sorting-none:after {
 
 .sa-el-dt-td-align-center .sa-el-data-table tbody tr td {
   text-align: center;
-}
-
-.sa-el-data-table-wrap .sorting::after {
-  font-family: "dashicons" !important;
-  content: "\f229" !important;
-  color: #fff !important;
-  -ms-transform: translateY(-50%) rotate(90deg) !important; /* IE 9 */
-  -webkit-transform: translateY(-50%) rotate(90deg) !important; /* Safari 3-8 */
-  transform: translateY(-50%) rotate(90deg) !important;
 }

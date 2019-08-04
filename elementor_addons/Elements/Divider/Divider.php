@@ -821,8 +821,9 @@ class Divider extends Widget_Base {
                                 printf('<%1$s %2$s>%3$s</%1$s>', $settings['text_html_tag'], $this->get_render_attribute_string('divider_text'), $settings['divider_text']);
                                 ?>
                             <?php } elseif ($settings['divider_type'] == 'icon' && $settings['divider_icon']) { ?>
-                                <span <?php echo $this->get_render_attribute_string('divider-content'); ?>>
-                                    <span class="<?php echo esc_attr($settings['divider_icon']); ?>" aria-hidden="true"></span>
+                                <span <?php echo $this->get_render_attribute_string('divider-content'); ?>><?php
+                                    echo  $this->Sa_El_Icon_Render($settings['sa_el_dch_icon']);
+                                    ?>
                                 </span>
                             <?php } elseif ($settings['divider_type'] == 'image') { ?>
                                 <span <?php echo $this->get_render_attribute_string('divider-content'); ?>>
