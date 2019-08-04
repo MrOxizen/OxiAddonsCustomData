@@ -6,7 +6,7 @@
  */
 
 FLBuilder::register_module(
-    'Text_blocks',
+    'Alert_box',
     array(
         'general'    => array(
             'title'    => __('Content', SA_FLBUILDER_TEXTDOMAIN),
