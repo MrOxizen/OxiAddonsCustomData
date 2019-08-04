@@ -651,10 +651,10 @@ trait Public_Helper {
                 'dependency' => [
                     'css' => [
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Data_Table/assets/index.min.css',
-                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/table-sorter/js/jquery.tablesorter.min.js',
                     ],
                     'js' => [
                         SA_ELEMENTOR_ADDONS_URL . 'Elements/Data_Table/assets/index.min.js',
+                        SA_ELEMENTOR_ADDONS_URL . 'assets/vendor/table-sorter/js/jquery.tablesorter.min.js',
                     ],
                 ],
                 'category' => 'Dynamic Contents',

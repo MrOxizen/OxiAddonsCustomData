@@ -55,7 +55,6 @@ class Data_Table extends Widget_Base {
             'return_value' => 'true',
                 ]
         );
-       
         $this->add_control(
                 'sa_el_data_table_header_cols_data', [
             'type' => Controls_Manager::REPEATER,
