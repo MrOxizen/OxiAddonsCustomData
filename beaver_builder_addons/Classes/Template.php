@@ -30,6 +30,7 @@ trait Template
                 'footer-info',
                 'icon-effects',
                 'offcanvas',
+                'alert-box',
             ),
         );
         ?>
