@@ -16,29 +16,13 @@ a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, d
      padding: 0;
      vertical-align: baseline;
 }
-.oxi__addons_main_wrapper{ 
+.oxi__addons_wrapper_main{
      display: flex;
-}
-.oxi__addons_main_wrapper .oxi__addons_icon_wrapper{ 
-    width: 100%;  
-} 
- 
-.oxi__addons_main_wrapper .oxi__addons_icon{ 
-    display: inline-block;
-    position: relative;
-    width: 100%;
-} 
-.oxi__addons_main_wrapper .oxi__addons_icon::after{ 
-     box-shadow:0 0 0 5px #22a4d8; 
-     content: "";
-     pointer-events: none;
-     position: absolute;
      width: 100%;
-     height: 100%;
-     border-radius: 50%;
-     -webkit-box-sizing: content-box;
-     -moz-box-sizing: content-box;
-     box-sizing: content-box; 
-} 
+}
+.oxi__addons_heading_wrapper{
+     width: 100%;
+     display: block;
+}
  
- 
+

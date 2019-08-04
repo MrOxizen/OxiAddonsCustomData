@@ -412,7 +412,7 @@ class Flip_Box extends Widget_Base
             'button_icon',
             [
                 'label' => __('Button Icon', SA_ELEMENTOR_TEXTDOMAIN),
-                'type' => Controls_Manager::ICON,
+                'type' => $this->Sa_El_Icon_Type(),
                 'default' => '',
                 'condition' => [
                     'flipbox_link_type' => 'button',
@@ -1176,7 +1176,7 @@ class Flip_Box extends Widget_Base
 
         $flipbox_image_back = $this->get_settings('sa_el_flipbox_image_back');
         $flipbox_back_image_url = Group_Control_Image_Size::get_attachment_image_src($flipbox_image_back['id'], 'thumbnail_back', $settings);
-        $flipbox_back_image_url = empty($flipbox_back_image_url) ? $flipbox_back_image_url['url'] : $flipbox_back_image_url;
+        $flipbox_back_image_url = empty($flipbox_back_image_url) ? $flipbox_image_back['url'] : $flipbox_back_image_url;
 
         if ($settings['sa_el_flipbox_img_or_icon_back'] != 'none') {
             if ('img' == $settings['sa_el_flipbox_img_or_icon_back']) {
@@ -1241,8 +1241,7 @@ class Flip_Box extends Widget_Base
                                         <?php if ('img' == $settings['sa_el_flipbox_img_or_icon_back']) : ?>
                                             <img <?php echo $this->get_render_attribute_string('flipbox-back-icon-image-container'); ?>>
                                         <?php elseif ('icon' == $settings['sa_el_flipbox_img_or_icon_back']) : ?>
-                                        <?php echo $this->Sa_El_Icon_Render($settings['sa_el_flipbox_icon'])?>
-                                            <i <?php echo $this->get_render_attribute_string('flipbox-back-icon-container'); ?>></i>
+                                        <?php echo $this->Sa_El_Icon_Render($settings['sa_el_flipbox_icon_back'])?> 
                                         <?php endif; ?>
                                     </div>
                                 <?php endif; ?>
@@ -1254,12 +1253,10 @@ class Flip_Box extends Widget_Base
 
                                 <?php if ($settings['flipbox_link_type'] == 'button' && !empty($settings['flipbox_button_text'])) : ?>
                                     <a <?php echo $this->get_render_attribute_string('sa_el_flipbox_button_container'); ?>>
-                                        <?php if (!empty($settings['button_icon']) && 'before' == $settings['button_icon_position']) : ?>
-                                            <i class="<?php echo $settings['button_icon']; ?>"></i>
+                                        <?php if (!empty($settings['button_icon']) && 'before' == $settings['button_icon_position']) : echo $this->Sa_El_Icon_Render($settings['button_icon'])?>
                                         <?php endif; ?>
                                         <?php echo esc_attr($settings['flipbox_button_text']); ?>
-                                        <?php if (!empty($settings['button_icon']) && 'after' == $settings['button_icon_position']) : ?>
-                                            <i class="<?php echo $settings['button_icon']; ?>"></i>
+                                        <?php if (!empty($settings['button_icon']) && 'after' == $settings['button_icon_position']) : echo $this->Sa_El_Icon_Render($settings['button_icon'])?>
                                         <?php endif; ?>
                                     </a>
                                 <?php endif; ?>
