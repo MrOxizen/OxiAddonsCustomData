@@ -32,6 +32,7 @@ class Bootstrap
         $this->register_hooks();
         add_action('admin_menu', array($this, 'Menu'));
         add_action('wp_ajax_saflbuilder_save_settings', array($this, 'saflbuilder_save_settings'));
+        add_action('init', __CLASS__ . '::global_styles_scripts');
     }
 
     public function register_hooks()
@@ -47,6 +48,15 @@ class Bootstrap
         $active = $this->active_elements;
         foreach ($active as $key => $value) {
             require_once FL_MODULE_SA_FLBUILDER_URL . 'modules/sa-' . $key . '/sa-' . $key . '.php';
+        }
+    }
+
+    static public function global_styles_scripts()
+    {
+        if (!is_admin()) {
+            wp_register_style('sa-global-css', SA_FLBUILDER_CONTENT_URL . 'assets/css/frontend.css', array());
+
+            wp_enqueue_style('sa-global-css');
         }
     }
 }
