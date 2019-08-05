@@ -15,6 +15,7 @@ if (!defined('ABSPATH')) {
 
 define('FL_MODULE_SA_FLBUILDER_URL', OxiAddonsCustomData . 'beaver_builder_addons/');
 define('SA_FLBUILDER_TEXTDOMAIN', 'sa-flbuilder');
+define('SA_FLBUILDER_CONTENT_URL', content_url('uploads/OxiAddonsCustomData/beaver_builder_addons/'));
 require_once FL_MODULE_SA_FLBUILDER_URL . 'autoloader.php';
 if (!class_exists('SA_FLBUILDER_ADDONS')) {
 
