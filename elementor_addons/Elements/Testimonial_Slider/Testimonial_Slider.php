@@ -353,7 +353,7 @@ class Testimonial_Slider extends Widget_Base {
                     'icon' => 'fa fa-align-right',
                 ],
             ],
-            'default' => 'sa-el-testimonial-align-left'
+            'default' => 'sa-el-testimonial-align-centered'
                 ]
         );
 

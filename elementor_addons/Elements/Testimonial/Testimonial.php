@@ -194,11 +194,11 @@ class Testimonial extends Widget_Base {
 				'options'	=> [
 					'default-style'						=> __( 'Default', SA_ELEMENTOR_TEXTDOMAIN ),
 					'classic-style'						=> __( 'Classic', SA_ELEMENTOR_TEXTDOMAIN ),
-					'middle-style'						=> __( 'Content | Icon/Image | Bio', SA_ELEMENTOR_TEXTDOMAIN ),
-					'icon-img-left-content'				=> __( 'Icon/Image | Content', SA_ELEMENTOR_TEXTDOMAIN ),
-					'icon-img-right-content'			=> __( 'Content | Icon/Image', SA_ELEMENTOR_TEXTDOMAIN ),
-					'content-top-icon-title-inline'		=> __( 'Content Top | Icon Title Inline', SA_ELEMENTOR_TEXTDOMAIN ),
-					'content-bottom-icon-title-inline'	=> __( 'Content Bottom | Icon Title Inline', SA_ELEMENTOR_TEXTDOMAIN )
+					'middle-style'						=> __( 'Content | Image | Bio', SA_ELEMENTOR_TEXTDOMAIN ),
+					'icon-img-left-content'				=> __( 'Image | Content', SA_ELEMENTOR_TEXTDOMAIN ),
+					'icon-img-right-content'			=> __( 'Content | Image', SA_ELEMENTOR_TEXTDOMAIN ),
+					'content-bottom-icon-title-inline'		=> __( 'Content Top | Title Inline', SA_ELEMENTOR_TEXTDOMAIN ),
+					'content-top-icon-title-inline'	=> __( 'Content Bottom | Title Inline', SA_ELEMENTOR_TEXTDOMAIN )
 				]
 			]
 		);
