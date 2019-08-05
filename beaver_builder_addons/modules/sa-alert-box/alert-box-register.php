@@ -14,17 +14,17 @@ FLBuilder::register_module(
                 'content'     => array(
                     'title'  => '',
                     'fields' => array(
-                        'separator_style'    => array(
+                        'icon_show'    => array(
                             'type'    => 'select',
                             'label'   => __('Show Icon', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => 'line',
+                            'default' => 'show',
                             'options' => array(
                                 'show'       => __('Show', SA_FLBUILDER_TEXTDOMAIN),
                                 'hide'       => __('Hide', SA_FLBUILDER_TEXTDOMAIN),
                             ),
                             'toggle'  => array(
-                                'line'       => array(
-                                    'sections' => array('separator_line'),
+                                'show'       => array(
+                                    'sections' => array('icon_settings'),
                                     'fields' => array('icon'),
                                 ),
                             ),
@@ -54,14 +54,47 @@ FLBuilder::register_module(
                             ),
                             'connections' => array('string', 'html'),
                         ),
+                        'cross_icon'    => array(
+                            'type'    => 'select',
+                            'label'   => __('Cross Icon', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'show',
+                            'options' => array(
+                                'true'       => __('True', SA_FLBUILDER_TEXTDOMAIN),
+                                'false'       => __('False', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                            'toggle'  => array(
+                                'true'       => array(
+                                    'sections' => array('cross_icon_setting'),
+                                ),
+                            ),
+                        ),
                     ),
                 ),
-
             ),
         ),
         'style'      => array(
-            'title'    => __('Separator', SA_FLBUILDER_TEXTDOMAIN),
+            'title'    => __('Styles', SA_FLBUILDER_TEXTDOMAIN),
             'sections' => array(
+                'icon_settings' => array(
+                    'title'  => __('Icon Basics', SA_FLBUILDER_TEXTDOMAIN),
+                    'fields' => array(
+
+                        'icon_padding' => array(
+                            'type' => 'dimension',
+                            'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
+                            'help' => __('Manage  Icon padding', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider' => true,
+                            'units' => array('px'),
+                            'responsive' => array(
+                                'placeholder' => array(
+                                    'default' => '0',
+                                    'medium' => '0',
+                                    'responsive' => '0',
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
                 'icon_settings' => array(
                     'title'  => __('Icon Basics', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
@@ -93,7 +126,93 @@ FLBuilder::register_module(
                                 'property' => 'color',
                             ),
                         ),
-
+                        'icon_bg_color' => array(
+                            'type'        => 'color',
+                            'label'       => __('Icon Background Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'     => '',
+                            'show_reset'  => true,
+                            'connections' => array('color'),
+                            'show_alpha'  => true,
+                            'preview'     => array(
+                                'type'     => 'css',
+                                'selector' => '.oxi__icon',
+                                'property' => 'color',
+                            ),
+                        ),
+                        'icon_padding' => array(
+                            'type' => 'dimension',
+                            'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
+                            'help' => __('Manage  Icon padding', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider' => true,
+                            'units' => array('px'),
+                            'responsive' => array(
+                                'placeholder' => array(
+                                    'default' => '0',
+                                    'medium' => '0',
+                                    'responsive' => '0',
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                'cross_icon_setting' => array(
+                    'title'  => __('Cross Icon Setting', SA_FLBUILDER_TEXTDOMAIN),
+                    'fields' => array(
+                        'cross_icon_size'            => array(
+                            'type'        => 'unit',
+                            'label'       => __('Icon Size', SA_FLBUILDER_TEXTDOMAIN),
+                            'placeholder' => '20',
+                            'maxlength'   => '5',
+                            'size'        => '6',
+                            'units'       => array('px'),
+                            'slider'      => true,
+                            'preview'     => array(
+                                'type'     => 'css',
+                                'selector' => '.oxi__addons_image_icon_divider .oxi__icon',
+                                'property' => 'font-size',
+                                'unit'     => 'px',
+                            ),
+                        ),
+                        'cross_icon_color' => array(
+                            'type'        => 'color',
+                            'label'       => __('Icon Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'     => '',
+                            'show_reset'  => true,
+                            'connections' => array('color'),
+                            'show_alpha'  => true,
+                            'preview'     => array(
+                                'type'     => 'css',
+                                'selector' => '.oxi__icon',
+                                'property' => 'color',
+                            ),
+                        ),
+                        'cross_hover_icon_color' => array(
+                            'type'        => 'color',
+                            'label'       => __('Icon Hover Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'     => '',
+                            'show_reset'  => true,
+                            'connections' => array('color'),
+                            'show_alpha'  => true,
+                            'preview'     => array(
+                                'type'     => 'css',
+                                'selector' => '.oxi__icon',
+                                'property' => 'color',
+                            ),
+                        ),
+                        'cross_icon_padding' => array(
+                            'type' => 'dimension',
+                            'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
+                            'help' => __('Manage Cross Icon padding', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider' => true,
+                            'units' => array('px'),
+                            'responsive' => array(
+                                'placeholder' => array(
+                                    'default' => '0',
+                                    'medium' => '0',
+                                    'responsive' => '0',
+                                ),
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -130,7 +249,7 @@ FLBuilder::register_module(
                         'title_top_padding' => array(
                             'type' => 'dimension',
                             'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
-                            'help' => __('Manage Heading padding', SA_FLBUILDER_TEXTDOMAIN),
+                            'help' => __('Manage Alert box title padding', SA_FLBUILDER_TEXTDOMAIN),
                             'slider' => true,
                             'units' => array('px'),
                             'responsive' => array(
@@ -144,7 +263,7 @@ FLBuilder::register_module(
                     ),
                 ),
                 'sub_title_typo'              => array(
-                    'title'  => __('Top Text Settings', SA_FLBUILDER_TEXTDOMAIN),
+                    'title'  => __('Sub Title Settings', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
                         'sub_title_font_top_typo'             => array(
                             'type'       => 'typography',
@@ -172,7 +291,7 @@ FLBuilder::register_module(
                         'sub_title_top_padding' => array(
                             'type' => 'dimension',
                             'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
-                            'help' => __('Manage Heading padding', SA_FLBUILDER_TEXTDOMAIN),
+                            'help' => __('Manage Alert Box Heading padding', SA_FLBUILDER_TEXTDOMAIN),
                             'slider' => true,
                             'units' => array('px'),
                             'responsive' => array(
