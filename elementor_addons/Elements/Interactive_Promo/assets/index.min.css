@@ -8,6 +8,7 @@
   max-width: 100%;
   position: relative;
   text-align: center;
+  overflow: hidden;
 }
 
 /* Common style */
