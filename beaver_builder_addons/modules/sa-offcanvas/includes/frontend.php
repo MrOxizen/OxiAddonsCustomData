@@ -80,7 +80,7 @@
     });
 </script>
 
-<div clas="oxi_sa_offcanvas_wrapter">
+<div class="oxi_sa_offcanvas_wrapter">
     <main class="c-offcanvas-content-wrap" role="main">
         <div class="o-wrapper">
             <div class="sa-offcanvas-trigger-left" data-offcanvas-trigger="left"   >Left</div>
@@ -91,23 +91,21 @@
     </main>
 
     <aside id="left" role="complementary">
-
-        <button class="sa-offcanvas-close">Close</button>
+        <i class="fa fa-close sa-offcanvas-close"></i>
     </aside>
 
     <aside class="sa-offcanvas" data-offcanvas-options='{"modifiers":"right,overlay"}' id="right" role="complementary">
-
-        <button class="sa-offcanvas-close" data-button-options='{"modifiers":"m1,m2"}'>Close</button>
+        
+        <i class="fa fa-close sa-offcanvas-close" data-button-options='{"modifiers":"m1,m2"}'></i>
     </aside>
 
     <aside class="sa-offcanvas" data-offcanvas-options='{"modifiers":"top,fixed,overlay"}' id="top" role="complementary">
 
-        <a data-focus href="#">Test</a>
-        <button data-focus class="sa-offcanvas-close" data-button-options='{"modifiers":"m1,m2"}'>Close</button>
+        <i class="fa fa-close sa-offcanvas-close" data-button-options='{"modifiers":"m1,m2"}'></i>
     </aside>
     <aside class="sa-offcanvas" data-offcanvas-options='{"modifiers":"bottom, fixed, overlay"}' id="bottom" role="complementary">
 
-        <button class="sa-offcanvas-close" data-button-options='{"modifiers":"m1,m2"}'>Close</button>
+        <i class="fa fa-close sa-offcanvas-close" data-button-options='{"modifiers":"m1,m2"}'></i>
     </aside>
 
 </div>

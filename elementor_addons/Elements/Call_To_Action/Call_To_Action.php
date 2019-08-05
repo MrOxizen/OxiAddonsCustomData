@@ -52,7 +52,7 @@ class Call_To_Action extends Widget_Base {
                 'sa_el_call_to_action_type', [
             'label' => esc_html__('Content Style', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
-            'default' => 'call-to-action-basic',
+            'default' => 'call-to-action-icon-flex',
             'label_block' => false,
             'options' => [
                 'call-to-action-basic' => esc_html__('Basic', SA_ELEMENTOR_TEXTDOMAIN),
@@ -86,7 +86,7 @@ class Call_To_Action extends Widget_Base {
                 'sa_el_call_to_action_color_type', [
             'label' => esc_html__('Color Style', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
-            'default' => 'call-to-action-bg-color',
+            'default' => 'call-to-action-bg-img-fixed',
             'label_block' => false,
             'options' => [
                 'call-to-action-bg-color' => esc_html__('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
@@ -103,8 +103,8 @@ class Call_To_Action extends Widget_Base {
         $this->add_control(
                 'sa_el_call_to_action_flex_grid_icon', [
             'label' => esc_html__('Icon', SA_ELEMENTOR_TEXTDOMAIN),
-            'type' => Controls_Manager::ICON,
-            'default' => 'fa fa-bullhorn',
+            'type' =>  $this->Sa_El_Icon_Type(),
+            'default' => $this->Sa_El_Default_Icon('fas fa-street-view', 'fa-solid', 'fas fa-street-view'),
             'condition' => [
                 'sa_el_call_to_action_type' => 'call-to-action-icon-flex'
             ]
@@ -189,7 +189,7 @@ class Call_To_Action extends Widget_Base {
             'label' => esc_html__('Background Image', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::MEDIA,
             'default' => [
-                'url' => Utils::get_placeholder_image_src(),
+                'url' => 'https://www.shortcode-addons.com/wp-content/uploads/2019/06/modern-illustrated-city.png',
             ],
             'selectors' => [
                 '{{WRAPPER}} .sa_el_call_to_action.bg-img' => 'background-image: url({{URL}});',
@@ -204,7 +204,7 @@ class Call_To_Action extends Widget_Base {
                 'sa_el_call_to_action_bg_image_overlay_color', [
             'label' => esc_html__('Overlay Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
-            'default' => 'rgba(0, 0, 0, 0.8)',
+            'default' => 'rgba(255,255,255,0.71)',
             'selectors' => [
                 '{{WRAPPER}} .sa_el_call_to_action.bg-img:after' => 'background: {{VALUE}};',
             ],
@@ -394,7 +394,7 @@ class Call_To_Action extends Widget_Base {
                 'sa_el_call_to_action_title_color', [
             'label' => esc_html__('Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
-            'default' => '',
+            'default' => '#ec5a36',
             'selectors' => [
                 '{{WRAPPER}} .sa_el_call_to_action .title' => 'color: {{VALUE}};',
             ],
@@ -420,7 +420,7 @@ class Call_To_Action extends Widget_Base {
                 'sa_el_call_to_action_content_color', [
             'label' => esc_html__('Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
-            'default' => '',
+            'default' => '#292929',
             'selectors' => [
                 '{{WRAPPER}} .sa_el_call_to_action p' => 'color: {{VALUE}};',
             ],
@@ -499,7 +499,7 @@ class Call_To_Action extends Widget_Base {
                 'sa_el_call_to_action_btn_normal_text_color', [
             'label' => esc_html__('Text Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
-            'default' => '#4d4d4d',
+            'default' => '#ffffff',
             'selectors' => [
                 '{{WRAPPER}} .sa_el_call_to_action .call-to-action-button' => 'color: {{VALUE}};',
             ],
@@ -510,7 +510,7 @@ class Call_To_Action extends Widget_Base {
                 'sa_el_call_to_action_btn_normal_bg_color', [
             'label' => esc_html__('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
-            'default' => '#f9f9f9',
+            'default' => 'rgba(236,90,54,1.00)',
             'selectors' => [
                 '{{WRAPPER}} .sa_el_call_to_action .call-to-action-button' => 'background: {{VALUE}};',
             ],
@@ -712,7 +712,7 @@ class Call_To_Action extends Widget_Base {
         <?php if ('call-to-action-icon-flex' == $settings['sa_el_call_to_action_type']) : ?>
             <div class="sa_el_call_to_action call-to-action-icon-flex <?php echo esc_attr($call_to_action_class); ?>">
                 <div class="icon">
-                    <i class="<?php echo esc_attr($settings['sa_el_call_to_action_flex_grid_icon']); ?>"></i>
+                    <?=  $this->Sa_El_Icon_Render($settings['sa_el_call_to_action_flex_grid_icon']) ?>
                 </div>
                 <div class="content">
                     <h2 class="title"><?php echo $settings['sa_el_call_to_action_title']; ?></h2>

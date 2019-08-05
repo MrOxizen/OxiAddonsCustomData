@@ -71,7 +71,7 @@ class Counter extends Widget_Base {
                     'icon' => 'fa fa-picture-o',
                 ],
             ],
-            'default' => 'none',
+            'default' => 'icon',
                 ]
         );
 
@@ -79,6 +79,7 @@ class Counter extends Widget_Base {
                 'counter_icon', [
             'label' => __('Icon', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::ICON,
+            'default' => 'fa fa-heart',
             'condition' => [
                 'sa_el_icon_type' => 'icon',
             ],
@@ -105,7 +106,7 @@ class Counter extends Widget_Base {
             'dynamic' => [
                 'active' => true,
             ],
-            'default' => __('250', SA_ELEMENTOR_TEXTDOMAIN),
+            'default' => __('750', SA_ELEMENTOR_TEXTDOMAIN),
             'separator' => 'before',
                 ]
         );
@@ -193,7 +194,7 @@ class Counter extends Widget_Base {
                 'icon_divider', [
             'label' => __('Icon Divider', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SWITCHER,
-            'default' => 'no',
+            'default' => 'yes',
             'label_on' => __('On', SA_ELEMENTOR_TEXTDOMAIN),
             'label_off' => __('Off', SA_ELEMENTOR_TEXTDOMAIN),
             'return_value' => 'yes',
@@ -340,7 +341,7 @@ class Counter extends Widget_Base {
                 'counter_icon_color', [
             'label' => __('Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
-            'default' => '',
+            'default' => '#e22b2b',
             'selectors' => [
                 '{{WRAPPER}} .sa-el-counter-icon' => 'color: {{VALUE}};',
             ],
@@ -496,7 +497,7 @@ class Counter extends Widget_Base {
                 'icon_divider_type', [
             'label' => __('Divider Type', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
-            'default' => 'solid',
+            'default' => 'dashed',
             'options' => [
                 'solid' => __('Solid', SA_ELEMENTOR_TEXTDOMAIN),
                 'double' => __('Double', SA_ELEMENTOR_TEXTDOMAIN),
@@ -518,7 +519,7 @@ class Counter extends Widget_Base {
             'label' => __('Height', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SLIDER,
             'default' => [
-                'size' => 2,
+                'size' => 3,
             ],
             'range' => [
                 'px' => [
@@ -543,7 +544,7 @@ class Counter extends Widget_Base {
             'label' => __('Width', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SLIDER,
             'default' => [
-                'size' => 30,
+                'size' => 94,
             ],
             'range' => [
                 'px' => [
@@ -572,7 +573,7 @@ class Counter extends Widget_Base {
                 'icon_divider_color', [
             'label' => __('Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
-            'default' => '',
+            'default' => '#474747',
             'selectors' => [
                 '{{WRAPPER}} .sa-el-counter-icon-divider' => 'border-bottom-color: {{VALUE}}',
             ],
@@ -626,7 +627,7 @@ class Counter extends Widget_Base {
                 'counter_num_color', [
             'label' => __('Number Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
-            'default' => '',
+            'default' => '#e22b2b',
             'selectors' => [
                 '{{WRAPPER}} .sa-el-counter-number' => 'color: {{VALUE}};',
             ],
@@ -673,7 +674,7 @@ class Counter extends Widget_Base {
                 'num_divider_type', [
             'label' => __('Divider Type', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SELECT,
-            'default' => 'solid',
+            'default' => 'dashed',
             'options' => [
                 'solid' => __('Solid', SA_ELEMENTOR_TEXTDOMAIN),
                 'double' => __('Double', SA_ELEMENTOR_TEXTDOMAIN),
@@ -694,7 +695,7 @@ class Counter extends Widget_Base {
             'label' => __('Height', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SLIDER,
             'default' => [
-                'size' => 2,
+                'size' => 3,
             ],
             'range' => [
                 'px' => [
@@ -718,7 +719,7 @@ class Counter extends Widget_Base {
             'label' => __('Width', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SLIDER,
             'default' => [
-                'size' => 30,
+                'size' => 94,
             ],
             'range' => [
                 'px' => [
@@ -746,7 +747,7 @@ class Counter extends Widget_Base {
                 'num_divider_color', [
             'label' => __('Color', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::COLOR,
-            'default' => '',
+            'default' => '#474747',
             'selectors' => [
                 '{{WRAPPER}} .sa-el-counter-num-divider' => 'border-bottom-color: {{VALUE}}',
             ],

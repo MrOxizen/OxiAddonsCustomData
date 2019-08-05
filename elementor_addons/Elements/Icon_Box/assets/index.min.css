@@ -50,9 +50,76 @@
     text-decoration: none;
 }
 
-.sa-el-icon-box .sa-el-badge {
+.elementor-widget-sa-el-icon-box .sa-el-badge {
     position: absolute;
     z-index: 9999;
     background-color: #e2498a;
     color: #fff;
+}
+
+.sa-el-badge {
+    padding: .475rem 1.1rem;
+    border-radius: 50px;
+    background-color: #fff;
+    font-size: 12px;
+}
+
+.sa-el-badge--top-left {
+    top: 1rem;
+    left: 1rem;
+}
+
+.sa-el-badge--top-center {
+    top: 1rem;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.sa-el-badge--top-right {
+    top: 1rem;
+    right: 1rem;
+}
+
+.sa-el-badge--middle-left {
+    top: 50%;
+    left: 1rem;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.sa-el-badge--middle-center {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.sa-el-badge--middle-right {
+    top: 50%;
+    right: 1rem;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.sa-el-badge--bottom-left {
+    bottom: 1rem;
+    left: 1rem;
+}
+
+.sa-el-badge--bottom-center {
+    bottom: 1rem;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.sa-el-badge--bottom-right {
+    right: 1rem;
+    bottom: 1rem;
 }

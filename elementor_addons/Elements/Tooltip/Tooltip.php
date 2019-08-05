@@ -113,12 +113,12 @@ class Tooltip extends Widget_Base {
             ]
                 ]
         );
-              
+
         $this->add_control(
                 'sa_el_tooltip_icon_content', [
             'label' => esc_html__('Icon', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => $this->Sa_El_Icon_Type(),
-            'default' =>$this->Sa_El_Default_Icon('fa fa-laptop', 'fa-solid', 'fa fa-laptop'), 
+            'default' => $this->Sa_El_Default_Icon('fa fa-laptop', 'fa-solid', 'fa fa-laptop'),
             'condition' => [
                 'sa_el_tooltip_type' => ['icon']
             ]
@@ -411,7 +411,7 @@ class Tooltip extends Widget_Base {
         );
         $this->end_controls_section();
 
-         if (!apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', ['', '', TRUE])) {
+        if (!apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', ['', '', TRUE])) {
             $this->start_controls_section(
                     'sa_el_section_pro', [
                 'label' => __('Go Premium for More Features', SA_ELEMENTOR_TEXTDOMAIN)
@@ -595,16 +595,18 @@ class Tooltip extends Widget_Base {
         $nofollow = $settings['sa_el_tooltip_link']['nofollow'] ? 'rel="nofollow"' : '';
         ?>
         <div class="sa-el-tooltip">
-        <?php if ($settings['sa_el_tooltip_type'] === 'text') : ?>
+            <?php if ($settings['sa_el_tooltip_type'] === 'text') : ?>
                 <<?php echo esc_attr($settings['sa_el_tooltip_content_tag']); ?> class="sa-el-tooltip-content"><?php if ($settings['sa_el_tooltip_enable_link'] === 'yes') : ?><a href="<?php echo esc_url($settings['sa_el_tooltip_link']['url']); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> ><?php endif; ?><?php echo esc_html__($settings['sa_el_tooltip_content'], SA_ELEMENTOR_TEXTDOMAIN); ?><?php if ($settings['sa_el_tooltip_enable_link'] === 'yes') : ?></a><?php endif; ?></<?php echo esc_attr($settings['sa_el_tooltip_content_tag']); ?>>
                 <span class="sa-el-tooltip-text sa-el-tooltip-<?php echo esc_attr($settings['sa_el_tooltip_hover_dir']) ?>"><?php echo __($settings['sa_el_tooltip_hover_content']); ?></span>
-        <?php elseif ($settings['sa_el_tooltip_type'] === 'icon') : ?>
-                <span class="sa-el-tooltip-content"><?php if ($settings['sa_el_tooltip_enable_link'] === 'yes') : ?><a href="<?php echo esc_url($settings['sa_el_tooltip_link']['url']); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> ><?php endif; $this->Sa_El_Icon_Render($settings['sa_el_tooltip_icon_content']); if ($settings['sa_el_tooltip_enable_link'] === 'yes') : ?></a><?php endif; ?></span>
+            <?php elseif ($settings['sa_el_tooltip_type'] === 'icon') : ?>
+                <span class="sa-el-tooltip-content"><?php if ($settings['sa_el_tooltip_enable_link'] === 'yes') : ?><a href="<?php echo esc_url($settings['sa_el_tooltip_link']['url']); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> ><?php endif;
+            echo $this->Sa_El_Icon_Render($settings['sa_el_tooltip_icon_content']);
+            if ($settings['sa_el_tooltip_enable_link'] === 'yes') : ?></a><?php endif; ?></span>
                 <span class="sa-el-tooltip-text sa-el-tooltip-<?php echo esc_attr($settings['sa_el_tooltip_hover_dir']) ?>"><?php echo __($settings['sa_el_tooltip_hover_content']); ?></span>
-        <?php elseif ($settings['sa_el_tooltip_type'] === 'image') : ?>
+            <?php elseif ($settings['sa_el_tooltip_type'] === 'image') : ?>
                 <span class="sa-el-tooltip-content"><?php if ($settings['sa_el_tooltip_enable_link'] === 'yes') : ?><a href="<?php echo esc_url($settings['sa_el_tooltip_link']['url']); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> ><?php endif; ?><img src="<?php echo esc_url($settings['sa_el_tooltip_img_content']['url']); ?>" alt="<?php echo esc_attr(get_post_meta($settings['sa_el_tooltip_img_content']['id'], '_wp_attachment_image_alt', true)); ?>"><?php if ($settings['sa_el_tooltip_enable_link'] === 'yes') : ?></a><?php endif; ?></span>
                 <span class="sa-el-tooltip-text sa-el-tooltip-<?php echo esc_attr($settings['sa_el_tooltip_hover_dir']) ?>"><?php echo __($settings['sa_el_tooltip_hover_content']); ?></span>
-        <?php elseif ($settings['sa_el_tooltip_type'] === 'shortcode') : ?>
+            <?php elseif ($settings['sa_el_tooltip_type'] === 'shortcode') : ?>
                 <div class="sa-el-tooltip-content"><?php echo do_shortcode($settings['sa_el_tooltip_shortcode_content']); ?></div>
                 <span class="sa-el-tooltip-text sa-el-tooltip-<?php echo esc_attr($settings['sa_el_tooltip_hover_dir']) ?>"><?php echo __($settings['sa_el_tooltip_hover_content']); ?></span>
         <?php endif; ?>

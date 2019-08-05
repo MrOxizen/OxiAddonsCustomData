@@ -6,7 +6,6 @@ use \Elementor\Controls_Manager as Controls_Manager;
 use \Elementor\Group_Control_Background as Group_Control_Background;
 use \Elementor\Scheme_Typography as Scheme_Typography;
 use \Elementor\Group_Control_Border as Group_Control_Border;
-use \Elementor\Group_Control_Box_Shadow as Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography as Group_Control_Typography;
 use \Elementor\Utils as Utils;
 use \Elementor\Widget_Base as Widget_Base;
@@ -419,26 +418,28 @@ class Logo_Carousel extends Widget_Base
         );
 
         $this->end_controls_section();
-         if (!apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', ['','',TRUE])) {
+        if (!apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', ['', '', TRUE])) {
             $this->start_controls_section(
-                    'sa_el_section_pro', [
-                'label' => __('Go Premium for More Features', SA_ELEMENTOR_TEXTDOMAIN)
-                    ]
+                'sa_el_section_pro',
+                [
+                    'label' => __('Go Premium for More Features', SA_ELEMENTOR_TEXTDOMAIN)
+                ]
             );
 
             $this->add_control(
-                    'sa_el_control_get_pro', [
-                'label' => __('Unlock more possibilities', SA_ELEMENTOR_TEXTDOMAIN),
-                'type' => Controls_Manager::CHOOSE,
-                'options' => [
-                    '1' => [
-                        'title' => __('', SA_ELEMENTOR_TEXTDOMAIN),
-                        'icon' => 'fa fa-unlock-alt',
+                'sa_el_control_get_pro',
+                [
+                    'label' => __('Unlock more possibilities', SA_ELEMENTOR_TEXTDOMAIN),
+                    'type' => Controls_Manager::CHOOSE,
+                    'options' => [
+                        '1' => [
+                            'title' => __('', SA_ELEMENTOR_TEXTDOMAIN),
+                            'icon' => 'fa fa-unlock-alt',
+                        ],
                     ],
-                ],
-                'default' => '1',
-                'description' => '<span class="pro-feature"> Get the  <a href="https://www.oxilab.org/downloads/short-code-addons/" target="_blank">Pro version</a> for more stunning elements and customization options.</span>'
-                    ]
+                    'default' => '1',
+                    'description' => '<span class="pro-feature"> Get the  <a href="https://www.oxilab.org/downloads/short-code-addons/" target="_blank">Pro version</a> for more stunning elements and customization options.</span>'
+                ]
             );
 
             $this->end_controls_section();

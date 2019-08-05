@@ -3,4 +3,9 @@
      margin: 0;
      box-sizing: border-box;
 }
+.oxi_sa_offcanvas_wrapter .sa-offcanvas-close{
+        position: absolute;
+        top: 10%;
+        right: 5%;
+    }
 

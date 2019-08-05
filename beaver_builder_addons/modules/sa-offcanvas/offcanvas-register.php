@@ -12,17 +12,13 @@ FLBuilder::register_module(
             'content' => array(
                 'title' => '',
                 'fields' => array(
-                    'footer' => array(
-                        'type' => 'text',
-                        'label' => __('Footer Text', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => __('Footer text here', SA_FLBUILDER_TEXTDOMAIN),
-                        'preview' => array(
-                            'type' => 'text',
-                            'selector' => '.oxi__addons_footer',
-                        ),
-                        'connections' => array('string', 'html'),
+                    'add_offcanvas_item' => array(
+                        'type' => 'form',
+                        'label' => __('Content Item', SA_FLBUILDER_TEXTDOMAIN),
+                        'form' => 'oxi_sa_offcanvas_item_form',
+                        'preview_text' => 'footer_info_title',
+                        'multiple' => true,
                     ),
-                    
                 ),
             ),
             'footer_info_icon' => array(// Section.
@@ -48,25 +44,6 @@ FLBuilder::register_module(
                             'center' => __('Center', SA_FLBUILDER_TEXTDOMAIN),
                             'right' => __('Right', SA_FLBUILDER_TEXTDOMAIN),
                         ),
-                    ),
-                    'add_footer_icon' => array(
-                        'type' => 'form',
-                        'label' => __('Icon Item', SA_FLBUILDER_TEXTDOMAIN),
-                        'form' => 'oxi_sa_footer_info_item_form',
-                        'preview_text' => 'footer_info_title',
-                        'multiple' => true,
-                    ),
-                ),
-            ),
-            'description' => array(
-                'title' => __('Description', SA_FLBUILDER_TEXTDOMAIN),
-                'fields' => array(
-                    'description' => array(
-                        'type' => 'editor',
-                        'label' => '',
-                        'rows' => 7,
-                        'default' => 'Lorem Ipsum is simply dummy text',
-                        'connections' => array('string', 'html'),
                     ),
                 ),
             ),
@@ -503,139 +480,42 @@ FLBuilder::register_module(
 
 
 FLBuilder::register_settings_form(
-        'oxi_sa_footer_info_item_form', array(
-    'title' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
+        'oxi_sa_offcanvas_item_form', array(
+    'title' => __('Offcanvas', SA_FLBUILDER_TEXTDOMAIN),
     'tabs' => array(
         array(
-            'title' => __('Footer Info Icon', SA_FLBUILDER_TEXTDOMAIN),
+            'title' => __('OffCanvas', SA_FLBUILDER_TEXTDOMAIN),
             'sections' => array(
-                'icon_basic' => array(
-                    'title' => __('Icon Basics', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
+                'offcanvas' => array(
+                    'title' => __('OffCanvas Title', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
                     'fields' => array(// Section Fields.
-                        'icon' => array(
-                            'type' => 'icon',
-                            'label' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => 'fas fa-minus',
-                            'show_remove' => true,
-                        ),
-                        'link' => array(
-                            'type' => 'link',
-                            'label' => __('Link', SA_FLBUILDER_TEXTDOMAIN),
+                        'offcanvas_title' => array(
+                            'type' => 'text',
+                            'label' => __('Title', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => __('Offcanvas Title text here', SA_FLBUILDER_TEXTDOMAIN),
                             'preview' => array(
-                                'type' => 'none',
+                                'type' => 'text',
+                                'selector' => '.oxi__addons_offcanvas',
                             ),
-                            'connections' => array('url'),
-                            'show_target' => true,
-                            'show_nofollow' => true,
-                        ),
-                        'icon_size' => array(
-                            'type' => 'unit',
-                            'label' => __('Size', SA_FLBUILDER_TEXTDOMAIN),
-                            'placeholder' => '30',
-                            'default' => '20',
-                            'maxlength' => '5',
-                            'size' => '6',
-                            'slider' => true,
-                            'units' => array('px'),
+                            'connections' => array('string', 'html'),
                         ),
                     ),
                 ),
-                'icon_style' => array(
-                    'title' => __('Style', SA_FLBUILDER_TEXTDOMAIN),
+                'offcanvas_desctiption' => array(
+                    'title' => __('Desctiption', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
-                        /* Icon Background SIze */
-                        'icon_bg_size' => array(
-                            'type' => 'unit',
-                            'label' => __('Background Size', SA_FLBUILDER_TEXTDOMAIN),
-                            'help' => 'Spacing between Icon & Background edge',
-                            'placeholder' => '30',
-                            'default' => '30',
-                            'maxlength' => '3',
-                            'size' => '6',
-                            'slider' => true,
-                            'units' => array('px'),
+                        'description' => array(
+                            'type' => 'editor',
+                            'label' => '',
+                            'rows' => 7,
+                            'default' => 'Lorem Ipsum is simply dummy text',
+                            'connections' => array('string', 'html'),
                         ),
-                        /* Border Style and Radius for Icon */
-                        'icon_border_style' => array(
-                            'type' => 'select',
-                            'label' => __('Border Style', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => 'none',
-                            'help' => __('The type of border to use. Double borders must have a width of at least 3px to render properly.', SA_FLBUILDER_TEXTDOMAIN),
-                            'options' => array(
-                                'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
-                                'solid' => __('Solid', SA_FLBUILDER_TEXTDOMAIN),
-                                'dashed' => __('Dashed', SA_FLBUILDER_TEXTDOMAIN),
-                                'dotted' => __('Dotted', SA_FLBUILDER_TEXTDOMAIN),
-                                'double' => __('Double', SA_FLBUILDER_TEXTDOMAIN),
-                            ),
-                            'toggle' => array(
-                                'solid' => array(
-                                    'fields' => array('icon_border_width', 'icon_border_color', 'icon_border_hover_color'),
-                                ),
-                                'dashed' => array(
-                                    'fields' => array('icon_border_width', 'icon_border_color', 'icon_border_hover_color'),
-                                ),
-                                'dotted' => array(
-                                    'fields' => array('icon_border_width', 'icon_border_color', 'icon_border_hover_color'),
-                                ),
-                                'double' => array(
-                                    'fields' => array('icon_border_width', 'icon_border_color', 'icon_border_hover_color'),
-                                ),
-                            ),
-                        ),
-                        'icon_border_width' => array(
-                            'type' => 'unit',
-                            'label' => __('Border Width', SA_FLBUILDER_TEXTDOMAIN),
-                            'slider' => true,
-                            'units' => array('px'),
-                            'maxlength' => '3',
-                            'default' => '1',
-                            'size' => '6',
-                            'placeholder' => '1',
-                        ),
-                        'icon_bg_border_radius' => array(
-                            'type' => 'unit',
-                            'label' => __('Border Radius', SA_FLBUILDER_TEXTDOMAIN),
-                            'slider' => true,
-                            'units' => array('px'),
-                            'maxlength' => '3',
-                            'default' => '5',
-                            'size' => '6',
-                            'placeholder' => '20',
-                        ),
+                       
+                       
                     ),
                 ),
-                'icon_colors' => array(// Section.
-                    'title' => __('Colors', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
-                    'fields' => array(// Section Fields.
-
-                        /* Icon Color */
-                        'icon_color' => array(
-                            'type' => 'color',
-                            'label' => __('Icon Color', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => 'fff',
-                            'show_reset' => true,
-                        ),
-                        /* Background Color Dependent on Icon Style * */
-                        'icon_bg_color' => array(
-                            'type' => 'color',
-                            'label' => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => '005b54',
-                            'show_reset' => true,
-                            'connections' => array('color'),
-                            'show_alpha' => true,
-                        ),
-                        /* Border Color Dependent on Border Style for ICon */
-                        'icon_border_color' => array(
-                            'type' => 'color',
-                            'label' => __('Border Color', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => 'f9e500',
-                            'show_reset' => true,
-                            'connections' => array('color'),
-                            'show_alpha' => true,
-                        ),
-                    ),
-                ),
+                
             ),
         ),
     ),

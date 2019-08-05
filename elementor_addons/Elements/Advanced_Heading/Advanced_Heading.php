@@ -82,8 +82,8 @@ class Advanced_Heading extends Widget_Base {
         $this->add_control(
                 'sa_el_dch_icon', [
             'label' => esc_html__('Icon', SA_ELEMENTOR_TEXTDOMAIN),
-            'type' =>$this->Sa_El_Icon_Type(),
-            'default' => $this->Sa_El_Default_Icon('fa fa-briefcase', 'fa-solid', 'fa fa-briefcase'), 
+            'type' => $this->Sa_El_Icon_Type(),
+            'default' => $this->Sa_El_Default_Icon('fa fa-briefcase', 'fa-solid', 'fa fa-briefcase'),
             'condition' => [
                 'sa_el_show_dch_icon_content' => 'yes'
             ]
@@ -405,39 +405,47 @@ class Advanced_Heading extends Widget_Base {
             <div class="sa_el_advance_header">
                 <h2 class="title"><span class="lead"><?php esc_html_e($settings['sa_el_dch_first_title'], SA_ELEMENTOR_TEXTDOMAIN); ?></span> <span><?php esc_html_e($settings['sa_el_dch_last_title'], SA_ELEMENTOR_TEXTDOMAIN); ?></span></h2>
                 <span class="subtext"><?php echo $settings['sa_el_dch_subtext']; ?></span>
-                <?php if ('yes' == $settings['sa_el_show_dch_icon_content']) :
-                    $this->Sa_El_Icon_Render($settings['sa_el_dch_icon']);
-                endif; ?>
+                <?php
+                if ('yes' == $settings['sa_el_show_dch_icon_content']) :
+                    echo $this->Sa_El_Icon_Render($settings['sa_el_dch_icon']);
+                endif;
+                ?>
             </div>
         <?php endif; ?>
 
-        <?php if ('dch-icon-on-top' == $settings['sa_el_dch_type']) : ?>
+            <?php if ('dch-icon-on-top' == $settings['sa_el_dch_type']) : ?>
             <div class="sa_el_advance_header">
-                <?php if ('yes' == $settings['sa_el_show_dch_icon_content']) : ?>
-                    <i class="<?php echo esc_attr($settings['sa_el_dch_icon']); ?>"></i>
-                <?php endif; ?>
+                <?php
+                if ('yes' == $settings['sa_el_show_dch_icon_content']) :
+                    echo $this->Sa_El_Icon_Render($settings['sa_el_dch_icon']);
+                endif;
+                ?>
                 <h2 class="title"><span class="lead"><?php esc_html_e($settings['sa_el_dch_first_title'], SA_ELEMENTOR_TEXTDOMAIN); ?></span> <span><?php esc_html_e($settings['sa_el_dch_last_title'], SA_ELEMENTOR_TEXTDOMAIN); ?></span></h2>
                 <span class="subtext"><?php echo $settings['sa_el_dch_subtext']; ?></span>
             </div>
-        <?php endif; ?>
+            <?php endif; ?>
 
-        <?php if ('dch-icon-subtext-on-top' == $settings['sa_el_dch_type']) : ?>
+            <?php if ('dch-icon-subtext-on-top' == $settings['sa_el_dch_type']) : ?>
             <div class="sa_el_advance_header">
-                <?php if ('yes' == $settings['sa_el_show_dch_icon_content']) : ?>
-                    <i class="<?php echo esc_attr($settings['sa_el_dch_icon']); ?>"></i>
-                <?php endif; ?>
+            <?php
+            if ('yes' == $settings['sa_el_show_dch_icon_content']) :
+                echo $this->Sa_El_Icon_Render($settings['sa_el_dch_icon']);
+            endif;
+            ?>
                 <span class="subtext"><?php echo $settings['sa_el_dch_subtext']; ?></span>
                 <h2 class="title"><span class="lead"><?php esc_html_e($settings['sa_el_dch_first_title'], SA_ELEMENTOR_TEXTDOMAIN); ?></span> <span><?php esc_html_e($settings['sa_el_dch_last_title'], SA_ELEMENTOR_TEXTDOMAIN); ?></span></h2>
             </div>
-        <?php endif; ?>
+            <?php endif; ?>
 
-        <?php if ('dch-subtext-on-top' == $settings['sa_el_dch_type']) : ?>
+            <?php if ('dch-subtext-on-top' == $settings['sa_el_dch_type']) : ?>
             <div class="sa_el_advance_header">
                 <span class="subtext"><?php echo $settings['sa_el_dch_subtext']; ?></span>
                 <h2 class="title"><span class="lead"><?php esc_html_e($settings['sa_el_dch_first_title'], SA_ELEMENTOR_TEXTDOMAIN); ?></span> <span><?php esc_html_e($settings['sa_el_dch_last_title'], SA_ELEMENTOR_TEXTDOMAIN); ?></span></h2>
-                <?php if ('yes' == $settings['sa_el_show_dch_icon_content']) : ?>
-                    <i class="<?php echo esc_attr($settings['sa_el_dch_icon']); ?>"></i>
-                <?php endif; ?>
+            <?php
+            if ('yes' == $settings['sa_el_show_dch_icon_content']) :
+                echo $this->Sa_El_Icon_Render($settings['sa_el_dch_icon']);
+            endif;
+            ?>
             </div>
         <?php endif; ?>
 
