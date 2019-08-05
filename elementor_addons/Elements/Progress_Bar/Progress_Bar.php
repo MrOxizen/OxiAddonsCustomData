@@ -13,7 +13,6 @@ use \Elementor\Group_Control_Box_Shadow as Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography as Group_Control_Typography;
 use \Elementor\Scheme_Typography as Scheme_Typography;
 use \Elementor\Widget_Base as Widget_Base;
-use \SA_ELEMENTOR_ADDONS\Classes\Bootstrap;
 
 class Progress_Bar extends Widget_Base
 {
@@ -410,11 +409,6 @@ class Progress_Bar extends Widget_Base
             ]
         );
 
-        $fill_stripe_animate_condition = ['progress_bar_line_fill_stripe' => 'yes'];
-        if (apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', TRUE))) {
-            $add_condition = ['progress_bar_layout' => 'line'];
-            $fill_stripe_animate_condition = array_merge($fill_stripe_animate_condition, $add_condition);
-        }
         $this->add_control(
             'progress_bar_line_fill_stripe_animate',
             [
@@ -426,7 +420,10 @@ class Progress_Bar extends Widget_Base
                     'none'    => __('Disabled', SA_ELEMENTOR_TEXTDOMAIN),
                 ],
                 'default'   => 'none',
-                'condition' => [$fill_stripe_animate_condition]
+                'condition' => [
+                    'progress_bar_line_fill_stripe' => 'yes',
+                    'progress_bar_layout' => 'line'
+                ]
             ]
         );
 
@@ -446,7 +443,7 @@ class Progress_Bar extends Widget_Base
                 'label'     => __('General', SA_ELEMENTOR_TEXTDOMAIN),
                 'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => [
-                    'progress_bar_layout' => $circle_general_condition,
+                    'progress_bar_layout' => [$circle_general_condition],
                 ],
             ]
         );
@@ -842,9 +839,6 @@ class Progress_Bar extends Widget_Base
                 $settings['progress_bar_layout'] = 'line';
             }
         }
-        // if (in_array($settings['progress_bar_layout'], ['line', 'line_rainbow', 'circle_fill', 'half_circle_fill', 'box'])) {
-        //     $settings['progress_bar_layout'] = 'line';
-        // }
 
         if ($settings['progress_bar_layout'] == 'line' || $settings['progress_bar_layout'] == 'line_rainbow') {
 

@@ -7,7 +7,7 @@
 
 /*--- Image/Icon On Top ---*/
 
-.elementor-widget-sa_el_info_box {
+.elementor-widget-sa_el_info_box .elementor-widget-container {
     background: #F1F5F8;
 }
 
