@@ -3,7 +3,11 @@
 .sa_el_lightbox_btn>img {
     cursor: pointer;
 }
-
+.sa_el_modal_popup_button.OxiAddonsELEqualHeightWidth {
+    display: inline-flex;
+    align-items: center;
+    justify-content:  center;
+}
 button.mfp-close {
     background: transparent;
 }
