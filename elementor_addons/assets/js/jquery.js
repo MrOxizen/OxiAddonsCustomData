@@ -12,18 +12,16 @@
 
 })(jQuery);
 
-function OxiAddonsELEqualHeightWidth(data) {
-    var cw = jQuery(data).outerWidth();
-    var ch = jQuery(data).outerHeight();
-    if (cw > ch) {
-        jQuery(data).css({"height": cw + "px"});
-        jQuery(data).css({"width": cw + "px"});
-    } else {
-        jQuery(data).css({"height": ch + "px"});
-        jQuery(data).css({"width": ch + "px"});
-    }
-}
-
 setTimeout(function () {
-    OxiAddonsEqualHeightWidth(jQuery(".OxiAddonsELEqualHeightWidth"));
+    jQuery(".OxiAddonsELEqualHeightWidth").each(function () {
+        var cw = jQuery(this).outerWidth();
+        var ch = jQuery(this).outerHeight();
+        if (cw > ch) {
+            jQuery(this).css({"height": cw + "px"});
+            jQuery(this).css({"width": cw + "px"});
+        } else {
+            jQuery(this).css({"height": ch + "px"});
+            jQuery(this).css({"width": ch + "px"});
+        }
+    });
 }, 1500);
