@@ -1,308 +1,360 @@
 <?php
+SA_FLBUILDER_HELPER::sa_fl_border_package($settings, 'front_border', '.fl-node-' . $id . ' .oxi__button');
+SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'button_font_typo', '.fl-node-' . $id . ' .oxi__button');
+
 /**
- * start coding for fornend for dynamic style
- * @package shortcode addons
+ * general background color and gradient
  */
-// footer add typography, padding, color, setting
-SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'font_typo', '.fl-node-' . $id . ' .oxi__addons_header');
-SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-    'color' => $settings->title_color,
-        ), '.fl-node-' . $id . ' .oxi__addons_header');
-SA_FLBUILDER_HELPER::sa_fl_dimension_utility('footer', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_header', 'px');
-// details add typography, padding, color, setting
-SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'desc_font_typo', '.fl-node-' . $id . ' .oxi__addons_details *');
-SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-    'color' => $settings->desc_color,
-        ), '.fl-node-' . $id . ' .oxi__addons_details *');
-SA_FLBUILDER_HELPER::sa_fl_dimension_utility('desc', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_details *', 'px');
-// Line Text Seperator add typography, padding, color, setting
-if ($settings->separator_style === 'line_text') {
-    SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'separator_font_typo', '.fl-node-' . $id . ' .oxi__line_text');
+if ($settings->button->button_background_type === 'color') {
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-        'color' => $settings->separator_text_color,
-            ), '.fl-node-' . $id . ' .oxi__line_text');
+        'background-color' => $settings->button->button_background_color,
+            ), '.fl-node-' . $id . ' .oxi__button');
+} else {
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'background' => FLBuilderColor::gradient($settings->button->button_gradient),
+            ), '.fl-node-' . $id . ' .oxi__button');
 }
 
-SA_FLBUILDER_HELPER::sa_fl_responsive_setting('text-align', $settings, 'alignment', '.fl-node-' . $id . ' .oxi__addons_line_divider');
+SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+    'color' => $settings->button->text_color,
+        ), '.fl-node-' . $id . ' .oxi__button');
+// button position styleing
+SA_FLBUILDER_HELPER::sa_fl_responsive_setting('text-align', $settings, 'alignment', '.fl-node-' . $id . ' .oxi__button_wrapper_main');
 
-if ($settings->separator_style != 'none') {
-    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-        'border-top-width' => $settings->separator_line_height . 'px',
-        'border-top-style' => $settings->separator_line_style,
-        'border-top-color' => $settings->separator_line_color,
-            ), '.fl-node-' . $id . ' .oxi__addons_seperator_span');
 
-    SA_FLBUILDER_HELPER::sa_fl_responsive_setting('width', $settings, 'separator_line_width', '.fl-node-' . $id . ' .oxi__addons_seperator_width');
-}
-if ($settings->separator_style === 'line') {
+
+/**
+ * coding for custom width, auto and full width
+ */
+SA_FLBUILDER_HELPER::sa_fl_dimension_utility('button', $settings, 'padding', '.fl-node-' . $id . ' .oxi__button', 'px');
+if ($settings->button->button_width === 'auto') {
     ?>
-    .fl-node-<?php echo $id; ?> .oxi__addons_seperator_width {
-    width: <?php echo $settings->separator_line_width; ?>%;
-    }
-    .fl-node-<?php echo $id; ?> .oxi__addons_line_divider {
-    display: inline-block;
-    }
-    .fl-node-<?php echo $id; ?> .oxi__addons_seperator {
+    .fl-node-<?php echo $id; ?> .oxi__button{
     display: inline-block;
     }
     <?php
-}
-
-if ($settings->separator_style !== 'line') {
-    if ($settings->alignment === 'left') {
-        ?>
-        .fl-node-<?php echo $id; ?> .oxi__margin {
-        margin-right: auto;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__before {
-        display: none;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__after {
-        width: 100%;
-        }
-        <?php
-    } else if ($settings->alignment === 'right') {
-        ?>
-        .fl-node-<?php echo $id; ?> .oxi__margin {
-        margin-left: auto;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__after {
-        display: none;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__before {
-        width: 100%;
-        }
-        <?php
-    } else if ($settings->alignment === 'center') {
-        ?>
-        .fl-node-<?php echo $id; ?> .oxi__margin {
-        margin-right: auto;
-        margin-left: auto;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__before {
-        width: 50%;
-        display: table-cell;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__after {
-        width: 50%;
-        display: table-cell;
-        }
-        <?php
-    }
+} elseif ($settings->button->button_width === 'full') {
     ?>
-    @media only screen and (min-width : 669px) and (max-width : 993px){
-    <?php
-    if ($settings->alignment_medium === 'left') {
-        ?>
-        .fl-node-<?php echo $id; ?> .oxi__margin {
-        margin-right: auto;
-        margin-left: 0;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__before {
-        display: none;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__after {
-        width: 100%;
-        }
-
-        <?php
-    } else if ($settings->alignment_medium === 'right') {
-        ?>
-        .fl-node-<?php echo $id; ?> .oxi__margin {
-        margin-left: auto;
-        margin-right: 0;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__after {
-        display: none;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__before {
-        width: 100%;
-        }
-        <?php
-    } else if ($settings->alignment_medium === 'center') {
-        ?>
-        .fl-node-<?php echo $id; ?> .oxi__margin {
-        margin-right: auto;
-        margin-left: auto;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__before {
-        width: 50%;
-        display: table-cell;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__after {
-        width: 50%;
-        display: table-cell;
-        }
-        <?php
-    }
-    ?>
-    }
-    @media only screen and (max-width : 668px){
-    <?php
-    if ($settings->alignment_responsive === 'left') {
-        ?>
-        .fl-node-<?php echo $id; ?> .oxi__margin {
-        margin-right: auto;
-        margin-left: 0;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__before {
-        display: none;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__after {
-        width: 100%;
-        }
-        <?php
-    } else if ($settings->alignment_responsive === 'right') {
-        ?>
-        .fl-node-<?php echo $id; ?> .oxi__margin {
-        margin-left: auto;
-        margin-right: 0;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__after {
-        display: none;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__before {
-        width: 100%;
-
-        }
-        <?php
-    } else if ($settings->alignment_responsive === 'center') {
-        ?>
-        .fl-node-<?php echo $id; ?> .oxi__margin {
-        margin-right: auto;
-        margin-left: auto;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__before {
-        width: 50%;
-        display: table-cell;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__after {
-        width: 50%;
-        display: table-cell;
-        }
-        <?php
-    }
-    ?>
+    .fl-node-<?php echo $id; ?> .oxi__button{
+    display: flex;
+    justify-content: center;
+    width: 100%;
     }
     <?php
-}
-/**
- * style for icon 
- */
-if ($settings->icon != '') {
+} else {
+    ?>
+    .fl-node-<?php echo $id; ?> .oxi__button_wrapper{
+    height: <?php echo $settings->button->custom_height; ?>px;
+    justify-content: center;
+    }
+    <?php
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-        'font-size' => $settings->icon_size . 'px',
-        'padding-left' => $settings->padding_left . 'px',
-        'padding-right' => $settings->padding_right . 'px',
-        'color' => $settings->separator_icon_color,
-            ), '.fl-node-' . $id . ' .oxi__addons_image_icon_divider  .oxi__icon');
+        'width' => $settings->button->custom_width . 'px',
+        'height' => $settings->button->custom_height . 'px',
+        'display' => 'inline-block',
+        'padding' => '0'
+            ), '.fl-node-' . $id . ' .oxi__button');
 }
-if ($settings->img_size != '') {
 
+if (!empty($settings)) {
+    ?>
+    .fl-node-<?php echo $id; ?> .oxi__button{
+    transition: all 0.5s ease;
+    overflow: hidden;
+    }
+
+    .fl-node-<?php echo $id; ?> .oxi__button:hover{
+    <?php
+     $data =  json_decode(json_encode($settings->button), true);
+    if ($data['hover_box_shadow'] != '') {
+        
+        SA_FLBUILDER_HELPER::sa_fl_custom_box_shadow($data['hover_box_shadow']);
+    }
+    
+    if ($settings->button->hover_border_color != '') {
+        SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+            'border-color' => $settings->button->hover_border_color,
+                ), '.fl-node-' . $id . ' .oxi__button:hover');
+    }
+    ?>
+    }
+    <?php
+    if ($settings->button->icon_position == 'left') {
+        ?>
+        .fl-node-<?php echo $id; ?> .oxi__icon-selector{
+        padding-right: <?php echo $settings->button->icon_spacing ?>px
+        }
+        <?php
+    } else {
+        ?>
+        .fl-node-<?php echo $id; ?> .oxi__icon-selector{
+        padding-left: <?php echo $settings->button->icon_spacing ?>px
+        }
+        <?php
+    }
+    /**
+     * start coding for styling button
+     */
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-        'width' => $settings->img_size . 'px',
-            ), '.fl-node-' . $id . ' .oxi__addons_image_icon_divider');
-}
-if ($settings->responsive_img_size != '') {
-    ?>
-    @media only screen and (max-width : 668px){
-    .fl-node-<?php echo $id; ?> .oxi__addons_image_icon_divider {
-    width: <?php echo $settings->responsive_img_size; ?>px !important;
+        'color' => $settings->button->hover_text_color,
+            ), '.fl-node-' . $id . ' .oxi__button:hover');
+    if ($settings->button->button_hover_background_type === 'color') {
+        SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+            'background-color' => $settings->button->button_hover_background_color,
+                ), '.fl-node-' . $id . ' .oxi__button:hover');
+    } else {
+        SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+            'background' => FLBuilderColor::gradient($settings->button->button_hover_gradient),
+                ), '.fl-node-' . $id . ' .oxi__button:hover');
     }
-    }
-    <?php
-}
-/**
- * for responsive capabilitys
- */
-if ($settings->responsive_compatibility != 'none') {
-    ?>
-    .fl-node-<?php echo $id ?> .oxi__line_text{
-    display:block;
-    }
-    <?php
-} else if ($settings->responsive_compatibility != 'mobile_device') {
-    ?>
-    @media only screen and (max-width : 668px){
-    .fl-node-<?php echo $id ?> .oxi__line_text{
-    display:none;
-    }
-    }
-    <?php
-} else if ($settings->responsive_compatibility != 'medium_device') {
-    ?>
-    @media only screen and ((max-width : 993px){
-    .fl-node-<?php echo $id ?> .oxi__line_text{
-    display:none;
-    }
-    }
-    <?php
-}
-?>
 
-
-<?php
-if ($settings->add_footer_icon != '') {
-    foreach ($settings->add_footer_icon as $value) {
-        if ($value->link != '') {
-            ?>   
-            .fl-node-<?php echo $id; ?> .oxi__addons_footer_icon_area a{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #<?php echo $value->icon_bg_color; ?>;
-            font-size: <?php echo $value->icon_size; ?>px;
-            width: 100%;
-            max-width: <?php echo $value->icon_bg_size; ?>px;
-            height: <?php echo $value->icon_bg_size; ?>px;
-            color: #<?php echo $value->icon_color; ?>;
-            border-width: <?php echo $value->icon_border_width; ?>px;
-            border-style: <?php echo $value->icon_border_style; ?>;
-            border-color: #<?php echo $value->icon_border_color; ?>;
-            border-radius: <?php echo $value->icon_bg_border_radius; ?>px;
-            margin: 5px;
-
-            }
-
-
+    if ($settings->button->styling === 'shutter') {
+        if ($settings->button->shutter_effects === 'shutter_in_hori') {
+            $scale = 'scaleX(1)';
+            $hover_scale = 'scaleX(0)';
+        }
+        if ($settings->button->shutter_effects === 'shutter_in_var') {
+            $scale = 'scaleY(1)';
+            $hover_scale = 'scaleY(0) ';
+        }
+        if ($settings->button->shutter_effects === 'shutter_out_hori') {
+            $scale = 'scaleX(.3)  rotateY(90deg)';
+            $hover_scale = 'scaleX(1) ';
+        }
+        if ($settings->button->shutter_effects === 'shutter_out_var') {
+            $scale = 'scaleY(.3)  rotateX(90deg)';
+            $hover_scale = 'scaleY(1)';
+        }
+        if ($settings->button->button_hover_background_type === 'color') {
+            SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+                'content' => '""',
+                'position' => 'absolute',
+                'top' => '0',
+                '-webkit-transform' => $scale,
+                'transform' => $scale,
+                'left' => '0',
+                'display' => 'block',
+                'width' => '100%',
+                'height' => '100%',
+                'opacity' => '0',
+                'background-color' => $settings->button->button_hover_background_color,
+                'transition' => 'all .3s',
+                '-webkit-transform-origin' => '50%',
+                'transform-origin' => '50%',
+                    ), '.fl-node-' . $id . ' .oxi__button:after');
+            SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+                '-webkit-transform' => $hover_scale,
+                'transform' => $hover_scale,
+                'opacity' => '1',
+                'background-color' => $settings->button->button_hover_background_color,
+                    ), '.fl-node-' . $id . ' .oxi__button:hover:after');
+        }
+    } else if ($settings->button->styling === 'rayen') {
+        $width = $hover_height = $height = $top = $bottom = $right = $bottom = $left = $hover_width = '';
+        if ($settings->button->rayen_effects === 'left_to_right') {
+            $width = '0';
+            $height = '100%';
+            $top = '0';
+            $left = '0';
+            $hover_width = '100%';
+        } else if ($settings->button->rayen_effects === 'right_to_left') {
+            $width = '0';
+            $height = '100%';
+            $top = '0';
+            $right = '0';
+            $hover_width = '100%';
+        } else if ($settings->button->rayen_effects === 'top_to_bottom') {
+            $width = '100%';
+            $height = '0%';
+            $top = '0';
+            $left = '0';
+            $hover_height = '100%';
+        } else if ($settings->button->rayen_effects === 'bottom_to_top') {
+            $width = '100%';
+            $height = '0';
+            $bottom = '0';
+            $left = '0';
+            $hover_height = '100%';
+        }
+        if ($settings->button->button_hover_background_type === 'color') {
+            SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+                'content' => '""',
+                'position' => 'absolute',
+                'top' => $top,
+                'left' => $left,
+                'right' => $right,
+                'bottom' => $bottom,
+                'background-color' => $settings->button->button_hover_background_color,
+                'width' => $width,
+                'height' => $height,
+                'transition' => 'all 0.3s ease'
+                    ), '.fl-node-' . $id . ' .oxi__button::after');
+            SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+                'width' => $hover_width,
+                'height' => $hover_height,
+                    ), '.fl-node-' . $id . ' .oxi__button:hover:after');
+        }
+    } else if ($settings->button->styling === 'winona') {
+        $top = $right = $bottom = $left = $width = $height = $transform = $hover_transform = $text_transform = '';
+        if ($settings->button->winona_effects === 'left_to_right') {
+            $width = '100%';
+            $height = '100%';
+            $right = '0';
+            $top = '0';
+            $transform = 'translateX(-100%)';
+            $hover_transform = 'translateX(0)';
+            $text_transform = 'translateX(150%)';
+        } else if ($settings->button->winona_effects === 'right_to_left') {
+            $width = '100%';
+            $height = '100%';
+            $right = '0';
+            $top = '0';
+            $transform = 'translateX(100%)';
+            $hover_transform = 'translateX(0)';
+            $text_transform = 'translateX(-150%)';
+        } else if ($settings->button->winona_effects === 'top_to_bottom') {
+            $width = '100%';
+            $height = '100%';
+            $left = '0';
+            $bottom = '0';
+            $transform = 'translateY(-100%)';
+            $hover_transform = 'translateY(0)';
+            $text_transform = 'translateY(150%)';
+        } else if ($settings->button->winona_effects === 'bottom_to_top') {
+            $width = '100%';
+            $height = '100%';
+            $left = '0';
+            $top = '0';
+            $transform = 'translateY(100%)';
+            $hover_transform = 'translateY(0)';
+            $text_transform = 'translateY(-150%)';
+        }
+        if ($settings->button->button_hover_background_type === 'color') {
+            SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+                'content' => 'attr(data-attr)',
+                'position' => 'absolute',
+                'top' => $top,
+                'left' => $left,
+                'right' => $right,
+                'bottom' => $bottom,
+                'width' => $width,
+                'height' => $height,
+                'opacity' => '0',
+                'transition' => 'all 0.3s ease',
+                'transform' => $transform,
+                'background-color' => $settings->button->button_hover_background_color,
+                    ), '.fl-node-' . $id . ' .oxi__button::after');
+            SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+                'opacity' => '1',
+                'transform' => $hover_transform,
+                    ), '.fl-node-' . $id . ' .oxi__button:hover:after');
+            SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+                'opacity' => '0',
+                'transform' => $text_transform,
+                    ), '.fl-node-' . $id . ' .oxi__button:hover .oxi__button_wrapper');
+        }
+    } else if ($settings->button->styling === 'tamaya') {
+        ?>
+        .fl-node-<?php echo $id; ?> .oxi__button::before,
+        .fl-node-<?php echo $id; ?> .oxi__button::after {
+        display: block;
+        content: attr(data-attr);
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        left: 0;
+        overflow: hidden;
+        -webkit-transition: -webkit-transform 0.3s;
+        transition: -webkit-transform 0.3s;
+        -o-transition: transform 0.3s;
+        transition: transform 0.3s;
+        transition: transform 0.3s, -webkit-transform 0.3s;
+        -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+        -o-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+        transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+        z-index: 2;
+        }
+        .oxi__button>.oxi__button_wrapper {
+        display: block;
+        -webkit-transform: scale3d(0.2, 0.2, 1);
+        transform: scale3d(0.2, 0.2, 1);
+        opacity: 0;
+        -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+        -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+        transition: opacity 0.3s, -webkit-transform 0.3s;
+        -o-transition: transform 0.3s, opacity 0.3s;
+        transition: transform 0.3s, opacity 0.3s;
+        transition: transform 0.3s, opacity 0.3s, -webkit-transform 0.3s;
+        -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+        -o-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+        transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .fl-node-<?php echo $id; ?> .oxi__button::before {
+        <?php
+        if ($settings->button->button_width === 'custom') {
+            ?>
+            bottom: 14px;
             <?php
         } else {
-            ?>   
-            .fl-node-<?php echo $id; ?> .oxi__addons_footer_icon_area .oxi_footer_info_icon{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #<?php echo $value->icon_bg_color; ?>;
-            font-size: <?php echo $value->icon_size; ?>px;
-            width: 100%;
-            max-width: <?php echo $value->icon_bg_size; ?>px;
-            height: <?php echo $value->icon_bg_size; ?>px;
-            color: #<?php echo $value->icon_color; ?>;
-            border-width: <?php echo $value->icon_border_width; ?>px;
-            border-style: <?php echo $value->icon_border_style; ?>;
-            border-color: #<?php echo $value->icon_border_color; ?>;
-            border-radius: <?php echo $value->icon_bg_border_radius; ?>px;
-            margin: 5px;
-
-            }  
-
-
+            ?>
+            top: 0;
+            padding-top: <?php echo $settings->button->button_padding_top ? $settings->button->button_padding_top : '15px' ?>;
+            padding-bottom: <?php echo $settings->button->button_padding_bottom ? $settings->button->button_padding_bottom : '15px' ?>;
             <?php
         }
+        ?>
+        }
+
+        .fl-node-<?php echo $id; ?> .oxi__button::after {
+        bottom:0;
+        line-height: 0;
+        }
+
+        .fl-node-<?php echo $id; ?> .oxi__button:hover::after {
+        bottom: -1px;
+        }
+        .fl-node-<?php echo $id; ?> .oxi__button:hover::before {
+        bottom: 25px;
+        }
+
+        .fl-node-<?php echo $id; ?> .oxi__button:hover::before {
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+        }
+
+        .fl-node-<?php echo $id; ?> .oxi__button:hover::after {
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+        }
+
+        .fl-node-<?php echo $id; ?> .oxi__button:hover .oxi__button_wrapper {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+        }
+        <?php
     }
 }
+?>
+        
+  
 
-if($settings->icon_align === 'left'){
-    $icontextalign = "justify-content:flex-start;";
-}else if($settings->icon_align === 'center'){
-    $icontextalign = "justify-content:center;";
-}else{
-    $icontextalign = "justify-content:flex-end;";
+<?php
+
+
+SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+    'background-color' => $settings->offcanvas_bar_bg,
+        ), '.fl-node-' . $id . ' .c-offcanvas.is-open');
+if ($settings->offcanvas_bar_border_style != 'none') {
+    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('offcanvas_bar', $settings, 'border', '.fl-node-'.$id.' .c-offcanvas.is-open', 'px');
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+         'border-color' => $settings->offcanvas_bar_border_color,
+        'border-style' => $settings->offcanvas_bar_border_style,
+            ), '.fl-node-' . $id . ' .c-offcanvas.is-open');
 }
+SA_FLBUILDER_HELPER::sa_fl_dimension_utility('offcanvas_bar', $settings, 'padding', '.fl-node-'.$id.' .c-offcanvas.is-open', 'px'); 
+SA_FLBUILDER_HELPER::sa_fl_custom_border_radius('offcanvas_bar', $settings, '.fl-node-'.$id.' .c-offcanvas.is-open', 'true');
 ?>
 
-.fl-node-<?php echo $id ?> .oxi__addons_footer_icon_area{
-    display: flex;
-    width: 100%;
-    <?php echo $icontextalign; ?>
-}
+
+

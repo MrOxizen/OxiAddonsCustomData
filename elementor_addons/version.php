@@ -1,7 +1,9 @@
 <?php
 /*
   Plugin Name: Shortcode Addons
-  Version: 1.6
+  Type: Extention
+  Name: Elementor Elements
+  Version: 1.7
  */
 
-return array(1.0, 'Elementor', true, 'oxi-el-addons');
+return array(1.7, 'Elementor', true, 'oxi-el-addons');
