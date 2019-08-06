@@ -1,7 +1,10 @@
 .elementor-widget-sa-el-icon-box .elementor-widget-container {
     position: relative;
-    padding: 1.25rem;
+}
+
+.elementor-widget-sa-el-icon-box .sa-el-icon-box-content {
     background: #0F8CBD;
+    padding: 10px;
 }
 
 .sa-el-icon-box-title {
