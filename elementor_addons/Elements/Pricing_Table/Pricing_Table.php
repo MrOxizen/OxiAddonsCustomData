@@ -861,7 +861,7 @@ class Pricing_Table extends Widget_Base
                 'condition' => [
                     'sa_el_pricing_table_onsale' => 'yes'
                 ]
-            ],
+            ]
 
         );
 
