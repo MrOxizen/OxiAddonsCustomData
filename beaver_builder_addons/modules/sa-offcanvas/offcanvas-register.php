@@ -140,6 +140,7 @@ FLBuilder::register_module(
                         'label' => __('Border Radius', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
                         'default' => '1',
+                        'responsive' => true,
                         'slider' => true,
                         'units' => array('px'),
                     ),
@@ -148,6 +149,7 @@ FLBuilder::register_module(
                         'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
                         'default' => '1',
+                        'responsive' => true,
                         'slider' => true,
                         'units' => array('px'),
                     ),
@@ -169,7 +171,7 @@ FLBuilder::register_module(
                             'property' => 'color',
                         ),
                     ),
-                    'offcanvas_content_style' => array(
+                    'offcanvas_content_border_style' => array(
                         'type' => 'select',
                         'label' => __('Border Style', SA_FLBUILDER_TEXTDOMAIN),
                         'default' => 'none',
@@ -196,7 +198,7 @@ FLBuilder::register_module(
                             ),
                         ),
                     ),
-                    'offcanvas_content_border_width' => array(
+                    'offcanvas_content_border' => array(
                         'type' => 'dimension',
                         'label' => __('Border', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
@@ -217,7 +219,7 @@ FLBuilder::register_module(
                             'property' => 'color',
                         ),
                     ),
-                    'offcanvas_content_border _radius' => array(
+                    'offcanvas_content_border_radius' => array(
                         'type' => 'dimension',
                         'label' => __('Border Radius', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
@@ -230,6 +232,16 @@ FLBuilder::register_module(
                         'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
                         'default' => '1',
+                        'responsive' => true,
+                        'slider' => true,
+                        'units' => array('px'),
+                    ),
+                    'offcanvas_content_margin' => array(
+                        'type' => 'dimension',
+                        'label' => __('Margin', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '1',
+                        'responsive' => true,
                         'slider' => true,
                         'units' => array('px'),
                     ),
@@ -241,7 +253,7 @@ FLBuilder::register_module(
                     'offcanvas_close_icon_class' => array(
                         'type' => 'icon',
                         'label' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => __('', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => __('fas fa-times', SA_FLBUILDER_TEXTDOMAIN),
                         'placeholder' => 'fa fa-twitter',
                         'help' => __('Sellect Icon from Icon Library', SA_FLBUILDER_TEXTDOMAIN),
                         'connections' => array('string', 'html'),
@@ -260,12 +272,21 @@ FLBuilder::register_module(
                             'property' => 'color',
                         ),
                     ),
-                    'close_icon_size' => array(
+                    'offcanvas_close_icon_size' => array(
                         'type' => 'unit',
                         'label' => 'Icon Size',
                         'slider' => true,
                         'description' => 'px',
                         'default' => '18'
+                    ),
+                    'offcanvas_close_icon_margin' => array(
+                        'type' => 'dimension',
+                        'label' => __('Position', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Manage The Icon Position.', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '10',
+                        'responsive' => true,
+                        'slider' => true,
+                        'units' => array('%'),
                     ),
                 ),
             ),

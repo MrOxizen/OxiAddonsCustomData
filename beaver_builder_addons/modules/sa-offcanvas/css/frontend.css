@@ -13,11 +13,13 @@ button::focus{
         position: absolute;
         top: 15%;
         right: 5%;
+        display: none;
+        cursor: pointer;
     }
     
      
 .oxi__button_wrapper_main{ 
-  margin: 0;
+    margin: 0;
     padding: 0;
     line-height: 1;
 }
@@ -50,5 +52,7 @@ button::focus{
         align-items: center;
 } 
 
-  
 
+.oxi_offcanvas_content_area{
+    display: none;
+}

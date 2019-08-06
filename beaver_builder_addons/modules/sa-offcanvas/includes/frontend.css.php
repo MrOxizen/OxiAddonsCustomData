@@ -7,7 +7,7 @@ SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'button_font_typo', '.f
  */
 if ($settings->button->button_background_type === 'color') {
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-        'background-color' => $settings->button->button_background_color,
+        'background-color' => $settings->button->button_background_color.' !important',
             ), '.fl-node-' . $id . ' .oxi__button');
 } else {
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
@@ -65,12 +65,12 @@ if (!empty($settings)) {
 
     .fl-node-<?php echo $id; ?> .oxi__button:hover{
     <?php
-     $data =  json_decode(json_encode($settings->button), true);
+    $data = json_decode(json_encode($settings->button), true);
     if ($data['hover_box_shadow'] != '') {
-        
+
         SA_FLBUILDER_HELPER::sa_fl_custom_box_shadow($data['hover_box_shadow']);
     }
-    
+
     if ($settings->button->hover_border_color != '') {
         SA_FLBUILDER_HELPER::sa_fl_general_style(array(
             'border-color' => $settings->button->hover_border_color,
@@ -100,7 +100,7 @@ if (!empty($settings)) {
             ), '.fl-node-' . $id . ' .oxi__button:hover');
     if ($settings->button->button_hover_background_type === 'color') {
         SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-            'background-color' => $settings->button->button_hover_background_color,
+            'background-color' => $settings->button->button_hover_background_color.' !important',
                 ), '.fl-node-' . $id . ' .oxi__button:hover');
     } else {
         SA_FLBUILDER_HELPER::sa_fl_general_style(array(
@@ -137,7 +137,7 @@ if (!empty($settings)) {
                 'width' => '100%',
                 'height' => '100%',
                 'opacity' => '0',
-                'background-color' => $settings->button->button_hover_background_color,
+                'background-color' => $settings->button->button_hover_background_color.' !important',
                 'transition' => 'all .3s',
                 '-webkit-transform-origin' => '50%',
                 'transform-origin' => '50%',
@@ -146,7 +146,7 @@ if (!empty($settings)) {
                 '-webkit-transform' => $hover_scale,
                 'transform' => $hover_scale,
                 'opacity' => '1',
-                'background-color' => $settings->button->button_hover_background_color,
+                'background-color' => $settings->button->button_hover_background_color.' !important',
                     ), '.fl-node-' . $id . ' .oxi__button:hover:after');
         }
     } else if ($settings->button->styling === 'rayen') {
@@ -184,7 +184,7 @@ if (!empty($settings)) {
                 'left' => $left,
                 'right' => $right,
                 'bottom' => $bottom,
-                'background-color' => $settings->button->button_hover_background_color,
+                'background-color' => $settings->button->button_hover_background_color.' !important',
                 'width' => $width,
                 'height' => $height,
                 'transition' => 'all 0.3s ease'
@@ -242,7 +242,7 @@ if (!empty($settings)) {
                 'opacity' => '0',
                 'transition' => 'all 0.3s ease',
                 'transform' => $transform,
-                'background-color' => $settings->button->button_hover_background_color,
+                'background-color' => $settings->button->button_hover_background_color.' !important',
                     ), '.fl-node-' . $id . ' .oxi__button::after');
             SA_FLBUILDER_HELPER::sa_fl_general_style(array(
                 'opacity' => '1',
@@ -336,24 +336,56 @@ if (!empty($settings)) {
     }
 }
 ?>
-        
-  
+
+
 
 <?php
-
-
 SA_FLBUILDER_HELPER::sa_fl_general_style(array(
     'background-color' => $settings->offcanvas_bar_bg,
         ), '.fl-node-' . $id . ' .c-offcanvas.is-open');
 if ($settings->offcanvas_bar_border_style != 'none') {
-    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('offcanvas_bar', $settings, 'border', '.fl-node-'.$id.' .c-offcanvas.is-open', 'px');
+    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('offcanvas_bar', $settings, 'border', '.fl-node-' . $id . ' .c-offcanvas.is-open', 'px');
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-         'border-color' => $settings->offcanvas_bar_border_color,
+        'border-color' => $settings->offcanvas_bar_border_color,
         'border-style' => $settings->offcanvas_bar_border_style,
             ), '.fl-node-' . $id . ' .c-offcanvas.is-open');
 }
-SA_FLBUILDER_HELPER::sa_fl_dimension_utility('offcanvas_bar', $settings, 'padding', '.fl-node-'.$id.' .c-offcanvas.is-open', 'px'); 
-SA_FLBUILDER_HELPER::sa_fl_custom_border_radius('offcanvas_bar', $settings, '.fl-node-'.$id.' .c-offcanvas.is-open', 'true');
+SA_FLBUILDER_HELPER::sa_fl_dimension_utility('offcanvas_bar', $settings, 'padding', '.fl-node-' . $id . ' .c-offcanvas.is-open', 'px');
+SA_FLBUILDER_HELPER::sa_fl_custom_border_radius('offcanvas_bar', $settings, '.fl-node-' . $id . ' .c-offcanvas.is-open', 'true');
+
+
+
+
+SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+    'background-color' => $settings->offcanvas_content_bg,
+        ), '.fl-node-' . $id . ' .oxi_offcanvas_bar_content');
+if ($settings->offcanvas_content_border_style != 'none') {
+    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('offcanvas_content', $settings, 'border', '.fl-node-' . $id . ' .oxi_offcanvas_bar_content', 'px');
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'border-color' => $settings->offcanvas_content_border_color,
+        'border-style' => $settings->offcanvas_content_border_style,
+            ), '.fl-node-' . $id . ' .oxi_offcanvas_bar_content');
+}
+SA_FLBUILDER_HELPER::sa_fl_dimension_utility('offcanvas_content', $settings, 'padding', '.fl-node-' . $id . ' .oxi_offcanvas_bar_content', 'px');
+SA_FLBUILDER_HELPER::sa_fl_dimension_utility('offcanvas_content', $settings, 'margin', '.fl-node-' . $id . ' .oxi_offcanvas_bar_content', 'px');
+SA_FLBUILDER_HELPER::sa_fl_custom_border_radius('offcanvas_content', $settings, '.fl-node-' . $id . ' .oxi_offcanvas_bar_content', 'true');
+
+
+
+
+if ($settings->close_button == 'enable') {
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'color' => $settings->offcanvas_close_icon_color,
+        'font-size' => $settings->offcanvas_close_icon_size . 'px',
+            ), '.fl-node-' . $id . ' .sa-offcanvas-close');
+    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('offcanvas_close_icon', $settings, 'margin', '.fl-node-' . $id . ' .sa-offcanvas-close', '%');
+}
+
+
+SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+    'background-color' => $settings->offcanvas_overlay_color,
+    'opacity' => $settings->offcanvas_overlay_opacity,
+        ), '.fl-node-' . $id . ' .c-offcanvas-bg.is-animating, .fl-node-' . $id . ' .c-offcanvas-bg.is-open');
 ?>
 
 

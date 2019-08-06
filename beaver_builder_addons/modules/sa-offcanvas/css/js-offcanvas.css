@@ -77,7 +77,6 @@
 /* line 69, ../../src/sa-offcanvas.scss */
 .c-offcanvas-bg.is-animating, .c-offcanvas-bg.is-open {
   left: 0;
-  background-color: rgba(0, 0, 0, 0.68);
   visibility: visible;
 }
 /* line 76, ../../src/sa-offcanvas.scss */
