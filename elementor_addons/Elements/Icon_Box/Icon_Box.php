@@ -4,11 +4,11 @@ namespace SA_ELEMENTOR_ADDONS\Elements\Icon_Box;
 
 use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
+use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Text_Shadow;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Scheme_Typography;
-use Elementor\Icons_Manager;
 use \Elementor\Widget_Base as Widget_Base;
 
 defined('ABSPATH') || die();
@@ -69,7 +69,7 @@ class Icon_Box extends Widget_Base
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
-        
+
         $this->add_control(
             'icon',
             [
@@ -173,13 +173,97 @@ class Icon_Box extends Widget_Base
                     ],
                 ],
                 'toggle' => true,
-                'default' =>'center',
+                'default' => 'center',
                 'selectors' => [
                     '{{WRAPPER}}' => 'text-align: {{VALUE}}'
                 ]
             ]
         );
 
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            '_section_style_icon_box_content',
+            [
+                'label' => __('General', SA_ELEMENTOR_TEXTDOMAIN),
+                'tab'   => Controls_Manager::TAB_STYLE,
+            ]
+        );
+        $this->add_responsive_control(
+            'icon_box_content_padding',
+            [
+                'label' => __('Padding', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .sa-el-icon-box-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+        $this->add_responsive_control(
+            'icon_box_content_margin',
+            [
+                'label' => __('Margin', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .sa-el-icon-box-content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+        $this->start_controls_tabs('_tabs_icon_box_content');
+
+        $this->start_controls_tab(
+            '_tab_icon_box_content_normal',
+            [
+                'label' => __('Normal', SA_ELEMENTOR_TEXTDOMAIN),
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'icon_box_content_bg',
+                'label' => __('Background', SA_ELEMENTOR_TEXTDOMAIN),
+                'types' => ['none', 'classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .sa-el-icon-box-content',
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'icon_box_content_box_shadow',
+                'selector' => '{{WRAPPER}} .sa-el-icon-box-content',
+            ]
+        );
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            '_tab_icon_box_content_hover',
+            [
+                'label' => __('Hover', SA_ELEMENTOR_TEXTDOMAIN),
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'icon_box_content_bg_hover',
+                'label' => __('Background', SA_ELEMENTOR_TEXTDOMAIN),
+                'types' => ['none', 'classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .sa-el-icon-box-content:hover',
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'icon_box_content_box_shadow_hover',
+                'selector' => '{{WRAPPER}} .sa-el-icon-box-content:hover',
+            ]
+        );
+        $this->end_controls_tab();
+
+        $this->end_controls_tabs();
+        
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -474,6 +558,10 @@ class Icon_Box extends Widget_Base
             [
                 'label' => __('Badge', SA_ELEMENTOR_TEXTDOMAIN),
                 'tab'   => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'badge_text!' => ''
+                ],
+
             ]
         );
 
@@ -713,18 +801,18 @@ class Icon_Box extends Widget_Base
         $this->add_inline_editing_attributes('badge_text', 'none');
         $this->add_render_attribute('badge_text', 'class', 'sa-el-badge sa-el-badge--top-right');
         ?>
-
+        <?php echo '<div class="sa-el-icon-box-content">' ?>
         <?php if ($settings['badge_text']) : ?>
             <span <?php echo $this->get_render_attribute_string('badge_text'); ?>><?php echo esc_html($settings['badge_text']); ?></span>
         <?php endif; ?>
 
         <?php if ($settings['icon']) : ?>
             <span class="sa-el-icon-box-icon">
-            <?php
+                <?php
 
                 echo $this->Sa_El_Icon_Render($settings['icon']);
-				
-			?>
+
+                ?>
             </span>
         <?php endif; ?>
 
@@ -737,6 +825,6 @@ class Icon_Box extends Widget_Base
                 esc_html($settings['title'])
             );
         endif;
+        echo '</div>';
     }
-
 }
