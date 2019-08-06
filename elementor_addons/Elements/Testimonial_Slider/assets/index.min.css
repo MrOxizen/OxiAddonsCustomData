@@ -129,12 +129,7 @@
     position: relative;
 }
 
-.sa-el-testimonial-item .sa-el-testimonial-quote::after {
-    color: inherit !important;
-    content: "\f10e";
-    font-family: "FontAwesome";
-    font-size: 200%;
-}
+
 
 .sa-el-testimonial-slider.default-style .sa-el-testimonial-align-left .sa-el-testimonial-image figure img,
 .sa-el-testimonial-slider.default-style .sa-el-testimonial-align-right .sa-el-testimonial-image figure img,

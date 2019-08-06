@@ -11,3 +11,17 @@
     });
 
 })(jQuery);
+
+setTimeout(function () {
+    jQuery(".OxiAddonsELEqualHeightWidth").each(function () {
+        var cw = jQuery(this).outerWidth();
+        var ch = jQuery(this).outerHeight();
+        if (cw > ch) {
+            jQuery(this).css({"height": cw + "px"});
+            jQuery(this).css({"width": cw + "px"});
+        } else {
+            jQuery(this).css({"height": ch + "px"});
+            jQuery(this).css({"width": ch + "px"});
+        }
+    });
+}, 1500);

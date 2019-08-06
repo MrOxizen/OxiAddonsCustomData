@@ -195,7 +195,7 @@ class Team_Member extends Widget_Base
                         'icon' => 'eicon-editor-h6'
                     ]
                 ],
-                'default' => 'h2',
+                'default' => 'h3',
                 'toggle' => false,
             ]
         );
@@ -223,6 +223,7 @@ class Team_Member extends Widget_Base
                         'icon' => 'fa fa-align-justify',
                     ],
                 ],
+                'default' => 'center',
                 'toggle' => true,
                 'selectors' => [
                     '{{WRAPPER}}' => 'text-align: {{VALUE}}'

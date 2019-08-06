@@ -1,3 +1,7 @@
+.elementor-widget-sa_el_price_menu .elementor-widget-container {
+    background: #660000;
+}
+
 .sa_el_restaurant_menu .sa_el_restaurant_menu_item_wrap {
     margin-bottom: 10px;
     position: relative;
@@ -71,7 +75,7 @@
 }
 
 .sa_el_restaurant_menu_style_1 .sa_el_price_title_connector {
-    border-bottom: 1px dashed #000;
+    border-bottom: 1px dashed #fff;
     height: 1px;
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
