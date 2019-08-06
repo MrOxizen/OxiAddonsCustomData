@@ -31,6 +31,7 @@ trait Template
                 'icon-effects',
                 'offcanvas',
                 'alert-box',
+                'price-table',
             ),
         );
         ?>

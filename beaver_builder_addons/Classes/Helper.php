@@ -110,6 +110,13 @@ final class SA_FLBUILDER_HELPER
                     'margin-bottom' => '' . $prefix . '_' . $setting_name . '_bottom',
                     'margin-left' => '' . $prefix . '_' . $setting_name . '_left',
                 );
+            } elseif ($setting_name == 'border') {
+                $props = array(
+                    'border-top' => '' . $prefix . '_' . $setting_name . '_top',
+                    'border-right' => '' . $prefix . '_' . $setting_name . '_right',
+                    'border-bottom' => '' . $prefix . '_' . $setting_name . '_bottom',
+                    'border-left' => '' . $prefix . '_' . $setting_name . '_left',
+                );
             }
             FLBuilderCSS::dimension_field_rule(array(
                 'settings' => $settings,
