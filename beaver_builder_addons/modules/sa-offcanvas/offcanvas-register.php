@@ -30,7 +30,6 @@ FLBuilder::register_module(
                         'form' => 'sa_fl_offcanvas_form_field', // ID of a registered form.
                         'preview_text' => 'text', // ID of a field to use for the preview text.
                     ),
-                    
                 ),
             ),
             'offcanvas_settings' => array(// Section.
@@ -54,7 +53,6 @@ FLBuilder::register_module(
                         'options' => array(
                             'enable' => __('Enable', SA_FLBUILDER_TEXTDOMAIN),
                             'disable' => __('Disable', SA_FLBUILDER_TEXTDOMAIN),
-
                         ),
                     ),
                     'click_any_where' => array(
@@ -64,86 +62,192 @@ FLBuilder::register_module(
                         'options' => array(
                             'enable' => __('Enable', SA_FLBUILDER_TEXTDOMAIN),
                             'disable' => __('Disable', SA_FLBUILDER_TEXTDOMAIN),
-
                         ),
                     ),
-                    
                 ),
             ),
         ),
     ),
     'style' => array(
-        'title' => __('Separator', SA_FLBUILDER_TEXTDOMAIN),
+        'title' => __('Style', SA_FLBUILDER_TEXTDOMAIN),
         'sections' => array(
-            'separator' => array(
-                'title' => __('Separator', SA_FLBUILDER_TEXTDOMAIN),
+            'offcanvas_bar' => array(
+                'title' => __('Offcanvas Bar', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
-                    'separator_style' => array(
-                        'type' => 'select',
-                        'label' => __('Separator Style', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'line',
-                        'options' => array(
-                            'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
-                            'line' => __('Line', SA_FLBUILDER_TEXTDOMAIN),
-                            'line_icon' => __('Line With Icon', SA_FLBUILDER_TEXTDOMAIN),
-                            'line_image' => __('Line With Image', SA_FLBUILDER_TEXTDOMAIN),
-                            'line_text' => __('Line With Text', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                        'toggle' => array(
-                            'line' => array(
-                                'sections' => array('separator_line'),
-                                'fields' => array('separator_position'),
-                            ),
-                            'line_icon' => array(
-                                'sections' => array('separator_line', 'separator_icon_basic'),
-                                'fields' => array('separator_position'),
-                            ),
-                            'line_image' => array(
-                                'sections' => array('separator_line', 'separator_img_basic'),
-                                'fields' => array('separator_position'),
-                            ),
-                            'line_text' => array(
-                                'sections' => array('separator_line', 'separator_text', 'separator_text_typography'),
-                                'fields' => array('separator_position'),
-                            ),
-                        ),
-                    ),
-                    'separator_position' => array(
-                        'type' => 'select',
-                        'label' => __('Separator Position', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'center',
-                        'options' => array(
-                            'center' => __('Between Heading & Description', SA_FLBUILDER_TEXTDOMAIN),
-                            'top' => __('Top', SA_FLBUILDER_TEXTDOMAIN),
-                            'bottom' => __('Bottom', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                    ),
-                ),
-            ),
-            'separator_icon_basic' => array(
-                'title' => __('Icon Basics', SA_FLBUILDER_TEXTDOMAIN),
-                'fields' => array(
-                    'icon' => array(
-                        'type' => 'icon',
-                        'label' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
-                        'show_remove' => true,
-                    ),
-                    'icon_size' => array(
-                        'type' => 'unit',
-                        'label' => __('Size', SA_FLBUILDER_TEXTDOMAIN),
-                        'placeholder' => '22',
-                        'maxlength' => '5',
-                        'size' => '6',
-                        'units' => array('px'),
-                        'slider' => true,
+                    'offcanvas_bar_bg' => array(
+                        'type' => 'color',
+                        'label' => __('Background', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '',
+                        'show_reset' => true,
+                        'connections' => array('color'),
+                        'show_alpha' => true,
                         'preview' => array(
                             'type' => 'css',
                             'selector' => '.oxi__addons_image_icon_divider .oxi__icon',
-                            'property' => 'font-size',
-                            'unit' => 'px',
+                            'property' => 'color',
                         ),
                     ),
-                    'separator_icon_color' => array(
+                    'offcanvas_bar_border_style' => array(
+                        'type' => 'select',
+                        'label' => __('Border Style', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'none',
+                        'help' => __('The type of border to use. Double borders must have a width of at least 3px to render properly.', SA_FLBUILDER_TEXTDOMAIN),
+                        'options' => array(
+                            'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
+                            'solid' => __('Solid', SA_FLBUILDER_TEXTDOMAIN),
+                            'dashed' => __('Dashed', SA_FLBUILDER_TEXTDOMAIN),
+                            'dotted' => __('Dotted', SA_FLBUILDER_TEXTDOMAIN),
+                            'double' => __('Double', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                        'toggle' => array(
+                            'solid' => array(
+                                'fields' => array('offcanvas_bar_border_width', 'offcanvas_bar_border_color'),
+                            ),
+                            'dashed' => array(
+                                'fields' => array('offcanvas_bar_border_width', 'offcanvas_bar_border_color'),
+                            ),
+                            'dotted' => array(
+                                'fields' => array('offcanvas_bar_border_width', 'offcanvas_bar_border_color'),
+                            ),
+                            'double' => array(
+                                'fields' => array('offcanvas_bar_border_width', 'offcanvas_bar_border_color'),
+                            ),
+                        ),
+                    ),
+                    'offcanvas_bar_border_width' => array(
+                        'type' => 'dimension',
+                        'label' => __('Border', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '1',
+                        'slider' => true,
+                        'units' => array('px'),
+                    ),
+                    'offcanvas_bar_border_color' => array(
+                        'type' => 'color',
+                        'label' => __('Border Color', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '',
+                        'show_reset' => true,
+                        'connections' => array('color'),
+                        'show_alpha' => true,
+                        'preview' => array(
+                            'type' => 'css',
+                            'selector' => '.oxi__addons_image_icon_divider .oxi__icon',
+                            'property' => 'color',
+                        ),
+                    ),
+                    'offcanvas_bar_border_radius' => array(
+                        'type' => 'dimension',
+                        'label' => __('Border Radius', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '1',
+                        'slider' => true,
+                        'units' => array('px'),
+                    ),
+                    'offcanvas_bar_padding' => array(
+                        'type' => 'dimension',
+                        'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '1',
+                        'slider' => true,
+                        'units' => array('px'),
+                    ),
+                ),
+            ),
+            'offcanvas_content' => array(
+                'title' => __('Offcanvas Content', SA_FLBUILDER_TEXTDOMAIN),
+                'fields' => array(
+                    'offcanvas_content_bg' => array(
+                        'type' => 'color',
+                        'label' => __('Background', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '',
+                        'show_reset' => true,
+                        'connections' => array('color'),
+                        'show_alpha' => true,
+                        'preview' => array(
+                            'type' => 'css',
+                            'selector' => '.oxi__addons_image_icon_divider .oxi__icon',
+                            'property' => 'color',
+                        ),
+                    ),
+                    'offcanvas_content_style' => array(
+                        'type' => 'select',
+                        'label' => __('Border Style', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'none',
+                        'help' => __('The type of border to use. Double borders must have a width of at least 3px to render properly.', SA_FLBUILDER_TEXTDOMAIN),
+                        'options' => array(
+                            'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
+                            'solid' => __('Solid', SA_FLBUILDER_TEXTDOMAIN),
+                            'dashed' => __('Dashed', SA_FLBUILDER_TEXTDOMAIN),
+                            'dotted' => __('Dotted', SA_FLBUILDER_TEXTDOMAIN),
+                            'double' => __('Double', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                        'toggle' => array(
+                            'solid' => array(
+                                'fields' => array('offcanvas_content_border_width', 'offcanvas_content_border_color'),
+                            ),
+                            'dashed' => array(
+                                'fields' => array('offcanvas_content_border_width', 'offcanvas_content_border_color'),
+                            ),
+                            'dotted' => array(
+                                'fields' => array('offcanvas_content_border_width', 'offcanvas_content_border_color'),
+                            ),
+                            'double' => array(
+                                'fields' => array('offcanvas_content_border_width', 'offcanvas_content_border_color'),
+                            ),
+                        ),
+                    ),
+                    'offcanvas_content_border_width' => array(
+                        'type' => 'dimension',
+                        'label' => __('Border', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '1',
+                        'slider' => true,
+                        'units' => array('px'),
+                    ),
+                    'offcanvas_content_border_color' => array(
+                        'type' => 'color',
+                        'label' => __('Border Color', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '',
+                        'show_reset' => true,
+                        'connections' => array('color'),
+                        'show_alpha' => true,
+                        'preview' => array(
+                            'type' => 'css',
+                            'selector' => '.oxi__addons_image_icon_divider .oxi__icon',
+                            'property' => 'color',
+                        ),
+                    ),
+                    'offcanvas_content_border _radius' => array(
+                        'type' => 'dimension',
+                        'label' => __('Border Radius', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '1',
+                        'slider' => true,
+                        'units' => array('px'),
+                    ),
+                    'offcanvas_content_padding' => array(
+                        'type' => 'dimension',
+                        'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '1',
+                        'slider' => true,
+                        'units' => array('px'),
+                    ),
+                ),
+            ),
+            'offcanvas_close_icon' => array(
+                'title' => __('Close Icon', SA_FLBUILDER_TEXTDOMAIN),
+                'fields' => array(
+                    'offcanvas_close_icon_class' => array(
+                        'type' => 'icon',
+                        'label' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => __('', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => 'fa fa-twitter',
+                        'help' => __('Sellect Icon from Icon Library', SA_FLBUILDER_TEXTDOMAIN),
+                        'connections' => array('string', 'html'),
+                        'show_remove' => true,
+                    ),
+                    'offcanvas_close_icon_color' => array(
                         'type' => 'color',
                         'label' => __('Icon Color', SA_FLBUILDER_TEXTDOMAIN),
                         'default' => '',
@@ -156,192 +260,41 @@ FLBuilder::register_module(
                             'property' => 'color',
                         ),
                     ),
-                    'padding_left' => array(
+                    'close_icon_size' => array(
                         'type' => 'unit',
-                        'label' => __('Padding Left', SA_FLBUILDER_TEXTDOMAIN),
-                        'placeholder' => '5',
-                        'maxlength' => '5',
-                        'size' => '6',
-                        'units' => array('px'),
+                        'label' => 'Icon Size',
                         'slider' => true,
-                        'preview' => array(
-                            'type' => 'css',
-                            'selector' => '.oxi__addons_image_icon_divider',
-                            'property' => 'padding-left',
-                            'unit' => 'px',
-                        ),
-                    ),
-                    'padding_right' => array(
-                        'type' => 'unit',
-                        'label' => __('Padding Right', SA_FLBUILDER_TEXTDOMAIN),
-                        'placeholder' => '5',
-                        'maxlength' => '5',
-                        'size' => '6',
-                        'units' => array('px'),
-                        'slider' => true,
-                        'preview' => array(
-                            'type' => 'css',
-                            'selector' => '.oxi__addons_image_icon_divider',
-                            'property' => 'padding-right',
-                            'unit' => 'px',
-                        ),
+                        'description' => 'px',
+                        'default' => '18'
                     ),
                 ),
             ),
-            'separator_img_basic' => array(
-                'title' => __('Image Basics', SA_FLBUILDER_TEXTDOMAIN),
+            'offcanvas_overlay' => array(
+                'title' => __('Overlay', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
-                    'photo_source' => array(
-                        'type' => 'select',
-                        'label' => __('Photo Source', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'library',
-                        'options' => array(
-                            'library' => __('Media Library', SA_FLBUILDER_TEXTDOMAIN),
-                            'url' => __('URL', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                        'toggle' => array(
-                            'library' => array(
-                                'fields' => array('photo'),
-                            ),
-                            'url' => array(
-                                'fields' => array('photo_url'),
-                            ),
-                        ),
-                    ),
-                    'photo' => array(
-                        'type' => 'photo',
-                        'label' => __('Photo', SA_FLBUILDER_TEXTDOMAIN),
-                        'show_remove' => true,
-                        'connections' => array('photo'),
-                    ),
-                    'photo_url' => array(
-                        'type' => 'text',
-                        'label' => __('Photo URL', SA_FLBUILDER_TEXTDOMAIN),
-                        'placeholder' => 'http://www.example.com/my-photo.jpg',
-                    ),
-                    'img_size' => array(
-                        'type' => 'unit',
-                        'label' => __('Size', SA_FLBUILDER_TEXTDOMAIN),
-                        'maxlength' => '5',
-                        'size' => '6',
-                        'units' => array('px'),
-                        'slider' => true,
-                        'placeholder' => '50',
-                    ),
-                    'responsive_img_size' => array(
-                        'type' => 'unit',
-                        'label' => __('Responsive Size', SA_FLBUILDER_TEXTDOMAIN),
-                        'maxlength' => '5',
-                        'size' => '6',
-                        'units' => array('px'),
-                        'slider' => true,
-                        'help' => __('Image size below medium devices. Leave it blank if you want to keep same size', SA_FLBUILDER_TEXTDOMAIN),
-                        'preview' => array(
-                            'type' => 'none',
-                        ),
-                    ),
-                ),
-            ),
-            'separator_text' => array(
-                'title' => __('Text', SA_FLBUILDER_TEXTDOMAIN),
-                'fields' => array(
-                    'text_inline' => array(
-                        'type' => 'text',
-                        'label' => __('Text', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'Ultimate',
-                        'preview' => array(
-                            'type' => 'text',
-                            'selector' => '.oxi__line_text',
-                        ),
-                    ),
-                    'responsive_compatibility' => array(
-                        'type' => 'select',
-                        'label' => __('Responsive Compatibility', SA_FLBUILDER_TEXTDOMAIN),
-                        'help' => __('There might be responsive issues for long texts. If you are facing such issues then select appropriate devices width to make your module responsive.', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '',
-                        'options' => array(
-                            'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
-                            'mobile_device' => __('Small Devices', SA_FLBUILDER_TEXTDOMAIN),
-                            'medium_device' => __('Medium & Small Devices', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                    ),
-                ),
-            ),
-            'separator_line' => array(
-                'title' => __('Line Style', SA_FLBUILDER_TEXTDOMAIN),
-                'fields' => array(
-                    'separator_line_style' => array(
-                        'type' => 'select',
-                        'label' => __('Style', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'solid',
-                        'options' => array(
-                            'solid' => __('Solid', SA_FLBUILDER_TEXTDOMAIN),
-                            'dashed' => __('Dashed', SA_FLBUILDER_TEXTDOMAIN),
-                            'dotted' => __('Dotted', SA_FLBUILDER_TEXTDOMAIN),
-                            'double' => __('Double', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                        'help' => __('The type of border to use. Double borders must have a height of at least 2px to render properly.', SA_FLBUILDER_TEXTDOMAIN),
-                        'preview' => array(
-                            'type' => 'css',
-                            'selector' => '.oxi__addons_seperator_span',
-                            'property' => 'border-top-style',
-                        ),
-                    ),
-                    'alignment' => array(
-                        'type' => 'align',
-                        'label' => 'Alignment',
-                        'default' => 'center',
-                        'responsive' => true,
-                        'preview' => array(
-                            'type' => 'css',
-                            'selector' => '.oxi__addons_line_divider',
-                            'property' => 'text-align',
-                        ),
-                    ),
-                    'separator_line_color' => array(
+                    'offcanvas_overlay_color' => array(
                         'type' => 'color',
-                        'label' => __('Color', SA_FLBUILDER_TEXTDOMAIN),
+                        'label' => __('Overlay Color', SA_FLBUILDER_TEXTDOMAIN),
                         'default' => '',
                         'show_reset' => true,
                         'connections' => array('color'),
                         'show_alpha' => true,
                         'preview' => array(
                             'type' => 'css',
-                            'selector' => '.oxi__addons_seperator_span',
-                            'property' => 'border-top-color',
+                            'selector' => '.oxi__addons_image_icon_divider .oxi__icon',
+                            'property' => 'color',
                         ),
                     ),
-                    'separator_line_height' => array(
+                    'offcanvas_overlay_opacity' => array(
                         'type' => 'unit',
-                        'label' => __('Thickness', SA_FLBUILDER_TEXTDOMAIN),
-                        'placeholder' => '2',
-                        'maxlength' => '2',
-                        'size' => '3',
-                        'units' => array('px'),
-                        'slider' => true,
-                        'help' => __('Thickness of Border', SA_FLBUILDER_TEXTDOMAIN),
-                        'preview' => array(
-                            'type' => 'css',
-                            'selector' => '.oxi__addons_seperator_span',
-                            'property' => 'border-top-width',
-                            'unit' => 'px',
+                        'label' => 'Opacity',
+                        'slider' => array(
+                            'min' => 0.01,
+                            'max' => 1,
+                            'step' => 0.01
                         ),
-                    ),
-                    'separator_line_width' => array(
-                        'type' => 'unit',
-                        'label' => __('Width', SA_FLBUILDER_TEXTDOMAIN),
-                        'placeholder' => '40',
-                        'maxlength' => '3',
-                        'size' => '5',
-                        'units' => array('%'),
-                        'slider' => true,
-                        'responsive' => true,
-                        'preview' => array(
-                            'type' => 'css',
-                            'selector' => '.oxi__addons_seperator_width',
-                            'property' => 'width',
-                            'unit' => '%',
-                        ),
+                        'description' => '',
+                        'default' => '0.5'
                     ),
                 ),
             ),
@@ -528,11 +481,8 @@ FLBuilder::register_settings_form(
                             'default' => 'Lorem Ipsum is simply dummy text',
                             'connections' => array('string', 'html'),
                         ),
-                       
-                       
                     ),
                 ),
-                
             ),
         ),
     ),
@@ -543,7 +493,7 @@ FLBuilder::register_settings_form(
 
 
 FLBuilder::register_settings_form(
-        'sa_fl_offcanvas_form_field', array(
+    'sa_fl_offcanvas_form_field', array(
     'title' => __('Button', SA_FLBUILDER_TEXTDOMAIN),
     'tabs' => array(
         'General' => array(
@@ -598,7 +548,6 @@ FLBuilder::register_settings_form(
                         ),
                     )
                 ),
-                
             )
         ),
         'style' => array(//tab
@@ -664,6 +613,73 @@ FLBuilder::register_settings_form(
                                 'right_to_left' => __('Right To Left', SA_FLBUILDER_TEXTDOMAIN),
                                 'top_to_bottom' => __('Top To Bottom', SA_FLBUILDER_TEXTDOMAIN),
                                 'bottom_to_top' => __('Bottom To Top', SA_FLBUILDER_TEXTDOMAIN)
+                            ),
+                        ),
+                    ),
+                ),
+                'formatting' => array(
+                    'title' => __('Structure', SA_FLBUILDER_TEXTDOMAIN),
+                    'fields' => array(
+                        'button_width' => array(
+                            'type' => 'select',
+                            'label' => __('Width', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'auto',
+                            'options' => array(
+                                'auto' => _x('Auto', 'Width.', SA_FLBUILDER_TEXTDOMAIN),
+                                'full' => __('Full Width', SA_FLBUILDER_TEXTDOMAIN),
+                                'custom' => __('Custom', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                            'toggle' => array(
+                                'auto' => array(
+                                    'fields' => array('button_padding'),
+                                ),
+                                'full' => array(
+                                    'fields' => array('button_padding'),
+                                ),
+                                'custom' => array(
+                                    'fields' => array('custom_width', 'custom_height'),
+                                ),
+                            ),
+                        ),
+                        'custom_width' => array(
+                            'type' => 'text',
+                            'label' => __('Custom Width', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => '200',
+                            'maxlength' => '3',
+                            'size' => '4',
+                            'description' => 'px',
+                        ),
+                        'custom_height' => array(
+                            'type' => 'text',
+                            'label' => __('Custom Height', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => '45',
+                            'maxlength' => '3',
+                            'size' => '4',
+                            'description' => 'px',
+                        ),
+                        'alignment' => array(
+                            'type' => 'align',
+                            'label' => 'Alignment',
+                            'default' => 'center',
+                            'responsive' => true,
+                            'preview' => array(
+                                'type' => 'css',
+                                'property' => 'text-align',
+                                'selector' => '.oxi__button_wrapper_main'
+                            ),
+                        ),
+                        'button_padding' => array(
+                            'type' => 'dimension',
+                            'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
+                            'help' => __('Manage the inside Button padding', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider' => true,
+                            'units' => array('px'),
+                            'responsive' => array(
+                                'placeholder' => array(
+                                    'default' => '15',
+                                    'medium' => '10',
+                                    'responsive' => '5',
+                                ),
                             ),
                         ),
                     ),
@@ -803,73 +819,6 @@ FLBuilder::register_settings_form(
                                 'type' => 'css',
                                 'selector' => '.oxi-addons-hover-box-shadow',
                                 'property' => 'box-shadow',
-                            ),
-                        ),
-                    ),
-                ),
-                'formatting' => array(
-                    'title' => __('Structure', SA_FLBUILDER_TEXTDOMAIN),
-                    'fields' => array(
-                        'button_width' => array(
-                            'type' => 'select',
-                            'label' => __('Width', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => 'auto',
-                            'options' => array(
-                                'auto' => _x('Auto', 'Width.', SA_FLBUILDER_TEXTDOMAIN),
-                                'full' => __('Full Width', SA_FLBUILDER_TEXTDOMAIN),
-                                'custom' => __('Custom', SA_FLBUILDER_TEXTDOMAIN),
-                            ),
-                            'toggle' => array(
-                                'auto' => array(
-                                    'fields' => array('button_padding'),
-                                ),
-                                'full' => array(
-                                    'fields' => array('button_padding'),
-                                ),
-                                'custom' => array(
-                                    'fields' => array('custom_width', 'custom_height'),
-                                ),
-                            ),
-                        ),
-                        'custom_width' => array(
-                            'type' => 'text',
-                            'label' => __('Custom Width', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => '200',
-                            'maxlength' => '3',
-                            'size' => '4',
-                            'description' => 'px',
-                        ),
-                        'custom_height' => array(
-                            'type' => 'text',
-                            'label' => __('Custom Height', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => '45',
-                            'maxlength' => '3',
-                            'size' => '4',
-                            'description' => 'px',
-                        ),
-                        'alignment' => array(
-                            'type' => 'align',
-                            'label' => 'Alignment',
-                            'default' => 'center',
-                            'responsive' => true,
-                            'preview' => array(
-                                'type' => 'css',
-                                'property' => 'justify-content',
-                                'selector' => '.oxi__button_wrapper'
-                            ),
-                        ),
-                        'button_padding' => array(
-                            'type' => 'dimension',
-                            'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
-                            'help' => __('Manage the inside Button padding', SA_FLBUILDER_TEXTDOMAIN),
-                            'slider' => true,
-                            'units' => array('px'),
-                            'responsive' => array(
-                                'placeholder' => array(
-                                    'default' => '15',
-                                    'medium' => '10',
-                                    'responsive' => '5',
-                                ),
                             ),
                         ),
                     ),
