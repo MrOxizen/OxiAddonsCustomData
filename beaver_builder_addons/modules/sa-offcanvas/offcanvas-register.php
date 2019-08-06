@@ -114,7 +114,7 @@ FLBuilder::register_module(
                             ),
                         ),
                     ),
-                    'offcanvas_bar_border_width' => array(
+                    'offcanvas_bar_border' => array(
                         'type' => 'dimension',
                         'label' => __('Border', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),

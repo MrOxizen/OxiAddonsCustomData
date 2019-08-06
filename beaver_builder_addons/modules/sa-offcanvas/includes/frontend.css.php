@@ -65,9 +65,12 @@ if (!empty($settings)) {
 
     .fl-node-<?php echo $id; ?> .oxi__button:hover{
     <?php
-    if ($settings->button->hover_box_shadow != '') {
-        SA_FLBUILDER_HELPER::sa_fl_custom_box_shadow($settings->hover_box_shadow);
+     $data =  json_decode(json_encode($settings->button), true);
+    if ($data['hover_box_shadow'] != '') {
+        
+        SA_FLBUILDER_HELPER::sa_fl_custom_box_shadow($data['hover_box_shadow']);
     }
+    
     if ($settings->button->hover_border_color != '') {
         SA_FLBUILDER_HELPER::sa_fl_general_style(array(
             'border-color' => $settings->button->hover_border_color,
@@ -334,11 +337,7 @@ if (!empty($settings)) {
 }
 ?>
         
-.fl-node-<?php echo $id; ?> .c-offcanvas.is-open{
-border-radius: 50px;
-border-width: 5px;
-}
-
+  
 
 <?php
 
@@ -347,13 +346,14 @@ SA_FLBUILDER_HELPER::sa_fl_general_style(array(
     'background-color' => $settings->offcanvas_bar_bg,
         ), '.fl-node-' . $id . ' .c-offcanvas.is-open');
 if ($settings->offcanvas_bar_border_style != 'none') {
+    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('offcanvas_bar', $settings, 'border', '.fl-node-'.$id.' .c-offcanvas.is-open', 'px');
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-        'border-width' => $settings->offcanvas_bar_border_width ? $settings->offcanvas_bar_border_width . 'px;' : '',
-        'border-color' => $settings->offcanvas_bar_border_color,
+         'border-color' => $settings->offcanvas_bar_border_color,
         'border-style' => $settings->offcanvas_bar_border_style,
             ), '.fl-node-' . $id . ' .c-offcanvas.is-open');
 }
-SA_FLBUILDER_HELPER::sa_fl_dimension_utility('offcanvas_bar', $settings, 'padding', '.fl-node-'.$id.' .c-offcanvas.is-open', 'px');
+SA_FLBUILDER_HELPER::sa_fl_dimension_utility('offcanvas_bar', $settings, 'padding', '.fl-node-'.$id.' .c-offcanvas.is-open', 'px'); 
+SA_FLBUILDER_HELPER::sa_fl_custom_border_radius('offcanvas_bar', $settings, '.fl-node-'.$id.' .c-offcanvas.is-open', 'true');
 ?>
 
 

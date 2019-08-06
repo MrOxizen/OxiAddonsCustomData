@@ -15,14 +15,14 @@ final class SA_FLBUILDER_HELPER
     /**
      * for render padding, margin and border-raidus at once function call;
      */
-    public static function sa_fl_custom_border_radius(string $type, $settings, $selector, string $media = '')
+    public static function sa_fl_custom_border_radius(string $prefix, $settings, $selector, string $media = '')
     {
         $border_radius = [];
         foreach ($settings as $key => $data) {
-            if ($type != '') {
+            if ($prefix != '') {
                 if (preg_match('/(radius)/', $key)) {
-                    if ($type != 'top' && $type != 'right' && $type != 'bottom' && $type != 'left') {
-                        if (mb_strpos($key, $type) !== false) {
+                    if ($prefix != 'top' && $prefix != 'right' && $prefix != 'bottom' && $prefix != 'left') {
+                        if (mb_strpos($key, $prefix) !== false) {
                             $border_radius[$key] = $data;
                         }
                     }
@@ -30,21 +30,21 @@ final class SA_FLBUILDER_HELPER
             }
         }
         if (is_array($border_radius) && !empty($border_radius)) {
-            self::border_radius_setting($border_radius, $type, $selector, $media);
+            self::border_radius_setting($border_radius, $prefix, $selector, $media);
         }
     }
 
 
-    private static function border_radius_setting(array $border_radius, string $type, $selector, string $media)
+    private static function border_radius_setting(array $border_radius, string $prefix, $selector, string $media)
     {
         ?>
         <?php echo $selector; ?>{
         <?php
         if (is_array($border_radius) && !empty($border_radius)) {
-            echo ('' != $border_radius['' . $type . '_border_radius_top']) ? ' border-top-left-radius:' . $border_radius['' . $type . '_border_radius_top'] . 'px;' : '';
-            echo ('' != $border_radius['' . $type . '_border_radius_right']) ? ' border-top-right-radius:' . $border_radius['' . $type . '_border_radius_right'] . 'px;' : '';
-            echo ('' != $border_radius['' . $type . '_border_radius_bottom']) ? ' border-bottom-right-radius:' . $border_radius['' . $type . '_border_radius_bottom'] . 'px;' : '';
-            echo ('' != $border_radius['' . $type . '_border_radius_left']) ? ' border-bottom-left-radius:' . $border_radius['' . $type . '_border_radius_left'] . 'px;' : '';
+            echo ('' != $border_radius['' . $prefix . '_border_radius_top']) ? ' border-top-left-radius:' . $border_radius['' . $prefix . '_border_radius_top'] . 'px;' : '';
+            echo ('' != $border_radius['' . $prefix . '_border_radius_right']) ? ' border-top-right-radius:' . $border_radius['' . $prefix . '_border_radius_right'] . 'px;' : '';
+            echo ('' != $border_radius['' . $prefix . '_border_radius_bottom']) ? ' border-bottom-right-radius:' . $border_radius['' . $prefix . '_border_radius_bottom'] . 'px;' : '';
+            echo ('' != $border_radius['' . $prefix . '_border_radius_left']) ? ' border-bottom-left-radius:' . $border_radius['' . $prefix . '_border_radius_left'] . 'px;' : '';
         }
         ?>
         }
@@ -52,10 +52,10 @@ final class SA_FLBUILDER_HELPER
         <?php echo $selector; ?>{
         <?php
         if (is_array($border_radius) && !empty($border_radius)) {
-            echo ('' != $border_radius['' . $type . '_border_radius_top_medium']) ? ' border-top-left-radius:' . $border_radius['' . $type . '_border_radius_top_medium'] . 'px;' : '';
-            echo ('' != $border_radius['' . $type . '_border_radius_right_medium']) ? ' border-top-right-radius:' . $border_radius['' . $type . '_border_radius_right_medium'] . 'px;' : '';
-            echo ('' != $border_radius['' . $type . '_border_radius_bottom_medium']) ? ' border-bottom-right-radius:' . $border_radius['' . $type . '_border_radius_bottom_medium'] . 'px;' : '';
-            echo ('' != $border_radius['' . $type . '_border_radius_left_medium']) ? ' border-bottom-left-radius:' . $border_radius['' . $type . '_border_radius_left_medium'] . 'px;' : '';
+            echo ('' != $border_radius['' . $prefix . '_border_radius_top_medium']) ? ' border-top-left-radius:' . $border_radius['' . $prefix . '_border_radius_top_medium'] . 'px;' : '';
+            echo ('' != $border_radius['' . $prefix . '_border_radius_right_medium']) ? ' border-top-right-radius:' . $border_radius['' . $prefix . '_border_radius_right_medium'] . 'px;' : '';
+            echo ('' != $border_radius['' . $prefix . '_border_radius_bottom_medium']) ? ' border-bottom-right-radius:' . $border_radius['' . $prefix . '_border_radius_bottom_medium'] . 'px;' : '';
+            echo ('' != $border_radius['' . $prefix . '_border_radius_left_medium']) ? ' border-bottom-left-radius:' . $border_radius['' . $prefix . '_border_radius_left_medium'] . 'px;' : '';
         }
         ?>
         }
@@ -64,10 +64,10 @@ final class SA_FLBUILDER_HELPER
         <?php echo $selector; ?>{
         <?php
         if (is_array($border_radius) && !empty($border_radius)) {
-            echo ('' != $border_radius['' . $type . '_border_radius_top_responsive']) ? ' border-top-left-radius:' . $border_radius['' . $type . '_border_radius_top_responsive'] . 'px;' : '';
-            echo ('' != $border_radius['' . $type . '_border_radius_right_responsive']) ? ' border-top-right-radius:' . $border_radius['' . $type . '_border_radius_right_responsive'] . 'px;' : '';
-            echo ('' != $border_radius['' . $type . '_border_radius_bottom_responsive']) ? ' border-bottom-right-radius:' . $border_radius['' . $type . '_border_radius_bottom_responsive'] . 'px;' : '';
-            echo ('' != $border_radius['' . $type . '_border_radius_left_responsive']) ? ' border-bottom-left-radius:' . $border_radius['' . $type . '_border_radius_left_responsive'] . 'px;' : '';
+            echo ('' != $border_radius['' . $prefix . '_border_radius_top_responsive']) ? ' border-top-left-radius:' . $border_radius['' . $prefix . '_border_radius_top_responsive'] . 'px;' : '';
+            echo ('' != $border_radius['' . $prefix . '_border_radius_right_responsive']) ? ' border-top-right-radius:' . $border_radius['' . $prefix . '_border_radius_right_responsive'] . 'px;' : '';
+            echo ('' != $border_radius['' . $prefix . '_border_radius_bottom_responsive']) ? ' border-bottom-right-radius:' . $border_radius['' . $prefix . '_border_radius_bottom_responsive'] . 'px;' : '';
+            echo ('' != $border_radius['' . $prefix . '_border_radius_left_responsive']) ? ' border-bottom-left-radius:' . $border_radius['' . $prefix . '_border_radius_left_responsive'] . 'px;' : '';
         }
         ?>
         }

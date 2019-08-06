@@ -5,6 +5,7 @@
 //echo '<pre>';
 //print_r($settings);
 //echo '</pre>';
+
 ?>
 <script>
     jQuery(function () {
