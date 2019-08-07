@@ -1,23 +1,14 @@
- *{
-     padding: 0;
-     margin: 0;
-     box-sizing: border-box;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 button::focus{
     border: none;
 }
-.sa-offcanvas-trigger-left, .sa-offcanvas-trigger{
-    display: inline-block;
-}
-.oxi_sa_offcanvas_wrapter .sa-offcanvas-close{
-        position: absolute;
-        top: 15%;
-        right: 5%;
-        display: none;
-        cursor: pointer;
-    }
-    
-     
+
+
+
 .oxi__button_wrapper_main{ 
     margin: 0;
     padding: 0;
@@ -47,12 +38,11 @@ button::focus{
     color: white;
 } 
 .oxi__button_wrapper_main .oxi__button::after{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 } 
 
 
-.oxi_offcanvas_content_area{
-    display: none;
-}
+
+

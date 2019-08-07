@@ -5,8 +5,10 @@
 //echo '<pre>';
 //print_r($settings);
 //echo '</pre>';
-
 ?>
+
+
+
 
 <?php
 $button_position = $icon = '';
@@ -25,30 +27,33 @@ if ($settings->button->icon_position == 'left') {
         <div class="o-wrapper">
             <div class="oxi__button_wrapper_main">
                 <?php if ($settings->direction_style == 'left') { ?>
-                    <div class="sa-offcanvas-trigger-left" data-offcanvas-trigger="left"   >
+                    <div class="Sa-button-left-<?php echo $id; ?>">
                         <button class="oxi__button">
                             <div class="oxi__button_wrapper"><?php echo $button_position ?></div>
                         </button>
                     </div>
-
+                    <div class="oxi-addons-OC-conetent-overlay-<?php echo $id; ?>"></div>
                 <?php } else if ($settings->direction_style == 'right') { ?>
-                    <div class="sa-offcanvas-trigger" data-offcanvas-trigger="right" >
+                    <div class="Sa-button-right-<?php echo $id; ?>" >
                         <button class="oxi__button">
                             <div class="oxi__button_wrapper"><?php echo $button_position ?></div>
                         </button>
                     </div>
+                    <div class="oxi-addons-OC-conetent-overlay-<?php echo $id; ?>"></div>
                 <?php } else if ($settings->direction_style == 'top') { ?>
-                    <div class="sa-offcanvas-trigger" data-offcanvas-trigger="top" >
+                    <div class="Sa-button-top-<?php echo $id; ?>" >
                         <button class="oxi__button">
                             <div class="oxi__button_wrapper"><?php echo $button_position ?></div>
                         </button>
                     </div>
+                    <div class="oxi-addons-OC-conetent-overlay-<?php echo $id; ?>"></div>
                 <?php } else { ?>
-                    <div class="sa-offcanvas-trigger" data-offcanvas-trigger="bottom" >
+                    <div class="Sa-button-bottom-<?php echo $id; ?>" >
                         <button class="oxi__button">
                             <div class="oxi__button_wrapper"><?php echo $button_position ?></div>
                         </button>
                     </div>
+                    <div class="oxi-addons-OC-conetent-overlay-<?php echo $id; ?>"></div>
                 <?php } ?>
             </div>
         </div>
@@ -56,70 +61,69 @@ if ($settings->button->icon_position == 'left') {
 
 
     <?php if ($settings->direction_style == 'left') { ?>
-        <aside id="left" role="complementary">
-
-            <?php if($settings->close_button == 'enable'){ ?>
-            <i class="<?php echo $settings->offcanvas_close_icon_class; ?> sa-offcanvas-close "></i>
+        <div class="oxi-offcanvas-left-content-<?php echo $id; ?> oxi_addons_bar_style">
+            <?php if ($settings->close_button == 'enable') { ?>
+                <i class="<?php echo $settings->offcanvas_close_icon_class; ?> sa-offcanvas-close-<?php echo $id; ?>"></i>
             <?php } ?>
             <div class="oxi_offcanvas_content_area">
                 <?php
                 foreach ($settings->add_offcanvas_item as $offrander) {
                     echo '<div class="oxi_offcanvas_bar_content">
-                            <div class="oxi_foocanvas_bar_title">' . $offrander->offcanvas_title . '</div>
+                            <div class="oxi_offcanvas_bar_title"><' . $settings->tag . '>' . $offrander->offcanvas_title . '</' . $settings->tag . '></div>
                             <div class="oxi_foocanvas_bar_description">' . $offrander->description . '</div>
                         </div>';
                 };
                 ?>
             </div>
-        </aside>
+        </div>
     <?php } else if ($settings->direction_style == 'right') { ?>
-        <aside class="sa-offcanvas" data-offcanvas-options='{"modifiers":"right,overlay"}' id="right" role="complementary">
-            <?php if($settings->close_button == 'enable'){ ?>
-            <i class="<?php echo $settings->offcanvas_close_icon_class; ?> sa-offcanvas-close" data-button-options='{"modifiers":"m1,m2"}'></i>
+        <div class="oxi-offcanvas-right-content-<?php echo $id; ?> oxi_addons_bar_style">
+            <?php if ($settings->close_button == 'enable') { ?>
+                <i class="<?php echo $settings->offcanvas_close_icon_class; ?> sa-offcanvas-close-<?php echo $id; ?>"></i>
             <?php } ?>
             <div class="oxi_offcanvas_content_area">
                 <?php
                 foreach ($settings->add_offcanvas_item as $offrander) {
                     echo '<div class="oxi_offcanvas_bar_content">
-                            <div class="oxi_foocanvas_bar_title">' . $offrander->offcanvas_title . '</div>
-                            <div class="oxi_foocanvas_bar_description">' . $offrander->description . '</div>
-                         </div>';
-                };
-                ?>
-            </div>
-        </aside>
-    <?php } else if ($settings->direction_style == 'top') { ?>
-        <aside class="sa-offcanvas" data-offcanvas-options='{"modifiers":"top,fixed,overlay"}' id="top" role="complementary">
-            <?php if($settings->close_button == 'enable'){ ?>
-            <i class="<?php echo $settings->offcanvas_close_icon_class; ?> sa-offcanvas-close" data-button-options='{"modifiers":"m1,m2"}'></i>
-            <?php } ?>
-            <div class="oxi_offcanvas_content_area">
-                <?php
-                foreach ($settings->add_offcanvas_item as $offrander) {
-                    echo '<div class="oxi_offcanvas_bar_content">
-                            <div class="oxi_foocanvas_bar_title">' . $offrander->offcanvas_title . '</div>
+                            <div class="oxi_offcanvas_bar_title"><' . $settings->tag . '>' . $offrander->offcanvas_title . '</' . $settings->tag . '></div>
                             <div class="oxi_foocanvas_bar_description">' . $offrander->description . '</div>
                         </div>';
                 };
                 ?>
             </div>
-        </aside>
-    <?php } else { ?>
-        <aside class="sa-offcanvas" data-offcanvas-options='{"modifiers":"bottom, fixed, overlay"}' id="bottom" role="complementary">
-            <?php if($settings->close_button == 'enable'){ ?>
-            <i class="<?php echo $settings->offcanvas_close_icon_class; ?> sa-offcanvas-close" data-button-options='{"modifiers":"m1,m2"}'></i>
+        </div>
+    <?php } else if ($settings->direction_style == 'top') { ?>
+        <div class="oxi-offcanvas-top-content-<?php echo $id; ?> oxi_addons_bar_style">
+            <?php if ($settings->close_button == 'enable') { ?>
+                <i class="<?php echo $settings->offcanvas_close_icon_class; ?> sa-offcanvas-close-<?php echo $id; ?>"></i>
             <?php } ?>
             <div class="oxi_offcanvas_content_area">
                 <?php
                 foreach ($settings->add_offcanvas_item as $offrander) {
                     echo '<div class="oxi_offcanvas_bar_content">
-                            <div class="oxi_foocanvas_bar_title">' . $offrander->offcanvas_title . '</div>
+                            <div class="oxi_offcanvas_bar_title"><' . $settings->tag . '>' . $offrander->offcanvas_title . '</' . $settings->tag . '></div>
                             <div class="oxi_foocanvas_bar_description">' . $offrander->description . '</div>
-                         </div>';
+                        </div>';
                 };
                 ?>
             </div>
-        </aside>
+        </div>
+    <?php } else { ?>
+        <div class="oxi-offcanvas-bottom-content-<?php echo $id; ?> oxi_addons_bar_style">
+            <?php if ($settings->close_button == 'enable') { ?>
+                <i class="<?php echo $settings->offcanvas_close_icon_class; ?> sa-offcanvas-close-<?php echo $id; ?>"></i>
+            <?php } ?>
+            <div class="oxi_offcanvas_content_area">
+                <?php
+                foreach ($settings->add_offcanvas_item as $offrander) {
+                    echo '<div class="oxi_offcanvas_bar_content">
+                            <div class="oxi_offcanvas_bar_title"><' . $settings->tag . '>' . $offrander->offcanvas_title . '</' . $settings->tag . '></div>
+                            <div class="oxi_foocanvas_bar_description">' . $offrander->description . '</div>
+                        </div>';
+                };
+                ?>
+            </div>
+        </div>
     <?php } ?>
 </div>
 

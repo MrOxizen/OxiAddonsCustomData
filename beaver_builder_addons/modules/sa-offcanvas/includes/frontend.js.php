@@ -1,51 +1,56 @@
  
-      jQuery(function () {
-
-        jQuery(document).on("beforecreate.offcanvas", function (e) {
-            var dataOffcanvas = jQuery(e.target).data('offcanvas-component'); 
-            dataOffcanvas.onInit = function () { 
-            };
-        });  
-        jQuery(document).on("clicked.offcanvas-trigger clicked.offcanvas", function (e) {
-            var dataBtnText = jQuery(e.target).text(); 
-        });
-
-        jQuery(document).on("open.offcanvas", function (e) {
-            var dataOffcanvasID = jQuery(e.target).attr('id'); 
-        });
-
-        jQuery(document).on("resizing.offcanvas", function (e) {
-            var dataOffcanvasID = jQuery(e.target).attr('id'); 
-        });
-
-        jQuery(document).on("close.offcanvas", function (e) {
-            var dataOffcanvasID = jQuery(e.target).attr('id'); 
-        });
-
-        jQuery(document).on("destroy.offcanvas", function (e) {
-            var dataOffcanvasID = jQuery(e.target).attr('id'); 
-        });
-
-        jQuery('#bottom').on("create.offcanvas", function (e) {
-            var api = jQuery(this).data('offcanvas-component'); 
-            jQuery('.sa-destroy').on('click', function () {
-                api.destroy(); 
+     jQuery(document).ready(function () {
+            <?php if ($settings->direction_style == 'left') { ?>
+            jQuery(".Sa-button-left-<?php echo $id; ?>").click(function () {
+                jQuery(".oxi-offcanvas-left-content-<?php echo $id; ?>").toggleClass("oxi-active");
+                jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").toggleClass("oxi-active");
             });
-        });
-
-        jQuery('#left').offcanvas({
-
-            modifiers: "left,overlay",
-            triggerButton: '.sa-offcanvas-trigger-left'
-        });
-
-        jQuery('.sa-enhance').on('click', function () { 
-            jQuery(document).trigger("enhance");
-        });
-
-    jQuery(document).trigger("enhance");
-    });  
-  setTimeout(function(){
-    jQuery('.oxi_offcanvas_content_area').css({display: 'block'})
-    jQuery('.sa-offcanvas-close').css({display: 'block'})
-  },500)
+            jQuery(".sa-offcanvas-close-<?php echo $id; ?>").click(function () {
+                jQuery(".oxi-offcanvas-left-content-<?php echo $id; ?>").toggleClass("oxi-active");
+                jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").toggleClass("oxi-active");
+            });
+            jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").click(function () {
+                jQuery(".oxi-offcanvas-left-content-<?php echo $id; ?>").toggleClass("oxi-active");
+                jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").toggleClass("oxi-active");
+            });
+            <?php } else if ($settings->direction_style == 'right') { ?>
+            jQuery(".Sa-button-right-<?php echo $id; ?>").click(function () {
+                jQuery(".oxi-offcanvas-right-content-<?php echo $id; ?>").toggleClass("oxi-active");
+                jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").toggleClass("oxi-active");
+            });
+            jQuery(".sa-offcanvas-close-<?php echo $id; ?>").click(function () {
+                jQuery(".oxi-offcanvas-right-content-<?php echo $id; ?>").toggleClass("oxi-active");
+                jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").toggleClass("oxi-active");
+            });
+            jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").click(function () {
+                jQuery(".oxi-offcanvas-right-content-<?php echo $id; ?>").toggleClass("oxi-active");
+                jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").toggleClass("oxi-active");
+            });
+            <?php } else if ($settings->direction_style == 'top') { ?>
+            jQuery(".Sa-button-top-<?php echo $id; ?>").click(function () {
+                jQuery(".oxi-offcanvas-top-content-<?php echo $id; ?>").toggleClass("oxi-active");
+                jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").toggleClass("oxi-active");
+            });
+            jQuery(".sa-offcanvas-close-<?php echo $id; ?>").click(function () {
+                jQuery(".oxi-offcanvas-top-content-<?php echo $id; ?>").toggleClass("oxi-active");
+                jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").toggleClass("oxi-active");
+            });
+            jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").click(function () {
+                jQuery(".oxi-offcanvas-top-content-<?php echo $id; ?>").toggleClass("oxi-active");
+                jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").toggleClass("oxi-active");
+            });
+            <?php } else { ?>
+            jQuery(".Sa-button-bottom-<?php echo $id; ?>").click(function () {
+                jQuery(".oxi-offcanvas-bottom-content-<?php echo $id; ?>").toggleClass("oxi-active");
+                jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").toggleClass("oxi-active");
+            });
+            jQuery(".sa-offcanvas-close-<?php echo $id; ?>").click(function () {
+                jQuery(".oxi-offcanvas-bottom-content-<?php echo $id; ?>").toggleClass("oxi-active");
+                jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").toggleClass("oxi-active");
+            });
+            jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").click(function () {
+                jQuery(".oxi-offcanvas-bottom-content-<?php echo $id; ?>").toggleClass("oxi-active");
+                jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").toggleClass("oxi-active");
+            });
+            <?php } ?>
+    });

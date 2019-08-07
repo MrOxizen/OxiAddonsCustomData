@@ -342,16 +342,16 @@ if (!empty($settings)) {
 <?php
 SA_FLBUILDER_HELPER::sa_fl_general_style(array(
     'background-color' => $settings->offcanvas_bar_bg,
-        ), '.fl-node-' . $id . ' .c-offcanvas.is-open');
+        ), '.fl-node-' . $id . ' .oxi_addons_bar_style');
 if ($settings->offcanvas_bar_border_style != 'none') {
-    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('offcanvas_bar', $settings, 'border', '.fl-node-' . $id . ' .c-offcanvas.is-open', 'px');
+    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('offcanvas_bar', $settings, 'border', '.fl-node-' . $id . ' .oxi_addons_bar_style', 'px');
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
         'border-color' => $settings->offcanvas_bar_border_color,
         'border-style' => $settings->offcanvas_bar_border_style,
-            ), '.fl-node-' . $id . ' .c-offcanvas.is-open');
+            ), '.fl-node-' . $id . ' .oxi_addons_bar_style');
 }
-SA_FLBUILDER_HELPER::sa_fl_dimension_utility('offcanvas_bar', $settings, 'padding', '.fl-node-' . $id . ' .c-offcanvas.is-open', 'px');
-SA_FLBUILDER_HELPER::sa_fl_custom_border_radius('offcanvas_bar', $settings, '.fl-node-' . $id . ' .c-offcanvas.is-open', 'true');
+SA_FLBUILDER_HELPER::sa_fl_dimension_utility('offcanvas_bar', $settings, 'padding', '.fl-node-' . $id . ' .oxi_addons_bar_style', 'px');
+SA_FLBUILDER_HELPER::sa_fl_custom_border_radius('offcanvas_bar', $settings, '.fl-node-' . $id . ' .oxi_addons_bar_style', 'true');
 
 
 
@@ -377,16 +377,146 @@ if ($settings->close_button == 'enable') {
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
         'color' => $settings->offcanvas_close_icon_color,
         'font-size' => $settings->offcanvas_close_icon_size . 'px',
-            ), '.fl-node-' . $id . ' .sa-offcanvas-close');
-    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('offcanvas_close_icon', $settings, 'margin', '.fl-node-' . $id . ' .sa-offcanvas-close', '%');
+            ), '.fl-node-' . $id . ' .sa-offcanvas-close-'.$id.'');
+    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('offcanvas_close_icon', $settings, 'margin', '.fl-node-' . $id . '  .sa-offcanvas-close-'.$id.'', '%');
 }
 
 
+
+
+
+SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'font_typo', '.fl-node-' . $id . ' .oxi_offcanvas_bar_title');
 SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+    'color' => $settings->title_color,
+), '.fl-node-' . $id . ' .oxi_offcanvas_bar_title');
+SA_FLBUILDER_HELPER::sa_fl_dimension_utility('offcanvas_heading', $settings, 'padding', '.fl-node-' . $id . ' .oxi_offcanvas_bar_title', 'px');
+
+SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'desc_font_typo', '.fl-node-' . $id . ' .oxi_foocanvas_bar_description');
+SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+    'color' => $settings->desc_color,
+), '.fl-node-' . $id . ' .oxi_foocanvas_bar_description');
+SA_FLBUILDER_HELPER::sa_fl_dimension_utility('desc', $settings, 'padding', '.fl-node-' . $id . ' .oxi_foocanvas_bar_description', 'px');
+
+if($settings->direction_style == 'top' || $settings->direction_style == 'bottom'){
+?>
+   .fl-node-<?php echo $id; ?> .oxi_offcanvas_content_area{
+       display:flex; 
+    } 
+<?php
+}
+
+
+
+?>
+
+    
+    
+    
+.fl-node-<?php echo $id; ?> .oxi-offcanvas-left-content-<?php echo $id; ?>{
+        top: 0;
+        left:0;
+        width: <?php echo $settings->offcanvas_bar_width; ?>px;
+        height: 100%;
+        margin-left:-<?php echo $settings->offcanvas_bar_width; ?>px;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-left-content-<?php echo $id; ?>.oxi-active{
+        top: 0;
+        left: 0;
+        width: <?php echo $settings->offcanvas_bar_width; ?>px;
+        height: 100%;
+        margin-left: 0;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-right-content-<?php echo $id; ?>{
+        top: 0;
+        right:0;
+        width: <?php echo $settings->offcanvas_bar_width; ?>px;
+        height: 100%;
+        margin-right:-<?php echo $settings->offcanvas_bar_width; ?>px;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-right-content-<?php echo $id; ?>.oxi-active{
+        top: 0;
+        right: 0;
+        width: <?php echo $settings->offcanvas_bar_width; ?>px;
+        height: 100%;
+        margin-right: 0;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-top-content-<?php echo $id; ?>{
+        top: 0;
+        right:0;
+        width: 100%;
+        height: <?php echo $settings->offcanvas_bar_height; ?>px;
+        margin-top:-<?php echo $settings->offcanvas_bar_height; ?>px;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-top-content-<?php echo $id; ?>.oxi-active{
+        top: 0;
+        right: 0;
+        left:0;
+        width: 100%;
+        height: <?php echo $settings->offcanvas_bar_height; ?>px;
+        margin-top: 0;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-bottom-content-<?php echo $id; ?>{
+        bottom: 0;
+        right:0;
+        width: 100%;
+        height: <?php echo $settings->offcanvas_bar_height; ?>px;
+        margin-bottom:-<?php echo $settings->offcanvas_bar_height; ?>px;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-bottom-content-<?php echo $id; ?>.oxi-active{
+        bottom: 0;
+        right: 0;
+        left:0;
+        width: 100%;
+        height: <?php echo $settings->offcanvas_bar_height; ?>px;
+        margin-bottom: 0;
+    }
+
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-left-content-<?php echo $id; ?>,
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-right-content-<?php echo $id; ?>,
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-top-content-<?php echo $id; ?>, 
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-bottom-content-<?php echo $id; ?>{
+        position: fixed;
+        z-index: 99999999;
+        overflow-y: auto;
+        transition: all 0.5s;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-left-content-<?php echo $id; ?>.oxi-active,
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-right-content-<?php echo $id; ?>.oxi-active,
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-top-content-<?php echo $id; ?>.oxi-active, 
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-bottom-content-<?php echo $id; ?>.oxi-active{
+        position: fixed;
+        z-index: 99999999;
+        overflow-y: auto;
+        transition: all 0.5s;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-addons-OC-conetent-overlay-<?php echo $id; ?>{
+        display: none;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-addons-OC-conetent-overlay-<?php echo $id; ?>.oxi-active{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 99999999;
+        overflow-y: auto;
+        display: block;
+        cursor: pointer;
+    }
+    .fl-node-<?php echo $id; ?> .sa-offcanvas-close-<?php echo $id; ?>{
+        cursor: pointer;
+    }
+    
+    <?php
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
     'background-color' => $settings->offcanvas_overlay_color,
     'opacity' => $settings->offcanvas_overlay_opacity,
-        ), '.fl-node-' . $id . ' .c-offcanvas-bg.is-animating, .fl-node-' . $id . ' .c-offcanvas-bg.is-open');
-?>
+        ), '.fl-node-'.$id.' .oxi-addons-OC-conetent-overlay-'.$id.'.oxi-active');
+    
+    
+    ?>
 
 
 
