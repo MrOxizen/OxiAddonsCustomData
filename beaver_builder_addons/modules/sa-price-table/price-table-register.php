@@ -59,7 +59,7 @@ FLBuilder::register_module(
                     'fields' => array(
                         'ribbon' => array(
                             'type'    => 'select',
-                            'label'   => __('ribbon', SA_FLBUILDER_TEXTDOMAIN),
+                            'label'   => __('Ribbon', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => 'no',
                             'options' => array(
                                 'show'            => __('Show', SA_FLBUILDER_TEXTDOMAIN),
@@ -75,7 +75,7 @@ FLBuilder::register_module(
                         'ribbon_text'     => array(
                             'type'        => 'text',
                             'label'       => __('ribbon Text', SA_FLBUILDER_TEXTDOMAIN),
-                            'default'     => __('<sub>$</sub> 70', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'     => __('recommend', SA_FLBUILDER_TEXTDOMAIN),
                             'help'        => __('Enter price table ribbon Text', SA_FLBUILDER_TEXTDOMAIN),
                             'connections' => array('string', 'html'),
                         ),
@@ -97,6 +97,7 @@ FLBuilder::register_module(
                         'button_text'  => array(
                             'type'        => 'text',
                             'label'       => __('Button Text', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'     => __('Click Me', SA_FLBUILDER_TEXTDOMAIN),
                             'connections' => array('string', 'html'),
                         ),
                         'button_link'      => array(
@@ -122,10 +123,11 @@ FLBuilder::register_module(
                             'default' => 'layout01',
                             'options' => array(
                                 'layout01' => __('Layout 01', SA_FLBUILDER_TEXTDOMAIN),
+                                'layout02' => __('Layout 02', SA_FLBUILDER_TEXTDOMAIN),
                             ),
                             'toggle'  => array(
-                                'design03' => array(
-                                    'fields' => array('box_height'),
+                                'layout02' => array(
+                                    'sections' => array('cricle_settings'),
                                 ),
                             ),
                         ),
@@ -137,14 +139,12 @@ FLBuilder::register_module(
                         'feature_odd_bg_color'           => array(
                             'type'       => 'color',
                             'label'      => __('Odd Background Color', SA_FLBUILDER_TEXTDOMAIN),
-                            'default'    => '',
                             'show_reset' => true,
                             'show_alpha' => true,
                         ),
                         'feature_even_bg_color'           => array(
                             'type'       => 'color',
                             'label'      => __('Even Background Color', SA_FLBUILDER_TEXTDOMAIN),
-                            'default'    => '',
                             'show_reset' => true,
                             'show_alpha' => true,
                         ),
@@ -238,17 +238,17 @@ FLBuilder::register_module(
                 'ribbon_settings' => array(
                     'title' => __('Ribbon Settings', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
-                        'ribbon_bg_color'           => array(
+                        'rib_bg_color'           => array(
                             'type'       => 'color',
                             'label'      => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
-                            'default'    => '',
+                            'default'    => '55bfff',
                             'show_reset' => true,
                             'show_alpha' => true,
                         ),
-                        'ribbon_width'         => array(
+                        'rib_width'         => array(
                             'type'        => 'unit',
                             'label'       => __('width', SA_FLBUILDER_TEXTDOMAIN),
-                            'default'     => '100',
+                            'default'     => '170',
                             'maxlength'   => '4',
                             'size'        => '6',
                             'slider' => array(
@@ -259,10 +259,10 @@ FLBuilder::register_module(
                             'units'       => array('px'),
                             'placeholder' => '0',
                         ),
-                        'ribbon_height'         => array(
+                        'rib_height'         => array(
                             'type'        => 'unit',
                             'label'       => __('height', SA_FLBUILDER_TEXTDOMAIN),
-                            'default'     => '20',
+                            'default'     => '40',
                             'maxlength'   => '4',
                             'size'        => '6',
                             'slider' => array(
@@ -273,10 +273,19 @@ FLBuilder::register_module(
                             'units'       => array('px'),
                             'placeholder' => '0',
                         ),
-                        'ribbon_horizontal'         => array(
+                        'position' => array(
+                            'type'    => 'select',
+                            'label'   => __('Position', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'left',
+                            'options' => array(
+                                'left'            => __('Left', SA_FLBUILDER_TEXTDOMAIN),
+                                'right'           => __('Right', SA_FLBUILDER_TEXTDOMAIN)
+                            ),
+                        ),
+                        'rib_horizontal'         => array(
                             'type'        => 'unit',
                             'label'       => __('Position Horizontal', SA_FLBUILDER_TEXTDOMAIN),
-                            'default'     => '0',
+                            'default'     => '-50',
                             'maxlength'   => '4',
                             'size'        => '6',
                             'slider' => array(
@@ -287,10 +296,10 @@ FLBuilder::register_module(
                             'units'       => array('px'),
                             'placeholder' => '0',
                         ),
-                        'ribbon_vertical'         => array(
+                        'rib_vertical'         => array(
                             'type'        => 'unit',
                             'label'       => __('Position Vertical', SA_FLBUILDER_TEXTDOMAIN),
-                            'default'     => '0',
+                            'default'     => '20',
                             'maxlength'   => '4',
                             'size'        => '6',
                             'slider' => array(
@@ -386,7 +395,7 @@ FLBuilder::register_module(
                     ),
                 ),
                 'title_settings' => array(
-                    'title' => __('Title', SA_FLBUILDER_TEXTDOMAIN),
+                    'title' => __('Title & Price ', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
                         'background_type' => array(
                             'type' => 'select',
@@ -638,7 +647,7 @@ FLBuilder::register_module(
                         'ribbon_color'     => array(
                             'type'       => 'color',
                             'label'      => __('Color', SA_FLBUILDER_TEXTDOMAIN),
-                            'default'    => '',
+                            'default'    => 'fff',
                             'show_reset' => true,
                             'show_alpha' => true,
                         ),
