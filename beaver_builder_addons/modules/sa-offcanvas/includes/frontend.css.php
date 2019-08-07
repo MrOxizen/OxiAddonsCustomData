@@ -518,5 +518,73 @@ if($settings->direction_style == 'top' || $settings->direction_style == 'bottom'
     
     ?>
 
+    
+    
+    
+    @media only screen and (min-width : 669px) and (max-width : 993px){
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-left-content-<?php echo $id; ?>{
+        width: <?php echo $settings->offcanvas_bar_width_medium; ?>px;
+        margin-left:-<?php echo $settings->offcanvas_bar_width_medium; ?>px;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-left-content-<?php echo $id; ?>.oxi-active{
+        width: <?php echo $settings->offcanvas_bar_width_medium; ?>px;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-right-content-<?php echo $id; ?>{
+        width: <?php echo $settings->offcanvas_bar_width_medium; ?>px;
+        margin-right:-<?php echo $settings->offcanvas_bar_width_medium; ?>px;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-right-content-<?php echo $id; ?>.oxi-active{
+        width: <?php echo $settings->offcanvas_bar_width_medium; ?>px;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-top-content-<?php echo $id; ?>{
+        height: <?php echo $settings->offcanvas_bar_height_medium; ?>px;
+        margin-top:-<?php echo $settings->offcanvas_bar_height_medium; ?>px;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-top-content-<?php echo $id; ?>.oxi-active{
+        height: <?php echo $settings->offcanvas_bar_height_medium; ?>px;
+
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-bottom-content-<?php echo $id; ?>{
+        height: <?php echo $settings->offcanvas_bar_height_medium; ?>px;
+        margin-bottom:-<?php echo $settings->offcanvas_bar_height_medium; ?>px;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-bottom-content-<?php echo $id; ?>.oxi-active{
+        height: <?php echo $settings->offcanvas_bar_height_medium; ?>px;
+        }
+    }
+    @media only screen and (max-width : 668px){
+    responsive
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-left-content-<?php echo $id; ?>{
+        width: <?php echo $settings->offcanvas_bar_width_responsive; ?>px;
+        margin-left:-<?php echo $settings->offcanvas_bar_width_responsive; ?>px;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-left-content-<?php echo $id; ?>.oxi-active{
+        width: <?php echo $settings->offcanvas_bar_width_responsive; ?>px;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-right-content-<?php echo $id; ?>{
+        width: <?php echo $settings->offcanvas_bar_width_responsive; ?>px;
+        margin-right:-<?php echo $settings->offcanvas_bar_width_responsive; ?>px;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-right-content-<?php echo $id; ?>.oxi-active{
+        width: <?php echo $settings->offcanvas_bar_width_responsive; ?>px;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-top-content-<?php echo $id; ?>{
+        height: <?php echo $settings->offcanvas_bar_height_responsive; ?>px;
+        margin-top:-<?php echo $settings->offcanvas_bar_height_responsive; ?>px;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-top-content-<?php echo $id; ?>.oxi-active{
+        height: <?php echo $settings->offcanvas_bar_height_responsive; ?>px;
+
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-bottom-content-<?php echo $id; ?>{
+        height: <?php echo $settings->offcanvas_bar_height_responsive; ?>px;
+        margin-bottom:-<?php echo $settings->offcanvas_bar_height_responsive; ?>px;
+    }
+    .fl-node-<?php echo $id; ?> .oxi-offcanvas-bottom-content-<?php echo $id; ?>.oxi-active{
+        height: <?php echo $settings->offcanvas_bar_height_responsive; ?>px;
+        }
+    
+    }
+
 
 
