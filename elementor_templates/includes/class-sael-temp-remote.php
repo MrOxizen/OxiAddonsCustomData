@@ -74,7 +74,7 @@ class SAEL_Temp_Remote {
      * Get a templates list.
      * @return mixed|\WP_Error
      */
-    public function templates_list($force_update = true) {
+    public function templates_list($force_update = FALSE) {
 
         $response = get_transient(self::TRANSIENT_TEMPLATE);
 
@@ -97,7 +97,7 @@ class SAEL_Temp_Remote {
      * Get a templates categories.
      * @return mixed|\WP_Error
      */
-    public function categories_list($force_update = TRUE) {
+    public function categories_list($force_update = FALSE) {
         $response = get_transient(self::TRANSIENT_CATEGORY);
 
         if (!$response || $force_update) {
