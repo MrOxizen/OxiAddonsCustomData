@@ -6,12 +6,15 @@
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06);
+	border: 1px solid #999;
 }
 .oxi__addons_price_table_wrapper  .oxi__addons_price_table {
 	width: 100%;
+    overflow: hidden;
 }
 .oxi__addons_price_table_wrapper  .oxi__addons_main_title_value {
-    overflow: hidden;
+
     position: relative;
 	background: #459ce1;
 	padding: 15px;
@@ -42,7 +45,7 @@
 }
  
 .oxi__addons_price_table_wrapper  .oxi__addons_feature:last-child{  
-    border-bottom: none;
+    border-bottom-width: 0px !important;
 }
 .oxi__addons_price_table_wrapper  .oxi__addons_button_main {
 	text-align: center;
@@ -51,6 +54,9 @@
 	padding: 8px 20px;
 	background: #4871db;
 	border: none;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	transition: all 0.3s ease;
 }
  
 .oxi__addons_price_table_wrapper .oxi__addons_title {
@@ -59,5 +65,28 @@
     color: #fff;
     text-align: center;
     text-transform: capitalize;
+}
+ /**
+ * start coding for price table price value style
+ */
+ .oxi__addons_price_table_wrapper .oxi__addons_price_main {
+	display: flex;
+	display: -webkit-flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+ .oxi__addons_price_table_wrapper .oxi__addons_price {
+	font-size: 48px; 
+	line-height: 1;
+}
+ 
+ .oxi__addons_price_table_wrapper .oxi__addons_price_duration {
+	display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    transform: translateY(-50%);
+    width: 100%;
 }
  

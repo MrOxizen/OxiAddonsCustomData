@@ -5,17 +5,6 @@
  * @package shortcode addons
  */
 
-SA_FLBUILDER_HELPER::sa_fl_border_package($settings, 'front_border', '.fl-node-' . $id . ' .oxi__addons_info_table_main');
-
-SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'heading_font_typo', '.fl-node-' . $id . ' .oxi__addons_header');
-
-SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-    'color' => $settings->heading_color,
-), '.fl-node-' . $id . ' .oxi__addons_header');
-SA_FLBUILDER_HELPER::sa_fl_dimension_utility('heading', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_header', 'px');
-// Typography Sub heading 
-SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'sub_heading_font_typo', '.fl-node-' . $id . ' .oxi__addons_sub_header');
-
 /**
  * start coding for 
  * Price Table Box outer
@@ -63,7 +52,7 @@ if ($settings->ribbon == 'show') {
         'background-color' => $settings->rib_bg_color,
         'width' => $settings->rib_width . 'px',
         'height' =>  $settings->rib_height . 'px',
-        'color' => $settings->rib_color,
+        'color' => $settings->ribbon_color,
     ), '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_main_title_value::after');
     if ($settings->position == 'left') {
         SA_FLBUILDER_HELPER::sa_fl_general_style(array(
@@ -88,19 +77,114 @@ if ($settings->ribbon == 'show') {
 if ($settings->background_type == 'color') {
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
         'background-color' => $settings->title_bg,
-    ), '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_price_main');
+    ), '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_main_title_value');
 } elseif ($settings->background_type == 'gradient') {
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
         'background' => FLBuilderColor::gradient($settings->title_gradient),
-    ), '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_price_main');
+    ), '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_main_title_value');
 }
-SA_FLBUILDER_HELPER::sa_fl_dimension_utility('title', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_price_main', 'px');
+SA_FLBUILDER_HELPER::sa_fl_dimension_utility('title', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_main_title_value', 'px');
 SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'heading_font_typo', '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_title');
 SA_FLBUILDER_HELPER::sa_fl_general_style(array(
     'color' => $settings->heading_color,
 ), '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_title');
+
+
 /**
  * start coding for 
  * Button style
  */
-SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'btn_typography', '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_button');
+if ($settings->price_button == 'show') {
+    SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'btn_typography', '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_button');
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'text-align' => $settings->btn_alignment,
+    ), '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_button_main');
+
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'color' => $settings->btn_text_color,
+        'background-color' => $settings->btn_bg_color,
+        'margin-top' =>   $settings->btn_top_margin . 'px',
+        'margin-bottom' =>  $settings->btn_bottom_margin . 'px',
+    ), '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_button');
+
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'color' => $settings->btn_text_hover_color,
+        'background-color' => $settings->btn_bg_hover_color,
+    ), '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_button:hover');
+
+    SA_FLBUILDER_HELPER::sa_fl_custom_border_radius('btn', $settings, '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_button', 'true');
+    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('btn', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_button', 'px');
+
+    if ($settings->btn_border_style != 'none') {
+        SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+            'border-width' => $settings->btn_border_width ? $settings->btn_border_width . 'px;' : '',
+            'border-color' => $settings->btn_border_color,
+            'border-style' => $settings->btn_border_style,
+        ), '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_button');
+        //if border hover enable 
+        SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+            'border-color' => $settings->btn_hover_border_color,
+        ), '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_button:hover');
+    }
+}
+?>
+.fl-node-<?php echo $id; ?> .oxi__addons_price_table_wrapper .oxi__addons_button{
+<?php
+if ($settings->box_shadow != '') {
+    SA_FLBUILDER_HELPER::sa_fl_custom_box_shadow($settings->box_shadow);
+}
+?>
+}
+.fl-node-<?php echo $id; ?> .oxi__addons_price_table_wrapper .oxi__addons_button:hover{
+<?php
+if ($settings->box_hover_shadow != '') {
+    SA_FLBUILDER_HELPER::sa_fl_custom_box_shadow($settings->box_hover_shadow);
+}
+?>
+}
+<?php
+
+/**
+ * start coding for 
+ * Duration typography
+ */
+SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'duration_typography', '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_duration');
+SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+    'color' => $settings->duration_color,
+), '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_duration');
+/**
+ * start coding for 
+ * Price typography
+ */
+SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'price_font_typo', '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_price');
+SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+    'color' => $settings->price_color,
+), '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_price');
+
+/**
+ * start coding for layout two
+ */
+if ($settings->box_layout == 'layout02') {
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'margin-top' => $settings->feature_top_margin ? $settings->feature_top_margin . 'px' : '80px',
+    ), '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_feature_main');
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'margin-bottom' => $settings->title_top_margin ? $settings->title_top_margin . 'px' : '50px',
+    ), '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_title');
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'align-items' =>  'center',
+        'flex-direction' =>  'column',
+        'width' => $settings->cricle_bg_size ? $settings->cricle_bg_size . 'px' : '120px',
+        'height' => $settings->cricle_bg_size ? $settings->cricle_bg_size . 'px' : '120px',
+        'background-color' => $settings->cricle_bg_color,
+        'border-radius' => '120px',
+    ), '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_price_main');
+    if ($settings->cricle_border_style != 'none') {
+        SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+            'border-width' => $settings->cricle_border_width ? $settings->cricle_border_width . 'px;' : '',
+            'border-color' => $settings->cricle_border_color,
+            'border-style' => $settings->cricle_border_style,
+        ), '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_price_main');
+    }
+    SA_FLBUILDER_HELPER::sa_fl_custom_border_radius('cricle', $settings, '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_price_main', 'true');
+}
