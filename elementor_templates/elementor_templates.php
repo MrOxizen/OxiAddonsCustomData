@@ -202,7 +202,6 @@ class SAETemplates_BLocks {
         $val = get_option('oxi_addons_license_status');
         $oxitype = sanitize_text_field($_POST['datatype']);
         $oxisection = sanitize_text_field($_POST['NAME']);
-        $aray = explode('oxi-addons-el-template', $link);
 
         if (empty($oxitype) && empty($oxisection)) {
             $temdata = '';
