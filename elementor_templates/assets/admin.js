@@ -19,15 +19,11 @@ jQuery(window).load(function () {
 jQuery(window).load(function () {
     var urlParams = new URLSearchParams(window.location.search);
     var NAME = '';
-    if (!urlParams.has('saetype') && !urlParams.has('sa-el-section')) {
-        var datatype = '';
-    } else if (urlParams.has('saetype') && !urlParams.has('sa-el-section')) {
-        var datatype = 'blocks';
-    } else if (urlParams.has('saetype') && urlParams.has('sa-el-section')) {
-        var datatype = 'blocks';
-        var NAME = urlParams.get('sa-el-section');
-    } else if (!urlParams.has('saetype') && urlParams.has('sa-el-section')) {
-        var datatype = '';
+    var datatype = '';
+    if (urlParams.has('saetype')) {
+        var datatype = urlParams.get('saetype');
+    }
+    if (urlParams.has('sa-el-section')) {
         var NAME = urlParams.get('sa-el-section');
     }
     jQuery.post({
@@ -72,8 +68,13 @@ jQuery(document).on("click", ".sa-el-import-start", function (e) {
     jQuery("#sa-el-template-preview-import-modal .sa-el-final-create-start").html('Create New Page');
     if (required !== '') {
         var res = required.split(",");
+        var urlParams = new URLSearchParams(window.location.search);
+        var datatype = '';
+        if (urlParams.has('saetype')) {
+            var datatype = urlParams.get('saetype');
+        }
+        var require = '<div class="sa-el-reqired-plugins"><p class="sa-el-msg"><span class="dashicons dashicons-admin-tools"></span> Required ' + (datatype === 'pre-design' ? 'Elements' : 'Plugins') + '</p><ul class="required-plugins-list">';
 
-        var require = '<div class="sa-el-reqired-plugins"><p class="sa-el-msg"><span class="dashicons dashicons-admin-tools"></span> Required Plugins</p><ul class="required-plugins-list">';
         jQuery.each(res, function (index, value) {
             if (value !== '') {
                 require += '<li class="sa-el-card">' + value.split("/")[0] + '</li>';

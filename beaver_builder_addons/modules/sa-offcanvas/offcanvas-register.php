@@ -16,7 +16,6 @@ FLBuilder::register_module(
                         'type' => 'form',
                         'label' => __('Content Item', SA_FLBUILDER_TEXTDOMAIN),
                         'form' => 'oxi_sa_offcanvas_item_form',
-                        'preview_text' => 'footer_info_title',
                         'multiple' => true,
                     ),
                 ),
@@ -44,6 +43,20 @@ FLBuilder::register_module(
                             'right' => __('Right', SA_FLBUILDER_TEXTDOMAIN),
                             'top' => __('Top', SA_FLBUILDER_TEXTDOMAIN),
                             'bottom' => __('Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                        'toggle' => array(
+                            'left' => array(
+                                'fields' => array('offcanvas_bar_width'),
+                            ),
+                            'right' => array(
+                                'fields' => array('offcanvas_bar_width'),
+                            ),
+                            'top' => array(
+                                'fields' => array('offcanvas_bar_height'),
+                            ),
+                            'bottom' => array(
+                                'fields' => array('offcanvas_bar_height'),
+                            ),
                         ),
                     ),
                     'close_button' => array(
@@ -77,7 +90,7 @@ FLBuilder::register_module(
                     'offcanvas_bar_bg' => array(
                         'type' => 'color',
                         'label' => __('Background', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '',
+                        'default' => 'fff',
                         'show_reset' => true,
                         'connections' => array('color'),
                         'show_alpha' => true,
@@ -86,6 +99,22 @@ FLBuilder::register_module(
                             'selector' => '.oxi__addons_image_icon_divider .oxi__icon',
                             'property' => 'color',
                         ),
+                    ),
+                    'offcanvas_bar_width' => array(
+                        'type' => 'unit',
+                        'label' => 'Width',
+                        'slider' => true,
+                        'responsive' => true,
+                        'description' => 'px',
+                        'default' => '300'
+                    ),
+                    'offcanvas_bar_height' => array(
+                        'type' => 'unit',
+                        'label' => 'Height',
+                        'slider' => true,
+                        'responsive' => true,
+                        'description' => 'px',
+                        'default' => '300'
                     ),
                     'offcanvas_bar_border_style' => array(
                         'type' => 'select',
@@ -139,7 +168,8 @@ FLBuilder::register_module(
                         'type' => 'dimension',
                         'label' => __('Border Radius', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '1',
+                        'default' => '',
+                        'responsive' => true,
                         'slider' => true,
                         'units' => array('px'),
                     ),
@@ -147,7 +177,8 @@ FLBuilder::register_module(
                         'type' => 'dimension',
                         'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '1',
+                        'default' => '15',
+                        'responsive' => true,
                         'slider' => true,
                         'units' => array('px'),
                     ),
@@ -169,7 +200,7 @@ FLBuilder::register_module(
                             'property' => 'color',
                         ),
                     ),
-                    'offcanvas_content_style' => array(
+                    'offcanvas_content_border_style' => array(
                         'type' => 'select',
                         'label' => __('Border Style', SA_FLBUILDER_TEXTDOMAIN),
                         'default' => 'none',
@@ -196,11 +227,12 @@ FLBuilder::register_module(
                             ),
                         ),
                     ),
-                    'offcanvas_content_border_width' => array(
+                    'offcanvas_content_border' => array(
                         'type' => 'dimension',
                         'label' => __('Border', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '1',
+                        'default' => '',
+                        'placeholder' => '1',
                         'slider' => true,
                         'units' => array('px'),
                     ),
@@ -211,17 +243,14 @@ FLBuilder::register_module(
                         'show_reset' => true,
                         'connections' => array('color'),
                         'show_alpha' => true,
-                        'preview' => array(
-                            'type' => 'css',
-                            'selector' => '.oxi__addons_image_icon_divider .oxi__icon',
-                            'property' => 'color',
-                        ),
+                        
                     ),
-                    'offcanvas_content_border _radius' => array(
+                    'offcanvas_content_border_radius' => array(
                         'type' => 'dimension',
                         'label' => __('Border Radius', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '1',
+                        'default' => '',
+                        'placeholder' => '5',
                         'slider' => true,
                         'units' => array('px'),
                     ),
@@ -229,7 +258,19 @@ FLBuilder::register_module(
                         'type' => 'dimension',
                         'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '1',
+                        'default' => ' ',
+                        'placeholder' => '10',
+                        'responsive' => true,
+                        'slider' => true,
+                        'units' => array('px'),
+                    ),
+                    'offcanvas_content_margin' => array(
+                        'type' => 'dimension',
+                        'label' => __('Margin', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '10',
+                        'placeholder' => '20',
+                        'responsive' => true,
                         'slider' => true,
                         'units' => array('px'),
                     ),
@@ -241,8 +282,8 @@ FLBuilder::register_module(
                     'offcanvas_close_icon_class' => array(
                         'type' => 'icon',
                         'label' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => __('', SA_FLBUILDER_TEXTDOMAIN),
-                        'placeholder' => 'fa fa-twitter',
+                        'default' => __('fas fa-times', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => 'fas fa-times',
                         'help' => __('Sellect Icon from Icon Library', SA_FLBUILDER_TEXTDOMAIN),
                         'connections' => array('string', 'html'),
                         'show_remove' => true,
@@ -250,22 +291,27 @@ FLBuilder::register_module(
                     'offcanvas_close_icon_color' => array(
                         'type' => 'color',
                         'label' => __('Icon Color', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '',
+                        'default' => '999',
                         'show_reset' => true,
                         'connections' => array('color'),
                         'show_alpha' => true,
-                        'preview' => array(
-                            'type' => 'css',
-                            'selector' => '.oxi__addons_image_icon_divider .oxi__icon',
-                            'property' => 'color',
-                        ),
+                       
                     ),
-                    'close_icon_size' => array(
+                    'offcanvas_close_icon_size' => array(
                         'type' => 'unit',
                         'label' => 'Icon Size',
                         'slider' => true,
                         'description' => 'px',
                         'default' => '18'
+                    ),
+                    'offcanvas_close_icon_margin' => array(
+                        'type' => 'dimension',
+                        'label' => __('Position', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Manage The Icon Position.', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '1',
+                        'responsive' => true,
+                        'slider' => true,
+                        'units' => array('%'),
                     ),
                 ),
             ),
@@ -275,15 +321,11 @@ FLBuilder::register_module(
                     'offcanvas_overlay_color' => array(
                         'type' => 'color',
                         'label' => __('Overlay Color', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '',
+                        'default' => '444',
                         'show_reset' => true,
                         'connections' => array('color'),
                         'show_alpha' => true,
-                        'preview' => array(
-                            'type' => 'css',
-                            'selector' => '.oxi__addons_image_icon_divider .oxi__icon',
-                            'property' => 'color',
-                        ),
+                        
                     ),
                     'offcanvas_overlay_opacity' => array(
                         'type' => 'unit',
@@ -303,13 +345,13 @@ FLBuilder::register_module(
     'typography' => array(
         'title' => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
         'sections' => array(
-            'footer_typo' => array(
+            'offcanvas_typo' => array(
                 'title' => __('Heading', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
                     'tag' => array(
                         'type' => 'select',
                         'label' => __('HTML Tag', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'h3',
+                        'default' => 'h4',
                         'options' => array(
                             'h1' => 'h1',
                             'h2' => 'h2',
@@ -323,26 +365,18 @@ FLBuilder::register_module(
                         'type' => 'typography',
                         'label' => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
                         'responsive' => true,
-                        'preview' => array(
-                            'type' => 'css',
-                            'selector' => '.oxi__addons_footer',
-                            'important' => true,
-                        ),
+                        
                     ),
                     'title_color' => array(
                         'type' => 'color',
                         'label' => __('Text Color', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '',
+                        'default' => '333',
                         'show_reset' => true,
                         'connections' => array('color'),
                         'show_alpha' => true,
-                        'preview' => array(
-                            'type' => 'css',
-                            'property' => 'color',
-                            'selector' => '.oxi__addons_footer',
-                        ),
+                        
                     ),
-                    'footer_padding' => array(
+                    'offcanvas_heading_padding' => array(
                         'type' => 'dimension',
                         'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Manage Heading padding', SA_FLBUILDER_TEXTDOMAIN),
@@ -365,24 +399,16 @@ FLBuilder::register_module(
                         'type' => 'typography',
                         'label' => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
                         'responsive' => true,
-                        'preview' => array(
-                            'type' => 'css',
-                            'selector' => '.oxi__addons_details',
-                            'important' => true,
-                        ),
+                        
                     ),
                     'desc_color' => array(
                         'type' => 'color',
                         'label' => __('Color', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '',
+                        'default' => '666',
                         'show_reset' => true,
                         'connections' => array('color'),
                         'show_alpha' => true,
-                        'preview' => array(
-                            'type' => 'css',
-                            'property' => 'color',
-                            'selector' => '.oxi__addons_details',
-                        ),
+                        
                     ),
                     'desc_padding' => array(
                         'type' => 'dimension',
@@ -400,50 +426,7 @@ FLBuilder::register_module(
                     ),
                 ),
             ),
-            'separator_text_typography' => array(
-                'title' => __('Separator Text Typography', SA_FLBUILDER_TEXTDOMAIN),
-                'fields' => array(
-                    'separator_text_tag_selection' => array(
-                        'type' => 'select',
-                        'label' => __('Text Tag', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'h3',
-                        'options' => array(
-                            'h1' => __('H1', SA_FLBUILDER_TEXTDOMAIN),
-                            'h2' => __('H2', SA_FLBUILDER_TEXTDOMAIN),
-                            'h3' => __('H3', SA_FLBUILDER_TEXTDOMAIN),
-                            'h4' => __('H4', SA_FLBUILDER_TEXTDOMAIN),
-                            'h5' => __('H5', SA_FLBUILDER_TEXTDOMAIN),
-                            'h6' => __('H6', SA_FLBUILDER_TEXTDOMAIN),
-                            'div' => __('Div', SA_FLBUILDER_TEXTDOMAIN),
-                            'p' => __('p', SA_FLBUILDER_TEXTDOMAIN),
-                            'span' => __('span', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                    ),
-                    'separator_font_typo' => array(
-                        'type' => 'typography',
-                        'label' => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
-                        'responsive' => true,
-                        'preview' => array(
-                            'type' => 'css',
-                            'selector' => '.oxi__line_text',
-                            'important' => true,
-                        ),
-                    ),
-                    'separator_text_color' => array(
-                        'type' => 'color',
-                        'label' => __('Text Color', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '',
-                        'show_reset' => true,
-                        'connections' => array('color'),
-                        'show_alpha' => true,
-                        'preview' => array(
-                            'type' => 'css',
-                            'property' => 'color',
-                            'selector' => '.oxi__line_text',
-                        ),
-                    ),
-                ),
-            ),
+            
         ),
     ),
         )

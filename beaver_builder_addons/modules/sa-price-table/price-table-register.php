@@ -54,12 +54,12 @@ FLBuilder::register_module(
                         ),
                     ),
                 ),
-                'button_ribon_show' => array(
-                    'title'  => __('Button & Ribon', SA_FLBUILDER_TEXTDOMAIN),
+                'button_ribbon_show' => array(
+                    'title'  => __('Button & ribbon', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
-                        'ribon' => array(
+                        'ribbon' => array(
                             'type'    => 'select',
-                            'label'   => __('Ribon', SA_FLBUILDER_TEXTDOMAIN),
+                            'label'   => __('Ribbon', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => 'no',
                             'options' => array(
                                 'show'            => __('Show', SA_FLBUILDER_TEXTDOMAIN),
@@ -67,9 +67,17 @@ FLBuilder::register_module(
                             ),
                             'toggle'  => array(
                                 'show'           => array(
-                                    'sections' => array('ribon_settings'),
+                                    'sections' => array('ribbon_settings'),
+                                    'fields' => array('ribbon_text'),
                                 ),
                             ),
+                        ),
+                        'ribbon_text'     => array(
+                            'type'        => 'text',
+                            'label'       => __('ribbon Text', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'     => __('recommend', SA_FLBUILDER_TEXTDOMAIN),
+                            'help'        => __('Enter price table ribbon Text', SA_FLBUILDER_TEXTDOMAIN),
+                            'connections' => array('string', 'html'),
                         ),
                         'price_button' => array(
                             'type'    => 'select',
@@ -89,6 +97,7 @@ FLBuilder::register_module(
                         'button_text'  => array(
                             'type'        => 'text',
                             'label'       => __('Button Text', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'     => __('Click Me', SA_FLBUILDER_TEXTDOMAIN),
                             'connections' => array('string', 'html'),
                         ),
                         'button_link'      => array(
@@ -114,10 +123,88 @@ FLBuilder::register_module(
                             'default' => 'layout01',
                             'options' => array(
                                 'layout01' => __('Layout 01', SA_FLBUILDER_TEXTDOMAIN),
+                                'layout02' => __('Layout 02', SA_FLBUILDER_TEXTDOMAIN),
                             ),
                             'toggle'  => array(
-                                'design03' => array(
-                                    'fields' => array('box_height'),
+                                'layout02' => array(
+                                    'sections' => array('cricle_settings'),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                'feature_settings'     => array(
+                    'title'  => __('Feature Settings', SA_FLBUILDER_TEXTDOMAIN),
+                    'fields' => array(
+                        'feature_odd_bg_color'           => array(
+                            'type'       => 'color',
+                            'label'      => __('Odd Background Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'show_reset' => true,
+                            'show_alpha' => true,
+                        ),
+                        'feature_even_bg_color'           => array(
+                            'type'       => 'color',
+                            'label'      => __('Even Background Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'show_reset' => true,
+                            'show_alpha' => true,
+                        ),
+                        'feature_border_style'     => array(
+                            'type'    => 'select',
+                            'label'   => __('Border Bottom Style', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'none',
+                            'help'    => __('Select  border  Bottom style', SA_FLBUILDER_TEXTDOMAIN),
+                            'options' => array(
+                                'none'   => __('None', SA_FLBUILDER_TEXTDOMAIN),
+                                'solid'  => __('Solid', SA_FLBUILDER_TEXTDOMAIN),
+                                'dashed' => __('Dashed', SA_FLBUILDER_TEXTDOMAIN),
+                                'dotted' => __('Dotted', SA_FLBUILDER_TEXTDOMAIN),
+                                'double' => __('Double', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                            'toggle'  => array(
+                                'solid'  => array(
+                                    'fields' => array('feature_border_width', 'feature_border_color'),
+                                ),
+                                'dashed' => array(
+                                    'fields' => array('feature_border_width', 'feature_border_color'),
+                                ),
+                                'dotted' => array(
+                                    'fields' => array('feature_border_width', 'feature_border_color'),
+                                ),
+                                'double' => array(
+                                    'fields' => array('feature_border_width', 'feature_border_color'),
+                                ),
+                            ),
+                        ),
+                        'feature_border_width'     => array(
+                            'type'        => 'unit',
+                            'label'       => __('Border Bottom Width', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider'      => true,
+                            'units'       => array('px'),
+                            'maxlength'   => '3',
+                            'size'        => '6',
+                            'placeholder' => '1',
+                            'preview'     => array(
+                                'type' => 'refresh',
+                            ),
+                        ),
+                        'feature_border_color'           => array(
+                            'type'       => 'color',
+                            'label'      => __('Border Bottom Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'    => '',
+                            'show_reset' => true,
+                            'show_alpha' => true,
+                        ),
+                        'feature_padding' => array(
+                            'type' => 'dimension',
+                            'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
+                            'help' => __('Manage the Feature Padding Padding', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider' => true,
+                            'units' => array('px'),
+                            'responsive' => array(
+                                'placeholder' => array(
+                                    'default' => '5',
+                                    'medium' => '5',
+                                    'responsive' => '5',
                                 ),
                             ),
                         ),
@@ -148,9 +235,103 @@ FLBuilder::register_module(
                         ),
                     ),
                 ),
+                'ribbon_settings' => array(
+                    'title' => __('Ribbon Settings', SA_FLBUILDER_TEXTDOMAIN),
+                    'fields' => array(
+                        'rib_bg_color'           => array(
+                            'type'       => 'color',
+                            'label'      => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'    => '55bfff',
+                            'show_reset' => true,
+                            'show_alpha' => true,
+                        ),
+                        'rib_width'         => array(
+                            'type'        => 'unit',
+                            'label'       => __('width', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'     => '170',
+                            'maxlength'   => '4',
+                            'size'        => '6',
+                            'slider' => array(
+                                'min'      => 0,
+                                'max'      => 300,
+                                'step'     => 5,
+                            ),
+                            'units'       => array('px'),
+                            'placeholder' => '0',
+                        ),
+                        'rib_height'         => array(
+                            'type'        => 'unit',
+                            'label'       => __('height', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'     => '40',
+                            'maxlength'   => '4',
+                            'size'        => '6',
+                            'slider' => array(
+                                'min'      => 0,
+                                'max'      => 300,
+                                'step'     => 5,
+                            ),
+                            'units'       => array('px'),
+                            'placeholder' => '0',
+                        ),
+                        'position' => array(
+                            'type'    => 'select',
+                            'label'   => __('Position', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'left',
+                            'options' => array(
+                                'left'            => __('Left', SA_FLBUILDER_TEXTDOMAIN),
+                                'right'           => __('Right', SA_FLBUILDER_TEXTDOMAIN)
+                            ),
+                        ),
+                        'rib_horizontal'         => array(
+                            'type'        => 'unit',
+                            'label'       => __('Position Horizontal', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'     => '-50',
+                            'maxlength'   => '4',
+                            'size'        => '6',
+                            'slider' => array(
+                                'min'      => -100,
+                                'max'      => 100,
+                                'step'     => 5,
+                            ),
+                            'units'       => array('px'),
+                            'placeholder' => '0',
+                        ),
+                        'rib_vertical'         => array(
+                            'type'        => 'unit',
+                            'label'       => __('Position Vertical', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'     => '20',
+                            'maxlength'   => '4',
+                            'size'        => '6',
+                            'slider' => array(
+                                'min'      => -100,
+                                'max'      => 100,
+                                'step'     => 5,
+                            ),
+                            'units'       => array('px'),
+                            'placeholder' => '0',
+                        ),
+                    ),
+                ),
                 'cricle_settings' => array(
                     'title' => __('Cricle Design', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
+                        'cricle_bg_size'          => array(
+                            'type'        => 'unit',
+                            'label'       => __('Background Size', SA_FLBUILDER_TEXTDOMAIN),
+                            'help'        => __('Spacing between Icon & Background edge', SA_FLBUILDER_TEXTDOMAIN),
+                            'placeholder' => '100',
+                            'maxlength'   => '3',
+                            'size'        => '6',
+                            'slider'      => true,
+                            'units'       => array('px'),
+                        ),
+                        'cricle_bg_color'           => array(
+                            'type'       => 'color',
+                            'label'      => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'    => '',
+                            'show_reset' => true,
+                            'show_alpha' => true,
+                        ),
                         'cricle_border_style'     => array(
                             'type'    => 'select',
                             'label'   => __('Border Style', SA_FLBUILDER_TEXTDOMAIN),
@@ -190,6 +371,13 @@ FLBuilder::register_module(
                                 'type' => 'refresh',
                             ),
                         ),
+                        'cricle_border_color'           => array(
+                            'type'       => 'color',
+                            'label'      => __('Border Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'    => '',
+                            'show_reset' => true,
+                            'show_alpha' => true,
+                        ),
                         'cricle_border_radius' => array(
                             'type' => 'dimension',
                             'label' => __('Border Radius', SA_FLBUILDER_TEXTDOMAIN),
@@ -204,11 +392,10 @@ FLBuilder::register_module(
                                 ),
                             ),
                         ),
-
                     ),
                 ),
                 'title_settings' => array(
-                    'title' => __('Title', SA_FLBUILDER_TEXTDOMAIN),
+                    'title' => __('Title & Price ', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
                         'background_type' => array(
                             'type' => 'select',
@@ -261,7 +448,6 @@ FLBuilder::register_module(
                         ),
                     )
                 ),
-
                 'button_settings' => array(
                     'title'  => __('Button Style', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
@@ -341,7 +527,7 @@ FLBuilder::register_module(
                     ),
                 ),
                 'button_hover_settings' => array(
-                    'title'  => __('Button Style', SA_FLBUILDER_TEXTDOMAIN),
+                    'title'  => __('Button Hover Style', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
                         'btn_text_hover_color'   => array(
                             'type'       => 'color',
@@ -410,45 +596,60 @@ FLBuilder::register_module(
                         'heading_color'         => array(
                             'type'       => 'color',
                             'label'      => __('Color', SA_FLBUILDER_TEXTDOMAIN),
-                            'default'    => '',
+                            'default'    => 'fff',
                             'show_reset' => true,
                             'show_alpha' => true,
                         ),
                     ),
                 ),
-                'description_typography' => array(
-                    'title'  => __('Description', SA_FLBUILDER_TEXTDOMAIN),
+                'feature_typography'         => array(
+                    'title'  => __('Feature Typo', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
-                        'description_font_typo' => array(
+                        'feature_font_typo' => array(
                             'type'       => 'typography',
                             'label'      => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
                             'responsive' => true,
                             'preview'    => array(
                                 'type'      => 'css',
-                                'selector'  => '.oxi__addons_details p',
+                                'selector'  => '.oxi__addons_button',
                                 'important' => true,
                             ),
                         ),
-                        'description_color'     => array(
+                        'feature_color'     => array(
                             'type'       => 'color',
                             'label'      => __('Color', SA_FLBUILDER_TEXTDOMAIN),
                             'default'    => '',
                             'show_reset' => true,
                             'show_alpha' => true,
                         ),
-                        'dsc_padding' => array(
-                            'type' => 'dimension',
-                            'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
-                            'help' => __('Manage the inside Info Table padding', SA_FLBUILDER_TEXTDOMAIN),
-                            'slider' => true,
-                            'units' => array('px'),
-                            'responsive' => array(
-                                'placeholder' => array(
-                                    'default' => '15',
-                                    'medium' => '10',
-                                    'responsive' => '5',
-                                ),
+                        'feature_span_color'     => array(
+                            'type'       => 'color',
+                            'label'      => __('Span Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'    => '',
+                            'show_reset' => true,
+                            'show_alpha' => true,
+                        ),
+                    ),
+                ),
+                'ribbon_typography'         => array(
+                    'title'  => __('Ribbon Typo', SA_FLBUILDER_TEXTDOMAIN),
+                    'fields' => array(
+                        'ribbon_font_typo' => array(
+                            'type'       => 'typography',
+                            'label'      => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
+                            'responsive' => true,
+                            'preview'    => array(
+                                'type'      => 'css',
+                                'selector'  => '.oxi__addons_button',
+                                'important' => true,
                             ),
+                        ),
+                        'ribbon_color'     => array(
+                            'type'       => 'color',
+                            'label'      => __('Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'    => 'fff',
+                            'show_reset' => true,
+                            'show_alpha' => true,
                         ),
                     ),
                 ),
