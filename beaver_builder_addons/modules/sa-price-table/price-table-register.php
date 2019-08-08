@@ -41,7 +41,7 @@ FLBuilder::register_module(
                         'price_value'     => array(
                             'type'        => 'text',
                             'label'       => __('Price Value', SA_FLBUILDER_TEXTDOMAIN),
-                            'default'     => __('<sub>$</sub> 70', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'     => __('<sup>$</sup> 70', SA_FLBUILDER_TEXTDOMAIN),
                             'help'        => __('Enter price table price value', SA_FLBUILDER_TEXTDOMAIN),
                             'connections' => array('string', 'html'),
                         ),
@@ -128,6 +128,7 @@ FLBuilder::register_module(
                             'toggle'  => array(
                                 'layout02' => array(
                                     'sections' => array('cricle_settings'),
+                                    'fields' => array('feature_top_margin'),
                                 ),
                             ),
                         ),
@@ -208,6 +209,15 @@ FLBuilder::register_module(
                                 ),
                             ),
                         ),
+                        'feature_top_margin'         => array(
+                            'type'        => 'unit',
+                            'label'       => __('Top Margin', SA_FLBUILDER_TEXTDOMAIN),
+                            'maxlength'   => '4',
+                            'size'        => '6',
+                            'slider'      => true,
+                            'units'       => array('px'),
+                            'placeholder' => '80',
+                        ),
                     ),
                 ),
                 'price_box' => array(
@@ -229,7 +239,7 @@ FLBuilder::register_module(
                             'responsive' => true,
                             'preview' => array(
                                 'type' => 'css',
-                                'selector' => '.oxi__addons_info_table_main',
+                                'selector' => '.oxi__addons_price_table_main',
                                 'important' => true,
                             ),
                         ),
@@ -319,7 +329,7 @@ FLBuilder::register_module(
                             'type'        => 'unit',
                             'label'       => __('Background Size', SA_FLBUILDER_TEXTDOMAIN),
                             'help'        => __('Spacing between Icon & Background edge', SA_FLBUILDER_TEXTDOMAIN),
-                            'placeholder' => '100',
+                            'placeholder' => '120',
                             'maxlength'   => '3',
                             'size'        => '6',
                             'slider'      => true,
@@ -328,7 +338,7 @@ FLBuilder::register_module(
                         'cricle_bg_color'           => array(
                             'type'       => 'color',
                             'label'      => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
-                            'default'    => '',
+                            'default'    => '55ddaa',
                             'show_reset' => true,
                             'show_alpha' => true,
                         ),
@@ -446,11 +456,31 @@ FLBuilder::register_module(
                                 ),
                             ),
                         ),
+                        'title_top_margin'         => array(
+                            'type'        => 'unit',
+                            'label'       => __('Top Margin', SA_FLBUILDER_TEXTDOMAIN),
+                            'maxlength'   => '4',
+                            'size'        => '6',
+                            'slider'      => true,
+                            'units'       => array('px'),
+                            'placeholder' => '50',
+                        ),
                     )
                 ),
                 'button_settings' => array(
                     'title'  => __('Button Style', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
+                        'btn_alignment' => array(
+                            'type'    => 'select',
+                            'label'   => __('Select Button Alignment', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'center',
+                            'options' => array(
+                                'left' => __('Left', SA_FLBUILDER_TEXTDOMAIN),
+                                'center' => __('Center', SA_FLBUILDER_TEXTDOMAIN),
+                                'right' => __('Right', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                        ),
+
                         'btn_text_color'         => array(
                             'type'       => 'color',
                             'label'      => __('Text Color', SA_FLBUILDER_TEXTDOMAIN),
@@ -465,7 +495,52 @@ FLBuilder::register_module(
                             'show_reset' => true,
                             'show_alpha' => true,
                         ),
-
+                        'btn_border_style'     => array(
+                            'type'    => 'select',
+                            'label'   => __('Border Style', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'none',
+                            'help'    => __('Select border style ', SA_FLBUILDER_TEXTDOMAIN),
+                            'options' => array(
+                                'none'   => __('None', SA_FLBUILDER_TEXTDOMAIN),
+                                'solid'  => __('Solid', SA_FLBUILDER_TEXTDOMAIN),
+                                'dashed' => __('Dashed', SA_FLBUILDER_TEXTDOMAIN),
+                                'dotted' => __('Dotted', SA_FLBUILDER_TEXTDOMAIN),
+                                'double' => __('Double', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                            'toggle'  => array(
+                                'solid'  => array(
+                                    'fields' => array('btn_border_color', 'btn_border_width', 'btn_hover_border_color'),
+                                ),
+                                'dashed' => array(
+                                    'fields' => array('btn_border_color', 'btn_border_width', 'btn_hover_border_color'),
+                                ),
+                                'dotted' => array(
+                                    'fields' => array('btn_border_color', 'btn_border_width', 'btn_hover_border_color'),
+                                ),
+                                'double' => array(
+                                    'fields' => array('btn_border_color', 'btn_border_width', 'btn_hover_border_color'),
+                                ),
+                            ),
+                        ),
+                        'btn_border_width'     => array(
+                            'type'        => 'unit',
+                            'label'       => __('Border Width', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider'      => true,
+                            'units'       => array('px'),
+                            'maxlength'   => '3',
+                            'size'        => '6',
+                            'placeholder' => '1',
+                            'preview'     => array(
+                                'type' => 'refresh',
+                            ),
+                        ),
+                        'btn_border_color'           => array(
+                            'type'       => 'color',
+                            'label'      => __('Border Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'    => '',
+                            'show_reset' => true,
+                            'show_alpha' => true,
+                        ),
                         'btn_border_radius' => array(
                             'type' => 'dimension',
                             'label' => __('Boder Radius', SA_FLBUILDER_TEXTDOMAIN),
@@ -497,30 +572,28 @@ FLBuilder::register_module(
                         'btn_top_margin'         => array(
                             'type'        => 'unit',
                             'label'       => __('Top Margin', SA_FLBUILDER_TEXTDOMAIN),
-                            'default'     => '',
                             'maxlength'   => '4',
                             'size'        => '6',
                             'slider'      => true,
                             'units'       => array('px'),
-                            'placeholder' => '15',
+                            'placeholder' => '5',
                         ),
                         'btn_bottom_margin'         => array(
                             'type'        => 'unit',
                             'label'       => __('Bottom Margin', SA_FLBUILDER_TEXTDOMAIN),
-                            'default'     => '',
                             'maxlength'   => '4',
                             'size'        => '6',
                             'slider'      => true,
                             'units'       => array('px'),
-                            'placeholder' => '15',
+                            'placeholder' => '5',
                         ),
                         'box_shadow' => array(
                             'type'        => 'shadow',
-                            'label'       => 'Hover Box Shadow',
+                            'label'       => 'Box Shadow',
                             'show_spread' => true,
                             'preview'     => array(
                                 'type'     => 'css',
-                                'selector' => '.oxi-addons-hover-box-shadow',
+                                'selector' => '.oxi__addons_button',
                                 'property' => 'box-shadow',
                             ),
                         ),
@@ -547,13 +620,20 @@ FLBuilder::register_module(
                             'show_reset' => true,
                             'show_alpha' => true,
                         ),
+                        'btn_hover_border_color'           => array(
+                            'type'       => 'color',
+                            'label'      => __('Border Hover Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'    => '',
+                            'show_reset' => true,
+                            'show_alpha' => true,
+                        ),
                         'box_hover_shadow' => array(
                             'type'        => 'shadow',
                             'label'       => 'Hover Box Shadow',
                             'show_spread' => true,
                             'preview'     => array(
                                 'type'     => 'css',
-                                'selector' => '.oxi-addons-hover-box-shadow',
+                                'selector' => '.oxi__addons_button',
                                 'property' => 'box-shadow',
                             ),
                         ),
@@ -589,11 +669,56 @@ FLBuilder::register_module(
                             'responsive' => true,
                             'preview'    => array(
                                 'type'      => 'css',
-                                'selector'  => '.oxi__addons_header',
+                                'selector'  => '.oxi__addons_title',
                                 'important' => true,
                             ),
                         ),
                         'heading_color'         => array(
+                            'type'       => 'color',
+                            'label'      => __('Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'    => 'fff',
+                            'show_reset' => true,
+                            'show_alpha' => true,
+                        ),
+                    ),
+                ),
+
+                'price_typography'         => array(
+                    'title'  => __('Price Typo', SA_FLBUILDER_TEXTDOMAIN),
+                    'fields' => array(
+                        'price_font_typo' => array(
+                            'type'       => 'typography',
+                            'label'      => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
+                            'responsive' => true,
+                            'preview'    => array(
+                                'type'      => 'css',
+                                'selector'  => '.oxi__addons_price',
+                                'important' => true,
+                            ),
+                        ),
+                        'price_color'     => array(
+                            'type'       => 'color',
+                            'label'      => __('Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default'    => 'fff',
+                            'show_reset' => true,
+                            'show_alpha' => true,
+                        ),
+                    ),
+                ),
+                'duration_typography'         => array(
+                    'title'  => __('Duration', SA_FLBUILDER_TEXTDOMAIN),
+                    'fields' => array(
+                        'duration_font_typo' => array(
+                            'type'       => 'typography',
+                            'label'      => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
+                            'responsive' => true,
+                            'preview'    => array(
+                                'type'      => 'css',
+                                'selector'  => '.oxi__addons_duration',
+                                'important' => true,
+                            ),
+                        ),
+                        'duration_color'     => array(
                             'type'       => 'color',
                             'label'      => __('Color', SA_FLBUILDER_TEXTDOMAIN),
                             'default'    => 'fff',
@@ -611,7 +736,7 @@ FLBuilder::register_module(
                             'responsive' => true,
                             'preview'    => array(
                                 'type'      => 'css',
-                                'selector'  => '.oxi__addons_button',
+                                'selector'  => '.oxi__addons_feature',
                                 'important' => true,
                             ),
                         ),
@@ -640,7 +765,7 @@ FLBuilder::register_module(
                             'responsive' => true,
                             'preview'    => array(
                                 'type'      => 'css',
-                                'selector'  => '.oxi__addons_button',
+                                'selector'  => '.oxi__addons_main_title_value::after',
                                 'important' => true,
                             ),
                         ),

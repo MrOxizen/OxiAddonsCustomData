@@ -593,7 +593,7 @@ FLBuilder::register_module(
                             'type'    => 'select',
                             'label'   => __('Border Style', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => 'none',
-                            'help'    => __('The type of border to use. Double borders must have a width of at least 3px to render properly.', SA_FLBUILDER_TEXTDOMAIN),
+                            'help'    => __('Select Button border style', SA_FLBUILDER_TEXTDOMAIN),
                             'options' => array(
                                 'none'   => __('None', SA_FLBUILDER_TEXTDOMAIN),
                                 'solid'  => __('Solid', SA_FLBUILDER_TEXTDOMAIN),
