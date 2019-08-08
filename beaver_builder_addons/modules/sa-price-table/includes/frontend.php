@@ -23,7 +23,7 @@ if ($settings->price_button === 'show') {
     }
 } // end button coding
 if ($settings->title != '') {
-    $title = '<h1 class="oxi__addons_title">' . $settings->title . '</h1>';
+    $title = '<' . $settings->heading_tag_selection . ' class="oxi__addons_title">' . $settings->title . '</' . $settings->heading_tag_selection . '>';
 }
 if ($settings->title != '') {
     $price = '<div class="oxi__addons_price">' . $settings->price_value . '</div>';

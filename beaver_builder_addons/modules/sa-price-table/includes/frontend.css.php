@@ -85,7 +85,6 @@ if ($settings->ribbon == 'show') {
  * start coding for 
  * title
  */
-//heading and subheading style
 if ($settings->background_type == 'color') {
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
         'background-color' => $settings->title_bg,
@@ -96,3 +95,12 @@ if ($settings->background_type == 'color') {
     ), '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_price_main');
 }
 SA_FLBUILDER_HELPER::sa_fl_dimension_utility('title', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_price_main', 'px');
+SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'heading_font_typo', '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_title');
+SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+    'color' => $settings->heading_color,
+), '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_title');
+/**
+ * start coding for 
+ * Button style
+ */
+SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'btn_typography', '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_button');

@@ -596,7 +596,7 @@ FLBuilder::register_module(
                         'heading_color'         => array(
                             'type'       => 'color',
                             'label'      => __('Color', SA_FLBUILDER_TEXTDOMAIN),
-                            'default'    => '',
+                            'default'    => 'fff',
                             'show_reset' => true,
                             'show_alpha' => true,
                         ),
