@@ -175,7 +175,21 @@ class SAETemplates_BLocks {
         $return = '';
         foreach ($required as $value) {
             if ($value != '') {
-              $return .= (isset($installed_plugins[$value]) ? '' : $value . ',');
+                $return .= (isset($installed_plugins[$value]) ? '' : $value . ',');
+            }
+        }
+        return $return;
+    }
+
+    private function SAE_layouts_elements_dependency($required) {
+        $required = explode(',', $required);
+        $return = '';
+        $installed = get_option('shortcode-addons-elementor');
+        parse_str($installed, $settings);
+        ksort($settings);
+        foreach ($required as $value) {
+            if ($value != '') {
+                $return .= (array_key_exists($value, $settings) ? '' : $value . ',');
             }
         }
         return $return;
@@ -355,6 +369,87 @@ class SAETemplates_BLocks {
                             <div class="oxi-el-template-count">
                                 <h1 class="oxi-el-template-count-h1">' . $categories['category'][$oxisection]['title'] . '</h1>
                                 <div class="oxi-el-template-count-data">' . $i++ . ' Templates in this blocks category.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="oxi-el-template-data">
+                            ' . $tempdata . '
+                        </div>
+                    </div>';
+        } else if ($oxitype == 'pre-design' && empty($oxisection)) {
+            $temdata = '';
+            $pg = 0;
+            foreach ($categories['category'] as $cat) {
+                if ($cat['category_parent'] == $categories['parent']['pre-design']) {
+                    $temdata .= '<div class="oxi-el-blocks-data-col">
+                                    <div class="oxi-el-blocks-data-content">
+                                        <div class="oxi-el-template-data-content-data">
+                                            <h3>' . $cat['title'] . '</h3>
+                                            ' . $cat['template_count'] . ' Templates in this ' . $cat['title'] . '
+                                            <a href="' . admin_url('admin.php?page=oxi-addons-el-template&saetype=pre-design&sa-el-section=' . $cat['slug']) . '"></a>
+                                        </div>
+                                    </div>
+                                </div>';
+                    $pg += $cat['template_count'];
+                }
+            }
+            $rtdata .= '<div class="oxi-el-blocks-body" >
+                    <div class="oxi-el-template-count">
+                        <h1 class="oxi-el-template-count-h1">Elements Pre Design for Elementor</h1>
+                        <div class="oxi-el-template-count-data">Browse over ' . $pg . ' Responsive Elements Pre Design.</div>
+                    </div>
+                    <div class="oxi-el-blocks-data">
+                        ' . $temdata . '
+                    </div>
+                </div>';
+        } else if ($oxitype == 'pre-design' && !empty($oxisection)) {
+            $args = array('post_type' => 'elementor_library', 'posts_per_page' => -1,);
+            $el_library = array();
+            $query = new WP_Query($args);
+            if ($query->have_posts()) {
+                while ($query->have_posts()) {
+                    $query->the_post();
+                    $el_library[0][$query->post->post_name] = $query->post->post_name;
+                    $el_library[1][$query->post->post_name] = $query->post->ID;
+                }
+            }
+            $i = 0;
+            $tempdata = '';
+            foreach ($templates['templates'][$oxisection] as $section) {
+
+                if ($section['is_pro'] && $val != 'valid') {
+                    $profile = ' <a href="javascript:void(0)" data-url="https://demo.layoutsforelementor.com/home-maintenance" class="sael-btn sa-el-blocks-pro-button">Upgrade Please</a>';
+                } else if (array_key_exists($section['post_name'], $el_library[0])) {
+                    $profile = '<a href="' . admin_url('post.php?post=' . $el_library[1][$section['post_name']] . '&action=elementor') . '" target="_blank" class="sael-btn el-edit-btn">Edit Block</a>';
+                } else {
+                    $profile = ' <a href="javascript:void(0)" data-url="https://demo.layoutsforelementor.com/home-maintenance" class="sael-btn el-import-btn sa-el-import-start"  sael_required="' . $this->SAE_layouts_elements_dependency($section['required']) . '" sael-id="' . $section['id'] . '"  sa-el-title="' . $section['title'] . ' Block">Import</a>';
+                }
+                $tempdata .= '<div class="oxi-el-blocks-section-col">
+                                <div class="oxi-el-blocks-section-image">
+                                    <img src="' . $section['thumbnail'] . '" alt="' . $section['title'] . '">
+                                    <div class="oxi-el-template-section-imagebody">
+                                         <a href="#" data-url="' . $section['url'] . '" class="sael-btn sa-el-preview-button" sa-el-title="' . $section['title'] . ' Block">Preview</a>
+                                    </div>
+                                </div>
+                                <div class="oxi-el-blocks-section-content">
+                                    <div class="oxi-el-template-count">
+                                        <h1 class="oxi-el-template-count-h1">' . $section['title'] . '</h1>
+                                        <div class="oxi-el-template-count-data">Import this template to make it available in your Elementor Saved Templates list for future use.</div>
+                                        <div class="oxi-el-blocks-section-success">Congrats! This was just imported to the WordPress library.</div>
+                                        ' . $profile . '
+                                      </div>
+                                </div>
+                            </div>';
+                $i++;
+            }
+            $rtdata .= '  <div class="oxi-el-blocks-section">
+                        <div class="oxi-el-template-back-menu">
+                            <a href="' . admin_url('admin.php?page=oxi-addons-el-template&saetype=pre-design') . '">Back to all Pre Design</a>
+                        </div>
+                        <div class="oxi-el-template-count-section">
+                            <div class="oxi-el-template-count">
+                                <h1 class="oxi-el-template-count-h1">' . $categories['category'][$oxisection]['title'] . '</h1>
+                                <div class="oxi-el-template-count-data">' . $i++ . ' Templates in this Elements category.</div>
                             </div>
                         </div>
                         
