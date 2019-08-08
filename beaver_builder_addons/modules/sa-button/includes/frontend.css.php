@@ -21,8 +21,6 @@ SA_FLBUILDER_HELPER::sa_fl_general_style(array(
 // button position styleing
 SA_FLBUILDER_HELPER::sa_fl_responsive_setting('text-align', $settings, 'alignment', '.fl-node-' . $id . ' .oxi__button_wrapper_main');
 
-
-
 /**
  * coding for custom width, auto and full width
  */

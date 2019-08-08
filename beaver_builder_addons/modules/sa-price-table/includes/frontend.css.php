@@ -32,10 +32,21 @@ if ($settings->feature_border_style != 'none') {
         'border-bottom-color' => $settings->feature_border_color,
     ), '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_feature');
 }
+if ($settings->box_layout == 'layout01') {
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'margin-top' => $settings->feature_top_margin ? $settings->feature_top_margin . 'px' : '10px',
+    ), '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_feature_main');
+}
+SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+    'margin-bottom' => $settings->feature_bottom_margin ? $settings->feature_bottom_margin . 'px' : '10px',
+), '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_feature_main');
 SA_FLBUILDER_HELPER::sa_fl_dimension_utility('feature', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_feature', 'px');
 SA_FLBUILDER_HELPER::sa_fl_general_style(array(
     'color' => $settings->feature_color,
 ), '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_feature');
+
+
+
 SA_FLBUILDER_HELPER::sa_fl_general_style(array(
     'color' => $settings->feature_span_color,
 ), '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_feature > span');
@@ -88,6 +99,7 @@ SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'heading_font_typo', '.
 SA_FLBUILDER_HELPER::sa_fl_general_style(array(
     'color' => $settings->heading_color,
 ), '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_title');
+SA_FLBUILDER_HELPER::sa_fl_dimension_utility('heading', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_title', 'px');
 
 
 /**
@@ -152,6 +164,8 @@ SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'duration_typography', 
 SA_FLBUILDER_HELPER::sa_fl_general_style(array(
     'color' => $settings->duration_color,
 ), '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_duration');
+SA_FLBUILDER_HELPER::sa_fl_dimension_utility('duration', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_duration', 'px');
+
 /**
  * start coding for 
  * Price typography
@@ -160,24 +174,36 @@ SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'price_font_typo', '.fl
 SA_FLBUILDER_HELPER::sa_fl_general_style(array(
     'color' => $settings->price_color,
 ), '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_price');
-
+SA_FLBUILDER_HELPER::sa_fl_dimension_utility('price', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_price', 'px');
 /**
  * start coding for layout two
  */
 if ($settings->box_layout == 'layout02') {
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-        'margin-top' => $settings->feature_top_margin ? $settings->feature_top_margin . 'px' : '80px',
+        'display' => 'flex',
+        'justify-content' => 'center',
+        'position' => 'absolute',
+        'left' => '0',
+        'top' => '100%',
+        'transform' => 'translateY(-50%)',
+        'width' => '100%',
+    ), '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_price_duration');
+
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'margin-top' => $settings->feature_top_margin_02_layout ? $settings->feature_top_margin_02_layout . 'px' : '80px',
     ), '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_feature_main');
+
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
         'margin-bottom' => $settings->title_top_margin ? $settings->title_top_margin . 'px' : '50px',
-    ), '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_title');
+    ), '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi_specer');
+
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
         'align-items' =>  'center',
         'flex-direction' =>  'column',
-        'width' => $settings->cricle_bg_size ? $settings->cricle_bg_size . 'px' : '120px',
-        'height' => $settings->cricle_bg_size ? $settings->cricle_bg_size . 'px' : '120px',
+        'width' => $settings->cricle_bg_size ? $settings->cricle_bg_size . 'px' : '100px',
+        'height' => $settings->cricle_bg_size ? $settings->cricle_bg_size . 'px' : '100px',
         'background-color' => $settings->cricle_bg_color,
-        'border-radius' => '120px',
+        'border-radius' => '100px',
     ), '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_price_main');
     if ($settings->cricle_border_style != 'none') {
         SA_FLBUILDER_HELPER::sa_fl_general_style(array(

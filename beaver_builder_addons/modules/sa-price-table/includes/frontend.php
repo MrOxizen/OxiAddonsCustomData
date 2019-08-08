@@ -36,7 +36,11 @@ if ($settings->title != '') {
     <div class="oxi__addons_price_table_main">
         <div class="oxi__addons_price_table">
             <div class="oxi__addons_main_title_value">
-                <?php echo $title; ?>
+                <?php echo $title;
+                if ($settings->box_layout == 'layout02') {
+                    echo '<div class="oxi_specer"></div>';
+                }
+                ?>
                 <div class="oxi__addons_price_duration">
                     <div class="oxi__addons_price_main">
                         <?php echo $price; ?>

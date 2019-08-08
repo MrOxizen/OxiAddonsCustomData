@@ -64,7 +64,9 @@
     font-weight: bold;
     color: #fff;
     text-align: center;
-    text-transform: capitalize;
+	text-transform: capitalize;
+	padding: 5px;
+	margin: 0;
 }
  /**
  * start coding for price table price value style
@@ -76,17 +78,14 @@
 	justify-content: center;
 }
  .oxi__addons_price_table_wrapper .oxi__addons_price {
-	font-size: 48px; 
+	font-size: 40px; 
 	line-height: 1;
+	padding: 5px;
 }
- 
- .oxi__addons_price_table_wrapper .oxi__addons_price_duration {
-	display: flex;
-    justify-content: center;
-    position: absolute;
-    left: 0;
-    top: 100%;
-    transform: translateY(-50%);
-    width: 100%;
+ .oxi__addons_price_table_wrapper .oxi__addons_duration {
+	font-size: 16px; 
+	line-height: 1;
+	padding: 5px;
 }
+  
  
