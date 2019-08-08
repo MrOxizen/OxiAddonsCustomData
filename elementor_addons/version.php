@@ -6,4 +6,4 @@
   Version: 1.7.2
  */
 
-return array(1.7 , 'Elementor', true, 'oxi-el-addons');
+return array("1.7.2", 'Elementor', true, 'oxi-el-addons');
