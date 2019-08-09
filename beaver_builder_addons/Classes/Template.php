@@ -20,7 +20,7 @@ trait Template
                 'button',
                 'flipbox',
                 'heading',
-                'Image-Icon',
+                'image-icon',
                 'info-table',
                 'info-boxes',
                 'call-to-action',
