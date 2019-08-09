@@ -63,7 +63,6 @@ Tooltip
   border-color: transparent transparent transparent black;
 }
 
-/*--- Right ---*/
 .sa-el-tooltip .sa-el-tooltip-text.sa-el-tooltip-right {
   top: 50%;
   left: 100%;
@@ -87,7 +86,6 @@ Tooltip
   border-color: transparent black transparent transparent;
 }
 
-/*--- Top ---*/
 .sa-el-tooltip .sa-el-tooltip-text.sa-el-tooltip-top {
   bottom: calc(100%);
   left: 0;
@@ -107,7 +105,6 @@ Tooltip
           animation: tooltipTopIn 300ms linear;
 }
 
-/*--- Bottom ---*/
 .sa-el-tooltip .sa-el-tooltip-text.sa-el-tooltip-bottom {
   top: 100%;
   left: 0;
@@ -127,7 +124,6 @@ Tooltip
           animation: tooltipBottomIn 300ms linear;
 }
 
-/*--- Alignments ---*/
 .sa-el-tooltip-align-left {
   display: -webkit-box;
   display: -webkit-flex;
@@ -179,7 +175,6 @@ Tooltip
           align-items: center;
 }
 
-/*--- Tooltip Keyframes ---*/
 @-webkit-keyframes tooltipRightIn {
   0% {
     opacity: 0;

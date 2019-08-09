@@ -1,11 +1,8 @@
-/* ------------------------ */
+/* ------------------------ 
+Infobox Style
+ ------------------------ */
 
 
-/*Infobox Style
-/* ------------------------ */
-
-
-/*--- Image/Icon On Top ---*/
 
 .sa_el_infobox .infobox_icon {
     height: auto;
@@ -27,7 +24,6 @@
 }
 
 
-/*--- For Content Alignment ---*/
 
 .sa_el_infobox_content_align_left .sa_el_infobox .infobox_icon,
 .sa_el_infobox_content_align_left .sa_el_infobox .infobox_content,
@@ -48,7 +44,6 @@
 }
 
 
-/*--- For icon background shape ---*/
 
 .sa_el_infobox_icon_bg_shape_square .infobox_icon .infobox_icon_wrap,
 .sa_el_infobox_icon_bg_shape_radius .infobox_icon .infobox_icon_wrap,
@@ -95,8 +90,6 @@
     transform: translateY(-50%);
 }
 
-
-/*--- Infobox Button ---*/
 
 .sa_el_infobox .infobox-button {
     width: 100%;
@@ -153,7 +146,6 @@
 }
 
 
-/*--- Image/Icon On Left ---*/
 
 .sa_el_infobox.icon-on-left {
     position: relative;
@@ -213,7 +205,6 @@
 }
 
 
-/*--- Image/Icon On Right ---*/
 
 .sa_el_infobox.icon-on-right {
     position: relative;
@@ -261,8 +252,6 @@
     margin: 0 0 10px 0;
 }
 
-
-/*--- Imgae Circle On Top ---*/
 
 .sa_el_infobox .infobox_icon img {
     -webkit-transition: all 300ms ease-in-out 0s;
