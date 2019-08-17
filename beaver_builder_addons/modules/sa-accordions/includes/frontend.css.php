@@ -55,8 +55,13 @@ if (!empty($settings)) {
         'color' => $settings->active_heading_color,
     ), '.fl-node-' . $id . ' .SA-FL-accordion-heading-'.$id.':hover');
     
+    
+    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('icon', $settings, 'padding', '.fl-node-'.$id.' .SA-FL-accordion-heading-text-icon i', 'px');
     ?>
-   
+    
+    .fl-node-<?php echo $id; ?> .SA-FL-accordion-heading-text-icon i{
+        font-size: <?php echo $settings->icon_size; ?>px;
+    }
     .fl-node-<?php echo $id; ?> .SA-FL-accordion-heading-<?php echo $id; ?>.active .span-active{
             display: flex;
             align-items: center;
