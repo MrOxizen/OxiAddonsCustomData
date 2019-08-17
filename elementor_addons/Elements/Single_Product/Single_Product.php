@@ -457,6 +457,17 @@ class Single_Product extends Widget_Base {
         );
 
         $this->add_control(
+                'sa_el_static_product_title_padding', [
+            'label' => esc_html__('Title Padding', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::DIMENSIONS,
+            'size_units' => ['px'],
+            'selectors' => [
+                '{{WRAPPER}} .sa-el-single-product-details > h2' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            ],
+                ]
+        );
+
+        $this->add_control(
                 'sa_el_static_product_content_padding', [
             'label' => esc_html__('Content Padding', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::DIMENSIONS,
@@ -631,36 +642,35 @@ class Single_Product extends Widget_Base {
                     <a href="<?php echo esc_attr($settings['sa_el_static_product_demo_link_url']); ?>" target="<?php echo esc_attr($settings['sa_el_static_product_demo_link_target']); ?>"><span><?php echo esc_attr($settings['sa_el_static_product_demo_text']); ?></span></a>
                 </div>
                 <div class="sa-el-single-product-thumb">
-        <?php echo '<img src="' . $static_product_image['url'] . '" alt="' . esc_attr(get_post_meta($static_product_image['id'], '_wp_attachment_image_alt', true)) . '">'; ?>
+                    <?php echo '<img src="' . $static_product_image['url'] . '" alt="' . esc_attr(get_post_meta($static_product_image['id'], '_wp_attachment_image_alt', true)) . '">'; ?>
                 </div>
             </div>
             <div class="sa-el-single-product-details">
-        <?php if (!empty($settings['sa_el_static_product_heading'])) : ?>
+                <?php if (!empty($settings['sa_el_static_product_heading'])) : ?>
                     <h2><a href="<?php echo esc_attr($settings['sa_el_static_product_link_url']); ?>" target="<?php echo esc_attr($settings['sa_el_static_product_link_target']); ?>"><?php echo esc_attr($settings['sa_el_static_product_heading']); ?></a></h2>
-        <?php endif; ?>
+                <?php endif; ?>
                 <p><?php echo $settings['sa_el_static_product_description']; ?></p>
 
-        <?php if (!empty($settings['sa_el_static_product_show_details_btn'])) : ?>
+                <?php if (!empty($settings['sa_el_static_product_show_details_btn'])) : ?>
                     <div class="sa-el-single-product-btn-wrap">
                         <a href="<?php echo esc_attr($settings['sa_el_static_product_link_url']); ?>" target="<?php echo esc_attr($settings['sa_el_static_product_link_target']); ?>" class="sa-el-single-product-btn">
-            <?php if (!empty($settings['sa_el_static_product_btn_icon']) && $settings['sa_el_static_product_btn_icon_align'] == 'left') : ?>
+                            <?php if (!empty($settings['sa_el_static_product_btn_icon']) && $settings['sa_el_static_product_btn_icon_align'] == 'left') : ?>
                                 <i class="<?php echo esc_attr($settings['sa_el_static_product_btn_icon']); ?> sa-el-single-product-button-icon-left" aria-hidden="true"></i>
-            <?php endif; ?>
+                            <?php endif; ?>
 
-            <?php echo esc_attr($settings['sa_el_static_product_btn']); ?>
+                            <?php echo esc_attr($settings['sa_el_static_product_btn']); ?>
 
-            <?php if (!empty($settings['sa_el_static_product_btn_icon']) && $settings['sa_el_static_product_btn_icon_align'] == 'right') : ?>
+                            <?php if (!empty($settings['sa_el_static_product_btn_icon']) && $settings['sa_el_static_product_btn_icon_align'] == 'right') : ?>
                                 <i class="<?php echo esc_attr($settings['sa_el_static_product_btn_icon']); ?> sa-el-single-product-button-icon-right" aria-hidden="true"></i>
-            <?php endif; ?>
+                            <?php endif; ?>
                         </a>
                     </div>
-        <?php endif; ?>
+                <?php endif; ?>
             </div>
         </div>
 
 
         <?php
     }
-
 
 }
