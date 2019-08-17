@@ -591,7 +591,7 @@ class Feature_List extends Widget_Base
                     'sa_el_feature_list_icon_position' => 'top',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .sa_el_feature_list_content_box' => 'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .sa_el_feature_list_items' => 'text-align: {{VALUE}};',
                 ],
             ]
         );
