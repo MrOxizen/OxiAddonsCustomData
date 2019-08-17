@@ -34,13 +34,11 @@ FLBuilder::register_settings_form(
                             'slider' => true,
                             'units' => array('px'),
                         ),
-                        
                     ),
                 ),
                 'icon_style' => array(
                     'title' => __('Style', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
-                        
                         /* Icon Background SIze */
                         'icon_bg_size' => array(
                             'type' => 'unit',
@@ -123,7 +121,6 @@ FLBuilder::register_settings_form(
                             'connections' => array('color'),
                             'show_alpha' => true,
                         ),
-                       
                         /* Border Color Dependent on Border Style for ICon */
                         'icon_border_color' => array(
                             'type' => 'color',
@@ -133,8 +130,6 @@ FLBuilder::register_settings_form(
                             'connections' => array('color'),
                             'show_alpha' => true,
                         ),
-                      
-                       
                     ),
                 ),
             ),
@@ -168,13 +163,11 @@ FLBuilder::register_settings_form(
                             'slider' => true,
                             'units' => array('px'),
                         ),
-                        
                     ),
                 ),
                 'icon_style' => array(
                     'title' => __('Style', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
-                        
                         /* Icon Background SIze */
                         'icon_bg_size' => array(
                             'type' => 'unit',
@@ -258,7 +251,6 @@ FLBuilder::register_settings_form(
                             'connections' => array('color'),
                             'show_alpha' => true,
                         ),
-                       
                         /* Border Color Dependent on Border Style for ICon */
                         'icon_border_color' => array(
                             'type' => 'color',
@@ -268,8 +260,6 @@ FLBuilder::register_settings_form(
                             'connections' => array('color'),
                             'show_alpha' => true,
                         ),
-                      
-                       
                     ),
                 ),
             ),
@@ -300,23 +290,38 @@ FLBuilder::register_module(
     'accordion_general' => array(// Tab.
         'title' => __('General', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
         'sections' => array(// Tab Sections.
-            'Active_icon' => array(
-                'title' => __('Active Icon', SA_FLBUILDER_TEXTDOMAIN),
+            'icon_position' => array(
+                'title' => __('Icon Settings', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
-                    'active_icon' => array(
+                    'icon_active_deactive' => array(
                         'type' => 'select',
                         'label' => __('Active Icon', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'icon',
+                        'default' => 'enable',
                         'options' => array(
-                            'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
-                            'icon' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
+                            'enable' => __('Enable', SA_FLBUILDER_TEXTDOMAIN),
+                            'disable' => __('Disable', SA_FLBUILDER_TEXTDOMAIN),
                         ),
                         'toggle' => array(
-                            'icon' => array(
-                                'fields' => array('active_icons_settings'),
+                            'enable' => array(
+                                'sections' => array('Active_icon', 'Deactive_icon', 'icon_accordion'),
+                                'fields' => array('icon_position', 'icon_accordion'),
                             ),
                         ),
                     ),
+                    'icon_position' => array(
+                        'type' => 'select',
+                        'label' => __('Icon Position', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'left',
+                        'options' => array(
+                            'left' => __('Left', SA_FLBUILDER_TEXTDOMAIN),
+                            'right' => __('Right', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                    ),
+                ),
+            ),
+            'Active_icon' => array(
+                'title' => __('Active Icon', SA_FLBUILDER_TEXTDOMAIN),
+                'fields' => array(
                     'active_icons_settings' => array(
                         'type' => 'form',
                         'label' => __('Icon Settings', SA_FLBUILDER_TEXTDOMAIN),
@@ -328,20 +333,6 @@ FLBuilder::register_module(
             'Deactive_icon' => array(
                 'title' => __('Deactive Icon', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
-                    'deactive_icon' => array(
-                        'type' => 'select',
-                        'label' => __('Deactive Icon', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'icon',
-                        'options' => array(
-                            'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
-                            'icon' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                        'toggle' => array(
-                            'icon' => array(
-                                'fields' => array('deactive_icons_settings'),
-                            ),
-                        ),
-                    ),
                     'deactive_icons_settings' => array(
                         'type' => 'form',
                         'label' => __('Icon Settings', SA_FLBUILDER_TEXTDOMAIN),
@@ -350,12 +341,41 @@ FLBuilder::register_module(
                     ),
                 ),
             ),
-            
         ),
     ),
     'accordion_style' => array(// Tab.
         'title' => __('Style', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
         'sections' => array(// Tab Sections.
+            'accordion_icon' => array(
+                'title' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
+                'fields' => array(
+                    'icon_size' => array(
+                        'type' => 'unit',
+                        'label' => __('Size', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '30',
+                        'default' => '20',
+                        'maxlength' => '5',
+                        'size' => '6',
+                        'slider' => true,
+                        'units' => array('px'),
+                    ),
+                    'icon_padding' => array(
+                        'type' => 'dimension',
+                        'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Space between Accordion Icon', SA_FLBUILDER_TEXTDOMAIN),
+                        'slider' => true,
+                        'default' => '15',
+                        'units' => array('px'),
+                        'responsive' => array(
+                            'placeholder' => array(
+                                'default' => '15',
+                                'medium' => '',
+                                'responsive' => '',
+                            ),
+                        ),
+                    ),
+                ),
+            ),
             'accordion_background' => array(
                 'title' => __('Background', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
@@ -366,7 +386,6 @@ FLBuilder::register_module(
                         'label' => __('Active Background Color', SA_FLBUILDER_TEXTDOMAIN),
                         'connections' => array('color'),
                         'show_alpha' => true,
-                        
                     ),
                     'accordion_dbg_color' => array(
                         'type' => 'color',
@@ -375,43 +394,41 @@ FLBuilder::register_module(
                         'label' => __('Deactive Background Color', SA_FLBUILDER_TEXTDOMAIN),
                         'connections' => array('color'),
                         'show_alpha' => true,
-                        
                     ),
                     'accordion_border_style' => array(
-                            'type' => 'select',
-                            'label' => __('Border Style', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => 'none',
-                            'help' => __('The type of border to use. Double borders must have a width of at least 3px to render properly.', SA_FLBUILDER_TEXTDOMAIN),
-                            'options' => array(
-                                'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
-                                'solid' => __('Solid', SA_FLBUILDER_TEXTDOMAIN),
-                                'dashed' => __('Dashed', SA_FLBUILDER_TEXTDOMAIN),
-                                'dotted' => __('Dotted', SA_FLBUILDER_TEXTDOMAIN),
-                                'double' => __('Double', SA_FLBUILDER_TEXTDOMAIN),
+                        'type' => 'select',
+                        'label' => __('Border Style', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'none',
+                        'help' => __('The type of border to use. Double borders must have a width of at least 3px to render properly.', SA_FLBUILDER_TEXTDOMAIN),
+                        'options' => array(
+                            'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
+                            'solid' => __('Solid', SA_FLBUILDER_TEXTDOMAIN),
+                            'dashed' => __('Dashed', SA_FLBUILDER_TEXTDOMAIN),
+                            'dotted' => __('Dotted', SA_FLBUILDER_TEXTDOMAIN),
+                            'double' => __('Double', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                        'toggle' => array(
+                            'solid' => array(
+                                'fields' => array('body_border_width', 'accordion_border_color', 'accordion_aborder_color'),
                             ),
-                            'toggle' => array(
-                                'solid' => array(
-                                    'fields' => array('body_border_width', 'accordion_border_color', 'accordion_aborder_color'),
-                                ),
-                                'dashed' => array(
-                                    'fields' => array('body_border_width', 'accordion_border_color', 'accordion_aborder_color'),
-                                ),
-                                'dotted' => array(
-                                    'fields' => array('body_border_width', 'accordion_border_color', 'accordion_aborder_color'),
-                                ),
-                                'double' => array(
-                                    'fields' => array('body_border_width', 'accordion_border_color', 'accordion_aborder_color'),
-                                ),
+                            'dashed' => array(
+                                'fields' => array('body_border_width', 'accordion_border_color', 'accordion_aborder_color'),
+                            ),
+                            'dotted' => array(
+                                'fields' => array('body_border_width', 'accordion_border_color', 'accordion_aborder_color'),
+                            ),
+                            'double' => array(
+                                'fields' => array('body_border_width', 'accordion_border_color', 'accordion_aborder_color'),
                             ),
                         ),
-                    'body_border_width' => array(
+                    ),
+                    'body_border' => array(
                         'type' => 'dimension',
                         'label' => __('Border', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
                         'default' => '1',
                         'slider' => true,
                         'units' => array('px'),
-                        
                     ),
                     'accordion_border_color' => array(
                         'type' => 'color',
@@ -420,7 +437,6 @@ FLBuilder::register_module(
                         'label' => __('Border Color', SA_FLBUILDER_TEXTDOMAIN),
                         'connections' => array('color'),
                         'show_alpha' => true,
-                        
                     ),
                     'accordion_aborder_color' => array(
                         'type' => 'color',
@@ -429,7 +445,6 @@ FLBuilder::register_module(
                         'label' => __('Active Border Color', SA_FLBUILDER_TEXTDOMAIN),
                         'connections' => array('color'),
                         'show_alpha' => true,
-                        
                     ),
                     'body_padding' => array(
                         'type' => 'dimension',
@@ -460,7 +475,6 @@ FLBuilder::register_module(
                             ),
                         ),
                     ),
-                    
                 ),
             ),
             'accordion_description_background' => array(
@@ -473,36 +487,34 @@ FLBuilder::register_module(
                         'label' => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
                         'connections' => array('color'),
                         'show_alpha' => true,
-                        
                     ),
-                    
                     'accordion_description_border_style' => array(
-                            'type' => 'select',
-                            'label' => __('Border Style', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => 'solid',
-                            'help' => __('The type of border to use. Double borders must have a width of at least 3px to render properly.', SA_FLBUILDER_TEXTDOMAIN),
-                            'options' => array(
-                                'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
-                                'solid' => __('Solid', SA_FLBUILDER_TEXTDOMAIN),
-                                'dashed' => __('Dashed', SA_FLBUILDER_TEXTDOMAIN),
-                                'dotted' => __('Dotted', SA_FLBUILDER_TEXTDOMAIN),
-                                'double' => __('Double', SA_FLBUILDER_TEXTDOMAIN),
+                        'type' => 'select',
+                        'label' => __('Border Style', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'solid',
+                        'help' => __('The type of border to use. Double borders must have a width of at least 3px to render properly.', SA_FLBUILDER_TEXTDOMAIN),
+                        'options' => array(
+                            'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
+                            'solid' => __('Solid', SA_FLBUILDER_TEXTDOMAIN),
+                            'dashed' => __('Dashed', SA_FLBUILDER_TEXTDOMAIN),
+                            'dotted' => __('Dotted', SA_FLBUILDER_TEXTDOMAIN),
+                            'double' => __('Double', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                        'toggle' => array(
+                            'solid' => array(
+                                'fields' => array('body_description_border_width', 'accordion_border_color', 'accordion_aborder_color'),
                             ),
-                            'toggle' => array(
-                                'solid' => array(
-                                    'fields' => array('body_description_border_width', 'accordion_border_color', 'accordion_aborder_color'),
-                                ),
-                                'dashed' => array(
-                                    'fields' => array('body_description_border_width', 'accordion_border_color', 'accordion_aborder_color'),
-                                ),
-                                'dotted' => array(
-                                    'fields' => array('body_description_border_width', 'accordion_border_color', 'accordion_aborder_color'),
-                                ),
-                                'double' => array(
-                                    'fields' => array('body_description_border_width', 'accordion_border_color', 'accordion_aborder_color'),
-                                ),
+                            'dashed' => array(
+                                'fields' => array('body_description_border_width', 'accordion_border_color', 'accordion_aborder_color'),
+                            ),
+                            'dotted' => array(
+                                'fields' => array('body_description_border_width', 'accordion_border_color', 'accordion_aborder_color'),
+                            ),
+                            'double' => array(
+                                'fields' => array('body_description_border_width', 'accordion_border_color', 'accordion_aborder_color'),
                             ),
                         ),
+                    ),
                     'body_description_border_width' => array(
                         'type' => 'dimension',
                         'label' => __('Border', SA_FLBUILDER_TEXTDOMAIN),
@@ -510,7 +522,6 @@ FLBuilder::register_module(
                         'default' => '1',
                         'slider' => true,
                         'units' => array('px'),
-                        
                     ),
                     'accordion_description_border_color' => array(
                         'type' => 'color',
@@ -519,9 +530,7 @@ FLBuilder::register_module(
                         'label' => __('Border Color', SA_FLBUILDER_TEXTDOMAIN),
                         'connections' => array('color'),
                         'show_alpha' => true,
-                        
                     ),
-                    
                     'description_padding' => array(
                         'type' => 'dimension',
                         'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
@@ -542,7 +551,6 @@ FLBuilder::register_module(
                         'label' => __('Margin', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Space between accordion to another accordion', SA_FLBUILDER_TEXTDOMAIN),
                         'slider' => true,
-                        
                         'units' => array('px'),
                         'responsive' => array(
                             'placeholder' => array(
@@ -552,7 +560,6 @@ FLBuilder::register_module(
                             ),
                         ),
                     ),
-                    
                 ),
             ),
         ),
@@ -583,7 +590,6 @@ FLBuilder::register_module(
                         'type' => 'typography',
                         'label' => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
                         'responsive' => true,
-                        
                     ),
                     'active_heading_color' => array(
                         'type' => 'color',
@@ -592,7 +598,6 @@ FLBuilder::register_module(
                         'label' => __('Active Title Color', SA_FLBUILDER_TEXTDOMAIN),
                         'connections' => array('color'),
                         'show_alpha' => true,
-                        
                     ),
                     'deactive_heading_color' => array(
                         'type' => 'color',
@@ -601,7 +606,6 @@ FLBuilder::register_module(
                         'label' => __('Deactive Title Color', SA_FLBUILDER_TEXTDOMAIN),
                         'connections' => array('color'),
                         'show_alpha' => true,
-                        
                     ),
                     'sa_accordion_title_padding' => array(
                         'type' => 'dimension',
@@ -651,7 +655,7 @@ FLBuilder::register_module(
 
 // Add List Items.
 FLBuilder::register_settings_form(
-    'oxi_sa_accordion_item_form', array(
+        'oxi_sa_accordion_item_form', array(
     'title' => __('Add Accordion', SA_FLBUILDER_TEXTDOMAIN),
     'tabs' => array(
         'accordion_general' => array(
@@ -660,6 +664,15 @@ FLBuilder::register_settings_form(
                 'title' => array(
                     'title' => __('General Settings', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
+                        'accordion_active_deactive' => array(
+                            'type' => 'select',
+                            'label' => __('Active Accordion', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'dactive',
+                            'options' => array(
+                                'active' => __('Active', SA_FLBUILDER_TEXTDOMAIN),
+                                'dactive' => __('Dactive', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                        ),
                         'accordion_title' => array(
                             'type' => 'text',
                             'label' => __('Title', SA_FLBUILDER_TEXTDOMAIN),
@@ -670,35 +683,32 @@ FLBuilder::register_settings_form(
                             'class' => 'uabb-list-item-title',
                             'connections' => array('string', 'html'),
                         ),
+                        'accordion_active_icon' => array(
+                            'type' => 'select',
+                            'label' => __('Active Icon', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'enable',
+                            'options' => array(
+                                'enable' => __('Enable', SA_FLBUILDER_TEXTDOMAIN),
+                                'disable' => __('Disable', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                            'toggle' => array(
+                                'enable' => array(
+                                    'fields' => array('icon'),
+                                ),
+                            ),
+                        ),
+                        'icon' => array(
+                            'type' => 'icon',
+                            'label' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'fas fa-minus',
+                            'show_remove' => true,
+                        ),
                         'accordion_description' => array(
                             'type' => 'editor',
                             'default' => __('Enter description text here.', SA_FLBUILDER_TEXTDOMAIN),
                             'label' => '',
                             'rows' => 13,
                             'connections' => array('string', 'html'),
-                        ),
-                    ),
-                ),
-            ),
-        ),
-        'accordion_image' => array(
-            'title' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
-            'sections' => array(
-                'title' => array(
-                    'title' => __('Icon Settings', SA_FLBUILDER_TEXTDOMAIN),
-                    'fields' => array(
-                        'icon_basic' => array(
-                            'type' => 'icon',
-                            'label' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
-                            'show_remove' => true,
-                        ),
-                        'icon_color' => array(
-                            'type' => 'color',
-                            'label' => __('Icon Color', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => '',
-                            'show_reset' => true,
-                            'connections' => array('color'),
-                            'show_alpha' => true,
                         ),
                     ),
                 ),
