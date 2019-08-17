@@ -20,8 +20,8 @@ if (!empty($settings)) {
     SA_FLBUILDER_HELPER::sa_fl_dimension_utility('body', $settings, 'padding', '.fl-node-' . $id . ' .SA-FL-accordion-heading-' . $id . '', 'px');
     SA_FLBUILDER_HELPER::sa_fl_dimension_utility('body', $settings, 'margin', '.fl-node-' . $id . ' .SA-FL-accordion-heading-' . $id . '', 'px');
     if ($settings->accordion_border_style != 'none') {
+        SA_FLBUILDER_HELPER::sa_fl_dimension_utility('body', $settings, 'border', '.fl-node-' . $id . ' .SA-FL-accordion-heading-' . $id . '', 'px');
         SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-            'border-width' => $settings->body_border_width ? $settings->body_border_width . 'px;' : '',
             'border-color' => $settings->accordion_border_color,
             'border-style' => $settings->accordion_border_style,
                 ), '.fl-node-' . $id . ' .SA-FL-accordion-heading-' . $id . '');

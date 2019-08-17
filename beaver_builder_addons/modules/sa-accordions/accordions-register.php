@@ -422,7 +422,7 @@ FLBuilder::register_module(
                             ),
                         ),
                     ),
-                    'body_border_width' => array(
+                    'body_border' => array(
                         'type' => 'dimension',
                         'label' => __('Border', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
