@@ -23,7 +23,7 @@
                 </div>
                 <?php } ?>
                 <div class="SA-FL-accordion-heading-text">
-                    <?php if($settings->icon_true_false == 'enable'){ ?>
+                    <?php if($value->accordion_active_icon == 'enable'){ ?>
                         <div class="SA-FL-accordion-heading-text-icon">
                            <i class="<?php echo $value->icon; ?>"></i>
                         </div>

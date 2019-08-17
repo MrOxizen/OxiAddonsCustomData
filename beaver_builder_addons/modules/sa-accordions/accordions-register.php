@@ -349,20 +349,6 @@ FLBuilder::register_module(
             'accordion_icon' => array(
                 'title' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
-                    'icon_true_false' => array(
-                        'type' => 'select',
-                        'label' => __('Active Icon', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'enable',
-                        'options' => array(
-                            'enable' => __('Enable', SA_FLBUILDER_TEXTDOMAIN),
-                            'disable' => __('Disable', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                        'toggle' => array(
-                            'enable' => array(
-                                'fields' => array('icon_size', 'icon_padding'),
-                            ),
-                        ),
-                    ),
                     'icon_size' => array(
                         'type' => 'unit',
                         'label' => __('Size', SA_FLBUILDER_TEXTDOMAIN),
@@ -686,7 +672,6 @@ FLBuilder::register_settings_form(
                                 'active' => __('Active', SA_FLBUILDER_TEXTDOMAIN),
                                 'dactive' => __('Dactive', SA_FLBUILDER_TEXTDOMAIN),
                             ),
-                            
                         ),
                         'accordion_title' => array(
                             'type' => 'text',
@@ -698,29 +683,32 @@ FLBuilder::register_settings_form(
                             'class' => 'uabb-list-item-title',
                             'connections' => array('string', 'html'),
                         ),
+                        'accordion_active_icon' => array(
+                            'type' => 'select',
+                            'label' => __('Active Icon', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'enable',
+                            'options' => array(
+                                'enable' => __('Enable', SA_FLBUILDER_TEXTDOMAIN),
+                                'disable' => __('Disable', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                            'toggle' => array(
+                                'enable' => array(
+                                    'fields' => array('icon'),
+                                ),
+                            ),
+                        ),
+                        'icon' => array(
+                            'type' => 'icon',
+                            'label' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'fas fa-minus',
+                            'show_remove' => true,
+                        ),
                         'accordion_description' => array(
                             'type' => 'editor',
                             'default' => __('Enter description text here.', SA_FLBUILDER_TEXTDOMAIN),
                             'label' => '',
                             'rows' => 13,
                             'connections' => array('string', 'html'),
-                        ),
-                    ),
-                ),
-            ),
-        ),
-        'accordion_Icon' => array(
-            'title' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
-            'sections' => array(
-                'icon_accordion' => array(
-                    'title' => __('Icon', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
-                    'fields' => array(// Section Fields.
-                        'icon' => array(
-                            'type' => 'icon',
-                            'label' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
-                            'description' => 'Set a Icon From here...and go to Style Tab to Style this Icon...!',
-                            'default' => 'fas fa-minus',
-                            'show_remove' => true,
                         ),
                     ),
                 ),
