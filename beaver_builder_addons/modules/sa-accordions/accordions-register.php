@@ -290,23 +290,38 @@ FLBuilder::register_module(
     'accordion_general' => array(// Tab.
         'title' => __('General', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
         'sections' => array(// Tab Sections.
-            'Active_icon' => array(
-                'title' => __('Active Icon', SA_FLBUILDER_TEXTDOMAIN),
+            'icon_position' => array(
+                'title' => __('Icon Settings', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
-                    'active_icon' => array(
+                    'icon_active_deactive' => array(
                         'type' => 'select',
                         'label' => __('Active Icon', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'icon',
+                        'default' => 'enable',
                         'options' => array(
-                            'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
-                            'icon' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
+                            'enable' => __('Enable', SA_FLBUILDER_TEXTDOMAIN),
+                            'disable' => __('Disable', SA_FLBUILDER_TEXTDOMAIN),
                         ),
                         'toggle' => array(
-                            'icon' => array(
-                                'fields' => array('active_icons_settings'),
+                            'enable' => array(
+                                'sections' => array('Active_icon', 'Deactive_icon'),
+                                'fields' => array('icon_position'),
                             ),
                         ),
                     ),
+                    'icon_position' => array(
+                        'type' => 'select',
+                        'label' => __('Icon Position', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'left',
+                        'options' => array(
+                            'left' => __('Left', SA_FLBUILDER_TEXTDOMAIN),
+                            'right' => __('Right', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                    ),
+                ),
+            ),
+            'Active_icon' => array(
+                'title' => __('Active Icon', SA_FLBUILDER_TEXTDOMAIN),
+                'fields' => array(
                     'active_icons_settings' => array(
                         'type' => 'form',
                         'label' => __('Icon Settings', SA_FLBUILDER_TEXTDOMAIN),
@@ -318,20 +333,7 @@ FLBuilder::register_module(
             'Deactive_icon' => array(
                 'title' => __('Deactive Icon', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
-                    'deactive_icon' => array(
-                        'type' => 'select',
-                        'label' => __('Deactive Icon', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'icon',
-                        'options' => array(
-                            'none' => __('None', SA_FLBUILDER_TEXTDOMAIN),
-                            'icon' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                        'toggle' => array(
-                            'icon' => array(
-                                'fields' => array('deactive_icons_settings'),
-                            ),
-                        ),
-                    ),
+                    
                     'deactive_icons_settings' => array(
                         'type' => 'form',
                         'label' => __('Icon Settings', SA_FLBUILDER_TEXTDOMAIN),
@@ -348,6 +350,20 @@ FLBuilder::register_module(
             'accordion_icon' => array(
                 'title' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
+                    'icon_true_false' => array(
+                        'type' => 'select',
+                        'label' => __('Active Icon', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'enable',
+                        'options' => array(
+                            'enable' => __('Enable', SA_FLBUILDER_TEXTDOMAIN),
+                            'disable' => __('Disable', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                        'toggle' => array(
+                            'enable' => array(
+                                'fields' => array('icon_size', 'icon_padding'),
+                            ),
+                        ),
+                    ),
                     'icon_size' => array(
                             'type' => 'unit',
                             'label' => __('Size', SA_FLBUILDER_TEXTDOMAIN),
