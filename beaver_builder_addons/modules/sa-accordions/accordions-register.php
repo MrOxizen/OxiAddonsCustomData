@@ -303,8 +303,8 @@ FLBuilder::register_module(
                         ),
                         'toggle' => array(
                             'enable' => array(
-                                'sections' => array('Active_icon', 'Deactive_icon'),
-                                'fields' => array('icon_position'),
+                                'sections' => array('Active_icon', 'Deactive_icon', 'icon_accordion'),
+                                'fields' => array('icon_position', 'icon_accordion'),
                             ),
                         ),
                     ),
@@ -333,7 +333,6 @@ FLBuilder::register_module(
             'Deactive_icon' => array(
                 'title' => __('Deactive Icon', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
-                    
                     'deactive_icons_settings' => array(
                         'type' => 'form',
                         'label' => __('Icon Settings', SA_FLBUILDER_TEXTDOMAIN),
@@ -365,30 +364,30 @@ FLBuilder::register_module(
                         ),
                     ),
                     'icon_size' => array(
-                            'type' => 'unit',
-                            'label' => __('Size', SA_FLBUILDER_TEXTDOMAIN),
-                            'placeholder' => '30',
-                            'default' => '20',
-                            'maxlength' => '5',
-                            'size' => '6',
-                            'slider' => true,
-                            'units' => array('px'),
-                        ),
-                        'icon_padding' => array(
-                            'type' => 'dimension',
-                            'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
-                            'help' => __('Space between Accordion Icon', SA_FLBUILDER_TEXTDOMAIN),
-                            'slider' => true,
-                            'default' => '15',
-                            'units' => array('px'),
-                            'responsive' => array(
-                                'placeholder' => array(
-                                    'default' => '15',
-                                    'medium' => '',
-                                    'responsive' => '',
-                                ),
+                        'type' => 'unit',
+                        'label' => __('Size', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '30',
+                        'default' => '20',
+                        'maxlength' => '5',
+                        'size' => '6',
+                        'slider' => true,
+                        'units' => array('px'),
+                    ),
+                    'icon_padding' => array(
+                        'type' => 'dimension',
+                        'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Space between Accordion Icon', SA_FLBUILDER_TEXTDOMAIN),
+                        'slider' => true,
+                        'default' => '15',
+                        'units' => array('px'),
+                        'responsive' => array(
+                            'placeholder' => array(
+                                'default' => '15',
+                                'medium' => '',
+                                'responsive' => '',
                             ),
                         ),
+                    ),
                 ),
             ),
             'accordion_background' => array(
@@ -679,6 +678,16 @@ FLBuilder::register_settings_form(
                 'title' => array(
                     'title' => __('General Settings', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
+                        'accordion_active_deactive' => array(
+                            'type' => 'select',
+                            'label' => __('Active Accordion', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'dactive',
+                            'options' => array(
+                                'active' => __('Active', SA_FLBUILDER_TEXTDOMAIN),
+                                'dactive' => __('Dactive', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                            
+                        ),
                         'accordion_title' => array(
                             'type' => 'text',
                             'label' => __('Title', SA_FLBUILDER_TEXTDOMAIN),
@@ -709,10 +718,10 @@ FLBuilder::register_settings_form(
                         'icon' => array(
                             'type' => 'icon',
                             'label' => __('Icon', SA_FLBUILDER_TEXTDOMAIN),
+                            'description' => 'Set a Icon From here...and go to Style Tab to Style this Icon...!',
                             'default' => 'fas fa-minus',
                             'show_remove' => true,
                         ),
-                        
                     ),
                 ),
             ),

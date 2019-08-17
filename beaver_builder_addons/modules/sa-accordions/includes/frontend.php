@@ -5,10 +5,11 @@
 ?>
 <div class="SA-FL-accordion-main-area">
     <?php
+    
+    
 
     foreach ($settings->add_accordion as $key => $value) {
         $saaccordiontitle = $saactitletage = '';
-        
         ?>
         <div class="SA-FL-accordions">
             <div class="SA-FL-accordion-heading-<?php echo $id; ?>" ref="#saacordionsid-<?php echo $id; ?>-<?php echo $key ?>">
