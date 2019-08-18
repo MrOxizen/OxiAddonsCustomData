@@ -317,6 +317,21 @@ FLBuilder::register_module(
                             'right' => __('Right', SA_FLBUILDER_TEXTDOMAIN),
                         ),
                     ),
+                    'icon_a_d_margin' => array(
+                        'type' => 'dimension',
+                        'label' => __('Margin', SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Space between Icon to text', SA_FLBUILDER_TEXTDOMAIN),
+                        'slider' => true,
+                        'default' => '10',
+                        'units' => array('px'),
+                        'responsive' => array(
+                            'placeholder' => array(
+                                'default' => '10',
+                                'medium' => '',
+                                'responsive' => '',
+                            ),
+                        ),
+                    ),
                 ),
             ),
             'Active_icon' => array(

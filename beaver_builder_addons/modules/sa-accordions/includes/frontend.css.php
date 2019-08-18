@@ -65,7 +65,10 @@ if (!empty($settings)) {
         .fl-node-<?php echo $id; ?> .SA-FL-accordion-heading-text{
             order:-1;
         }
-    <?php } ?>
+    <?php }
+    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('icon_a_d', $settings, 'margin', '.fl-node-' . $id . ' .SA-FL-accordion-heading-' . $id . '.active .span-active', 'px');
+    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('icon_a_d', $settings, 'margin', '.fl-node-' . $id . ' .SA-FL-accordion-heading-' . $id . ' .span-deactive', 'px');
+    ?>
     .fl-node-<?php echo $id; ?> .SA-FL-accordion-heading-<?php echo $id; ?>.active .span-active{
     display: flex;
     align-items: center;
@@ -80,8 +83,6 @@ if (!empty($settings)) {
     border-style: <?php echo $settings->active_icons_settings->icon_border_style; ?>;
     border-color: #<?php echo $settings->active_icons_settings->icon_border_color; ?>;
     border-radius: <?php echo $settings->active_icons_settings->icon_bg_border_radius; ?>px;
-    margin: 5px;
-
     }
     .fl-node-<?php echo $id; ?> .SA-FL-accordion-heading-<?php echo $id; ?> .span-deactive{
     display: flex;
@@ -97,8 +98,6 @@ if (!empty($settings)) {
     border-style: <?php echo $settings->deactive_icons_settings->icon_border_style; ?>;
     border-color: #<?php echo $settings->deactive_icons_settings->icon_border_color; ?>;
     border-radius: <?php echo $settings->deactive_icons_settings->icon_bg_border_radius; ?>px;
-    margin: 5px;
-
     }
 
     .fl-node-<?php echo $id; ?> .SA-FL-accordion-heading-<?php echo $id; ?>:hover .span-deactive{

@@ -7,10 +7,10 @@ SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'button_font_typo', '.f
  */
 ?>
 .fl-node-<?php echo $id; ?> .oxi__button_wrapper{
-    margin-top:<?php echo $settings->button_margin_top; ?>px;
-    margin-bottom:<?php echo $settings->button_margin_bottom; ?>px;
-    margin-right:<?php echo $settings->button_margin_right; ?>px;
-    margin-left:<?php echo $settings->button_margin_left; ?>px; 
+margin-top:<?php echo $settings->button_margin_top; ?>px;
+margin-bottom:<?php echo $settings->button_margin_bottom; ?>px;
+margin-right:<?php echo $settings->button_margin_right; ?>px;
+margin-left:<?php echo $settings->button_margin_left; ?>px; 
 }
 <?php
 if ($settings->button->button_background_type === 'color') {
@@ -132,11 +132,11 @@ if (!empty($settings)) {
     height: 100%;
     perspective: 1000px;
     }
-    
+
     .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-row {
     width: 100%;
     height: 100%;
-    
+
     }
 
     <?php
@@ -153,7 +153,7 @@ if (!empty($settings)) {
     ));
     FLBuilderCSS::typography_field_rule(array(
         'settings' => $settings,
-        'setting_name' => 'front_desc_typography',
+        'setting_name' => 'front_desk_font_typo',
         'selector' => ".fl-node-$id .oxi-addons-BB-FL-fontside .oxi-addons-BB-FL-F-details",
     ));
     ?>
@@ -164,6 +164,12 @@ if (!empty($settings)) {
         display: flex;
         justify-content: center;
         align-items: center;
+        }
+        .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-F-TT-DS{
+        width: 80%;
+        }
+        .fl-node-<?php echo $id; ?> .oxi__button_wrapper{
+        width: 20%;  
         }
         <?php
     }
@@ -177,14 +183,14 @@ if (!empty($settings)) {
         align-items: center;
         }
         .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside-icon-area{
-        flex-grow: 8;
-        
+        width: 10%;
+
         }
         .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-F-TT-DS{
-        flex-grow: 1;
+        width: 70%;
         }
-        .oxi__button_wrapper{
-        flex-grow: 2;
+        .fl-node-<?php echo $id; ?> .oxi__button_wrapper{
+        width: 20%;  
         }
         <?php
     }
@@ -213,14 +219,14 @@ if (!empty($settings)) {
     margin-right:<?php echo $settings->icon_margin_right; ?>px;
     margin-left:<?php echo $settings->icon_margin_left; ?>px;
     <?php
-            if ("oxi_text_left" == $callboxtextalign) {
-                echo "text-align: left;";
-            } elseif ("oxi_text_right" == $callboxtextalign) {
-                echo "text-align: right;";
-            } else {
-                echo "text-align: center;";
-            }
-            ?>
+    if ("oxi_text_left" == $callboxtextalign) {
+        echo "text-align: left;";
+    } elseif ("oxi_text_right" == $callboxtextalign) {
+        echo "text-align: right;";
+    } else {
+        echo "text-align: center;";
+    }
+    ?>
     }
     .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside-icon-inner{
     display: inline-block;
@@ -279,7 +285,14 @@ if (!empty($settings)) {
     }
     ?>
     }
-    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside .oxi-addons-BB-FL-F-title{
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside .oxi-addons-BB-FL-F-title,
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside .oxi-addons-BB-FL-F-title h1,
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside .oxi-addons-BB-FL-F-title h2,
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside .oxi-addons-BB-FL-F-title h3,
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside .oxi-addons-BB-FL-F-title h4,
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside .oxi-addons-BB-FL-F-title h5,
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside .oxi-addons-BB-FL-F-title h6
+    {
     width: 100%;
     color: #<?php echo $settings->front_title_typography_color; ?>;
     margin-top: <?php echo $settings->front_title_typography_margin_top; ?>px;
