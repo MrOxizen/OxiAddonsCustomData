@@ -2,8 +2,15 @@
 
 .sa_el_elements_flip_box_container {
     position: relative;
-    height: 300px;
+    height: auto;
     width: 100%;
+}
+
+.sa_el_elements_flip_box_container::after {
+    content: '';
+    display: block;
+    width: 100%;
+    padding-bottom: 300px;
 }
 
 .sa_el_elements_flip_box_container .sa_el_flipbox_button {
@@ -154,6 +161,9 @@
 .sa_el_elements_flip_box_flip_card {
     width: 100%;
     height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     -webkit-transition: all 500ms ease;
