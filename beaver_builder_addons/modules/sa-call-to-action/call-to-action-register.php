@@ -369,7 +369,7 @@ FLBuilder::register_settings_form(
                 'border' => array(
                     'title' => __('Border', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
-                        'front_border' => array(
+                        'front_button_border' => array(
                             'type' => 'border',
                             'label' => __('Border', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => array(
