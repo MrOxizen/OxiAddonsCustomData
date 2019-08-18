@@ -603,23 +603,11 @@ class Flip_Box extends Widget_Base
             'sa_el_flipbox_border_radius',
             [
                 'label' => esc_html__('Border Radius', SA_ELEMENTOR_TEXTDOMAIN),
-                'type' => Controls_Manager::SLIDER,
+                'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'step' => 1,
-                        'max' => 500,
-                    ],
-                    '%' => [
-                        'min' => 0,
-                        'step' => 3,
-                        'max' => 100
-                    ]
-                ],
                 'selectors' => [
-                    '{{WRAPPER}} .sa_el_elements_flip_box_front_container' => 'border-radius: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .sa_el_elements_flip_box_rear_container' => 'border-radius: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .sa_el_elements_flip_box_front_container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .sa_el_elements_flip_box_rear_container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
