@@ -9,6 +9,7 @@ if (!defined('ABSPATH')) {
 
 use \Elementor\Controls_Manager as Controls_Manager;
 use \Elementor\Group_Control_Border as Group_Control_Border;
+use \Elementor\Group_Control_Background as Group_Control_Background;
 use \Elementor\Group_Control_Box_Shadow as Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Image_Size as Group_Control_Image_Size;
 use \Elementor\Group_Control_Typography as Group_Control_Typography;
@@ -253,6 +254,58 @@ class Flip_Box extends Widget_Base
                 'label' => esc_html__('Flipbox Content', SA_ELEMENTOR_TEXTDOMAIN),
             ]
         );
+        $this->add_control(
+            'sa_el_flipbox_content_alignment',
+            [
+                'label' => esc_html__('Content Alignment', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::CHOOSE,
+                'label_block' => true,
+                'options' => [
+                    'left' => [
+                        'title' => esc_html__('Left', SA_ELEMENTOR_TEXTDOMAIN),
+                        'icon' => 'fa fa-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__('Center', SA_ELEMENTOR_TEXTDOMAIN),
+                        'icon' => 'fa fa-align-center',
+                    ],
+                    'right' => [
+                        'title' => esc_html__('Right', SA_ELEMENTOR_TEXTDOMAIN),
+                        'icon' => 'fa fa-align-right',
+                    ],
+                ],
+                'default' => 'center',
+                'prefix_class' => 'sa_el_flipbox_content_align_',
+            ]
+        );
+        $this->add_control(
+            'sa_el_flipbox_content_alignment_y',
+            [
+                'label' => __('Vertical Alignment', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::CHOOSE,
+                'label_block' => false,
+                'options' => [
+                    'flex-start' => [
+                        'title' => __('Top', SA_ELEMENTOR_TEXTDOMAIN),
+                        'icon' => 'eicon-v-align-top',
+                    ],
+                    'center' => [
+                        'title' => __('Middle', SA_ELEMENTOR_TEXTDOMAIN),
+                        'icon' => 'eicon-v-align-middle',
+                    ],
+                    'flex-end' => [
+                        'title' => __('Bottom', SA_ELEMENTOR_TEXTDOMAIN),
+                        'icon' => 'eicon-v-align-bottom',
+                    ]
+                ],
+                'toggle' => true,
+                'default' => 'center',
+                'selectors' => [
+                    '{{WRAPPER}} .sa_el_elements_flip_box_front_container' => 'align-items: {{VALUE}};',
+                    '{{WRAPPER}} .sa_el_elements_flip_box_rear_container' => 'align-items: {{VALUE}};',
+                ],
+            ]
+        );
 
         $this->start_controls_tabs('sa_el_flipbox_content_tabs');
 
@@ -317,30 +370,6 @@ class Flip_Box extends Widget_Base
 
         $this->end_controls_tabs();
 
-        $this->add_control(
-            'sa_el_flipbox_content_alignment',
-            [
-                'label' => esc_html__('Content Alignment', SA_ELEMENTOR_TEXTDOMAIN),
-                'type' => Controls_Manager::CHOOSE,
-                'label_block' => true,
-                'options' => [
-                    'left' => [
-                        'title' => esc_html__('Left', SA_ELEMENTOR_TEXTDOMAIN),
-                        'icon' => 'fa fa-align-left',
-                    ],
-                    'center' => [
-                        'title' => esc_html__('Center', SA_ELEMENTOR_TEXTDOMAIN),
-                        'icon' => 'fa fa-align-center',
-                    ],
-                    'right' => [
-                        'title' => esc_html__('Right', SA_ELEMENTOR_TEXTDOMAIN),
-                        'icon' => 'fa fa-align-right',
-                    ],
-                ],
-                'default' => 'center',
-                'prefix_class' => 'sa_el_flipbox_content_align_',
-            ]
-        );
 
         $this->end_controls_section();
 
@@ -476,30 +505,39 @@ class Flip_Box extends Widget_Base
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
+        $this->start_controls_tabs('sa_el_section_flip_box_bg_settings');
 
-        $this->add_control(
-            'sa_el_flipbox_front_bg_color',
+        $this->start_controls_tab('sa_el_flipbox_front_bg_color_settings', [
+            'label' => esc_html__('Front BG', SA_ELEMENTOR_TEXTDOMAIN),
+        ]);
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
             [
-                'label' => esc_html__('Front Background Color', SA_ELEMENTOR_TEXTDOMAIN),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#270887',
-                'selectors' => [
-                    '{{WRAPPER}} .sa_el_elements_flip_box_front_container' => 'background: {{VALUE}};',
-                ],
+                'name' => 'sa_el_flipbox_front_bg_color',
+                'label' => __('Background', SA_ELEMENTOR_TEXTDOMAIN),
+                'types' => ['none', 'classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .sa_el_elements_flip_box_front_container',
+            ]
+        );
+        $this->end_controls_tab();
+        $this->start_controls_tab('sa_el_flipbox_back_bg_color_settings', [
+            'label' => esc_html__('Back BG', SA_ELEMENTOR_TEXTDOMAIN)
+        ]);
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'sa_el_flipbox_back_bg_color',
+                'label' => __('Background', SA_ELEMENTOR_TEXTDOMAIN),
+                'types' => ['none', 'classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .sa_el_elements_flip_box_rear_container',
             ]
         );
 
-        $this->add_control(
-            'sa_el_flipbox_back_bg_color',
-            [
-                'label' => esc_html__('Back Background Color', SA_ELEMENTOR_TEXTDOMAIN),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#db5959',
-                'selectors' => [
-                    '{{WRAPPER}} .sa_el_elements_flip_box_rear_container' => 'background: {{VALUE}};',
-                ],
-            ]
-        );
+        $this->end_controls_tab();
+        $this->end_controls_tabs();
+
 
         $this->add_responsive_control(
             'sa_el_flipbox_front_back_padding',
@@ -825,6 +863,17 @@ class Flip_Box extends Widget_Base
                 ]
             ]
         );
+        $this->add_responsive_control(
+            'sa_el_flipbox_front_title_padding',
+            [
+                'label' => esc_html__('Padding', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .sa_el_elements_flip_box_front_container .sa_el_elements_flip_box_heading' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ],
+            ]
+        );
 
         $this->add_group_control(
             Group_Control_Typography::get_type(),
@@ -855,6 +904,17 @@ class Flip_Box extends Widget_Base
                 'selectors' => [
                     '{{WRAPPER}} .sa_el_elements_flip_box_front_container .sa_el_elements_flip_box_content' => 'color: {{VALUE}};',
                 ]
+            ]
+        );
+        $this->add_responsive_control(
+            'sa_el_flipbox_front_content_padding',
+            [
+                'label' => esc_html__('Padding', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .sa_el_elements_flip_box_front_container .sa_el_elements_flip_box_content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ],
             ]
         );
 
@@ -927,6 +987,19 @@ class Flip_Box extends Widget_Base
             ]
         );
 
+        $this->add_responsive_control(
+            'sa_el_flipbox_back_title_padding',
+            [
+                'label' => esc_html__('Padding', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .sa_el_elements_flip_box_rear_container .sa_el_elements_flip_box_heading' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ],
+            ]
+        );
+
+
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
@@ -956,6 +1029,18 @@ class Flip_Box extends Widget_Base
                 'selectors' => [
                     '{{WRAPPER}} .sa_el_elements_flip_box_rear_container .sa_el_elements_flip_box_content' => 'color: {{VALUE}};',
                 ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'sa_el_flipbox_back_content_padding',
+            [
+                'label' => esc_html__('Padding', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .sa_el_elements_flip_box_rear_container .sa_el_elements_flip_box_content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ],
             ]
         );
 
@@ -1210,64 +1295,64 @@ class Flip_Box extends Widget_Base
         );
         ?>
 
-        <div <?php echo $this->get_render_attribute_string('sa_el_flipbox_main_wrap'); ?>>
+<div <?php echo $this->get_render_attribute_string('sa_el_flipbox_main_wrap'); ?>>
 
-            <<?php echo $flipbox_if_html_tag, ' ', $this->get_render_attribute_string('flipbox-container'); ?>>
-                <div class="sa_el_elements_flip_box_front_container">
-                    <div class="sa_el_elements_slider_display_table">
-                        <div class="sa_el_elements_flip_box_vertical_align">
-                            <div class="sa_el_elements_flip_box_padding">
-                                <div class="sa_el_elements_flip_box_icon_image">
-                                    <?php if ('icon' === $settings['sa_el_flipbox_img_or_icon']) : echo $this->Sa_El_Icon_Render($settings['sa_el_flipbox_icon']); ?>
-                                    <?php elseif ('img' === $settings['sa_el_flipbox_img_or_icon']) : ?>
-                                        <img src="<?php echo esc_url($flipbox_image_url); ?>" alt="<?php echo esc_attr(get_post_meta($flipbox_image['id'], '_wp_attachment_image_alt', true)); ?>">
-                                    <?php endif; ?>
-                                </div>
-                                <div class="sa_el_elements_flip_box_heading"><?php echo esc_html__($settings['sa_el_flipbox_front_title'], SA_ELEMENTOR_TEXTDOMAIN); ?></div>
-                                <div class="sa_el_elements_flip_box_content">
-                                    <p><?php echo __($settings['sa_el_flipbox_front_text'], SA_ELEMENTOR_TEXTDOMAIN); ?></p>
-                                </div>
-                            </div>
+    <<?php echo $flipbox_if_html_tag, ' ', $this->get_render_attribute_string('flipbox-container'); ?>>
+        <div class="sa_el_elements_flip_box_front_container">
+            <div class="sa_el_elements_slider_display_table">
+                <div class="sa_el_elements_flip_box_vertical_align">
+                    <div class="sa_el_elements_flip_box_padding">
+                        <div class="sa_el_elements_flip_box_icon_image">
+                            <?php if ('icon' === $settings['sa_el_flipbox_img_or_icon']) : echo $this->Sa_El_Icon_Render($settings['sa_el_flipbox_icon']); ?>
+                            <?php elseif ('img' === $settings['sa_el_flipbox_img_or_icon']) : ?>
+                            <img src="<?php echo esc_url($flipbox_image_url); ?>" alt="<?php echo esc_attr(get_post_meta($flipbox_image['id'], '_wp_attachment_image_alt', true)); ?>">
+                            <?php endif; ?>
+                        </div>
+                        <div class="sa_el_elements_flip_box_heading"><?php echo esc_html__($settings['sa_el_flipbox_front_title'], SA_ELEMENTOR_TEXTDOMAIN); ?></div>
+                        <div class="sa_el_elements_flip_box_content">
+                            <p><?php echo __($settings['sa_el_flipbox_front_text'], SA_ELEMENTOR_TEXTDOMAIN); ?></p>
                         </div>
                     </div>
                 </div>
-
-                <div class="sa_el_elements_flip_box_rear_container">
-                    <div class="sa_el_elements_slider_display_table">
-                        <div class="sa_el_elements_flip_box_vertical_align">
-                            <div class="sa_el_elements_flip_box_padding">
-                                <?php if ('none' != $settings['sa_el_flipbox_img_or_icon_back']) : ?>
-                                    <div class="sa_el_elements_flip_box_icon_image">
-                                        <?php if ('img' == $settings['sa_el_flipbox_img_or_icon_back']) : ?>
-                                            <img <?php echo $this->get_render_attribute_string('flipbox-back-icon-image-container'); ?>>
-                                        <?php elseif ('icon' == $settings['sa_el_flipbox_img_or_icon_back']) : ?>
-                                        <?php echo $this->Sa_El_Icon_Render($settings['sa_el_flipbox_icon_back'])?> 
-                                        <?php endif; ?>
-                                    </div>
-                                <?php endif; ?>
-
-                                <<?php echo $flipbox_if_html_title_tag, ' ', $this->get_render_attribute_string('flipbox-title-container'); ?>><?php echo esc_html__($settings['sa_el_flipbox_back_title'], SA_ELEMENTOR_TEXTDOMAIN); ?></<?php echo $flipbox_if_html_title_tag; ?>>
-                                <div class="sa_el_elements_flip_box_content">
-                                    <p><?php echo __($settings['sa_el_flipbox_back_text'], SA_ELEMENTOR_TEXTDOMAIN); ?></p>
-                                </div>
-
-                                <?php if ($settings['flipbox_link_type'] == 'button' && !empty($settings['flipbox_button_text'])) : ?>
-                                    <a <?php echo $this->get_render_attribute_string('sa_el_flipbox_button_container'); ?>>
-                                        <?php if (!empty($settings['button_icon']) && 'before' == $settings['button_icon_position']) : echo $this->Sa_El_Icon_Render($settings['button_icon'])?>
-                                        <?php endif; ?>
-                                        <?php echo esc_attr($settings['flipbox_button_text']); ?>
-                                        <?php if (!empty($settings['button_icon']) && 'after' == $settings['button_icon_position']) : echo $this->Sa_El_Icon_Render($settings['button_icon'])?>
-                                        <?php endif; ?>
-                                    </a>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </<?php echo $flipbox_if_html_tag; ?>>
+            </div>
         </div>
 
-    <?php
+        <div class="sa_el_elements_flip_box_rear_container">
+            <div class="sa_el_elements_slider_display_table">
+                <div class="sa_el_elements_flip_box_vertical_align">
+                    <div class="sa_el_elements_flip_box_padding">
+                        <?php if ('none' != $settings['sa_el_flipbox_img_or_icon_back']) : ?>
+                        <div class="sa_el_elements_flip_box_icon_image">
+                            <?php if ('img' == $settings['sa_el_flipbox_img_or_icon_back']) : ?>
+                            <img <?php echo $this->get_render_attribute_string('flipbox-back-icon-image-container'); ?>>
+                            <?php elseif ('icon' == $settings['sa_el_flipbox_img_or_icon_back']) : ?>
+                            <?php echo $this->Sa_El_Icon_Render($settings['sa_el_flipbox_icon_back']) ?>
+                            <?php endif; ?>
+                        </div>
+                        <?php endif; ?>
+
+                        <<?php echo $flipbox_if_html_title_tag, ' ', $this->get_render_attribute_string('flipbox-title-container'); ?>><?php echo esc_html__($settings['sa_el_flipbox_back_title'], SA_ELEMENTOR_TEXTDOMAIN); ?></<?php echo $flipbox_if_html_title_tag; ?>>
+                        <div class="sa_el_elements_flip_box_content">
+                            <p><?php echo __($settings['sa_el_flipbox_back_text'], SA_ELEMENTOR_TEXTDOMAIN); ?></p>
+                        </div>
+
+                        <?php if ($settings['flipbox_link_type'] == 'button' && !empty($settings['flipbox_button_text'])) : ?>
+                        <a <?php echo $this->get_render_attribute_string('sa_el_flipbox_button_container'); ?>>
+                            <?php if (!empty($settings['button_icon']) && 'before' == $settings['button_icon_position']) : echo $this->Sa_El_Icon_Render($settings['button_icon']) ?>
+                            <?php endif; ?>
+                            <?php echo esc_attr($settings['flipbox_button_text']); ?>
+                            <?php if (!empty($settings['button_icon']) && 'after' == $settings['button_icon_position']) : echo $this->Sa_El_Icon_Render($settings['button_icon']) ?>
+                            <?php endif; ?>
+                        </a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </<?php echo $flipbox_if_html_tag; ?>>
+</div>
+
+<?php
     }
 
     protected function content_template()

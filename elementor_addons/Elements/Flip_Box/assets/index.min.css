@@ -66,17 +66,12 @@
     z-index: 2;
     width: 100%;
     height: 100%;
-    background: #0e9dd2;
+    background: #270887;
     color: #ffffff;
-    border-color: #000000;
     -webkit-display: flex;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-align-items: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
 }
 
 .sa_el_elements_flip_box_content,
@@ -97,17 +92,12 @@
     left: 0px;
     width: 100%;
     height: 100%;
-    background: #444444;
+    background: #db5959;
     color: #ffffff;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-align-items: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    border-color: #000000;
 }
 
 
