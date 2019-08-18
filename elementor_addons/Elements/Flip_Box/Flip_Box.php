@@ -519,16 +519,17 @@ class Flip_Box extends Widget_Base
                 'selector' => '{{WRAPPER}} .sa_el_elements_flip_box_front_container',
             ]
         );
-        // $this->add_control(
-		// 	'section_background_overlay',
-		// 	[
-		// 		'label' => __( 'Background Overlay', SA_ELEMENTOR_TEXTDOMAIN ),
-		// 		'tab' => Controls_Manager::TAB_STYLE,
-		// 		'condition' => [
-		// 			'background_background' => [ 'classic', 'gradient' ],
-		// 		],
-		// 	]
-		// );
+        $this->add_control(
+            'sa_el_flipbox_front_background_overlay',
+            [
+                'label' => esc_html__('Overlay Color', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .sa_el_elements_flip_box_front_container::before' => 'background: {{VALUE}};',
+                ],
+            ]
+        );
+
         $this->end_controls_tab();
         $this->start_controls_tab('sa_el_flipbox_back_bg_color_settings', [
             'label' => esc_html__('Back BG', SA_ELEMENTOR_TEXTDOMAIN)
@@ -544,6 +545,17 @@ class Flip_Box extends Widget_Base
             ]
         );
 
+        $this->add_control(
+            'sa_el_flipbox_back_background_overlay',
+            [
+                'label' => esc_html__('Overlay Color', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .sa_el_elements_flip_box_rear_container::before' => 'background: {{VALUE}};',
+                ],
+            ]
+        );
+
         $this->end_controls_tab();
         $this->end_controls_tabs();
 
@@ -552,7 +564,7 @@ class Flip_Box extends Widget_Base
             [
                 'label' => __('Height', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px','%','em'],
+                'size_units' => ['px', '%', 'em'],
                 'range' => [
                     'px' => [
                         'min' => 50,
