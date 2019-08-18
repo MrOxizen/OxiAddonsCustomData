@@ -442,7 +442,6 @@ class Flip_Box extends Widget_Base
             [
                 'label' => __('Button Icon', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => $this->Sa_El_Icon_Type(),
-                'default' => '',
                 'condition' => [
                     'flipbox_link_type' => 'button',
                 ],
