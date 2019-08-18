@@ -601,9 +601,6 @@ trait Public_Helper {
             'gradient_heading' => [
                 'class' => '\SA_ELEMENTOR_ADDONS\Elements\Gradient_Heading\Gradient_Heading',
                 'dependency' => [
-                    'css' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Elements/Gradient_Heading/assets/index.min.css',
-                    ]
                 ],
                 'category' => 'Creative Elements',
                 'Premium' => TRUE,
