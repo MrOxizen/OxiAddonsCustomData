@@ -538,6 +538,23 @@ class Flip_Box extends Widget_Base
         $this->end_controls_tab();
         $this->end_controls_tabs();
 
+        $this->add_responsive_control(
+            'sa_el_flipbox_height',
+            [
+                'label' => __('Height', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 50,
+                        'max' => 1000,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .sa_el_elements_flip_box_container' => 'height: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
 
         $this->add_responsive_control(
             'sa_el_flipbox_front_back_padding',
