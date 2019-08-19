@@ -1,6 +1,6 @@
 <?php
-SA_FLBUILDER_HELPER::sa_fl_border_package($settings, 'front_border', '.fl-node-' . $id . ' .oxi__button');
-SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'button_font_typo', '.fl-node-' . $id . ' .oxi__button');
+SA_FLBUILDER_HELPER::sa_fl_border_package($settings->button, 'front_border', '.fl-node-' . $id . ' .oxi__button');
+SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings->button, 'button_font_typo', '.fl-node-' . $id . ' .oxi__button');
 
 /**
  * general background color and gradient
@@ -367,9 +367,7 @@ if (!empty($settings)) {
     ?>
 
     }
-    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-backside-icon-area{
-    margin-top:20px;
-    }
+    
     .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-backside-icon-inner{
     display: inline-block;
     }
