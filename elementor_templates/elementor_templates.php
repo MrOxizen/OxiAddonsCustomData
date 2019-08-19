@@ -196,8 +196,8 @@ class SAETemplates_BLocks {
     }
 
     public function sael_template_data_load() {
-        $categories = SAEL\SAEL_Temp_Remote::sael_get_instance()->categories_list();
-        $templates = SAEL\SAEL_Temp_Remote::sael_get_instance()->templates_list();
+        $categories = SAEL\SAEL_Temp_Remote::sael_get_instance()->categories_list(true);
+        $templates = SAEL\SAEL_Temp_Remote::sael_get_instance()->templates_list(true);
         $rtdata = '';
         $val = get_option('oxi_addons_license_status');
         $oxitype = sanitize_text_field($_POST['datatype']);
