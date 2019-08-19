@@ -1,5 +1,5 @@
 <?php
-SA_FLBUILDER_HELPER::sa_fl_border_package($settings->button, 'front_border', '.fl-node-' . $id . ' .oxi__button');
+SA_FLBUILDER_HELPER::sa_fl_border_package($settings->button, 'front_button_border', '.fl-node-' . $id . ' .oxi__button');
 SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings->button, 'button_font_typo', '.fl-node-' . $id . ' .oxi__button');
 
 /**
@@ -7,10 +7,9 @@ SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings->button, 'button_font_ty
  */
 ?>
 .fl-node-<?php echo $id; ?> .oxi__button_wrapper{
-margin-top:<?php echo $settings->button_margin_top; ?>px;
-margin-bottom:<?php echo $settings->button_margin_bottom; ?>px;
-margin-right:<?php echo $settings->button_margin_right; ?>px;
-margin-left:<?php echo $settings->button_margin_left; ?>px; 
+margin-top:<?php echo $settings->buttonngs->button_margin_bottom; ?>px;
+margin-right:<?php echo $settings->button->button_margin_right; ?>px;
+margin-left:<?php echo $settings->button->button_margin_left; ?>px; 
 }
 <?php
 if ($settings->button->button_background_type === 'color') {
