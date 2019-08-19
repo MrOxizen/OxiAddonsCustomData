@@ -875,7 +875,7 @@ FLBuilder::register_module(
                         'size' => '8',
                         'help' => __('Apply height to complete Flipbox for small devices. It will inherit medium height if empty.', SA_FLBUILDER_TEXTDOMAIN),
                     ),
-                    'inner_padding_dimension' => array(
+                    'inner_padding' => array(
                         'type' => 'dimension',
                         'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),

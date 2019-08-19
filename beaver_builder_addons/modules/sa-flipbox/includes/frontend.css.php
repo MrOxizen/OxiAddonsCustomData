@@ -150,12 +150,11 @@ if (!empty($settings)) {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    padding-top:<?php echo $settings->inner_padding_dimension_top; ?>px;
-    padding-bottom:<?php echo $settings->inner_padding_dimension_bottom; ?>px;
-    padding-left:<?php echo $settings->inner_padding_dimension_left; ?>px;
-    padding-right:<?php echo $settings->inner_padding_dimension_right; ?>px;
-    }    
+    } 
     <?php
+    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('inner', $settings, 'padding', '.fl-node-' . $id . ' .oxi-addons-BB-FL-font-overlay', 'px');
+    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('inner', $settings, 'padding', '.fl-node-' . $id . ' .oxi-addons-BB-FL-back-overlay', 'px');
+
     if ('horizontal_flip_left' == $flipboxtype) {
         $hfl = "transform: rotateY(180deg);
         -webkit-transform: rotateY(180deg);
@@ -743,23 +742,11 @@ if (!empty($settings)) {
     .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-row {
     min-height: <?php echo $settings->flip_box_min_height_medium; ?>px;
     }
-    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside, .oxi-addons-BB-FL-backside {
-    padding-top:<?php echo $settings->inner_padding_dimension_top_medium; ?>px;
-    padding-bottom:<?php echo $settings->inner_padding_dimension_bottom_medium; ?>px;
-    padding-left:<?php echo $settings->inner_padding_dimension_left_medium; ?>px;
-    padding-right:<?php echo $settings->inner_padding_dimension_right_medium; ?>px;
-    } 
     }
     @media only screen and (max-width : 668px){
     .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-row {
     min-height: <?php echo $settings->flip_box_min_height_small; ?>px;
     }
-    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside, .oxi-addons-BB-FL-backside {
-    padding-top:<?php echo $settings->inner_padding_dimension_top_responsive; ?>px;
-    padding-bottom:<?php echo $settings->inner_padding_dimension_bottom_responsive; ?>px;
-    padding-left:<?php echo $settings->inner_padding_dimension_left_responsive; ?>px;
-    padding-right:<?php echo $settings->inner_padding_dimension_right_responsive; ?>px;
-    } 
     }   
 
 
