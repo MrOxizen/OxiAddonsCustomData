@@ -44,7 +44,7 @@ FLBuilder::register_module(
 						'icon'       => array(
 							'type'        => 'icon',
 							'label'       => __( 'Icon', SA_FLBUILDER_TEXTDOMAIN ),
-							'default'     => 'ua-icon ua-icon-mail2',
+							'default'     => 'fas fa-clinic-medical',
 							'show_remove' => true,
 						),
 						'icon_size'  => array(
