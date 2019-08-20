@@ -21,17 +21,17 @@
     color: white;
 } 
 .oxi__button_wrapper .oxi__button::after{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 } 
 
 .entry .entry-content a {
-            text-decoration: none !important;
-        }
+    text-decoration: none !important;
+}
 .oxi__button_wrapper a{
-            text-decoration:none !important;
-        }
+    text-decoration:none !important;
+}
 .oxi__button_wrapper a:hover{
-            text-decoration:none !important;
-        }
+    text-decoration:none !important;
+}

@@ -1,13 +1,12 @@
-/* ----------------------------- */
-/* Post Block Overlay Style
-/* ----------------------------- */
+/* ----------------------------- 
+Post Block Overlay Style
+ ----------------------------- */
 .post-block-style-overlay .sa-el-entry-wrapper {
   -webkit-transition: 300ms;
   -o-transition: 300ms;
   transition: 300ms;
 }
 
-/* SlideUp */
 .post-block-style-overlay .sa-el-entry-wrapper.slide-up {
   -webkit-transform: translateY(100%);
       -ms-transform: translateY(100%);
@@ -24,7 +23,6 @@
           transform: translateY(0);
 }
 
-/* Fade In */
 .post-block-style-overlay .sa-el-entry-wrapper.fade-in {
   visibility: hidden;
   opacity: 0;
@@ -35,7 +33,6 @@
   opacity: 1;
 }
 
-/* Zoom In */
 .post-block-style-overlay .sa-el-entry-wrapper.zoom-in {
   -webkit-transform: scale(0.8);
       -ms-transform: scale(0.8);

@@ -1264,6 +1264,27 @@ class Info_Box extends Widget_Base
             ]
         );
 
+        $this->add_control(
+            'sa_el_infobox_button_hover_icon_translate',
+            [
+                'label' => __( 'Icon Translate X', SA_ELEMENTOR_TEXTDOMAIN ),
+                'type' => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 10
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => -200,
+                        'max' => 200,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .sa_el_infobox_button:hover .sa_el_infobox_button_icon_left' => '-webkit-transform: translateX(calc(-1 * {{SIZE}}{{UNIT}})); transform: translateX(calc(-1 * {{SIZE}}{{UNIT}}));',
+                    '{{WRAPPER}} .sa_el_infobox_button:hover .sa_el_infobox_button_icon_right' => '-webkit-transform: translateX({{SIZE}}{{UNIT}}); transform: translateX({{SIZE}}{{UNIT}});',
+                ],
+            ]
+        );
+
         $this->end_controls_tab();
 
         $this->end_controls_tabs();
@@ -1647,7 +1668,7 @@ class Info_Box extends Widget_Base
             $this->add_render_attribute('infobox_button', 'rel', 'nofollow');
 
         $this->add_render_attribute('button_icon', [
-            'class' => esc_attr($settings['sa_el_infobox_button_icon']),
+            'class' => [esc_attr($settings['sa_el_infobox_button_icon']),'sa_el_btn_icon'],
             'aria-hidden' => 'true'
         ]);
 

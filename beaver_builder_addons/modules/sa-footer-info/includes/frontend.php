@@ -120,12 +120,12 @@ if ($settings->separator_style === 'none') {
             <?php echo $oxi_addons_main; ?>
             <div class="oxi__addons_footer_icon_area">
                 <?php
-                foreach ($settings->add_footer_icon as $value) {
+                foreach ($settings->add_footer_icon as $key => $value) {
                     if ($value->link != '') {
                         
                         ?>
-                        <a href="<?php echo $value->link; ?>" target="<?php echo $value->link_target; ?>" ref="<?php echo $value->link_nofollow; ?>">
-                            <div class="oxi_footer_info_icon">
+                        <a class="oxi-addons-bb-icon-link-<?php echo $key; ?>" href="<?php echo $value->link; ?>" target="<?php echo $value->link_target; ?>" ref="<?php echo $value->link_nofollow; ?>">
+                            <div class="oxi_footer_info_icon-<?php echo $key; ?>">
                                 <i class="<?php echo $value->icon; ?>"></i>
                                 
                             </div>
@@ -133,7 +133,7 @@ if ($settings->separator_style === 'none') {
                         <?php
                     } else {
                         ?>
-                        <div class="oxi_footer_info_icon">
+                        <div class="oxi_footer_info_icon-<?php echo $key; ?>">
                             <i class="<?php echo $value->icon; ?>"></i>
                         </div>
                         <?php
@@ -149,18 +149,18 @@ if ($settings->separator_style === 'none') {
             
             <div class="oxi__addons_footer_icon_area">
                 <?php
-                foreach ($settings->add_footer_icon as $value) {
+                foreach ($settings->add_footer_icon as $key => $value) {
                     if ($value->link != '') {
                         ?>
-                        <a href="<?php echo $value->link ?>" target="<?php echo $value->link_target ?>" ref="<?php echo $value->link_nofollow ?>">
-                            <div class="oxi_footer_info_icon">
+                <a class="oxi-addons-bb-icon-link-<?php echo $key; ?>" href="<?php echo $value->link ?>" target="<?php echo $value->link_target ?>" ref="<?php echo $value->link_nofollow ?>">
+                            <div class="oxi_footer_info_icon-<?php echo $key; ?>">
                                 <i class="<?php echo $value->icon; ?>"></i>
                             </div>
                         </a>
                         <?php
                     } else {
                         ?>
-                        <div class="oxi_footer_info_icon">
+                        <div class="oxi_footer_info_icon-<?php echo $key; ?>">
                             <i class="<?php echo $value->icon; ?>"></i>
                         </div>
                         <?php

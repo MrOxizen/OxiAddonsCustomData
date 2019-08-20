@@ -1,6 +1,15 @@
     jQuery(document).ready(function() {
-       jQuery(".SA-FL-accordion-heading-<?php echo $id; ?>:eq(0)").addClass("active");
-       jQuery(".SA-FL-accordion-heading-<?php echo $id; ?>:eq(0)").next().slideDown();
+       <?php
+        foreach ($settings->add_accordion as $key => $value) {
+             if($value->accordion_active_deactive == 'active'){
+        ?>
+        jQuery(".SA-FL-accordion-heading-<?php echo $id; ?>:eq(<?php echo $key; ?>)").addClass("active");
+        jQuery(".SA-FL-accordion-heading-<?php echo $id; ?>:eq(<?php echo $key; ?>)").next().slideDown();
+        <?php
+             }
+        }
+       ?>
+
        jQuery(".SA-FL-accordion-heading-<?php echo $id; ?>").on("click", function() {
          if (jQuery(this).hasClass("active")) {
                  var activeTab = jQuery(this).attr("ref");

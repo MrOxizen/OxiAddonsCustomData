@@ -30,8 +30,16 @@ trait Scripts_Loader {
                 }
             }
         }
-        
+
         return array_unique($paths);
+    }
+
+    public function minify($data = '') {
+        $data = preg_replace('/\/\*((?!\*\/).)*\*\//', ' ', $data);
+        $data = preg_replace('/\s{2,}/', ' ', $data);
+        $data = preg_replace('/\s*([:;{}])\s*/', '$1', $data);
+        $data = preg_replace('/;}/', ' }', $data);
+        return $data;
     }
 
     /**
@@ -44,10 +52,9 @@ trait Scripts_Loader {
 
         if (!empty($paths)) {
             foreach ($paths as $path) {
-                $output .= file_get_contents($this->safe_path($path));
+                $output .=  $this->minify(file_get_contents($this->safe_path($path)));
             }
         }
-
         return file_put_contents($this->safe_path(SA_ELEMENTOR_ADDONS_URL . 'cache/' . $file), $output);
     }
 
@@ -76,8 +83,8 @@ trait Scripts_Loader {
         // collect library scripts & styles
         $js_paths = array_merge($js_paths, $this->generate_dependency($elements, 'js'));
         $css_paths = array_merge($css_paths, $this->generate_dependency($elements, 'css'));
-
-        // combine files
+//        print_r($css_paths);
+//        // combine files
         $this->combine_files($css_paths, ($file_name ? $file_name : 'sa-el-addons') . '.min.css');
         $this->combine_files($js_paths, ($file_name ? $file_name : 'sa-el-addons') . '.min.js');
     }

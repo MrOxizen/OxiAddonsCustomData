@@ -1,6 +1,6 @@
 <?php
-SA_FLBUILDER_HELPER::sa_fl_border_package($settings, 'front_border', '.fl-node-' . $id . ' .oxi__button');
-SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'button_font_typo', '.fl-node-' . $id . ' .oxi__button');
+SA_FLBUILDER_HELPER::sa_fl_border_package($settings->button, 'front_button_border', '.fl-node-' . $id . ' .oxi__button');
+SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings->button, 'button_font_typo', '.fl-node-' . $id . ' .oxi__button');
 
 /**
  * general background color and gradient
@@ -8,16 +8,16 @@ SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'button_font_typo', '.f
 if ($settings->button->button_background_type === 'color') {
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
         'background-color' => $settings->button->button_background_color,
-    ), '.fl-node-' . $id . ' .oxi__button');
+            ), '.fl-node-' . $id . ' .oxi__button');
 } else {
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
         'background' => FLBuilderColor::gradient($settings->button->button_gradient),
-    ), '.fl-node-' . $id . ' .oxi__button');
+            ), '.fl-node-' . $id . ' .oxi__button');
 }
 
 SA_FLBUILDER_HELPER::sa_fl_general_style(array(
     'color' => $settings->button->text_color,
-), '.fl-node-' . $id . ' .oxi__button');
+        ), '.fl-node-' . $id . ' .oxi__button');
 
 
 /**
@@ -41,7 +41,8 @@ if ($settings->button->button_width !== 'full') {
         echo '.fl-node-' . $id . ' .oxi__button_wrapper{
                      justify-content: flex-end;
                 }';
-    } ?>
+    }
+    ?>
     @media only screen and (min-width : 669px) and (max-width : 993px){
     <?php
     if ($settings->button->alignment_medium === 'left') {
@@ -56,7 +57,8 @@ if ($settings->button->button_width !== 'full') {
         echo '.fl-node-' . $id . ' .oxi__button_wrapper{
                      justify-content: flex-end;
                 }';
-    } ?>
+    }
+    ?>
     }
     @media only screen and (max-width : 668px){
     <?php
@@ -72,10 +74,10 @@ if ($settings->button->button_width !== 'full') {
         echo '.fl-node-' . $id . ' .oxi__button_wrapper{
                      justify-content: flex-end;
                 }';
-    } ?>
     }
-<?php
-
+    ?>
+    }
+    <?php
 }
 /**
  * coding for custom width, auto and full width
@@ -86,7 +88,7 @@ if ($settings->button->button_width === 'auto') {
     .fl-node-<?php echo $id; ?> .oxi__button{
     display: flex;
     }
-<?php
+    <?php
 } elseif ($settings->button->button_width === 'full') {
     ?>
     .fl-node-<?php echo $id; ?> .oxi__button{
@@ -94,7 +96,7 @@ if ($settings->button->button_width === 'auto') {
     justify-content: center;
     width: 100%;
     }
-<?php
+    <?php
 } else {
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
         'width' => $settings->button->custom_width . 'px',
@@ -103,7 +105,7 @@ if ($settings->button->button_width === 'auto') {
         'justify-content' => 'center',
         'align-items' => 'center',
         'padding' => '0'
-    ), '.fl-node-' . $id . ' .oxi__button');
+            ), '.fl-node-' . $id . ' .oxi__button');
 }
 
 
@@ -148,12 +150,11 @@ if (!empty($settings)) {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    padding-top:<?php echo $settings->inner_padding_dimension_top; ?>px;
-    padding-bottom:<?php echo $settings->inner_padding_dimension_bottom; ?>px;
-    padding-left:<?php echo $settings->inner_padding_dimension_left; ?>px;
-    padding-right:<?php echo $settings->inner_padding_dimension_right; ?>px;
-    }    
+    } 
     <?php
+    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('inner', $settings, 'padding', '.fl-node-' . $id . ' .oxi-addons-BB-FL-font-overlay', 'px');
+    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('inner', $settings, 'padding', '.fl-node-' . $id . ' .oxi-addons-BB-FL-back-overlay', 'px');
+
     if ('horizontal_flip_left' == $flipboxtype) {
         $hfl = "transform: rotateY(180deg);
         -webkit-transform: rotateY(180deg);
@@ -314,7 +315,13 @@ if (!empty($settings)) {
     }
     ?>
     }
-    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside .oxi-addons-BB-FL-F-title{
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside .oxi-addons-BB-FL-F-title,
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside .oxi-addons-BB-FL-F-title h1,
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside .oxi-addons-BB-FL-F-title h2,
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside .oxi-addons-BB-FL-F-title h3,
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside .oxi-addons-BB-FL-F-title h4,
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside .oxi-addons-BB-FL-F-title h5,
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside .oxi-addons-BB-FL-F-title h6{
     width: 100%;
     color: #<?php echo $settings->front_title_typography_color; ?>;
     margin-top: <?php echo $settings->front_title_typography_margin_top; ?>px;
@@ -328,7 +335,13 @@ if (!empty($settings)) {
     }
 
 
-    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-backside .oxi-addons-BB-FL-F-title{
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-backside .oxi-addons-BB-FL-F-title,
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-backside .oxi-addons-BB-FL-F-title h1,
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-backside .oxi-addons-BB-FL-F-title h2,
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-backside .oxi-addons-BB-FL-F-title h3,
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-backside .oxi-addons-BB-FL-F-title h4,
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-backside .oxi-addons-BB-FL-F-title h5,
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-backside .oxi-addons-BB-FL-F-title h6{
     width: 100%;
     color: #<?php echo $settings->back_title_typography_color; ?>;
     margin-top: <?php echo $settings->back_title_typography_margin_top; ?>px;
@@ -365,11 +378,8 @@ if (!empty($settings)) {
         echo ( '' != $settings->back_bg_image_pos ) ? 'background-position: ' . $settings->back_bg_image_pos . ';' : '';
     }
     ?>
-
     }
-    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-backside-icon-area{
-    margin-top:20px;
-    }
+    
     .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-backside-icon-inner{
     display: inline-block;
     }
@@ -670,7 +680,7 @@ if (!empty($settings)) {
         }
         ?>
         }
-        
+
         .fl-node-<?php echo $id; ?> .oxi__button::after {
         bottom:0;
         line-height: 0;
@@ -701,29 +711,42 @@ if (!empty($settings)) {
         <?php
     }
     ?>
+        
+    <?php
+    if ($backsidebgtype != 'color' ) {
+    ?>   
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-back-overlay{
+    width:100%;
+    height: 100%;
+    background: <?php echo $settings->back_bg_image_overlay; ?>
+    }
+    <?php
+    }
+    ?>
+
+    <?php
+    if ($backsidebgtype != 'color' ) {
+    ?>
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-font-overlay{
+    width:100%;
+    height: 100%;
+    background: <?php echo $settings->front_bg_image_overlay; ?>
+    }
+    <?php
+    }
+    ?>
+    
 
 
     @media only screen and (min-width : 669px) and (max-width : 993px){
     .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-row {
     min-height: <?php echo $settings->flip_box_min_height_medium; ?>px;
     }
-    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside, .oxi-addons-BB-FL-backside {
-    padding-top:<?php echo $settings->inner_padding_dimension_top_medium; ?>px;
-    padding-bottom:<?php echo $settings->inner_padding_dimension_bottom_medium; ?>px;
-    padding-left:<?php echo $settings->inner_padding_dimension_left_medium; ?>px;
-    padding-right:<?php echo $settings->inner_padding_dimension_right_medium; ?>px;
-    } 
     }
     @media only screen and (max-width : 668px){
     .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-row {
     min-height: <?php echo $settings->flip_box_min_height_small; ?>px;
     }
-    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside, .oxi-addons-BB-FL-backside {
-    padding-top:<?php echo $settings->inner_padding_dimension_top_responsive; ?>px;
-    padding-bottom:<?php echo $settings->inner_padding_dimension_bottom_responsive; ?>px;
-    padding-left:<?php echo $settings->inner_padding_dimension_left_responsive; ?>px;
-    padding-right:<?php echo $settings->inner_padding_dimension_right_responsive; ?>px;
-    } 
     }   
 
 

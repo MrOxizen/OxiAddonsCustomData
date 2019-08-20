@@ -1,6 +1,6 @@
-/*----------------------*/
-/*  Single Product
-/*----------------------*/
+/*----------------------
+  Single Product
+----------------------*/
 .sa-el-post-block-grid {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -180,9 +180,6 @@
   display: none;
 }
 
-/*---------------------------------*/
-/* 24. Post block overlay preset
-/*---------------------------------*/
 .sa-el-post-block.post-block-style-overlay .sa-el-entry-thumbnail {
   height: 300px;
 }
@@ -219,7 +216,6 @@
   display: flex;
 }
 
-/*--- Style for Single product ---*/
 .sa-el-single-product {
   position: relative;
   overflow: hidden;

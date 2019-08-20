@@ -540,7 +540,7 @@ FLBuilder::register_settings_form(
                 'border' => array(
                     'title' => __('Border', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
-                        'front_border' => array(
+                        'front_button_border' => array(
                             'type' => 'border',
                             'label' => __('Border', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => array(
@@ -767,6 +767,18 @@ FLBuilder::register_module(
                         'help' => __('Perhaps, this is the most highlighted text.', SA_FLBUILDER_TEXTDOMAIN),
                         'connections' => array('string', 'html'),
                     ),
+                    'link' => array(
+                        'type' => 'link',
+                        'label' => __('Link', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => 'http://www.facebook.com',
+                        'default' => '',
+                        'show_target' => true,
+                        'show_nofollow' => true,
+                        'preview' => array(
+                            'type' => 'none'
+                        ),
+                        'connection' => array('url')
+                    ),
                     'oxi_flip_back_details' => array(
                         'type' => 'editor',
                         'media_buttons' => false,
@@ -863,7 +875,7 @@ FLBuilder::register_module(
                         'size' => '8',
                         'help' => __('Apply height to complete Flipbox for small devices. It will inherit medium height if empty.', SA_FLBUILDER_TEXTDOMAIN),
                     ),
-                    'inner_padding_dimension' => array(
+                    'inner_padding' => array(
                         'type' => 'dimension',
                         'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
@@ -896,7 +908,7 @@ FLBuilder::register_module(
                                 'fields' => array('front_background_color', 'front_background_color_opc'),
                             ),
                             'image' => array(
-                                'fields' => array('front_bg_image', 'front_bg_image_repeat', 'front_bg_image_display', 'front_bg_image_pos'),
+                                'fields' => array('front_bg_image', 'front_bg_image_repeat', 'front_bg_image_display', 'front_bg_image_pos', 'front_bg_image_overlay'),
                             ),
                         ),
                     ),
@@ -940,6 +952,14 @@ FLBuilder::register_module(
                             'contain' => __('Contain', SA_FLBUILDER_TEXTDOMAIN),
                         ),
                     ),
+                    'front_bg_image_overlay' => array(
+                            'type' => 'color',
+                            'label' => __('Overlay Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => '',
+                            'show_reset' => true,
+                            'connections' => array('color'),
+                            'show_alpha' => true,
+                        ),
                     'front_background_color' => array(
                         'type' => 'color',
                         'label' => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
@@ -982,7 +1002,7 @@ FLBuilder::register_module(
                                 'fields' => array('back_background_color', 'back_background_color_opc'),
                             ),
                             'image' => array(
-                                'fields' => array('back_bg_image', 'back_bg_image_repeat', 'back_bg_image_display', 'back_bg_image_pos'),
+                                'fields' => array('back_bg_image', 'back_bg_image_repeat', 'back_bg_image_display', 'back_bg_image_pos', 'back_bg_image_overlay'),
                             ),
                         ),
                     ),
@@ -1026,6 +1046,14 @@ FLBuilder::register_module(
                             'contain' => __('Contain', SA_FLBUILDER_TEXTDOMAIN),
                         ),
                     ),
+                    'back_bg_image_overlay' => array(
+                            'type' => 'color',
+                            'label' => __('Overlay Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => '',
+                            'show_reset' => true,
+                            'connections' => array('color'),
+                            'show_alpha' => true,
+                        ),
                     'back_background_color' => array(
                         'type' => 'color',
                         'label' => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),

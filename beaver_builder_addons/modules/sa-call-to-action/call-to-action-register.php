@@ -369,7 +369,7 @@ FLBuilder::register_settings_form(
                 'border' => array(
                     'title' => __('Border', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
-                        'front_border' => array(
+                        'front_button_border' => array(
                             'type' => 'border',
                             'label' => __('Border', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => array(
@@ -581,7 +581,7 @@ FLBuilder::register_module(
                     'show_button' => array(
                         'type' => 'select',
                         'label' => __('Show button', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'no',
+                        'default' => 'yes',
                         'options' => array(
                             'no' => __('No', SA_FLBUILDER_TEXTDOMAIN),
                             'yes' => __('Yes', SA_FLBUILDER_TEXTDOMAIN),
@@ -614,7 +614,7 @@ FLBuilder::register_module(
                     'content_style' => array(
                         'type' => 'select',
                         'label' => __('Flip Type', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'horizontal_call_left',
+                        'default' => 'flex_grid',
                         'help' => __('Select Flip type for this call box.', SA_FLBUILDER_TEXTDOMAIN),
                         'options' => array(
                             'basic' => __('Basic', SA_FLBUILDER_TEXTDOMAIN),
@@ -640,6 +640,7 @@ FLBuilder::register_module(
                         'type' => 'dimension',
                         'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Manage the outside spacing of content area of callbox.', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '20',
                         'slider' => true,
                         'units' => array('px'),
                         'responsive' => array(

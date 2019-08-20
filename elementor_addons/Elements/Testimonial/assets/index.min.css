@@ -1,8 +1,6 @@
-/*----------------------------*/
-
-
-/* Testimonials Styles
-/*----------------------------*/
+/*----------------------------
+Testimonials Styles
+----------------------------*/
 
 .sa-el-testimonial-slider {
     position: relative;
@@ -49,7 +47,6 @@
 }
 
 
-/*--- Default styles ---*/
 
 .sa-el-testimonial-image img {
     max-width: 100%;
@@ -183,7 +180,6 @@
 }
 
 
-/*--- Left align ---*/
 
 .icon-img-left-content .sa-el-testimonial-image {
     float: left;
@@ -211,8 +207,6 @@
 }
 
 
-/*--- Center align ---*/
-
 .sa-el-testimonial-align-centered .sa-el-testimonial-user,
 .sa-el-testimonial-align-centered .sa-el-testimonial-user-company {
     float: none;
@@ -225,13 +219,6 @@
     margin-right: auto !important;
 }
 
-
-/* .sa-el-testimonial-align-centered .testimonial-star-rating{
-      text-align: center;
-  } */
-
-
-/*--- Right align ---*/
 
 .icon-img-right-content .sa-el-testimonial-image {
     float: right;
@@ -307,8 +294,6 @@ span.sa-el-testimonial-quote {
 }
 
 
-/*--- Image align ---*/
-
 .sa-el-testimonial-item.left .sa-el-testimonial-image {
     text-align: left;
 }
@@ -320,9 +305,6 @@ span.sa-el-testimonial-quote {
 .sa-el-testimonial-item.right .sa-el-testimonial-image {
     text-align: right;
 }
-
-
-/*--- Float title image style ---*/
 
 .sa-el-testimonial-inline-bio .sa-el-testimonial-image {
     float: left;
@@ -348,8 +330,6 @@ span.sa-el-testimonial-quote {
     text-align: left !important;
 }
 
-
-/*--- Float inline style ---*/
 
 .testimonial-inline-style .sa-el-testimonial-image {
     float: left;

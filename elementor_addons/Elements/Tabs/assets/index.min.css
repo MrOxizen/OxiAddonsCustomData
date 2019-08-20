@@ -1,8 +1,6 @@
-/*----------------------------*/
-
-
-/* Sa Tabs
-/*----------------------------*/
+/*----------------------------
+Sa Tabs
+----------------------------*/
 
 .sa_el_tabs {
     display: block;
@@ -104,9 +102,6 @@
     animation: fadeIn linear 0.3s;
 }
 
-
-/*--- Inline Icon ---*/
-
 .sa_el_inline_icon li a .fa {
     margin-right: 10px;
     line-height: 1;
@@ -146,9 +141,6 @@
 .sa_el_tab_top_icon li a .sa_el_tab_title {
     margin-top: 10px;
 }
-
-
-/*--- Vertical Tabs ---*/
 
 .sa_el_tabs.sa_el_tabs_vertical {
     display: -webkit-box;
