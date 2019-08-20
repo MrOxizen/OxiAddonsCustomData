@@ -20,7 +20,7 @@ if ($settings->icon_position == 'left') {
         echo ' <a class="oxi__button" href="' . $settings->link . '" target="' . $settings->link_target . '" data-attr="' . $settings->secondary_text . '"
             ' . SA_FLBUILDER_HELPER::Sa_fl_builder_get_link_rel($settings->link_target, $settings->link_nofollow, 1) . ' 
         >
-        <div class="oxi__button_wrapper"> ' . $button_position . ' </div>
+        <div class="oxi__button_wrapper oxi__button_wrapper_' . $id . '"> ' . $button_position . ' </div>
     </a>';
     } else {
         echo '<button class="oxi__button">
