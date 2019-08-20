@@ -20,7 +20,7 @@
 }
 .oxi__button_wrapper_main  .oxi__button-text,
 .oxi__button_wrapper_main  .oxi__icon-selector{
-    z-index: 999;
+    z-index: 999 !important;
 } 
 .oxi__button_wrapper_main .oxi__button:hover,
 .oxi__button_wrapper_main .oxi__button:focus{
