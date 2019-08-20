@@ -294,8 +294,8 @@ bottom: 14px;
         } else {
             ?>
 top: 0;
-padding-top: <?php echo $settings->button_padding_top ? $settings->button_padding_top : '15px' ?>;
-padding-bottom: <?php echo $settings->button_padding_bottom ? $settings->button_padding_bottom : '15px' ?>;
+padding-top: <?php echo $settings->button_padding_top ? $settings->button_padding_top . 'px' : '15px' ?>;
+padding-bottom: <?php echo $settings->button_padding_bottom ? $settings->button_padding_bottom . 'px' : '15px' ?>;
 <?php
         }
         ?>
