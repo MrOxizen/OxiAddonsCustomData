@@ -215,7 +215,7 @@ FLBuilder::register_module('Button_module', array(
                     'text_color' => array(
                         'type' => 'color',
                         'label' => __('Text Color', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '',
+                        'default' => 'fff',
                         'show_reset' => true,
                         'connections' => array('color'),
                         'show_alpha' => true,
@@ -241,7 +241,7 @@ FLBuilder::register_module('Button_module', array(
                     'button_background_color' => array(
                         'type' => 'color',
                         'label' => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '',
+                        'default' => '1976d2',
                         'show_reset' => true,
                         'connections' => array('color'),
                         'show_alpha' => true,
@@ -306,7 +306,7 @@ FLBuilder::register_module('Button_module', array(
                     'button_hover_background_color' => array(
                         'type' => 'color',
                         'label' => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '',
+                        'default' => '216daf',
                         'show_reset' => true,
                         'connections' => array('color'),
                         'show_alpha' => true,
@@ -323,7 +323,7 @@ FLBuilder::register_module('Button_module', array(
                     'hover_text_color' => array(
                         'type' => 'color',
                         'label' => __('Hover Text Color', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '',
+                        'default' => 'fff',
                         'show_reset' => true,
                         'connections' => array('color'),
                         'show_alpha' => true,
