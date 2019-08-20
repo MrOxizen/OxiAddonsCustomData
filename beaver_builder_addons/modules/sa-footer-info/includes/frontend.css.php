@@ -243,10 +243,10 @@ if ($settings->responsive_compatibility != 'none') {
 
 <?php
 if ($settings->add_footer_icon != '') {
-    foreach ($settings->add_footer_icon as $value) {
+    foreach ($settings->add_footer_icon as $key => $value) {
         if ($value->link != '') {
             ?>   
-            .fl-node-<?php echo $id; ?> .oxi__addons_footer_icon_area a{
+            .fl-node-<?php echo $id; ?> .oxi__addons_footer_icon_area .oxi-addons-bb-icon-link-<?php echo $key; ?> {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -268,7 +268,7 @@ if ($settings->add_footer_icon != '') {
             <?php
         } else {
             ?>   
-            .fl-node-<?php echo $id; ?> .oxi__addons_footer_icon_area .oxi_footer_info_icon{
+            .fl-node-<?php echo $id; ?> .oxi__addons_footer_icon_area .oxi_footer_info_icon-<?php echo $key; ?>{
             display: flex;
             align-items: center;
             justify-content: center;
