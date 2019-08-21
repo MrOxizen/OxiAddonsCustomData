@@ -122,6 +122,12 @@ FLBuilder::register_module(
                                     'sections' => array('btn-style-section', 'btn-typography'),
                                     'fields'   => array('btn_text', 'btn_link'),
                                 ),
+                                'full_link'           => array(
+                                    'fields'   => array('btn_text', 'btn_link'),
+                                ),
+                                'title_link'           => array(
+                                    'fields'   => array('btn_text', 'btn_link'),
+                                ),
                             ),
                         ),
                         'btn_text'  => array(
