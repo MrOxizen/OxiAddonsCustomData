@@ -1,11 +1,6 @@
 /*
-03. Fancy Text Style
+ Fancy Text Style
 */
-
-.sa_el_fancy_text_container {
-    background: #F15540;
-    color: #fff;
-}
 
 .sa_el_fancy_text_container p {
     margin: 0;

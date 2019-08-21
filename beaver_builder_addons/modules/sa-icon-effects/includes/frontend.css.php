@@ -113,7 +113,7 @@ if ($settings->effects == 'style1') {
         'max-width' =>  $settings->icon_bg_size ? $settings->icon_bg_size . 'px' : '100px',
         'height' =>  $settings->icon_bg_size ? $settings->icon_bg_size . 'px' : '100px',
         'border-radius' =>  $settings->icon_bg_size ? $settings->icon_bg_size / 2 . 'px' : '50px',
-        'box-shadow' =>  '0 0 0 ' . $settings->icon_hover_border_width . 'px  #' . $settings->border_color  . '',
+        'box-shadow' =>  '0 0 0 ' . $settings->icon_border_width . 'px  #' . $settings->border_color  . '',
         'z-index' =>  '1',
     ), '.fl-node-' . $id . ' .oxi__addons_icon');
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
@@ -137,7 +137,7 @@ if ($settings->effects == 'style1') {
         'width' =>  '100%',
         'height' =>  $settings->icon_bg_size ? $settings->icon_bg_size . 'px' : '100px',
         'border-radius' =>  $settings->icon_bg_size ? $settings->icon_bg_size / 2 . 'px' : '50px',
-        'box-shadow' =>  '0 0 0 ' . $settings->icon_hover_border_width . 'px  #' . $settings->icon_hover_border_color  . '',
+        'box-shadow' =>  '0 0 0 ' . $settings->icon_border_width . 'px   #' . $settings->icon_hover_border_color  . '',
     ), '.fl-node-' . $id . ' .oxi__addons_icon:hover');
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
         'color' =>  $settings->icon_hover_color ? $settings->icon_hover_color : 'fff',
