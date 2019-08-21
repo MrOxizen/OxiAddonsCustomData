@@ -113,7 +113,9 @@ FLBuilder::register_module(
                             'default' => 'no',
                             'options' => array(
                                 'no'            => __('No Link', SA_FLBUILDER_TEXTDOMAIN),
-                                'cta'           => __('Call to Action Button', SA_FLBUILDER_TEXTDOMAIN),
+                                'cta'           => __('Button link', SA_FLBUILDER_TEXTDOMAIN),
+                                'full_link'           => __('Full Box link', SA_FLBUILDER_TEXTDOMAIN),
+                                'title_link'           => __('Title Link', SA_FLBUILDER_TEXTDOMAIN),
                             ),
                             'toggle'  => array(
                                 'cta'           => array(

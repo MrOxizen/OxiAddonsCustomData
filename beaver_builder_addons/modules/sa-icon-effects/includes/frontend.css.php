@@ -64,7 +64,7 @@ if ($settings->effects == 'style1') {
         'max-width' =>  $settings->icon_bg_size ? $settings->icon_bg_size . 'px' : '100px',
         'height' =>  $settings->icon_bg_size ? $settings->icon_bg_size . 'px' : '100px',
         'border-radius' =>  $settings->icon_bg_size ? $settings->icon_bg_size / 2 . 'px' : '50px',
-        'box-shadow' =>  '0 0 0 ' . $settings->icon_hover_border_width . 'px  #' . $settings->icon_hover_border_color  . '',
+        'box-shadow' =>  '0 0 0 ' . $settings->icon_border_width . 'px  #' . $settings->icon_hover_border_color  . '',
         'z-index' =>  '1',
     ), '.fl-node-' . $id . ' .oxi__addons_icon');
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
@@ -83,7 +83,7 @@ if ($settings->effects == 'style1') {
         'width' =>  '100%',
         'height' =>  $settings->icon_bg_size ? $settings->icon_bg_size . 'px' : '100px',
         'border-radius' =>  $settings->icon_bg_size ? $settings->icon_bg_size / 2 . 'px' : '50px',
-        'box-shadow' =>  '0 0 0 ' . $settings->icon_hover_border_width . 'px  #' . $settings->icon_hover_border_color  . '',
+        'box-shadow' =>  '0 0 0 ' . $settings->icon_border_width . 'px  #' . $settings->icon_hover_border_color  . '',
     ), '.fl-node-' . $id . ' .oxi__addons_icon:hover');
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
         'color' =>  $settings->icon_hover_color ? $settings->icon_hover_color : '323232',
@@ -113,14 +113,14 @@ if ($settings->effects == 'style1') {
         'max-width' =>  $settings->icon_bg_size ? $settings->icon_bg_size . 'px' : '100px',
         'height' =>  $settings->icon_bg_size ? $settings->icon_bg_size . 'px' : '100px',
         'border-radius' =>  $settings->icon_bg_size ? $settings->icon_bg_size / 2 . 'px' : '50px',
-        'box-shadow' =>  '0 0 0 ' . $settings->icon_hover_border_width . 'px  #' . $settings->icon_hover_border_color  . '',
+        'box-shadow' =>  '0 0 0 ' . $settings->icon_hover_border_width . 'px  #' . $settings->border_color  . '',
         'z-index' =>  '1',
     ), '.fl-node-' . $id . ' .oxi__addons_icon');
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
         'top' =>  '-5px',
         'left' =>  '-5px',
         'padding' =>  '5px',
-        'background-color' => $settings->icon_bg_color ? $settings->icon_bg_color : '3659ac',
+        'background-color' => $settings->icon_hover_bg_color ? $settings->icon_hover_bg_color : '3659ac',
         '-webkit-transition' =>  'all 0.4s',
         '-moz-transition' =>  'all 0.4s',
         '-ms-transform' =>  'all 0.4s',
@@ -150,7 +150,7 @@ if ($settings->effects == 'style1') {
         'opacity' =>  '1',
     ), '.fl-node-' . $id . ' .oxi__addons_icon:hover::after');
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-        'color' =>  '3659ac',
+        'color' =>  $settings->icon_color ? $settings->icon_color : '323232',
     ), '.fl-node-' . $id . ' .oxi__addons_icon .oxi__icons');
 } elseif ($settings->effects == 'style4') { // START CODING FOR STYLE three
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
@@ -167,7 +167,7 @@ if ($settings->effects == 'style1') {
         'max-width' =>  $settings->icon_bg_size ? $settings->icon_bg_size . 'px' : '100px',
         'height' =>  $settings->icon_bg_size ? $settings->icon_bg_size . 'px' : '100px',
         'border-radius' =>  $settings->icon_bg_size ? $settings->icon_bg_size / 2 . 'px' : '50px',
-        'box-shadow' =>  '0 0 0 ' . $settings->icon_border_width . 'px  #' . $settings->icon_hover_border_color  . '',
+        'box-shadow' =>  '0 0 0 ' . $settings->icon_border_width . 'px  #' . $settings->border_color  . '',
         'z-index' =>  '1',
         '-webkit-transition' =>  'all 0.4s',
         '-moz-transition' =>  'all 0.4s',
@@ -184,12 +184,12 @@ if ($settings->effects == 'style1') {
         'width' =>  '100%',
         'height' =>  $settings->icon_bg_size ? $settings->icon_bg_size . 'px' : '100px',
         'border-radius' =>  $settings->icon_bg_size ? $settings->icon_bg_size / 2 . 'px' : '50px',
-        'box-shadow' =>  '0 0 0 ' . $settings->icon_hover_border_width . 'px  #' . $settings->icon_hover_border_color  . '',
-        'background-color' => $settings->icon_bg_color ? $settings->icon_bg_color : 'ff5722',
+        'box-shadow' =>  '0 0 0 ' . $settings->icon_border_width . 'px  #' . $settings->icon_hover_border_color  . '',
+        'background-color' => $settings->icon_hover_bg_color ? $settings->icon_hover_bg_color : 'ff5722',
     ), '.fl-node-' . $id . ' .oxi__addons_icon:hover');
 
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-        'color' =>  'ff5722',
+        'color' =>  $settings->icon_color ? $settings->icon_color : 'fff',
     ), '.fl-node-' . $id . ' .oxi__addons_icon .oxi__icons');
 
     if ($settings->effect_position == 'left_to_right') {
@@ -200,19 +200,19 @@ if ($settings->effects == 'style1') {
             'animation' =>  'toRightFromLeft 0.3s forwards',
         ), '.fl-node-' . $id . ' .oxi__addons_icon:hover .oxi__icons');
         ?>
-        @keyframes toRightFromLeft {
-        49% {
-        -webkit-transform: translateX(100%);
-        }
-        50% {
-        opacity: 0;
-        -webkit-transform: translateX(-100%);
-        }
-        51% {
-        opacity: 1;
-        }
-        }
-    <?php
+@keyframes toRightFromLeft {
+49% {
+-webkit-transform: translateX(100%);
+}
+50% {
+opacity: 0;
+-webkit-transform: translateX(-100%);
+}
+51% {
+opacity: 1;
+}
+}
+<?php
     } elseif ($settings->effect_position == 'right_to_left') {
         SA_FLBUILDER_HELPER::sa_fl_general_style(array(
             'color' =>  $settings->icon_hover_color ? $settings->icon_hover_color : 'fff',
@@ -221,19 +221,19 @@ if ($settings->effects == 'style1') {
             'animation' =>  'toLeftFromRight 0.3s forwards',
         ), '.fl-node-' . $id . ' .oxi__addons_icon:hover .oxi__icons');
         ?>
-        @keyframes toLeftFromRight {
-        49% {
-        -webkit-transform: translateX(-100%);
-        }
-        50% {
-        opacity: 0;
-        -webkit-transform: translateX(100%);
-        }
-        51% {
-        opacity: 1;
-        }
-        }
-    <?php
+@keyframes toLeftFromRight {
+49% {
+-webkit-transform: translateX(-100%);
+}
+50% {
+opacity: 0;
+-webkit-transform: translateX(100%);
+}
+51% {
+opacity: 1;
+}
+}
+<?php
     } elseif ($settings->effect_position == 'top_to_bottom') {
         SA_FLBUILDER_HELPER::sa_fl_general_style(array(
             'color' =>  $settings->icon_hover_color ? $settings->icon_hover_color : 'fff',
@@ -242,19 +242,19 @@ if ($settings->effects == 'style1') {
             'animation' =>  'toTopFromBottom 0.3s forwards',
         ), '.fl-node-' . $id . ' .oxi__addons_icon:hover .oxi__icons');
         ?>
-        @keyframes toTopFromBottom {
-        49% {
-        -webkit-transform: translateY(100%);
-        }
-        50% {
-        opacity: 0;
-        -webkit-transform: translateY(-100%);
-        }
-        51% {
-        opacity: 1;
-        }
-        }
-    <?php
+@keyframes toTopFromBottom {
+49% {
+-webkit-transform: translateY(100%);
+}
+50% {
+opacity: 0;
+-webkit-transform: translateY(-100%);
+}
+51% {
+opacity: 1;
+}
+}
+<?php
     } elseif ($settings->effect_position == 'bottom_to_top') {
         SA_FLBUILDER_HELPER::sa_fl_general_style(array(
             'color' =>  $settings->icon_hover_color ? $settings->icon_hover_color : 'fff',
@@ -263,19 +263,19 @@ if ($settings->effects == 'style1') {
             'animation' =>  'toBottomToLeft 0.3s forwards',
         ), '.fl-node-' . $id . ' .oxi__addons_icon:hover .oxi__icons');
         ?>
-        @keyframes toBottomToLeft {
-        49% {
-        -webkit-transform: translateY(-100%);
-        }
-        50% {
-        opacity: 0;
-        -webkit-transform: translateY(100%);
-        }
-        51% {
-        opacity: 1;
-        }
-        }
-    <?php
+@keyframes toBottomToLeft {
+49% {
+-webkit-transform: translateY(-100%);
+}
+50% {
+opacity: 0;
+-webkit-transform: translateY(100%);
+}
+51% {
+opacity: 1;
+}
+}
+<?php
     }
 } elseif ($settings->effects == 'style5') { // START CODING FOR STYLE Four
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
@@ -292,7 +292,7 @@ if ($settings->effects == 'style1') {
         'max-width' =>  $settings->icon_bg_size ? $settings->icon_bg_size . 'px' : '100px',
         'height' =>  $settings->icon_bg_size ? $settings->icon_bg_size . 'px' : '100px',
         'border-radius' =>  $settings->icon_bg_size ? $settings->icon_bg_size / 2 . 'px' : '50px',
-        'box-shadow' =>  '0 0 0 ' . $settings->icon_border_width . 'px  #' . $settings->icon_hover_border_color  . '',
+        'box-shadow' =>  '0 0 0 ' . $settings->icon_border_width . 'px  #' . $settings->border_color  . '',
         'z-index' =>  '1',
         '-webkit-transition' =>  'all 0.4s',
         '-moz-transition' =>  'all 0.4s',
@@ -309,14 +309,13 @@ if ($settings->effects == 'style1') {
         'width' =>  '100%',
         'height' =>  $settings->icon_bg_size ? $settings->icon_bg_size . 'px' : '100px',
         'border-radius' =>  $settings->icon_bg_size ? $settings->icon_bg_size / 2 . 'px' : '50px',
-        'box-shadow' =>  '0 0 0 ' . $settings->icon_hover_border_width . 'px  #' . $settings->icon_hover_border_color  . '',
-        'background-color' => $settings->icon_bg_color ? $settings->icon_bg_color : 'ff5722',
+        'box-shadow' =>  '0 0 0 ' . $settings->icon_border_width . 'px  #' . $settings->icon_hover_border_color  . '',
+        'background-color' => $settings->icon_hover_bg_color ? $settings->icon_hover_bg_color : 'ff5722',
     ), '.fl-node-' . $id . ' .oxi__addons_icon:hover');
 
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-        'color' =>  'ff5722',
+        'color' =>  $settings->icon_color ? $settings->icon_color : 'fff',
     ), '.fl-node-' . $id . ' .oxi__addons_icon .oxi__icons');
-
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
         'color' =>  $settings->icon_hover_color ? $settings->icon_hover_color : 'fff',
         '-webkit-animation' =>  'spinAround 2s linear infinite',
@@ -324,29 +323,29 @@ if ($settings->effects == 'style1') {
         'animation' =>  'spinAround 2s linear infinite',
     ), '.fl-node-' . $id . ' .oxi__addons_icon:hover .oxi__icons');
     ?>
-    @-webkit-keyframes spinAround {
-    from {
-    -webkit-transform: rotate(0deg)
-    }
-    to {
-    -webkit-transform: rotate(360deg);
-    }
-    }
-    @-moz-keyframes spinAround {
-    from {
-    -moz-transform: rotate(0deg)
-    }
-    to {
-    -moz-transform: rotate(360deg);
-    }
-    }
-    @keyframes spinAround {
-    from {
-    transform: rotate(0deg)
-    }
-    to {
-    transform: rotate(360deg);
-    }
-    }
+@-webkit-keyframes spinAround {
+from {
+-webkit-transform: rotate(0deg)
+}
+to {
+-webkit-transform: rotate(360deg);
+}
+}
+@-moz-keyframes spinAround {
+from {
+-moz-transform: rotate(0deg)
+}
+to {
+-moz-transform: rotate(360deg);
+}
+}
+@keyframes spinAround {
+from {
+transform: rotate(0deg)
+}
+to {
+transform: rotate(360deg);
+}
+}
 <?php
 }

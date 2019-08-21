@@ -77,3 +77,8 @@
     background-color: #444; 
 } 
  
+.oxi__addons_info_boxes_wrapper .oxi__addons_info_boxes_link {  
+     width: 100%;
+     display: contents;
+} 
+ 
