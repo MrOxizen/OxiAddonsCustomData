@@ -26,7 +26,7 @@
             });
             <?php if($settings->click_any_where == 'enable'){ ?>
             jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").click(function () {
-                jQuery(".oxi-offcanvas-left-content-<?php echo $id; ?>").toggleClass("oxi-active");
+                jQuery(".oxi-offcanvas-right-content-<?php echo $id; ?>").toggleClass("oxi-active");
                 jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").toggleClass("oxi-active");
             });
             <?php } ?>
@@ -41,7 +41,7 @@
             });
             <?php if($settings->click_any_where == 'enable'){ ?>
             jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").click(function () {
-                jQuery(".oxi-offcanvas-left-content-<?php echo $id; ?>").toggleClass("oxi-active");
+                jQuery(".oxi-offcanvas-top-content-<?php echo $id; ?>").toggleClass("oxi-active");
                 jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").toggleClass("oxi-active");
             });
             <?php } ?>
@@ -56,7 +56,7 @@
             });
             <?php if($settings->click_any_where == 'enable'){ ?>
             jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").click(function () {
-                jQuery(".oxi-offcanvas-left-content-<?php echo $id; ?>").toggleClass("oxi-active");
+                jQuery(".oxi-offcanvas-bottom-content-<?php echo $id; ?>").toggleClass("oxi-active");
                 jQuery(".oxi-addons-OC-conetent-overlay-<?php echo $id; ?>").toggleClass("oxi-active");
             });
             <?php } ?>
