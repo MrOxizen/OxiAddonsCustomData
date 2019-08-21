@@ -9,9 +9,15 @@
 // echo '</pre>';
 $heading = $description  = $button =   '';
 //header
-$heading = '<' . $settings->title_tag_selection . ' class="oxi__addons_header">
+if ($settings->info_link_type  == 'title_link') {
+    $heading = '<a href="' . $settings->btn_link . '" target="' . $settings->btn_link_target . '"  ' . SA_FLBUILDER_HELPER::Sa_fl_builder_get_link_rel($settings->btn_link_target, $settings->btn_link_nofollow, 1) . ' ><' . $settings->title_tag_selection . ' class="oxi__addons_header">
+                ' . $settings->info_title . '
+            </' . $settings->title_tag_selection . '> </a>';
+} else {
+    $heading = '<' . $settings->title_tag_selection . ' class="oxi__addons_header">
                 ' . $settings->info_title . '
             </' . $settings->title_tag_selection . '>';
+}
 // description
 if ($settings->info_desc != '') {
     $description = '<div class="oxi__addons_details">
@@ -91,10 +97,20 @@ if ($settings->position == 'i_h_d') {
         </div>';
     }
 }
+$link = '';
+if ($settings->info_link_type  == 'full_link') {
+    $link =  '  <a href="' . $settings->btn_link . '" class="oxi__addons_info_boxes_link" target="' . $settings->btn_link_target . '"  ' . SA_FLBUILDER_HELPER::Sa_fl_builder_get_link_rel($settings->btn_link_target, $settings->btn_link_nofollow, 1) . ' > <div class="oxi__addons_info_boxes_main">
+        ' . $position . '
+        ' . $button . '
+    </div> </a>';
+} else {
+    $link = '<div class="oxi__addons_info_boxes_main">
+        ' . $position . '
+        ' . $button . '
+    </div>';
+}
+
 ?>
 <div class="oxi__addons_info_boxes_wrapper">
-    <div class="oxi__addons_info_boxes_main">
-        <?php echo $position; ?>
-        <?php echo $button; ?>
-    </div>
+    <?php echo $link ?>
 </div>
