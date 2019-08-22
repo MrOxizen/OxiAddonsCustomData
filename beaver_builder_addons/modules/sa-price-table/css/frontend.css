@@ -5,12 +5,12 @@
 .oxi__addons_price_table_main {
     width: 100%;
     display: flex;
-    justify-content: center;
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06);
-    border: 1px solid #999;
+    justify-content: center; 
 }
 .oxi__addons_price_table_main .oxi__addons_price_table {
     width: 100%;
+      box-shadow: 0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06);
+    border: 1px solid #999;
     overflow: hidden;
 }
 .oxi__addons_price_table_main .oxi__addons_main_title_value { 

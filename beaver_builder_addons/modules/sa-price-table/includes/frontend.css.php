@@ -9,7 +9,7 @@
  * start coding for 
  * Price Table Box outer
  */
-SA_FLBUILDER_HELPER::sa_fl_border_package($settings, 'pice_border_package', '.fl-node-' . $id . ' .oxi__addons_price_table_main');
+SA_FLBUILDER_HELPER::sa_fl_border_package($settings, 'pice_border_package', '.fl-node-' . $id . ' .oxi__addons_price_table');
 
 /**
  * start coding for 
