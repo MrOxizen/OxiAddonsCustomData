@@ -1,91 +1,90 @@
- .oxi__addons_price_table_wrapper {
-	width: 100%;
-	display: flex;
-}
-.oxi__addons_price_table_wrapper  .oxi__addons_price_table_main {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	box-shadow: 0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06);
-	border: 1px solid #999;
-}
-.oxi__addons_price_table_wrapper  .oxi__addons_price_table {
-	width: 100%;
-    overflow: hidden;
-}
-.oxi__addons_price_table_wrapper  .oxi__addons_main_title_value {
-
-    position: relative;
-	background: #459ce1;
-	padding: 15px;
-}
-.oxi__addons_price_table_wrapper .oxi__addons_main_title_value::after {
-	position: absolute;  
-	display: flex;
-	justify-content: center;
-	align-items: center; 
-}
-.oxi__addons_price_table_wrapper  .oxi__addons_feature_main{
+.oxi__addons_price_table_wrapper {
     width: 100%;
     display: flex;
 }
-.oxi__addons_price_table_wrapper  .oxi__addons_feature_ul{
+.oxi__addons_price_table_main {
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+}
+.oxi__addons_price_table_main .oxi__addons_price_table {
+    width: 100%;
+      box-shadow: 0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06);
+    border: 1px solid #999;
+    overflow: hidden;
+}
+.oxi__addons_price_table_main .oxi__addons_main_title_value { 
+    position: relative;
+    background: #459ce1;
+    padding: 15px;
+}
+.oxi__addons_price_table_main .oxi__addons_main_title_value::after {
+    position: absolute; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.oxi__addons_price_table_main .oxi__addons_feature_main{
+    width: 100%;
+    display: flex;
+}
+.oxi__addons_price_table_main ul.oxi__addons_feature_ul{
     width: 100%;
     margin: 0;
     padding: 0;
     list-style: none;
 }
-.oxi__addons_price_table_wrapper .oxi__addons_feature {
-	font-size: 16px;
-	text-transform: capitalize;
-	color: #666;
-	text-align: center;
-	padding: 3px 0px;
-	border-bottom: 1px solid #f4f4f4;
+.oxi__addons_price_table_main .oxi__addons_feature {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #666;
+    text-align: center;
+    padding: 3px 0px;
+    border-bottom: 1px solid #f4f4f4;
 }
- 
-.oxi__addons_price_table_wrapper  .oxi__addons_feature:last-child{  
+
+.oxi__addons_price_table_main .oxi__addons_feature:last-child{ 
     border-bottom-width: 0px !important;
 }
-.oxi__addons_price_table_wrapper  .oxi__addons_button_main {
-	text-align: center;
+.oxi__addons_price_table_main .oxi__addons_button_main {
+    text-align: center;
 }
-.oxi__addons_price_table_wrapper .oxi__addons_button {
-	padding: 8px 20px;
-	background: #4871db;
-	border: none;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	transition: all 0.3s ease;
+.oxi__addons_price_table_main .oxi__addons_button {
+    padding: 8px 20px;
+    background: #4871db;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
 }
- 
-.oxi__addons_price_table_wrapper .oxi__addons_title {
+
+.oxi__addons_price_table_main .oxi__addons_title {
     font-size: 22px;
     font-weight: bold;
     color: #fff;
     text-align: center;
-	text-transform: capitalize;
-	padding: 5px;
-	margin: 0;
+    text-transform: capitalize;
+    padding: 5px;
+    margin: 0;
 }
- /**
- * start coding for price table price value style
- */
- .oxi__addons_price_table_wrapper .oxi__addons_price_main {
-	display: flex;
-	display: -webkit-flex;
-	align-items: flex-end;
-	justify-content: center;
+/*
+ start coding for price table price value style
+*/
+.oxi__addons_price_table_main .oxi__addons_price_main {
+    display: flex;
+    display: -webkit-flex;
+    align-items: flex-end;
+    justify-content: center;
 }
- .oxi__addons_price_table_wrapper .oxi__addons_price {
-	font-size: 40px; 
-	line-height: 1;
-	padding: 5px;
+.oxi__addons_price_table_main .oxi__addons_price {
+    font-size: 40px; 
+    line-height: 1;
+    padding: 5px;
 }
- .oxi__addons_price_table_wrapper .oxi__addons_duration {
-	font-size: 16px; 
-	line-height: 1;
-	padding: 5px;
+.oxi__addons_price_table_main .oxi__addons_duration {
+    font-size: 16px; 
+    line-height: 1;
+    padding: 5px;
 }
-  
- 
+
+

@@ -285,7 +285,7 @@ FLBuilder::register_module(
                             'responsive'      => true,
                             'preview'     => array(
                                 'type'     => 'css',
-                                'selector' => '.oxi__addons_seperator_width',
+                                'selector' => '.oxi__addons_seperator_width_tab',
                                 'property' => 'width',
                                 'unit'     => '%',
                             ),
