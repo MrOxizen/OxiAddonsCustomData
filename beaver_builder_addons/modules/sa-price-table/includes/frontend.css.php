@@ -160,7 +160,7 @@ if ($settings->box_hover_shadow != '') {
  * start coding for 
  * Duration typography
  */
-SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'duration_typography', '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_duration');
+SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'duration_font_typo', '.fl-node-' . $id . '  .oxi__addons_price_table_wrapper .oxi__addons_duration');
 SA_FLBUILDER_HELPER::sa_fl_general_style(array(
     'color' => $settings->duration_color,
 ), '.fl-node-' . $id . ' .oxi__addons_price_table_wrapper .oxi__addons_duration');
