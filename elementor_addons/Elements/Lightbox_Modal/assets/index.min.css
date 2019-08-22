@@ -3,11 +3,13 @@
 .sa_el_lightbox_btn>img {
     cursor: pointer;
 }
+
 .sa_el_modal_popup_button.OxiAddonsELEqualHeightWidth {
     display: inline-flex;
     align-items: center;
-    justify-content:  center;
+    justify-content: center;
 }
+
 button.mfp-close {
     background: transparent;
 }
@@ -29,16 +31,12 @@ button.mfp-close {
     }
 }
 
-
-
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .sa_el_lightbox_modal_window,
     .sa_el_lightbox_popup_window {
         max-width: 900px;
     }
 }
-
-
 
 @media only screen and (max-width: 767px) {
     .sa_el_lightbox_modal_window,
@@ -47,8 +45,6 @@ button.mfp-close {
     }
 }
 
-
-
 @media only screen and (min-width: 480px) and (max-width: 767px) {
     .sa_el_lightbox_modal_window,
     .sa_el_lightbox_popup_window {
@@ -56,8 +52,8 @@ button.mfp-close {
     }
 }
 
-.sa_el_lightbox_popup_window.lightbox_type_content,
-.sa_el_lightbox_popup_window.lightbox_type_custom_html {
+.sa_el_lightbox_popup_window.lightbox_type_content .sa_el_lightbox_container,
+.sa_el_lightbox_popup_window.lightbox_type_custom_html .sa_el_lightbox_container {
     background-color: #fff;
     padding: 15px;
 }
