@@ -12,8 +12,8 @@ $heading_top = $heading_middle = $heading_bottom = $separator =  $oxi_addons_mai
 
 if ($settings->separator_style != 'none') {
     if ($settings->separator_style === 'line') {
-        $separator = ' <div class="oxi__addons_line_divider">
-                            <span class="oxi__addons_seperator_span oxi__addons_seperator_width"></span>
+        $separator = ' <div class="oxi__addons_line_divider_tab">
+                            <span class="oxi__addons_seperator_span oxi__addons_seperator_width_tab"></span>
                         </div>';
     } else if ($settings->separator_style === 'line_icon') {
         $divider_icon = '';
@@ -21,7 +21,7 @@ if ($settings->separator_style != 'none') {
             $divider_icon =  '<i class="oxi__icon ' . $settings->icon . '"></i>';
         }
 
-        $separator = '<div class="oxi__addons_line_divider oxi__addons_seperator_width oxi__margin">
+        $separator = '<div class="oxi__addons_line_divider_tab oxi__addons_seperator_width_tab oxi__margin">
                         <div class="oxi__addons_seperator oxi__before">
                             <span class="oxi__addons_seperator_span"></span>
                         </div>
@@ -43,7 +43,7 @@ if ($settings->separator_style != 'none') {
                 $divider_image = '<img class="oxi__addons_image" src="' . $settings->photo_url . '" alt="' . $settings->heading . '"/>';
             }
         }
-        $separator = '<div class="oxi__addons_line_divider oxi__addons_seperator_width oxi__margin">
+        $separator = '<div class="oxi__addons_line_divider_tab oxi__addons_seperator_width_tab oxi__margin">
                         <div class="oxi__addons_seperator oxi__before">
                             <span class="oxi__addons_seperator_span"></span>
                         </div>

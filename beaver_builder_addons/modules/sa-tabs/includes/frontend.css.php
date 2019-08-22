@@ -10,7 +10,7 @@ SA_FLBUILDER_HELPER::sa_fl_dimension_utility('general_margin', $settings, 'paddi
 // for global border
 if ($settings->general_border_style != 'none') {
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-        'border-width' => $settings->general_border_width ? $settings->general_border_width . 'px;' : '',
+        'border-width' => $settings->general_border_width ? $settings->general_border_width . 'px;' : '0',
         'border-color' => $settings->general_border_color,
         'border-style' => $settings->general_border_style,
     ), '.fl-node-' . $id . ' .oxi__addons_wrapper');
@@ -151,11 +151,11 @@ if ($settings->tab_layout == 'vertical') {
             'border-bottom-color' => $settings->caret_color ? $settings->caret_color : '#fff',
         ), '.fl-node-' . $id . ' .oxi__tab_ul .oxi__tab_li.active::after');
         ?>
-        .fl-node-<?php echo $id; ?> .oxi__tab_ul .oxi__tab_li.active::after{
-        border-right-color: transparent !important;
-        border-left-color: transparent !important;
-        }
-    <?php
+.fl-node-<?php echo $id; ?> .oxi__tab_ul .oxi__tab_li.active::after{
+border-right-color: transparent !important;
+border-left-color: transparent !important;
+}
+<?php
 
     } else {
         SA_FLBUILDER_HELPER::sa_fl_general_style(array(
@@ -171,11 +171,11 @@ if ($settings->tab_layout == 'vertical') {
             'border-left-color' => $settings->caret_color ? $settings->caret_color : '#000',
         ), '.fl-node-' . $id . ' .oxi__tab_ul .oxi__tab_li.active::after');
         ?>
-        .fl-node-<?php echo $id; ?> .oxi__tab_ul .oxi__tab_li.active::after{
-        border-top-color: transparent !important;
-        border-bottom-color: transparent !important;
-        }
-    <?php
+.fl-node-<?php echo $id; ?> .oxi__tab_ul .oxi__tab_li.active::after{
+border-top-color: transparent !important;
+border-bottom-color: transparent !important;
+}
+<?php
     }
 } else {
     // start coding for caret styling
@@ -192,11 +192,11 @@ if ($settings->tab_layout == 'vertical') {
                 'border-bottom-color' => $settings->caret_color ? $settings->caret_color : '#fff',
             ), '.fl-node-' . $id . ' .oxi__tab_ul .oxi__tab_li.active::after');
             ?>
-            .fl-node-<?php echo $id; ?> .oxi__tab_ul .oxi__tab_li.active::after{
-            border-right-color: transparent !important;
-            border-left-color: transparent !important;
-            }
-        <?php
+.fl-node-<?php echo $id; ?> .oxi__tab_ul .oxi__tab_li.active::after{
+border-right-color: transparent !important;
+border-left-color: transparent !important;
+}
+<?php
 
         } else {
             SA_FLBUILDER_HELPER::sa_fl_general_style(array(
@@ -210,11 +210,11 @@ if ($settings->tab_layout == 'vertical') {
                 'border-top-color' => $settings->caret_color ? $settings->caret_color : '#000',
             ), '.fl-node-' . $id . ' .oxi__tab_ul .oxi__tab_li.active::after');
             ?>
-            .fl-node-<?php echo $id; ?> .oxi__tab_ul .oxi__tab_li.active::after{
-            border-right-color: transparent !important;
-            border-left-color: transparent !important;
-            }
-        <?php
+.fl-node-<?php echo $id; ?> .oxi__tab_ul .oxi__tab_li.active::after{
+border-right-color: transparent !important;
+border-left-color: transparent !important;
+}
+<?php
         }
     }
 }

@@ -43,7 +43,7 @@
      margin: 0; 
 }
 
-.oxi__addons_heading_wrapper .oxi__addons_line_divider {
+.oxi__addons_heading_wrapper .oxi__addons_line_divider_tab {
      display: table;
      width: 100%; 
      line-height: 0; 
@@ -54,11 +54,10 @@
      vertical-align: middle;
 }
 .oxi__addons_heading_wrapper .oxi__addons_seperator_span { 
-     border-top: 2px solid rgb(43, 43, 43); 
-     width: 100%;
+     border-top: 2px solid rgb(43, 43, 43);  
      display: inline-block; 
 }
-.oxi__addons_heading_wrapper .oxi__addons_seperator_width { 
+.oxi__addons_heading_wrapper .oxi__addons_seperator_width_tab { 
      width: 40%;
 }
  

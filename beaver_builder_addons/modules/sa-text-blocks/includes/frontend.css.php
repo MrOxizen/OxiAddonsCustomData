@@ -25,7 +25,7 @@ SA_FLBUILDER_HELPER::sa_fl_general_style(array(
 SA_FLBUILDER_HELPER::sa_fl_dimension_utility('heading_bottom', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_heading_bottom', 'px');
 
 
-SA_FLBUILDER_HELPER::sa_fl_responsive_setting('text-align', $settings, 'alignment', '.fl-node-' . $id . ' .oxi__addons_line_divider');
+SA_FLBUILDER_HELPER::sa_fl_responsive_setting('text-align', $settings, 'alignment', '.fl-node-' . $id . ' .oxi__addons_line_divider_tab');
 
 if ($settings->separator_style != 'none') {
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
@@ -34,158 +34,158 @@ if ($settings->separator_style != 'none') {
         'border-top-color' => $settings->separator_line_color,
     ), '.fl-node-' . $id . ' .oxi__addons_seperator_span');
 
-    SA_FLBUILDER_HELPER::sa_fl_responsive_setting('width', $settings, 'separator_line_width', '.fl-node-' . $id . ' .oxi__addons_seperator_width');
+    SA_FLBUILDER_HELPER::sa_fl_responsive_setting('width', $settings, 'separator_line_width', '.fl-node-' . $id . ' .oxi__addons_seperator_width_tab');
 }
 if ($settings->separator_style === 'line') {
     ?>
-    .fl-node-<?php echo $id; ?> .oxi__addons_seperator_width {
-    width: <?php echo $settings->separator_line_width; ?>%;
-    }
-    .fl-node-<?php echo $id; ?> .oxi__addons_line_divider {
-    display: inline-block;
-    }
-    .fl-node-<?php echo $id; ?> .oxi__addons_seperator {
-    display: inline-block;
-    }
+.fl-node-<?php echo $id; ?> .oxi__addons_seperator_width_tab {
+width: <?php echo $settings->separator_line_width; ?>%;
+}
+.fl-node-<?php echo $id; ?> .oxi__addons_line_divider_tab {
+display: inline-block;
+}
+.fl-node-<?php echo $id; ?> .oxi__addons_seperator {
+display: inline-block;
+}
 <?php
 }
 
 if ($settings->separator_style !== 'line') {
     if ($settings->alignment === 'left') {
         ?>
-        .fl-node-<?php echo $id; ?> .oxi__margin {
-        margin-right: auto;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__before {
-        display: none;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__after {
-        width: 100%;
-        }
-    <?php
+.fl-node-<?php echo $id; ?> .oxi__margin {
+margin-right: auto;
+}
+.fl-node-<?php echo $id; ?> .oxi__before {
+display: none;
+}
+.fl-node-<?php echo $id; ?> .oxi__after {
+width: 100%;
+}
+<?php
     } else if ($settings->alignment === 'right') {
         ?>
-        .fl-node-<?php echo $id; ?> .oxi__margin {
-        margin-left: auto;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__after {
-        display: none;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__before {
-        width: 100%;
-        }
-    <?php
+.fl-node-<?php echo $id; ?> .oxi__margin {
+margin-left: auto;
+}
+.fl-node-<?php echo $id; ?> .oxi__after {
+display: none;
+}
+.fl-node-<?php echo $id; ?> .oxi__before {
+width: 100%;
+}
+<?php
     } else if ($settings->alignment === 'center') {
         ?>
-        .fl-node-<?php echo $id; ?> .oxi__margin {
-        margin-right: auto;
-        margin-left: auto;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__before {
-        width: 50%;
-        display: table-cell;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__after {
-        width: 50%;
-        display: table-cell;
-        }
-    <?php
+.fl-node-<?php echo $id; ?> .oxi__margin {
+margin-right: auto;
+margin-left: auto;
+}
+.fl-node-<?php echo $id; ?> .oxi__before {
+width: 50%;
+display: table-cell;
+}
+.fl-node-<?php echo $id; ?> .oxi__after {
+width: 50%;
+display: table-cell;
+}
+<?php
     }
     ?>
-    @media only screen and (min-width : 669px) and (max-width : 993px){
-    <?php
+@media only screen and (min-width : 669px) and (max-width : 993px){
+<?php
     if ($settings->alignment_medium === 'left') {
         ?>
-        .fl-node-<?php echo $id; ?> .oxi__margin {
-        margin-right: auto;
-        margin-left: 0;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__before {
-        display: none;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__after {
-        width: 100%;
-        }
+.fl-node-<?php echo $id; ?> .oxi__margin {
+margin-right: auto;
+margin-left: 0;
+}
+.fl-node-<?php echo $id; ?> .oxi__before {
+display: none;
+}
+.fl-node-<?php echo $id; ?> .oxi__after {
+width: 100%;
+}
 
-    <?php
+<?php
     } else if ($settings->alignment_medium === 'right') {
         ?>
-        .fl-node-<?php echo $id; ?> .oxi__margin {
-        margin-left: auto;
-        margin-right: 0;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__after {
-        display: none;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__before {
-        width: 100%;
-        }
-    <?php
+.fl-node-<?php echo $id; ?> .oxi__margin {
+margin-left: auto;
+margin-right: 0;
+}
+.fl-node-<?php echo $id; ?> .oxi__after {
+display: none;
+}
+.fl-node-<?php echo $id; ?> .oxi__before {
+width: 100%;
+}
+<?php
     } else if ($settings->alignment_medium === 'center') {
         ?>
-        .fl-node-<?php echo $id; ?> .oxi__margin {
-        margin-right: auto;
-        margin-left: auto;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__before {
-        width: 50%;
-        display: table-cell;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__after {
-        width: 50%;
-        display: table-cell;
-        }
-    <?php
+.fl-node-<?php echo $id; ?> .oxi__margin {
+margin-right: auto;
+margin-left: auto;
+}
+.fl-node-<?php echo $id; ?> .oxi__before {
+width: 50%;
+display: table-cell;
+}
+.fl-node-<?php echo $id; ?> .oxi__after {
+width: 50%;
+display: table-cell;
+}
+<?php
     }
     ?>
-    }
-    @media only screen and (max-width : 668px){
-    <?php
+}
+@media only screen and (max-width : 668px){
+<?php
     if ($settings->alignment_responsive === 'left') {
         ?>
-        .fl-node-<?php echo $id; ?> .oxi__margin {
-        margin-right: auto;
-        margin-left: 0;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__before {
-        display: none;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__after {
-        width: 100%;
-        }
-    <?php
+.fl-node-<?php echo $id; ?> .oxi__margin {
+margin-right: auto;
+margin-left: 0;
+}
+.fl-node-<?php echo $id; ?> .oxi__before {
+display: none;
+}
+.fl-node-<?php echo $id; ?> .oxi__after {
+width: 100%;
+}
+<?php
     } else if ($settings->alignment_responsive === 'right') {
         ?>
-        .fl-node-<?php echo $id; ?> .oxi__margin {
-        margin-left: auto;
-        margin-right: 0;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__after {
-        display: none;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__before {
-        width: 100%;
+.fl-node-<?php echo $id; ?> .oxi__margin {
+margin-left: auto;
+margin-right: 0;
+}
+.fl-node-<?php echo $id; ?> .oxi__after {
+display: none;
+}
+.fl-node-<?php echo $id; ?> .oxi__before {
+width: 100%;
 
-        }
-    <?php
+}
+<?php
     } else if ($settings->alignment_responsive === 'center') {
         ?>
-        .fl-node-<?php echo $id; ?> .oxi__margin {
-        margin-right: auto;
-        margin-left: auto;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__before {
-        width: 50%;
-        display: table-cell;
-        }
-        .fl-node-<?php echo $id; ?> .oxi__after {
-        width: 50%;
-        display: table-cell;
-        }
-    <?php
+.fl-node-<?php echo $id; ?> .oxi__margin {
+margin-right: auto;
+margin-left: auto;
+}
+.fl-node-<?php echo $id; ?> .oxi__before {
+width: 50%;
+display: table-cell;
+}
+.fl-node-<?php echo $id; ?> .oxi__after {
+width: 50%;
+display: table-cell;
+}
+<?php
     }
     ?>
-    }
+}
 <?php
 }
 /**
@@ -207,11 +207,11 @@ if ($settings->img_size != '') {
 }
 if ($settings->responsive_img_size != '') {
     ?>
-    @media only screen and (max-width : 668px){
-    .fl-node-<?php echo $id; ?> .oxi__addons_image_icon_divider {
-    width: <?php echo $settings->responsive_img_size; ?>px !important;
-    }
-    }
+@media only screen and (max-width : 668px){
+.fl-node-<?php echo $id; ?> .oxi__addons_image_icon_divider {
+width: <?php echo $settings->responsive_img_size; ?>px !important;
+}
+}
 <?php
 }
 /**
@@ -219,24 +219,24 @@ if ($settings->responsive_img_size != '') {
  */
 if ($settings->responsive_compatibility != 'none') {
     ?>
-    .fl-node-<?php echo $id ?> .oxi__line_text{
-    display:block;
-    }
+.fl-node-<?php echo $id ?> .oxi__line_text{
+display:block;
+}
 <?php
 } else if ($settings->responsive_compatibility != 'mobile_device') {
     ?>
-    @media only screen and (max-width : 668px){
-    .fl-node-<?php echo $id ?> .oxi__line_text{
-    display:none;
-    }
-    }
+@media only screen and (max-width : 668px){
+.fl-node-<?php echo $id ?> .oxi__line_text{
+display:none;
+}
+}
 <?php
 } else if ($settings->responsive_compatibility != 'medium_device') {
     ?>
-    @media only screen and ((max-width : 993px){
-    .fl-node-<?php echo $id ?> .oxi__line_text{
-    display:none;
-    }
-    }
+@media only screen and ((max-width : 993px){
+.fl-node-<?php echo $id ?> .oxi__line_text{
+display:none;
+}
+}
 <?php
 }
