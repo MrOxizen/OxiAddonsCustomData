@@ -36,11 +36,11 @@ if ($settings->separator_style != 'none') {
         $divider_image = '';
         if ($settings->photo_source == 'library') {
             if ($settings->photo != '') {
-                $divider_image = '<img class="oxi__addons_image" src="' . $settings->photo_src . '" alt="' . $settings->heading . '"/>';
+                $divider_image = '<img class="oxi__addons_image" src="' . $settings->photo_src . '" alt="' . $settings->heading_top . '"/>';
             }
         } else if ($settings->photo_source == 'url') {
             if ($settings->photo_url != '') {
-                $divider_image = '<img class="oxi__addons_image" src="' . $settings->photo_url . '" alt="' . $settings->heading . '"/>';
+                $divider_image = '<img class="oxi__addons_image" src="' . $settings->photo_url . '" alt="' . $settings->heading_top . '"/>';
             }
         }
         $separator = '<div class="oxi__addons_line_divider_tab oxi__addons_seperator_width_tab oxi__margin">
