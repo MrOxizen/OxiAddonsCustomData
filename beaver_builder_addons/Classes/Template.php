@@ -32,6 +32,7 @@ trait Template
                 'offcanvas',
                 'alert-box',
                 'price-table',
+                'progress-bar',
             ),
         );
         ?>
