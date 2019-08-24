@@ -8,7 +8,7 @@
  */
 
 FLBuilder::register_module(
-    'Tabs',
+    'Progress',
     array(
         'general'       => array(
             'title'    => __('Content', SA_FLBUILDER_TEXTDOMAIN),
