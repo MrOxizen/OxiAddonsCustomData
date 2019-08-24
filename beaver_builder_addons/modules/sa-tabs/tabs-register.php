@@ -4,7 +4,7 @@
  * Register the module and its form settings for beaver builder  version
  *  
  *
- * @package Shortcodes addons info table module
+ * @package Shortcodes addons info table modules
  */
 
 FLBuilder::register_module(
