@@ -912,15 +912,45 @@ trait Public_Helper {
     // #Elementor icon render
     public function Sa_El_Icon_Render($settings) {
         if (version_compare(ELEMENTOR_VERSION, '2.6', '>=')) {
-            ob_start(); 
+            ob_start();
             Icons_Manager::render_icon($settings, ['aria-hidden' => 'true']);
-            $list = ob_get_contents(); 
+            $list = ob_get_contents();
             ob_end_clean();
             $rt = $list;
         } else {
             $rt = '<i aria-hidden="true" class="' . esc_attr($settings) . '"></i>';
         }
         return $rt;
+    }
+
+    // #Elementor Justify Gellery Settings
+
+    public static function sa_el_prepare_data_prop_settings(&$settings, $field_map = []) {
+        $data = [];
+        foreach ($field_map as $key => $data_key) {
+            $setting_value = self::sa_el_get_setting_value($settings, $key);
+            list( $data_field_key, $data_field_type ) = explode('.', $data_key);
+            $validator = $data_field_type . 'val';
+
+            if (is_callable($validator)) {
+                $val = call_user_func($validator, $setting_value);
+            } else {
+                $val = $setting_value;
+            }
+            $data[$data_field_key] = $val;
+        }
+        return wp_json_encode($data);
+    }
+
+    // #Elementor Justify Gellery Settings
+    public static function sa_el_get_setting_value(&$settings, $keys) {
+        if (!is_array($keys)) {
+            $keys = explode('.', $keys);
+        }
+        if (is_array($settings[$keys[0]])) {
+            return self::sa_el_get_setting_value($settings[$keys[0]], array_slice($keys, 1));
+        }
+        return $settings[$keys[0]];
     }
 
 }
