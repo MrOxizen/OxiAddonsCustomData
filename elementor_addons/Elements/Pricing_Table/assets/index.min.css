@@ -21,6 +21,7 @@ Pricing Table
     width: 100%;
     height: auto;
     margin: 0;
+    overflow: hidden;
 }
 
 .sa-el-pricing .sa-el-pricing-button {
@@ -78,11 +79,6 @@ Pricing Table
     -webkit-transition: .5s;
     -o-transition: .5s;
     transition: .5s;
-}
-
-.sa-el-pricing.style-1 .sa-el-pricing-item:hover {
-    -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .sa-el-pricing.style-1 .sa-el-pricing-item.featured {
@@ -670,11 +666,6 @@ Pricing Table
     font-weight: 600;
     text-transform: uppercase;
     padding: 5px 15px;
-}
-
-.sa-el-pricing.style-4 .sa-el-pricing-item:hover {
-    -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .sa-el-pricing.style-4 .sa-el-pricing-item .header {

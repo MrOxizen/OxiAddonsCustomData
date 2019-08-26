@@ -2,6 +2,7 @@
 Shortcode Addons
 Call To Action
 */
+
 .sa_el_call_to_action {
     width: 100%;
     height: auto;
@@ -13,9 +14,8 @@ Call To Action
     margin: 0 auto;
 }
 
-.sa_el_call_to_action p {
+.sa_el_call_to_action .descrip {
     font-size: 13px;
-
     font-family: "Roboto";
     font-weight: 500;
     font-style: normal;
@@ -25,12 +25,12 @@ Call To Action
     padding: 3px 20px 3px 20px;
     margin: 0px 0px 0px 0px;
 }
-.sa_el_call_to_action h2:before {
+
+.sa_el_call_to_action .title:before {
     display: none;
 }
-.sa_el_call_to_action h2.title {
 
-
+.sa_el_call_to_action .title {
     font-size: 26px;
     font-family: "Roboto";
     font-weight: 600;
@@ -40,7 +40,6 @@ Call To Action
     letter-spacing: 1px;
     padding: 7px 20px 7px 20px;
     letter-spacing: 1px;
-
     margin-bottom: 10px;
     text-transform: capitalize;
     font-style: normal;
@@ -96,7 +95,9 @@ Call To Action
     color: rgba(255, 255, 255, 0.9);
 }
 
+
 /*--- call-to-action Flex ---*/
+
 .sa_el_call_to_action.call-to-action-flex,
 .sa_el_call_to_action.call-to-action-icon-flex {
     display: -webkit-box;
@@ -113,7 +114,9 @@ Call To Action
     align-items: flex-start;
 }
 
+
 /*--- call-to-action Icon Flex ---*/
+
 .sa_el_call_to_action.call-to-action-icon-flex .icon {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
@@ -144,7 +147,9 @@ Call To Action
     padding: 0px 30px;
 }
 
+
 /*--- call-to-action Flex ---*/
+
 .sa_el_call_to_action.call-to-action-flex .content {
     padding: 0px 15px;
     -webkit-box-flex: 1;
@@ -165,14 +170,16 @@ Call To Action
     flex-basis: 23%;
 }
 
+
 /*--- call-to-action Button ---*/
+
 .sa_el_call_to_action .call-to-action-button {
     position: relative;
     display: inline-block;
     text-decoration: none;
-    -webkit-transition:  0.4s ease-in-out;
-    -o-transition:  0.4s ease-in-out;
-    transition:  0.4s ease-in-out;
+    -webkit-transition: 0.4s ease-in-out;
+    -o-transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out;
     -webkit-box-shadow: 0px 0px 3px -1px rgba(0, 0, 0, 0.2);
     -ms-box-shadow: 0px 0px 3px -1px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 0px 3px -1px rgba(0, 0, 0, 0.2);
@@ -180,8 +187,6 @@ Call To Action
     margin-top: 10px;
     z-index: 0;
     overflow: hidden;
-
-
     font-size: 17px;
     border-width: 0px 0px 0px 0px;
     border-style: solid;
@@ -195,7 +200,6 @@ Call To Action
     text-align: center;
     border-radius: 50px 50px 50px 50px;
     padding: 15px 35px 15px 35px;
-
 }
 
 .sa_el_call_to_action .call-to-action-button:last-child {
@@ -206,7 +210,9 @@ Call To Action
     outline: none;
 }
 
+
 /*--- Hover ---*/
+
 .sa_el_call_to_action .call-to-action-button:hover {
     color: #fff;
     background: #3F51B5;
@@ -215,7 +221,9 @@ Call To Action
     box-shadow: 0px 1px 12px 1px rgba(0, 0, 0, 0.1);
 }
 
+
 /*--- call-to-action Button effect 1  ---*/
+
 .sa_el_call_to_action .call-to-action-button.effect-1:after {
     content: "";
     position: absolute;
@@ -240,7 +248,9 @@ Call To Action
     transform: translateY(0);
 }
 
+
 /*--- call-to-action Button effect 2 ---*/
+
 .sa_el_call_to_action .call-to-action-button.effect-2:after {
     content: "";
     position: absolute;
@@ -265,7 +275,9 @@ Call To Action
     transform: translateX(0);
 }
 
+
 /*--- Media Queries ---*/
+
 @media only screen and (max-width: 768px) {
     .sa_el_call_to_action.call-to-action-flex,
     .sa_el_call_to_action.call-to-action-icon-flex {
@@ -273,13 +285,11 @@ Call To Action
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     }
-
-    .sa_el_call_to_action h2.title {
+    .sa_el_call_to_action .title {
         font-size: 28px;
         line-height: 36px;
         margin-top: 0px;
     }
-
     .sa_el_call_to_action.call-to-action-icon-flex .icon {
         -webkit-box-flex: 1;
         -webkit-flex-grow: 1;
@@ -289,7 +299,6 @@ Call To Action
         line-height: 90px;
         text-align: center;
     }
-
     .sa_el_call_to_action.call-to-action-flex .content,
     .sa_el_call_to_action.call-to-action-icon-flex .content {
         -webkit-box-flex: 1;
@@ -299,29 +308,26 @@ Call To Action
         text-align: center;
         padding: 0px;
     }
-
     .sa_el_call_to_action.call-to-action-flex .action,
     .sa_el_call_to_action.call-to-action-icon-flex .action {
         text-align: center;
         padding-top: 0px;
     }
-
     .sa_el_call_to_action .call-to-action-button {
         padding: 12px 25px;
     }
 }
+
 @media only screen and (max-width: 360px) {
     .sa_el_call_to_action {
         font-size: 14px;
         line-height: 26px;
     }
-
     .sa_el_call_to_action .call-to-action-button {
         padding: 4px 20px;
         font-size: 12px;
     }
-
-    .sa_el_call_to_action h2.title {
+    .sa_el_call_to_action .title {
         font-size: 20px;
         line-height: 30px;
     }
