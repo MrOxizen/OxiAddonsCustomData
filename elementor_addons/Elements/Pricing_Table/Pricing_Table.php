@@ -791,6 +791,17 @@ class Pricing_Table extends Widget_Base
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
+        $this->add_responsive_control(
+            'sa_el_section_pricing_table_header_padding',
+            [
+                'label' => esc_html__('Padding', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .sa-el-pricing .sa-el-pricing-item .header' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
 
         $this->add_control(
             'sa_el_pricing_table_title_heading',
@@ -834,12 +845,13 @@ class Pricing_Table extends Widget_Base
             [
                 'label' => esc_html__('Line Color', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#dbdbdb',
+                'default' => '',
                 'selectors' => [
                     '{{WRAPPER}} .sa-el-pricing.style-1 .sa-el-pricing-item .header:after' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .sa-el-pricing.style-3 .sa-el-pricing-item .header:after' => 'background: {{VALUE}};',
                 ],
                 'condition' => [
-                    'sa_el_pricing_table_style' => ['style-1']
+                    'sa_el_pricing_table_style' => ['style-1', 'style-3']
                 ]
             ]
         );
@@ -944,7 +956,72 @@ class Pricing_Table extends Widget_Base
                 'selector' => '{{WRAPPER}} .sa-el-pricing-item .muted-price',
             ]
         );
+        $this->add_responsive_control(
+            'sa_el_pricing_table_price_cur_padding_style_4',
+            [
+                'label' => esc_html__('Padding', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .sa-el-pricing.style-4 .sa-el-pricing-item .sa-el-pricing-image' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'sa_el_pricing_table_style' => 'style-4'
+                ]
+            ]
+        );
+        $this->add_responsive_control(
+            'sa_el_pricing_table_price_cur_padding',
+            [
+                'label' => esc_html__('Padding', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .sa-el-pricing .sa-el-pricing-item .sa-el-pricing-tag' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'sa_el_pricing_table_style!' => 'style-4'
+                ]
+            ]
+        );
+        $this->add_control(
+            'sa_el_pricing_table_price_cur_bottom_margin',
+            [
+                'label' => esc_html__('Space Botttom', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 0
+                ],
+                'range' => [
+                    'px' => [
+                        'max' => 300,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .sa-el-pricing .sa-el-pricing-item .sa-el-pricing-tag' => 'margin-bottom: {{SIZE}}px;',
+                ],
+                'condition' => [
+                    'sa_el_pricing_table_style!' => 'style-4'
+                ]
+            ]
+        );
 
+        $this->add_control(
+            'sa_el_pricing_table_style_1_3_price_line_color',
+            [
+                'label' => esc_html__('Line Color', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::COLOR,
+                'default' => 'rgba(9, 9, 9, 0.04)',
+                'selectors' => [
+                    '{{WRAPPER}} .sa-el-pricing.style-2 .sa-el-pricing-item .sa-el-pricing-tag:after' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .sa-el-pricing.style-1 .sa-el-pricing-item .sa-el-pricing-tag:after' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .sa-el-pricing.style-4 .sa-el-pricing-item .sa-el-pricing-tag:after' => 'background: {{VALUE}};',
+                ],
+                'condition' => [
+                    'sa_el_pricing_table_style' => ['style-1', 'style-2','style-4']
+                ]
+            ]
+        );
         $this->add_control(
             'sa_el_pricing_table_price_tag_heading',
             [
@@ -1083,7 +1160,17 @@ class Pricing_Table extends Widget_Base
                 ],
             ]
         );
-
+        $this->add_responsive_control(
+            'sa_el_pricing_table_list_item_padding',
+            [
+                'label' => esc_html__('Padding', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .sa-el-pricing .sa-el-pricing-item .body ul li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
@@ -1091,7 +1178,7 @@ class Pricing_Table extends Widget_Base
                 'selector' => '{{WRAPPER}} .sa-el-pricing-item .body ul li',
             ]
         );
-
+        
         $this->end_controls_section();
 
         /**
@@ -1520,6 +1607,24 @@ class Pricing_Table extends Widget_Base
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .sa-el-pricing.style-2 .sa-el-pricing-item .sa-el-pricing-icon .icon i' => 'line-height: {{SIZE}}px;',
+                ],
+            ]
+        );
+        $this->add_control(
+            'sa_el_pricing_table_icon_bottom_margin',
+            [
+                'label' => esc_html__('Space Botttom', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 30
+                ],
+                'range' => [
+                    'px' => [
+                        'max' => 300,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .sa-el-pricing.style-2 .sa-el-pricing-item .sa-el-pricing-icon .icon' => 'margin-bottom: {{SIZE}}px;',
                 ],
             ]
         );
