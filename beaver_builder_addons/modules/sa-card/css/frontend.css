@@ -1,0 +1,52 @@
+.oxi__button_wrapper .oxi__button{ 
+    background: #1976d2;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;   
+}
+.oxi__button_wrapper .oxi__button .oxi__button_wrapper{
+    display: flex;  
+    align-items: center;
+    transition: all 0.3s ease;
+}
+.oxi__button_wrapper  .oxi__button-text,
+.oxi__button_wrapper  .oxi__icon-selector{
+    z-index: 999;
+} 
+.oxi__button_wrapper .oxi__button:hover,
+.oxi__button_wrapper .oxi__button:focus{
+    background: #216daf;
+    color: white;
+} 
+.oxi__button_wrapper .oxi__button::after{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.entry .entry-content a {
+    text-decoration: none !important;
+}
+.oxi__button_wrapper a{
+    text-decoration:none !important;
+}
+.oxi__button_wrapper a:hover{
+    text-decoration:none !important;
+}
+
+
+
+h1:before,
+h2:before,
+h3:before,
+h4:before,
+h5:before,
+h6:before{
+    content: "";
+    display: none !important;
+}
+h1, h2, h3, h4, h5, h6{
+    margin:0 !important;
+}
