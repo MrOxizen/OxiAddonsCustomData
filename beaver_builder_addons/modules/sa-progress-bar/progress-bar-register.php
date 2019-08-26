@@ -20,7 +20,7 @@ FLBuilder::register_module(
                             'label' => __('Layout', SA_FLBUILDER_TEXTDOMAIN),
                             'default' => 'line',
                             'options' => array(
-                                'line' => __('Line', SA_FLBUILDER_TEXTDOMAIN), 
+                                'line' => __('Bar', SA_FLBUILDER_TEXTDOMAIN), 
                                 'circle' => __('Circle', SA_FLBUILDER_TEXTDOMAIN), 
                             ),
                             'toggle' => array(

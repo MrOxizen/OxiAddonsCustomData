@@ -1,3 +1,23 @@
+ 
+
+jQuery('.fl-row-content-wrap').on('click',function(){ 
+    setTimeout(function(){
+        var value = jQuery('[name=layout] option:selected').val(); 
+        if(value == 'line'){
+            jQuery('.fl-lightbox-content-wrap').removeClass('oxi_gradient_height'); 
+        }else{
+            jQuery('.fl-lightbox-content-wrap').addClass('oxi_gradient_height');
+        }
+    },500)
+}); 
+jQuery('[name=layout]').on('change',function(){
+    var value = jQuery(this).val();
+    if(value == 'line'){
+            jQuery('.fl-lightbox-content-wrap').removeClass('oxi_gradient_height'); 
+        }else{
+            jQuery('.fl-lightbox-content-wrap').addClass('oxi_gradient_height');
+        }
+})
 <?php
     if($settings->layout == 'line'){
         ?>
@@ -9,9 +29,8 @@
         });  
         <?php
     }elseif($settings->layout == 'circle'){ ?>
-        jQuery('.fl-row-content-wrap').on('click',function(){
-            jQuery('.fl-lightbox-content-wrap').addClass('oxi_gradient_height'); 
-       })
+ 
+      
         jQuery(".oxi_sa_progress_<?php echo $id ?>").waypoint(function () {
             var progressBarOptions = {
                 startAngle: -1.55,
@@ -49,9 +68,7 @@
         });
     }, {
         offset: "80%"
-    });  
-
-  
+    });   
         <?php
     }
 
