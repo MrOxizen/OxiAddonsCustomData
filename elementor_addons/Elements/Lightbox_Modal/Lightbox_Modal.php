@@ -862,6 +862,9 @@ class Lightbox_Modal extends Widget_Base
                 'selectors' => [
                     '{{WRAPPER}} .sa_el_lightbox_btn > .sa_el_trigger_icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
+                'condition' => [
+                    'trigger_type' => 'icon',
+                ]
             ]
         );
 
@@ -874,6 +877,9 @@ class Lightbox_Modal extends Widget_Base
                 'selectors' => [
                     '{{WRAPPER}} .sa_el_lightbox_btn > .sa_el_trigger_icon' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
+                'condition' => [
+                    'trigger_type' => 'icon',
+                ]
             ]
         );
 
@@ -890,6 +896,9 @@ class Lightbox_Modal extends Widget_Base
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .sa_el_lightbox_btn > .sa_el_trigger_icon' => 'border-radius: {{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'trigger_type' => 'icon',
                 ]
             ]
         );
@@ -899,7 +908,10 @@ class Lightbox_Modal extends Widget_Base
         $this->start_controls_tab(
             'normal_default_content_icon',
             [
-                'label' => esc_html__('Normal', SA_ELEMENTOR_TEXTDOMAIN)
+                'label' => esc_html__('Normal', SA_ELEMENTOR_TEXTDOMAIN),
+                'condition' => [
+                    'trigger_type' => 'icon',
+                ],
             ]
         );
 
@@ -912,6 +924,9 @@ class Lightbox_Modal extends Widget_Base
                 'selectors' => [
                     '{{WRAPPER}} .sa_el_lightbox_btn > .sa_el_trigger_icon' => 'color: {{VALUE}};',
                 ],
+                'condition' => [
+                    'trigger_type' => 'icon',
+                ]
             ]
         );
 
@@ -923,6 +938,9 @@ class Lightbox_Modal extends Widget_Base
                 'default' => '#333333',
                 'selectors' => [
                     '{{WRAPPER}} .sa_el_lightbox_btn > .sa_el_trigger_icon' => 'background-color: {{VALUE}};',
+                ],
+                'condition' => [
+                    'trigger_type' => 'icon',
                 ]
             ]
         );
@@ -932,6 +950,9 @@ class Lightbox_Modal extends Widget_Base
             [
                 'name' => 'sa_el_lightbox_open_btn_icon_border',
                 'selector' => '{{WRAPPER}} .sa_el_lightbox_btn > .sa_el_trigger_icon',
+                'condition' => [
+                    'trigger_type' => 'icon',
+                ]
             ]
         );
 
@@ -939,7 +960,10 @@ class Lightbox_Modal extends Widget_Base
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'sa_el_lightbox_open_btn_icon_shadow',
-                'selector' => '{{WRAPPER}} .sa_el_lightbox_btn > .sa_el_trigger_icon'
+                'selector' => '{{WRAPPER}} .sa_el_lightbox_btn > .sa_el_trigger_icon',
+                'condition' => [
+                    'trigger_type' => 'icon',
+                ]
             ]
         );
 
@@ -951,6 +975,7 @@ class Lightbox_Modal extends Widget_Base
                 'label' => esc_html__('Hover', SA_ELEMENTOR_TEXTDOMAIN),
                 'condition' => [
                     'sa_el_lightbox_trigger_type' => 'sa_el_lightbox_trigger_button',
+                    'trigger_type' => 'icon',
                 ],
             ]
         );
@@ -994,7 +1019,7 @@ class Lightbox_Modal extends Widget_Base
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'sa_el_lightbox_open_btn_icon_hover_shadow',
-                'selector' => '{{WRAPPER}} .sa_el_lightbox_btn > .sa_el_trigger_icon:hover'
+                'selector' => '{{WRAPPER}} .sa_el_lightbox_btn > .sa_el_trigger_icon:hover',
             ]
         );
         $this->end_controls_tabs();
@@ -1022,7 +1047,7 @@ class Lightbox_Modal extends Widget_Base
                 'condition' => [
                     'sa_el_lightbox_trigger_type' => 'sa_el_lightbox_trigger_button',
                     'trigger_type' => 'icon',
-                ],
+                ]
             ]
         );
 

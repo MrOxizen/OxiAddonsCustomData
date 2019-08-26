@@ -506,7 +506,7 @@ class Protected_Content extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#333333',
             'selectors' => [
-                '{{WRAPPER}} .sa-el-password-protected-content-fields input.sa-el-password' => 'color: {{VALUE}};',
+                '{{WRAPPER}}  .sa-el-password-protected-content-fields input.sa-el-password' => 'color: {{VALUE}};',
             ],
                 ]
         );
@@ -517,7 +517,7 @@ class Protected_Content extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#ffffff',
             'selectors' => [
-                '{{WRAPPER}} .sa-el-password-protected-content-fields input.sa-el-password' => 'background-color: {{VALUE}};',
+                '{{WRAPPER}}  .sa-el-password-protected-content-fields input.sa-el-password' => 'background-color: {{VALUE}};',
             ],
                 ]
         );
@@ -549,7 +549,7 @@ class Protected_Content extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#333333',
             'selectors' => [
-                '{{WRAPPER}} .sa-el-password-protected-content-fields input.sa-el-password' => 'color: {{VALUE}};',
+                '{{WRAPPER}} .sa-el-password-protected-content-fields input.sa-el-password:focus' => 'color: {{VALUE}};',
             ],
                 ]
         );
@@ -560,7 +560,7 @@ class Protected_Content extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#ffffff',
             'selectors' => [
-                '{{WRAPPER}} .sa-el-password-protected-content-fields input.sa-el-password' => 'background-color: {{VALUE}};',
+                '{{WRAPPER}} .sa-el-password-protected-content-fields input.sa-el-password:focus' => 'background-color: {{VALUE}};',
             ],
                 ]
         );
@@ -569,14 +569,14 @@ class Protected_Content extends Widget_Base {
                 Group_Control_Border::get_type(), [
             'name' => 'sa_el_protected_content_password_input_hover_border',
             'label' => esc_html__('Border', SA_ELEMENTOR_TEXTDOMAIN),
-            'selector' => '{{WRAPPER}} .sa-el-password-protected-content-fields .sa-el-password'
+            'selector' => '{{WRAPPER}} .sa-el-password-protected-content-fields .sa-el-password:focus'
                 ]
         );
 
         $this->add_group_control(
                 Group_Control_Box_Shadow::get_type(), [
             'name' => 'sa_el_protected_content_password_input_hover_shadow',
-            'selector' => '{{WRAPPER}} .sa-el-password-protected-content-fields .sa-el-password',
+            'selector' => '{{WRAPPER}} .sa-el-password-protected-content-fields .sa-el-password:focus',
                 ]
         );
 

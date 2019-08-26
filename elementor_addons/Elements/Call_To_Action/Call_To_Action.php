@@ -213,22 +213,7 @@ class Call_To_Action extends Widget_Base {
             ]
                 ]
         );
-        $this->add_control(
-                'sa_el_call_to_action_bg_image', [
-            'label' => esc_html__('Background Image', SA_ELEMENTOR_TEXTDOMAIN),
-            'type' => Controls_Manager::MEDIA,
-            'default' => [
-                'url' => Utils::get_placeholder_image_src(),
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .sa_el_call_to_action.bg-img' => 'background-image: url({{URL}});',
-                '{{WRAPPER}} .sa_el_call_to_action.bg-img-fixed' => 'background-image: url({{URL}});',
-            ],
-            'condition' => [
-                'sa_el_call_to_action_color_type' => ['call-to-action-bg-img', 'call-to-action-bg-img-fixed'],
-            ]
-                ]
-        );
+      
         $this->end_controls_section();
         if (!apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', ['', '', TRUE])) {
             $this->start_controls_section(
@@ -422,7 +407,7 @@ class Call_To_Action extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#292929',
             'selectors' => [
-                '{{WRAPPER}} .sa_el_call_to_action p' => 'color: {{VALUE}};',
+                '{{WRAPPER}} .sa_el_call_to_action .descrip' => 'color: {{VALUE}};',
             ],
                 ]
         );
@@ -430,7 +415,7 @@ class Call_To_Action extends Widget_Base {
         $this->add_group_control(
                 Group_Control_Typography::get_type(), [
             'name' => 'sa_el_call_to_action_content_typography',
-            'selector' => '{{WRAPPER}} .sa_el_call_to_action p',
+            'selector' => '{{WRAPPER}} .sa_el_call_to_action .descrip',
                 ]
         );
 
@@ -673,9 +658,9 @@ class Call_To_Action extends Widget_Base {
         ?>
         <?php if ('call-to-action-basic' == $settings['sa_el_call_to_action_type']) : ?>
             <div class="sa_el_call_to_action <?php echo esc_attr($call_to_action_class); ?> <?php echo esc_attr($call_to_action_alignment); ?>">
-                <h2 class="title"><?php echo $settings['sa_el_call_to_action_title']; ?></h2>
+                <div class="title"><?php echo $settings['sa_el_call_to_action_title']; ?></div>
                 <?php if ('content' == $settings['sa_el_call_to_action_title_content_type']) : ?>
-                    <p><?php echo $settings['sa_el_call_to_action_content']; ?></p>
+                    <div class="descrip"><?php echo $settings['sa_el_call_to_action_content']; ?></div>
                 <?php elseif ('template' == $settings['sa_el_call_to_action_title_content_type']) : ?>
                     <?php
                     if (!empty($settings['sa_el_primary_templates'])) {
@@ -691,9 +676,9 @@ class Call_To_Action extends Widget_Base {
         <?php if ('call-to-action-flex' == $settings['sa_el_call_to_action_type']) : ?>
             <div class="sa_el_call_to_action call-to-action-flex <?php echo esc_attr($call_to_action_class); ?>">
                 <div class="content">
-                    <h2 class="title"><?php echo $settings['sa_el_call_to_action_title']; ?></h2>
+                    <div class="title"><?php echo $settings['sa_el_call_to_action_title']; ?></div>
                     <?php if ('content' == $settings['sa_el_call_to_action_title_content_type']) : ?>
-                        <p><?php echo $settings['sa_el_call_to_action_content']; ?></p>
+                        <div class="descrip"><?php echo $settings['sa_el_call_to_action_content']; ?></div>
                     <?php elseif ('template' == $settings['sa_el_call_to_action_title_content_type']) : ?>
                         <?php
                         if (!empty($settings['sa_el_primary_templates'])) {
@@ -715,9 +700,9 @@ class Call_To_Action extends Widget_Base {
                     <?=  $this->Sa_El_Icon_Render($settings['sa_el_call_to_action_flex_grid_icon']) ?>
                 </div>
                 <div class="content">
-                    <h2 class="title"><?php echo $settings['sa_el_call_to_action_title']; ?></h2>
+                    <div class="title"><?php echo $settings['sa_el_call_to_action_title']; ?></div>
                     <?php if ('content' == $settings['sa_el_call_to_action_title_content_type']) : ?>
-                        <p><?php echo $settings['sa_el_call_to_action_content']; ?></p>
+                        <div class="descrip"><?php echo $settings['sa_el_call_to_action_content']; ?></div>
                     <?php elseif ('template' == $settings['sa_el_call_to_action_title_content_type']) : ?>
                         <?php
                         if (!empty($settings['sa_el_primary_templates'])) {

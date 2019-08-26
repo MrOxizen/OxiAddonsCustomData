@@ -18,10 +18,10 @@ use Elementor\Scheme_Typography;
 use Elementor\Utils;
 use Elementor\Widget_Base as Widget_Base;
 use \SA_ELEMENTOR_ADDONS\Classes\Bootstrap;
-
+use \SA_ELEMENTOR_ADDONS\Helper\Public_Helper as Public_Helper;
 class Justified_Gallery extends Widget_Base {
 
-    use \SA_ELEMENTOR_ADDONS\Helper\Public_Helper;
+    
 
     public function get_name() {
         return 'sa_el_justified_gallery';
@@ -41,7 +41,7 @@ class Justified_Gallery extends Widget_Base {
 
     protected function _register_controls() {
         $this->start_controls_section(
-                'sa_el_section_gallery', [
+                '_section_gallery', [
             'label' => __('Gallery', SA_ELEMENTOR_TEXTDOMAIN),
             'tab' => Controls_Manager::TAB_CONTENT,
                 ]
@@ -138,10 +138,65 @@ class Justified_Gallery extends Widget_Base {
                 ]
         );
 
+        $this->add_control(
+                'show_caption', [
+            'label' => __('Show Caption?', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::SWITCHER,
+            'label_on' => __('Yes', SA_ELEMENTOR_TEXTDOMAIN),
+            'label_off' => __('No', SA_ELEMENTOR_TEXTDOMAIN),
+            'return_value' => 'yes',
+            'description' => __('Make sure to add image caption otherwise you will not see anything', SA_ELEMENTOR_TEXTDOMAIN)
+                ]
+        );
 
+        $this->add_control(
+                'row_height', [
+            'label' => __('Height', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::SLIDER,
+            'size_units' => ['px'],
+            'default' => [
+                'size' => 150,
+            ],
+            'range' => [
+                'px' => [
+                    'min' => 50,
+                    'max' => 500,
+                ],
+            ],
+                ]
+        );
+
+        $this->add_control(
+                'margins', [
+            'label' => __('Margins', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::SLIDER,
+            'size_units' => ['px'],
+            'default' => [
+                'size' => 10,
+            ],
+            'range' => [
+                'px' => [
+                    'min' => 0,
+                    'max' => 100,
+                ],
+            ],
+                ]
+        );
+
+        $this->add_control(
+                'last_row', [
+            'label' => __('Last Row', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::SELECT,
+            'default' => 'justify',
+            'options' => [
+                'nojustify' => __('No Justify', SA_ELEMENTOR_TEXTDOMAIN),
+                'justify' => __('Justify', SA_ELEMENTOR_TEXTDOMAIN),
+                'hide' => __('Hide', SA_ELEMENTOR_TEXTDOMAIN),
+            ]
+                ]
+        );
 
         $this->end_controls_section();
-
 
         $this->start_controls_section(
                 '_section_style_image', [
@@ -276,6 +331,55 @@ class Justified_Gallery extends Widget_Base {
 
         $this->end_controls_tab();
         $this->end_controls_tabs();
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+                '_section_style_caption', [
+            'label' => __('Caption', SA_ELEMENTOR_TEXTDOMAIN),
+            'tab' => Controls_Manager::TAB_STYLE,
+                ]
+        );
+
+        $this->add_responsive_control(
+                'caption_padding', [
+            'label' => __('Padding', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::DIMENSIONS,
+            'size_units' => ['px', 'em', '%'],
+            'selectors' => [
+                '{{WRAPPER}} .justified-gallery > .sa-el-justified-gallery-item > .caption' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            ],
+                ]
+        );
+
+        $this->add_control(
+                'caption_color', [
+            'label' => __('Text Color', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .justified-gallery > .sa-el-justified-gallery-item > .caption' => 'color: {{VALUE}}',
+            ],
+                ]
+        );
+
+        $this->add_control(
+                'caption_bg_color', [
+            'label' => __('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .justified-gallery > .sa-el-justified-gallery-item > .caption' => 'background-color: {{VALUE}}',
+            ],
+                ]
+        );
+
+        $this->add_group_control(
+                Group_Control_Typography::get_type(), [
+            'name' => 'caption_typography',
+            'label' => __('Typography', SA_ELEMENTOR_TEXTDOMAIN),
+            'selector' => '{{WRAPPER}} .justified-gallery > .sa-el-justified-gallery-item > .caption',
+            'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+                ]
+        );
 
         $this->end_controls_section();
 
@@ -514,7 +618,17 @@ class Justified_Gallery extends Widget_Base {
         $this->end_controls_section();
     }
 
-    protected function sa_get_gallery_data() {
+    protected static function get_data_prop_settings($settings) {
+        $field_map = [
+            'show_caption' => 'captions.bool',
+            'margins.size' => 'margins.int',
+            'row_height.size' => 'rowHeight.int',
+            'last_row' => 'lastRow.str',
+        ];
+        return Public_Helper::sa_el_prepare_data_prop_settings($settings, $field_map);
+    }
+
+    protected function get_gallery_data() {
         $gallery = $this->get_settings_for_display('gallery');
 
         if (!is_array($gallery) || empty($gallery)) {
@@ -553,7 +667,7 @@ class Justified_Gallery extends Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
-        $gallery = $this->sa_get_gallery_data();
+        $gallery = $this->get_gallery_data();
 
         if (empty($gallery)) {
             return;
@@ -564,11 +678,11 @@ class Justified_Gallery extends Widget_Base {
             'sa-el-js-justified-gallery',
         ]);
 
-        $this->add_render_attribute('container', 'data-happy-settings');
+        $this->add_render_attribute('container', 'data-shortcode-settings', self::get_data_prop_settings($settings));
 
         if ($settings['show_filter'] === 'yes') :
             ?>
-            <ul class="sa-el-gallery-filter sa-el-js-gallery-filter">
+            <ul class="sa-el-gallery-filter hajs-gallery-filter">
                 <?php if ($settings['show_all_filter'] === 'yes') : ?>
                     <li class="sa-el-filter-active"><button type="button" data-filter="*"><?php echo esc_html($settings['all_filter_label']); ?></button></li>
                 <?php endif; ?>
@@ -576,7 +690,7 @@ class Justified_Gallery extends Widget_Base {
                     <li><button type="button" data-filter=".<?php echo esc_attr($key); ?>"><?php echo esc_html($val); ?></button></li>
             <?php endforeach; ?>
             </ul>
-        <?php endif; ?>
+            <?php endif; ?>
 
         <div <?php echo $this->get_render_attribute_string('container'); ?>>
             <?php
@@ -584,7 +698,7 @@ class Justified_Gallery extends Widget_Base {
                 $caption = $settings['show_caption'] ? esc_attr(wp_get_attachment_caption($id)) : '';
                 ?>
                 <a class="sa-el-justified-gallery-item <?php echo esc_attr(implode(' ', $filters)); ?>">
-                <?php echo wp_get_attachment_image($id, $settings['thumbnail_size'], false, ['alt' => $caption, 'class' => 'elementor-animation-' . esc_attr($settings['image_hover_animation'])]); ?>
+            <?php echo wp_get_attachment_image($id, $settings['thumbnail_size'], false, ['alt' => $caption, 'class' => 'elementor-animation-' . esc_attr($settings['image_hover_animation'])]); ?>
                 </a>
         <?php endforeach; ?>
         </div>
