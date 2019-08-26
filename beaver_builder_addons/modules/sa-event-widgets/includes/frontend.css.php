@@ -147,6 +147,7 @@ if (!empty($settings)) {
     } 
     <?php
     SA_FLBUILDER_HELPER::sa_fl_dimension_utility('inner', $settings, 'padding', '.fl-node-' . $id . ' .oxi-addons-BB-FL-row', 'px');
+    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('event_content', $settings, 'padding', '.fl-node-' . $id . ' .oxi-addons-BB-FL-back-overlay', 'px');
 
 
 

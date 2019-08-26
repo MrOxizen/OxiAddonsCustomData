@@ -461,7 +461,7 @@ FLBuilder::register_module(
                     'header_background_color' => array(
                         'type' => 'color',
                         'label' => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '',
+                        'default' => '00a8a2',
                         'show_reset' => true,
                         'connections' => array('color'),
                         'show_alpha' => true,
@@ -474,7 +474,7 @@ FLBuilder::register_module(
                     'oxi_flip_back_title' => array(
                         'type' => 'text',
                         'label' => __('Title on Front', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => __("Let's Flip!", SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => __("Event Widgets", SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Perhaps, this is the most highlighted text.', SA_FLBUILDER_TEXTDOMAIN),
                         'connections' => array('string', 'html'),
                     ),
@@ -506,7 +506,7 @@ FLBuilder::register_module(
                     'show_button' => array(
                         'type' => 'select',
                         'label' => __('Show button', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'no',
+                        'default' => 'yes',
                         'options' => array(
                             'no' => __('No', SA_FLBUILDER_TEXTDOMAIN),
                             'yes' => __('Yes', SA_FLBUILDER_TEXTDOMAIN),
@@ -663,6 +663,7 @@ FLBuilder::register_module(
                         'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Manage the outside spacing of content area of flipbox.', SA_FLBUILDER_TEXTDOMAIN),
                         'slider' => true,
+                        'default' => '15',
                         'units' => array('px'),
                         'responsive' => array(
                             'placeholder' => array(
@@ -681,12 +682,12 @@ FLBuilder::register_module(
         'title' => __('Typography', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
         'sections' => array(// Tab Sections.
             'back_title_typography' => array(
-                'title' => __('Back Title', SA_FLBUILDER_TEXTDOMAIN),
+                'title' => __('Event Title', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
                     'back_side_typography_title_tag' => array(
                         'type' => 'select',
                         'label' => __('Title Tag', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'h2',
+                        'default' => 'h3',
                         'options' => array(
                             'h1' => __('H1', SA_FLBUILDER_TEXTDOMAIN),
                             'h2' => __('H2', SA_FLBUILDER_TEXTDOMAIN),
@@ -712,7 +713,7 @@ FLBuilder::register_module(
                     'back_title_typography_color' => array(
                         'type' => 'color',
                         'label' => __('Back Title Color', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '',
+                        'default' => '444',
                         'show_reset' => true,
                         'connections' => array('color'),
                         'show_alpha' => true,
@@ -721,6 +722,7 @@ FLBuilder::register_module(
                         'type' => 'unit',
                         'label' => __('Margin Top', SA_FLBUILDER_TEXTDOMAIN),
                         'placeholder' => '25',
+                        'default' => '5',
                         'slider' => true,
                         'units' => array('px'),
                         'size' => '8',
@@ -729,6 +731,7 @@ FLBuilder::register_module(
                         'type' => 'unit',
                         'label' => __('Margin Bottom', SA_FLBUILDER_TEXTDOMAIN),
                         'placeholder' => '12',
+                        'default' => '5',
                         'slider' => true,
                         'units' => array('px'),
                         'size' => '8',
@@ -736,7 +739,7 @@ FLBuilder::register_module(
                 ),
             ),
             'back_desc_typography' => array(
-                'title' => __('Back Description', SA_FLBUILDER_TEXTDOMAIN),
+                'title' => __('Event Description', SA_FLBUILDER_TEXTDOMAIN),
                 'fields' => array(
                     'back_desc_font_typo' => array(
                         'type' => 'typography',
