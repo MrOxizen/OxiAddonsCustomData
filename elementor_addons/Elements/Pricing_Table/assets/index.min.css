@@ -49,6 +49,10 @@ Pricing Table
     list-style: none;
 }
 
+.sa-el-pricing .sa-el-pricing-item .body ul li {
+    padding: 10px 0px;
+}
+
 .sa-el-pricing .sa-el-pricing-item ul li.disable-item {
     text-decoration: line-through;
     opacity: 0.5;
@@ -73,9 +77,7 @@ Pricing Table
 }
 
 .sa-el-pricing.style-1 .sa-el-pricing-item {
-    border: 1px solid rgba(9, 9, 9, 0.1);
     padding: 30px;
-    border-radius: 5px;
     -webkit-transition: .5s;
     -o-transition: .5s;
     transition: .5s;
@@ -141,12 +143,14 @@ Pricing Table
     padding: 5px 15px;
 }
 
+.sa-el-pricing .sa-el-pricing-item .header {
+    padding: 10px 0px 10px 0px;
+}
+
 .sa-el-pricing.style-1 .sa-el-pricing-item .header {
     display: block;
     position: relative;
     z-index: 0;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
 }
 
 .sa-el-pricing.style-1 .sa-el-pricing-item .header:after {
@@ -168,11 +172,14 @@ Pricing Table
     margin: 0px;
 }
 
+.sa-el-pricing .sa-el-pricing-item .sa-el-pricing-tag {
+    padding: 15px 0px;
+    margin-bottom: 20px;
+}
+
 .sa-el-pricing.style-1 .sa-el-pricing-item .sa-el-pricing-tag {
     position: relative;
     z-index: 0;
-    padding: 15px 0px;
-    margin-bottom: 15px;
 }
 
 .sa-el-pricing.style-1 .sa-el-pricing-item .sa-el-pricing-tag:after {
@@ -216,7 +223,6 @@ Pricing Table
     display: block;
     width: 100%;
     height: auto;
-    padding: 10px 0px;
     font-size: 14px;
     color: #6d6d6d;
     border-bottom: 1px solid rgba(9, 9, 9, 0.04);
@@ -241,9 +247,7 @@ Pricing Table
 
 .sa-el-pricing.style-2 .sa-el-pricing-item {
     padding: 30px 0px;
-    border-radius: 5px;
     margin: 0px;
-    border: 1px solid rgba(9, 9, 9, 0.1);
 }
 
 .sa-el-pricing.style-2 .sa-el-pricing-item.featured {
@@ -341,8 +345,6 @@ Pricing Table
 
 .sa-el-pricing.style-2 .sa-el-pricing-item .header {
     background: #C8E6C9;
-    padding: 25px 30px;
-    margin-bottom: 15px;
     position: relative;
     z-index: 0;
 }
@@ -376,8 +378,6 @@ Pricing Table
 .sa-el-pricing.style-2 .sa-el-pricing-item .sa-el-pricing-tag {
     position: relative;
     z-index: 0;
-    padding: 15px 0px;
-    margin-bottom: 15px;
 }
 
 .sa-el-pricing.style-2 .sa-el-pricing-item .sa-el-pricing-tag:after {
@@ -422,7 +422,6 @@ Pricing Table
     display: block;
     width: 100%;
     height: auto;
-    padding: 10px 15px;
     font-size: 14px;
     color: #6d6d6d;
     border-bottom: 1px solid rgba(9, 9, 9, 0.04);
@@ -505,8 +504,6 @@ Pricing Table
 
 .sa-el-pricing.style-3 .sa-el-pricing-item .header {
     position: relative;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
     z-index: 0;
     overflow: hidden;
 }
@@ -549,10 +546,6 @@ Pricing Table
     color: rgba(255, 255, 255, 0.5);
 }
 
-.sa-el-pricing.style-3 .sa-el-pricing-item .sa-el-pricing-tag {
-    margin-bottom: 30px;
-}
-
 .sa-el-pricing.style-3 .sa-el-pricing-item .sa-el-pricing-tag .price-tag {
     position: relative;
     display: inline-block;
@@ -576,7 +569,6 @@ Pricing Table
     display: block;
     width: 100%;
     height: auto;
-    padding: 10px 0px;
     font-size: 14px;
     color: rgba(255, 255, 255, 0.7);
     border-bottom: 1px solid rgba(9, 9, 9, 0.04);
@@ -670,8 +662,6 @@ Pricing Table
 
 .sa-el-pricing.style-4 .sa-el-pricing-item .header {
     background: #C8E6C9;
-    padding: 25px 0px;
-    margin-bottom: 15px;
     position: relative;
     z-index: 0;
 }
@@ -692,8 +682,6 @@ Pricing Table
 .sa-el-pricing.style-4 .sa-el-pricing-item .sa-el-pricing-tag {
     position: relative;
     z-index: 0;
-    padding: 15px 0px;
-    margin-bottom: 15px;
 }
 
 .sa-el-pricing.style-4 .sa-el-pricing-item .sa-el-pricing-tag:after {
@@ -737,7 +725,6 @@ Pricing Table
     display: block;
     width: 100%;
     height: auto;
-    padding: 10px 0px;
     font-size: 14px;
     color: #6d6d6d;
     border-bottom: 1px solid rgba(9, 9, 9, 0.04);
@@ -763,12 +750,11 @@ Pricing Table
     align-items: center;
     z-index: 0;
     width: 100%;
-    height: 120px;
     -webkit-background-size: cover;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    padding-top: 15px;
+    padding: 15px 0px;
 }
 
 .sa-el-pricing.style-4 .sa-el-pricing-item .sa-el-pricing-image:after {
