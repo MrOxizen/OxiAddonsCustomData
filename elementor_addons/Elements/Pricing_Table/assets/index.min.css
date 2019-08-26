@@ -21,6 +21,7 @@ Pricing Table
     width: 100%;
     height: auto;
     margin: 0;
+    overflow: hidden;
 }
 
 .sa-el-pricing .sa-el-pricing-button {

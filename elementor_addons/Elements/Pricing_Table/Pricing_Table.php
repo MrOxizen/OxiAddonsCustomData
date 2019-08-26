@@ -598,7 +598,15 @@ class Pricing_Table extends Widget_Base
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
+        $this->start_controls_tabs('sa_el_pricing_table_bg_color_tabs');
 
+        // Normal State Tab
+        $this->start_controls_tab(
+            'sa_el_pricing_table_bg_color_normal_tab',
+            [
+                'label' => esc_html__('Normal', SA_ELEMENTOR_TEXTDOMAIN)
+            ]
+        );
         $this->add_control(
             'sa_el_pricing_table_bg_color',
             [
@@ -610,6 +618,27 @@ class Pricing_Table extends Widget_Base
                 ],
             ]
         );
+        $this->end_controls_tab();
+        // Hover State Tab
+        $this->start_controls_tab(
+            'sa_el_pricing_table_bg_color_hover_tab',
+            [
+                'label' => esc_html__('Hover', SA_ELEMENTOR_TEXTDOMAIN)
+            ]
+        );
+        $this->add_control(
+            'sa_el_pricing_table_bg_color_hover',
+            [
+                'label' => esc_html__('Background Color', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .sa-el-pricing:hover .sa-el-pricing-item' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+        $this->end_controls_tab();
+        $this->end_controls_tabs();
 
         $this->add_responsive_control(
             'sa_el_pricing_table_container_padding',
@@ -654,7 +683,7 @@ class Pricing_Table extends Widget_Base
                 ],
                 'range' => [
                     'px' => [
-                        'max' => 50,
+                        'max' => 500,
                     ],
                 ],
                 'selectors' => [
@@ -663,15 +692,40 @@ class Pricing_Table extends Widget_Base
             ]
         );
 
+
+        $this->start_controls_tabs('sa_el_pricing_table_shadow_tabs');
+
+        // Normal State Tab
+        $this->start_controls_tab(
+            'sa_el_pricing_table_shadow_normal_tab',
+            [
+                'label' => esc_html__('Normal', SA_ELEMENTOR_TEXTDOMAIN)
+            ]
+        );
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'sa_el_pricing_table_shadow',
-                'selectors' => [
-                    '{{WRAPPER}} .sa-el-pricing .sa-el-pricing-item',
-                ],
+                'selector' => '{{WRAPPER}} .sa-el-pricing .sa-el-pricing-item',
             ]
         );
+        $this->end_controls_tab();
+        // Hover State Tab
+        $this->start_controls_tab(
+            'sa_el_pricing_table_shadow_hover_tab',
+            [
+                'label' => esc_html__('Hover', SA_ELEMENTOR_TEXTDOMAIN)
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'sa_el_pricing_table_shadow_hover',
+                'selector' => '{{WRAPPER}} .sa-el-pricing:hover .sa-el-pricing-item',
+            ]
+        );
+        $this->end_controls_tab();
+        $this->end_controls_tabs();
 
         $this->add_responsive_control(
             'sa_el_pricing_table_content_alignment',
@@ -770,7 +824,7 @@ class Pricing_Table extends Widget_Base
                     '{{WRAPPER}} .sa-el-pricing.style-4 .sa-el-pricing-item .header' => 'background: {{VALUE}};',
                 ],
                 'condition' => [
-                    'sa_el_pricing_table_style' => ['style-2']
+                    'sa_el_pricing_table_style' => ['style-2', 'style-4']
                 ]
             ]
         );
@@ -1193,6 +1247,9 @@ class Pricing_Table extends Widget_Base
             [
                 'label' => esc_html__('Tooltip', SA_ELEMENTOR_TEXTDOMAIN),
                 'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'sa_el_pricing_item_tooltip' => 'yes',
+                ]
             ]
         );
 
@@ -1724,137 +1781,137 @@ class Pricing_Table extends Widget_Base
             }
         }
         ?>
-        <?php if ('style-1' === $settings['sa_el_pricing_table_style']) : ?>
-            <div class="sa-el-pricing style-1">
-                <div class="sa-el-pricing-item <?php echo esc_attr($featured_class); ?>">
-                    <div class="header">
-                        <div class="title"><?php echo $settings['sa_el_pricing_table_title']; ?></div>
-                    </div>
-                    <div class="sa-el-pricing-tag">
-                        <span class="price-tag"><?php echo $pricing; ?></span>
-                        <span class="price-period"><?php echo $settings['sa_el_pricing_table_period_separator']; ?> <?php echo $settings['sa_el_pricing_table_price_period']; ?></span>
-                    </div>
-                    <div class="body">
-                        <?php $this->render_feature_list($settings, $this); ?>
-                    </div>
-                    <div class="footer">
-                        <a href="<?php echo esc_url($settings['sa_el_pricing_table_btn_link']['url']); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> class="sa-el-pricing-button">
-                            <?php if ('left' == $settings['sa_el_pricing_table_button_icon_alignment']) : ?>
-                                <i class="<?php echo esc_attr($settings['sa_el_pricing_table_button_icon']); ?> fa-icon-left"></i>
-                                <?php echo $settings['sa_el_pricing_table_btn']; ?>
-                            <?php elseif ('right' == $settings['sa_el_pricing_table_button_icon_alignment']) : ?>
-                                <?php echo $settings['sa_el_pricing_table_btn']; ?>
-                                <i class="<?php echo esc_attr($settings['sa_el_pricing_table_button_icon']); ?> fa-icon-right"></i>
-                            <?php endif; ?>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        <?php endif; ?>
-        <?php if ('style-2' === $settings['sa_el_pricing_table_style']) : ?>
-            <div class="sa-el-pricing style-2">
-                <div class="sa-el-pricing-item <?php echo esc_attr($featured_class); ?>">
-                    <div class="sa-el-pricing-icon">
-                        <span class="icon" style="background:
+<?php if ('style-1' === $settings['sa_el_pricing_table_style']) : ?>
+<div class="sa-el-pricing style-1">
+    <div class="sa-el-pricing-item <?php echo esc_attr($featured_class); ?>">
+        <div class="header">
+            <div class="title"><?php echo $settings['sa_el_pricing_table_title']; ?></div>
+        </div>
+        <div class="sa-el-pricing-tag">
+            <span class="price-tag"><?php echo $pricing; ?></span>
+            <span class="price-period"><?php echo $settings['sa_el_pricing_table_period_separator']; ?> <?php echo $settings['sa_el_pricing_table_price_period']; ?></span>
+        </div>
+        <div class="body">
+            <?php $this->render_feature_list($settings, $this); ?>
+        </div>
+        <div class="footer">
+            <a href="<?php echo esc_url($settings['sa_el_pricing_table_btn_link']['url']); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> class="sa-el-pricing-button">
+                <?php if ('left' == $settings['sa_el_pricing_table_button_icon_alignment']) : ?>
+                <i class="<?php echo esc_attr($settings['sa_el_pricing_table_button_icon']); ?> fa-icon-left"></i>
+                <?php echo $settings['sa_el_pricing_table_btn']; ?>
+                <?php elseif ('right' == $settings['sa_el_pricing_table_button_icon_alignment']) : ?>
+                <?php echo $settings['sa_el_pricing_table_btn']; ?>
+                <i class="<?php echo esc_attr($settings['sa_el_pricing_table_button_icon']); ?> fa-icon-right"></i>
+                <?php endif; ?>
+            </a>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+<?php if ('style-2' === $settings['sa_el_pricing_table_style']) : ?>
+<div class="sa-el-pricing style-2">
+    <div class="sa-el-pricing-item <?php echo esc_attr($featured_class); ?>">
+        <div class="sa-el-pricing-icon">
+            <span class="icon" style="background:
                                     <?php if ('yes' != $settings['sa_el_pricing_table_icon_bg_show']) : echo 'none';
-                                    endif;
-                                    ?>;"><i class="<?php echo esc_attr($settings['sa_el_pricing_table_style_2_icon']); ?>"></i></span>
-                    </div>
-                    <div class="header">
-                        <div class="title"><?php echo $settings['sa_el_pricing_table_title']; ?></div>
-                        <span class="subtitle"><?php echo $settings['sa_el_pricing_table_sub_title']; ?></span>
-                    </div>
-                    <div class="sa-el-pricing-tag">
-                        <span class="price-tag"><?php echo $pricing; ?></span>
-                        <span class="price-period"><?php echo $settings['sa_el_pricing_table_period_separator']; ?> <?php echo $settings['sa_el_pricing_table_price_period']; ?></span>
-                    </div>
-                    <div class="body">
-                        <?php $this->render_feature_list($settings, $this); ?>
-                    </div>
-                    <div class="footer">
-                        <a href="<?php echo esc_url($settings['sa_el_pricing_table_btn_link']['url']); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> class="sa-el-pricing-button">
-                            <?php if ('left' == $settings['sa_el_pricing_table_button_icon_alignment']) : ?>
-                                <i class="<?php echo esc_attr($settings['sa_el_pricing_table_button_icon']); ?> fa-icon-left"></i>
-                                <?php echo $settings['sa_el_pricing_table_btn']; ?>
-                            <?php elseif ('right' == $settings['sa_el_pricing_table_button_icon_alignment']) : ?>
-                                <?php echo $settings['sa_el_pricing_table_btn']; ?>
-                                <i class="<?php echo esc_attr($settings['sa_el_pricing_table_button_icon']); ?> fa-icon-right"></i>
-                            <?php endif; ?>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        <?php endif; ?>
-        <?php if ('style-3' === $settings['sa_el_pricing_table_style'] && apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', TRUE))) : ?>
-            <div class="sa-el-pricing style-3">
-                <div class="sa-el-pricing-item <?php echo esc_attr($featured_class);
+                                                endif;
+                                                ?>;"><i class="<?php echo esc_attr($settings['sa_el_pricing_table_style_2_icon']); ?>"></i></span>
+        </div>
+        <div class="header">
+            <div class="title"><?php echo $settings['sa_el_pricing_table_title']; ?></div>
+            <span class="subtitle"><?php echo $settings['sa_el_pricing_table_sub_title']; ?></span>
+        </div>
+        <div class="sa-el-pricing-tag">
+            <span class="price-tag"><?php echo $pricing; ?></span>
+            <span class="price-period"><?php echo $settings['sa_el_pricing_table_period_separator']; ?> <?php echo $settings['sa_el_pricing_table_price_period']; ?></span>
+        </div>
+        <div class="body">
+            <?php $this->render_feature_list($settings, $this); ?>
+        </div>
+        <div class="footer">
+            <a href="<?php echo esc_url($settings['sa_el_pricing_table_btn_link']['url']); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> class="sa-el-pricing-button">
+                <?php if ('left' == $settings['sa_el_pricing_table_button_icon_alignment']) : ?>
+                <i class="<?php echo esc_attr($settings['sa_el_pricing_table_button_icon']); ?> fa-icon-left"></i>
+                <?php echo $settings['sa_el_pricing_table_btn']; ?>
+                <?php elseif ('right' == $settings['sa_el_pricing_table_button_icon_alignment']) : ?>
+                <?php echo $settings['sa_el_pricing_table_btn']; ?>
+                <i class="<?php echo esc_attr($settings['sa_el_pricing_table_button_icon']); ?> fa-icon-right"></i>
+                <?php endif; ?>
+            </a>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+<?php if ('style-3' === $settings['sa_el_pricing_table_style'] && apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', TRUE))) : ?>
+<div class="sa-el-pricing style-3">
+    <div class="sa-el-pricing-item <?php echo esc_attr($featured_class);
                                                 ?>">
-                    <?php if ('top' === $settings['sa_el_pricing_table_style_3_price_position']) : ?>
-                        <div class="sa-el-pricing-tag on-top">
-                            <span class="price-tag"><?php echo $pricing; ?></span>
-                            <span class="price-period"><?php echo $settings['sa_el_pricing_table_period_separator']; ?> <?php echo $settings['sa_el_pricing_table_price_period']; ?></span>
-                        </div>
-                    <?php endif; ?>
-                    <div class="header">
-                        <div class="title"><?php echo $settings['sa_el_pricing_table_title']; ?></div>
-                        <span class="subtitle"><?php echo $settings['sa_el_pricing_table_sub_title']; ?></span>
-                    </div>
-                    <div class="body">
-                        <?php $this->render_feature_list($settings, $this); ?>
-                    </div>
-                    <?php if ('bottom' === $settings['sa_el_pricing_table_style_3_price_position']) : ?>
-                        <div class="sa-el-pricing-tag">
-                            <span class="price-tag"><?php echo $pricing; ?></span>
-                            <span class="price-period"><?php echo $settings['sa_el_pricing_table_period_separator']; ?> <?php echo $settings['sa_el_pricing_table_price_period']; ?></span>
-                        </div>
-                    <?php endif; ?>
-                    <div class="footer">
-                        <a href="<?php echo esc_url($settings['sa_el_pricing_table_btn_link']['url']); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> class="sa-el-pricing-button">
-                            <?php if ('left' == $settings['sa_el_pricing_table_button_icon_alignment']) : ?>
-                                <i class="<?php echo esc_attr($settings['sa_el_pricing_table_button_icon']); ?> fa-icon-left"></i>
-                                <?php echo $settings['sa_el_pricing_table_btn']; ?>
-                            <?php elseif ('right' == $settings['sa_el_pricing_table_button_icon_alignment']) : ?>
-                                <?php echo $settings['sa_el_pricing_table_btn']; ?>
-                                <i class="<?php echo esc_attr($settings['sa_el_pricing_table_button_icon']); ?> fa-icon-right"></i>
-                            <?php endif; ?>
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <?php if ('top' === $settings['sa_el_pricing_table_style_3_price_position']) : ?>
+        <div class="sa-el-pricing-tag on-top">
+            <span class="price-tag"><?php echo $pricing; ?></span>
+            <span class="price-period"><?php echo $settings['sa_el_pricing_table_period_separator']; ?> <?php echo $settings['sa_el_pricing_table_price_period']; ?></span>
+        </div>
+        <?php endif; ?>
+        <div class="header">
+            <div class="title"><?php echo $settings['sa_el_pricing_table_title']; ?></div>
+            <span class="subtitle"><?php echo $settings['sa_el_pricing_table_sub_title']; ?></span>
+        </div>
+        <div class="body">
+            <?php $this->render_feature_list($settings, $this); ?>
+        </div>
+        <?php if ('bottom' === $settings['sa_el_pricing_table_style_3_price_position']) : ?>
+        <div class="sa-el-pricing-tag">
+            <span class="price-tag"><?php echo $pricing; ?></span>
+            <span class="price-period"><?php echo $settings['sa_el_pricing_table_period_separator']; ?> <?php echo $settings['sa_el_pricing_table_price_period']; ?></span>
+        </div>
+        <?php endif; ?>
+        <div class="footer">
+            <a href="<?php echo esc_url($settings['sa_el_pricing_table_btn_link']['url']); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> class="sa-el-pricing-button">
+                <?php if ('left' == $settings['sa_el_pricing_table_button_icon_alignment']) : ?>
+                <i class="<?php echo esc_attr($settings['sa_el_pricing_table_button_icon']); ?> fa-icon-left"></i>
+                <?php echo $settings['sa_el_pricing_table_btn']; ?>
+                <?php elseif ('right' == $settings['sa_el_pricing_table_button_icon_alignment']) : ?>
+                <?php echo $settings['sa_el_pricing_table_btn']; ?>
+                <i class="<?php echo esc_attr($settings['sa_el_pricing_table_button_icon']); ?> fa-icon-right"></i>
+                <?php endif; ?>
+            </a>
+        </div>
+    </div>
+</div>
 
-        <?php endif; ?>
-        <?php if ('style-4' === $settings['sa_el_pricing_table_style'] && apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', TRUE))) : ?>
-            <div class="sa-el-pricing style-4">
-                <div class="sa-el-pricing-item <?php echo esc_attr($featured_class);
+<?php endif; ?>
+<?php if ('style-4' === $settings['sa_el_pricing_table_style'] && apply_filters(SA_ELEMENTOR_TEXTDOMAIN . '/pro-enable', array('', '', TRUE))) : ?>
+<div class="sa-el-pricing style-4">
+    <div class="sa-el-pricing-item <?php echo esc_attr($featured_class);
                                                 ?>">
-                    <div class="sa-el-pricing-image">
-                        <div class="sa-el-pricing-tag">
-                            <span class="price-tag"><?php echo $pricing; ?></span>
-                            <span class="price-period"><?php echo $settings['sa_el_pricing_table_period_separator']; ?> <?php echo $settings['sa_el_pricing_table_price_period']; ?></span>
-                        </div>
-                    </div>
-                    <div class="header">
-                        <div class="title"><?php echo $settings['sa_el_pricing_table_title']; ?></div>
-                        <span class="subtitle"><?php echo $settings['sa_el_pricing_table_sub_title']; ?></span>
-                    </div>
-                    <div class="body">
-                        <?php $this->render_feature_list($settings, $this); ?>
-                    </div>
-                    <div class="footer">
-                        <a href="<?php echo esc_url($settings['sa_el_pricing_table_btn_link']['url']); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> class="sa-el-pricing-button">
-                            <?php if ('left' == $settings['sa_el_pricing_table_button_icon_alignment']) : ?>
-                                <i class="<?php echo esc_attr($settings['sa_el_pricing_table_button_icon']); ?> fa-icon-left"></i>
-                                <?php echo $settings['sa_el_pricing_table_btn']; ?>
-                            <?php elseif ('right' == $settings['sa_el_pricing_table_button_icon_alignment']) : ?>
-                                <?php echo $settings['sa_el_pricing_table_btn']; ?>
-                                <i class="<?php echo esc_attr($settings['sa_el_pricing_table_button_icon']); ?> fa-icon-right"></i>
-                            <?php endif; ?>
-                        </a>
-                    </div>
-                </div>
+        <div class="sa-el-pricing-image">
+            <div class="sa-el-pricing-tag">
+                <span class="price-tag"><?php echo $pricing; ?></span>
+                <span class="price-period"><?php echo $settings['sa_el_pricing_table_period_separator']; ?> <?php echo $settings['sa_el_pricing_table_price_period']; ?></span>
             </div>
-        <?php endif; ?>
-    <?php
+        </div>
+        <div class="header">
+            <div class="title"><?php echo $settings['sa_el_pricing_table_title']; ?></div>
+            <span class="subtitle"><?php echo $settings['sa_el_pricing_table_sub_title']; ?></span>
+        </div>
+        <div class="body">
+            <?php $this->render_feature_list($settings, $this); ?>
+        </div>
+        <div class="footer">
+            <a href="<?php echo esc_url($settings['sa_el_pricing_table_btn_link']['url']); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> class="sa-el-pricing-button">
+                <?php if ('left' == $settings['sa_el_pricing_table_button_icon_alignment']) : ?>
+                <i class="<?php echo esc_attr($settings['sa_el_pricing_table_button_icon']); ?> fa-icon-left"></i>
+                <?php echo $settings['sa_el_pricing_table_btn']; ?>
+                <?php elseif ('right' == $settings['sa_el_pricing_table_button_icon_alignment']) : ?>
+                <?php echo $settings['sa_el_pricing_table_btn']; ?>
+                <i class="<?php echo esc_attr($settings['sa_el_pricing_table_button_icon']); ?> fa-icon-right"></i>
+                <?php endif; ?>
+            </a>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+<?php
     }
 
     protected function content_template()
