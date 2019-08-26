@@ -16,9 +16,9 @@ SA_FLBUILDER_HELPER::sa_fl_dimension_utility('heading', $settings, 'padding', '.
 // Typography Sub heading 
 SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'sub_heading_font_typo', '.fl-node-' . $id . ' .oxi__addons_sub_header');
 
-SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-    'color' => $settings->sub_heading_color,
-), '.fl-node-' . $id . ' .oxi__addons_sub_header');
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'color' => $settings->sub_heading_color,
+    ), '.fl-node-' . $id . ' .oxi__addons_sub_header');
 SA_FLBUILDER_HELPER::sa_fl_dimension_utility('sub_heading', $settings, 'padding', '.fl-node-' . $id . ' .oxi__addons_sub_header', 'px');
 // Typography Description 
 SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'description_font_typo', '.fl-node-' . $id . ' .oxi__addons_details *');
