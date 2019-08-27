@@ -190,7 +190,7 @@ trait Public_Helper {
                     ],
                 ],
                 'category' => 'Content Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
