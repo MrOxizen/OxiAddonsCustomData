@@ -2,6 +2,11 @@
     position: relative;
 }
 
+.sa-el-team-member-carousel-wrap .sa-el-tm-content {
+    display: flex;
+    flex-direction: column;
+}
+
 .sa-el-tm-description {
     font-size: 18px;
     color: #6d7882;
@@ -36,7 +41,7 @@
 }
 
 .sa-el-tm-wrapper .sa-el-tm-image {
-    display: inline-block;
+    display: flex;
     position: relative;
 }
 

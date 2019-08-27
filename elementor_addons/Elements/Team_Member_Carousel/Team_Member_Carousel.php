@@ -766,20 +766,16 @@ class Team_Member_Carousel extends Widget_Base
             [
                 'label' => __('Image Width', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => ['%', 'px'],
+                'default' => [
+                    'size' => 500,
+                ],
                 'range' => [
                     'px' => [
                         'max' => 1200,
                     ],
                 ],
-                'tablet_default' => [
-                    'unit' => 'px',
-                ],
-                'mobile_default' => [
-                    'unit' => 'px',
-                ],
                 'selectors' => [
-                    '{{WRAPPER}} .sa-el-tm-image img' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .sa-el-tm-image img' => 'width: {{SIZE}}px;',
                 ],
             ]
         );
