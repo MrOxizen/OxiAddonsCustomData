@@ -2,6 +2,10 @@
     position: relative;
 }
 
+.sa-el-testimonial-slider-main .sa-el-testimonial-item {
+    height: auto;
+}
+
 .testimonial-star-rating {
     padding: 0;
     margin: 0;
@@ -128,8 +132,6 @@
 .sa-el-testimonial-image {
     position: relative;
 }
-
-
 
 .sa-el-testimonial-slider.default-style .sa-el-testimonial-align-left .sa-el-testimonial-image figure img,
 .sa-el-testimonial-slider.default-style .sa-el-testimonial-align-right .sa-el-testimonial-image figure img,
