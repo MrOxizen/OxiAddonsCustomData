@@ -337,7 +337,24 @@ class Flip_Carousel extends Widget_Base
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
-
+        $this->add_control(
+            'sa_el_flip_carousel_width',
+            [
+                'label' => esc_html__('Item Width', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 500,
+                ],
+                'range' => [
+                    'px' => [
+                        'max' => 1000,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .sa_el_flip_carousel.flip-carousel-{{ID}} .flipster__item' => 'width: {{SIZE}}px;',
+                ],
+            ]
+        );
         $this->add_control(
             'sa_el_flip_carousel_bg_color',
             [
