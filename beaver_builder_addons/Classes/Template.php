@@ -33,7 +33,9 @@ trait Template
                 'alert-box',
                 'price-table',
                 'progress-bar',
-                'event-widgets'
+                'event-widgets',
+                'card',
+                'counter',
             ),
         );
         ?>

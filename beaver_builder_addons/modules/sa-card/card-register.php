@@ -375,7 +375,7 @@ FLBuilder::register_settings_form(
         )
 );
 FLBuilder::register_module(
-        'OxiEventWidgetsModule', array(
+    'OxiCardModule', array(
     'flip_front' => array(// Tab.
         'title' => __('Content', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
         'sections' => array(// Tab Sections.
@@ -474,7 +474,7 @@ FLBuilder::register_module(
                     'oxi_flip_back_title' => array(
                         'type' => 'text',
                         'label' => __('Title on Front', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => __("Event Widgets", SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => __("Your Card Title", SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Perhaps, this is the most highlighted text.', SA_FLBUILDER_TEXTDOMAIN),
                         'connections' => array('string', 'html'),
                     ),
