@@ -127,9 +127,9 @@ if (!empty($settings)) {
     height: 100%;
     }
 
-    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-row {
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-Card-row {
     width: 100%;
-    max-width: <?php echo $settings->flip_box_min_height; ?>px;
+    max-width: <?php echo $settings->card_max_width; ?>%;
     <?php
     if ("oxi_text_left" == $eventtextalign) {
         echo "text-align: left;";
@@ -140,13 +140,13 @@ if (!empty($settings)) {
     }
     ?>
     }
-    
-    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside, .oxi-addons-BB-FL-row {
+
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-fontside, .oxi-addons-BB-Card-row {
     width: 100%;
     height: 100%;
     } 
     <?php
-    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('inner', $settings, 'padding', '.fl-node-' . $id . ' .oxi-addons-BB-FL-row', 'px');
+    SA_FLBUILDER_HELPER::sa_fl_dimension_utility('inner', $settings, 'padding', '.fl-node-' . $id . ' .oxi-addons-BB-Card-row', 'px');
     SA_FLBUILDER_HELPER::sa_fl_dimension_utility('event_content', $settings, 'padding', '.fl-node-' . $id . ' .oxi-addons-BB-FL-back-overlay', 'px');
 
 
@@ -193,11 +193,11 @@ if (!empty($settings)) {
     FLBuilderCSS::border_field_rule(array(
         'settings' => $settings,
         'setting_name' => 'back_border',
-        'selector' => ".fl-node-$id .oxi-addons-BB-FL-row",
+        'selector' => ".fl-node-$id .oxi-addons-BB-Card-row",
             )
     );
     ?>
-    
+
     .fl-node-<?php echo $id; ?> .oxi-addons-BB-header_image{
     <?php
     if ('color' == $headerimage) {
@@ -212,9 +212,9 @@ if (!empty($settings)) {
 
     }
     .fl-node-<?php echo $id; ?> .oxi-addons-BB-header_image::after{
-        content: '';
-        display: inline-block;
-        padding-bottom: <?php echo $settings->header_image_height;?>%;
+    content: '';
+    display: inline-block;
+    padding-bottom: <?php echo $settings->header_image_height; ?>%;
     }
     .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-eventwidget{
     <?php
@@ -525,18 +525,88 @@ if (!empty($settings)) {
         }
         <?php
     }
-    ?>
+
+
+    FLBuilderCSS::border_field_rule(array(
+        'settings' => $settings,
+        'setting_name' => 'date_month_border_package',
+        'selector' => ".fl-node-$id .oxi-addons-BB-header-DM",
+            )
+    );
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'background-color' => $settings->date_month_background_color,
+        'width' => $settings->date_month_width . 'px',
+        'height' => $settings->date_month_height . 'px',
+        'top' => $settings->d_M_position_bottom . '%',
+        'left' => $settings->d_M_position_left . '%',
+            ), '.fl-node-' . $id . ' .oxi-addons-BB-header-DM');
+
+    FLBuilderCSS::typography_field_rule(array(
+        'settings' => $settings,
+        'setting_name' => 'header_date_typo',
+        'selector' => ".fl-node-$id .oxi-addons-BB-header-DM h2",
+    ));
+
+ 
+
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'background-color' => $settings->header_date_typography_color,
+        'margin-top' => $settings->header_date_typography_margin_top . 'px',
+        'margin-bottom' => $settings->header_date_typography_margin_bottom . 'px',
+            ), '.fl-node-' . $id . ' .oxi-addons-BB-header-DM h2');
+
+
+
+    if ($settings->header_position == 'top') {
+        ?>
+        .fl-node-<?php echo $id; ?> .oxi-addons-BB-Card-row{
+           flex-direction: column; 
+        }
+    <?php }else if($settings->header_position == 'left'){ ?>
+        .fl-node-<?php echo $id; ?> .oxi-addons-BB-Card-row{
+            justify-content: center;
+            align-items: center;
+        }
+        .fl-node-<?php echo $id; ?> .oxi-addons-BB-Card-row{
+           flex-direction: row;
+        }
+        .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-eventwidget-icon-area{
+            width: <?php echo $settings->header_image_Width; ?>%;
+        }
+        .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-eventwidget{
+            width: 100%;
+        }
+    <?php }else if($settings->header_position == 'right'){  ?>
+        .fl-node-<?php echo $id; ?> .oxi-addons-BB-Card-row{
+            justify-content: center;
+            align-items: center;
+        }
+        .fl-node-<?php echo $id; ?> .oxi-addons-BB-Card-row{
+           flex-direction: row; 
+        }
+        .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-eventwidget-icon-area{
+            width: <?php echo $settings->header_image_Width; ?>%;
+            order: 1;
+        }
+        .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-eventwidget{
+            width: 100%;
+        }
+        
+    <?php } ?>
+
+
+
 
 
 
     @media only screen and (min-width : 669px) and (max-width : 993px){
-    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-row {
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-Card-row {
     width: 100%;
     max-width: <?php echo $settings->flip_box_min_height_medium; ?>px;
     }
     }
     @media only screen and (max-width : 668px){
-    .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-row {
+    .fl-node-<?php echo $id; ?> .oxi-addons-BB-Card-row {
     width: 100%;
     max-width: <?php echo $settings->flip_box_min_height_small; ?>px;
     }
