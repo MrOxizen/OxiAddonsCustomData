@@ -1589,7 +1589,7 @@ class Team_Member_Carousel extends Widget_Base
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .sa-el-tm-social-links .sa-el-tm-social-icon-wrap:hover' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .sa-el-tm-social-links .sa-el-tm-social-icon:hover' => 'color: {{VALUE}};',
                 ],
             ]
         );
