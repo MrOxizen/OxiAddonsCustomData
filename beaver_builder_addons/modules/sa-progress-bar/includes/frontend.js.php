@@ -10,7 +10,7 @@ jQuery('.fl-row-content-wrap').on('click',function(){
         }
     },500)
 }); 
-jQuery('[name=layout]').on('change',function(){
+jQuery('[name=layout]').on('change', function(){
     var value = jQuery(this).val();
     if(value == 'line'){
             jQuery('.fl-lightbox-content-wrap').removeClass('oxi_gradient_height'); 

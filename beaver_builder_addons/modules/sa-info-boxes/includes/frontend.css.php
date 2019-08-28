@@ -130,12 +130,7 @@ if ($settings->image_icon_type == 'icon') {
         'width' => $settings->image_size ? $settings->image_size . 'px' : '',
         'height' => $settings->image_size ? $settings->image_size . 'px' : '',
         'max-width' => '100%',
-    ), '.fl-node-' . $id . ' .oxi__addons_image');
-    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-        'width' => $settings->icon_img_bg_size ? $settings->icon_img_bg_size . 'px' : '',
-        'height' => $settings->icon_img_bg_size ? $settings->icon_img_bg_size . 'px' : '',
-        'max-width' => '100%',
-    ), '.fl-node-' . $id . ' .oxi__icon_image');
+    ), '.fl-node-' . $id . ' .oxi__addons_image'); 
 }
 
 // Button Styling  

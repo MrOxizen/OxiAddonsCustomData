@@ -56,40 +56,40 @@ FLBuilder::register_module(
                         ),
                     ),
                 ),
-                /* Image Basic Setting */
-                'img_basic'    => array( // Section.
-                    'title'  => __('Image Basics', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
-                    'fields' => array( // Section Fields.
-                        'photo_source' => array(
-                            'type'    => 'select',
-                            'label'   => __('Photo Source', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => 'library',
-                            'options' => array(
-                                'library' => __('Media Library', SA_FLBUILDER_TEXTDOMAIN),
-                                'url'     => __('URL', SA_FLBUILDER_TEXTDOMAIN),
-                            ),
-                            'toggle'  => array(
-                                'library' => array(
-                                    'fields' => array('photo_main'),
+                    /* Image Basic Setting */
+                    'img_basic'    => array( // Section.
+                        'title'  => __('Image Basics', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
+                        'fields' => array( // Section Fields.
+                            'photo_source' => array(
+                                'type'    => 'select',
+                                'label'   => __('Photo Source', SA_FLBUILDER_TEXTDOMAIN),
+                                'default' => 'library',
+                                'options' => array(
+                                    'library' => __('Media Library', SA_FLBUILDER_TEXTDOMAIN),
+                                    'url'     => __('URL', SA_FLBUILDER_TEXTDOMAIN),
                                 ),
-                                'url'     => array(
-                                    'fields' => array('photo_url'),
+                                'toggle'  => array(
+                                    'library' => array(
+                                        'fields' => array('photo_main'),
+                                    ),
+                                    'url'     => array(
+                                        'fields' => array('photo_url'),
+                                    ),
                                 ),
                             ),
-                        ),
-                        'photo_main'        => array(
-                            'type'        => 'photo',
-                            'label'       => __('Photo', SA_FLBUILDER_TEXTDOMAIN),
-                            'show_remove' => true,
-                            'connections' => array('photo'),
-                        ),
-                        'photo_url'    => array(
-                            'type'        => 'text',
-                            'label'       => __('Photo URL', SA_FLBUILDER_TEXTDOMAIN),
-                            'placeholder' => 'http://www.example.com/my-photo.jpg',
+                            'photo_main'        => array(
+                                'type'        => 'photo',
+                                'label'       => __('Photo', SA_FLBUILDER_TEXTDOMAIN),
+                                'show_remove' => true,
+                                'connections' => array('photo'),
+                            ),
+                            'photo_url'    => array(
+                                'type'        => 'text',
+                                'label'       => __('Photo URL', SA_FLBUILDER_TEXTDOMAIN),
+                                'placeholder' => 'http://www.example.com/my-photo.jpg',
+                            ),
                         ),
                     ),
-                ),
                 'title-section' => array(
                     'fields' => array(
                         // info Boxes title.......................................

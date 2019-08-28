@@ -1,4 +1,45 @@
- 
-.oxi_sa_main_wrapper{   
+ .oxi__sa_main_wrapper{   
 	width: 100%; 
 }  
+
+.oxi__sa_main_wrapper .oxi__sa_counter_main{
+	width: 100%;
+	padding: 15px;
+}
+
+.oxi__sa_main_wrapper .oxi__counter_icon_image_main{
+	width: 100%;
+	display: flex;
+}
+.oxi__sa_main_wrapper .oxi__counter_icon_image{
+	overflow: hidden;
+	margin: 10px 0;
+}
+
+.oxi__sa_main_wrapper .oxi__sa_counter_title{
+	text-align: center;
+	margin: 0;
+	padding:5px 0 ; 
+}
+
+.oxi__sa_main_wrapper .oxi__sa_counter_number {
+	text-align: center;
+	padding: 5px 0;
+	font-size: 26px;
+}
+.oxi__sa_main_wrapper .oxi__counter_icon {
+    font-size: 56px;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+ 
+.oxi__sa_main_wrapper .oxi__sa_divider{
+	position: relative;
+}
+.oxi__sa_main_wrapper .oxi__sa_divider::after {
+	content: "";
+	position: absolute;  
+	background: white;
+}
