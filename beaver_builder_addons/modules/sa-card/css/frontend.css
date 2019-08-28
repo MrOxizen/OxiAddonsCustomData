@@ -61,12 +61,9 @@ h1, h2, h3, h4, h5, h6{
     align-items: center;
     justify-content: center;
 }
-.oxi-addons-BB-header-DM h2{
-    line-height: 1;
-    font-size: 34px;
-}
 .oxi-addons-BB-header-DM p{
     line-height: 1;
+    font-size: 20px;
 }
 
 .oxi-addons-BB-Card-row{
