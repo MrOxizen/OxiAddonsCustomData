@@ -41,8 +41,7 @@
 }
 
 .sa-el-tm-wrapper .sa-el-tm-image {
-    display: flex;
-    justify-content: center;
+    display: inline-flex;
     position: relative;
 }
 

@@ -779,6 +779,21 @@ class Team_Member_Carousel extends Widget_Base
                 ],
             ]
         );
+        $this->add_responsive_control(
+            'member_image_height',
+            [
+                'label' => __('Image Height', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'max' => 1200,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .sa-el-tm-image img' => 'height: {{SIZE}}px;',
+                ],
+            ]
+        );
 
         $this->add_group_control(
             Group_Control_Border::get_type(),
