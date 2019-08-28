@@ -682,7 +682,7 @@ class Justified_Gallery extends Widget_Base {
 
         if ($settings['show_filter'] === 'yes') :
             ?>
-            <ul class="sa-el-gallery-filter hajs-gallery-filter">
+            <ul class="sa-el-gallery-filter sa-el-js-gallery-filter">
                 <?php if ($settings['show_all_filter'] === 'yes') : ?>
                     <li class="sa-el-filter-active"><button type="button" data-filter="*"><?php echo esc_html($settings['all_filter_label']); ?></button></li>
                 <?php endif; ?>

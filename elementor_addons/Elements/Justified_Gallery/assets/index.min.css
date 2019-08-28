@@ -85,6 +85,10 @@
 .sa-el-justified-gallery-item>img {
     border-radius: 6px;
 }
+.justified-gallery > .entry-visible > img, .justified-gallery > .entry-visible > a > img{
+    transition-timing-function: ease-out;
+    transition: 0.5s;
+}
 
 .sa-el-justified-gallery .justified-gallery>.sa-el-justified-gallery-item>.caption {
     bottom: -100px !important;

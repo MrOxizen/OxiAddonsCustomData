@@ -50,3 +50,21 @@ h6:before{
 h1, h2, h3, h4, h5, h6{
     margin:0 !important;
 }
+
+.oxi-addons-BB-header_image{
+    position: relative;
+}
+.oxi-addons-BB-header-DM{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.oxi-addons-BB-header-DM h2{
+    line-height: 1;
+    font-size: 34px;
+}
+.oxi-addons-BB-header-DM p{
+    line-height: 1;
+}

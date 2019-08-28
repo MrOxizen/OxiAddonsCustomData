@@ -1,9 +1,9 @@
 <?php
 
-namespace SA_ELEMENTOR_ADDONS\Extensions\SA_Ribon;
+namespace SA_ELEMENTOR_ADDONS\Extensions\SA_Ribbon;
 
 /**
- * Description of SA_Ribon
+ * Description of SA_Ribbon
  *
  * @author Jabir
  */
@@ -16,7 +16,7 @@ use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Scheme_Typography;
 
-class SA_Ribon {
+class SA_Ribbon {
 
     use \SA_ELEMENTOR_ADDONS\Helper\Public_Helper;
 
@@ -33,13 +33,13 @@ class SA_Ribon {
 
         $element->start_controls_section(
                 'sa_el_ribon_section', [
-            'label' => __('SA Ribon', SA_ELEMENTOR_TEXTDOMAIN),
+            'label' => __('SA Ribbon', SA_ELEMENTOR_TEXTDOMAIN),
             'tab' => Controls_Manager::TAB_ADVANCED,
                 ]
         );
         $element->add_control(
                 'sa_el_ribon_switch', [
-            'label' => __('Ribon', SA_ELEMENTOR_TEXTDOMAIN),
+            'label' => __('Ribbon', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::SWITCHER,
             'return_value' => 'yes',
             'frontend_available' => true,
@@ -57,7 +57,7 @@ class SA_Ribon {
         );
         $element->add_control(
                 'ribon_position', [
-            'label' => __('Ribon Position', SA_ELEMENTOR_TEXTDOMAIN),
+            'label' => __('Ribbon Position', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::CHOOSE,
             'label_block' => false,
             'options' => [
@@ -80,7 +80,7 @@ class SA_Ribon {
         );
         $element->add_control(
                 'sa_el_ribon_section_content', [
-            'label' => __('Ribon Text', SA_ELEMENTOR_TEXTDOMAIN),
+            'label' => __('Ribbon Text', SA_ELEMENTOR_TEXTDOMAIN),
             'type' => Controls_Manager::TEXT,
             'default' => __('New', SA_ELEMENTOR_TEXTDOMAIN),
             'frontend_available' => true,

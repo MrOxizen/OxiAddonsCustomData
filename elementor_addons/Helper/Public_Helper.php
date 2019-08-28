@@ -190,7 +190,7 @@ trait Public_Helper {
                     ],
                 ],
                 'category' => 'Content Elements',
-                'Premium' => TRUE,
+                'Premium' => FALSE,
                 'condition' => '',
                 'API' => ''
             ],
@@ -659,11 +659,11 @@ trait Public_Helper {
                 'condition' => '',
                 'API' => ''
             ],
-            'ribon' => [
-                'class' => '\SA_ELEMENTOR_ADDONS\Extensions\SA_Ribon\SA_Ribon',
+            'ribbon' => [
+                'class' => '\SA_ELEMENTOR_ADDONS\Extensions\SA_Ribbon\SA_Ribbon',
                 'dependency' => [
                     'css' => [
-                        SA_ELEMENTOR_ADDONS_URL . 'Extensions/SA_Ribon/assets/index.min.css',
+                        SA_ELEMENTOR_ADDONS_URL . 'Extensions/SA_Ribbon/assets/index.min.css',
                     ],
                 ],
                 'category' => 'Extension',

@@ -2,6 +2,10 @@
     position: relative;
 }
 
+.sa-el-testimonial-slider-main .sa-el-testimonial-item {
+    height: auto;
+}
+
 .testimonial-star-rating {
     padding: 0;
     margin: 0;
@@ -128,8 +132,6 @@
 .sa-el-testimonial-image {
     position: relative;
 }
-
-
 
 .sa-el-testimonial-slider.default-style .sa-el-testimonial-align-left .sa-el-testimonial-image figure img,
 .sa-el-testimonial-slider.default-style .sa-el-testimonial-align-right .sa-el-testimonial-image figure img,
@@ -366,7 +368,7 @@ span.sa-el-testimonial-quote {
 .testimonial-inline-style {
     overflow: hidden;
     text-align: left;
-    width: 40%;
+    width: 60%;
 }
 
 .content-top-icon-title-inline .sa-el-testimonial-text,

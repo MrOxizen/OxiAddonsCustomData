@@ -525,8 +525,51 @@ if (!empty($settings)) {
         }
         <?php
     }
+    
+    
+    FLBuilderCSS::border_field_rule(array(
+        'settings' => $settings,
+        'setting_name' => 'date_month_border_package',
+        'selector' => ".fl-node-$id .oxi-addons-BB-header-DM",
+            )
+    );
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'background-color' => $settings->date_month_background_color,
+        'width' => $settings->date_month_width.'px',
+        'height' => $settings->date_month_height.'px',
+        'top' => $settings->d_M_position_bottom.'%',
+        'left' => $settings->d_M_position_left.'%',
+            ), '.fl-node-' . $id . ' .oxi-addons-BB-header-DM');
+    
+    FLBuilderCSS::typography_field_rule(array(
+        'settings' => $settings,
+        'setting_name' => 'header_date_typo',
+        'selector' => ".fl-node-$id .oxi-addons-BB-header-DM h2",
+    ));
+    
+    FLBuilderCSS::typography_field_rule(array(
+        'settings' => $settings,
+        'setting_name' => 'header_month_typo',
+        'selector' => ".fl-node-$id .oxi-addons-BB-header-DM p",
+    ));
+    
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'background-color' => $settings->header_date_typography_color,
+        'margin-top' => $settings->header_date_typography_margin_top.'px',
+        'margin-bottom' => $settings->header_date_typography_margin_bottom.'px',
+            ), '.fl-node-' . $id . ' .oxi-addons-BB-header-DM h2');
+    
+     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'background-color' => $settings->header_month_typography_color,
+        'margin-top' => $settings->header_month_typography_margin_top.'px',
+        'margin-bottom' => $settings->header_month_typography_margin_bottom.'px',
+            ), '.fl-node-' . $id . ' .oxi-addons-BB-header-DM p');
     ?>
-
+        
+        
+        
+        
+        
 
 
     @media only screen and (min-width : 669px) and (max-width : 993px){

@@ -375,13 +375,14 @@ FLBuilder::register_settings_form(
         )
 );
 FLBuilder::register_module(
-    'OxiCardModule', array(
+        'OxiCardModule', array(
     'flip_front' => array(// Tab.
         'title' => __('Content', SA_FLBUILDER_TEXTDOMAIN), // Tab title.
         'sections' => array(// Tab Sections.
             'Header_Settings' => array(// Section.
                 'title' => __('Header Settings', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
                 'fields' => array(// Section Fields.
+                    
                     'header_image_settings' => array(
                         'type' => 'select',
                         'label' => __('Header Type', SA_FLBUILDER_TEXTDOMAIN),
@@ -405,66 +406,20 @@ FLBuilder::register_module(
                         'label' => __('Background Image', SA_FLBUILDER_TEXTDOMAIN),
                         'show_remove' => true,
                     ),
-                    'header_image_height' => array(
-                        'type' => 'unit',
-                        'label' => __('Header Height', SA_FLBUILDER_TEXTDOMAIN),
-                        'placeholder' => '40',
-                        'default' => '40',
-                        'slider' => true,
-                        'units' => array('%'),
-                        'size' => '8',
-                        'help' => __('Set Header Image Height...', SA_FLBUILDER_TEXTDOMAIN),
-                    ),
-                    'header_image_pos' => array(
-                        'type' => 'select',
-                        'label' => __('Background Image Position', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'center center',
-                        'options' => array(
-                            'left top' => __('Left Top', SA_FLBUILDER_TEXTDOMAIN),
-                            'left center' => __('Left Center', SA_FLBUILDER_TEXTDOMAIN),
-                            'left bottom' => __('Left Bottom', SA_FLBUILDER_TEXTDOMAIN),
-                            'center top' => __('Center Top', SA_FLBUILDER_TEXTDOMAIN),
-                            'center center' => __('Center Center', SA_FLBUILDER_TEXTDOMAIN),
-                            'center bottom' => __('Center Bottom', SA_FLBUILDER_TEXTDOMAIN),
-                            'right top' => __('Right Top', SA_FLBUILDER_TEXTDOMAIN),
-                            'right center' => __('Right Center', SA_FLBUILDER_TEXTDOMAIN),
-                            'right bottom' => __('Right Bottom', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                    ),
-                    'header_image_repeat' => array(
-                        'type' => 'select',
-                        'label' => __('Repeat', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'no',
-                        'options' => array(
-                            'yes' => 'Yes',
-                            'no' => 'No',
-                        ),
-                    ),
-                    'header_image_display' => array(
-                        'type' => 'select',
-                        'label' => __('Display Sizes', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => 'cover',
-                        'options' => array(
-                            'initial' => __('Initial', SA_FLBUILDER_TEXTDOMAIN),
-                            'cover' => __('Cover', SA_FLBUILDER_TEXTDOMAIN),
-                            'contain' => __('Contain', SA_FLBUILDER_TEXTDOMAIN),
-                        ),
-                    ),
-                    'header_image_overlay' => array(
-                            'type' => 'color',
-                            'label' => __('Overlay Color', SA_FLBUILDER_TEXTDOMAIN),
-                            'default' => '',
-                            'show_reset' => true,
-                            'connections' => array('color'),
-                            'show_alpha' => true,
-                        ),
                     'header_background_color' => array(
                         'type' => 'color',
                         'label' => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => '00a8a2',
+                        'default' => '216daf',
                         'show_reset' => true,
                         'connections' => array('color'),
                         'show_alpha' => true,
+                    ),
+                    'oxi_date' => array(
+                        'type' => 'text',
+                        'label' => __('Badget Text', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => __("20", SA_FLBUILDER_TEXTDOMAIN),
+                        'help' => __('Set Event Date from here...', SA_FLBUILDER_TEXTDOMAIN),
+                        'connections' => array('string', 'html'),
                     ),
                 ),
             ),
@@ -474,7 +429,7 @@ FLBuilder::register_module(
                     'oxi_flip_back_title' => array(
                         'type' => 'text',
                         'label' => __('Title on Front', SA_FLBUILDER_TEXTDOMAIN),
-                        'default' => __("Your Card Title", SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => __("Card Title Text", SA_FLBUILDER_TEXTDOMAIN),
                         'help' => __('Perhaps, this is the most highlighted text.', SA_FLBUILDER_TEXTDOMAIN),
                         'connections' => array('string', 'html'),
                     ),
@@ -536,19 +491,30 @@ FLBuilder::register_module(
             'general' => array(// Section.
                 'title' => __('Body Styles', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
                 'fields' => array(// Section Fields.
-                    
-                    'flip_box_min_height' => array(
+                    'header_position' => array(
+                        'type' => 'select',
+                        'label' => __('Header Position', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'top',
+                        'options' => array(
+                            'top' => __('Top', SA_FLBUILDER_TEXTDOMAIN),
+                            'left' => __('Left', SA_FLBUILDER_TEXTDOMAIN),
+                            'right' => __('Right', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                    ),
+                    'card_max_width' => array(
                         'type' => 'unit',
                         'label' => __('Max Width', SA_FLBUILDER_TEXTDOMAIN),
-                        'placeholder' => '300',
-                        'default' => '350',
-                        'slider' => true,
-                        'units' => array('px'),
+                        'placeholder' => '100',
+                        'default' => '100',
+                        'slider' => array(
+                            'min' => '1',
+                            'max' => '100',
+                        ),
+                        'units' => array('%'),
                         'size' => '8',
                         'responsive' => true,
                         'help' => __('Apply height to complete Flipbox. It is useful when multiple Flipboxes are in same row.', SA_FLBUILDER_TEXTDOMAIN),
                     ),
-                    
                     'inner_padding' => array(
                         'type' => 'dimension',
                         'label' => __('Padding', SA_FLBUILDER_TEXTDOMAIN),
@@ -580,9 +546,145 @@ FLBuilder::register_module(
                     ),
                 ),
             ),
-            
+            'header_style' => array(// Section.
+                'title' => __('Header Image Styles', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
+                'fields' => array(// Section Fields.
+                    'header_image_height' => array(
+                        'type' => 'unit',
+                        'label' => __('Header Height', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '40',
+                        'default' => '40',
+                        'slider' => true,
+                        'units' => array('%'),
+                        'size' => '8',
+                        'help' => __('Set Header Image Height...', SA_FLBUILDER_TEXTDOMAIN),
+                    ),
+                    'header_image_Width' => array(
+                        'type' => 'unit',
+                        'label' => __('Header Width', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '40',
+                        'default' => '100',
+                        'slider' => true,
+                        'units' => array('%'),
+                        'size' => '8',
+                        'help' => __('Set Header Image Height...', SA_FLBUILDER_TEXTDOMAIN),
+                    ),
+                    'header_image_pos' => array(
+                        'type' => 'select',
+                        'label' => __('Background Image Position', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'center center',
+                        'options' => array(
+                            'left top' => __('Left Top', SA_FLBUILDER_TEXTDOMAIN),
+                            'left center' => __('Left Center', SA_FLBUILDER_TEXTDOMAIN),
+                            'left bottom' => __('Left Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                            'center top' => __('Center Top', SA_FLBUILDER_TEXTDOMAIN),
+                            'center center' => __('Center Center', SA_FLBUILDER_TEXTDOMAIN),
+                            'center bottom' => __('Center Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                            'right top' => __('Right Top', SA_FLBUILDER_TEXTDOMAIN),
+                            'right center' => __('Right Center', SA_FLBUILDER_TEXTDOMAIN),
+                            'right bottom' => __('Right Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                    ),
+                    'header_image_repeat' => array(
+                        'type' => 'select',
+                        'label' => __('Repeat', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'no',
+                        'options' => array(
+                            'yes' => 'Yes',
+                            'no' => 'No',
+                        ),
+                    ),
+                    'header_image_display' => array(
+                        'type' => 'select',
+                        'label' => __('Display Sizes', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => 'cover',
+                        'options' => array(
+                            'initial' => __('Initial', SA_FLBUILDER_TEXTDOMAIN),
+                            'cover' => __('Cover', SA_FLBUILDER_TEXTDOMAIN),
+                            'contain' => __('Contain', SA_FLBUILDER_TEXTDOMAIN),
+                        ),
+                    ),
+                    'header_image_overlay' => array(
+                            'type' => 'color',
+                            'label' => __('Overlay Color', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => '',
+                            'show_reset' => true,
+                            'connections' => array('color'),
+                            'show_alpha' => true,
+                        ),
+                ),
+            ),
+            'header_content_style' => array(// Section.
+                'title' => __('Badget Body Styles', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
+                'fields' => array(// Section Fields.
+                    'd_M_position_left' => array(
+                        'type' => 'unit',
+                        'label' => __('Position Left to Right', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '40',
+                        'default' => '70',
+                        'slider' => true,
+                        'units' => array('%'),
+                        'size' => '8',
+                        'help' => __('Set a Value to Change Date and Month Position Left to Right or Right to Left', SA_FLBUILDER_TEXTDOMAIN),
+                    ),
+                    'd_M_position_bottom' => array(
+                        'type' => 'unit',
+                        'label' => __('Position Top to Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '40',
+                        'default' => '8',
+                        'slider' => true,
+                        'units' => array('%'),
+                        'size' => '8',
+                        'help' => __('Set a Value to Change Date and Month Position Top to Bottom or Bottom to Top', SA_FLBUILDER_TEXTDOMAIN),
+                    ),
+                    'date_month_background_color' => array(
+                        'type' => 'color',
+                        'label' => __('Background Color', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '',
+                        'show_reset' => true,
+                        'connections' => array('color'),
+                        'show_alpha' => true,
+                    ),
+                    'date_month_width' => array(
+                        'type' => 'unit',
+                        'label' => __('Badget Width', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '40',
+                        'default' => '100',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                        'help' => __('Set Badget Width...', SA_FLBUILDER_TEXTDOMAIN),
+                    ),
+                    'date_month_height' => array(
+                        'type' => 'unit',
+                        'label' => __('Badget Height', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '70',
+                        'default' => '70',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                        'help' => __('Set Badget Height...', SA_FLBUILDER_TEXTDOMAIN),
+                    ),
+                    'date_month_border_package' => array(
+                        'type' => 'border',
+                        'label' => __('Border', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => array(
+                            'style' => 'solid',
+                            'color' => 'dbdbdb',
+                            'width' => array(
+                                'top' => '1',
+                                'right' => '1',
+                                'bottom' => '1',
+                                'left' => '1',
+                            ),
+                        ),
+                        'responsive' => true,
+                    ),
+                   
+                ),
+            ),
             'back_styles' => array(// Section.
-                'title' => __('Event Contest Area', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
+                'title' => __('Event Content Area', SA_FLBUILDER_TEXTDOMAIN), // Section Title.
                 'fields' => array(// Section Fields.
                     'back_background_type' => array(
                         'type' => 'select',
@@ -768,6 +870,45 @@ FLBuilder::register_module(
                         'size' => '8',
                     ),
                     'back_desc_typography_margin_bottom' => array(
+                        'type' => 'unit',
+                        'label' => __('Margin Bottom', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '0',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                ),
+            ),
+            'header_date_typography' => array(
+                'title' => __('Badget TypoGraphy', SA_FLBUILDER_TEXTDOMAIN),
+                'fields' => array(
+                    'header_date_typo' => array(
+                        'type' => 'typography',
+                        'label' => __('Typography', SA_FLBUILDER_TEXTDOMAIN),
+                        'responsive' => true,
+                        'preview' => array(
+                            'type' => 'css',
+                            'selector' => '.oxi-addons-BB-header-DM h2',
+                            'important' => true,
+                        ),
+                    ),
+                    'header_date_typography_color' => array(
+                        'type' => 'color',
+                        'label' => __('Date Color', SA_FLBUILDER_TEXTDOMAIN),
+                        'default' => '',
+                        'show_reset' => true,
+                        'connections' => array('color'),
+                        'show_alpha' => true,
+                    ),
+                    'header_date_typography_margin_top' => array(
+                        'type' => 'unit',
+                        'label' => __('Margin Top', SA_FLBUILDER_TEXTDOMAIN),
+                        'placeholder' => '0',
+                        'slider' => true,
+                        'units' => array('px'),
+                        'size' => '8',
+                    ),
+                    'header_date_typography_margin_bottom' => array(
                         'type' => 'unit',
                         'label' => __('Margin Bottom', SA_FLBUILDER_TEXTDOMAIN),
                         'placeholder' => '0',

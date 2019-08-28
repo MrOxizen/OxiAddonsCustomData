@@ -766,20 +766,31 @@ class Team_Member_Carousel extends Widget_Base
             [
                 'label' => __('Image Width', SA_ELEMENTOR_TEXTDOMAIN),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => ['%', 'px'],
+                'default' => [
+                    'size' => 500,
+                ],
                 'range' => [
                     'px' => [
                         'max' => 1200,
                     ],
                 ],
-                'tablet_default' => [
-                    'unit' => 'px',
+                'selectors' => [
+                    '{{WRAPPER}} .sa-el-tm-image img' => 'width: {{SIZE}}px;',
                 ],
-                'mobile_default' => [
-                    'unit' => 'px',
+            ]
+        );
+        $this->add_responsive_control(
+            'member_image_height',
+            [
+                'label' => __('Image Height', SA_ELEMENTOR_TEXTDOMAIN),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'max' => 1200,
+                    ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .sa-el-tm-image img' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .sa-el-tm-image img' => 'height: {{SIZE}}px;',
                 ],
             ]
         );
@@ -1593,7 +1604,7 @@ class Team_Member_Carousel extends Widget_Base
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .sa-el-tm-social-links .sa-el-tm-social-icon-wrap:hover' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .sa-el-tm-social-links .sa-el-tm-social-icon:hover' => 'color: {{VALUE}};',
                 ],
             ]
         );
