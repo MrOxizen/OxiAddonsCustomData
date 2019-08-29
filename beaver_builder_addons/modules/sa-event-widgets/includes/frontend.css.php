@@ -554,13 +554,13 @@ if (!empty($settings)) {
     ));
     
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-        'background-color' => $settings->header_date_typography_color,
+        'color' => $settings->header_date_typography_color,
         'margin-top' => $settings->header_date_typography_margin_top.'px',
         'margin-bottom' => $settings->header_date_typography_margin_bottom.'px',
             ), '.fl-node-' . $id . ' .oxi-addons-BB-header-DM h2');
     
      SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-        'background-color' => $settings->header_month_typography_color,
+        'color' => $settings->header_month_typography_color,
         'margin-top' => $settings->header_month_typography_margin_top.'px',
         'margin-bottom' => $settings->header_month_typography_margin_bottom.'px',
             ), '.fl-node-' . $id . ' .oxi-addons-BB-header-DM p');

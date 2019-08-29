@@ -23,7 +23,7 @@ if ($settings->button->icon_position == 'left') {
         <div class="oxi-addons-BB-FL-eventwidget-icon-area">
             <div class="oxi-addons-BB-header_image">
                 <div class="oxi-addons-BB-header-DM">
-                    <h2><?php echo $settings->oxi_date; ?></h2>
+                    <p><?php echo $settings->oxi_date; ?></p>
                 </div>
             </div>
         </div>

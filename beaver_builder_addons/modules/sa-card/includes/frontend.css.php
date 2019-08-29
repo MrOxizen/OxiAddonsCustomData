@@ -544,16 +544,16 @@ if (!empty($settings)) {
     FLBuilderCSS::typography_field_rule(array(
         'settings' => $settings,
         'setting_name' => 'header_date_typo',
-        'selector' => ".fl-node-$id .oxi-addons-BB-header-DM h2",
+        'selector' => ".fl-node-$id .oxi-addons-BB-header-DM p",
     ));
 
  
 
     SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-        'background-color' => $settings->header_date_typography_color,
+        'color' => $settings->header_date_typography_color,
         'margin-top' => $settings->header_date_typography_margin_top . 'px',
         'margin-bottom' => $settings->header_date_typography_margin_bottom . 'px',
-            ), '.fl-node-' . $id . ' .oxi-addons-BB-header-DM h2');
+            ), '.fl-node-' . $id . ' .oxi-addons-BB-header-DM p');
 
 
 
