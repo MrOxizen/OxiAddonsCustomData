@@ -6,13 +6,16 @@
 // print_r($settings);
 // echo '</pre>';
  
-$title = $number = $icon_image = $divider = '';
+$title = $number = $icon_image = $divider = $sign = '';
  
 if($settings->counter_title != ''){
     $title = '<'.$settings->tag.' class="oxi__sa_counter_title">'. $settings->counter_title .'</'.$settings->tag.'>';
 }
+if($settings->counter_style == 'design_one' ){
+    $sign = $settings->sign;
+}
 if($settings->counter_number != ''){
-    $number = '<div class="oxi__sa_counter_number"><span class="oxi__number_' . $id . '">'. $settings->counter_number .'</span> '.$settings->sign.'</div>';
+    $number = '<div class="oxi__sa_counter_number"><span class="oxi__number_' . $id . '">'. $settings->counter_number .'</span> '. $sign  .'</div>';
 }
 if($settings->divider_show != ''){
     $divider = '<div class="oxi__sa_divider"></div>';
@@ -45,20 +48,42 @@ if ($settings->image_icon_type == 'icon') {
     ';
 }
 $counter = '';
-if($settings->divider_position == 'icon_divider'){
-    $counter = '
-        '.$icon_image.'
-        '.$divider.'
+if($settings->counter_style == 'design_one'){
+    if($settings->divider_position == 'icon_divider'){
+        $counter = '
+            '.$icon_image.'
+            '.$divider.'
+            '.$number.'
+            '.$title.'
+        ';
+    }elseif($settings->divider_position == 'counter_divider'){
+        $counter = '
+        '.$icon_image.' 
         '.$number.'
+        '.$divider.'
         '.$title.'
     ';
-}elseif($settings->divider_position == 'counter_divider'){
-    $counter = '
-    '.$icon_image.' 
-    '.$number.'
-    '.$divider.'
-    '.$title.'
-';
+    }
+}elseif($settings->counter_style == 'design_two'){
+    if($settings->divider_position_two == 'title_divider'){
+        $counter = '
+            '.$icon_image.'
+           <div class="oxi__sa_design_wrapper">
+                '.$title.'
+                '.$divider.'
+                '.$number.' 
+           </div>
+        ';
+    }elseif($settings->divider_position_two == 'counter_divider'){
+        $counter = '
+        '.$icon_image.' 
+        <div class="oxi__sa_design_wrapper">
+            '.$title.'
+            '.$number.' 
+            '.$divider.'
+        </div>
+    ';
+    }
 }
 ?>
 <div class="oxi__sa_main_wrapper" id="oxi__wayponits_<?php echo $id ?>">

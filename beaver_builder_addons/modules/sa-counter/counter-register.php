@@ -22,10 +22,14 @@ FLBuilder::register_module(
                             'help' => __('Select Counter Design layout ', SA_FLBUILDER_TEXTDOMAIN),
                             'options' => array(
                                 'design_one' => __('Design One', SA_FLBUILDER_TEXTDOMAIN), 
+                                'design_two' => __('Design Two', SA_FLBUILDER_TEXTDOMAIN), 
                             ),
                             'toggle'  => array(
                                 'design_one'  => array(
-                                    'fields' => array('sign'),
+                                    'fields' => array('sign','divider_position'),
+                                ), 
+                                'design_one'  => array(
+                                    'fields' => array('divider_position_two'),
                                 ), 
                             ),
                         ),
@@ -162,6 +166,20 @@ FLBuilder::register_module(
                 'counter_box' => array(
                     'title' => __('Counter Box Setting', SA_FLBUILDER_TEXTDOMAIN),
                     'fields' => array(
+                        'background_settings' => array(
+                            'type'    => 'select',
+                            'label'   => __('Background Settings', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'on',
+                            'options' => array( 
+                                'on'  => __('On', SA_FLBUILDER_TEXTDOMAIN),
+                                'off' => __('Off', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                            'toggle'  => array(
+                                'on'  => array(
+                                    'fields' => array('counter_border_settings', 'main_background_type', 'main_background_color','main_gradient'), 
+                                ), 
+                            ),
+                        ),
                         'counter_border_settings' => array(
                             'type' => 'border',
                             'label' => __('Border', SA_FLBUILDER_TEXTDOMAIN),
@@ -400,6 +418,15 @@ FLBuilder::register_module(
                                 'counter_divider' => __('Couter > Divider', SA_FLBUILDER_TEXTDOMAIN),
                             ),
                         ),
+                        'divider_position_two' => array(
+                            'type'    => 'select',
+                            'label'   => __('Divider Position', SA_FLBUILDER_TEXTDOMAIN),
+                            'default' => 'title_divider',
+                            'options' => array(
+                                'title_divider' => __('Title > Divider', SA_FLBUILDER_TEXTDOMAIN),
+                                'counter_divider' => __('Couter > Divider', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                        ),
                         'divider_alignment' => array(
                             'type'    => 'select',
                             'label'   => __('Divider Alignment', SA_FLBUILDER_TEXTDOMAIN),
@@ -408,6 +435,44 @@ FLBuilder::register_module(
                                 'left' => __('Left', SA_FLBUILDER_TEXTDOMAIN),
                                 'center' => __('Center', SA_FLBUILDER_TEXTDOMAIN),
                                 'right' => __('Right', SA_FLBUILDER_TEXTDOMAIN),
+                            ),
+                            'toggle'  => array(
+                                'left'  => array(
+                                    'fields' => array('padding_left'),
+                                ), 
+                                'right'  => array(
+                                    'fields' => array('padding_right'),
+                                ), 
+                            ),
+                        ),
+                        'padding_left'     => array(
+                            'type'        => 'unit',
+                            'label'       => __('Padding Left', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider'      => array(
+                                'max'=> 100,
+                                'step' => 5
+                            ),
+                            'units'       => array('px'),
+                            'maxlength'   => '3',
+                            'size'        => '6',
+                            'placeholder' => '0',
+                            'preview'     => array(
+                                'type' => 'refresh',
+                            ),
+                        ),
+                        'padding_right'     => array(
+                            'type'        => 'unit',
+                            'label'       => __('Padding Right', SA_FLBUILDER_TEXTDOMAIN),
+                            'slider'      => array(
+                                'max'=> 100,
+                                'step' => 5
+                            ),
+                            'units'       => array('px'),
+                            'maxlength'   => '3',
+                            'size'        => '6',
+                            'placeholder' => '0',
+                            'preview'     => array(
+                                'type' => 'refresh',
                             ),
                         ),
                         'divider_width'     => array(

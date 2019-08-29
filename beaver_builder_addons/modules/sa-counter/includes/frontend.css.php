@@ -4,7 +4,24 @@
  * start coding for fornend for dynamic style
  * @package shortcode addons
  */
-SA_FLBUILDER_HELPER::sa_fl_border_package($settings, 'counter_border_settings', '.fl-node-' . $id . ' .oxi__sa_counter_main');
+
+ if($settings->background_settings == 'on'){
+    SA_FLBUILDER_HELPER::sa_fl_border_package($settings, 'counter_border_settings', '.fl-node-' . $id . ' .oxi__sa_counter_main');
+     /**
+     * Counter box background color and gradient
+     */
+    if ($settings->main_background_type === 'color') {
+        SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+            'background-color' => $settings->main_background_color,
+        ), '.fl-node-' . $id . ' .oxi__sa_counter_main');
+    } else {
+        SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+            'background' => FLBuilderColor::gradient($settings->main_gradient),
+        ), '.fl-node-' . $id . ' .oxi__sa_counter_main');
+    }
+ 
+ }
+
 SA_FLBUILDER_HELPER::sa_fl_dimension_utility('main', $settings, 'padding', '.fl-node-' . $id . '  .oxi__sa_counter_main', 'px');
 // Typography heading 
 SA_FLBUILDER_HELPER::sa_fl_typography_setting($settings, 'title_font_typo', '.fl-node-' . $id . ' .oxi__sa_counter_title');
@@ -28,19 +45,7 @@ SA_FLBUILDER_HELPER::sa_fl_dimension_utility('counter_sign', $settings, 'padding
 
 
 
- /**
- * Counter box background color and gradient
- */
-if ($settings->main_background_type === 'color') {
-    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-        'background-color' => $settings->main_background_color,
-    ), '.fl-node-' . $id . ' .oxi__sa_counter_main');
-} else {
-    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-        'background' => FLBuilderColor::gradient($settings->main_gradient),
-    ), '.fl-node-' . $id . ' .oxi__sa_counter_main');
-}
- 
+
 
 // icon and image settings 
 
@@ -102,11 +107,11 @@ if ($settings->divider_show == 'show') {
 
         if ($settings->divider_alignment == 'left') {
             SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-                'left' => '0',
+                'left' => $settings->padding_left ? $settings->padding_left .'px' : '',
             ), '.fl-node-' . $id . ' .oxi__sa_divider::after');
         } elseif ($settings->divider_alignment == 'right') {
-            SA_FLBUILDER_HELPER::sa_fl_general_style(array(
-                'right' => '0',
+            SA_FLBUILDER_HELPER::sa_fl_general_style(array( 
+                'right' => $settings->padding_right ? $settings->padding_right .'px' : '0',
             ), '.fl-node-' . $id . ' .oxi__sa_divider::after');
         } elseif ($settings->divider_alignment == 'center') {
             SA_FLBUILDER_HELPER::sa_fl_general_style(array(
@@ -114,4 +119,18 @@ if ($settings->divider_show == 'show') {
                 'transform' => 'translateX(-50%)',
             ), '.fl-node-' . $id . ' .oxi__sa_divider::after');
         }
+}
+
+
+if($settings->counter_style == 'design_two'){
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array( 
+        'flex' => '1', 
+    ), '.fl-node-' . $id . ' .oxi__counter_icon_image_main');
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'display' => 'flex',  
+    ), '.fl-node-' . $id . ' .oxi__sa_counter_main');
+    SA_FLBUILDER_HELPER::sa_fl_general_style(array(
+        'align-items' => 'center', 
+    ), '.fl-node-' . $id . ' .oxi__counter_icon_image_main');
+ 
 }
