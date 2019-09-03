@@ -129,6 +129,7 @@ if (!empty($settings)) {
 
     .fl-node-<?php echo $id; ?> .oxi-addons-BB-Card-row {
     width: 100%;
+    overflow: hidden;
     max-width: <?php echo $settings->card_max_width; ?>%;
     <?php
     if ("oxi_text_left" == $eventtextalign) {

@@ -129,6 +129,7 @@ if (!empty($settings)) {
 
     .fl-node-<?php echo $id; ?> .oxi-addons-BB-FL-row {
     width: 100%;
+    overflow: hidden;
     max-width: <?php echo $settings->flip_box_min_height; ?>px;
     <?php
     if ("oxi_text_left" == $eventtextalign) {
